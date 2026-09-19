@@ -1,0 +1,18 @@
+title: 헬로우 휴먼
+description: Workless Engineering Club
+lang: ko
+
+# 프로젝트 사이트 경로 (https://soorimsun.github.io/hello-human/)
+# 리포 이름을 바꾸거나 커스텀 도메인을 쓰면 함께 바꿔주세요.
+baseurl: "/hello-human"
+
+# 모든 Markdown 페이지에 _layouts/default.html을 적용합니다.
+# 이 레이아웃에 검색엔진 차단(noindex) 태그가 들어 있습니다.
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+exclude:
+  - README.md

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 사내 동호회 사이트: 검색엔진 수집·노출·캐시 차단. 지우지 마세요. -->
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="logo" href="{{ '/' | relative_url }}">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+  </div>
+</header>
+
+<main class="wrap prose">
+{{ content }}
+</main>
+
+<footer class="footer">
+  <div class="wrap">헬로우 휴먼 · Workless Engineering Club</div>
+</footer>
+
+</body>
+</html>
