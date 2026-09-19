@@ -27,6 +27,7 @@
 
   setupCartridges();
   setupBots();
+  setupRun();
 
   /* ---------- 1. 카트리지 꽂기 (Season 1) ---------- */
 
@@ -291,6 +292,93 @@
       typing = 0;
       text.textContent = text.dataset.full;
       text.classList.remove('is-typing');
+    }
+  }
+
+  /* ---------- 3. Before / After 실행 (Workless Challenge) ---------- */
+
+  function setupRun() {
+    const ba = document.querySelector('.ba');
+    const btn = document.querySelector('.run-btn');
+    if (!ba || !btn) return;
+
+    const status = document.querySelector('.run-status');
+    const before = ba.querySelector('[data-run="before"]');
+    const after = ba.querySelector('[data-run="after"]');
+    const beforeSteps = [...before.querySelectorAll('.ln')];
+    const afterSteps = [...after.querySelectorAll('.ln')];
+    const beforeLed = before.querySelector('.led');
+    const afterLed = after.querySelector('.led');
+
+    const MINUTE = 200;                                  // 시뮬레이션 1분 = 0.2초
+    const HUMAN_STEP = 5 * MINUTE;                       // Before: 사람이 단계마다 5분
+    const AGENT_STEP = 300;                              // After: 에이전트 단계는 사람 시간 0
+    const REVIEW_START = AGENT_STEP * (afterSteps.length - 1);
+    const TOTAL = HUMAN_STEP * beforeSteps.length;       // 30분
+
+    let running = false;
+    let start = 0;
+    let timer = 0;
+
+    btn.addEventListener('click', () => {
+      if (running) return;
+      running = true;
+      btn.setAttribute('aria-disabled', 'true');
+      btn.textContent = '■ RUNNING...';
+      ba.classList.remove('is-finished');
+      ba.classList.add('is-running');
+      status.textContent = 'Before와 After를 실행합니다.';
+
+      if (reduceMotion) {
+        finish();
+        return;
+      }
+      // 경과 시간은 실제 시계로 계산해서, 탭이 가려져 타이머가 느려져도 위치가 정확함
+      start = performance.now();
+      timer = setInterval(tick, 50);
+      tick();
+    });
+
+    function tick() {
+      const t = performance.now() - start;
+      if (t >= TOTAL) {
+        finish();
+        return;
+      }
+      render(t);
+    }
+
+    function render(t) {
+      beforeSteps.forEach((el, i) => setStep(el, t, i * HUMAN_STEP, (i + 1) * HUMAN_STEP));
+      afterSteps.forEach((el, i) => {
+        const isReview = i === afterSteps.length - 1;
+        const from = isReview ? REVIEW_START : i * AGENT_STEP;
+        const to = isReview ? REVIEW_START + 5 * MINUTE : (i + 1) * AGENT_STEP;
+        setStep(el, t, from, to);
+      });
+      beforeLed.textContent = clock(t / MINUTE);
+      afterLed.textContent = `사람 ${clock(Math.min(5, Math.max(0, (t - REVIEW_START) / MINUTE)))}`;
+    }
+
+    function setStep(el, t, from, to) {
+      el.classList.toggle('is-active', t >= from && t < to);
+      el.classList.toggle('is-done', t >= to);
+    }
+
+    function finish() {
+      clearInterval(timer);
+      render(TOTAL);
+      running = false;
+      ba.classList.remove('is-running');
+      ba.classList.add('is-finished');
+      btn.removeAttribute('aria-disabled');
+      btn.textContent = '↺ REPLAY';
+      status.textContent = '완료: Before는 사람이 30분, After는 사람이 5분 걸렸습니다.';
+    }
+
+    function clock(minutes) {
+      const sec = Math.round(minutes * 60);
+      return `${String(Math.floor(sec / 60)).padStart(2, '0')}:${String(sec % 60).padStart(2, '0')}`;
     }
   }
 

@@ -1687,3 +1687,80 @@ strong { font-weight: 800; }
   .bot-eye { transition: none; }
   .bot-head.is-poked { animation: none; }
 }
+
+/* ---------- 3. Before / After 실행 ---------- */
+
+.run-bar {
+  display: none;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  margin: 6px 0 20px;
+}
+
+.js .run-bar { display: flex; }
+.run-bar .run-status { margin: 0; }
+
+/* 오락기 스타일 빨간 버튼 */
+.run-btn {
+  padding: 8px 20px 11px;
+  border: 0;
+  border-radius: 10px;
+  background: #e0442f;
+  box-shadow: inset 0 -5px 0 #a02a1b, 0 5px 0 rgba(6, 34, 43, 0.18);
+  font-family: var(--label);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #fff6ee;
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.08s ease, filter 0.15s ease;
+}
+
+.run-btn:hover { filter: brightness(1.08); }
+
+.run-btn:active {
+  transform: translateY(3px);
+  box-shadow: inset 0 -2px 0 #a02a1b, 0 2px 0 rgba(6, 34, 43, 0.18);
+}
+
+.run-btn[aria-disabled="true"] { cursor: default; filter: saturate(0.6); }
+.run-btn:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
+
+.run-note { font-size: 15px; color: var(--muted); }
+
+.ba .ln {
+  border-radius: 3px;
+  transition: opacity 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* 실행 중: 대기 단계는 흐리게, 진행 중인 단계는 강조, 끝난 단계는 ✓ */
+.ba.is-running .ln,
+.ba.is-finished .ln { opacity: 0.4; }
+
+.ba .ln.is-done { opacity: 1; }
+.ba .ln.is-done::after { content: " ✓"; color: #8c9a88; }
+
+.ba .ln.is-active {
+  opacity: 1;
+  color: #fff;
+  background: rgba(255, 90, 68, 0.35);
+  box-shadow: 0 0 0 3px rgba(255, 90, 68, 0.35);
+}
+
+[data-run="after"] .ln.is-active {
+  background: rgba(83, 250, 252, 0.25);
+  box-shadow: 0 0 0 3px rgba(83, 250, 252, 0.25);
+}
+
+.ba mark.ln.is-active {
+  background: var(--lime);
+  color: #111;
+  box-shadow: 0 0 0 3px rgba(164, 254, 48, 0.45), 0 0 16px rgba(164, 254, 48, 0.6);
+}
+
+.ba .led { font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ba .ln, .run-btn { transition: none; }
+}
