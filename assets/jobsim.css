@@ -116,6 +116,76 @@ strong { font-weight: 800; }
 
 .hud-nav a:hover { background: var(--cyan-600); color: var(--teal-900); }
 
+/* ---------- EXIT 표지판: 기본 버전(index.html)으로 돌아가기 ---------- */
+
+.exit-sign {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 30;
+  padding: 5px;
+  background: linear-gradient(180deg, #f1f5f6, #cfdadd);
+  border-radius: 9px;
+  box-shadow: inset 0 -3px 0 #a7b6ba, 0 8px 20px rgba(6, 34, 43, 0.3);
+  text-decoration: none;
+}
+
+.exit-panel {
+  display: block;
+  padding: 7px 14px 7px;
+  background: linear-gradient(180deg, #22c566, #0f9a4b);
+  border-radius: 5px;
+  box-shadow: 0 0 18px rgba(46, 204, 113, 0.55);
+  color: #f2fff6;
+  text-align: center;
+  transition: box-shadow 0.2s ease, filter 0.2s ease;
+  animation: exit-glow 3.6s ease-in-out infinite;
+}
+
+.exit-top {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--label);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+.exit-top svg { width: 22px; height: 22px; filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.6)); }
+
+.exit-arrow {
+  display: inline-block;
+  letter-spacing: 0;
+  transition: transform 0.2s ease;
+}
+
+.exit-sub {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.exit-sign:hover .exit-panel,
+.exit-sign:focus-visible .exit-panel {
+  filter: brightness(1.12);
+  box-shadow: 0 0 28px rgba(46, 204, 113, 0.9);
+}
+
+.exit-sign:hover .exit-arrow,
+.exit-sign:focus-visible .exit-arrow { transform: translateX(4px); }
+
+.exit-sign:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
+
+@keyframes exit-glow {
+  0%, 100% { box-shadow: 0 0 14px rgba(46, 204, 113, 0.45); }
+  50% { box-shadow: 0 0 24px rgba(46, 204, 113, 0.8); }
+}
+
 /* ---------- lobby (hero) ---------- */
 
 .lobby {
@@ -1260,7 +1330,7 @@ strong { font-weight: 800; }
 /* ---------- motion ---------- */
 
 @media (prefers-reduced-motion: reduce) {
-  .bot, .bot-eye, .ticker-track { animation: none; }
+  .bot, .bot-eye, .ticker-track, .exit-panel { animation: none; }
 }
 
 /* ---------- responsive ---------- */
@@ -1332,4 +1402,9 @@ strong { font-weight: 800; }
   .cork { padding: 22px 16px; }
   .metrics tbody th { padding-right: 14px; font-size: 15px; }
   .exit { padding: 64px 0 56px; }
+  .exit-sign { right: 12px; bottom: 12px; padding: 4px; }
+  .exit-panel { padding: 6px 11px; }
+  .exit-top { font-size: 20px; gap: 6px; }
+  .exit-top svg { width: 18px; height: 18px; }
+  .exit-sub { font-size: 11px; }
 }
