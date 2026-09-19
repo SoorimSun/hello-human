@@ -1408,3 +1408,216 @@ strong { font-weight: 800; }
   .exit-top svg { width: 18px; height: 18px; }
   .exit-sub { font-size: 11px; }
 }
+
+/* ==================================================================
+   인터랙션 (assets/jobsim.js) — .js 클래스가 있을 때만 조작 요소를 보여줌
+   ================================================================== */
+
+/* ---------- 1. 카트리지 꽂기 ---------- */
+
+.console {
+  scroll-margin-top: 90px;
+  transition: box-shadow 0.2s ease;
+}
+
+.console.is-waiting {
+  box-shadow: inset 0 -6px 0 #a9bcc0, 0 0 0 3px rgba(83, 250, 252, 0.6), 0 16px 30px rgba(6, 34, 43, 0.15);
+}
+
+.console.is-over {
+  box-shadow: inset 0 -6px 0 #a9bcc0, 0 0 0 4px var(--cyan), 0 0 32px rgba(83, 250, 252, 0.85);
+}
+
+/* 카트리지 슬롯: 꽂힌 카트리지가 위로 삐져나옴 */
+.console-slot {
+  position: relative;
+  width: min(360px, 80%);
+  height: 58px;
+  margin: 0 auto 10px;
+}
+
+.console-slot::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 16px;
+  background: #06394a;
+  border-radius: 5px;
+  box-shadow: inset 0 4px 0 rgba(0, 0, 0, 0.45), 0 2px 0 #fff;
+}
+
+.js .console:not(.is-loaded) .console-slot::before {
+  content: "▼";
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--cyan-600);
+  transform: translateX(-50%);
+  animation: nudge 1.4s ease-in-out infinite;
+}
+
+.slot-cart {
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  bottom: 8px;
+  height: 50px;
+  padding: 8px 10px 0;
+  background: #5c6c73;
+  border-radius: 9px 9px 0 0;
+  box-shadow: inset 0 3px 0 #74858c;
+  opacity: 0;
+  transform: translateY(-24px);
+}
+
+.slot-cart b {
+  display: block;
+  overflow: hidden;
+  padding: 4px 8px;
+  background: var(--c, #3557c9);
+  border-radius: 4px;
+  font-family: var(--label);
+  font-size: 13px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #fff;
+}
+
+.console.is-loaded .slot-cart { opacity: 1; transform: none; }
+.console-slot.is-in .slot-cart { animation: slot-in 0.5s cubic-bezier(0.3, 1.4, 0.5, 1) both; }
+
+/* 콘솔 화면 */
+.js .console-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 250px;
+}
+
+.cs-hint { display: none; margin: 0; font-size: 15px; color: #a9f3f7; }
+.js .cs-hint { display: block; }
+
+.cs-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: var(--pixel);
+  font-size: 15px;
+  color: #a9f3f7;
+}
+
+.cs-status { color: var(--cyan); }
+.is-ready .cs-status { color: var(--lime); text-shadow: 0 0 8px rgba(164, 254, 48, 0.7); }
+
+.cs-title {
+  margin: 4px 0 12px !important;
+  font-family: var(--label);
+  font-size: clamp(24px, 4vw, 38px);
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--cyan);
+  text-shadow: 0 0 14px rgba(83, 250, 252, 0.8);
+}
+
+.cs-bar {
+  height: 16px;
+  padding: 3px;
+  background: #04303d;
+  border: 2px solid var(--cyan-600);
+  border-radius: 4px;
+}
+
+.cs-bar i {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: repeating-linear-gradient(90deg, var(--cyan) 0 10px, transparent 10px 13px);
+  animation: cs-load 0.9s steps(14, end) forwards;
+}
+
+.cs-desc {
+  min-height: 1.75em;
+  margin: 12px 0 0 !important;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.is-ready .cs-desc { opacity: 1; }
+.is-ready .cs-bar i { width: 100%; animation: none; }
+
+.cs-eject {
+  align-self: flex-start;
+  margin-top: 14px;
+  padding: 5px 12px;
+  border: 0;
+  border-radius: 6px;
+  background: #d6e3e5;
+  box-shadow: inset 0 -3px 0 #9fb2b6;
+  font-family: var(--label);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--teal-800);
+  cursor: pointer;
+}
+
+.cs-eject:hover { background: #fff; }
+.cs-eject:focus-visible { outline: 3px solid var(--cyan); outline-offset: 2px; }
+
+/* 트레이의 카트리지 */
+.js .cart {
+  cursor: grab;
+  transition: transform 0.15s ease;
+}
+
+.js .cart:hover { transform: translateY(-4px); }
+.cart:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
+.cart.is-dragging { opacity: 0.5; }
+
+.js .cart.is-inserted { cursor: default; transform: none; }
+.cart.is-inserted .cart-label { visibility: hidden; }
+
+.cart.is-inserted::after {
+  content: "IN CONSOLE ▲";
+  position: absolute;
+  inset: 30px 12px 14px;
+  display: grid;
+  place-items: center;
+  border: 2px dashed var(--cyan);
+  border-radius: 6px;
+  font-family: var(--label);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--cyan);
+  text-shadow: 0 0 8px rgba(83, 250, 252, 0.7);
+}
+
+@keyframes slot-in {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes cs-load { to { width: 100%; } }
+
+@keyframes nudge {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 5px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-bar i { animation: none; width: 100%; }
+  .console-slot.is-in .slot-cart,
+  .js .console:not(.is-loaded) .console-slot::before { animation: none; }
+  .js .cart:hover { transform: none; }
+}
+
+@media (max-width: 520px) {
+  .js .console-screen { min-height: 290px; padding: 18px 16px; }
+}

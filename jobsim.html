@@ -14,8 +14,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=DotGothic16&family=Oswald:wght@500;700&display=swap">
-<!-- CSS를 고치면 ?v= 값을 올려주세요 (브라우저 캐시 때문에 예전 CSS가 보이는 것 방지) -->
-<link rel="stylesheet" href="assets/jobsim.css?v=2">
+<!-- CSS·JS를 고치면 ?v= 값을 올려주세요 (브라우저 캐시 때문에 예전 파일이 쓰이는 것 방지) -->
+<link rel="stylesheet" href="assets/jobsim.css?v=3">
+<script>document.documentElement.classList.add('js');</script>
+<script src="assets/jobsim.js?v=1" defer></script>
 </head>
 <body>
 
@@ -240,12 +242,23 @@ Review
     <div class="wrap">
       <span class="plaque">EXHIBIT 04</span>
       <h2>Season 1</h2>
+      <p>첫 시즌은 <strong>2주 간격, 총 6회</strong> 정도로 생각하고 있습니다.</p>
 
       <div class="console">
         <div class="console-brand" aria-hidden="true">THE WORKLESS SIMULATOR 3000</div>
-        <div class="console-screen">
-          <p class="console-cta" aria-hidden="true">▲ INSERT CARTRIDGE</p>
-          <p>첫 시즌은 <strong>2주 간격, 총 6회</strong> 정도로 생각하고 있습니다.</p>
+        <div class="console-slot" aria-hidden="true"><span class="slot-cart"><b></b></span></div>
+        <div class="console-screen" aria-live="polite">
+          <div class="cs-idle">
+            <p class="console-cta" aria-hidden="true">▲ INSERT CARTRIDGE</p>
+            <p class="cs-hint">아래 카트리지를 끌어다 놓거나 눌러서 꽂아 보세요.</p>
+          </div>
+          <div class="cs-loaded" hidden>
+            <p class="cs-top"><span class="cs-ep"></span><span class="cs-status"></span></p>
+            <p class="cs-title"></p>
+            <div class="cs-bar" aria-hidden="true"><i></i></div>
+            <p class="cs-desc"></p>
+            <button type="button" class="cs-eject">⏏ EJECT</button>
+          </div>
         </div>
       </div>
 
