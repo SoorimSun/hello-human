@@ -48,6 +48,8 @@
     const descEl = loaded.querySelector('.cs-desc');
     const bar = loaded.querySelector('.cs-bar i');
     const ejectBtn = loaded.querySelector('.cs-eject');
+    const brief = loaded.querySelector('.cs-brief');
+    const live = machine.querySelector('.cs-live');
 
     let current = null;
     let readyTimer = 0;
@@ -118,6 +120,12 @@
       titleEl.textContent = info.title;
       descEl.textContent = info.desc;
       statusEl.textContent = 'LOADING...';
+
+      // 회차별 추가 설명: 각 카트리지의 <template class="cart-brief">
+      brief.replaceChildren();
+      const tpl = cart.querySelector('template.cart-brief');
+      if (tpl) brief.append(tpl.content.cloneNode(true));
+      [...brief.children].forEach((el, i) => el.style.setProperty('--i', i));
       idle.hidden = true;
       loaded.hidden = false;
       loaded.classList.remove('is-ready');
@@ -127,6 +135,7 @@
       readyTimer = setTimeout(() => {
         loaded.classList.add('is-ready');
         statusEl.textContent = '▶ NOW PLAYING';
+        live.textContent = `${info.ep} ${info.title} 카트리지를 꽂았습니다.`;
       }, reduceMotion ? 0 : 950);
 
       // 모바일처럼 콘솔이 화면 밖에 있으면 콘솔 쪽으로 이동
@@ -145,6 +154,7 @@
       loaded.hidden = true;
       loaded.classList.remove('is-ready');
       idle.hidden = false;
+      live.textContent = '카트리지를 꺼냈습니다.';
       if (cart) {
         cart.classList.remove('is-inserted');
         cart.focus({ preventScroll: true });

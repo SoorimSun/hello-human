@@ -1919,3 +1919,84 @@ strong { font-weight: 800; }
   .js .cork li { transition: none; }
   .js .cork li:hover { transform: none; }
 }
+
+/* ---------- 1-2. 카트리지 브리핑 (회차별 추가 설명) ---------- */
+
+.js .console { max-width: none; }
+
+.cs-loaded:not([hidden]) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.cs-main { display: flex; flex-direction: column; }
+
+.cs-brief {
+  padding-left: 26px;
+  border-left: 2px dashed rgba(83, 250, 252, 0.45);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.cs-brief .brief-label {
+  margin: 0 0 6px;
+  font-family: var(--pixel);
+  font-size: 14px;
+  color: var(--cyan);
+}
+
+.cs-brief ul {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+}
+
+.cs-brief li {
+  position: relative;
+  margin: 5px 0;
+  padding-left: 16px;
+}
+
+.cs-brief li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--cyan);
+}
+
+.cs-brief .brief-mission {
+  margin: 0;
+  padding: 10px 12px;
+  background: rgba(4, 48, 61, 0.55);
+  border: 2px dashed rgba(83, 250, 252, 0.6);
+  border-radius: 6px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* 로딩이 끝나면 한 줄씩 떠오름 (--i는 JS가 순서대로 매김) */
+.cs-brief > * { opacity: 0; transform: translateY(6px); }
+
+.is-ready .cs-brief > * {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition-delay: calc(var(--i, 0) * 90ms);
+}
+
+@media (max-width: 760px) {
+  .cs-loaded:not([hidden]) { grid-template-columns: 1fr; gap: 18px; }
+
+  .cs-brief {
+    padding: 16px 0 0;
+    border-top: 2px dashed rgba(83, 250, 252, 0.45);
+    border-left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-brief > *,
+  .is-ready .cs-brief > * { opacity: 1; transform: none; transition: none; }
+}
