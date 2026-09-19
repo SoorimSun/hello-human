@@ -8,7 +8,25 @@
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // HELLOBOT 대사: 모두 페이지에 있는 문구에서 가져옴
+  const BOT_LINES = {
+    lobby: [
+      '“아직도 직접 하고 계십니까?”',
+      '“이 작업에 사람이 계속 개입해야 할까?”',
+      '“왜 이걸 아직도 사람이 하고 있지?”',
+      'Don\'t work harder. Engineer the work away.',
+      '공부한 것을 발표하지 않습니다. 없앤 일을 발표합니다.',
+    ],
+    exit: [
+      '관심 있는 분들의 참여를 기다립니다.',
+      'Hello, Human.',
+      '작게 만들고, 실행해보고, 실패해보는 것을 중요하게 생각합니다.',
+      'AI 경험 수준은 중요하지 않습니다.',
+    ],
+  };
+
   setupCartridges();
+  setupBots();
 
   /* ---------- 1. 카트리지 꽂기 (Season 1) ---------- */
 
@@ -128,6 +146,151 @@
         cart.classList.remove('is-inserted');
         cart.focus({ preventScroll: true });
       }
+    }
+  }
+
+  /* ---------- 2. HELLOBOT 반응 ---------- */
+
+  function setupBots() {
+    const bots = [...document.querySelectorAll('.bot-wrap[data-bot]')].map(makeBot).filter(Boolean);
+    if (!bots.length) return;
+
+    // 눈이 포인터를 따라감
+    let frame = 0;
+    let px = 0;
+    let py = 0;
+    const onPointer = (e) => {
+      px = e.clientX;
+      py = e.clientY;
+      if (!frame) frame = requestAnimationFrame(updateEyes);
+    };
+    window.addEventListener('pointermove', onPointer, { passive: true });
+    window.addEventListener('pointerdown', onPointer, { passive: true });
+
+    function updateEyes() {
+      frame = 0;
+      bots.forEach(({ screen }) => {
+        const r = screen.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > window.innerHeight) return;
+        const dx = px - (r.left + r.width / 2);
+        const dy = py - (r.top + r.height / 2);
+        const dist = Math.hypot(dx, dy) || 1;
+        const reach = Math.min(1, dist / 240);
+        screen.style.setProperty('--ex', `${((dx / dist) * 7 * reach).toFixed(1)}px`);
+        screen.style.setProperty('--ey', `${((dy / dist) * 5 * reach).toFixed(1)}px`);
+      });
+    }
+
+    // 엔딩 로봇은 무표정으로 기다리다가 화면에 들어오면 웃음
+    const exitBot = bots.find((b) => b.name === 'exit');
+    if (exitBot && 'IntersectionObserver' in window) {
+      exitBot.setHappy(false);
+      const io = new IntersectionObserver((entries) => {
+        if (!entries.some((en) => en.isIntersecting)) return;
+        exitBot.cheer();
+        io.disconnect();
+      }, { threshold: 0.6 });
+      io.observe(exitBot.bot);
+    }
+  }
+
+  function makeBot(wrap) {
+    const bot = wrap.querySelector('.bot');
+    const text = wrap.querySelector('.bubble-text');
+    if (!bot || !text) return null;
+
+    const name = wrap.dataset.bot;
+    const lines = BOT_LINES[name] || [text.textContent];
+    const head = bot.querySelector('.bot-head');
+    let index = 0;
+    let typing = 0;
+    let surpriseTimer = 0;
+    let happy = bot.classList.contains('is-happy');
+
+    bot.removeAttribute('aria-hidden');
+    bot.setAttribute('role', 'button');
+    bot.setAttribute('aria-label', 'HELLOBOT에게 말 걸기');
+    bot.tabIndex = 0;
+
+    const hint = document.createElement('span');
+    hint.className = 'bot-hint';
+    hint.setAttribute('aria-hidden', 'true');
+    hint.textContent = '▲ 눌러서 말 걸기';
+    bot.after(hint);
+
+    // 타이핑되는 글자는 숨기고, 스크린리더에는 완성된 문장만 읽힘
+    const live = document.createElement('span');
+    live.className = 'sr-only';
+    live.setAttribute('aria-live', 'polite');
+    live.textContent = text.textContent;
+    text.setAttribute('aria-hidden', 'true');
+    text.after(live);
+
+    bot.addEventListener('click', poke);
+    bot.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        poke();
+      }
+    });
+
+    return {
+      name,
+      bot,
+      screen: bot.querySelector('.bot-screen'),
+      setHappy,
+      cheer() {
+        setHappy(true);
+        restartAnimation(head, 'is-poked');
+      },
+    };
+
+    function setHappy(value) {
+      happy = value;
+      if (!bot.classList.contains('is-surprised')) bot.classList.toggle('is-happy', happy);
+    }
+
+    function poke() {
+      if (typing) {
+        finishTyping();
+        return;
+      }
+      index = (index + 1) % lines.length;
+
+      clearTimeout(surpriseTimer);
+      bot.classList.remove('is-happy');
+      bot.classList.add('is-surprised');
+      surpriseTimer = setTimeout(() => {
+        bot.classList.remove('is-surprised');
+        bot.classList.toggle('is-happy', happy);
+      }, 700);
+      restartAnimation(head, 'is-poked');
+
+      say(lines[index]);
+    }
+
+    function say(line) {
+      live.textContent = line;
+      text.dataset.full = line;
+      if (reduceMotion) {
+        text.textContent = line;
+        return;
+      }
+      let count = 0;
+      text.textContent = '';
+      text.classList.add('is-typing');
+      typing = setInterval(() => {
+        count += 1;
+        text.textContent = line.slice(0, count);
+        if (count >= line.length) finishTyping();
+      }, 35);
+    }
+
+    function finishTyping() {
+      clearInterval(typing);
+      typing = 0;
+      text.textContent = text.dataset.full;
+      text.classList.remove('is-typing');
     }
   }
 

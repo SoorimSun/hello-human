@@ -1621,3 +1621,69 @@ strong { font-weight: 800; }
 @media (max-width: 520px) {
   .js .console-screen { min-height: 290px; padding: 18px 16px; }
 }
+
+/* ---------- 2. HELLOBOT 반응 ---------- */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.js .bot { cursor: pointer; }
+.bot:focus-visible { outline: 3px solid var(--cyan); outline-offset: 6px; border-radius: 18px; }
+
+/* 눈은 포인터 방향으로 (transform은 깜빡임 애니메이션이 쓰므로 translate 속성 사용) */
+.bot-eye {
+  translate: var(--ex, 0px) var(--ey, 0px);
+  transition: translate 0.12s linear;
+}
+
+.bot.is-surprised .bot-eye { width: 19px; height: 25px; }
+
+.bot.is-surprised .bot-mouth {
+  bottom: 20px;
+  width: 20px;
+  height: 20px;
+  background: none;
+  border: 4px solid #121212;
+  border-radius: 50%;
+}
+
+.bot-head.is-poked { animation: poke 0.45s ease; }
+
+.bot-hint {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--pixel);
+  font-size: 13px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.exit .bot-hint { color: #8fb3ba; }
+
+.bubble-text.is-typing::after {
+  content: "▌";
+  margin-left: 1px;
+  color: var(--cyan-600);
+  animation: caret 0.8s steps(1) infinite;
+}
+
+@keyframes poke {
+  0% { transform: none; }
+  25% { transform: rotate(-6deg) scale(1.05); }
+  55% { transform: rotate(5deg); }
+  80% { transform: rotate(-2deg); }
+  100% { transform: none; }
+}
+
+@keyframes caret { 50% { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .bot-eye { transition: none; }
+  .bot-head.is-poked { animation: none; }
+}
