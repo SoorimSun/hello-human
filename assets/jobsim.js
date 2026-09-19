@@ -28,6 +28,8 @@
   setupCartridges();
   setupBots();
   setupRun();
+  setupReveal();
+  setupNotes();
 
   /* ---------- 1. 카트리지 꽂기 (Season 1) ---------- */
 
@@ -379,6 +381,77 @@
     function clock(minutes) {
       const sec = Math.round(minutes * 60);
       return `${String(Math.floor(sec / 60)).padStart(2, '0')}:${String(sec % 60).padStart(2, '0')}`;
+    }
+  }
+
+  /* ---------- 4-1. 스크롤 연출: 보드 타일이 차례로 켜지고, 영수증이 출력됨 ---------- */
+
+  function setupReveal() {
+    if (reduceMotion || !('IntersectionObserver' in window)) return;
+
+    const targets = [];
+    document.querySelectorAll('.board').forEach((board) => {
+      const steps = board.querySelectorAll('.step');
+      if (!steps.length) return;
+      steps.forEach((step, i) => { step.style.transitionDelay = `${i * 160}ms`; });
+      board.querySelectorAll('.pips i').forEach((pip, i) => { pip.style.transitionDelay = `${200 + i * 160}ms`; });
+      targets.push(board);
+    });
+    // 영수증은 종이는 보이고 안의 글자만 출력되듯 나타남
+    // (관찰 대상 자체를 clip-path로 가리면 화면 밖으로 판정되므로 자식만 가림)
+    const receipt = document.querySelector('.receipt');
+    if (receipt) targets.push(receipt);
+
+    targets.forEach((el) => el.classList.add('is-armed'));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-lit');
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.35 });
+    targets.forEach((el) => io.observe(el));
+  }
+
+  /* ---------- 4-2. 포스트잇 체크: "나도 해당" ---------- */
+
+  function setupNotes() {
+    const cork = document.querySelector('.cork');
+    if (!cork) return;
+    const notes = [...cork.querySelectorAll('li')];
+
+    const box = document.createElement('div');
+    box.className = 'cork-bot';
+    box.innerHTML = '<span class="mini-face" aria-hidden="true"><i></i><i></i><b></b></span>'
+      + '<p class="cork-bot-text" aria-live="polite"></p>';
+    cork.after(box);
+    const text = box.querySelector('.cork-bot-text');
+
+    // 목록 구조는 그대로 두고, 포스트잇 내용을 토글 버튼으로 감쌈
+    const buttons = notes.map((note) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'note-btn';
+      btn.setAttribute('aria-pressed', 'false');
+      btn.append(...note.childNodes);
+      note.append(btn);
+      btn.addEventListener('click', () => {
+        const on = btn.getAttribute('aria-pressed') !== 'true';
+        btn.setAttribute('aria-pressed', String(on));
+        note.classList.toggle('is-checked', on);
+        update();
+      });
+      return btn;
+    });
+    update();
+
+    function update() {
+      const n = buttons.filter((b) => b.getAttribute('aria-pressed') === 'true').length;
+      box.classList.toggle('is-happy', n > 0);
+      if (n === 0) text.textContent = '해당되는 포스트잇을 눌러 보세요.';
+      else if (n === notes.length) text.textContent = '전부 해당! 다음 모임에서 만나요.';
+      else if (n === 1) text.textContent = '1개 해당! 이미 충분합니다.';
+      else text.textContent = `${n}개나 해당! 헬로우 휴먼에 딱이에요.`;
     }
   }
 
