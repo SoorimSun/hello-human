@@ -1,0 +1,98 @@
+/* 회원 작업물: 기존 사이트의 색상과 서체를 공유합니다. */
+
+.member-work-card {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 36px;
+  margin-top: 28px;
+  padding: 32px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  text-decoration: none;
+}
+
+.member-work-card:hover { border-color: var(--accent); }
+.member-work-card:focus-visible,
+.work-page a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 5px;
+}
+
+.member-work-byline { color: var(--accent); font-size: 14px; font-weight: 700; }
+.member-work-intro h3 { margin: 0 0 16px; font-size: clamp(23px, 3.2vw, 29px); }
+.member-work-intro > p:not(.member-work-byline) { color: var(--muted); font-size: 15px; }
+.member-work-cta { display: inline-block; margin-top: 12px; font-size: 15px; font-weight: 700; }
+.member-work-list { align-self: center; list-style: none; margin: 0; padding: 0; }
+.member-work-list li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 13px 0; border-bottom: 1px solid var(--line); }
+.member-work-list li:first-child { border-top: 1px solid var(--line); }
+.member-work-list li > span { font-weight: 700; }
+.member-work-list small { color: var(--muted); font-size: 13px; }
+
+/* 소개 페이지 */
+.work-back { display: inline-flex; align-items: center; min-height: 44px; gap: 6px; font-size: 14px; text-decoration: none; }
+.work-back:hover { text-decoration: underline; text-underline-offset: 4px; }
+.work-hero { padding: 72px 0 48px; }
+.work-hero h1 { margin: 0 0 28px; font-size: 22px; font-weight: 600; letter-spacing: -0.025em; }
+.work-hero-title { margin: 0 0 28px; font-size: clamp(42px, 7vw, 72px); font-weight: 800; line-height: 1.15; letter-spacing: -0.045em; }
+.work-hero-title span { color: var(--muted); }
+.work-hero-description { font-size: 18px; }
+.work-source-note { max-width: 650px; color: var(--muted); font-size: 14px; }
+
+.work-index { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 36px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.work-index a { display: flex; flex-direction: column; justify-content: space-between; gap: 20px; padding: 20px 16px; text-decoration: none; }
+.work-index a + a { border-left: 1px solid var(--line); }
+.work-index a:hover { background: var(--surface-2); }
+.work-index a:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+.work-index a:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
+.work-index a > span { font-size: 15px; font-weight: 700; }
+.work-index small { display: flex; justify-content: space-between; color: var(--muted); font-size: 13px; }
+.work-link-note { margin: 14px 0 0; color: var(--muted); font-size: 13px; }
+
+.work-project { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr); gap: 52px; padding: 64px 0; border-top: 1px solid var(--line); }
+.work-project-heading h2 { margin: 0 0 20px; font-size: clamp(30px, 4.5vw, 42px); }
+.work-project-heading .label { font-size: 11px; letter-spacing: 0.04em; color: var(--muted); }
+.work-one-liner { margin-bottom: 22px; font-size: 19px; line-height: 1.55; }
+.work-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.work-tags li { padding: 4px 9px; border: 1px solid var(--line); border-radius: 6px; color: var(--muted); font-size: 12px; }
+.work-tags .is-recommended { color: var(--ink); background: var(--surface-2); font-weight: 700; }
+.work-description { font-size: 18px; }
+.work-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0 28px; }
+.work-button { display: inline-flex; align-items: center; justify-content: center; gap: 16px; min-height: 44px; padding: 9px 15px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); font-size: 14px; font-weight: 700; text-decoration: none; }
+.work-button:hover { border-color: var(--ink); }
+.work-button.is-primary { border-color: var(--ink); background: var(--ink); color: var(--bg); }
+.work-button.is-primary:hover { text-decoration: underline; text-underline-offset: 4px; }
+.work-facts { margin: 0; font-size: 15px; }
+.work-facts > div { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 16px; padding: 14px 0; border-top: 1px solid var(--line); }
+.work-facts dt { color: var(--muted); }
+.work-facts dd { margin: 0; }
+.work-note { margin-top: 22px; padding: 22px; background: var(--surface-2); border-radius: var(--radius); font-size: 15px; }
+.work-note h3 { margin: 0 0 10px; font-size: 17px; }
+.work-note p:last-child { margin-bottom: 0; }
+.work-note a { font-weight: 600; text-underline-offset: 4px; }
+.work-closing { padding: 60px 0; border-top: 1px solid var(--line); }
+.work-closing h2 { font-size: clamp(26px, 4vw, 34px); }
+.work-closing .work-button { margin-top: 16px; }
+.work-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+@media (max-width: 720px) {
+  .member-work-card { grid-template-columns: 1fr; gap: 24px; padding: 24px; }
+  .work-project { grid-template-columns: 1fr; gap: 28px; padding: 48px 0; }
+  .work-index { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .work-index a:nth-child(3) { border-left: 0; }
+  .work-index a:nth-child(n + 3) { border-top: 1px solid var(--line); }
+  .work-index a:first-child { border-radius: var(--radius) 0 0 0; }
+  .work-index a:nth-child(2) { border-radius: 0 var(--radius) 0 0; }
+  .work-index a:nth-child(3) { border-radius: 0 0 0 var(--radius); }
+  .work-index a:last-child { border-radius: 0 0 var(--radius) 0; }
+}
+
+@media (max-width: 520px) {
+  .work-hero { padding-top: 44px; }
+  .work-hero h1 { font-size: 19px; }
+  .work-hero-description, .work-description { font-size: 16px; }
+  .work-facts > div { grid-template-columns: 80px minmax(0, 1fr); gap: 12px; }
+  .work-note { padding: 18px; }
+  .work-page .logo { font-size: 13px; }
+  .work-back { font-size: 13px; }
+}

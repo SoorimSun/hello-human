@@ -27,7 +27,7 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 
 `SITE_TOKEN`이 비어 있으면 수집하지 않습니다. 토큰 설정 후에도 `soorimsun.github.io`에서만 수집하므로 로컬 서버와 파일 미리보기는 집계되지 않습니다. 커스텀 도메인으로 바꿀 때는 Cloudflare의 등록 호스트와 `SITE_HOSTNAME`을 함께 수정하세요.
 
-기본 페이지, 게임 페이지, Markdown 공통 레이아웃이 같은 스크립트를 사용합니다. 각 페이지에 Cloudflare 스크립트를 중복으로 붙이지 마세요. `spa: false`로 설정해 페이지 안의 섹션 이동을 추가 페이지뷰로 측정하지 않습니다. `assets/analytics.js`를 수정하면 세 HTML 파일의 `?v=` 값도 함께 올려 캐시를 갱신하세요.
+기본 페이지, 게임 페이지, 회원 작업물 페이지, Markdown 공통 레이아웃이 같은 스크립트를 사용합니다. 각 페이지에 Cloudflare 스크립트를 중복으로 붙이지 마세요. `spa: false`로 설정해 페이지 안의 섹션 이동을 추가 페이지뷰로 측정하지 않습니다. `assets/analytics.js`를 수정하면 이 스크립트를 불러오는 모든 HTML 파일의 `?v=` 값도 함께 올려 캐시를 갱신하세요.
 
 **Visits는 고유 방문자 수가 아닌 방문 횟수입니다.** 외부 사이트나 직접 링크로 들어온 방문을 세며, 한 번의 방문에서 여러 페이지뷰가 발생할 수 있습니다. 광고 차단 확장 프로그램 등으로 분석 스크립트가 차단된 방문은 누락될 수 있습니다.
 
@@ -40,7 +40,9 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | 파일 | 역할 |
 | --- | --- |
 | `index.html` | 소개 페이지 (사이트 첫 화면) |
+| `works/choi-taejun.html` | 회원 최태준의 작업물 소개 |
 | `assets/style.css` | 공통 스타일 |
+| `assets/showcase.css` | 회원 작업물 페이지와 기본 페이지 소개 카드 스타일 |
 | `assets/analytics.js` | Cloudflare Web Analytics 토큰과 수집 설정 |
 | `_layouts/default.html` | Markdown 페이지 공통 레이아웃 (noindex 포함) |
 | `_config.yml` | Jekyll 설정 |
