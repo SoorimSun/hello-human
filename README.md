@@ -41,8 +41,17 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | --- | --- |
 | `index.html` | 소개 페이지 (사이트 첫 화면) |
 | `works/choi-taejun.html` | 회원 최태준의 작업물 소개 |
+| `works/sun-soorim.html` | 회원 선수림의 모델별 웹 제작 실험 소개 |
 | `assets/style.css` | 공통 스타일 |
 | `assets/showcase.css` | 회원 작업물 페이지와 기본 페이지 소개 카드 스타일 |
+| `assets/benchmark.css` | 모델별 실험 갤러리 스타일 |
+| `assets/benchmarks/` | 배포된 실험 페이지의 미리보기 이미지 |
 | `assets/analytics.js` | Cloudflare Web Analytics 토큰과 수집 설정 |
 | `_layouts/default.html` | Markdown 페이지 공통 레이아웃 (noindex 포함) |
 | `_config.yml` | Jekyll 설정 |
+
+## 모델별 웹 제작 실험 갤러리
+
+`works/sun-soorim.html`은 `https://soorimsun.github.io/prompt-test/`에 배포된 모델별 HTML로 연결합니다. 실제 결과 HTML은 이 저장소에 복사하지 않습니다. `assets/benchmarks/`에는 2026-09-21에 캡처한 각 페이지의 첫 화면을 저장했습니다. 원본 결과가 바뀌면 미리보기와 소개도 함께 갱신하세요.
+
+공통 프롬프트와 한 번의 요청 조건은 제작자가 제공한 내용입니다. 소요 시간은 제작자의 기억에 따른 대략적인 값이며, Ling 3.0 Flash는 제작자가 알려준 ‘50초 미만’으로 표시했습니다.

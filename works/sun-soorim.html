@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 동호회 사이트: 검색엔진 수집·노출·캐시 차단. 지우지 마세요. -->
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>선수림의 모델별 웹 제작 실험 · 헬로우 휴먼</title>
+<meta name="description" content="같은 주제도 모델마다 어떻게 달라질까요? 선수림의 모델별 웹 제작 실험, 7개 모델의 결과 페이지 8편을 직접 살펴보세요.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="선수림의 모델별 웹 제작 실험 · 헬로우 휴먼">
+<meta property="og:description" content="거울나라의 앨리스부터 달리의 꿈, 심해까지. AI 모델이 만든 웹페이지의 화면과 인터랙션을 직접 비교해보는 실험 기록.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="../assets/style.css?v=2">
+<link rel="stylesheet" href="../assets/showcase.css?v=1">
+<link rel="stylesheet" href="../assets/benchmark.css?v=1">
+</head>
+<body class="work-page bench-page">
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="logo" href="../index.html">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+    <a class="work-back" href="../index.html#member-works"><span aria-hidden="true">←</span> 동호회 소개</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="work-hero bench-hero">
+    <div class="wrap">
+      <p class="eyebrow">MEMBER EXPERIMENT</p>
+      <h1>선수림의 작업물</h1>
+      <p class="work-hero-title">모델을 바꾸면,<br><span>화면은 얼마나 달라질까?</span></p>
+      <p class="work-hero-description">“상상할 수 있는 가장 아름다운 HTML 파일을 만들어 보세요.”<br>같은 요청을 여러 모델에 던지고, 한 번에 나온 결과를 모았습니다. 화면 구성부터 움직임과 작은 상호작용까지 직접 비교해보세요.</p>
+      <ul class="work-tags" aria-label="실험 모음">
+        <li>7개 모델</li>
+        <li>결과 페이지 8편</li>
+        <li>각각 한 번의 요청</li>
+      </ul>
+      <nav class="bench-nav" aria-label="실험 바로가기">
+        <a href="#alice">앨리스, 여섯 가지 해석 <span aria-hidden="true">↓</span></a>
+        <a href="#other-themes">다른 주제로 해본 실험 <span aria-hidden="true">↓</span></a>
+        <a href="#experiment-notes">프롬프트 · 소요 시간 <span aria-hidden="true">↓</span></a>
+      </nav>
+    </div>
+  </section>
+
+  <section id="alice" class="bench-section">
+    <div class="wrap">
+      <p class="label">THROUGH THE LOOKING-GLASS</p>
+      <h2>앨리스, 여섯 가지 해석</h2>
+      <p class="bench-intro">‘거울나라의 앨리스’를 주제로 같은 프롬프트를 사용한 여섯 모델의 결과입니다. 첫 화면을 나란히 보고, 궁금한 페이지를 열어 스크롤하거나 버튼을 눌러보세요.</p>
+      <p class="work-link-note">이미지는 배포된 페이지의 실제 화면입니다. 결과 페이지는 새 탭으로 열립니다.</p>
+      <div class="bench-grid">
+        <article class="bench-card">
+          <a class="bench-preview" href="https://soorimsun.github.io/prompt-test/fable-5.1/looking-glass.html" target="_blank" rel="noopener noreferrer" aria-label="Fable 5.1 결과 페이지 열기 (새 탭)">
+            <img src="../assets/benchmarks/fable-5.1.jpg" alt="밤하늘과 체스판 위에 세워진 은빛 거울" width="1280" height="720" loading="lazy" decoding="async">
+            <span class="bench-preview-link">직접 열어보기 <span aria-hidden="true">↗</span></span>
+          </a>
+          <div class="bench-card-copy">
+            <h3>Fable 5.1</h3>
+            <p class="bench-card-tag">거울 효과 · 여덟 칸의 여정</p>
+            <p>수은처럼 일렁이는 거울에서 시작해 체스판의 여덟 칸을 따라갑니다. 달리기, 사라지는 이름, 단어 놀이를 스크롤과 버튼에 담았습니다.</p>
+          </div>
+        </article>
+        <article class="bench-card">
+          <a class="bench-preview" href="https://soorimsun.github.io/prompt-test/gpt-6-astra/looking-glass.html" target="_blank" rel="noopener noreferrer" aria-label="GPT-6 Astra 결과 페이지 열기 (새 탭)">
+            <img src="../assets/benchmarks/gpt-6-astra.jpg" alt="청록빛 숲과 금빛 거울 속 앨리스 일러스트" width="1280" height="720" loading="lazy" decoding="async">
+            <span class="bench-preview-link">직접 열어보기 <span aria-hidden="true">↗</span></span>
+          </a>
+          <div class="bench-card-copy">
+            <h3>GPT-6 Astra</h3>
+            <p class="bench-card-tag">일러스트 · 사운드 · 이야기 창</p>
+            <p>숲속의 금빛 거울을 중심으로 그림과 타이포그래피를 배치했습니다. 이야기 창, 배경음, 움직임을 멈추는 기능을 함께 담았습니다.</p>
+          </div>
+        </article>
+        <article class="bench-card">
+          <a class="bench-preview" href="https://soorimsun.github.io/prompt-test/glm-5.3/looking-glass.html" target="_blank" rel="noopener noreferrer" aria-label="GLM 5.3 결과 페이지 열기 (새 탭)">
+            <img src="../assets/benchmarks/glm-5.3.jpg" alt="종이빛 바탕의 앨리스 제목과 은빛 사각 거울" width="1280" height="720" loading="lazy" decoding="async">
+            <span class="bench-preview-link">직접 열어보기 <span aria-hidden="true">↗</span></span>
+          </a>
+          <div class="bench-card-copy">
+            <h3>GLM 5.3</h3>
+            <p class="bench-card-tag">종이 질감 · 붉은 실</p>
+            <p>종이빛 바탕에 붉은 실로 진행을 표시합니다. 말하는 꽃, 이름이 사라지는 숲, 거울 곤충 등 이야기의 장면을 이어갑니다.</p>
+          </div>
+        </article>
+        <article class="bench-card">
+          <a class="bench-preview" href="https://soorimsun.github.io/prompt-test/opus-5/looking-glass.html" target="_blank" rel="noopener noreferrer" aria-label="Opus 5 결과 페이지 열기 (새 탭)">
+            <img src="../assets/benchmarks/opus-5.jpg" alt="밝은 바탕의 큰 앨리스 제목과 반사된 글자" width="1280" height="720" loading="lazy" decoding="async">
+            <span class="bench-preview-link">직접 열어보기 <span aria-hidden="true">↗</span></span>
+          </a>
+          <div class="bench-card-copy">
+            <h3>Opus 5</h3>
+            <p class="bench-card-tag">활자 · 반사 · 체스 수순</p>
+            <p>큰 활자와 반사 효과로 문을 열고, 거울에 비추는 시와 체스 수순으로 이야기를 풀어냅니다. 수를 넘기거나 자동으로 진행할 수 있습니다.</p>
+          </div>
+        </article>
+        <article class="bench-card">
+          <a class="bench-preview" href="https://soorimsun.github.io/prompt-test/muse-spark-1.3/looking-glass.html" target="_blank" rel="noopener noreferrer" aria-label="Muse Spark 1.3 결과 페이지 열기 (새 탭)">
+            <img src="../assets/benchmarks/muse-spark-1.3.jpg" alt="어두운 별빛 배경에 분홍빛으로 빛나는 타원형 거울" width="1280" height="720" loading="lazy" decoding="async">
+            <span class="bench-preview-link">직접 열어보기 <span aria-hidden="true">↗</span></span>
+          </a>
+          <div class="bench-card-copy">
+            <h3>Muse Spark 1.3</h3>
+            <p class="bench-card-tag">빛나는 거울 · 체스판 · 거울 모드</p>
+            <p>빛나는 타원형 거울에서 체스판 여정과 꽃의 정원으로 이어집니다. 거울 모드를 바꾸고 붉은 여왕의 달리기를 직접 눌러볼 수 있습니다.</p>
+          </div>
+        </article>
+        <article class="bench-card">
+          <a class="bench-preview" href="https://soorimsun.github.io/prompt-test/ling-3.0-flash/looking-glass.html" target="_blank" rel="noopener noreferrer" aria-label="Ling 3.0 Flash 결과 페이지 열기 (새 탭)">
+            <img src="../assets/benchmarks/ling-3.0-flash.jpg" alt="보랏빛 배경과 체스 기물이 떠 있는 원형 거울" width="1280" height="720" loading="lazy" decoding="async">
+            <span class="bench-preview-link">직접 열어보기 <span aria-hidden="true">↗</span></span>
+          </a>
+          <div class="bench-card-copy">
+            <h3>Ling 3.0 Flash</h3>
+            <p class="bench-card-tag">한 화면 · 입자 · 마우스 반응</p>
+            <p>원형 거울과 떠다니는 체스 기물을 한 화면에 모았습니다. 마우스 움직임과 클릭에 반응하는 효과를 살펴볼 수 있습니다.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="other-themes" class="bench-section">
+    <div class="wrap">
+      <p class="label">MORE EXPERIMENTS</p>
+      <h2>이번에는, 다른 세계로</h2>
+      <p class="bench-intro">GLM 5.3 Flash에서는 프롬프트의 주제를 ‘살바도르 달리’로 바꾸거나, 아예 주제를 정하지 않았습니다. 나머지 요청은 그대로 두고 각각 한 번에 나온 결과입니다.</p>
+      <div class="bench-grid">
+        <article class="bench-card">
+          <a class="bench-preview" href="https://soorimsun.github.io/prompt-test/glm-5.3-flash/dali-night.html" target="_blank" rel="noopener noreferrer" aria-label="시간이 녹는 밤 결과 페이지 열기 (새 탭)">
+            <img src="../assets/benchmarks/dali-night.jpg" alt="노을빛 배경과 나뭇가지에 걸린 녹는 시계" width="1280" height="720" loading="lazy" decoding="async">
+            <span class="bench-preview-link">직접 열어보기 <span aria-hidden="true">↗</span></span>
+          </a>
+          <div class="bench-card-copy">
+            <h3>시간이 녹는 밤</h3>
+            <p class="bench-card-tag">GLM 5.3 Flash · 주제: 살바도르 달리</p>
+            <p>스크롤하며 밤과 꿈으로 들어가는 페이지입니다. 녹는 시계와 초현실적인 장면을 따라 화면의 시간과 분위기가 변합니다.</p>
+          </div>
+        </article>
+        <article class="bench-card">
+          <a class="bench-preview" href="https://soorimsun.github.io/prompt-test/glm-5.3-flash/the-deep.html" target="_blank" rel="noopener noreferrer" aria-label="심연 결과 페이지 열기 (새 탭)">
+            <img src="../assets/benchmarks/the-deep.jpg" alt="청록빛 바다에 심연 제목과 수심 계기판" width="1280" height="720" loading="lazy" decoding="async">
+            <span class="bench-preview-link">직접 열어보기 <span aria-hidden="true">↗</span></span>
+          </a>
+          <div class="bench-card-copy">
+            <h3>심연</h3>
+            <p class="bench-card-tag">GLM 5.3 Flash · 주제 지정 없이 생성</p>
+            <p>스크롤을 잠수에 빗댄 페이지입니다. 수심 표시를 따라 아래로 내려가며 빛과 배경, 바다의 장면이 달라지는 구성을 살펴볼 수 있습니다.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="experiment-notes" class="bench-section bench-notes">
+    <div class="wrap">
+      <p class="label">EXPERIMENT NOTES</p>
+      <h2>무엇을 시켰고, 얼마나 걸렸을까?</h2>
+      <p>결과물마다 한 번의 요청을 사용했습니다. 앨리스 비교에 사용한 공통 프롬프트는 아래와 같습니다.</p>
+      <blockquote class="bench-prompt">
+        <p>"거울나라의 앨리스"를 주제로 상상할 수 있는 가장 아름다운 HTML 파일을 만들어 보세요. 보는 사람들이 "와!!!"라는 감탄사밖에 나오지 않을 만한 파일이어야 합니다. 시각적으로 인상적이고 아름다우며 눈을 즐겁게 하는 파일이어야 합니다. 꼼꼼하게 작업하되 창의력을 발휘하세요.</p>
+      </blockquote>
+      <p class="bench-intro">추가 실험 중 ‘시간이 녹는 밤’은 주제를 ‘살바도르 달리’로 바꿨고, ‘심연’은 주제를 지정하지 않았습니다. 심해라는 소재도 모델이 선택한 결과입니다.</p>
+
+      <table class="bench-times">
+        <caption>소요 시간 메모 <span>제작자의 기억에 따른 대략적인 시간입니다.</span></caption>
+        <thead><tr><th scope="col">모델</th><th scope="col">기억하는 소요 시간</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Fable 5.1</th><td>약 1시간 10분</td></tr>
+          <tr><th scope="row">Opus 5</th><td>약 1시간</td></tr>
+          <tr><th scope="row">GPT-6 Astra</th><td>약 20분</td></tr>
+          <tr><th scope="row">GLM 5.3</th><td>약 30분</td></tr>
+          <tr><th scope="row">GLM 5.3 Flash</th><td>10분 내외</td></tr>
+          <tr><th scope="row">Muse Spark 1.3</th><td>10분 내외</td></tr>
+          <tr><th scope="row">Ling 3.0 Flash</th><td>50초 미만</td></tr>
+        </tbody>
+      </table>
+      <p class="work-source-note">정확한 계측값이나 반복 측정 결과는 아닙니다. 소요 시간은 대략적인 참고값으로 보고, 화면과 인터랙션을 직접 살펴보세요.</p>
+
+      <h3 class="bench-observation-title">직접 보면 더 궁금해지는 것들</h3>
+      <div class="bench-observations">
+        <div><h4>첫 화면</h4><p>같은 소재에서 무엇을 앞에 놓았을까요? 글자, 색, 그림, 여백을 비교해보세요.</p></div>
+        <div><h4>손을 대보면</h4><p>마우스를 움직이고, 스크롤하고, 버튼을 눌렀을 때 어떤 반응이 생길까요?</p></div>
+        <div><h4>끝까지 둘러보면</h4><p>첫인상이 마지막 장면까지 이어질까요? 창 크기를 바꿔보면 또 어떨까요?</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="work-closing">
+    <div class="wrap">
+      <p class="label">HELLO, HUMAN</p>
+      <h2>“이 모델은 어떻게 만들까?”</h2>
+      <p>같은 궁금증으로 직접 돌려보고, 나온 결과를 함께 구경합니다.<br>완성된 서비스도, 이런 비교 실험도 헬로우 휴먼의 작업물입니다.</p>
+      <a class="work-button" href="../index.html#member-works"><span aria-hidden="true">←</span> 다른 회원 작업물 보기</a>
+    </div>
+  </section>
+</main>
+<footer class="footer"><div class="wrap">헬로우 휴먼 · Workless Engineering Club</div></footer>
+<script src="../assets/analytics.js?v=2" defer></script>
+</body>
+</html>
