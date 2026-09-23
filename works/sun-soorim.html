@@ -6,17 +6,17 @@
 <!-- 동호회 사이트: 검색엔진 수집·노출·캐시 차단. 지우지 마세요. -->
 <meta name="robots" content="noindex, nofollow, noarchive">
 <title>선수림의 모델별 웹 제작 실험 · 헬로우 휴먼</title>
-<meta name="description" content="같은 주제도 모델마다 어떻게 달라질까요? 선수림의 모델별 웹 제작 실험, 9개 모델의 결과 페이지 10편을 직접 살펴보세요.">
+<meta name="description" content="같은 주제도 모델마다 어떻게 달라질까요? 선수림의 모델별 웹 제작 실험, 11개 모델의 결과 페이지 12편과 시간·토큰 벤치 기록을 직접 살펴보세요.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="선수림의 모델별 웹 제작 실험 · 헬로우 휴먼">
-<meta property="og:description" content="거울나라의 앨리스부터 달리의 꿈, 심해까지. AI 모델이 만든 웹페이지의 화면과 인터랙션을 직접 비교해보는 실험 기록.">
+<meta property="og:description" content="거울나라의 앨리스부터 달리의 꿈, 심해까지. AI 모델이 만든 웹페이지의 화면과 인터랙션을 직접 비교하고, 걸린 시간과 토큰도 재본 실험 기록.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="../assets/style.css?v=2">
 <link rel="stylesheet" href="../assets/showcase.css?v=1">
-<link rel="stylesheet" href="../assets/benchmark.css?v=1">
+<link rel="stylesheet" href="../assets/benchmark.css?v=2">
 </head>
 <body class="work-page bench-page">
 <header class="topbar">
@@ -34,12 +34,14 @@
       <p class="work-hero-title">모델을 바꾸면,<br><span>화면은 얼마나 달라질까?</span></p>
       <p class="work-hero-description">“상상할 수 있는 가장 아름다운 HTML 파일을 만들어 보세요.”<br>같은 요청을 여러 모델에 던지고, 한 번에 나온 결과를 모았습니다. 화면 구성부터 움직임과 작은 상호작용까지 직접 비교해보세요.</p>
       <ul class="work-tags" aria-label="실험 모음">
-        <li>9개 모델</li>
-        <li>결과 페이지 10편</li>
+        <li>11개 모델</li>
+        <li>결과 페이지 12편</li>
+        <li>벤치 보고서 2편</li>
         <li>각각 한 번의 요청</li>
       </ul>
       <nav class="bench-nav" aria-label="실험 바로가기">
-        <a href="#alice">앨리스, 여덟 가지 해석 <span aria-hidden="true">↓</span></a>
+        <a href="#alice">앨리스, 열 가지 해석 <span aria-hidden="true">↓</span></a>
+        <a href="#measured">시간 · 토큰 벤치 <span aria-hidden="true">↓</span></a>
         <a href="#other-themes">다른 주제로 해본 실험 <span aria-hidden="true">↓</span></a>
         <a href="#experiment-notes">프롬프트 · 소요 시간 <span aria-hidden="true">↓</span></a>
       </nav>
@@ -49,10 +51,21 @@
   <section id="alice" class="bench-section">
     <div class="wrap">
       <p class="label">THROUGH THE LOOKING-GLASS</p>
-      <h2>앨리스, 여덟 가지 해석</h2>
-      <p class="bench-intro">‘거울나라의 앨리스’를 주제로 같은 프롬프트를 사용한 여덟 모델의 결과입니다. 첫 화면을 나란히 보고, 궁금한 페이지를 열어 스크롤하거나 버튼을 눌러보세요.</p>
-      <p class="work-link-note">이미지는 배포된 페이지의 실제 화면입니다. 결과 페이지는 새 탭으로 열립니다.</p>
+      <h2>앨리스, 열 가지 해석</h2>
+      <p class="bench-intro">‘거울나라의 앨리스’를 주제로 공통 프롬프트를 사용한 열 모델의 결과입니다. 첫 화면을 나란히 보고, 궁금한 페이지를 열어 스크롤하거나 버튼을 눌러보세요. 새로 추가한 Opus 5.5와 GPT-6 Sol은 걸린 시간과 토큰을 잰 벤치 보고서도 함께 남겼습니다.</p>
+      <p class="work-link-note">모델 체급순으로, 같은 체급 안에서는 최신 모델부터 놓았습니다. 이미지는 배포된 페이지의 실제 화면이며, 결과 페이지와 보고서는 새 탭으로 열립니다.</p>
       <div class="bench-grid">
+        <article class="bench-card">
+          <a class="bench-preview" href="https://soorimsun.github.io/prompt-test/gpt-6-astra/looking-glass.html" target="_blank" rel="noopener noreferrer" aria-label="GPT-6 Astra 결과 페이지 열기 (새 탭)">
+            <img src="../assets/benchmarks/gpt-6-astra.jpg" alt="청록빛 숲과 금빛 거울 속 앨리스 일러스트" width="1280" height="720" loading="lazy" decoding="async">
+            <span class="bench-preview-link">직접 열어보기 <span aria-hidden="true">↗</span></span>
+          </a>
+          <div class="bench-card-copy">
+            <h3>GPT-6 Astra</h3>
+            <p class="bench-card-tag">일러스트 · 사운드 · 이야기 창</p>
+            <p>숲속의 금빛 거울을 중심으로 그림과 타이포그래피를 배치했습니다. 이야기 창, 배경음, 움직임을 멈추는 기능을 함께 담았습니다.</p>
+          </div>
+        </article>
         <article class="bench-card">
           <a class="bench-preview" href="https://soorimsun.github.io/prompt-test/fable-5.1/looking-glass.html" target="_blank" rel="noopener noreferrer" aria-label="Fable 5.1 결과 페이지 열기 (새 탭)">
             <img src="../assets/benchmarks/fable-5.1.jpg" alt="밤하늘과 체스판 위에 세워진 은빛 거울" width="1280" height="720" loading="lazy" decoding="async">
@@ -65,14 +78,49 @@
           </div>
         </article>
         <article class="bench-card">
-          <a class="bench-preview" href="https://soorimsun.github.io/prompt-test/gpt-6-astra/looking-glass.html" target="_blank" rel="noopener noreferrer" aria-label="GPT-6 Astra 결과 페이지 열기 (새 탭)">
-            <img src="../assets/benchmarks/gpt-6-astra.jpg" alt="청록빛 숲과 금빛 거울 속 앨리스 일러스트" width="1280" height="720" loading="lazy" decoding="async">
+          <a class="bench-preview" href="https://soorimsun.github.io/prompt-test/opus-5.5/looking-glass.html" target="_blank" rel="noopener noreferrer" aria-label="Opus 5.5 결과 페이지 열기 (새 탭)">
+            <img src="../assets/benchmarks/opus-5.5.jpg" alt="촛불 사이 금박 타원 거울 속 은빛 안개와 앨리스 제목" width="1280" height="720" loading="lazy" decoding="async">
             <span class="bench-preview-link">직접 열어보기 <span aria-hidden="true">↗</span></span>
           </a>
           <div class="bench-card-copy">
-            <h3>GPT-6 Astra</h3>
-            <p class="bench-card-tag">일러스트 · 사운드 · 이야기 창</p>
-            <p>숲속의 금빛 거울을 중심으로 그림과 타이포그래피를 배치했습니다. 이야기 창, 배경음, 움직임을 멈추는 기능을 함께 담았습니다.</p>
+            <h3>Opus 5.5</h3>
+            <p class="bench-card-tag">김 서린 거울 · 체스판 여정 · 손거울</p>
+            <p>김 서린 거울을 커서로 문지르면 너머의 체스판 나라가 비칩니다. 스크롤을 따라 한 칸씩 전진해 여왕이 되고, 손거울을 대어 거꾸로 쓰인 재버워키를 읽을 수 있습니다.</p>
+            <a class="bench-report-link" href="https://soorimsun.github.io/prompt-test/opus-5.5/benchmark.html" target="_blank" rel="noopener noreferrer">벤치 보고서 · 70분 21초<span aria-hidden="true"> ↗</span><span class="work-sr-only"> (새 탭)</span></a>
+          </div>
+        </article>
+        <article class="bench-card">
+          <a class="bench-preview" href="https://soorimsun.github.io/prompt-test/gpt-6-sol/looking-glass.html" target="_blank" rel="noopener noreferrer" aria-label="GPT-6 Sol 결과 페이지 열기 (새 탭)">
+            <img src="../assets/benchmarks/gpt-6-sol.jpg" alt="보랏빛 밤하늘과 금빛 타원 거울 속 체스판 길 위의 앨리스" width="1280" height="720" loading="lazy" decoding="async">
+            <span class="bench-preview-link">직접 열어보기 <span aria-hidden="true">↗</span></span>
+          </a>
+          <div class="bench-card-copy">
+            <h3>GPT-6 Sol</h3>
+            <p class="bench-card-tag">SVG 일러스트 · 거울 전환 · 세 장면</p>
+            <p>금빛 거울과 체스판 정원을 SVG 그림으로 그렸습니다. 거울을 누르면 세계의 색과 문구가 바뀌고, 말하는 꽃과 체스 말, 왕관의 세 장면으로 이어집니다.</p>
+            <a class="bench-report-link" href="https://soorimsun.github.io/prompt-test/gpt-6-sol/benchmark.html" target="_blank" rel="noopener noreferrer">벤치 보고서 · 11분 46초<span aria-hidden="true"> ↗</span><span class="work-sr-only"> (새 탭)</span></a>
+          </div>
+        </article>
+        <article class="bench-card">
+          <a class="bench-preview" href="https://soorimsun.github.io/prompt-test/grok-4.7/looking-glass.html" target="_blank" rel="noopener noreferrer" aria-label="Grok 4.7 결과 페이지 열기 (새 탭)">
+            <img src="../assets/benchmarks/grok-4.7.jpg" alt="금빛 아치형 거울 안에 펼쳐진 달빛과 체스판, 앨리스 제목" width="1280" height="720" loading="lazy" decoding="async">
+            <span class="bench-preview-link">직접 열어보기 <span aria-hidden="true">↗</span></span>
+          </a>
+          <div class="bench-card-copy">
+            <h3>Grok 4.7</h3>
+            <p class="bench-card-tag">유리 두드리기 · 말하는 꽃 · 꿈의 선택</p>
+            <p>아치형 거울의 유리를 두드리며 이야기를 시작합니다. 꽃의 대사를 살펴보고, 시를 거울에 비춰 읽고, 마지막에는 누구의 꿈이었는지 선택할 수 있습니다.</p>
+          </div>
+        </article>
+        <article class="bench-card">
+          <a class="bench-preview" href="https://soorimsun.github.io/prompt-test/muse-spark-1.3/looking-glass.html" target="_blank" rel="noopener noreferrer" aria-label="Muse Spark 1.3 결과 페이지 열기 (새 탭)">
+            <img src="../assets/benchmarks/muse-spark-1.3.jpg" alt="어두운 별빛 배경에 분홍빛으로 빛나는 타원형 거울" width="1280" height="720" loading="lazy" decoding="async">
+            <span class="bench-preview-link">직접 열어보기 <span aria-hidden="true">↗</span></span>
+          </a>
+          <div class="bench-card-copy">
+            <h3>Muse Spark 1.3</h3>
+            <p class="bench-card-tag">빛나는 거울 · 체스판 · 거울 모드</p>
+            <p>빛나는 타원형 거울에서 체스판 여정과 꽃의 정원으로 이어집니다. 거울 모드를 바꾸고 붉은 여왕의 달리기를 직접 눌러볼 수 있습니다.</p>
           </div>
         </article>
         <article class="bench-card">
@@ -98,17 +146,6 @@
           </div>
         </article>
         <article class="bench-card">
-          <a class="bench-preview" href="https://soorimsun.github.io/prompt-test/muse-spark-1.3/looking-glass.html" target="_blank" rel="noopener noreferrer" aria-label="Muse Spark 1.3 결과 페이지 열기 (새 탭)">
-            <img src="../assets/benchmarks/muse-spark-1.3.jpg" alt="어두운 별빛 배경에 분홍빛으로 빛나는 타원형 거울" width="1280" height="720" loading="lazy" decoding="async">
-            <span class="bench-preview-link">직접 열어보기 <span aria-hidden="true">↗</span></span>
-          </a>
-          <div class="bench-card-copy">
-            <h3>Muse Spark 1.3</h3>
-            <p class="bench-card-tag">빛나는 거울 · 체스판 · 거울 모드</p>
-            <p>빛나는 타원형 거울에서 체스판 여정과 꽃의 정원으로 이어집니다. 거울 모드를 바꾸고 붉은 여왕의 달리기를 직접 눌러볼 수 있습니다.</p>
-          </div>
-        </article>
-        <article class="bench-card">
           <a class="bench-preview" href="https://soorimsun.github.io/prompt-test/mimo-2.6-flash/looking-glass.html" target="_blank" rel="noopener noreferrer" aria-label="MiMo 2.6 Flash 결과 페이지 열기 (새 탭)">
             <img src="../assets/benchmarks/mimo-2.6-flash.jpg" alt="어두운 응접실의 반사된 앨리스 제목과 금빛 타원형 거울" width="1280" height="720" loading="lazy" decoding="async">
             <span class="bench-preview-link">직접 열어보기 <span aria-hidden="true">↗</span></span>
@@ -117,17 +154,6 @@
             <h3>MiMo 2.6 Flash</h3>
             <p class="bench-card-tag">반사된 활자 · 수은의 문 · 체스판</p>
             <p>겨울 응접실의 금빛 거울과 반사된 제목에서 시작합니다. 스크롤을 따라 체스판과 거울 나라로 이동하고, 거꾸로 놓인 재버워키를 펼쳐 읽을 수 있습니다.</p>
-          </div>
-        </article>
-        <article class="bench-card">
-          <a class="bench-preview" href="https://soorimsun.github.io/prompt-test/grok-4.7/looking-glass.html" target="_blank" rel="noopener noreferrer" aria-label="Grok 4.7 결과 페이지 열기 (새 탭)">
-            <img src="../assets/benchmarks/grok-4.7.jpg" alt="금빛 아치형 거울 안에 펼쳐진 달빛과 체스판, 앨리스 제목" width="1280" height="720" loading="lazy" decoding="async">
-            <span class="bench-preview-link">직접 열어보기 <span aria-hidden="true">↗</span></span>
-          </a>
-          <div class="bench-card-copy">
-            <h3>Grok 4.7</h3>
-            <p class="bench-card-tag">유리 두드리기 · 말하는 꽃 · 꿈의 선택</p>
-            <p>아치형 거울의 유리를 두드리며 이야기를 시작합니다. 꽃의 대사를 살펴보고, 시를 거울에 비춰 읽고, 마지막에는 누구의 꿈이었는지 선택할 수 있습니다.</p>
           </div>
         </article>
         <article class="bench-card">
@@ -142,6 +168,31 @@
           </div>
         </article>
       </div>
+    </div>
+  </section>
+
+  <section id="measured" class="bench-section">
+    <div class="wrap">
+      <p class="label">BENCHMARK LOG</p>
+      <h2>이번에는 시간과 토큰도 쟀습니다</h2>
+      <p class="bench-intro">Opus 5.5와 GPT-6 Sol은 결과 페이지를 완성한 뒤 작업 로그를 읽어 벤치 보고서를 따로 만들었습니다. 기억이 아닌 기록으로, 한 번의 요청에 걸린 시간과 처리한 토큰을 옮겼습니다.</p>
+      <div class="bench-table-scroll">
+        <table class="bench-times bench-metrics">
+          <caption>로그로 잰 제작 기록 <span>각 모델의 벤치 보고서에서 옮긴 값입니다. 보고서를 만드는 데 쓴 시간과 토큰은 들어 있지 않습니다.</span></caption>
+          <thead><tr><th scope="col">항목</th><th scope="col">Opus 5.5</th><th scope="col">GPT-6 Sol</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">작업 도구</th><td>Claude Code<small>추론 강도 xhigh</small></td><td>Codex<small>추론 강도 xhigh</small></td></tr>
+            <tr><th scope="row">소요 시간</th><td><strong>70분 21초</strong></td><td><strong>11분 46초</strong></td></tr>
+            <tr><th scope="row">누적 처리 토큰</th><td>41,212,402</td><td>2,179,937</td></tr>
+            <tr><th scope="row">입력 중 캐시</th><td>98.5%</td><td>95.6%</td></tr>
+            <tr><th scope="row">출력 토큰</th><td>415,722<small>사고 270,050 포함</small></td><td>34,261<small>추론 9,724 포함</small></td></tr>
+            <tr><th scope="row">결과 HTML</th><td>172,286바이트<small>2,489줄</small></td><td>45,896바이트<small>447줄</small></td></tr>
+            <tr><th scope="row">브라우저 검증</th><td>동작 241회<small>문제 12건 수정</small></td><td>화면 너비 5가지<small>페이지 오류 0건</small></td></tr>
+            <tr><th scope="row">보고서</th><td><a href="https://soorimsun.github.io/prompt-test/opus-5.5/benchmark.html" target="_blank" rel="noopener noreferrer">열어보기<span aria-hidden="true"> ↗</span><span class="work-sr-only"> Opus 5.5 벤치 보고서 (새 탭)</span></a></td><td><a href="https://soorimsun.github.io/prompt-test/gpt-6-sol/benchmark.html" target="_blank" rel="noopener noreferrer">열어보기<span aria-hidden="true"> ↗</span><span class="work-sr-only"> GPT-6 Sol 벤치 보고서 (새 탭)</span></a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="work-source-note">두 모델은 작업 도구와 토큰 집계 방식이 달라 숫자를 그대로 견주기는 어렵습니다. 누적 처리 토큰은 호출할 때마다 다시 읽은 대화까지 모두 더한 값이라, 새로 쓴 글의 양이나 실제 청구 비용과 다릅니다. 소요 시간에는 브라우저로 확인하고 고친 시간도 들어 있습니다.</p>
     </div>
   </section>
 
@@ -188,21 +239,23 @@
       <p class="bench-intro">추가 실험 중 ‘시간이 녹는 밤’은 주제를 ‘살바도르 달리’로 바꿨고, ‘심연’은 주제를 지정하지 않았습니다. 심해라는 소재도 모델이 선택한 결과입니다.</p>
 
       <table class="bench-times">
-        <caption>소요 시간 메모 <span>제작자의 기억에 따른 대략적인 시간입니다.</span></caption>
-        <thead><tr><th scope="col">모델</th><th scope="col">기억하는 소요 시간</th></tr></thead>
+        <caption>소요 시간 메모 <span>로그로 잰 두 모델을 빼면 제작자의 기억에 따른 대략적인 시간입니다.</span></caption>
+        <thead><tr><th scope="col">모델</th><th scope="col">소요 시간</th><th scope="col">기준</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Fable 5.1</th><td>약 1시간 10분</td></tr>
-          <tr><th scope="row">Opus 5</th><td>약 1시간</td></tr>
-          <tr><th scope="row">GPT-6 Astra</th><td>약 20분</td></tr>
-          <tr><th scope="row">GLM 5.3</th><td>약 30분</td></tr>
-          <tr><th scope="row">GLM 5.3 Flash</th><td>10분 내외</td></tr>
-          <tr><th scope="row">Muse Spark 1.3</th><td>10분 내외</td></tr>
-          <tr><th scope="row">MiMo 2.6 Flash</th><td>20분</td></tr>
-          <tr><th scope="row">Grok 4.7</th><td>약 30분</td></tr>
-          <tr><th scope="row">Ling 3.0 Flash</th><td>50초 미만</td></tr>
+          <tr><th scope="row">GPT-6 Astra</th><td>약 20분</td><td>기억</td></tr>
+          <tr><th scope="row">Fable 5.1</th><td>약 1시간 10분</td><td>기억</td></tr>
+          <tr><th scope="row">Opus 5.5</th><td>70분 21초</td><td>로그 계측</td></tr>
+          <tr><th scope="row">GPT-6 Sol</th><td>11분 46초</td><td>로그 계측</td></tr>
+          <tr><th scope="row">Grok 4.7</th><td>약 30분</td><td>기억</td></tr>
+          <tr><th scope="row">Muse Spark 1.3</th><td>10분 내외</td><td>기억</td></tr>
+          <tr><th scope="row">GLM 5.3</th><td>약 30분</td><td>기억</td></tr>
+          <tr><th scope="row">GLM 5.3 Flash</th><td>10분 내외</td><td>기억</td></tr>
+          <tr><th scope="row">Opus 5</th><td>약 1시간</td><td>기억</td></tr>
+          <tr><th scope="row">MiMo 2.6 Flash</th><td>20분</td><td>기억</td></tr>
+          <tr><th scope="row">Ling 3.0 Flash</th><td>50초 미만</td><td>기억</td></tr>
         </tbody>
       </table>
-      <p class="work-source-note">정확한 계측값이나 반복 측정 결과는 아닙니다. 소요 시간은 대략적인 참고값으로 보고, 화면과 인터랙션을 직접 살펴보세요.</p>
+      <p class="work-source-note">기억에 따른 값은 정확한 계측값이 아니고, 로그로 잰 값도 한 번 실행한 기록일 뿐 반복 측정 결과는 아닙니다. 소요 시간은 대략적인 참고값으로 보고, 화면과 인터랙션을 직접 살펴보세요.</p>
 
       <h3 class="bench-observation-title">직접 보면 더 궁금해지는 것들</h3>
       <div class="bench-observations">

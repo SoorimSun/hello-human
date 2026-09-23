@@ -15,7 +15,9 @@
 .bench-card-copy { padding-top: 18px; }
 .bench-card h3 { margin: 0 0 6px; font-size: 22px; }
 .bench-card .bench-card-tag { margin-bottom: 12px; color: var(--accent); font-size: 13px; }
-.bench-card-copy > p:last-child { margin-bottom: 0; color: var(--muted); font-size: 15px; }
+.bench-card-copy > p:not(.bench-card-tag) { margin-bottom: 0; color: var(--muted); font-size: 15px; }
+.bench-report-link { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; margin-top: 6px; font-size: 14px; font-weight: 600; text-underline-offset: 4px; }
+.bench-report-link:hover { color: var(--accent); }
 .bench-prompt { margin: 28px 0; padding: 24px 28px; border-left: 3px solid var(--accent); background: var(--surface-2); font-size: 17px; line-height: 1.85; }
 .bench-prompt p { margin: 0; }
 .bench-times { width: 100%; margin: 36px 0 16px; border-collapse: collapse; font-size: 15px; text-align: left; }
@@ -24,6 +26,12 @@
 .bench-times th, .bench-times td { padding: 12px 16px; border-bottom: 1px solid var(--line); }
 .bench-times thead { background: var(--surface-2); }
 .bench-times tbody th { font-weight: 600; }
+.bench-table-scroll { overflow-x: auto; }
+.bench-metrics { font-variant-numeric: tabular-nums; }
+.bench-metrics thead th:first-child { width: 26%; }
+.bench-metrics td small { display: block; margin-top: 2px; color: var(--muted); font-size: 13px; }
+.bench-metrics a { font-weight: 600; text-underline-offset: 4px; }
+.bench-metrics a:hover { color: var(--accent); }
 .bench-observation-title { margin: 44px 0 0; font-size: 22px; }
 .bench-observations { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin: 32px 0; }
 .bench-observations h4 { margin: 0 0 10px; font-size: 18px; }

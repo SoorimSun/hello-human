@@ -52,6 +52,10 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 
 ## 모델별 웹 제작 실험 갤러리
 
-`works/sun-soorim.html`은 `https://soorimsun.github.io/prompt-test/`에 배포된 모델별 HTML로 연결합니다. 실제 결과 HTML은 이 저장소에 복사하지 않습니다. `assets/benchmarks/`에는 각 페이지의 첫 화면을 저장했습니다. 기존 8편은 2026-09-21, MiMo 2.6 Flash와 Grok 4.7은 2026-09-22에 캡처했습니다. 원본 결과가 바뀌면 미리보기와 소개도 함께 갱신하세요.
+`works/sun-soorim.html`은 `https://soorimsun.github.io/prompt-test/`에 배포된 모델별 HTML로 연결합니다. 실제 결과 HTML은 이 저장소에 복사하지 않습니다. `assets/benchmarks/`에는 각 페이지의 첫 화면을 저장했습니다. 기존 8편은 2026-09-21, MiMo 2.6 Flash와 Grok 4.7은 2026-09-22, Opus 5.5와 GPT-6 Sol은 2026-09-23에 캡처했습니다. 원본 결과가 바뀌면 미리보기와 소개도 함께 갱신하세요.
 
 공통 프롬프트와 한 번의 요청 조건은 제작자가 제공한 내용입니다. 소요 시간은 제작자의 기억에 따른 대략적인 값이며, Ling 3.0 Flash는 제작자가 알려준 ‘50초 미만’으로 표시했습니다.
+
+Opus 5.5와 GPT-6 Sol의 소요 시간과 토큰은 각 폴더의 `benchmark.html`(작업 로그 기반 보고서)에서 옮겼으며, 실험 페이지의 ‘시간 · 토큰 벤치’ 표와 보고서 링크로 연결합니다. 보고서 수치가 바뀌면 표와 카드의 소요 시간을 함께 고치세요.
+
+앨리스 카드와 소요 시간 표는 모델 체급순으로 놓고, 같은 체급 안에서는 출시일이 최근인 모델부터 둡니다. 같은 세대의 경량 모델은 체급과 관계없이 바로 뒤에 이어 붙입니다(예: GLM 5.3 → GLM 5.3 Flash). 현재 기준은 최상위(GPT-6 Astra, Fable 5.1) → 플래그십(Opus 5.5, GPT-6 Sol, Grok 4.7, Muse Spark 1.3, GLM 5.3, GLM 5.3 Flash, Opus 5) → 경량(MiMo 2.6 Flash, Ling 3.0 Flash)입니다. 새 모델을 추가할 때도 이 순서를 따르세요.
