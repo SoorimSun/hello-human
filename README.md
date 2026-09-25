@@ -48,6 +48,7 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `works/sun-soorim.html` | 회원 선수림의 모델별 웹 제작 실험 소개 |
 | `assets/style.css` | 공통 스타일 |
 | `assets/news.css` | AI뉴스 목록·기사 스타일 |
+| `assets/news/` | AI뉴스 기사 삽화와 출처가 표시된 제품 발표 이미지 |
 | `assets/guide.css` | AI가이드 본문 스타일 |
 | `assets/article-toc.js` | AI뉴스·AI가이드 스크롤 위치에 맞춘 목차 표시 |
 | `assets/showcase.css` | 회원 작업물 페이지와 기본 페이지 소개 카드 스타일 |
