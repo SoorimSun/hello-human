@@ -184,8 +184,8 @@
 <td>SWE-bench</td>
 </tr>
 <tr>
-<td>코드 편집 형식과 성공률은 어떤가</td>
-<td>Aider Leaderboard</td>
+<td>CLI 에이전트가 터미널 작업을 끝내는가</td>
+<td>Terminal-Bench</td>
 </tr>
 <tr>
 <td>우리 업무에 맞는가</td>
@@ -332,18 +332,17 @@ JSON 형식으로 응답 저장
 <li>Ext JS 기반 관리자 화면</li>
 </ul>
 <p>따라서 SWE-bench는 코딩 능력의 참고 자료로 사용해야 합니다.</p>
-<h3>3.5 Aider Leaderboard</h3>
-<p>Aider는 터미널에서 LLM과 함께 코드를 수정할 수 있는 도구입니다. 코드 편집과 리팩터링 관련 벤치마크 결과도 제공합니다. <a href="https://aider.chat/docs/leaderboards/" target="_blank" rel="noopener noreferrer">Aider 리더보드 ↗</a></p>
-<p>Aider Leaderboard에서는 다음과 같은 부분을 참고할 수 있습니다.</p>
+<h3>3.5 Terminal-Bench</h3>
+<p>Terminal-Bench는 에이전트가 터미널에서 실제 작업을 완료하는지 평가합니다. 코드 수정 외에도 명령 실행과 환경 설정 등 여러 종류의 작업이 포함되므로 CLI 코딩 도구를 고를 때 참고할 수 있습니다. <a href="https://www.tbench.ai/" target="_blank" rel="noopener noreferrer">Terminal-Bench 공식 리더보드 ↗</a></p>
+<p>리더보드에서는 다음 항목을 함께 확인합니다.</p>
 <ul>
-<li>수정 요청을 코드에 반영하는 능력</li>
-<li>코드 편집 형식을 지키는 능력</li>
-<li>여러 프로그래밍 언어 처리</li>
-<li>작업에 사용한 비용</li>
-<li>코드 수정 성공률</li>
+<li>평가에 사용한 벤치마크 버전</li>
+<li>모델과 에이전트의 조합</li>
+<li>작업 해결률</li>
+<li>사용한 토큰과 비용</li>
 </ul>
-<p>Java, JavaScript, TypeScript처럼 여러 언어가 함께 있는 프로젝트에서는 종합 코딩 점수보다 실제 편집 능력이 중요합니다.</p>
-<p>코드를 설명만 하고 수정하지 않는 모델은 코딩 에이전트로 쓰기 어렵습니다.</p>
+<p>점수는 모델 단독의 코드 편집 능력이 아니라 특정 에이전트와 실행 환경에서 얻은 결과입니다. 벤치마크 버전이 다르면 점수를 직접 비교하지 않습니다.</p>
+<p>Java, JavaScript, TypeScript가 함께 있는 프로젝트라면 실제로 쓸 도구와 모델을 연결해 세 언어가 얽힌 수정 과제를 실행하고, 적용된 패치와 테스트 결과를 확인합니다.</p>
 
 </section>
 <section class="guide-section" id="step-4" aria-labelledby="step-4-heading">
@@ -793,7 +792,7 @@ LLM이 분석하고 구현하는 방식
             <li><a href="https://arena.ai/how-it-works" target="_blank" rel="noopener noreferrer">Arena · 평가 방식 ↗</a></li>
             <li><a href="https://openrouter.ai/docs/quickstart" target="_blank" rel="noopener noreferrer">OpenRouter · API 가이드 ↗</a></li>
             <li><a href="https://www.swebench.com/SWE-bench/faq/" target="_blank" rel="noopener noreferrer">SWE-bench · 공식 FAQ ↗</a></li>
-            <li><a href="https://aider.chat/docs/leaderboards/" target="_blank" rel="noopener noreferrer">Aider · 코드 편집 리더보드 ↗</a></li>
+            <li><a href="https://www.tbench.ai/" target="_blank" rel="noopener noreferrer">Terminal-Bench · 공식 리더보드 ↗</a></li>
           </ul>
         </section>
         <a class="news-end-link" href="./">AI가이드 목록으로 돌아가기 <span aria-hidden="true">→</span></a>
