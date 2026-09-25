@@ -3,8 +3,9 @@
 .guide-article-header .news-deck { max-width: 800px; }
 .guide-toc { gap: 9px; }
 .guide-toc > span { margin-bottom: 8px; }
-.guide-toc a { display: flex; gap: 9px; align-items: baseline; }
+.guide-toc a { display: flex; gap: 9px; align-items: baseline; margin-left: -10px; padding: 7px 8px; border-left: 2px solid transparent; border-radius: 0 6px 6px 0; }
 .guide-toc a span { flex: 0 0 22px; margin: 0; color: var(--accent); font-size: 11px; letter-spacing: 0; }
+.guide-toc a[aria-current="location"] { color: var(--ink); background: var(--surface-2); border-left-color: var(--accent); font-weight: 700; }
 .guide-story { font-size: 17px; line-height: 1.78; overflow-wrap: anywhere; }
 .guide-story p { margin: 0 0 21px; }
 .guide-intro { margin-bottom: 44px; padding-bottom: 38px; border-bottom: 1px solid var(--line); }
@@ -74,7 +75,7 @@
 
 @media (max-width: 720px) {
   .guide-toc { gap: 9px 16px; }
-  .guide-toc a { width: calc(50% - 8px); font-size: 13px; }
+  .guide-toc a { width: calc(50% - 8px); margin-left: 0; font-size: 13px; }
   .guide-process ol { grid-template-columns: 1fr; }
   .guide-process li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 2px 7px; padding: 12px 14px; }
   .guide-process-no { grid-row: span 2; align-self: center; margin: 0; }

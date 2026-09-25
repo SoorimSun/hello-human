@@ -49,6 +49,7 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `assets/style.css` | 공통 스타일 |
 | `assets/news.css` | AI뉴스 목록·기사 스타일 |
 | `assets/guide.css` | AI가이드 본문 스타일 |
+| `assets/guide-toc.js` | AI가이드 스크롤 위치에 맞춘 목차 표시 |
 | `assets/showcase.css` | 회원 작업물 페이지와 기본 페이지 소개 카드 스타일 |
 | `assets/benchmark.css` | 모델별 실험 갤러리 스타일 |
 | `assets/benchmarks/` | 배포된 실험 페이지의 미리보기 이미지 |
@@ -69,7 +70,7 @@ AI뉴스는 발행 주기를 정하지 않고, 새 소식이 있을 때 정적 H
 
 AI가이드는 발행 주기를 정하지 않고, 실제 업무에 적용할 만한 방법이 정리됐을 때 정적 HTML 페이지를 추가합니다.
 
-1. `guides/2026-09-25-llm-selection.html`을 참고해 `guides/YYYY-MM-DD-주제.html`을 만듭니다. 제목·설명·날짜·가이드 번호와 내용을 바꾸고 `noindex` 메타 태그를 유지합니다.
+1. `guides/2026-09-25-llm-selection.html`을 참고해 `guides/YYYY-MM-DD-주제.html`을 만듭니다. 제목·설명·날짜·가이드 번호와 내용을 바꾸고 `noindex` 메타 태그를 유지합니다. 목차 링크와 본문 절의 `id`를 맞추고 `guide-toc.js`를 유지합니다.
 2. 공개 저장소에 올릴 수 없는 회사명, 내부 시스템 이름·URL, 실제 로그·코드·데이터는 일반화하거나 익명화합니다. 외부 서비스의 기능 설명과 평가 수치는 공식 자료를 확인하고 링크합니다.
 3. `guides/index.html`의 목록 맨 위에 새 가이드를 추가하고 개수를 갱신합니다. `index.html`의 `#ai-guides` 카드도 최신 글로 바꿉니다.
 4. 로컬에서 목록·본문·홈 링크와 모바일 화면을 확인한 뒤 배포합니다. CSS를 바꾸면 이를 불러오는 페이지의 `?v=` 값도 올립니다.
