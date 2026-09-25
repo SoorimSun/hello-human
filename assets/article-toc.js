@@ -1,5 +1,5 @@
 (() => {
-  const toc = document.querySelector('.guide-toc');
+  const toc = document.querySelector('.news-toc');
   if (!toc) return;
 
   const entries = Array.from(toc.querySelectorAll('a[href^="#"]'))

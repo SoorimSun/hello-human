@@ -3,9 +3,8 @@
 .guide-article-header .news-deck { max-width: 800px; }
 .guide-toc { gap: 9px; }
 .guide-toc > span { margin-bottom: 8px; }
-.guide-toc a { display: flex; gap: 9px; align-items: baseline; margin-left: -10px; padding: 7px 8px; border-left: 2px solid transparent; border-radius: 0 6px 6px 0; }
+.guide-toc a { display: flex; gap: 9px; align-items: baseline; }
 .guide-toc a span { flex: 0 0 22px; margin: 0; color: var(--accent); font-size: 11px; letter-spacing: 0; }
-.guide-toc a[aria-current="location"] { color: var(--ink); background: var(--surface-2); border-left-color: var(--accent); font-weight: 700; }
 .guide-story { font-size: 17px; line-height: 1.78; overflow-wrap: anywhere; }
 .guide-story p { margin: 0 0 21px; }
 .guide-intro { margin-bottom: 44px; padding-bottom: 38px; border-bottom: 1px solid var(--line); }
