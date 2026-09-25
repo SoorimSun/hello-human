@@ -40,15 +40,27 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | 파일 | 역할 |
 | --- | --- |
 | `index.html` | 소개 페이지 (사이트 첫 화면) |
+| `news/index.html` | AI뉴스 목록 |
+| `news/2026-09-25-ai-agents.html` | AI뉴스 첫 호 |
 | `works/choi-taejun.html` | 회원 최태준의 작업물 소개 |
 | `works/sun-soorim.html` | 회원 선수림의 모델별 웹 제작 실험 소개 |
 | `assets/style.css` | 공통 스타일 |
+| `assets/news.css` | AI뉴스 목록·기사 스타일 |
 | `assets/showcase.css` | 회원 작업물 페이지와 기본 페이지 소개 카드 스타일 |
 | `assets/benchmark.css` | 모델별 실험 갤러리 스타일 |
 | `assets/benchmarks/` | 배포된 실험 페이지의 미리보기 이미지 |
 | `assets/analytics.js` | Cloudflare Web Analytics 토큰과 수집 설정 |
 | `_layouts/default.html` | Markdown 페이지 공통 레이아웃 (noindex 포함) |
 | `_config.yml` | Jekyll 설정 |
+
+## AI뉴스 발행하기
+
+AI뉴스는 발행 주기를 정하지 않고, 새 소식이 있을 때 정적 HTML 페이지를 추가합니다.
+
+1. `news/2026-09-25-ai-agents.html`을 복사해 `news/YYYY-MM-DD-주제.html`을 만듭니다. 제목·설명·날짜·호수와 기사 내용을 바꾸고, `<meta name="robots" content="noindex, nofollow, noarchive">`를 유지합니다.
+2. 공식 발표와 원문 링크를 기사 안에 넣고, 발표 사실·기업 자체 평가·우리의 해석을 구분합니다. 출시 예정이나 진행 중인 사건은 확인 날짜를 적습니다.
+3. `news/index.html`의 발행 목록 맨 위에 새 호를 추가하고 호수를 갱신합니다. `index.html`의 `#ai-news` 카드도 최신 호로 바꿉니다.
+4. 로컬에서 목록·기사·홈 링크와 모바일 화면을 확인한 뒤 배포합니다. `assets/style.css`나 `assets/news.css`를 바꾸면 이를 불러오는 페이지의 `?v=` 값도 올립니다.
 
 ## 모델별 웹 제작 실험 갤러리
 
