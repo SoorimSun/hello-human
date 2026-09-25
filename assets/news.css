@@ -73,6 +73,10 @@
 .news-story-section p { margin-bottom: 20px; }
 .news-story-section p:last-child { margin-bottom: 0; }
 .news-article-visual { margin: 30px 0 32px; }
+.news-avatar-demo { width: min(100%, 360px); margin: 30px auto 32px; }
+.news-avatar-demo video { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: var(--radius); background: #151515; }
+.news-avatar-demo figcaption { margin-top: 9px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.news-avatar-demo figcaption strong { color: var(--ink); }
 .news-product-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 30px 0 32px; }
 .news-product-gallery figure { min-width: 0; margin: 0; }
 .news-product-gallery img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: var(--radius); }
