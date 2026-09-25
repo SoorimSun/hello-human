@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>가장 똑똑한 LLM보다, 우리 일을 끝내는 LLM을 고르는 법 · AI가이드 · 헬로우 휴먼</title>
+<meta name="description" content="헬로우 휴먼의 커머스 개발자를 위한 실전 가이드. 모델·도구·검증 방식을 우리 업무로 비교하는 실전 가이드.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="../assets/style.css?v=3">
+<link rel="stylesheet" href="../assets/news.css?v=1">
+<link rel="stylesheet" href="../assets/guide.css?v=1">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+    <nav class="news-nav" aria-label="사이트 메뉴">
+      <a href="../">모임 소개</a>
+      <a href="../news/">AI뉴스</a>
+      <a href="./" aria-current="page">AI가이드</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <article>
+    <header class="news-article-header guide-article-header wrap">
+      <a class="news-back" href="./">← AI가이드 목록</a>
+      <p class="news-kicker">AI GUIDE <span aria-hidden="true">/</span> GUIDE 01</p>
+      <h1>가장 똑똑한 LLM보다,<br><em>우리 일을 끝내는 LLM을 고르는 법</em></h1>
+      <p class="news-deck">헬로우 휴먼의 커머스 개발자를 위한 실전 가이드</p>
+      <div class="news-article-meta"><time datetime="2026-09-25">2026년 9월 25일</time><span>헬로우 휴먼 AI가이드</span></div>
+    </header>
+
+    <div class="news-article-shell guide-shell wrap">
+      <nav class="news-toc guide-toc" aria-label="가이드 목차">
+        <span>이 가이드에서</span>
+        <a href="#step-1"><span>01</span>먼저 기억할 한 문장</a>
+        <a href="#step-2"><span>02</span>우리에게 필요한 업무</a>
+        <a href="#step-3"><span>03</span>비교할 사이트</a>
+        <a href="#step-4"><span>04</span>모델 선택 절차</a>
+        <a href="#step-5"><span>05</span>평가 기준</a>
+        <a href="#step-6"><span>06</span>성공 비용</a>
+        <a href="#step-7"><span>07</span>평가 프롬프트</a>
+        <a href="#step-8"><span>08</span>업무별 모델</a>
+        <a href="#step-9"><span>09</span>먼저 만들 자산</a>
+        <a href="#step-10"><span>10</span>첫 실험</a>
+        <a href="#closing"><span>↳</span>마무리</a>
+      </nav>
+      <div class="news-story guide-story">
+        <div class="guide-intro"><p>새로운 LLM이 나올 때마다 비슷한 질문이 반복됩니다.</p>
+<blockquote>
+<p>어떤 모델이 가장 좋은가?</p>
+</blockquote>
+<p>하지만 이 질문만으로는 좋은 선택을 하기 어렵습니다.</p>
+<p>벤치마크 점수가 높은 모델이 커머스 서비스의 주문 오류를 가장 잘 고쳐준다는 보장은 없습니다. 코딩 성능이 높은 모델도 Oracle SQL을 PostgreSQL로 변환하면서 업무 규칙을 놓칠 수 있습니다. 문장을 잘 쓰는 모델이 상품, 프로모션, 주문, 정산 구조까지 정확히 이해하는 것도 아닙니다.</p>
+<p>LLM을 고르는 일은 시험 점수가 높은 사람을 찾는 일이 아닙니다.</p>
+<p>우리 시스템과 업무 안에서 <strong>실제로 일을 끝내는 조합을 찾는 일</strong>입니다.</p>
+</div>
+<section class="guide-section" id="step-1" aria-labelledby="step-1-heading">
+<h2 id="step-1-heading">1. 먼저 기억할 한 문장</h2>
+<blockquote>
+<p>최고의 LLM은 없다. 우리 업무에 맞는 모델, 도구, 검증 방식의 조합이 있을 뿐이다.</p>
+</blockquote>
+<p>LLM 활용 성과는 모델 하나로 결정되지 않습니다.</p>
+<pre><code class="language-text">업무 성과
+= 모델
+× 코딩 도구
+× 프롬프트
+× 제공한 문맥
+× 테스트 환경
+× 검증 방식
+</code></pre>
+<p>예를 들어 같은 모델을 사용해도 다음 환경에 따라 결과가 달라집니다.</p>
+<ul>
+<li>웹 채팅에서 질문하기</li>
+<li>Codex CLI나 Claude Code에서 저장소를 열어 작업하기</li>
+<li>OpenCode, Pi, Aider 같은 코딩 도구에 연결하기</li>
+<li>테스트 실행 권한을 제공하기</li>
+<li>데이터베이스 스키마와 업무 규칙을 함께 제공하기</li>
+<li>결과를 다른 모델이나 자동 테스트로 검증하기</li>
+</ul>
+<p>모델은 엔진입니다.</p>
+<p>코딩 도구는 작업장입니다.</p>
+<p>테스트와 검증은 품질관리 공정입니다.</p>
+<p>엔진만 보고 자동차 전체를 평가할 수 없는 것과 같습니다.</p>
+
+</section>
+<section class="guide-section" id="step-2" aria-labelledby="step-2-heading">
+<h2 id="step-2-heading">2. 우리에게 필요한 LLM 업무는 무엇인가</h2>
+<p>헬로우 휴먼 구성원의 업무 환경을 예로 들면 다음과 같습니다.</p>
+<h3>백엔드</h3>
+<ul>
+<li>Java 코드 분석</li>
+<li>Spring, Spring Boot 구조 분석</li>
+<li>트랜잭션 오류 탐지</li>
+<li>REST API 설계</li>
+<li>배치 프로그램 수정</li>
+<li>JUnit 테스트 작성</li>
+<li>대량 데이터 처리 성능 개선</li>
+<li>운영 장애 원인 분석</li>
+</ul>
+<h3>데이터베이스</h3>
+<ul>
+<li>Oracle SQL 분석</li>
+<li>PostgreSQL 전환</li>
+<li>실행 계획 분석</li>
+<li>인덱스 개선</li>
+<li>대량 조회 성능 개선</li>
+<li>데이터 정합성 검증</li>
+<li>프로시저와 배치 로직 분석</li>
+</ul>
+<h3>프론트엔드</h3>
+<ul>
+<li>React 화면 개발</li>
+<li>Vue.js 컴포넌트 수정</li>
+<li>Next.js SSR 문제 분석</li>
+<li>Ext JS 레거시 화면 유지보수</li>
+<li>JavaScript, TypeScript 오류 분석</li>
+<li>API 연동 코드 생성</li>
+<li>웹 성능과 메모리 문제 분석</li>
+</ul>
+<h3>운영 환경</h3>
+<ul>
+<li>Linux 로그 분석</li>
+<li>셸 스크립트 작성</li>
+<li>Node.js 빌드 문제 해결</li>
+<li>Jenkins 파이프라인 수정</li>
+<li>컨테이너 장애 분석</li>
+<li>CPU, 메모리, 네트워크 문제 분석</li>
+</ul>
+<h3>커머스 도메인</h3>
+<ul>
+<li>상품 등록과 승인</li>
+<li>가격과 프로모션</li>
+<li>쿠폰과 할인</li>
+<li>장바구니</li>
+<li>주문과 결제</li>
+<li>취소와 반품</li>
+<li>배송과 재고</li>
+<li>고객과 회원</li>
+<li>정산과 회계</li>
+<li>전시와 검색</li>
+<li>방송 편성과 편성 상품</li>
+</ul>
+<p>이 업무들은 모두 코딩처럼 보이지만, 필요한 능력은 서로 다릅니다.</p>
+<p>Java 코드를 잘 작성하는 모델이 정산 규칙까지 잘 이해하는 것은 아닙니다. React 화면을 잘 만드는 모델이 주문 취소 시 쿠폰 복원 규칙을 정확하게 판단하는 것도 아닙니다.</p>
+<p>따라서 모델을 고르기 전에 먼저 <strong>어떤 일을 맡길 것인지</strong>를 정해야 합니다.</p>
+
+</section>
+<section class="guide-section" id="step-3" aria-labelledby="step-3-heading">
+<h2 id="step-3-heading">3. LLM을 비교할 때 유용한 사이트</h2>
+<p>각 사이트는 서로 다른 질문에 답해줍니다.</p>
+<div class="guide-table-scroll"><table>
+<thead>
+<tr>
+<th>알고 싶은 것</th>
+<th>사용할 사이트</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>어떤 모델이 빠르고 저렴한가</td>
+<td>Artificial Analysis</td>
+</tr>
+<tr>
+<td>사람들이 어느 답변을 더 선호하는가</td>
+<td>Arena</td>
+</tr>
+<tr>
+<td>여러 모델을 같은 API로 시험할 수 있는가</td>
+<td>OpenRouter</td>
+</tr>
+<tr>
+<td>실제 코드 수정 능력은 어떤가</td>
+<td>SWE-bench</td>
+</tr>
+<tr>
+<td>코드 편집 형식과 성공률은 어떤가</td>
+<td>Aider Leaderboard</td>
+</tr>
+<tr>
+<td>우리 업무에 맞는가</td>
+<td>사내 자체 평가</td>
+</tr>
+</tbody></table></div>
+<p>마지막 항목이 가장 중요합니다.</p>
+<p>공개 벤치마크는 후보를 고르는 도구입니다. 최종 선택은 우리 업무로 해야 합니다.</p>
+<h3>3.1 Artificial Analysis</h3>
+<p>Artificial Analysis는 모델의 성능, 비용, 속도, 컨텍스트 크기 등을 비교할 때 유용합니다.</p>
+<p>종합 지능 점수만 제공하는 것이 아닙니다. 코딩, 도구 사용, 장문 처리, 지시 이행, 업무 수행과 같은 세부 평가도 확인할 수 있습니다. 비용을 볼 때도 입력, 출력, 추론, 캐시 사용 등을 반영한 작업당 비용을 제공합니다. <a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener noreferrer">Artificial Analysis 모델 비교 ↗</a></p>
+<h4>이 사이트에서 볼 것</h4>
+<ul>
+<li>Intelligence Index</li>
+<li>Coding</li>
+<li>Agentic</li>
+<li>Tool Use</li>
+<li>Long Context</li>
+<li>출력 속도</li>
+<li>첫 응답 지연 시간</li>
+<li>작업당 비용</li>
+<li>오픈웨이트 여부</li>
+<li>상업적 사용 가능 여부</li>
+</ul>
+<h4>커머스 업무에 적용하는 방법</h4>
+<p>예를 들어 모델을 다음 용도로 찾는다고 가정해봅니다.</p>
+<pre><code class="language-text">Java와 Spring 기반의 주문 서비스 코드를 분석하고,
+Oracle과 PostgreSQL의 차이를 찾아 수정하는 업무
+</code></pre>
+<p>Artificial Analysis에서는 다음 항목을 먼저 봅니다.</p>
+<ol>
+<li>Coding 점수</li>
+<li>Agentic 또는 Tool Use 점수</li>
+<li>Long Context 성능</li>
+<li>작업당 비용</li>
+<li>처리 속도</li>
+</ol>
+<p>저장소가 크다면 컨텍스트 처리 능력이 중요합니다.</p>
+<p>CLI 에이전트로 사용할 예정이라면 단순 코딩 점수보다 도구 사용과 에이전트 수행 능력이 더 중요합니다.</p>
+<h4>주의할 점</h4>
+<p>종합점수 1위가 우리 업무 1위라는 의미는 아닙니다.</p>
+<p>Artificial Analysis의 종합지표는 코딩, 에이전트, 일반 능력, 과학적 추론 등 여러 영역을 합친 점수입니다. 특정 업무에서는 종합점수보다 개별 평가가 더 중요할 수 있습니다. <a href="https://artificialanalysis.ai/methodology" target="_blank" rel="noopener noreferrer">Artificial Analysis 평가 방법 ↗</a></p>
+<h3>3.2 Arena</h3>
+<p>Arena는 여러 모델의 결과를 직접 비교할 때 유용합니다.</p>
+<p>같은 요청에 대한 두 모델의 응답을 비교하고 사람이 선호하는 결과를 선택하는 방식이 있습니다. 텍스트와 코드 등 분야별 리더보드도 제공됩니다. Agent Arena는 실제 에이전트 작업에서 완료 확인, 수정 지시 반영, 도구 사용 오류 같은 신호를 별도로 살펴봅니다. <a href="https://arena.ai/how-it-works" target="_blank" rel="noopener noreferrer">Arena 평가 방식 ↗</a></p>
+<h4>이런 질문을 넣어보면 좋습니다</h4>
+<pre><code class="language-text">다음 요구사항을 분석해줘.
+
+장바구니에 여러 판매자의 상품이 들어 있을 때
+주문을 하나로 접수하되 결제 MID는 판매자별로 분리해야 한다.
+
+다음 형식으로 정리해줘.
+
+1. 업무 규칙
+2. 주문 테이블 영향
+3. 결제 영향
+4. 쿠폰 영향
+5. 취소 영향
+6. 정산 영향
+7. 배치 영향
+8. 확인이 필요한 사항
+</code></pre>
+<p>이 질문을 여러 모델에 넣으면 다음을 비교할 수 있습니다.</p>
+<ul>
+<li>빠뜨린 업무 영역이 있는가</li>
+<li>확인되지 않은 내용을 사실처럼 말하는가</li>
+<li>주문, 결제, 정산을 구분하는가</li>
+<li>구현 전에 질문해야 할 내용을 찾는가</li>
+<li>결과가 실무 문서로 사용할 수준인가</li>
+</ul>
+<h4>Arena를 사용할 때 주의할 점</h4>
+<p>사람이 읽기 좋은 답변과 기술적으로 정확한 답변은 다를 수 있습니다.</p>
+<p>문장이 매끄럽고 설명이 긴 모델이 더 좋은 평가를 받을 수 있습니다. 그러나 SQL, 트랜잭션, 할인 계산, 정산 규칙이 정확하다는 보장은 없습니다.</p>
+<p>Arena는 다음 항목을 확인하는 데 적합합니다.</p>
+<ul>
+<li>답변 구조</li>
+<li>설명력</li>
+<li>문장 품질</li>
+<li>요구사항 이해</li>
+<li>사용자의 수정 요청 반영</li>
+</ul>
+<p>코드 정확성은 테스트로 다시 확인해야 합니다.</p>
+<h3>3.3 OpenRouter</h3>
+<p>OpenRouter는 여러 회사의 모델을 하나의 API 방식으로 호출할 수 있게 해줍니다.</p>
+<p>모델별 가격, 컨텍스트 길이, 벤치마크, 지원 기능을 비교할 수 있습니다. 같은 프로그램에서 모델 이름만 바꿔 여러 후보를 시험하기에도 편리합니다. <a href="https://openrouter.ai/docs/quickstart" target="_blank" rel="noopener noreferrer">OpenRouter 공식 문서 ↗</a></p>
+<h4>OpenRouter가 필요한 이유</h4>
+<p>모델을 비교할 때 웹사이트마다 복사해서 질문하면 조건이 달라질 수 있습니다.</p>
+<p>OpenRouter를 이용하면 같은 코드에서 다음 조건을 통일할 수 있습니다.</p>
+<pre><code class="language-text">동일한 프롬프트
+동일한 입력 데이터
+동일한 최대 출력 길이
+동일한 추론 수준
+동일한 평가 방식
+</code></pre>
+<h4>커머스 평가 예시</h4>
+<p>다음과 같은 작은 평가 프로그램을 만들 수 있습니다.</p>
+<pre><code class="language-text">평가 데이터 20건 준비
+    ↓
+후보 모델 3개 호출
+    ↓
+JSON 형식으로 응답 저장
+    ↓
+테스트 통과 여부 확인
+    ↓
+비용과 응답 시간 기록
+    ↓
+사람의 검토 결과 기록
+</code></pre>
+<p>예를 들어 다음 업무를 모델별로 실행합니다.</p>
+<ul>
+<li>상품 승인 로그에서 오류 원인 찾기</li>
+<li>주문 금액 불일치 원인 분석</li>
+<li>Oracle SQL을 PostgreSQL로 변환</li>
+<li>Spring 트랜잭션 범위 검토</li>
+<li>Vue.js 화면의 API 호출 오류 수정</li>
+<li>Next.js 서버 렌더링 문제 분석</li>
+<li>Ext JS 그리드 조회 오류 수정</li>
+<li>Linux 로그에서 장애 시점 찾기</li>
+</ul>
+<p>OpenRouter의 인기 순위는 품질 순위가 아닙니다.</p>
+<p>많이 사용된 모델은 생태계가 크거나 가격이 저렴할 수 있습니다. 사용량과 우리 업무 성공률은 구분해야 합니다.</p>
+<h3>3.4 SWE-bench</h3>
+<p>SWE-bench는 실제 GitHub 이슈와 코드 저장소를 이용해 모델의 소프트웨어 수정 능력을 평가합니다.</p>
+<p>모델은 이슈 설명과 저장소를 받고 코드를 수정합니다. 이후 테스트를 실행해 문제가 해결됐는지 확인합니다. SWE-bench Verified는 엔지니어가 해결 가능성을 검토한 500개 문제로 구성됩니다. <a href="https://www.swebench.com/SWE-bench/faq/" target="_blank" rel="noopener noreferrer">SWE-bench Verified 안내 ↗</a></p>
+<h4>SWE-bench를 볼 때 확인할 것</h4>
+<ul>
+<li>해결한 문제의 비율</li>
+<li>실제 테스트 통과 여부</li>
+<li>기존 기능을 깨뜨리지 않았는지</li>
+<li>코드 수정이 끝까지 완료됐는지</li>
+<li>빈 패치나 실행 오류가 얼마나 발생했는지</li>
+</ul>
+<h4>한계도 있습니다</h4>
+<p>SWE-bench의 문제와 우리 커머스 업무의 문제는 다릅니다.</p>
+<p>공개 오픈소스 저장소를 잘 수정하는 모델이 다음 업무까지 잘한다는 보장은 없습니다.</p>
+<ul>
+<li>홈쇼핑 주문 규칙</li>
+<li>복수 결제 MID</li>
+<li>쿠폰 분담</li>
+<li>공급사 정산</li>
+<li>방송 상품 편성</li>
+<li>고객별 프로모션</li>
+<li>Oracle 중심의 오래된 업무 로직</li>
+<li>Ext JS 기반 관리자 화면</li>
+</ul>
+<p>따라서 SWE-bench는 코딩 능력의 참고 자료로 사용해야 합니다.</p>
+<h3>3.5 Aider Leaderboard</h3>
+<p>Aider는 터미널에서 LLM과 함께 코드를 수정할 수 있는 도구입니다. 코드 편집과 리팩터링 관련 벤치마크 결과도 제공합니다. <a href="https://aider.chat/docs/leaderboards/" target="_blank" rel="noopener noreferrer">Aider 리더보드 ↗</a></p>
+<p>Aider Leaderboard에서는 다음과 같은 부분을 참고할 수 있습니다.</p>
+<ul>
+<li>수정 요청을 코드에 반영하는 능력</li>
+<li>코드 편집 형식을 지키는 능력</li>
+<li>여러 프로그래밍 언어 처리</li>
+<li>작업에 사용한 비용</li>
+<li>코드 수정 성공률</li>
+</ul>
+<p>Java, JavaScript, TypeScript처럼 여러 언어가 함께 있는 프로젝트에서는 종합 코딩 점수보다 실제 편집 능력이 중요합니다.</p>
+<p>코드를 설명만 하고 수정하지 않는 모델은 코딩 에이전트로 쓰기 어렵습니다.</p>
+
+</section>
+<section class="guide-section" id="step-4" aria-labelledby="step-4-heading">
+<h2 id="step-4-heading">4. 우리 업무에 맞는 모델 선택 절차</h2>
+<h3>1단계. 작업을 한 문장으로 정의한다</h3>
+<p>나쁜 정의는 다음과 같습니다.</p>
+<pre><code class="language-text">코딩을 잘하는 모델을 찾는다.
+</code></pre>
+<p>좋은 정의는 다음과 같습니다.</p>
+<pre><code class="language-text">Java와 Spring 기반 커머스 주문 서비스를 분석하고,
+Oracle과 PostgreSQL에서 동일하게 동작하도록 수정하며,
+JUnit 회귀 테스트까지 작성하는 모델을 찾는다.
+</code></pre>
+<p>작업이 구체적이어야 결과도 비교할 수 있습니다.</p>
+<h3>2단계. 완료 조건을 정한다</h3>
+<p>모델에게 일을 맡기기 전에 무엇을 성공으로 볼지 정해야 합니다.</p>
+<pre><code class="language-text">완료 조건
+
+1. 기존 테스트가 모두 통과한다.
+2. 신규 회귀 테스트가 추가된다.
+3. 공개 API는 변경하지 않는다.
+4. 변경 파일은 필요한 범위로 제한한다.
+5. Oracle과 PostgreSQL에서 모두 동작한다.
+6. 주문 금액과 정산 금액이 일치한다.
+7. 사람이 15분 안에 검토할 수 있다.
+</code></pre>
+<p>완료 조건이 없으면 결과가 길고 그럴듯한 모델이 좋아 보이기 쉽습니다.</p>
+<h3>3단계. 공개 사이트에서 후보 3개를 고른다</h3>
+<p>후보를 너무 많이 고를 필요는 없습니다.</p>
+<pre><code class="language-text">고성능 모델 1개
+중간 가격 모델 1개
+저가 고속 모델 1개
+</code></pre>
+<p>Artificial Analysis에서 성능과 비용을 확인합니다.</p>
+<p>Arena에서 결과의 구조와 설명력을 비교합니다.</p>
+<p>OpenRouter나 각 회사의 API를 이용해 실제 업무를 실행합니다.</p>
+<h3>4단계. 실제 업무 문제를 준비한다</h3>
+<p>우리에게 필요한 것은 일반 코딩 시험이 아닙니다.</p>
+<p>커머스 운영에서 실제로 발생한 문제를 익명화해 사용하는 것이 좋습니다.</p>
+<h4>추천 평가 문제</h4>
+<h5>Java와 Spring</h5>
+<ul>
+<li>트랜잭션이 중간에 끊기는 문제</li>
+<li>동일 주문이 중복 생성되는 문제</li>
+<li>비동기 작업에서 세션 정보가 사라지는 문제</li>
+<li>배치 재실행 시 데이터가 중복 처리되는 문제</li>
+<li>대량 조회 중 메모리가 증가하는 문제</li>
+</ul>
+<h5>Oracle과 PostgreSQL</h5>
+<ul>
+<li>날짜 함수 변환</li>
+<li>페이징 쿼리 변경</li>
+<li>시퀀스 처리</li>
+<li>빈 문자열과 NULL 차이</li>
+<li>MERGE 구문 전환</li>
+<li>실행 계획 차이 분석</li>
+</ul>
+<h5>React, Vue.js, Next.js, Ext JS</h5>
+<ul>
+<li>검색 조건이 초기화되는 문제</li>
+<li>그리드 조회 결과가 중복되는 문제</li>
+<li>API 요청이 여러 번 발생하는 문제</li>
+<li>SSR 과정에서 메모리가 증가하는 문제</li>
+<li>화면 상태와 서버 상태가 달라지는 문제</li>
+</ul>
+<h5>커머스</h5>
+<ul>
+<li>쿠폰 할인 금액 불일치</li>
+<li>주문 취소 후 쿠폰 미복원</li>
+<li>부분 취소 정산 오류</li>
+<li>복수 배송지 주문 처리</li>
+<li>판매자별 결제 분리</li>
+<li>행사 종료 후 가격 복원 실패</li>
+<li>방송 상품과 일반 상품의 재고 차감 차이</li>
+</ul>
+<p>평가 문제는 10개에서 30개 정도면 시작하기에 충분합니다.</p>
+<p>쉬운 문제만 넣으면 모델 차이를 알기 어렵습니다.</p>
+<p>과거에 시간이 오래 걸렸던 문제, 실수가 반복됐던 문제, 여러 모듈이 얽힌 문제를 포함해야 합니다.</p>
+<h3>5단계. 같은 조건으로 실행한다</h3>
+<p>모델마다 다른 조건을 주면 비교 결과가 의미 없습니다.</p>
+<p>다음 조건을 통일합니다.</p>
+<pre><code class="language-text">같은 저장소 버전
+같은 요구사항
+같은 문서
+같은 도구 권한
+같은 최대 실행 시간
+같은 테스트 명령
+같은 완료 조건
+</code></pre>
+<p>가능하면 각 문제를 여러 번 실행합니다.</p>
+<p>LLM은 같은 질문에도 다른 결과를 낼 수 있기 때문입니다.</p>
+
+</section>
+<section class="guide-section" id="step-5" aria-labelledby="step-5-heading">
+<h2 id="step-5-heading">5. 모델을 평가하는 기준</h2>
+<p>코딩 업무 평가를 시작할 때 다음과 같은 예시 비중을 사용할 수 있습니다. 실제 비중은 업무 위험과 팀의 목표에 맞춰 조정합니다.</p>
+<div class="guide-table-scroll"><table>
+<thead>
+<tr>
+<th>평가 항목</th>
+<th align="right">시작용 예시 비중</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>테스트 통과율</td>
+<td align="right">30%</td>
+</tr>
+<tr>
+<td>요구사항 충족</td>
+<td align="right">20%</td>
+</tr>
+<tr>
+<td>업무 규칙 이해</td>
+<td align="right">15%</td>
+</tr>
+<tr>
+<td>불필요한 변경과 회귀 위험</td>
+<td align="right">15%</td>
+</tr>
+<tr>
+<td>사람의 검토와 수정 시간</td>
+<td align="right">10%</td>
+</tr>
+<tr>
+<td>비용</td>
+<td align="right">5%</td>
+</tr>
+<tr>
+<td>실행 시간</td>
+<td align="right">5%</td>
+</tr>
+</tbody></table></div>
+<p>여기서 가장 중요한 것은 테스트 통과와 업무 규칙입니다.</p>
+<p>코드가 컴파일된다고 주문 금액이 맞는 것은 아닙니다.</p>
+<p>화면이 정상적으로 열린다고 쿠폰 분담과 정산 처리가 맞는 것도 아닙니다.</p>
+
+</section>
+<section class="guide-section" id="step-6" aria-labelledby="step-6-heading">
+<h2 id="step-6-heading">6. 토큰 가격보다 성공 비용을 보자</h2>
+<p>많은 사람이 입력 토큰과 출력 토큰 가격만 비교합니다.</p>
+<p>하지만 API 가격이 싼 모델이 실제 업무에서도 저렴한 것은 아닙니다.</p>
+<p>다음 두 모델을 비교해봅시다.</p>
+<div class="guide-table-scroll"><table>
+<thead>
+<tr>
+<th>항목</th>
+<th align="right">모델 A</th>
+<th align="right">모델 B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>API 비용</td>
+<td align="right">100원</td>
+<td align="right">800원</td>
+</tr>
+<tr>
+<td>사람의 수정 시간</td>
+<td align="right">30분</td>
+<td align="right">5분</td>
+</tr>
+<tr>
+<td>재실행 횟수</td>
+<td align="right">2회</td>
+<td align="right">0회</td>
+</tr>
+<tr>
+<td>테스트 통과</td>
+<td align="right">실패</td>
+<td align="right">성공</td>
+</tr>
+</tbody></table></div>
+<p>모델 A는 호출 비용이 저렴합니다.</p>
+<p>그러나 사람이 다시 분석하고 수정해야 합니다. 결국 더 비싼 모델이 될 수 있습니다.</p>
+<p>우리가 계산해야 할 것은 다음입니다.</p>
+<pre><code class="language-text">실질 작업 비용
+= API 비용
++ 사람의 검토 시간
++ 사람의 수정 시간
++ 실패 후 재실행 비용
++ 운영 장애 위험
+</code></pre>
+<p>그리고 최종적으로는 다음 값을 봐야 합니다.</p>
+<pre><code class="language-text">성공 1건당 비용
+= 전체 작업 비용 ÷ 성공한 작업 수
+</code></pre>
+<p>LLM 비용의 핵심은 토큰 단가가 아닙니다.</p>
+<p>사람의 시간을 얼마나 줄였는가입니다.</p>
+
+</section>
+<section class="guide-section" id="step-7" aria-labelledby="step-7-heading">
+<h2 id="step-7-heading">7. 커머스 업무용 평가 프롬프트 예시</h2>
+<p>다음과 같은 형식으로 시작할 수 있습니다.</p>
+<pre><code class="language-text">역할
+
+너는 Java와 Spring 기반 커머스 시스템을 유지보수하는 엔지니어다.
+
+환경
+
+- Java 17
+- Spring Boot 3
+- Oracle
+- PostgreSQL
+- React
+- Vue.js
+- Next.js
+- Ext JS
+- Node.js
+- Linux
+
+도메인
+
+- 상품
+- 프로모션
+- 주문
+- 결제
+- 배송
+- 고객
+- 정산
+
+문제
+
+장바구니에서 쿠폰이 정상 적용됐지만
+주문 완료 후 주문 금액과 결제 금액이 일치하지 않는다.
+
+요청
+
+1. 가능한 원인을 우선순위 없이 분류한다.
+2. 확인해야 할 클래스와 테이블을 제안한다.
+3. 트랜잭션 경계를 확인한다.
+4. 할인, 주문, 결제, 정산 영향을 분리한다.
+5. 로그에 추가할 항목을 제안한다.
+6. 재현 테스트 시나리오를 작성한다.
+7. 확인되지 않은 내용은 추측으로 표시한다.
+8. 코드 수정 전에 필요한 질문을 작성한다.
+
+완료 조건
+
+- 업무 규칙과 기술 문제를 구분한다.
+- 근거 없는 테이블이나 클래스를 만들어내지 않는다.
+- 부분 취소와 복수 상품 주문을 포함한다.
+- Oracle과 PostgreSQL 차이를 고려한다.
+</code></pre>
+<p>이 프롬프트를 후보 모델에 동일하게 실행하면 차이를 확인할 수 있습니다.</p>
+
+</section>
+<section class="guide-section" id="step-8" aria-labelledby="step-8-heading">
+<h2 id="step-8-heading">8. 모든 업무에 같은 모델을 쓰지 않는다</h2>
+<p>한 모델로 모든 업무를 처리하면 관리하기는 쉽습니다.</p>
+<p>하지만 비용과 속도 면에서는 비효율적일 수 있습니다.</p>
+<h3>저가 고속 모델</h3>
+<p>다음 업무에 적합합니다.</p>
+<ul>
+<li>로그 분류</li>
+<li>문서 요약</li>
+<li>JSON 변환</li>
+<li>API 응답 정리</li>
+<li>테스트 데이터 생성</li>
+<li>단순 코드 설명</li>
+<li>반복적인 형식 변환</li>
+</ul>
+<h3>중간급 모델</h3>
+<p>다음 업무에 적합합니다.</p>
+<ul>
+<li>일반적인 기능 개발</li>
+<li>단위 테스트 작성</li>
+<li>SQL 수정</li>
+<li>코드 리뷰</li>
+<li>React와 Vue.js 컴포넌트 수정</li>
+<li>운영 문서 작성</li>
+<li>요구사항 구조화</li>
+</ul>
+<h3>고성능 모델</h3>
+<p>다음 업무에 적합합니다.</p>
+<ul>
+<li>주문과 결제 구조 변경</li>
+<li>정산 로직 변경</li>
+<li>여러 모듈의 영향 분석</li>
+<li>복합 장애 원인 분석</li>
+<li>아키텍처 설계</li>
+<li>대규모 리팩터링</li>
+<li>Oracle에서 PostgreSQL로 전환</li>
+<li>레거시 시스템 현대화</li>
+</ul>
+<h3>별도 검증</h3>
+<p>고위험 업무는 한 모델의 결과만 믿지 않습니다.</p>
+<pre><code class="language-text">1차 모델이 분석하고 수정
+    ↓
+자동 테스트 실행
+    ↓
+2차 모델이 변경 내용 검토
+    ↓
+사람이 최종 승인
+</code></pre>
+<p>주문, 결제, 쿠폰, 정산은 작은 오류도 금액 차이로 이어집니다.</p>
+<p>이 영역은 속도보다 검증 가능성이 중요합니다.</p>
+
+</section>
+<section class="guide-section" id="step-9" aria-labelledby="step-9-heading">
+<h2 id="step-9-heading">9. 모델보다 먼저 만들어야 할 것</h2>
+<p>LLM을 잘 활용하려면 좋은 모델을 찾는 것보다 다음 자산을 먼저 만들어야 합니다.</p>
+<h3>업무 규칙 문서</h3>
+<ul>
+<li>주문 상태 전이</li>
+<li>취소 가능 조건</li>
+<li>쿠폰 적용과 복원</li>
+<li>배송비 계산</li>
+<li>정산 금액 계산</li>
+<li>재고 차감과 복원</li>
+<li>결제 승인과 취소</li>
+</ul>
+<h3>테스트 데이터</h3>
+<ul>
+<li>정상 주문</li>
+<li>부분 취소</li>
+<li>전체 취소</li>
+<li>복수 상품</li>
+<li>복수 판매자</li>
+<li>복수 배송지</li>
+<li>쿠폰과 적립금 동시 사용</li>
+<li>결제 실패 후 재시도</li>
+</ul>
+<h3>실행 가능한 테스트</h3>
+<ul>
+<li>JUnit</li>
+<li>API 통합 테스트</li>
+<li>SQL 정합성 검증</li>
+<li>화면 E2E 테스트</li>
+<li>배치 재실행 테스트</li>
+<li>정산 결과 비교</li>
+</ul>
+<h3>평가 기록</h3>
+<ul>
+<li>모델 이름</li>
+<li>모델 버전</li>
+<li>코딩 도구</li>
+<li>프롬프트</li>
+<li>성공 여부</li>
+<li>실행 시간</li>
+<li>API 비용</li>
+<li>사람의 검토 시간</li>
+<li>수정한 파일 수</li>
+<li>발생한 오류</li>
+</ul>
+<p>이 데이터가 쌓이면 새로운 모델이 나와도 흔들리지 않습니다.</p>
+<p>같은 평가를 다시 실행해 기존 모델과 비교하면 됩니다.</p>
+
+</section>
+<section class="guide-section" id="step-10" aria-labelledby="step-10-heading">
+<h2 id="step-10-heading">10. 헬로우 휴먼이 시작하기 좋은 실험</h2>
+<p>처음부터 거대한 LLM 평가 시스템을 만들 필요는 없습니다.</p>
+<p>다음 정도로 시작할 수 있습니다.</p>
+<h3>첫 번째 실험</h3>
+<pre><code class="language-text">문제 수: 10개
+후보 모델: 3개
+코딩 도구: 1개
+반복 실행: 문제당 2회
+평가 기준: 테스트, 리뷰 시간, 비용
+</code></pre>
+<h3>문제 구성</h3>
+<pre><code class="language-text">Java와 Spring 문제 3개
+Oracle과 PostgreSQL 문제 2개
+React, Vue.js, Next.js, Ext JS 문제 2개
+Linux와 Node.js 운영 문제 1개
+커머스 업무 영향 분석 2개
+</code></pre>
+<h3>기록할 항목</h3>
+<pre><code class="language-text">성공 여부
+테스트 통과 여부
+잘못 수정한 파일 수
+추가된 코드 크기
+사람의 수정 시간
+총 API 비용
+전체 완료 시간
+</code></pre>
+<p>이 정도만 해도 모델별 특성이 보이기 시작합니다.</p>
+<p>어떤 모델은 분석은 잘하지만 코드를 과도하게 변경합니다.</p>
+<p>어떤 모델은 코드 작성은 빠르지만 업무 규칙을 놓칩니다.</p>
+<p>어떤 모델은 비싸지만 사람의 검토 시간을 크게 줄여줍니다.</p>
+
+</section>
+<section class="guide-section" id="closing" aria-labelledby="closing-heading">
+<h2 id="closing-heading">마무리</h2>
+<p>LLM 선택의 목적은 벤치마크 1위를 찾는 것이 아닙니다.</p>
+<p>사람이 반복해서 하던 일을 줄이고, 필요한 곳에만 사람이 개입하도록 만드는 것입니다.</p>
+<p>헬로우 휴먼이 지향하는 Workless Engineering도 같은 방향입니다.</p>
+<pre><code class="language-text">사람이 모든 코드를 직접 작성하는 방식
+    ↓
+사람이 업무와 완료 조건을 정의하는 방식
+    ↓
+LLM이 분석하고 구현하는 방식
+    ↓
+테스트와 정책이 결과를 검증하는 방식
+    ↓
+사람이 중요한 판단만 승인하는 방식
+</code></pre>
+<p>공개 리더보드는 출발점입니다.</p>
+<p>Arena의 선호도도 참고 자료입니다.</p>
+<p>API 가격도 하나의 조건입니다.</p>
+<p>하지만 최종 판단은 우리 코드, 우리 업무 규칙, 우리 테스트로 해야 합니다.</p>
+<blockquote>
+<p>좋은 LLM은 말을 잘하는 모델이 아니다.<br>우리 시스템에서 검증 가능한 결과를 만들고, 사람의 일을 실제로 줄여주는 모델이다.</p>
+</blockquote>
+
+</section>
+        <section class="guide-resources" aria-labelledby="guide-resources-heading">
+          <h2 id="guide-resources-heading">참고 사이트</h2>
+          <p>서비스와 평가 방법은 바뀔 수 있으므로, 비교할 때 각 사이트의 최신 설명을 확인하세요.</p>
+          <ul>
+            <li><a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener noreferrer">Artificial Analysis · 모델 비교 ↗</a></li>
+            <li><a href="https://arena.ai/how-it-works" target="_blank" rel="noopener noreferrer">Arena · 평가 방식 ↗</a></li>
+            <li><a href="https://openrouter.ai/docs/quickstart" target="_blank" rel="noopener noreferrer">OpenRouter · API 가이드 ↗</a></li>
+            <li><a href="https://www.swebench.com/SWE-bench/faq/" target="_blank" rel="noopener noreferrer">SWE-bench · 공식 FAQ ↗</a></li>
+            <li><a href="https://aider.chat/docs/leaderboards/" target="_blank" rel="noopener noreferrer">Aider · 코드 편집 리더보드 ↗</a></li>
+          </ul>
+        </section>
+        <a class="news-end-link" href="./">AI가이드 목록으로 돌아가기 <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer class="footer">
+  <div class="wrap">헬로우 휴먼 · Workless Engineering Club</div>
+</footer>
+<script src="../assets/analytics.js?v=2" defer></script>
+</body>
+</html>

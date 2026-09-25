@@ -1,0 +1,51 @@
+/* AI가이드: 긴 실전 문서를 읽기 위한 보조 스타일 */
+.guide-article-header h1 { max-width: 880px; font-size: clamp(42px, 6.5vw, 68px); }
+.guide-article-header .news-deck { max-width: 800px; }
+.guide-toc { gap: 9px; }
+.guide-toc > span { margin-bottom: 8px; }
+.guide-toc a { display: flex; gap: 9px; align-items: baseline; }
+.guide-toc a span { flex: 0 0 22px; margin: 0; color: var(--accent); font-size: 11px; letter-spacing: 0; }
+.guide-story { font-size: 17px; line-height: 1.78; overflow-wrap: anywhere; }
+.guide-story p { margin: 0 0 21px; }
+.guide-intro { margin-bottom: 44px; padding-bottom: 38px; border-bottom: 1px solid var(--line); }
+.guide-intro > p:first-child { font-size: 21px; font-weight: 650; line-height: 1.55; }
+.guide-story blockquote { margin: 28px 0; padding: 17px 23px; border-left: 3px solid var(--accent); background: var(--surface-2); font-size: 19px; font-weight: 650; }
+.guide-story blockquote p { margin: 0; }
+.guide-section { padding-bottom: 54px; margin-bottom: 54px; border-bottom: 1px solid var(--line); scroll-margin-top: 84px; }
+.guide-section h2 { margin: 0 0 27px; font-size: clamp(29px, 4vw, 40px); line-height: 1.28; letter-spacing: -.035em; }
+.guide-section h3 { margin: 44px 0 17px; font-size: clamp(22px, 3vw, 28px); line-height: 1.35; letter-spacing: -.025em; }
+.guide-section h4 { margin: 32px 0 15px; font-size: 19px; line-height: 1.4; }
+.guide-section h5 { margin: 26px 0 11px; font-size: 16px; line-height: 1.4; }
+.guide-section ul, .guide-section ol { margin: 0 0 24px; padding-left: 24px; }
+.guide-section li { margin: 5px 0; padding-left: 4px; }
+.guide-section li::marker { color: var(--accent); }
+.guide-story pre { margin: 25px 0 29px; padding: 22px 24px; overflow-x: auto; border-radius: 10px; background: var(--term-bg); color: var(--term-ink); font-family: var(--mono); font-size: 13px; line-height: 1.75; white-space: pre; }
+.guide-story pre code { font: inherit; }
+.guide-story :not(pre) > code { padding: 2px 5px; border-radius: 4px; background: var(--surface-2); font-family: var(--mono); font-size: .85em; }
+.guide-story .guide-table-scroll { width: 100%; margin: 28px 0 31px; overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; }
+.guide-story table { width: 100%; min-width: 490px; border-collapse: collapse; font-size: 15px; line-height: 1.5; }
+.guide-story th, .guide-story td { padding: 11px 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.guide-story th { background: var(--surface-2); font-weight: 700; }
+.guide-story tr:last-child td { border-bottom: 0; }
+.guide-story td[align="right"], .guide-story th[align="right"] { text-align: right; }
+.guide-story a { color: var(--accent); }
+.guide-story a:hover { text-decoration-thickness: 2px; }
+.guide-resources { padding: 2px 0 0; }
+.guide-resources h2 { margin: 0 0 12px; font-size: 24px; }
+.guide-resources p { color: var(--muted); font-size: 15px; }
+.guide-resources ul { margin: 0; padding-left: 20px; font-size: 15px; }
+.guide-resources li { margin-bottom: 7px; }
+
+@media (max-width: 720px) {
+  .guide-toc { gap: 9px 16px; }
+  .guide-toc a { width: calc(50% - 8px); font-size: 13px; }
+}
+
+@media (max-width: 520px) {
+  .guide-story { font-size: 16px; }
+  .guide-intro > p:first-child { font-size: 19px; }
+  .guide-story blockquote { padding: 16px 18px; font-size: 17px; }
+  .guide-section { margin-bottom: 42px; padding-bottom: 42px; }
+  .guide-toc a { width: 100%; }
+  .guide-story pre { padding: 17px 18px; font-size: 12px; }
+}
