@@ -36,9 +36,50 @@
 .guide-resources ul { margin: 0; padding-left: 20px; font-size: 15px; }
 .guide-resources li { margin-bottom: 7px; }
 
+.guide-visual { margin: 30px 0 36px; padding: 25px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.guide-visual figcaption { display: grid; gap: 5px; margin-bottom: 20px; line-height: 1.4; }
+.guide-visual figcaption span { color: var(--accent); font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .08em; }
+.guide-visual figcaption strong { font-size: 18px; }
+.guide-visual .guide-visual-note { margin: 17px 0 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
+
+.guide-outcome-result { display: flex; align-items: baseline; gap: 9px; margin-bottom: 14px; font-size: 20px; font-weight: 750; }
+.guide-outcome-result span { color: var(--accent); }
+.guide-outcome ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 0; padding: 0; list-style: none; }
+.guide-outcome li { display: flex; align-items: center; gap: 8px; min-width: 0; margin: 0; padding: 12px 13px; border-radius: 8px; background: var(--surface-2); font-size: 14px; font-weight: 650; line-height: 1.35; }
+.guide-outcome li::before { content: "×"; color: var(--accent); font-family: var(--mono); font-size: 16px; }
+.guide-outcome li:first-child::before { content: "·"; }
+
+.guide-process ol { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin: 0; padding: 0; list-style: none; }
+.guide-process li { position: relative; min-width: 0; margin: 0; padding: 15px 11px 13px; border-radius: 9px; background: var(--surface-2); line-height: 1.4; }
+.guide-process li:not(:last-child)::after { position: absolute; top: 16px; right: -7px; z-index: 1; content: "→"; color: var(--accent); font-size: 15px; font-weight: 700; }
+.guide-process-no { display: block; margin-bottom: 9px; color: var(--accent); font-family: var(--mono); font-size: 12px; font-weight: 700; }
+.guide-process li strong { display: block; font-size: 15px; }
+.guide-process li small { display: block; margin-top: 5px; color: var(--muted); font-size: 12px; }
+
+.guide-weight-row { display: grid; grid-template-columns: minmax(105px, 1.05fr) minmax(0, 2fr) 42px; align-items: center; gap: 12px; margin: 10px 0; font-size: 14px; line-height: 1.35; }
+.guide-weight-row > span { min-width: 0; }
+.guide-weight-row strong { text-align: right; font-family: var(--mono); font-size: 13px; }
+.guide-weight-track { height: 9px; overflow: hidden; border-radius: 20px; background: var(--surface-2); }
+.guide-weight-track i { display: block; height: 100%; border-radius: inherit; background: var(--accent); }
+
+.guide-cost-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.guide-cost-card { padding: 18px 19px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface-2); }
+.guide-cost-card.is-success { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, var(--surface)); }
+.guide-cost-card > div { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: 14px; }
+.guide-cost-card > div strong { font-family: var(--mono); font-size: 16px; white-space: nowrap; }
+.guide-cost-card p { margin: 15px 0 13px; color: var(--muted); font-size: 14px; line-height: 1.55; }
+.guide-cost-result { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: 700; }
+.guide-cost-result.is-fail { color: var(--muted); background: var(--surface); }
+.guide-cost-result.is-pass { color: var(--accent); background: var(--surface); }
+
 @media (max-width: 720px) {
   .guide-toc { gap: 9px 16px; }
   .guide-toc a { width: calc(50% - 8px); font-size: 13px; }
+  .guide-process ol { grid-template-columns: 1fr; }
+  .guide-process li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 2px 7px; padding: 12px 14px; }
+  .guide-process-no { grid-row: span 2; align-self: center; margin: 0; }
+  .guide-process li small { margin: 0; }
+  .guide-process li:not(:last-child)::after { top: auto; right: auto; bottom: -11px; left: 17px; content: "↓"; }
 }
 
 @media (max-width: 520px) {
@@ -48,4 +89,11 @@
   .guide-section { margin-bottom: 42px; padding-bottom: 42px; }
   .guide-toc a { width: 100%; }
   .guide-story pre { padding: 17px 18px; font-size: 12px; }
+  .guide-visual { padding: 20px 17px; }
+  .guide-visual figcaption strong { font-size: 16px; }
+  .guide-outcome ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .guide-outcome li { padding: 11px; font-size: 13px; }
+  .guide-weight-row { grid-template-columns: 1fr auto; gap: 5px 10px; margin: 13px 0; }
+  .guide-weight-track { grid-column: 1 / -1; grid-row: 2; }
+  .guide-cost-cards { grid-template-columns: 1fr; }
 }

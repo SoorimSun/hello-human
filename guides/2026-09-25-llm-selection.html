@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="../assets/style.css?v=3">
 <link rel="stylesheet" href="../assets/news.css?v=1">
-<link rel="stylesheet" href="../assets/guide.css?v=1">
+<link rel="stylesheet" href="../assets/guide.css?v=2">
 </head>
 <body>
 <header class="topbar">
@@ -67,14 +67,19 @@
 <p>최고의 LLM은 없다. 우리 업무에 맞는 모델, 도구, 검증 방식의 조합이 있을 뿐이다.</p>
 </blockquote>
 <p>LLM 활용 성과는 모델 하나로 결정되지 않습니다.</p>
-<pre><code class="language-text">업무 성과
-= 모델
-× 코딩 도구
-× 프롬프트
-× 제공한 문맥
-× 테스트 환경
-× 검증 방식
-</code></pre>
+<figure class="guide-visual guide-outcome" aria-labelledby="guide-outcome-title">
+  <figcaption id="guide-outcome-title"><span>WORK OUTCOME</span><strong>업무 성과는 여섯 요소의 조합으로 달라집니다</strong></figcaption>
+  <div class="guide-outcome-result">업무 성과 <span aria-hidden="true">=</span></div>
+  <ul aria-label="업무 성과에 영향을 주는 요소">
+    <li>모델</li>
+    <li>코딩 도구</li>
+    <li>프롬프트</li>
+    <li>제공한 문맥</li>
+    <li>테스트 환경</li>
+    <li>검증 방식</li>
+  </ul>
+  <p class="guide-visual-note">한 요소만 바뀌어도 실제 작업 결과는 달라질 수 있습니다.</p>
+</figure>
 <p>예를 들어 같은 모델을 사용해도 다음 환경에 따라 결과가 달라집니다.</p>
 <ul>
 <li>웹 채팅에서 질문하기</li>
@@ -343,6 +348,16 @@ JSON 형식으로 응답 저장
 </section>
 <section class="guide-section" id="step-4" aria-labelledby="step-4-heading">
 <h2 id="step-4-heading">4. 우리 업무에 맞는 모델 선택 절차</h2>
+<figure class="guide-visual guide-process" aria-labelledby="guide-process-title">
+  <figcaption id="guide-process-title"><span>SELECTION FLOW</span><strong>모델 이름보다 먼저, 같은 조건의 실험을 설계합니다</strong></figcaption>
+  <ol>
+    <li><span class="guide-process-no">01</span><strong>작업 정의</strong><small>맡길 일을 한 문장으로</small></li>
+    <li><span class="guide-process-no">02</span><strong>완료 조건</strong><small>성공 기준을 먼저 고정</small></li>
+    <li><span class="guide-process-no">03</span><strong>후보 선정</strong><small>성능·비용별 3개</small></li>
+    <li><span class="guide-process-no">04</span><strong>실제 문제</strong><small>익명화한 업무 사례</small></li>
+    <li><span class="guide-process-no">05</span><strong>동일 조건 실행</strong><small>테스트·시간·비용 기록</small></li>
+  </ol>
+</figure>
 <h3>1단계. 작업을 한 문장으로 정의한다</h3>
 <p>나쁜 정의는 다음과 같습니다.</p>
 <pre><code class="language-text">코딩을 잘하는 모델을 찾는다.
@@ -471,6 +486,17 @@ JUnit 회귀 테스트까지 작성하는 모델을 찾는다.
 <td align="right">5%</td>
 </tr>
 </tbody></table></div>
+<figure class="guide-visual guide-weights" aria-labelledby="guide-weights-title">
+  <figcaption id="guide-weights-title"><span>EXAMPLE WEIGHTS</span><strong>테스트 통과율을 가장 크게, 업무 이해도 함께 봅니다</strong></figcaption>
+  <div class="guide-weight-row"><span>테스트 통과율</span><div class="guide-weight-track" aria-hidden="true"><i style="width: 100%"></i></div><strong>30%</strong></div>
+  <div class="guide-weight-row"><span>요구사항 충족</span><div class="guide-weight-track" aria-hidden="true"><i style="width: 66.67%"></i></div><strong>20%</strong></div>
+  <div class="guide-weight-row"><span>업무 규칙 이해</span><div class="guide-weight-track" aria-hidden="true"><i style="width: 50%"></i></div><strong>15%</strong></div>
+  <div class="guide-weight-row"><span>회귀 위험</span><div class="guide-weight-track" aria-hidden="true"><i style="width: 50%"></i></div><strong>15%</strong></div>
+  <div class="guide-weight-row"><span>검토·수정 시간</span><div class="guide-weight-track" aria-hidden="true"><i style="width: 33.33%"></i></div><strong>10%</strong></div>
+  <div class="guide-weight-row"><span>비용</span><div class="guide-weight-track" aria-hidden="true"><i style="width: 16.67%"></i></div><strong>5%</strong></div>
+  <div class="guide-weight-row"><span>실행 시간</span><div class="guide-weight-track" aria-hidden="true"><i style="width: 16.67%"></i></div><strong>5%</strong></div>
+  <p class="guide-visual-note">가장 큰 항목(30%)을 막대의 전체 길이로 표시한 상대 비교입니다. 비중은 팀에 맞게 조정할 수 있습니다.</p>
+</figure>
 <p>여기서 가장 중요한 것은 테스트 통과와 업무 규칙입니다.</p>
 <p>코드가 컴파일된다고 주문 금액이 맞는 것은 아닙니다.</p>
 <p>화면이 정상적으로 열린다고 쿠폰 분담과 정산 처리가 맞는 것도 아닙니다.</p>
@@ -510,6 +536,22 @@ JUnit 회귀 테스트까지 작성하는 모델을 찾는다.
 <td align="right">성공</td>
 </tr>
 </tbody></table></div>
+<figure class="guide-visual guide-cost" aria-labelledby="guide-cost-title">
+  <figcaption id="guide-cost-title"><span>COST PER SUCCESS</span><strong>호출 가격보다 결과를 끝내는 비용을 봅니다</strong></figcaption>
+  <div class="guide-cost-cards">
+    <div class="guide-cost-card">
+      <div><span>모델 A</span><strong>API 100원</strong></div>
+      <p>사람의 수정 30분<br>재실행 2회</p>
+      <span class="guide-cost-result is-fail">테스트 실패</span>
+    </div>
+    <div class="guide-cost-card is-success">
+      <div><span>모델 B</span><strong>API 800원</strong></div>
+      <p>사람의 수정 5분<br>재실행 0회</p>
+      <span class="guide-cost-result is-pass">테스트 통과</span>
+    </div>
+  </div>
+  <p class="guide-visual-note">가상의 비교 예시입니다. 성공 1건당 비용에는 사람의 검토·수정 시간과 재실행도 포함합니다.</p>
+</figure>
 <p>모델 A는 호출 비용이 저렴합니다.</p>
 <p>그러나 사람이 다시 분석하고 수정해야 합니다. 결국 더 비싼 모델이 될 수 있습니다.</p>
 <p>우리가 계산해야 할 것은 다음입니다.</p>
