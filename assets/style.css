@@ -821,9 +821,14 @@ h3 {
   .season { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 1080px) {
   .nav { display: none; }
   .mobile-news-link { display: inline-block; font-size: 14px; font-weight: 700; color: var(--accent); text-decoration: none; }
+}
+
+@media (max-width: 720px) {
+  .topbar-inner:has(.mobile-news-link) { height: auto; min-height: 56px; padding: 10px 0; justify-content: flex-start; flex-wrap: wrap; gap: 8px 16px; }
+  .topbar-inner:has(.mobile-news-link) .logo { flex-basis: 100%; }
 
   .stages { grid-template-columns: 1fr; gap: 24px; }
   .stages li { display: flex; align-items: baseline; gap: 14px; padding: 14px 16px; }

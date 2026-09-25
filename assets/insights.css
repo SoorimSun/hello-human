@@ -1,0 +1,54 @@
+/* 커머스 인사이트: 기존 긴 글 레이아웃에 제품 설계 시각화 추가 */
+.insight-article-header h1 { max-width: 980px; }
+.insight-article-header .news-deck { max-width: 850px; }
+.insight-toc { gap: 7px; }
+.insight-toc a { font-size: 13px; }
+.insight-story { max-width: 810px; }
+.insight-story .guide-intro { margin-top: 34px; }
+.insight-story .guide-intro > p:first-child { font-size: 19px; }
+.insight-story .guide-intro blockquote:first-of-type { font-size: 21px; }
+.insight-note { padding: 19px 22px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); font-size: 14px; }
+.insight-note strong { display: block; margin-bottom: 5px; color: var(--accent); }
+.insight-note p { margin: 0; color: var(--muted); line-height: 1.65; }
+.insight-section h3 { padding-top: 4px; }
+.insight-section .source-link { font-size: 13px; font-weight: 650; text-decoration: none; white-space: nowrap; }
+.insight-section .source-link:hover { text-decoration: underline; }
+.insight-section > blockquote { font-weight: 650; }
+.insight-code { font-size: 12px; }
+.insight-visual { margin: 34px 0 40px; padding: 26px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.insight-visual figcaption { display: grid; gap: 5px; margin-bottom: 21px; line-height: 1.4; }
+.insight-visual figcaption span { color: var(--accent); font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .08em; }
+.insight-visual figcaption strong { font-size: 18px; }
+.insight-layers ol { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.insight-layers li { display: grid; grid-template-columns: 30px minmax(110px, .7fr) minmax(0, 1fr); align-items: center; gap: 10px; margin: 0; padding: 12px 16px; border-radius: 8px; background: var(--surface-2); }
+.insight-layers li b { color: var(--accent); font-family: var(--mono); font-size: 12px; }
+.insight-layers li strong { font-size: 15px; }
+.insight-layers li span { color: var(--muted); font-size: 13px; }
+.insight-offer-equation { display: grid; grid-template-columns: minmax(0, 1fr) 24px minmax(0, 1fr); align-items: center; gap: 12px; }
+.insight-offer-equation > div { display: grid; gap: 8px; min-height: 130px; padding: 18px 20px; border-radius: 9px; background: var(--surface-2); }
+.insight-offer-equation > b { color: var(--accent); font-family: var(--mono); font-size: 24px; text-align: center; }
+.insight-offer-equation small { color: var(--accent); font-family: var(--mono); font-size: 11px; font-weight: 700; }
+.insight-offer-equation strong { font-size: 18px; }
+.insight-offer-equation span { color: var(--muted); font-size: 13px; }
+.insight-roadmap ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 0; padding: 0; list-style: none; }
+.insight-roadmap li { display: grid; gap: 7px; margin: 0; padding: 16px; border-radius: 9px; background: var(--surface-2); }
+.insight-roadmap li > span { color: var(--accent); font-family: var(--mono); font-size: 12px; font-weight: 700; }
+.insight-roadmap strong { font-size: 15px; line-height: 1.3; }
+.insight-roadmap small { color: var(--muted); font-size: 12px; }
+.insight-resources { padding-bottom: 20px; }
+
+@media (max-width: 720px) {
+  .insight-toc a { width: calc(50% - 8px); }
+  .insight-story .guide-intro { margin-top: 0; }
+}
+@media (max-width: 520px) {
+  .insight-note { padding: 16px 18px; }
+  .insight-visual { padding: 20px 17px; }
+  .insight-layers li { grid-template-columns: 24px 1fr; gap: 3px 10px; }
+  .insight-layers li span { grid-column: 2; }
+  .insight-offer-equation { grid-template-columns: 1fr; gap: 5px; }
+  .insight-offer-equation > div { min-height: 0; }
+  .insight-offer-equation > b { line-height: 1; }
+  .insight-roadmap ol { grid-template-columns: 1fr; }
+  .insight-toc a { width: 100%; }
+}

@@ -132,7 +132,10 @@
 }
 
 @media (max-width: 520px) {
-  .news-nav { gap: 12px; font-size: 13px; }
+  .topbar-inner:has(.news-nav) { height: auto; min-height: 56px; padding: 10px 0; flex-wrap: wrap; gap: 7px; }
+  .topbar-inner:has(.news-nav) .logo { flex-basis: 100%; }
+  .news-nav { width: 100%; justify-content: space-between; gap: 8px; font-size: 13px; }
+  .news-story-section, .news-story .guide-section { scroll-margin-top: 108px; }
   .news-article-header h1 br { display: none; }
   .news-issue { grid-template-columns: 30px minmax(0, 1fr); gap: 12px; padding: 26px 0; }
   .news-issue-arrow { display: none; }

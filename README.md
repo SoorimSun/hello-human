@@ -44,13 +44,16 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `news/2026-09-25-ai-agents.html` | AI뉴스 첫 호 |
 | `guides/index.html` | AI가이드 목록 |
 | `guides/2026-09-25-llm-selection.html` | AI가이드 첫 호 |
+| `insights/index.html` | 커머스 인사이트 목록 |
+| `insights/2026-09-25-agentic-commerce.html` | 커머스 인사이트 첫 호 |
 | `works/choi-taejun.html` | 회원 최태준의 작업물 소개 |
 | `works/sun-soorim.html` | 회원 선수림의 모델별 웹 제작 실험 소개 |
 | `assets/style.css` | 공통 스타일 |
 | `assets/news.css` | AI뉴스 목록·기사 스타일 |
 | `assets/news/` | AI뉴스 기사 삽화와 출처가 표시된 제품 발표 이미지 |
 | `assets/guide.css` | AI가이드 본문 스타일 |
-| `assets/article-toc.js` | AI뉴스·AI가이드 스크롤 위치에 맞춘 목차 표시 |
+| `assets/insights.css` | 커머스 인사이트 시각화 스타일 |
+| `assets/article-toc.js` | AI뉴스·AI가이드·커머스 인사이트 스크롤 위치에 맞춘 목차 표시 |
 | `assets/showcase.css` | 회원 작업물 페이지와 기본 페이지 소개 카드 스타일 |
 | `assets/benchmark.css` | 모델별 실험 갤러리 스타일 |
 | `assets/benchmarks/` | 배포된 실험 페이지의 미리보기 이미지 |
@@ -75,6 +78,15 @@ AI가이드는 발행 주기를 정하지 않고, 실제 업무에 적용할 만
 2. 공개 저장소에 올릴 수 없는 회사명, 내부 시스템 이름·URL, 실제 로그·코드·데이터는 일반화하거나 익명화합니다. 외부 서비스의 기능 설명과 평가 수치는 공식 자료를 확인하고 링크합니다.
 3. `guides/index.html`의 목록 맨 위에 새 가이드를 추가하고 개수를 갱신합니다. `index.html`의 `#ai-guides` 카드도 최신 글로 바꿉니다.
 4. 로컬에서 목록·본문·홈 링크와 모바일 화면을 확인한 뒤 배포합니다. CSS를 바꾸면 이를 불러오는 페이지의 `?v=` 값도 올립니다.
+
+## 커머스 인사이트 발행하기
+
+커머스 인사이트는 AI를 커머스 제품에 적용할 때의 기회와 설계를 비정기적으로 살펴봅니다.
+
+1. `insights/2026-09-25-agentic-commerce.html`을 참고해 `insights/YYYY-MM-DD-주제.html`을 만듭니다. 제목·부제·날짜·호수와 내용을 바꾸고 `noindex` 메타 태그를 유지합니다. 목차 링크와 본문 절의 `id`를 맞추고 `article-toc.js`를 유지합니다.
+2. 발표된 기능과 표준의 설계안, 헬로우 휴먼의 제품 제안을 구분합니다. 기능·수치·규격은 공식 자료를 확인하고 본문 가까이에 링크합니다. 공개 저장소에 올릴 수 없는 회사명, 내부 시스템과 실제 데이터는 일반화합니다.
+3. `insights/index.html`의 목록 맨 위에 새 글을 추가하고 개수를 갱신합니다. `index.html`의 `#commerce-insights` 카드도 최신 글로 바꿉니다.
+4. 로컬에서 홈·목록·본문 링크와 모바일 화면을 확인한 뒤 배포합니다. CSS를 바꾸면 이를 불러오는 페이지의 `?v=` 값도 올립니다.
 
 ## 모델별 웹 제작 실험 갤러리
 
