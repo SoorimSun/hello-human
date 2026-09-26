@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="../assets/style.css?v=4">
 <link rel="stylesheet" href="../assets/news.css?v=4">
+<link rel="stylesheet" href="../assets/news-sections.css?v=1">
 </head>
 <body>
 <header class="topbar">
@@ -31,7 +32,7 @@
     <p class="news-kicker">HELLO, HUMAN! / AI NEWS</p>
     <h1>AI뉴스</h1>
     <p class="news-list-lead">새로운 소식을 우리가 하는 일과 연결해 봅니다.</p>
-    <p>눈여겨볼 만한 이야기가 생길 때 비정기적으로 발행합니다. 무엇이 발표됐고, 무엇은 아직 기업의 주장인지, 그래서 우리가 생각해볼 점은 무엇인지 나눠 읽습니다.</p>
+    <p>빠르게 전하는 속보·단신과, 발표 내용과 맥락을 함께 살펴보는 일반 뉴스를 비정기적으로 발행합니다. 무엇이 발표됐고, 무엇은 아직 기업의 주장인지, 그래서 우리가 생각해볼 점은 무엇인지 나눠 읽습니다.</p>
   </section>
 
   <section class="news-list-section wrap" aria-labelledby="news-list-heading">
@@ -39,30 +40,44 @@
       <h2 id="news-list-heading">발행한 뉴스</h2>
       <span>총 2편</span>
     </div>
-    <ol class="news-issues">
-      <li>
-        <a class="news-issue" href="2026-09-26-openai-government-sites.html">
-          <span class="news-issue-number">02</span>
-          <span class="news-issue-main">
-            <span class="news-issue-meta"><time datetime="2026-09-26">2026. 09. 26</time> · AI 속보 / 에이전트 / 안전</span>
-            <strong>[AI 속보] OpenAI 에이전트, 미 정부 사이트서 예상 밖 행동</strong>
-            <span>공개 데이터 접근과 실패한 침입 시도, 조사 중인 내용을 구분해 읽는 단신</span>
-          </span>
-          <span class="news-issue-arrow" aria-hidden="true">↗</span>
-        </a>
-      </li>
-      <li>
-        <a class="news-issue" href="2026-09-25-ai-agents.html">
-          <span class="news-issue-number">01</span>
-          <span class="news-issue-main">
-            <span class="news-issue-meta"><time datetime="2026-09-25">2026. 09. 25</time> · 에이전트 / 안전 / 연구</span>
-            <strong>Meta Muse가 보여준 개인 AI 에이전트 전쟁</strong>
-            <span>모델 경쟁을 넘어, 실행 환경·하드웨어·보안까지 묶는 에이전트 플랫폼 경쟁</span>
-          </span>
-          <span class="news-issue-arrow" aria-hidden="true">↗</span>
-        </a>
-      </li>
-    </ol>
+    <section class="news-list-group" id="regular-news" aria-labelledby="regular-news-heading">
+      <div class="news-list-group-heading">
+        <h3 id="regular-news-heading">일반 뉴스</h3>
+        <span>1편 · ISSUE</span>
+      </div>
+      <ol class="news-issues">
+        <li>
+          <a class="news-issue" href="2026-09-25-ai-agents.html">
+            <span class="news-issue-number">01</span>
+            <span class="news-issue-main">
+              <span class="news-issue-meta"><time datetime="2026-09-25">2026. 09. 25</time> · 뉴스 01 / 에이전트 / 안전 / 연구</span>
+              <strong>Meta Muse가 보여준 개인 AI 에이전트 전쟁</strong>
+              <span>모델 경쟁을 넘어, 실행 환경·하드웨어·보안까지 묶는 에이전트 플랫폼 경쟁</span>
+            </span>
+            <span class="news-issue-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+      </ol>
+    </section>
+    <section class="news-list-group news-list-briefs" id="briefs" aria-labelledby="briefs-heading">
+      <div class="news-list-group-heading">
+        <h3 id="briefs-heading">속보·단신</h3>
+        <span>1편 · BRIEF</span>
+      </div>
+      <ol class="news-issues">
+        <li>
+          <a class="news-issue" href="2026-09-26-openai-government-sites.html">
+            <span class="news-issue-number">01</span>
+            <span class="news-issue-main">
+              <span class="news-issue-meta"><time datetime="2026-09-26">2026. 09. 26</time> · 단신 01 / 에이전트 / 안전</span>
+              <strong>OpenAI 에이전트, 미 정부 사이트서 예상 밖 행동</strong>
+              <span>공개 데이터 접근과 실패한 침입 시도, 조사 중인 내용을 구분해 읽는 단신</span>
+            </span>
+            <span class="news-issue-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+      </ol>
+    </section>
   </section>
 </main>
 

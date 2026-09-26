@@ -1,0 +1,25 @@
+/* 홈페이지와 뉴스 목록에서 일반 뉴스와 속보·단신을 구분합니다. */
+.news-home-flash { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 16px; max-width: 720px; margin-top: 30px; padding: 19px 22px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface-2); text-decoration: none; }
+.news-home-flash:hover, .news-home-flash:focus-visible { border-color: var(--ink); }
+.news-home-flash-label { align-self: start; margin-top: 2px; padding: 3px 9px; border-radius: 4px; background: var(--ink); color: var(--bg); font-size: 12px; font-weight: 700; white-space: nowrap; }
+.news-home-flash-main { display: grid; gap: 5px; min-width: 0; }
+.news-home-flash-main strong { font-size: 17px; line-height: 1.5; letter-spacing: -.02em; }
+.news-home-flash-main .news-home-meta { font-size: 12px; }
+.news-home-flash-arrow { font-size: 22px; }
+.news-home-issue-label { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; max-width: 720px; margin-top: 28px; }
+.news-home-issue-label h3 { margin: 0; font-size: 16px; font-weight: 700; }
+.news-home-issue-label a { color: var(--muted); font-size: 13px; text-underline-offset: 4px; }
+#ai-news .news-home-feature { margin-top: 12px; }
+.news-list-group { margin-top: 38px; scroll-margin-top: 90px; }
+.news-list-group-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.news-list-group-heading h3 { margin: 0; font-size: 22px; letter-spacing: -.02em; }
+.news-list-group-heading > span { color: var(--muted); font-family: var(--mono); font-size: 12px; white-space: nowrap; }
+.news-list-briefs .news-issue { padding: 24px 0; }
+.news-list-briefs .news-issue-main strong { font-size: clamp(20px, 2.5vw, 25px); }
+@media (max-width: 520px) {
+  .news-home-flash { grid-template-columns: minmax(0, 1fr) auto; gap: 10px 14px; padding: 18px; }
+  .news-home-flash-label { grid-column: 1 / -1; justify-self: start; margin-top: 0; }
+  .news-home-flash-main strong { font-size: 16px; }
+  .news-list-group { margin-top: 30px; scroll-margin-top: 115px; }
+  .news-list-group-heading h3 { font-size: 20px; }
+}
