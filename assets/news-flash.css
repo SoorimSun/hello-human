@@ -1,0 +1,33 @@
+/* AI 속보: 단신의 본문과 출처를 한 열로 읽는 레이아웃 */
+.news-flash .wrap { max-width: 800px; }
+.news-flash-header { padding-bottom: 32px; }
+.news-flash-header .news-back { margin-bottom: 36px; }
+.news-flash-header .news-kicker { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.news-flash-header .news-flash-badge { padding: 5px 11px; border: 1px solid var(--ink); border-radius: 5px; background: var(--ink); color: var(--bg); font-family: var(--sans); font-size: 13px; letter-spacing: 0; }
+.news-flash-header h1 { font-size: clamp(36px, 5.5vw, 58px); line-height: 1.2; }
+.news-flash-header .news-deck { font-size: clamp(18px, 2.5vw, 21px); }
+.news-flash-shell { padding-top: 32px; padding-bottom: 90px; border-top: 1px solid var(--line); }
+.news-flash-shell > p { margin: 0 0 24px; font-size: 18px; line-height: 1.8; }
+.news-flash-distinction { margin: 30px 0; padding: 25px 27px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 10px; background: var(--accent-soft); }
+.news-flash-distinction .news-section-label { font-family: var(--sans); letter-spacing: 0; }
+.news-flash-distinction h2 { margin: 8px 0 13px; font-size: clamp(21px, 3vw, 26px); line-height: 1.4; letter-spacing: -.025em; }
+.news-flash-distinction > p:last-child { margin: 0; line-height: 1.75; }
+.news-flash-sources { margin-top: 36px; padding-top: 30px; border-top: 1px solid var(--line); }
+.news-flash-sources h2 { margin: 0 0 17px; font-size: 23px; }
+.news-flash-original { display: grid; gap: 10px; padding: 24px 26px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); text-decoration: none; }
+.news-flash-original:hover, .news-flash-original:focus-visible { border-color: var(--ink); }
+.news-flash-original > span:first-child { color: var(--muted); font-family: var(--mono); font-size: 11px; letter-spacing: .04em; }
+.news-flash-original strong { font-size: 20px; line-height: 1.5; }
+.news-flash-original-cta { font-size: 14px; font-weight: 700; }
+.news-flash-sources ul { margin: 22px 0; padding-left: 20px; font-size: 14px; }
+.news-flash-sources li { margin-bottom: 9px; }
+.news-flash-sources li > span, .news-flash-verification { color: var(--muted); }
+.news-flash-verification { font-size: 13px; line-height: 1.75; }
+@media (max-width: 520px) {
+  .news-flash-header .news-back { margin-bottom: 30px; }
+  .news-flash-shell { padding-top: 26px; padding-bottom: 60px; }
+  .news-flash-shell > p { font-size: 17px; }
+  .news-flash-distinction { padding: 21px 20px; }
+  .news-flash-original { padding: 21px 20px; }
+  .news-flash-original strong { font-size: 18px; }
+}
