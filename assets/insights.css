@@ -51,6 +51,26 @@
 .insight-roadmap li > span { color: var(--accent); font-family: var(--mono); font-size: 12px; font-weight: 700; }
 .insight-roadmap strong { font-size: 15px; line-height: 1.3; }
 .insight-roadmap small { color: var(--muted); font-size: 12px; }
+.insight-foundations { margin: 32px 0 36px; }
+.insight-foundations figcaption { display: grid; gap: 6px; margin-bottom: 18px; line-height: 1.5; }
+.insight-foundations figcaption > span { color: var(--muted); font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .08em; }
+.insight-foundations figcaption > strong { font-size: 18px; }
+.insight-foundation-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.insight-foundation-card { min-width: 0; padding: 20px 18px; border: 1px solid var(--line); border-top: 3px solid var(--ink); border-radius: 10px; background: var(--surface); }
+.insight-foundation-mark { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: var(--muted); }
+.insight-foundation-mark span { font-family: var(--mono); font-size: 12px; font-weight: 700; }
+.insight-foundation-mark svg { width: 26px; height: 26px; }
+.insight-foundations h3 { margin: 19px 0 13px; padding: 0; font-size: 20px; line-height: 1.35; letter-spacing: -.025em; }
+.insight-foundations ul { display: grid; gap: 11px; margin: 0; padding: 0; list-style: none; }
+.insight-foundations li { position: relative; margin: 0; padding: 0 0 0 12px; color: var(--muted); font-size: 14px; line-height: 1.65; }
+.insight-foundations li::before { content: ""; position: absolute; top: .7em; left: 0; width: 4px; height: 4px; border-radius: 50%; background: var(--muted); }
+.insight-section .insight-readiness { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 30px 0; padding: 0; list-style: none; }
+.insight-readiness li { min-width: 0; margin: 0; padding: 19px 20px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface-2); }
+.insight-readiness li > span { display: inline-block; margin-bottom: 10px; padding: 2px 9px; border: 1px solid var(--line); border-radius: 5px; background: var(--surface); font-size: 12px; font-weight: 700; }
+.insight-readiness li p { margin: 0; font-size: 16px; line-height: 1.65; }
+.insight-closing-summary { padding: 27px 30px 30px; border: 1px solid var(--accent); border-left: 4px solid var(--accent); border-radius: 10px; background: var(--accent-soft); }
+.insight-closing-summary p:first-child { margin: 0 0 13px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+.insight-closing-summary p:last-child { margin: 0; color: var(--accent); font-size: clamp(21px, 3vw, 28px); line-height: 1.55; letter-spacing: -.025em; }
 .insight-resources { padding-bottom: 20px; }
 
 @media (max-width: 720px) {
@@ -58,6 +78,12 @@
   .insight-story .guide-intro { margin-top: 0; }
 }
 @media (max-width: 520px) {
+  .insight-foundation-grid, .insight-section .insight-readiness { grid-template-columns: 1fr; }
+  .insight-foundation-card { padding: 18px 20px; }
+  .insight-foundations h3 { margin-top: 12px; }
+  .insight-foundations ul { gap: 8px; }
+  .insight-readiness li { padding: 17px 20px; }
+  .insight-closing-summary { padding: 22px 20px; }
   .insight-journey { scroll-margin-top: 108px; }
   .insight-note { padding: 16px 18px; }
   .insight-visual { padding: 20px 17px; }
