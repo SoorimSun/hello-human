@@ -8,7 +8,7 @@
 .case-home-copy > span:not([class]) { color: var(--muted); font-size: 15px; line-height: 1.6; }
 .case-home-feature:hover, .case-home-feature:focus-visible { border-color: var(--accent); }
 .case-list-card { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 32px; margin-top: 26px; padding-bottom: 34px; border-bottom: 1px solid var(--line); text-decoration: none; }
-.case-list-card img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 10px; }
+.case-list-card img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; align-self: center; object-fit: cover; border-radius: 10px; }
 .case-list-card .news-issue-main { align-content: center; }
 .case-list-card .news-home-cta { margin-top: 8px; }
 .case-list-card:hover .news-home-cta { color: var(--ink); }
