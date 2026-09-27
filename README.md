@@ -42,6 +42,8 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `index.html` | 소개 페이지 (사이트 첫 화면) |
 | `news/index.html` | AI뉴스 목록 |
 | `news/2026-09-25-ai-agents.html` | AI뉴스 첫 호 |
+| `case-studies/index.html` | AI 사례연구 소개와 목록 |
+| `case-studies/2026-09-27-tidewater.html` | AI 사례연구 첫 호: Tidewater |
 | `guides/index.html` | AI가이드 목록 |
 | `guides/2026-09-25-llm-selection.html` | AI가이드 첫 호 |
 | `insights/index.html` | 커머스 인사이트 목록 |
@@ -53,8 +55,10 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `assets/news-sections.css` | 홈페이지의 속보 띠·일반 뉴스 카드와 뉴스 목록의 유형별 구분 스타일 |
 | `assets/news/` | AI뉴스 기사 삽화와 출처가 표시된 제품 발표 이미지 |
 | `assets/guide.css` | AI가이드 본문 스타일 |
+| `assets/case-studies.css` | AI 사례연구 소개 카드·목록·본문 시각화 스타일 |
+| `assets/case-studies/` | 실제 게임 캡처와 출처가 표시된 사례 이미지 |
 | `assets/insights.css` | 커머스 인사이트 시각화 스타일 |
-| `assets/article-toc.js` | AI뉴스·AI가이드·커머스 인사이트 스크롤 위치에 맞춘 목차 표시 |
+| `assets/article-toc.js` | AI뉴스·AI 사례연구·AI가이드·커머스 인사이트 스크롤 위치에 맞춘 목차 표시 |
 | `assets/showcase.css` | 회원 작업물 페이지와 기본 페이지 소개 카드 스타일 |
 | `assets/benchmark.css` | 모델별 실험 갤러리 스타일 |
 | `assets/benchmarks/` | 배포된 실험 페이지의 미리보기 이미지 |
@@ -70,6 +74,16 @@ AI뉴스는 발행 주기를 정하지 않고, 새 소식이 있을 때 정적 H
 2. 공식 발표와 원문 링크를 기사 안에 넣고, 발표 사실·기업 자체 평가·우리의 해석을 구분합니다. 출시 예정이나 진행 중인 사건은 확인 날짜를 적습니다.
 3. `news/index.html`의 해당 유형(일반 뉴스 또는 속보·단신) 목록 맨 위에 새 글을 추가하고, 유형별 편수와 전체 편수를 갱신합니다. 일반 뉴스는 `ISSUE`, 속보·단신은 `BRIEF` 번호를 각각 이어갑니다. 홈페이지 `index.html`의 `#ai-news`에서는 속보 띠와 일반 뉴스 카드를 각각 해당 유형의 최신 글로 갱신합니다.
 4. 로컬에서 목록·기사·홈 링크와 모바일 화면을 확인한 뒤 배포합니다. `assets/style.css`, `assets/news.css`, `assets/news-sections.css`를 바꾸면 이를 불러오는 페이지의 `?v=` 값도 올립니다.
+
+## AI 사례연구 발행하기
+
+AI 사례연구는 공개된 AI 결과물과 구현 과정을 살펴보고, 확인 범위와 우리 실험에 가져갈 교훈을 비정기적으로 발행합니다.
+
+1. `case-studies/2026-09-27-tidewater.html`을 참고해 `case-studies/YYYY-MM-DD-주제.html`을 만듭니다. 제목·부제·날짜·사례 번호를 바꾸고 `noindex` 메타 태그를 유지합니다. 목차 링크와 본문 절의 `id`를 맞추고 `article-toc.js`를 유지합니다.
+2. 직접 체험한 내용, 공개 코드·문서에서 확인한 사실, 제작자 주장과 우리의 해석을 구분합니다. 성능을 재측정하지 않았다면 제작자 기록임을 적고, 코드·변경 기록은 가능하면 확인 당시 커밋으로 연결합니다.
+3. 결과물 사이트와 공개 소스 링크를 넣습니다. 본문에 실제 화면이나 영상을 배치하고 원작·출처·캡처 날짜를 표기합니다. 이미지는 `assets/case-studies/`에 저장하고 해당 폴더의 `README.md`에 출처를 남깁니다.
+4. `case-studies/index.html`의 목록 맨 위에 새 글을 추가하고 편수를 갱신합니다. 홈페이지 `index.html`의 `#ai-case-studies` 카드도 최신 글로 바꿉니다.
+5. 홈·목록·본문·결과물 링크와 모바일 화면을 확인한 뒤 배포합니다. `assets/case-studies.css`를 바꾸면 이를 불러오는 페이지의 `?v=` 값도 올립니다.
 
 ## AI가이드 발행하기
 
