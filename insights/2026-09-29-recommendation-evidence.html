@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive">
-<title>AI가 추천해도, 인기 상품이 정답은 아니다 · 커머스 인사이트 · 헬로우 휴먼</title>
-<meta name="description" content="커머스 랭킹의 경제학에서 찾는 추천 근거의 제품 기회. 인기와 고객 적합성을 구분하고, AI 추천을 통과·위반·확인 불가로 점검하는 설계를 제안합니다.">
+<title>AI 에이전트의 추천, 고객의 조건에 맞을까? · 커머스 인사이트 · 헬로우 휴먼</title>
+<meta name="description" content="AI 에이전트의 추천이 고객의 조건에 맞는지 확인하려면 무엇이 필요할까요? 가격·수량·호환성을 확인하고, 통과·위반·확인 불가로 구분하는 추천 근거 검사기 설계를 제안합니다.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,8 +14,9 @@
 <link rel="stylesheet" href="../assets/news.css?v=9">
 <link rel="stylesheet" href="../assets/guide.css?v=4">
 <link rel="stylesheet" href="../assets/insights.css?v=3">
+<link rel="stylesheet" href="../assets/insight-evidence.css?v=4">
 </head>
-<body>
+<body class="evidence-article">
 <header class="topbar">
   <div class="wrap topbar-inner">
     <a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
@@ -33,151 +34,268 @@
     <header class="news-article-header guide-article-header insight-article-header wrap">
       <a class="news-back" href="./">← 커머스 인사이트 목록</a>
       <p class="news-kicker">HELLO, HUMAN! <span aria-hidden="true">/</span> COMMERCE INSIGHT 02</p>
-      <h1>AI가 추천해도,<br> <em>인기 상품이 정답은 아니다</em></h1>
-      <p class="news-deck">커머스 랭킹의 경제학에서 찾는 ‘추천 근거’의 제품 기회</p>
+      <h1>AI 에이전트의 추천,<br> <em>고객의 조건에 맞을까?</em></h1>
+      <p class="news-deck">가격·수량·호환성을 확인하는 추천 근거 검사기 설계</p>
       <div class="news-article-meta"><time datetime="2026-09-29">2026년 9월 29일</time><span>헬로우 휴먼 커머스 인사이트</span></div>
+      <ol class="ev-reading-map" aria-label="이 글의 세 가지 핵심">
+        <li><span>01</span><a href="#case">인기는 <strong>선택의 신호</strong></a></li>
+        <li><span>02</span><a href="#claims">적합성은 <strong>조건의 검증</strong></a></li>
+        <li><span>03</span><a href="#checker">제품의 기회는 <strong>근거의 확인</strong></a></li>
+      </ol>
     </header>
     <div class="news-article-shell guide-shell wrap">
       <nav class="news-toc guide-toc insight-toc" aria-label="글 목차">
         <span>이 글에서</span>
+        <a href="#case"><span>00</span>키보드 구매 사례</a>
         <a href="#ranking"><span>01</span>랭킹의 순환</a>
-        <a href="#selection"><span>02</span>AI가 압축한 선택</a>
-        <a href="#claims"><span>03</span>인기와 적합성</a>
-        <a href="#evidence"><span>04</span>근거를 데이터로</a>
-        <a href="#checker"><span>05</span>추천 근거 검사기</a>
-        <a href="#value"><span>06</span>줄어든 재확인</a>
+        <a href="#selection"><span>02</span>추천 에이전트의 선택</a>
+        <a href="#claims"><span>03</span>추천 검수 화면</a>
+        <a href="#evidence"><span>04</span>근거의 연결</a>
+        <a href="#checker"><span>05</span>제품 아키텍처</a>
+        <a href="#value"><span>06</span>제품의 가치와 신뢰</a>
       </nav>
       <div class="news-story guide-story insight-story">
-        <aside class="insight-note"><strong>이 글의 관점</strong><p>공식 문서의 서비스 설명과 헬로우 휴먼의 제품 가설을 구분해 살펴봅니다. 키보드 구매 상황과 검사 결과는 설명을 위한 가상 예시이며, ‘추천 근거 검사기’는 검토할 제품 제안입니다. 자료 확인: 2026년 9월 29일.</p></aside>
-        <div class="guide-intro insight-intro">
-<p>다음과 같은 구매 요청을 가정해 보겠습니다.</p>
-<blockquote><p>“사무실에서 사용할 무선 키보드 다섯 개를 골라 주세요. 배송비를 포함해 20만 원 이내이고, 윈도우와 맥에서 모두 사용할 수 있어야 합니다. 숫자 키패드도 필요합니다.”</p></blockquote>
-<p>AI가 이렇게 답합니다.</p>
-<blockquote><p>“판매 순위가 높고 구매 후기가 좋은 제품입니다. 가성비가 뛰어나 사무실용으로 추천합니다.”</p></blockquote>
-<p>자연스럽고 그럴듯한 설명입니다. 하지만 구매 요청에 제대로 답했는지는 아직 알 수 없습니다. 다섯 개를 구매했을 때 예산을 넘지 않는지, 필요한 운영체제를 지원하는지, 숫자 키패드가 있는지 확인하지 않았기 때문입니다.</p>
-<p><strong>인기가 있다는 근거와 이 고객에게 적합하다는 근거는 다릅니다.</strong></p>
-<p><a href="2026-09-25-agentic-commerce.html">첫 번째 글에서 에이전틱 커머스의 실행 기반</a>을 살펴봤다면, 이번에는 그보다 앞선 질문을 다뤄보겠습니다.</p>
-<p><strong>AI는 무엇을 근거로 상품을 선택해야 하며, 커머스 시스템은 그 선택을 어떻게 확인할 수 있어야 할까요?</strong></p>
-        </div>
-<section class="guide-section insight-section" id="ranking" aria-labelledby="ranking-title">
-<h2 id="ranking-title">랭킹은 판매의 결과이면서, 다음 판매의 원인</h2>
-<p>판매량으로 인기 순위를 정하는 쇼핑몰을 가정해 보겠습니다.</p>
-<p>많이 팔린 상품은 상단에 노출됩니다. 상단에 노출되면 더 많은 사람이 발견할 수 있습니다. 추가 구매가 발생하면 판매량이 늘고, 다시 높은 순위를 유지하는 데 도움이 됩니다.</p>
-<figure class="insight-visual insight-roadmap" aria-labelledby="ranking-loop-caption">
-  <figcaption id="ranking-loop-caption"><span>RANKING FEEDBACK LOOP</span><strong>판매 결과가 다음 판매의 조건이 된다</strong></figcaption>
-  <ol>
-    <li><span>01 · 판매 증가</span><strong>인기 순위가 오른다</strong><small>판매량을 순위에 반영하는 경우</small></li>
-    <li><span>02 · 상위 노출</span><strong>더 많은 고객이 발견한다</strong><small>상품을 비교할 기회가 늘어난다</small></li>
-    <li><span>03 · 추가 구매</span><strong>다시 판매량에 반영된다</strong><small>추가 구매가 다시 판매량을 늘린다</small></li>
-  </ol>
-</figure>
-<p>이 구조에서 랭킹은 단순한 성적표가 아닙니다. 다음 구매에 영향을 주는 판매 채널이기도 합니다.</p>
-<p>판매자 입장에서 순위를 올리는 활동의 가치는 당장의 주문에만 있지 않습니다. 그 주문으로 얻을 수 있는 후속 노출까지 포함됩니다. 이 때문에 플랫폼은 무엇을 순위 산정에 반영할지, 어떤 행동을 유효한 신호로 인정할지 신중하게 결정해야 합니다.</p>
-<p>다만 모든 랭킹을 판매량 순위로 이해해서는 안 됩니다. 검색어와의 관련성을 평가하는 순위, 판매량 순위, 평점 순위, 개인화 추천은 서로 다른 질문에 답합니다. 실제로 Google Shopping도 기본 상품 순위에는 검색어와의 관련성을, 개인화된 노출에는 최근 활동 등을 활용한다고 설명합니다. 광고로 표시된 일부 영역은 광고비의 영향도 받습니다. <a class="source-link" href="https://support.google.com/googleshopping/answer/9128904?hl=ko" target="_blank" rel="noopener noreferrer">Google Shopping 순위 안내 ↗</a></p>
-<p>따라서 ‘상위 상품’이라는 표현을 볼 때는 먼저 물어야 합니다.</p>
-<p><strong>어떤 기준으로, 어느 범위에서, 언제 상위였을까요?</strong></p>
-<p>특정 기간에 많이 팔렸다는 사실은 유용한 정보입니다. 그러나 그 사실만으로 품질이 가장 좋다거나, 모든 고객에게 가장 적합하다고 결론 내릴 수는 없습니다.</p>
-<p>리워드나 할인으로 발생한 구매도 마찬가지입니다. 혜택이 있었다는 이유만으로 허위 주문이라고 단정해서는 안 됩니다. 반대로 혜택 때문에 늘어난 주문을 상품 자체에 대한 자발적 선호와 완전히 동일하게 취급해도 되는지는 별도의 문제입니다.</p>
-<p>핵심은 숫자의 크기만이 아니라, <strong>그 숫자가 만들어진 조건과 무엇을 설명할 수 있는지</strong>입니다.</p>
-</section>
-<section class="guide-section insight-section" id="selection" aria-labelledby="selection-title">
-<h2 id="selection-title">AI가 골라줘도 선택의 구조는 남는다</h2>
-<p>AI가 상품을 몇 개로 추려주면 고객은 긴 목록을 직접 비교하지 않아도 됩니다. 그렇다고 선택의 기준까지 사라지는 것은 아닙니다.</p>
-<p>누군가는 후보 상품을 수집해야 합니다. 어떤 정보를 읽을지 결정해야 하고, 조건에 맞지 않는 후보를 제외해야 하며, 남은 상품 중 무엇을 먼저 보여줄지 판단해야 합니다.</p>
-<p>실제로 ChatGPT의 쇼핑 안내도 사용자 질문과 맥락, 상품의 구조화된 정보, 외부 콘텐츠 등을 상품 선정에 활용한다고 설명합니다. 또한 시장에 존재하는 모든 상품이 결과에 표시되는 것은 아니라고 명시합니다. <a class="source-link" href="https://help.openai.com/en/articles/11128490-shopping-with-chatgpt-search" target="_blank" rel="noopener noreferrer">ChatGPT 상품 선정 안내 ↗</a></p>
-<p>이 구조에서 생각해 볼 변화는 ‘랭킹의 소멸’보다 <strong>선택 과정의 압축</strong>입니다.</p>
-<p>고객이 상품 목록을 보면서 직접 수행하던 비교의 일부를 AI가 대신합니다. 편리해지는 만큼, 어떤 후보가 검토됐고 무엇이 제외됐는지는 고객에게 덜 보일 수도 있습니다.</p>
-<p>가령 백 개의 상품을 비교하던 화면이 세 개의 추천으로 바뀐다면, 그 세 개에 포함되는 일의 중요성은 오히려 커질 수 있습니다. 이는 모든 AI 쇼핑 서비스에서 확인된 결과가 아니라, 후보를 좁혀 보여주는 방식에서 예상할 수 있는 사업적 가능성입니다.</p>
-<p>판매자의 질문도 달라질 수 있습니다.</p>
-<p>“검색 결과에서 몇 위인가?”에 더해 “어떤 구매 조건에서 우리 상품이 후보로 들어가는가?”를 살펴봐야 합니다.</p>
-<p>플랫폼의 질문도 달라집니다.</p>
-<p>“어떤 상품을 먼저 보여줄까?”뿐 아니라 “이 상품을 선택한 이유를 어디까지 확인할 수 있을까?”를 고민해야 합니다.</p>
-<p><strong>선택을 위임받는 시스템이라면, 선택의 근거도 함께 관리해야 한다는 것이 이 글의 제안입니다.</strong></p>
-</section>
-<section class="guide-section insight-section" id="claims" aria-labelledby="claims-title">
-<h2 id="claims-title">가장 조심해야 할 순간은 인기가 확신으로 바뀔 때</h2>
-<p>AI 추천에서 주의할 지점은 상품을 잘못 고르는 경우만이 아닙니다. 제한적인 정보를 더 강한 주장으로 바꾸는 경우도 생각해야 합니다.</p>
-<p>‘판매량이 많다’는 정보를 보고 ‘품질이 검증됐다’고 설명하는 경우입니다. ‘가성비가 좋다는 후기가 있다’를 ‘가장 저렴하다’로 바꾸거나, ‘일반적으로 많이 사용하는 제품’을 ‘당신의 환경에 가장 적합한 제품’으로 표현할 수도 있습니다.</p>
-<p>이 문장들은 비슷해 보이지만, 필요한 근거가 전혀 다릅니다.</p>
-<p>OpenAI 역시 쇼핑 결과의 ‘인기 상품’이나 ‘가성비’ 같은 표시가 검증된 사실이나 보장을 뜻하지 않을 수 있다고 안내합니다. 리뷰와 평점도 OpenAI가 직접 검증한 것은 아니라고 설명합니다. <a class="source-link" href="https://help.openai.com/en/articles/11128490-shopping-with-chatgpt-search" target="_blank" rel="noopener noreferrer">ChatGPT 표시·리뷰 안내 ↗</a></p>
-<p>여기서 커머스 시스템이 구분해야 할 정보는 세 가지입니다.</p>
-<p><strong>상품 사실</strong>은 규격, 구성품, 지원 기능처럼 상품이 무엇인지 설명하는 정보입니다.</p>
-<p><strong>거래와 반응의 기록</strong>은 판매량, 리뷰 수, 평점처럼 시장에서 어떤 반응이 있었는지 보여주는 정보입니다.</p>
-<p><strong>고객 조건에 대한 판단</strong>은 예산, 사용 환경, 수량 등의 요구를 해당 상품이 충족하는지 평가한 결과입니다.</p>
-<p>이 셋을 구분하지 않으면 추천 설명은 풍부해져도 판단은 부정확해질 수 있습니다.</p>
-<p>앞서 가정한 키보드 구매 요청에 적용하면 차이가 명확해집니다.</p>
-<div class="guide-table-scroll" role="region" aria-label="추천 주장과 필요한 근거 비교" tabindex="0">
-<table>
-<caption>키보드 구매 조건별로 확인해야 할 근거</caption>
-<thead><tr><th scope="col">추천에서 확인할 주장</th><th scope="col">필요한 근거</th><th scope="col">그것만으로는 부족한 정보</th></tr></thead>
-<tbody><tr><td>다섯 개를 20만 원 이내에 구매할 수 있다</td><td>수량별 가격, 배송비, 실제 적용 가능한 할인</td><td>상품 하나의 대표 가격</td></tr>
-<tr><td>윈도우와 맥에서 모두 사용할 수 있다</td><td>해당 모델의 지원 환경과 기능 제한</td><td>‘업무용으로 인기’라는 설명</td></tr>
-<tr><td>숫자 키패드가 있다</td><td>해당 모델과 옵션의 정확한 사양</td><td>비슷한 제품의 사진이나 후기</td></tr>
-<tr><td>다섯 개를 주문할 수 있다</td><td>선택한 옵션의 판매 가능 수량</td><td>상품 페이지가 노출되고 있다는 사실</td></tr></tbody>
-</table>
-</div>
-<p>좋은 추천 설명은 이 표의 오른쪽 정보를 그럴듯하게 연결하는 문장이 아닙니다. 가운데 열의 근거를 실제로 확보한 뒤, 확인한 범위만 설명하는 문장이어야 합니다.</p>
-<p><strong>‘추천 이유를 생성하는 일’과 ‘추천 이유가 성립하는지 확인하는 일’을 분리해야 하는 이유입니다.</strong></p>
-</section>
-<section class="guide-section insight-section" id="evidence" aria-labelledby="evidence-title">
-<h2 id="evidence-title">추천 근거를 문장이 아니라 데이터로 관리</h2>
-<p>이 문제를 해결하기 위해 처음부터 새로운 추천 알고리즘을 만들 필요는 없습니다. 먼저 추천 결과에 어떤 근거가 연결돼야 하는지 정할 수 있습니다.</p>
-<p>예산을 충족한다고 설명했다면 어떤 가격과 배송비를 사용했는지 남깁니다. 특정 기능을 지원한다고 설명했다면 어느 모델의 어떤 사양을 확인했는지 연결합니다. 주문 가능하다고 판단했다면 해당 옵션의 판매 상태를 언제 조회했는지 기록합니다.</p>
-<p>중요한 것은 출처 주소 하나를 붙이는 데 그치지 않는 것입니다.</p>
-<p><strong>어떤 주장에 어떤 정보가 사용됐고, 그 정보가 어느 시점의 것인지</strong>를 확인할 수 있어야 합니다.</p>
-<p>가격, 재고, 배송, 반품 정보를 기계가 읽을 수 있는 형태로 제공하는 기반은 이미 존재합니다. Google의 상품 구조화 데이터도 가격과 재고뿐 아니라 배송 정보, 반품 정책, 상품 변형 등을 표현하도록 안내합니다. <a class="source-link" href="https://developers.google.com/search/docs/appearance/structured-data/product" target="_blank" rel="noopener noreferrer">Google 상품 구조화 데이터 ↗</a></p>
-<p>다만 정보를 구조화했다는 사실과 그 정보가 현재도 정확하다는 사실은 별개입니다.</p>
-<p>상품 가격이나 배송 조건이 바뀌어도 외부 서비스에 즉시 반영되지 않을 수 있습니다. OpenAI와 Google 모두 판매자가 변경한 정보가 쇼핑 결과에 반영되기까지 지연이 생길 수 있다고 설명합니다. 따라서 저장된 추천 근거는 추천 당시의 판단을 설명할 수는 있어도, 이후 구매 시점의 조건까지 자동으로 보장하지는 않습니다. <a class="source-link" href="https://help.openai.com/en/articles/11128490-shopping-with-chatgpt-search" target="_blank" rel="noopener noreferrer">OpenAI 가격 갱신 안내 ↗</a> · <a class="source-link" href="https://support.google.com/googleshopping/answer/9128904?hl=ko" target="_blank" rel="noopener noreferrer">Google 정보 갱신 안내 ↗</a></p>
-<p>커머스 운영 시스템에 이 관점을 적용한다면, 상품 정보를 AI에 전달하는 기능만으로 끝내지 않는 설계를 생각해 볼 수 있습니다.</p>
-<p>추천에 사용한 상품·옵션·판매조건의 버전을 연결하고, 관련 조건이 변경됐을 때 다시 확인해야 할 추천이나 안내 문장을 찾는 것입니다.</p>
-<p>이때 축적되는 자산은 상품 설명문만이 아닙니다.</p>
-<p><strong>무엇을 근거로 어떤 판단을 했으며, 조건이 바뀌었을 때 무엇을 다시 확인해야 하는지에 관한 기록</strong>입니다.</p>
-</section>
-<section class="guide-section insight-section" id="checker" aria-labelledby="checker-title">
-<h2 id="checker-title">첫 제품의 후보는 ‘추천 근거 검사기’</h2>
-<p>이 관점에서 검토할 만한 제품 가설은 거대한 쇼핑 에이전트보다 작습니다.</p>
-<p><strong>이미 생성된 추천이 고객의 조건과 확보된 근거에 맞는지 확인하는 도구</strong>입니다.</p>
-<p>입력은 고객의 구매 조건, 추천된 상품, 추천에 사용한 상품·판매조건 데이터, 그리고 추천 설명입니다. 도구는 원본 상품 정보나 순위를 바꾸지 않고 결과를 점검합니다.</p>
-<p>예를 들어 배송비를 더하면 예산을 초과하는데 ‘예산 이내’라고 설명했는지, 특정 옵션의 기능을 다른 옵션에도 적용했는지, 확인하지 않은 배송일을 확정적으로 안내했는지 살펴보는 방식입니다.</p>
-<p>판정은 억지로 정답과 오답만 나누지 않는 편이 좋겠습니다.</p>
-<p><strong>통과</strong>는 확인한 항목이 확보된 근거와 일치한다는 뜻입니다. 시장에서 가장 좋은 상품이라는 인증은 아닙니다.</p>
-<p><strong>위반</strong>은 확인 가능한 조건과 추천 결과가 충돌한다는 뜻입니다.</p>
-<p><strong>확인 불가</strong>는 판단에 필요한 정보가 부족하거나 유효한 시점의 정보를 확보하지 못했다는 뜻입니다. 오류가 없다는 뜻도, 반드시 틀렸다는 뜻도 아닙니다.</p>
-<figure class="insight-visual insight-roadmap" aria-labelledby="checker-example-caption">
-  <figcaption id="checker-example-caption"><span>THREE CHECK RESULTS</span><strong>같은 추천에서도 항목별 판정은 달라진다</strong></figcaption>
-  <ol>
-    <li><span>통과 · 숫자 키패드</span><strong>선택 옵션의 사양으로 확인</strong><small>요청한 기능과 확보한 근거가 일치한다.</small></li>
-    <li><span>위반 · 총예산</span><strong>39,000원 × 5개 + 배송비 8,000원 = 203,000원</strong><small>20만 원 예산을 3,000원 초과한다.</small></li>
-    <li><span>확인 불가 · 호환성</span><strong>해당 모델의 macOS 지원 정보 누락</strong><small>인기나 평점으로 빈 근거를 채우지 않는다.</small></li>
-  </ol>
-  <p>설명용 가상 데이터입니다. 실제 상품이나 운영 중인 검사기의 결과가 아닙니다.</p>
-</figure>
-<p>특히 ‘확인 불가’를 별도 상태로 두는 것이 중요합니다. 모르는 내용을 그럴듯하게 채우는 대신, 운영자가 무엇을 추가로 확인해야 하는지 보여줄 수 있기 때문입니다.</p>
-<p>구현에서도 모든 판단을 AI에 맡길 이유는 없습니다. 금액 계산, 수량 비교, 유효기간 확인처럼 규칙이 명확한 항목은 코드로 처리하는 편이 검증하기 쉽습니다. AI는 비정형 설명에서 조건을 추출하거나 추천 문장이 어떤 주장을 하는지 분류하는 부분에 제한적으로 활용하는 설계를 생각할 수 있습니다.</p>
-<p>첫 실험은 한 상품군과 소수의 구매 조건으로 좁혀도 됩니다. 실시간 운영 시스템에 연결하기 전, 승인된 상품 파일과 저장된 추천 결과를 비교하는 방식으로 검수 가치를 확인할 수도 있습니다.</p>
-<p>다만 이 제품이 할 수 있는 일을 과장해서는 안 됩니다. 외부 플랫폼의 비공개 추천 기준을 알아내거나, 순위 조작을 판별하거나, AI 검색의 상위 노출을 보장하는 도구는 아닙니다.</p>
-<p><strong>우리가 확보한 데이터와 우리가 제공하는 추천 사이의 모순을 줄이는 도구</strong>입니다.</p>
-</section>
-<section class="guide-section insight-section" id="value" aria-labelledby="value-title">
-<h2 id="value-title">제품의 가치는 더 많은 추천이 아니라, 줄어든 재확인에서</h2>
-<p>추천 근거를 검사하는 기능이 유용해 보인다는 것과, 독립적인 사업이 된다는 것은 다른 이야기입니다.</p>
-<p>운영팀이 이미 간단한 규칙으로 처리할 수 있다면 별도 제품이 필요하지 않을 수 있습니다. 오류보다 경고가 더 많이 발생하면 확인 업무가 오히려 늘어날 수도 있습니다. 기준 데이터가 부정확하다면 검사 결과도 신뢰하기 어렵습니다.</p>
-<p>따라서 첫 고객 가설은 ‘AI에 관심 있는 모든 쇼핑몰’보다 좁게 잡는 편이 좋겠습니다. 추천이나 상담 문구를 반복적으로 검수하고 있고, 실제 오류 사례와 승인된 기준 데이터를 가진 운영·QA팀이 출발점이 될 수 있습니다.</p>
-<p>첫 성과 역시 AI가 얼마나 많은 설명을 생성했는지가 아니라, <strong>사람이 하던 재확인을 실제로 얼마나 줄였는지</strong>로 평가해야 합니다.</p>
-<p>같은 유형의 업무에서 검수 시간이 줄었는지, 실제 오류를 얼마나 찾아냈는지, 잘못된 경고를 처리하는 시간이 얼마나 추가됐는지 확인하는 것입니다. 전환율이나 매출 개선은 그다음에 별도로 검증해야 할 가설이지, 검사 기능을 도입했다는 이유만으로 따라오는 결과가 아닙니다.</p>
-<p>헬로우 휴먼의 Workless Engineering 관점에서도 질문은 같습니다.</p>
-<p>“AI로 무엇을 더 만들 수 있을까?”보다 “사람이 반복해서 확인하던 어떤 일을 믿고 맡길 수 있을까?”를 먼저 묻는 것입니다.</p>
-<p>커머스에서 순위와 노출은 앞으로도 중요한 경쟁 요소일 수 있습니다. 상품을 발견하지 못하면 비교의 기회도 생기지 않기 때문입니다. 이 글의 주장은 순위가 무의미해진다는 것이 아닙니다.</p>
-<p>선택을 AI에 맡길수록, 노출 이후의 판단을 확인하는 능력에도 투자할 이유가 생긴다는 것입니다.</p>
-<p>“많이 팔려서 추천했습니다”와 “고객의 조건을 확인했고, 확인하지 못한 부분도 구분했습니다”는 서로 다른 서비스를 설명합니다.</p>
-<div class="insight-closing-summary">
-  <p>고객이 맡기는 것은 상품 선택과 그 선택에 대한 신뢰입니다.</p>
-  <p><strong>AI 추천의 신뢰는<br>설명의 근거를 어디까지<br>확인할 수 있는지에서 시작됩니다.</strong></p>
-</div>
-</section>
+        <section class="guide-section insight-section ev-intro" id="case" aria-labelledby="case-title">
+          <p class="ev-eyebrow">CASE 01 · 사무실 키보드 구매</p>
+          <h2 id="case-title">인기 상품을 골랐는데,<br>구매 조건은 맞을까?</h2>
+          <p>고객의 조건에 맞춰 상품을 찾고 비교·추천하는 AI 에이전트에게 사무실용 키보드를 골라 달라고 했습니다. 이 글에서는 이 역할을 하는 에이전트를 <strong>‘추천 에이전트’</strong>라고 부릅니다.</p>
+          <p>추천은 그럴듯합니다. 그런데 고객이 맡긴 조건과 나란히 놓으면, 아직 확인하지 않은 것이 보입니다.</p>
+
+          <figure class="ev-figure ev-case" aria-labelledby="case-caption">
+            <figcaption id="case-caption"><span>요청과 추천을 나란히 보기</span><strong>같은 상품을 보지만, 질문이 다르다</strong></figcaption>
+            <div class="ev-case-grid">
+              <div class="ev-request">
+                <div class="ev-panel-label"><span class="ev-avatar" aria-hidden="true">H</span>고객의 구매 요청</div>
+                <p class="ev-request-quote">“사무실에서 쓸<br>무선 키보드 5개를<br>골라 주세요.”</p>
+                <dl class="ev-requirements">
+                  <div><dt>총예산</dt><dd>배송비 포함 <strong>20만 원</strong></dd></div>
+                  <div><dt>사용 환경</dt><dd>Windows + macOS</dd></div>
+                  <div><dt>필수 기능</dt><dd>무선 · 숫자 키패드</dd></div>
+                  <div><dt>구매 수량</dt><dd>같은 옵션 <strong>5개</strong></dd></div>
+                </dl>
+              </div>
+              <div class="ev-product">
+                <div class="ev-panel-label"><span class="ev-avatar" aria-hidden="true">A</span>추천 에이전트가 고른 후보</div>
+                <div class="ev-keyboard-art">
+                  <span class="ev-popular">인기 상품</span>
+                  <svg viewBox="0 0 360 130" role="img" aria-labelledby="keyboard-title">
+                    <title id="keyboard-title">숫자 키패드가 있는 무선 키보드의 개념도</title>
+                    <rect x="8" y="28" width="344" height="92" rx="12" class="ev-keyboard-body"/>
+                    <g class="ev-keyboard-keys">
+                      <path d="M22 43h16v12H22z M43 43h16v12H43z M64 43h16v12H64z M85 43h16v12H85z M106 43h16v12h-16z M127 43h16v12h-16z M148 43h16v12h-16z M169 43h16v12h-16z M190 43h16v12h-16z M211 43h16v12h-16z M232 43h27v12h-27z"/>
+                      <path d="M22 61h24v12H22z M51 61h16v12H51z M72 61h16v12H72z M93 61h16v12H93z M114 61h16v12h-16z M135 61h16v12h-16z M156 61h16v12h-16z M177 61h16v12h-16z M198 61h16v12h-16z M219 61h40v12h-40z"/>
+                      <path d="M22 79h32v12H22z M59 79h16v12H59z M80 79h16v12H80z M101 79h16v12h-16z M122 79h16v12h-16z M143 79h16v12h-16z M164 79h16v12h-16z M185 79h16v12h-16z M206 79h53v12h-53z"/>
+                      <path d="M22 97h25v12H22z M52 97h25v12H52z M82 97h117v12H82z M204 97h25v12h-25z M234 97h25v12h-25z"/>
+                      <path d="M278 43h17v12h-17z M300 43h17v12h-17z M322 43h17v12h-17z M278 61h17v12h-17z M300 61h17v12h-17z M322 61h17v30h-17z M278 79h17v12h-17z M300 79h17v12h-17z M278 97h39v12h-39z M322 97h17v12h-17z"/>
+                    </g>
+                    <path d="M164 13q16-14 32 0m-26 5q10-8 20 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div class="ev-product-heading"><strong>무선 키보드 A</strong><span>풀사이즈 옵션</span></div>
+                <p class="ev-price">39,000<span>원 / 개</span></p>
+                <blockquote class="ev-ai-quote"><p>“판매 순위가 높고 후기가 좋아<br>사무실용으로 추천합니다.”</p></blockquote>
+                <p class="ev-question">이 설명만으로 총예산과 호환성을 알 수 있을까?</p>
+              </div>
+            </div>
+            <p class="ev-caption-note">설명용 가상 사례입니다.</p>
+          </figure>
+
+          <p class="ev-takeaway"><strong>인기가 있다는 근거와 이 고객에게 적합하다는 근거는 다릅니다.</strong></p>
+          <p><a href="2026-09-25-agentic-commerce.html">첫 번째 글</a>에서 거래를 실행하는 기반을 살펴봤다면, 이번에는 선택의 근거를 확인하는 제품을 제안합니다. 아래의 아키텍처와 검수 화면은 헬로우 휴먼의 설계안입니다.</p>
+        </section>
+
+        <section class="guide-section insight-section" id="ranking" aria-labelledby="ranking-title">
+          <p class="ev-eyebrow">01 · 랭킹을 읽는 법</p>
+          <h2 id="ranking-title">많이 팔린 결과가<br>다음 판매의 조건이 된다</h2>
+          <p>판매량으로 인기 순위를 정하는 쇼핑몰을 가정해 보겠습니다. 판매량이 노출에 영향을 주고, 그 노출이 다시 구매 기회를 만듭니다. 판매자에게 순위의 가치는 당장의 주문과 이후의 노출을 함께 포함합니다.</p>
+          <figure class="ev-figure ev-cycle" aria-labelledby="ranking-loop-caption">
+            <figcaption id="ranking-loop-caption"><span>판매량 기반 순위의 순환</span><strong>랭킹은 성적표이면서 판매 경로다</strong></figcaption>
+            <div class="ev-cycle-diagram">
+              <ol class="ev-cycle-nodes">
+                <li><svg class="ev-cycle-symbol" viewBox="0 0 48 32" aria-hidden="true"><path d="M5 28V20h8v8Zm15 0V12h8v16Zm15 0V4h8v24Z"/></svg><strong>판매 증가</strong><small>순위 산정에 반영</small><svg class="ev-cycle-step" viewBox="0 0 32 24" aria-hidden="true"><path d="M3 12h25m-6-6 6 6-6 6"/></svg></li>
+                <li><svg class="ev-cycle-symbol" viewBox="0 0 48 32" aria-hidden="true"><path d="M3 16s8-12 21-12 21 12 21 12-8 12-21 12S3 16 3 16Z"/><circle cx="24" cy="16" r="6"/></svg><strong>상위 노출</strong><small>더 많은 고객이 발견</small><svg class="ev-cycle-step" viewBox="0 0 32 24" aria-hidden="true"><path d="M3 12h25m-6-6 6 6-6 6"/></svg></li>
+                <li><svg class="ev-cycle-symbol" viewBox="0 0 48 32" aria-hidden="true"><path d="M6 3h5l5 19h22l5-14H13M20 29h1m13 0h1" stroke-linecap="round"/></svg><strong>추가 구매</strong><small>판매 기록에 반영</small></li>
+              </ol>
+              <div class="ev-cycle-feedback" aria-hidden="true">
+                <svg class="ev-cycle-loop-horizontal" width="100%" height="100%">
+                  <defs><marker id="cycle-return-up" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M1 1 7 4 1 7"/></marker></defs>
+                  <line x1="100%" y1="0" x2="100%" y2="38"/>
+                  <line x1="100%" y1="38" x2="0" y2="38"/>
+                  <line x1="0" y1="38" x2="0" y2="0" marker-end="url(#cycle-return-up)"/>
+                </svg>
+                <svg class="ev-cycle-loop-vertical" width="100%" height="100%">
+                  <defs><marker id="cycle-return-left" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse"><path d="M1 1 7 4 1 7"/></marker></defs>
+                  <line x1="0" y1="100%" x2="24" y2="100%"/>
+                  <line x1="24" y1="100%" x2="24" y2="0"/>
+                  <line x1="24" y1="0" x2="0" y2="0" marker-end="url(#cycle-return-left)"/>
+                </svg>
+              </div>
+            </div>
+            <div class="ev-cycle-return">추가 구매가 다시 판매량을 늘린다</div>
+          </figure>
+          <p>이 그림이 모든 랭킹을 설명하지는 않습니다. 검색 관련성, 판매량, 평점, 개인화 추천은 서로 다른 기준입니다. Google Shopping도 기본 상품 순위는 검색어와의 관련성을, 개인화에는 최근 활동 등을 활용한다고 설명합니다. 광고 영역에는 광고비의 영향도 있습니다. <a class="source-link" href="https://support.google.com/googleshopping/answer/9128904?hl=ko" target="_blank" rel="noopener noreferrer">Google Shopping 순위 안내 ↗</a></p>
+          <p>따라서 ‘상위 상품’을 볼 때는 <strong>어떤 기준으로, 어느 범위에서, 언제 상위였는지</strong>를 확인해야 합니다. 할인·리워드로 생긴 구매를 곧바로 허위 주문으로 볼 수는 없지만, 혜택 없이 발생한 선호와 동일하게 해석해도 되는지는 별도 문제입니다.</p>
+        </section>
+
+        <section class="guide-section insight-section" id="selection" aria-labelledby="selection-title">
+          <p class="ev-eyebrow">02 · 선택 과정의 변화</p>
+          <h2 id="selection-title">목록은 짧아져도,<br>선택 기준은 남는다</h2>
+          <p>고객이 하던 비교의 일부를 추천 에이전트가 대신하면 긴 상품 목록이 몇 개의 추천으로 압축됩니다. 편리해지는 만큼 어떤 후보가 검토되고 제외됐는지는 덜 보일 수 있습니다.</p>
+          <figure class="ev-figure ev-selection" aria-labelledby="selection-caption">
+            <figcaption id="selection-caption"><span>추천 에이전트가 수행하는 비교</span><strong>추천 화면 뒤의 선택 과정도 확인할 수 있어야 한다</strong></figcaption>
+            <div class="ev-selection-flow">
+              <div class="ev-candidates"><div class="ev-product-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><strong>여러 후보</strong><small>상품 정보 · 리뷰 · 가격</small></div>
+              <span class="ev-flow-arrow" aria-hidden="true">→</span>
+              <div class="ev-selection-engine"><span>추천 에이전트</span><strong>수집 → 비교 → 제외</strong><small>고객 조건에 맞춰 후보를 고른다</small></div>
+              <span class="ev-flow-arrow" aria-hidden="true">→</span>
+              <div class="ev-shortlist"><div aria-hidden="true"><i>A</i><i>B</i><i>C</i></div><strong>소수의 추천</strong><small>고객이 보는 결과</small></div>
+            </div>
+            <div class="ev-selection-question">남겨야 할 기록 <span>검토한 범위 · 제외한 이유 · 선택한 근거</span></div>
+            <p class="ev-caption-note">후보 수와 추천 수는 구조를 설명하기 위한 예시입니다.</p>
+          </figure>
+          <p>ChatGPT의 쇼핑 안내도 사용자 질문과 맥락, 구조화된 상품 정보와 외부 콘텐츠를 선정에 활용하며, 모든 상품이 결과에 표시되는 것은 아니라고 설명합니다. <a class="source-link" href="https://help.openai.com/en/articles/11128490-shopping-with-chatgpt-search" target="_blank" rel="noopener noreferrer">ChatGPT 상품 선정 안내 ↗</a></p>
+          <p>추천 목록이 짧아지면, 그 안에 포함되는 일이 더 중요해질 수 있습니다. 판매자는 “어떤 구매 조건에서 후보가 되는가?”를, 플랫폼은 “선택 이유를 어디까지 확인할 수 있는가?”를 함께 살펴볼 필요가 있습니다.</p>
+        </section>
+
+        <section class="guide-section insight-section" id="claims" aria-labelledby="claims-title">
+          <p class="ev-eyebrow">03 · 같은 사례를 검수하면</p>
+          <h2 id="claims-title">“추천합니다”를<br>네 가지 확인으로 바꾸기</h2>
+          <p>‘판매량이 많다’에서 ‘품질이 검증됐다’로, ‘가성비가 좋다는 후기가 있다’에서 ‘예산에 맞다’로 넘어가면 주장에 필요한 근거가 바뀝니다. OpenAI도 인기·가성비 표시는 보장이 아니며 리뷰와 평점을 직접 검증하지 않는다고 안내합니다. <a class="source-link" href="https://help.openai.com/en/articles/11128490-shopping-with-chatgpt-search" target="_blank" rel="noopener noreferrer">ChatGPT 표시·리뷰 안내 ↗</a></p>
+
+          <figure class="ev-figure ev-report" aria-labelledby="report-caption">
+            <figcaption id="report-caption"><span>추천 근거 검사기 · 검수 화면 예시</span><strong>무선 키보드 A / 풀사이즈 / 5개</strong></figcaption>
+            <div class="ev-report-summary"><strong>추천 확정 전 확인 필요</strong><span>통과 2 · 위반 1 · 확인 불가 1</span></div>
+            <div class="ev-verdict-row">
+              <span class="ev-status ev-pass">✓ 통과</span>
+              <div><strong>무선 · 숫자 키패드</strong><p>선택한 모델과 옵션의 사양에서 모두 확인했습니다.</p></div>
+              <span class="ev-proof-label">상품 사양</span>
+            </div>
+            <div class="ev-verdict-row">
+              <span class="ev-status ev-pass">✓ 통과</span>
+              <div><strong>구매 수량 5개</strong><p>예시 조회 시점의 판매 가능 수량은 12개입니다.</p></div>
+              <span class="ev-proof-label">재고 조회</span>
+            </div>
+            <div class="ev-verdict-row ev-verdict-fail">
+              <span class="ev-status ev-fail">× 위반</span>
+              <div><strong>배송비 포함 20만 원 이내</strong><p>상품 합계만 보면 예산 이내지만, 배송비를 더하면 초과합니다.</p></div>
+              <span class="ev-proof-label">가격 계산</span>
+            </div>
+            <div class="ev-budget">
+              <div><span>39,000원 × 5개</span><b>195,000원</b></div>
+              <div><span>배송비</span><b>+ 8,000원</b></div>
+              <div class="ev-budget-total"><span>결제 예상액</span><strong>203,000원</strong></div>
+              <div class="ev-budget-meter" role="img" aria-label="상품 합계 195,000원에 배송비 8,000원을 더하면 총예산 200,000원을 3,000원 초과합니다."><span class="ev-budget-products"></span><span class="ev-budget-shipping"></span><i class="ev-budget-limit"></i></div>
+              <p><span>예산 200,000원</span><strong>3,000원 초과</strong></p>
+            </div>
+            <div class="ev-verdict-row">
+              <span class="ev-status ev-unknown">? 확인 불가</span>
+              <div><strong>Windows + macOS</strong><p>Windows 지원은 확인했지만, macOS 지원 근거가 없습니다.</p></div>
+              <span class="ev-proof-label">근거 누락</span>
+            </div>
+            <div class="ev-review-action"><strong>사람이 이어받을 일</strong><p>예산에 맞는 다른 오퍼를 찾고, 해당 옵션의 macOS 지원 사양을 추가로 확인합니다.</p></div>
+          </figure>
+
+          <p class="ev-takeaway"><strong>확인 불가는 통과가 아닙니다.</strong> 필요한 정보가 없거나 너무 오래됐다면, 빈칸을 추측으로 채우는 대신 추가 확인으로 연결해야 합니다.</p>
+        </section>
+
+        <section class="guide-section insight-section" id="evidence" aria-labelledby="evidence-title">
+          <p class="ev-eyebrow">04 · 추천에 남겨야 할 데이터</p>
+          <h2 id="evidence-title">문장 하나에,<br>근거와 시점을 연결한다</h2>
+          <p>출처 URL만 붙이면 어떤 옵션의 어떤 값을 사용했는지 놓치기 쉽습니다. 추천의 주장, 확인한 데이터, 확인 시점을 함께 남겨야 나중에도 판단을 재현할 수 있습니다.</p>
+          <figure class="ev-figure ev-evidence" aria-labelledby="evidence-caption">
+            <figcaption id="evidence-caption"><span>주장 → 근거 → 판정</span><strong>“예산 이내입니다”라는 문장을 추적해 보면</strong></figcaption>
+            <div class="ev-claim-line"><span>검사할 주장</span><strong>키보드 5개를 20만 원 안에 구매할 수 있다</strong></div>
+            <div class="ev-link-arrow" aria-hidden="true">↓</div>
+            <div class="ev-record">
+              <div class="ev-record-header"><strong>판단에 사용한 근거 묶음</strong></div>
+              <dl>
+                <div><dt>대상</dt><dd>키보드 A · 풀사이즈 · 판매자 A</dd></div>
+                <div><dt>계산 입력</dt><dd>단가 39,000원 · 수량 5개 · 배송비 8,000원 · 적용 할인 없음</dd></div>
+                <div><dt>출처</dt><dd>승인된 상품 파일 · 해당 오퍼의 판매조건</dd></div>
+                <div><dt>시점과 버전</dt><dd>예시 조회 시각 09:00 · 판매조건 v3</dd></div>
+                <div><dt>판정 근거</dt><dd>총액 203,000원 &gt; 고객 예산 200,000원</dd></div>
+              </dl>
+            </div>
+            <div class="ev-evidence-change"><span aria-hidden="true">↻</span><div><strong>09:20, 배송비가 바뀐다면?</strong><p>이 근거를 사용한 추천을 찾아 재확인 대상으로 표시합니다. 이전 판정은 이력으로 남기고 새 조건으로 다시 검사합니다.</p></div></div>
+          </figure>
+          <p>Google의 상품 구조화 데이터에는 가격·재고·배송·반품·상품 변형을 표현하는 기반이 이미 있습니다. <a class="source-link" href="https://developers.google.com/search/docs/appearance/structured-data/product" target="_blank" rel="noopener noreferrer">Google 상품 구조화 데이터 ↗</a> 하지만 구조화했다고 현재도 정확한 것은 아닙니다. OpenAI와 Google 모두 정보 갱신이 지연될 수 있다고 안내합니다. <a class="source-link" href="https://help.openai.com/en/articles/11128490-shopping-with-chatgpt-search" target="_blank" rel="noopener noreferrer">OpenAI 가격 갱신 안내 ↗</a> · <a class="source-link" href="https://support.google.com/googleshopping/answer/9128904?hl=ko" target="_blank" rel="noopener noreferrer">Google 정보 갱신 안내 ↗</a></p>
+          <p>운영 시스템의 자산은 상품 설명문에 더해 <strong>어떤 근거로 판단했고, 조건이 바뀌면 무엇을 다시 확인해야 하는지</strong>에 관한 기록이 됩니다. 데이터가 충분히 최신인지 판단하는 기준도 가격·재고 등 항목과 출처의 특성에 맞춰 정해야 합니다.</p>
+        </section>
+
+        <section class="guide-section insight-section" id="checker" aria-labelledby="checker-title">
+          <p class="ev-eyebrow">05 · 제품 아키텍처 제안</p>
+          <h2 id="checker-title">추천 에이전트의 결과를<br>별도 검사기로 검증한다</h2>
+          <p>추천 근거 검사기는 추천 에이전트가 만든 결과를 승인된 상품·판매조건과 대조합니다. 첫 제품의 범위는 추천 문장의 주장과 확보한 근거 사이의 모순을 찾는 일입니다.</p>
+
+          <figure class="ev-figure ev-architecture" aria-labelledby="architecture-caption">
+            <figcaption id="architecture-caption"><span>추천 근거 검사기 · 제안 구조</span><strong>문장을 읽는 언어 모델과 조건을 검증하는 코드를 분리한다</strong></figcaption>
+            <div class="ev-arch-inputs">
+              <div class="ev-arch-node"><span class="ev-node-kind">입력 A · 추천 에이전트의 결과</span><strong>고객 조건 + 추천 결과</strong><p>예산 · 수량 · 사용 환경<br>선택한 상품·옵션 · 추천 문장</p></div>
+              <div class="ev-arch-node"><span class="ev-node-kind">입력 B · 기준 정보</span><strong>승인된 상품·판매조건</strong><p>사양 · 가격 · 할인 · 배송비<br>판매 가능 수량 · 조회 시각</p></div>
+            </div>
+            <div class="ev-arch-arrows" aria-hidden="true"><span>↓</span><span>↓</span></div>
+            <div class="ev-arch-inputs">
+              <div class="ev-arch-node"><span class="ev-node-kind">언어 모델 · 구조화</span><strong>조건과 주장 추출</strong><p>“5개 / 총 20만 원 이하”<br>“Windows와 macOS 지원”</p><small>모호한 요청은 확인 대상으로 남긴다.</small></div>
+              <div class="ev-arch-node"><span class="ev-node-kind">데이터 처리 · 근거 저장</span><strong>상품·옵션·판매자 연결</strong><p>대상 식별 + 조회 값 보관<br>출처 · 버전 · 유효성 기록</p><small>다른 옵션의 사양을 섞지 않는다.</small></div>
+            </div>
+            <div class="ev-arch-merge"><span>조건·주장 + 연결된 근거</span></div>
+            <div class="ev-arch-node ev-rule-engine">
+              <span class="ev-node-kind">코드 · 규칙 검사</span>
+              <strong>확인 가능한 조건을 규칙에 따라 비교</strong>
+              <ul><li>총액 ≤ 예산</li><li>요청 수량 ≤ 판매 가능 수량</li><li>필수 사양 일치</li><li>근거 누락·유효성 확인</li></ul>
+              <p>원본 상품 정보와 추천 순위는 변경하지 않습니다.</p>
+            </div>
+            <div class="ev-link-arrow" aria-hidden="true">↓ 항목별 판정 + 사용한 근거</div>
+            <div class="ev-arch-verdicts">
+              <div><span class="ev-status ev-pass">✓ 통과</span><strong>확인 범위 안에서 일치</strong><small>근거를 붙여 다음 검토로</small></div>
+              <div><span class="ev-status ev-fail">× 위반</span><strong>조건과 결과가 충돌</strong><small>수정 또는 다른 오퍼 탐색</small></div>
+              <div><span class="ev-status ev-unknown">? 확인 불가</span><strong>근거 부족·유효성 불명</strong><small>추가 조회 또는 사람 확인</small></div>
+            </div>
+            <div class="ev-arch-review"><strong>운영·QA 검토 화면</strong><p>문제 항목, 사용한 근거, 수정이 필요한 추천 문장을 함께 보여줍니다.</p></div>
+            <div class="ev-arch-audit"><span aria-hidden="true">↻</span><p><strong>변경 감지 → 영향받는 추천 조회 → 재검사</strong><br>입력·추출 결과·근거 버전·검사 규칙 버전·판정을 같은 기록으로 연결합니다.</p></div>
+          </figure>
+
+          <div class="ev-boundary">
+            <div><strong>언어 모델이 해석하는 일</strong><p>비정형 구매 요청에서 조건을 추출하고, 추천 문장의 주장을 분류합니다. 추출한 값도 원문과 연결해 확인할 수 있어야 합니다.</p></div>
+            <div><strong>코드가 확인하는 일</strong><p>금액·수량을 계산하고, 사양 일치와 근거의 유효성을 검사합니다. 판단에 필요한 값이 빠지면 확인 불가로 남깁니다.</p></div>
+          </div>
+          <p>‘확인 불가’를 검토 대기열로 보내는 정책이 있어야 합니다. 통과도 설정한 검사 범위의 일치일 뿐이므로, 이를 전체 추천의 인증이나 자동 구매 승인으로 사용해서는 안 됩니다. 추천 근거 검사기가 다루는 범위는 <strong>우리가 확보한 데이터와 우리가 제공하는 추천 사이의 모순</strong>입니다.</p>
+        </section>
+
+        <section class="guide-section insight-section" id="value" aria-labelledby="value-title">
+          <p class="ev-eyebrow">06 · 제품의 가치와 추천의 신뢰</p>
+          <h2 id="value-title">제품의 가치는<br>줄어든 재확인에서</h2>
+          <p>추천 근거를 검사하는 기능이 유용해 보인다는 것과, 고객이 비용을 지불할 만한 독립적인 제품이 된다는 것은 다른 이야기입니다. 운영팀이 간단한 규칙으로 이미 해결하고 있다면 별도 제품이 필요하지 않을 수 있습니다. 기준 데이터가 부정확하거나 잘못된 경고가 많으면 오히려 확인 업무가 늘어납니다.</p>
+          <p>따라서 먼저 시험해볼 대상은 추천·상담 문구를 반복 검수하고, 실제 오류 사례와 승인된 기준 데이터를 가진 운영·QA팀입니다. 한 상품군의 저장된 추천부터 검사해, 지금의 검수 방식보다 나아지는지 비교할 수 있습니다.</p>
+          <figure class="ev-figure ev-pilot" aria-labelledby="pilot-caption">
+            <figcaption id="pilot-caption"><span>첫 실험의 범위</span><strong>한 상품군, 같은 검수 기준으로 비교한다</strong></figcaption>
+            <ol>
+              <li><b>1</b><div><strong>검수 기준을 먼저 만든다</strong><p>승인된 상품 파일과 저장된 추천을 모으고, 사람이 오류와 확인 불가 항목을 표시합니다.</p></div></li>
+              <li><b>2</b><div><strong>저장된 결과를 검사한다</strong><p>예산·수량·필수 기능부터 비교합니다. 언어 모델이 추출한 조건의 오류도 함께 살펴봅니다.</p></div></li>
+              <li><b>3</b><div><strong>검수 부담이 줄었는지 본다</strong><p>사람 검수만 한 경우와 검사기를 함께 쓴 경우의 시간·누락·잘못된 경고를 비교합니다.</p></div></li>
+            </ol>
+            <div class="ev-metrics"><div><strong>검수 시간</strong><span>건당 확인에 든 시간</span></div><div><strong>오류 포착</strong><span>실제 오류를 찾은 비율</span></div><div><strong>경고 부담</strong><span>잘못된 경고의 처리 시간</span></div></div>
+          </figure>
+          <p>첫 성과는 <strong>사람이 하던 재확인을 실제로 얼마나 줄였는지</strong>로 평가해야 합니다. 같은 유형의 업무에서 검수 시간이 줄었는지, 실제 오류를 얼마나 찾아냈는지, 잘못된 경고를 처리하는 데 시간이 얼마나 더 들었는지를 함께 봐야 합니다.</p>
+          <p>전환율이나 매출이 좋아지는지는 그다음에 따로 확인할 문제입니다. 검사 기능을 도입했다는 사실만으로 매출 개선까지 기대할 수는 없습니다.</p>
+
+          <h3>사람이 매번 확인하던 일을 줄인다</h3>
+          <p>헬로우 휴먼의 Workless Engineering 관점에서 이 제품을 살펴보는 이유도 여기에 있습니다. 추천 에이전트가 만든 문장이 늘어날 때마다 사람이 가격·수량·사양을 처음부터 다시 대조해야 한다면, 추천을 만드는 속도가 빨라져도 검수 부담은 남습니다.</p>
+          <p>앞의 키보드 사례에서 추천 근거 검사기는 예산 초과와 누락된 정보를 찾아냅니다. 사람은 그 결과를 보고 추천 상품을 바꾸거나, 부족한 정보를 확인합니다. <strong>이미 확인한 근거와 계산 결과를 함께 보여줘야 사람이 같은 확인을 되풀이하는 일을 줄일 수 있습니다.</strong></p>
+
+          <h3>순위 이후의 판단에도 투자할 이유가 있다</h3>
+          <p>커머스에서 순위와 노출은 앞으로도 중요할 수 있습니다. 고객이 상품을 발견해야 비교하고 선택할 기회가 생기기 때문입니다. 여기에 선택을 추천 에이전트에게 맡기는 과정이 더해지면, 추천이 고객의 조건을 충족하는지 확인하는 능력도 필요해집니다.</p>
+          <p>“많이 팔려서 추천했습니다”라는 설명에서는 인기를 알 수 있습니다. “배송비를 더하면 예산을 넘고, macOS 지원 정보는 추가 확인이 필요합니다”라는 설명에서는 이 고객이 구매하기 전에 해결해야 할 문제를 알 수 있습니다.</p>
+          <p>이 차이가 추천 근거를 관리하는 제품에 투자할 이유입니다. 어떤 정보를 확인했고 무엇이 아직 확인되지 않았는지 보여줄 수 있어야, 고객도 추천을 받아들일지 판단할 수 있습니다.</p>
+          <div class="insight-closing-summary">
+            <p>고객이 맡기는 것은 상품 선택과 그 선택에 대한 신뢰입니다.</p>
+            <p><strong>추천 에이전트에 대한 신뢰는<br>설명의 근거를 어디까지<br>확인할 수 있는지에서 시작됩니다.</strong></p>
+          </div>
+        </section>
+
         <div class="guide-resources insight-resources">
           <h2>자료와 읽는 법</h2>
-          <p>상품 선정·표시·정보 갱신에 관한 설명은 본문에 연결한 OpenAI와 Google의 공식 문서를 기준으로 확인했습니다. 랭킹의 순환은 판매량 기반 순위를 가정한 설명이며, 선택 과정의 압축과 추천 근거 검사기·도입 대상·성과 지표는 헬로우 휴먼의 해석과 제안입니다.</p>
+          <p>공식 서비스 설명은 본문에 연결한 OpenAI와 Google의 문서를 기준으로 확인했습니다(2026년 9월 29일). 구매 사례·검수 화면·아키텍처·실험 지표는 이해를 돕기 위한 가상 예시와 헬로우 휴먼의 제품 제안입니다. 외부 플랫폼의 비공개 추천 기준, 순위 조작 여부, 상위 노출 보장은 이 검사기의 범위에 포함하지 않습니다.</p>
           <p>함께 읽기: <a href="2026-09-25-agentic-commerce.html">인사이트 01 · 에이전틱 커머스의 첫 제품은 쇼핑 챗봇이 아니다</a></p>
           <a class="news-end-link" href="./">커머스 인사이트 목록으로 돌아가기 <span aria-hidden="true">→</span></a>
         </div>

@@ -48,7 +48,7 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `guides/2026-09-25-llm-selection.html` | AI가이드 첫 호 |
 | `insights/index.html` | 커머스 인사이트 목록 |
 | `insights/2026-09-25-agentic-commerce.html` | 커머스 인사이트 첫 호 |
-| `insights/2026-09-29-recommendation-evidence.html` | 커머스 인사이트 두 번째 글: AI 추천의 근거와 검증 |
+| `insights/2026-09-29-recommendation-evidence.html` | 커머스 인사이트 두 번째 글: 추천 에이전트의 근거와 검증 |
 | `works/choi-taejun.html` | 회원 최태준의 작업물 소개 |
 | `works/sun-soorim.html` | 회원 선수림의 모델별 웹 제작 실험 소개 |
 | `assets/style.css` | 공통 스타일 |
@@ -59,6 +59,7 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `assets/case-studies.css` | AI 사례연구 소개 카드·목록·본문 시각화 스타일 |
 | `assets/case-studies/` | 실제 게임 캡처와 출처가 표시된 사례 이미지 |
 | `assets/insights.css` | 커머스 인사이트 시각화 스타일 |
+| `assets/insight-evidence.css` | 인사이트 02의 구매 사례·검수 화면·아키텍처 도식 스타일 |
 | `assets/article-toc.js` | AI뉴스·AI 사례연구·AI가이드·커머스 인사이트 스크롤 위치에 맞춘 목차 표시 |
 | `assets/showcase.css` | 회원 작업물 페이지와 기본 페이지 소개 카드 스타일 |
 | `assets/benchmark.css` | 모델별 실험 갤러리 스타일 |
