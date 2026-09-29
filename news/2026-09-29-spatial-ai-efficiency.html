@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>AMD의 공간 AI 베팅, Claude Sonnet 5.5의 효율 경쟁 · AI뉴스 · 헬로우 휴먼</title>
+  <meta name="description" content="AMD의 World Labs 인수 계약과 Claude Sonnet 5.5 발표. 공간 AI의 가능성과 한계, 속도·작업당 비용·토큰 단가의 차이를 살펴봅니다.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../assets/style.css?v=4">
+  <link rel="stylesheet" href="../assets/news.css?v=9">
+  <link rel="stylesheet" href="../assets/news-spatial.css?v=1">
+  <link rel="stylesheet" href="../assets/content-updates.css?v=1">
+</head>
+<body class="news-spatial">
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+      <nav class="news-nav" aria-label="사이트 메뉴">
+        <a href="../">모임 소개</a>
+        <a href="./">AI뉴스</a>
+        <a href="../guides/">AI가이드</a>
+        <a href="../insights/">인사이트</a>
+        <a href="../case-studies/">사례연구</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <header class="news-article-header wrap">
+        <a class="news-back" href="./">← AI뉴스 목록</a>
+        <p class="news-kicker">AI NEWS <span aria-hidden="true">/</span> ISSUE 02</p>
+        <h1>AMD의 공간 AI 베팅,<br><em>Claude Sonnet 5.5의 효율 경쟁</em></h1>
+        <p class="news-deck">사진에서 가상세계로, 성능 점수에서 실제 작업 비용으로.<br>World Labs 인수 계약과 Sonnet 5.5 발표를 우리가 맡길 수 있는 일의 관점에서 읽습니다.</p>
+        <div class="news-article-meta">
+          <time datetime="2026-09-29">2026년 9월 29일</time><span>헬로우 휴먼 AI뉴스</span>
+        </div>
+      </header>
+
+      <div class="spatial-cover wrap" aria-label="이번 호의 두 가지 주제">
+        <a class="spatial-cover-panel spatial-cover-world" href="#world-labs">
+          <span class="spatial-eyebrow">AMD × WORLD LABS</span>
+          <div class="spatial-cover-art" aria-hidden="true">
+            <svg viewBox="0 0 420 180" fill="none">
+              <path d="M70 107 206 32 352 110 216 179Z" fill="#252d34" stroke="#7f959e"/>
+              <path d="m104 89 146 73m-111-93 145 75m-111-95 146 77M106 125 241 50M141 144 278 70M176 163 315 90" stroke="#47585f"/>
+              <path d="m141 96 64-35 65 35-64 35Z" fill="#aec5c7"/>
+              <path d="M141 96v-50l64-35v50Z" fill="#6c989d"/>
+              <path d="M205 11v50l65 35V46Z" fill="#d4e2e0"/>
+              <path d="m216 119 64-36 45 25v45l-64 25-45-24Z" fill="#ff8a4c" fill-opacity=".12" stroke="#ff8a4c" stroke-width="2" stroke-dasharray="5 5"/>
+              <path d="m216 119 45 25 64-36m-64 36v34m19-95v43" stroke="#ff8a4c" stroke-dasharray="5 5"/>
+              <path d="m75 50 20-11v18L75 68Z" fill="#e7e5e4"/>
+              <path d="m98 39 26-6v36l-26-9Z" stroke="#e7e5e4"/>
+            </svg>
+          </div>
+          <strong>AI가 다룰 수 있는<br>공간을 넓히다</strong>
+          <span class="spatial-cover-description">이미지·영상 → 3차원 공간 → 시뮬레이션</span>
+          <span class="spatial-cover-link">공간 AI 소식 읽기 <span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="spatial-cover-panel spatial-cover-efficiency" href="#sonnet">
+          <span class="spatial-eyebrow">CLAUDE SONNET 5.5</span>
+          <div class="spatial-cover-art" aria-hidden="true">
+            <svg viewBox="0 0 420 180" fill="none">
+              <path d="M55 34h310M55 87h310M55 140h310" stroke="#3e3632"/>
+              <rect x="55" y="24" width="210" height="20" rx="4" fill="#776c66"/>
+              <rect x="55" y="77" width="156" height="20" rx="4" fill="#b29b8d"/>
+              <rect x="55" y="130" width="106" height="20" rx="4" fill="#ff8a4c"/>
+              <path d="m283 46 26 51 39 22" stroke="#ff8a4c" stroke-width="2"/>
+              <path d="m337 121 15 1-6-14" stroke="#ff8a4c" stroke-width="2"/>
+              <circle cx="346" cy="38" r="15" stroke="#d9cec5"/>
+              <path d="m339 38 5 5 9-10" stroke="#d9cec5" stroke-width="2"/>
+            </svg>
+          </div>
+          <strong>하나의 일을 끝내는 데<br>드는 비용을 줄이다</strong>
+          <span class="spatial-cover-description">생성 속도 · 사용한 토큰 · 사람이 고치는 시간</span>
+          <span class="spatial-cover-link">모델 효율 소식 읽기 <span aria-hidden="true">↗</span></span>
+        </a>
+      </div>
+
+      <div class="news-article-shell wrap">
+        <aside class="news-toc" aria-label="기사 목차">
+          <span>이번 호</span>
+          <a href="#at-a-glance">30초 요약</a>
+          <a href="#world-labs">AMD의 인수 계약</a>
+          <a href="#atlas">사진에서 공간으로</a>
+          <a href="#robotics">로봇의 가상 연습</a>
+          <a href="#sonnet">Sonnet 5.5의 효율</a>
+          <a href="#engineering">개발자 메모</a>
+          <a href="#our-view">우리 업무에서 확인하기</a>
+        </aside>
+
+        <div class="news-story">
+          <section id="at-a-glance" class="news-summary" aria-labelledby="summary-heading">
+            <p class="news-section-label">AT A GLANCE</p>
+            <h2 id="summary-heading">30초 요약</h2>
+            <ul>
+              <li><strong>AMD</strong>가 공간 AI 기업 World Labs를 약 82억 달러에 인수하는 계약을 발표했습니다. 아직 인수가 완료된 것은 아닙니다.</li>
+              <li><strong>공간 AI</strong>는 사진 한 장을 넘어, 다른 시점에서 볼 수 있는 공간과 시뮬레이션을 다룹니다. 보이지 않은 부분은 추정이 들어갑니다.</li>
+              <li><strong>Sonnet 5.5</strong>의 효율 개선은 토큰 가격 인하와 다릅니다. 같은 일을 끝내는 데 사용한 토큰과 사람의 수정 시간을 함께 봐야 합니다.</li>
+            </ul>
+          </section>
+          <p class="news-method">9월 28일 발표를 중심으로, 이해에 필요한 앞선 소식도 함께 살펴봅니다. 성능 수치는 발표한 기업의 평가이며, 업무에 적용할 아이디어는 헬로우 휴먼의 해석입니다.</p>
+
+          <section id="world-labs" class="news-story-section">
+            <p class="news-section-label">01 / AMD × WORLD LABS</p>
+            <h2>칩을 만드는 AMD가<br>공간 AI를 품으려는 이유</h2>
+            <p>AMD는 9월 28일, 페이페이 리가 이끄는 World Labs를 <strong>약 82억 달러 규모의 전액 주식 거래로 인수하는 계약</strong>을 발표했습니다. 규제 승인 등 조건을 충족하면 2026년 말까지 거래를 마무리할 계획입니다. 인수 발표와 인수 완료를 구분해 읽어야 하는 이유입니다. <a class="source-link" href="https://www.globenewswire.com/news-release/2026/09/28/3370256/0/en/amd-to-acquire-world-labs-to-advance-the-future-of-ai-compute.html" target="_blank" rel="noopener noreferrer">AMD 공식 보도자료 ↗</a></p>
+            <p>World Labs는 이미지 속 사물을 알아보는 데서 더 나아가, <strong>공간을 만들고 재구성하며 그 안의 상황을 시뮬레이션하는 모델</strong>을 개발합니다. AMD는 이런 모델 연구를 통해 앞으로 필요한 연산을 더 깊이 이해하고, 하드웨어와 소프트웨어 설계에 반영하겠다고 설명했습니다.</p>
+            <p>갑작스러운 만남도 아닙니다. World Labs는 2025년부터 AMD와 모델 학습·추론을 GPU에 맞게 최적화하는 기술 협력을 진행해 왔다고 밝혔습니다. 모델을 만드는 쪽과 연산 장치를 만드는 쪽의 협력이 인수 계약으로 이어진 셈입니다. <a class="source-link" href="https://www.worldlabs.ai/blog/amd-announcement" target="_blank" rel="noopener noreferrer">World Labs 발표 ↗</a></p>
+            <div class="news-insight">
+              <span>헬로우 휴먼의 해석</span>
+              <p>이 거래는 AI 경쟁이 모델의 답변 품질을 넘어, 새로운 종류의 작업에 필요한 연산 구조까지 맞추는 방향으로 넓어지고 있음을 보여줍니다.</p>
+            </div>
+          </section>
+
+          <section id="atlas" class="news-story-section">
+            <p class="news-section-label">02 / SPATIAL AI</p>
+            <h2>사진을 보여주면,<br>옆에서 본 공간도 만들 수 있을까?</h2>
+            <p>World Labs가 <strong>9월 1일 공개한 Atlas</strong>는 텍스트·이미지·영상·3D 정보를 입력받아 공간을 생성하거나 재구성하는 월드 모델입니다. 인수 발표 당일에 처음 등장한 제품은 아닙니다.</p>
+            <p>방 사진을 넣고 카메라를 옆으로 옮겼을 때 보일 장면을 만드는 식입니다. 핵심은 예쁜 한 장을 넘어, <strong>시점을 바꿔도 이어지는 공간을 다룬다</strong>는 데 있습니다. 다만 카메라에 찍히지 않은 부분은 모델이 추정합니다. 사진을 더 제공하면 그만큼 추정으로 채울 영역을 줄일 수 있습니다. <a class="source-link" href="https://www.worldlabs.ai/blog/atlas" target="_blank" rel="noopener noreferrer">Atlas 공식 소개와 시연 ↗</a></p>
+
+            <figure class="spatial-figure">
+              <div class="spatial-figure-heading"><span class="spatial-eyebrow">사진 → 공간 재구성</span><h3>보여준 정보와, 채워 넣은 정보</h3></div>
+              <div class="spatial-room-grid">
+                <div class="spatial-room-panel">
+                  <span class="spatial-step">입력</span>
+                  <svg viewBox="0 0 320 220" role="img" aria-label="촬영한 방의 벽과 소파. 반대편은 사진에 보이지 않습니다.">
+                    <path d="M30 126 144 65 289 140 174 203Z" fill="var(--surface-2)" stroke="var(--muted)"/>
+                    <path d="M30 126V45L144 8v57Z" fill="var(--line)" stroke="var(--muted)"/>
+                    <path d="M144 8v57l145 75V59Z" fill="var(--surface)" stroke="var(--muted)"/>
+                    <path d="m58 114 62-32 77 40-63 34Z" fill="var(--muted)"/>
+                    <path d="M58 114v25l76 40v-23Zm76 42 63-34v25l-63 32Z" fill="var(--ink)"/>
+                    <path d="m186 116 58-28 45 25v27l-68 37-35-19Z" fill="var(--bg)" stroke="var(--muted)" stroke-dasharray="5 5"/>
+                    <text x="235" y="141" text-anchor="middle" fill="var(--muted)" font-size="25" font-family="sans-serif">?</text>
+                  </svg>
+                  <strong>사진에 담긴 장면</strong>
+                  <p>보이는 벽과 가구는 참고할 수 있지만, 가려진 반대편은 알 수 없습니다.</p>
+                </div>
+                <span class="spatial-room-arrow" aria-hidden="true">→</span>
+                <div class="spatial-room-panel">
+                  <span class="spatial-step">생성 결과</span>
+                  <svg viewBox="0 0 320 220" role="img" aria-label="기존 방에 모델이 추정한 반대편 가구가 주황색 점선으로 추가된 공간">
+                    <path d="M30 126 144 65 289 140 174 203Z" fill="var(--surface-2)" stroke="var(--muted)"/>
+                    <path d="M30 126V45L144 8v57Z" fill="var(--line)" stroke="var(--muted)"/>
+                    <path d="M144 8v57l145 75V59Z" fill="var(--surface)" stroke="var(--muted)"/>
+                    <path d="m58 114 62-32 77 40-63 34Z" fill="var(--muted)"/>
+                    <path d="M58 114v25l76 40v-23Zm76 42 63-34v25l-63 32Z" fill="var(--ink)"/>
+                    <path d="m204 110 34-18 38 20-33 18Z" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 4"/>
+                    <path d="M204 110v32l39 21v-33m0 33 33-19v-32" fill="none" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 4"/>
+                    <path d="M69 188c48 35 142 26 189-3m-2-11 3 11-13 3" fill="none" stroke="var(--accent)" stroke-width="2"/>
+                  </svg>
+                  <strong>다른 시점에서도 볼 수 있는 공간</strong>
+                  <p>보이지 않던 부분은 추정으로 채웁니다. 주황색 점선은 그 영역을 뜻합니다.</p>
+                </div>
+              </div>
+              <figcaption>공간 재구성의 개념도. <strong>그럴듯한 공간을 만드는 것과 실제 치수·형태가 정확한 것은 별개의 문제입니다.</strong></figcaption>
+            </figure>
+
+            <p>커머스에서는 가구 배치나 매장 구성의 초안, 상품 촬영 배경을 탐색하는 데 이런 접근을 시험해볼 수 있겠습니다. 다만 “이 소파가 우리 집에 정확히 들어간다”거나 “상품 뒷면은 이렇게 생겼다”는 안내에는 실제 치수와 상품 자료를 대조하는 검증이 필요합니다.</p>
+            <p class="spatial-access">Atlas는 발표 기준 일부 파트너를 대상으로 조기 접근을 제공하는 단계입니다. 공개 시연과 누구나 바로 사용할 수 있는 제품은 구분해서 봐야 합니다.</p>
+          </section>
+
+          <section id="robotics" class="news-story-section">
+            <p class="news-section-label">03 / REAL → SIM → REAL</p>
+            <h2>로봇이 현실에서 실패하기 전에,<br>가상 공간에서 더 많이 연습한다</h2>
+            <p>공간을 만들 수 있다면 그 안에서 움직임도 시험해볼 수 있습니다. World Labs는 7월 21일 로봇 시뮬레이션 팀 SceniX 인수를 알렸고, 7월 28일에는 현실의 작업을 시뮬레이션으로 옮겼다가 다시 현실에서 검증하는 <strong>Real-to-Sim-to-Real</strong> 접근의 초기 결과를 공개했습니다. <a class="source-link" href="https://www.worldlabs.ai/blog/scenix" target="_blank" rel="noopener noreferrer">SceniX 합류 발표 ↗</a></p>
+            <figure class="spatial-figure spatial-loop-figure">
+              <div class="spatial-figure-heading"><span class="spatial-eyebrow">로봇 학습의 흐름</span><h3>같은 작업을, 더 다양한 조건에서</h3></div>
+              <ol class="spatial-flow">
+                <li><span class="spatial-step">현실 관찰</span><strong>물건을 집는 장면</strong><p>공간과 물체, 로봇의 움직임을 기록합니다.</p><span class="spatial-flow-arrow" aria-hidden="true">→</span></li>
+                <li><span class="spatial-step">가상 훈련·평가</span><strong>조건을 바꿔 반복</strong><p>물체 위치·조명·카메라·물리 조건을 달리합니다.</p><span class="spatial-flow-arrow" aria-hidden="true">→</span></li>
+                <li><span class="spatial-step">현실 검증</span><strong>실제 로봇으로 확인</strong><p>가상에서 배운 행동이 현실에서도 통하는지 봅니다.</p></li>
+              </ol>
+              <figcaption>가상 실험의 성공은 현실에서 확인해야 합니다. 실패한 조건은 다음 훈련과 평가에 다시 반영합니다.</figcaption>
+            </figure>
+            <p>매번 실제 로봇과 공간을 준비하는 대신, 가상 환경에서 더 많은 실패 조건을 시험하려는 접근입니다. 다만 시뮬레이션과 현실 사이의 차이는 남습니다. 초기 결과를 읽을 때도 가상에서의 점수와 실제 로봇에서 확인한 결과를 구분해야 합니다. <a class="source-link" href="https://www.worldlabs.ai/blog/real-to-sim-to-real" target="_blank" rel="noopener noreferrer">World Labs의 연구 설명 ↗</a></p>
+          </section>
+
+          <section id="sonnet" class="news-story-section">
+            <p class="news-section-label">04 / CLAUDE SONNET 5.5</p>
+            <h2>더 빠르고 저렴하다는 말,<br>어떤 비용이 줄었다는 뜻일까?</h2>
+            <p>Anthropic도 9월 28일 <strong>Claude Sonnet 5.5</strong>를 발표했습니다. 디버깅, 문서 작성, 슬라이드와 스프레드시트처럼 범위가 비교적 분명한 일상 업무를 겨냥합니다. 더 복잡하고 정답이 열려 있는 과제에는 Opus 5.5가 더 강하다는 것이 회사의 설명입니다.</p>
+            <figure class="spatial-figure spatial-metrics-figure">
+              <div class="spatial-figure-heading"><span class="spatial-eyebrow">SONNET 5 대비 · ANTHROPIC 발표</span><h3>속도, 작업 비용, 토큰 가격은 다릅니다</h3></div>
+              <div class="spatial-metrics">
+                <div><span>출력 생성 속도</span><strong>30%<small> 이상 ↑</small></strong><p>응답을 생성하는 속도</p></div>
+                <div><span>작업당 비용</span><strong>최대 30%<small> ↓</small></strong><p>회사 자체 테스트 결과</p></div>
+                <div><span>기본 API 토큰 단가</span><strong>변동 없음</strong><p>100만 토큰당<br>입력 $2 · 출력 $10</p></div>
+              </div>
+              <figcaption>같은 단가여도 작업을 끝내는 데 필요한 토큰이 줄면 비용이 낮아질 수 있습니다. 모든 업무에서 같은 절감률이 나온다는 뜻은 아닙니다.</figcaption>
+            </figure>
+            <p>회사 발표에 따르면 Sonnet 5보다 출력 생성은 30% 이상 빠르고, 테스트한 작업의 비용은 최대 30% 줄었습니다. <strong>토큰 단가를 낮춘 것이 아니라 사용량을 줄였다는 설명</strong>입니다. <a class="source-link" href="https://www.anthropic.com/claude-sonnet-5-5" target="_blank" rel="noopener noreferrer">Anthropic 발표 ↗</a> <a class="source-link" href="https://platform.claude.com/docs/ko/models/sonnet-5-5/overview" target="_blank" rel="noopener noreferrer">모델 사양·가격 ↗</a></p>
+            <p>개발 업무 전체가 30% 빨라진다고 읽어서도 안 됩니다. AI 에이전트가 파일을 찾고, 도구를 호출하고, 테스트를 실행하고, 실패해서 다시 시도하는 시간까지 합쳐야 실제 완료 시간을 알 수 있습니다.</p>
+            <p><strong>직접 해본 실험도 함께 보세요.</strong> Sonnet 5.5로 ‘거울 나라의 앨리스’ 웹페이지를 만든 작업 시간과 토큰 사용 기록은 <a href="https://soorimsun.github.io/prompt-test/sonnet-5.5/benchmark.html" target="_blank" rel="noopener noreferrer">Sonnet 5.5 앨리스 벤치 결과 ↗</a>에서 확인할 수 있습니다.</p>
+            <div class="spatial-cost-strip"><span>우리 업무에서 볼 비용</span><strong>모든 시도의 API 사용료 <span aria-hidden="true">＋</span> 사람이 검토하고 고치는 데 드는 비용</strong></div>
+          </section>
+
+          <section id="engineering" class="news-story-section">
+            <p class="news-section-label">05 / ENGINEERING NOTE</p>
+            <h2>모델 이름만 바꾸기 전에,<br>설정과 완료 기준도 함께 확인하기</h2>
+            <p>Sonnet 5.5를 비교할 때는 모델 이름뿐 아니라 <strong>얼마나 깊게 추론하도록 설정했는지</strong>도 기록해야 합니다. 이 설정이 <code>effort</code>입니다. 같은 모델이어도 설정에 따라 품질과 대기 시간, 사용량이 달라집니다.</p>
+            <div class="spatial-effort-grid">
+              <div><code>medium</code><strong>요구 사항이 명확한 작업부터</strong><p>범위가 정해진 코딩과 여러 단계의 도구 사용에서 시작점으로 권장됩니다.</p></div>
+              <div><code>high</code><strong>더 어렵거나 긴 작업에서</strong><p>복잡한 작업으로 옮겨갈 때 높여 비교합니다. Claude API의 기본값이기도 합니다.</p></div>
+            </div>
+            <p>벤치마크 역시 추론 설정과 도구 사용 조건을 함께 읽어야 합니다. 우리 업무에서는 “완료했다”는 응답을 점수로 삼기보다, 실제 테스트 결과와 남은 수정 사항을 확인하는 편이 유용합니다.</p>
+            <aside class="spatial-dev-note" aria-labelledby="migration-heading">
+              <h3 id="migration-heading">API를 연결해 쓰고 있다면</h3>
+              <p>응답 전 추론을 생략하려면 기존 <code>disabled</code> 대신 <code>between_tools</code>를 사용합니다. 도구 호출 사이의 추론까지 꺼지는 것은 아닙니다. 특정 도구 사용을 강제하던 설정도 지원되지 않으므로, 모델 ID와 함께 요청 옵션·응답 처리를 확인하세요.</p>
+              <a href="https://platform.claude.com/docs/ko/models/sonnet-5-5/migration-guide" target="_blank" rel="noopener noreferrer">추론 설정과 API 변경 사항: 마이그레이션 가이드 ↗</a>
+            </aside>
+          </section>
+
+          <section id="our-view" class="news-story-section spatial-our-view">
+            <p class="news-section-label">HELLO, HUMAN / WORKLESS ENGINEERING</p>
+            <h2>새 모델의 가치는,<br>우리 일이 줄었는지로 확인하기</h2>
+            <p>이번 두 소식은 서로 다른 질문을 던집니다. 공간 AI는 “지금까지 맡기기 어려웠던 어떤 일을 맡길 수 있을까?”를, Sonnet 5.5는 “이미 맡기던 일을 더 적은 비용으로 끝낼 수 있을까?”를 묻게 합니다.</p>
+            <p>두 경우 모두 출발점은 구체적인 업무 하나입니다. 개발팀이라면 <strong>Java·Spring 서비스의 쿠폰 만료 경계값 테스트 작성</strong>부터 비교해볼 수 있습니다. 모호한 “코드를 잘 짜는가” 대신, 만료 직전·정각·직후를 실제로 검증하는지 보는 것입니다.</p>
+            <div class="spatial-experiment">
+              <h3>다음 실험: 쿠폰은 정확히 언제 만료되는가?</h3>
+              <div class="spatial-boundaries" aria-label="검사할 세 가지 시점">
+                <span>만료 직전<strong>사용 가능?</strong></span><span>만료 정각<strong>경계 규칙은?</strong></span><span>만료 직후<strong>거절되는가?</strong></span>
+              </div>
+              <dl>
+                <div><dt>같은 조건</dt><dd>같은 코드·업무 규칙·도구 권한을 주고 모델과 effort를 기록합니다.</dd></div>
+                <div><dt>완료 기준</dt><dd>테스트 실행 여부와 경계값 누락을 확인합니다. 잘못된 만료 로직도 잡는지 봅니다.</dd></div>
+                <div><dt>비교할 값</dt><dd>완료까지 걸린 시간, 재시도를 포함한 API 비용, 사람이 수정한 시간을 남깁니다.</dd></div>
+              </dl>
+            </div>
+            <p>응답이 빨라도 테스트가 빠져 있으면 일이 끝난 것이 아닙니다. API 요금이 줄어도 사람이 더 오래 고친다면 전체 비용은 늘 수 있습니다. 반대로 검증된 결과를 적은 수정으로 얻었다면, 비로소 맡길 수 있는 일이 하나 늘어납니다.</p>
+            <p>헬로우 휴먼의 Workless Engineering은 이런 변화를 확인하는 데서 시작합니다. 새로운 결과물을 만드는 능력과, 그 결과물을 믿고 쓰기까지 필요한 일을 함께 살펴보는 것입니다.</p>
+            <blockquote class="spatial-closing">검증을 통과한 결과를 얻는 데,<br><strong>사람이 해야 할 일이<br>실제로 얼마나 줄었을까?</strong></blockquote>
+          </section>
+
+          <section class="news-sources" aria-labelledby="sources-heading">
+            <h2 id="sources-heading">읽은 자료</h2>
+            <ul>
+              <li><a href="https://www.globenewswire.com/news-release/2026/09/28/3370256/0/en/amd-to-acquire-world-labs-to-advance-the-future-of-ai-compute.html" target="_blank" rel="noopener noreferrer">AMD, World Labs 인수 계약 발표 ↗</a> <span>9월 28일 · 공식 보도자료 · 영어</span></li>
+              <li><a href="https://www.worldlabs.ai/blog/amd-announcement" target="_blank" rel="noopener noreferrer">World Labs, AMD 합류에 관한 발표 ↗</a> <span>9월 28일 · 영어</span></li>
+              <li><a href="https://www.worldlabs.ai/blog/atlas" target="_blank" rel="noopener noreferrer">World Labs, Atlas 소개와 시연 ↗</a> <span>9월 1일 · 영어</span></li>
+              <li><a href="https://www.worldlabs.ai/blog/scenix" target="_blank" rel="noopener noreferrer">World Labs, SceniX 인수 발표 ↗</a> <span>7월 21일 · 영어</span></li>
+              <li><a href="https://www.worldlabs.ai/blog/real-to-sim-to-real" target="_blank" rel="noopener noreferrer">World Labs, Real-to-Sim-to-Real 연구 ↗</a> <span>7월 28일 · 영어</span></li>
+              <li><a href="https://www.anthropic.com/claude-sonnet-5-5" target="_blank" rel="noopener noreferrer">Anthropic, Claude Sonnet 5.5 발표 ↗</a> <span>9월 28일 · 영어</span></li>
+              <li><a href="https://platform.claude.com/docs/ko/models/sonnet-5-5/overview" target="_blank" rel="noopener noreferrer">Claude Sonnet 5.5 모델 사양과 가격 ↗</a> <span>한국어</span></li>
+              <li><a href="https://platform.claude.com/docs/ko/models/sonnet-5-5/migration-guide" target="_blank" rel="noopener noreferrer">Claude Sonnet 5.5 마이그레이션 가이드 ↗</a> <span>한국어</span></li>
+            </ul>
+            <p>2026년 9월 29일 확인한 공식 발표와 문서를 바탕으로 작성했습니다. 한국어로 제공되는 문서는 한국어 페이지로 연결했습니다.</p>
+          </section>
+          <a class="news-end-link" href="./">AI뉴스 목록으로 돌아가기 <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer"><div class="wrap">헬로우 휴먼 · Workless Engineering Club</div></footer>
+  <script src="../assets/analytics.js?v=2" defer></script>
+  <script src="../assets/article-toc.js?v=1" defer></script>
+  <script type="module" src="../assets/content-updates.js?v=2"></script>
+</body>
+</html>
