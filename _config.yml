@@ -16,3 +16,5 @@ defaults:
 
 exclude:
   - README.md
+  - package.json
+  - tests

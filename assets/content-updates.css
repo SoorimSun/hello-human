@@ -1,0 +1,35 @@
+/* New/Updated follows each link without changing the existing card grid. */
+.content-update-badge {
+  display: inline-flex;
+  align-items: center;
+  width: max-content;
+  margin-inline-start: 8px;
+  padding: 1px 6px;
+  border: 1px solid var(--line, #bbb);
+  border-radius: 4px;
+  color: var(--ink, #18181b);
+  background: var(--surface-2, #eeece6);
+  font-family: var(--sans, sans-serif);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: 0;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-transform: none;
+}
+.content-update-badge.is-updated { color: var(--muted, #5f5e66); background: var(--surface, #fff); }
+.topbar .has-content-update { position: relative; }
+.topbar .content-update-badge {
+  position: absolute;
+  right: -6px;
+  top: -10px;
+  margin: 0;
+  padding: 0 3px;
+  font-size: 8px;
+  pointer-events: none;
+}
+@media (max-width: 720px) {
+  .topbar .content-update-badge { top: -7px; }
+}
