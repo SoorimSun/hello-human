@@ -48,6 +48,7 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `guides/2026-09-25-llm-selection.html` | AI가이드 첫 호 |
 | `insights/index.html` | 커머스 인사이트 목록 |
 | `insights/2026-09-25-agentic-commerce.html` | 커머스 인사이트 첫 호 |
+| `insights/2026-09-29-recommendation-evidence.html` | 커머스 인사이트 두 번째 글: AI 추천의 근거와 검증 |
 | `works/choi-taejun.html` | 회원 최태준의 작업물 소개 |
 | `works/sun-soorim.html` | 회원 선수림의 모델별 웹 제작 실험 소개 |
 | `assets/style.css` | 공통 스타일 |
