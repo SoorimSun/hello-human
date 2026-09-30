@@ -6,6 +6,15 @@
 <!-- 사내 동호회 사이트: 검색엔진 수집·노출·캐시 차단. 지우지 마세요. -->
 <meta name="robots" content="noindex, nofollow, noarchive">
 <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+<meta property="og:title" content="{% if page.title %}{{ page.title | escape }} · {% endif %}{{ site.title | escape }}">
+<meta property="og:image" content="https://soorimsun.github.io/hello-human/assets/social/hellobot.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="헬로우 휴먼의 마스코트 헬로봇">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://soorimsun.github.io/hello-human/assets/social/hellobot.jpg">
+<meta name="twitter:image:alt" content="헬로우 휴먼의 마스코트 헬로봇">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

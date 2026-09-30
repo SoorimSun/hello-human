@@ -56,6 +56,8 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `works/choi-taejun.html` | 회원 최태준의 작업물 소개 |
 | `works/sun-soorim.html` | 회원 선수림의 모델별 웹 제작 실험 소개 |
 | `assets/style.css` | 공통 스타일 |
+| `assets/social/hellobot.jpg` | 홈·게임 버전·Markdown 페이지의 공유용 헬로봇 썸네일 (1200×630) |
+| `assets/social/hellobot-card.html` | 기존 헬로봇 CSS를 재사용한 썸네일 원본. 1200×630, 1배율로 캡처해 JPEG 갱신 |
 | `assets/news.css` | AI뉴스 목록·기사 스타일 |
 | `assets/news-spatial.css` | AI뉴스 02의 공간 재구성·로봇 학습·작업 비용 도식 스타일 |
 | `assets/news-agents.css` | AI뉴스 03의 지속 작업·실행 통제·팀 공유·쿠폰 검증 도식 스타일 |

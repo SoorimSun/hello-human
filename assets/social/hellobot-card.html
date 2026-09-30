@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>헬로우 휴먼 공유 이미지 원본</title>
+  <link rel="stylesheet" href="../jobsim.css?v=7">
+  <style>
+    /* 1200 × 630, 1배율로 캡처해 hellobot.jpg를 갱신합니다. */
+    html, body { width: 1200px; height: 630px; overflow: hidden; }
+    body { background: #111315; color: #f5f4f1; }
+    .share-card { position: relative; width: 100%; height: 100%; overflow: hidden; background: radial-gradient(ellipse at 50% 35%, #1d3935 0%, #151c1d 36%, #111315 72%); }
+    .share-card::after { content: ""; position: absolute; inset: 24px; border: 1px solid #ffffff12; border-radius: 24px; pointer-events: none; }
+    .share-bot { position: absolute; top: 85px; left: 50%; transform: translateX(-50%) scale(1.38); transform-origin: top center; }
+    .share-card .bot, .share-card .bot-eye { animation: none; }
+    .share-card .bot-head { box-shadow: inset 0 -6px 0 var(--beige-700), 0 10px 30px #00000045; }
+    .share-card .bot-note, .share-card .bot-tag { font-family: Consolas, monospace; }
+    .share-name { position: absolute; top: 445px; left: 0; width: 100%; text-align: center; }
+    .share-name h1 { margin: 0; font-size: 57px; font-weight: 800; letter-spacing: -.05em; line-height: 1.35; }
+    .share-name h1 span { color: #ff8a4c; }
+    .share-name p { margin: 13px 0 0; color: #b7c4c1; font-family: Consolas, monospace; font-size: 21px; letter-spacing: .01em; }
+  </style>
+</head>
+<body>
+  <main class="share-card" aria-label="헬로봇과 헬로우 휴먼 로고">
+    <div class="share-bot" aria-hidden="true">
+      <div class="bot is-happy">
+        <div class="bot-head">
+          <span class="bot-note">Work</span>
+          <div class="bot-screen"><i class="bot-eye l"></i><i class="bot-eye r"></i><i class="bot-mouth"></i></div>
+          <div class="bot-panel"><span class="bot-tag">HELLOBOT</span><span class="bot-led"></span></div>
+        </div>
+        <div class="bot-tie"></div>
+        <div class="bot-rings"><i></i><i></i><i></i></div>
+      </div>
+    </div>
+    <div class="share-name"><h1>헬로우 휴먼<span>_</span></h1><p>Workless Engineering Club</p></div>
+  </main>
+</body>
+</html>
