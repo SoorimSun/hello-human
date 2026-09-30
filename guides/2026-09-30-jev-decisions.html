@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="../assets/style.css?v=4">
 <link rel="stylesheet" href="../assets/news.css?v=9">
 <link rel="stylesheet" href="../assets/guide.css?v=4">
-<link rel="stylesheet" href="../assets/guide-jev.css?v=1">
+<link rel="stylesheet" href="../assets/guide-jev.css?v=3">
 <link rel="stylesheet" href="../assets/content-updates.css?v=1">
 </head>
 <body>
@@ -70,16 +70,34 @@
           <p>시스템은 배송 조회로 보내야 합니다. ‘취소’라는 단어가 등장했다고 취소 흐름을 선택하면 고객의 의도를 거꾸로 이해한 셈입니다. 키워드만으로 처리하기 어렵지만, 여기서 필요한 결과는 긴 분석문보다 <code>delivery</code>라는 분류값입니다.</p>
           <p>TypeSafe는 Jev를 <strong>System One 모델</strong>이라고 부릅니다. 평가할 정보인 <code>state</code>와 형식을 정한 <code>questions</code>를 보내면, 코드가 사용할 수 있는 선택·점수·확률을 반환합니다. 한 질문에 하나의 좁은 판단을 맡기고, 여러 결과를 코드에서 조합하는 접근입니다. <a class="source-link" href="https://docs.typesafe.ai/introduction" target="_blank" rel="noopener noreferrer">TypeSafe · 소개 ↗</a></p>
 
-          <figure class="guide-visual jev-roles" aria-labelledby="jev-roles-title">
-            <figcaption id="jev-roles-title"><span>DIVIDE THE WORK</span><strong>계획, 작은 판단, 실행을 나누어 연결합니다</strong></figcaption>
-            <div class="jev-role-grid">
-              <div><span class="jev-role-label">계획과 작성</span><strong>생성·추론 모델</strong><p>복합 요청을 풀고<br>설명과 문장을 작성</p></div>
-              <div class="jev-role-focus"><span class="jev-role-label">선택과 평가</span><strong>Jev</strong><p>처리 경로를 고르고<br>자료·후보를 선별</p></div>
-              <div><span class="jev-role-label">조회와 실행</span><strong>코드·업무 API</strong><p>권한과 규칙을 확인하고<br>사실 조회·계산·변경</p></div>
+          <h3 id="jev-architecture-heading">상태는 한 번 읽고, 질문은 나누어 판단합니다</h3>
+          <p>입력은 두 부분으로 나뉩니다. <code>state</code>에는 고객 문의와 관련 정보를, <code>questions</code>에는 질문별 지시문과 선택지·평가 기준을 담습니다. 공식 문서에 따르면 Jev는 <strong>state를 한 번 읽고, 같은 상태를 바탕으로 여러 질문을 병렬 평가</strong>합니다. 각 질문은 독립적이어서 다른 질문의 답을 기다리거나 이어받지 않습니다. <a class="source-link" href="https://docs.typesafe.ai/models" target="_blank" rel="noopener noreferrer">TypeSafe · 상태 처리 방식 ↗</a> · <a class="source-link" href="https://docs.typesafe.ai/primitives" target="_blank" rel="noopener noreferrer">질문의 독립성 ↗</a></p>
+
+          <figure class="guide-visual jev-architecture" id="jev-architecture" aria-labelledby="jev-architecture-title" aria-describedby="jev-architecture-note">
+            <figcaption id="jev-architecture-title"><span>JEV ARCHITECTURE</span><strong>한 번의 요청에서 여러 판단을 받는 구조</strong></figcaption>
+            <div class="jev-arch-inputs">
+              <div class="jev-arch-input"><code>state</code><strong>판단할 정보</strong><p>고객 문의·주문 정보 등<br>텍스트 또는 JSON</p></div>
+              <div class="jev-arch-input"><code>questions</code><strong>판단 기준</strong><p>질문별 지시문과<br>선택지·평가 단계</p></div>
             </div>
-            <p class="guide-visual-note">이 가이드의 설계 제안입니다. 모든 단계에 모델을 넣을 필요는 없으며, 작은 분류기는 기존 프로그램에서도 바로 시작할 수 있습니다.</p>
+            <div class="jev-arch-transfer"><span aria-hidden="true">↓</span><span>한 번의 API 요청</span></div>
+            <div class="jev-arch-model">
+              <div class="jev-arch-model-heading"><strong>Jev</strong><span>구조화된 판단 모델</span></div>
+              <div class="jev-arch-shared"><strong>state 한 번 읽기</strong><span>모든 질문이 같은 상태를 사용</span></div>
+              <div class="jev-arch-fanout" aria-hidden="true"></div>
+              <div class="jev-arch-branches" role="group" aria-label="같은 상태에 대한 세 가지 독립적인 병렬 판단">
+                <div class="jev-arch-branch"><strong>Choice</strong><span>업무 유형</span><small>선택지 + 확률</small></div>
+                <div class="jev-arch-branch"><strong>Score</strong><span>긴급성</span><small>점수 + 확률</small></div>
+                <div class="jev-arch-branch"><strong>Noul</strong><span>변경 요청 여부</span><small>‘예’의 확률</small></div>
+              </div>
+              <p class="jev-arch-parallel">세 질문을 독립적으로 · 병렬 평가</p>
+            </div>
+            <div class="jev-arch-transfer"><span aria-hidden="true">↓</span><span>형식이 정해진 응답</span></div>
+            <div class="jev-arch-execution"><strong>프로그램이 결과를 조합</strong><p>확률·권한·업무 규칙을 확인한 뒤<br>배송 API 조회 또는 사람에게 검토 요청</p></div>
+            <p class="guide-visual-note" id="jev-architecture-note">공식 문서의 입력·평가 방식을 바탕으로 그린 개념도입니다. 질문 예시는 이 가이드의 고객 문의 실습에 맞췄습니다.</p>
           </figure>
 
+          <p>학습 목표도 이 구조에 맞춥니다. TypeSafe는 사전학습 언어 모델을 <strong>RLCD</strong>라는 방식으로 후속 학습해, 판단 결과와 보정된 확률을 반환하도록 한다고 설명합니다. RLCD는 <em>Reinforcement Learning for Calibrated Decisions</em>의 약자입니다. 확률 보정은 많은 예측에서 부여한 확률과 실제 발생 비율이 맞아가도록 하는 목표이며, 개별 답의 정답을 보장하는 것은 아닙니다. <a class="source-link" href="https://docs.typesafe.ai/introduction/machine-learning-primer" target="_blank" rel="noopener noreferrer">TypeSafe · RLCD와 확률 보정 ↗</a></p>
+          <p>에이전트에서는 생성·추론 모델이 전체 작업을 계획하고 응답문을 작성할 수 있습니다. Jev는 그 사이에 필요한 선택과 평가를 맡고, <strong>프로그램은 반환된 값을 조합해 도구와 업무 API를 실행</strong>합니다. 이 분류 기능은 기존 업무 프로그램에도 바로 연결할 수 있습니다.</p>
           <p>예를 들어 ‘쿠폰 관련 요청인가?’는 의미 판단입니다. 반면 쿠폰 적용 조건, 재고 수량, 최종 결제 금액은 업무 로직이 확인해야 합니다. 공식 한계 문서도 산술과 정밀한 수치 처리, 날짜 비교를 코드에 맡기도록 안내합니다. <a class="source-link" href="https://docs.typesafe.ai/model-jaggedness/jev-1.13" target="_blank" rel="noopener noreferrer">TypeSafe · 알려진 한계 ↗</a></p>
           <p>Jev는 스스로 주문 상태를 조회하거나 도구를 실행하지 않습니다. <strong>판단 결과를 받아 어떤 동작으로 연결할지 결정하는 주체는 프로그램</strong>입니다.</p>
         </section>
@@ -106,7 +124,7 @@
 
         <section class="guide-section" id="projects" aria-labelledby="projects-heading">
           <h2 id="projects-heading">3. 공개 프로젝트에서 배우는 역할 분담</h2>
-          <p><a href="https://awesomejev.com/" target="_blank" rel="noopener noreferrer">Awesome Jev</a>와 <a href="https://news.hada.io/search?q=jev" target="_blank" rel="noopener noreferrer">GeekNews의 Jev 글</a>에서 프로젝트를 찾고, 아래 내용은 각 제작자의 공개 저장소로 확인했습니다. 주목할 부분은 에이전트의 어떤 판단을 분리했는가입니다.</p>
+          <p>공개 프로젝트에서는 도구 선택, 작업 기록 선별, 코드 탐색처럼 좁은 판단에 Jev를 연결합니다. 각 사례에서 무엇을 판단하고, 생성 모델과 코드에 어떤 역할을 맡기는지 살펴보겠습니다.</p>
           <div class="jev-projects">
             <div class="jev-project"><span class="jev-role-label">다음 동작 선택</span><h3><a href="https://github.com/browser-use/jev-ultrafast" target="_blank" rel="noopener noreferrer">Browser Use · Jev Ultrafast ↗</a></h3><p>페이지 요소를 번호가 붙은 텍스트 상태로 만들고, Jev가 동작과 대상을 선택합니다. 입력 문장이 필요할 때 별도 생성 모델을 사용하며, 실행기는 선택된 대상을 다시 확인합니다.</p><p class="jev-project-takeaway">가져올 아이디어<br><strong>관리 화면의 조회 동선에서 선택과 조작을 분리하기</strong></p></div>
             <div class="jev-project"><span class="jev-role-label">작업 기록 선별</span><h3><a href="https://github.com/tamaratran/fast-jev-compaction" target="_blank" rel="noopener noreferrer">fast-jev-compaction ↗</a></h3><p>코딩 에이전트의 도구 호출과 결과 중 남길 것, 제거하거나 줄일 것을 판단합니다. 유지한 기록은 원문을 보존합니다. 필요한 기록을 잘못 버릴 가능성은 따로 평가해야 합니다.</p><p class="jev-project-takeaway">가져올 아이디어<br><strong>긴 개발·장애 분석 작업에서 다음 단계의 문맥 선별하기</strong></p></div>
@@ -308,8 +326,6 @@ API 키는 서버에서 관리하고 키와 개인정보는 로그에 남기지 
             <li><a href="https://docs.typesafe.ai/introduction" target="_blank" rel="noopener noreferrer">TypeSafe · Jev 소개와 문서 ↗</a></li>
             <li><a href="https://docs.typesafe.ai/api" target="_blank" rel="noopener noreferrer">TypeSafe · HTTP API 규격 ↗</a></li>
             <li><a href="https://docs.typesafe.ai/model-jaggedness/jev-1.13" target="_blank" rel="noopener noreferrer">TypeSafe · Jev 1.13의 알려진 한계 ↗</a></li>
-            <li><a href="https://awesomejev.com/" target="_blank" rel="noopener noreferrer">Awesome Jev · 독립 커뮤니티 프로젝트 목록 ↗</a></li>
-            <li><a href="https://news.hada.io/search?q=jev" target="_blank" rel="noopener noreferrer">GeekNews · Jev 관련 글 찾기 ↗</a></li>
           </ul>
         </section>
         <a class="news-end-link" href="./">AI가이드 목록으로 돌아가기 <span aria-hidden="true">→</span></a>
