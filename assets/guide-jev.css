@@ -1,0 +1,38 @@
+/* AI가이드 02: 역할 분담, 공개 사례, 판단 이후의 처리 */
+.jev-role-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.jev-role-grid > div { padding: 19px 16px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface-2); }
+.jev-role-grid > .jev-role-focus { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 7%, var(--surface)); }
+.jev-role-label { display: block; margin-bottom: 10px; color: var(--muted); font-size: 12px; font-weight: 650; }
+.jev-role-focus .jev-role-label { color: var(--accent); }
+.jev-role-grid strong { display: block; font-size: 18px; }
+.jev-role-grid p { margin: 10px 0 0; font-size: 14px; line-height: 1.6; }
+.jev-projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 28px 0; }
+.jev-project { min-width: 0; padding: 22px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.jev-project h3 { margin: 0 0 14px; font-size: 19px; line-height: 1.4; }
+.jev-project p { margin: 0; font-size: 15px; line-height: 1.7; }
+.jev-project .jev-project-takeaway { margin-top: 17px; padding-top: 15px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+.jev-project-takeaway strong { display: inline-block; margin-top: 5px; color: var(--ink); font-size: 14px; }
+.jev-routing-input { margin-bottom: 18px; padding: 14px 16px; border-radius: 8px; background: var(--surface-2); font-size: 15px; font-weight: 650; line-height: 1.6; }
+.jev-routing-input > span { padding: 0 5px; color: var(--accent); }
+.guide-story .jev-route-list { display: grid; gap: 9px; margin: 0; padding: 0; list-style: none; }
+.jev-route-list li { display: grid; grid-template-columns: 78px minmax(0, 1fr); gap: 4px 12px; margin: 0; padding: 15px 16px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; line-height: 1.5; }
+.jev-route-list li > span { grid-row: span 2; color: var(--accent); font-size: 13px; font-weight: 700; }
+.jev-route-list li > small { color: var(--muted); font-size: 13px; }
+.guide-story .jev-cost ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 0; padding: 0; list-style: none; }
+.jev-cost li { margin: 0; padding: 13px 15px; border-radius: 8px; background: var(--surface-2); font-size: 14px; font-weight: 650; }
+.jev-cost li::before { content: "+"; margin-right: 9px; color: var(--accent); font-family: var(--mono); }
+.jev-cost li:first-child::before { content: "·"; }
+@media (max-width: 720px) {
+  .jev-role-grid { grid-template-columns: 1fr; }
+  .jev-role-grid > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 3px 14px; padding: 16px; }
+  .jev-role-grid .jev-role-label { margin: 0; }
+  .jev-role-grid strong { grid-column: 1; }
+  .jev-role-grid p { grid-column: 2; grid-row: 1 / span 2; align-self: center; margin: 0; }
+}
+@media (max-width: 520px) {
+  .jev-projects { grid-template-columns: 1fr; }
+  .jev-project { padding: 20px 18px; }
+  .jev-route-list li { grid-template-columns: 1fr; gap: 5px; padding: 14px; }
+  .jev-route-list li > span { grid-row: auto; }
+  .guide-story .jev-cost ul { grid-template-columns: 1fr; }
+}

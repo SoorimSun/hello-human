@@ -50,6 +50,7 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `case-studies/2026-09-27-tidewater.html` | AI 사례연구 첫 호: Tidewater |
 | `guides/index.html` | AI가이드 목록 |
 | `guides/2026-09-25-llm-selection.html` | AI가이드 첫 호 |
+| `guides/2026-09-30-jev-decisions.html` | AI가이드 두 번째 호: 에이전트의 작은 판단과 Jev 실습 |
 | `insights/index.html` | 커머스 인사이트 목록 |
 | `insights/2026-09-25-agentic-commerce.html` | 커머스 인사이트 첫 호 |
 | `insights/2026-09-29-recommendation-evidence.html` | 커머스 인사이트 두 번째 글: 추천 에이전트의 근거와 검증 |
@@ -64,6 +65,8 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `assets/news-sections.css` | 홈페이지의 속보 띠·일반 뉴스 카드와 뉴스 목록의 유형별 구분 스타일 |
 | `assets/news/` | AI뉴스 기사 삽화와 출처가 표시된 제품 발표 이미지 |
 | `assets/guide.css` | AI가이드 본문 스타일 |
+| `assets/guide-jev.css` | AI가이드 02의 역할 분담·공개 사례·처리 경로 도식 스타일 |
+| `assets/guides/jev-request.json` | 가상 고객 문의로 Choice·Score·Noul을 호출하는 다운로드용 실습 입력 |
 | `assets/case-studies.css` | AI 사례연구 소개 카드·목록·본문 시각화 스타일 |
 | `assets/case-studies/` | 실제 게임 캡처와 출처가 표시된 사례 이미지 |
 | `assets/insights.css` | 커머스 인사이트 시각화 스타일 |
