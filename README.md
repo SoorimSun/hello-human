@@ -57,6 +57,7 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `works/choi-taejun.html` | 회원 최태준의 작업물 소개 |
 | `works/sun-soorim.html` | 회원 선수림의 모델별 웹 제작 실험 소개 |
 | `assets/style.css` | 공통 스타일 |
+| `assets/theme.js` | 시스템·라이트·다크 화면 선택과 브라우저별 설정 저장 |
 | `assets/social/hellobot.jpg` | 홈·게임 버전·Markdown 페이지의 공유용 헬로봇 썸네일 (1200×630) |
 | `assets/social/hellobot-card.html` | 기존 헬로봇 CSS를 재사용한 썸네일 원본. 1200×630, 1배율로 캡처해 JPEG 갱신 |
 | `assets/news.css` | AI뉴스 목록·기사 스타일 |
@@ -81,6 +82,12 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `assets/analytics.js` | Cloudflare Web Analytics 토큰과 수집 설정 |
 | `_layouts/default.html` | Markdown 페이지 공통 레이아웃 (noindex 포함) |
 | `_config.yml` | Jekyll 설정 |
+
+## 화면 모드
+
+홈·목록·글·작업물 페이지 상단의 해·달 아이콘 토글로 라이트·다크를 전환할 수 있습니다. 처음 방문하면 기기의 화면 설정을 따르며, 직접 전환하기 전까지 시스템 설정 변경도 반영합니다. 토글로 선택한 모드는 현재 브라우저에 저장되어 새로고침과 페이지 이동 후에도 유지됩니다. 저장소가 차단된 환경에서는 현재 페이지에서만 유지됩니다.
+
+새 HTML 페이지는 공통 CSS 앞에 `assets/theme.js?v=3`를 포함하세요. Markdown 페이지는 공통 레이아웃에서 자동으로 불러옵니다.
 
 ## 새 콘텐츠와 수정 표시
 
