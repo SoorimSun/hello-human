@@ -9,6 +9,7 @@
 
 - 회사명, 실명·연락처, 사내 시스템 이름·URL, 실제 로그·코드·데이터는 올리지 마세요.
 - 외부 자료에 공식 한국어 페이지가 있으면 한국어 링크를 우선 사용하세요. `en`을 `ko`로 바꾸기만 하지 말고, 해당 번역 페이지가 실제로 제공되는지 확인합니다.
+- 글을 작성할 때 엠대시를 사용하지 않습니다. 굵기나 서체로 이미 구분되는 항목명 뒤에는 콜론 등 별도 구분 기호를 붙이지 않습니다. 그 밖에는 문맥에 맞게 쉼표·괄호를 쓰거나 문장을 나눕니다.
 - 새 페이지는 `.md` 파일로 올리면 됩니다. `_layouts/default.html`이 자동으로 적용되어 noindex가 붙습니다.
 - `.html` 파일을 직접 만들 때는 `<head>`에 아래 태그를 반드시 넣어주세요.
 
@@ -44,6 +45,7 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `news/index.html` | AI뉴스 목록 |
 | `news/2026-09-25-ai-agents.html` | AI뉴스 첫 호 |
 | `news/2026-09-29-spatial-ai-efficiency.html` | AI뉴스 두 번째 호: World Labs 인수 계약과 Sonnet 5.5의 효율 |
+| `news/2026-09-30-long-running-agents.html` | AI뉴스 세 번째 호: 지속형 에이전트의 실행·권한·비용·책임 |
 | `case-studies/index.html` | AI 사례연구 소개와 목록 |
 | `case-studies/2026-09-27-tidewater.html` | AI 사례연구 첫 호: Tidewater |
 | `guides/index.html` | AI가이드 목록 |
@@ -56,6 +58,7 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `assets/style.css` | 공통 스타일 |
 | `assets/news.css` | AI뉴스 목록·기사 스타일 |
 | `assets/news-spatial.css` | AI뉴스 02의 공간 재구성·로봇 학습·작업 비용 도식 스타일 |
+| `assets/news-agents.css` | AI뉴스 03의 지속 작업·실행 통제·팀 공유·쿠폰 검증 도식 스타일 |
 | `assets/news-sections.css` | 홈페이지의 속보 띠·일반 뉴스 카드와 뉴스 목록의 유형별 구분 스타일 |
 | `assets/news/` | AI뉴스 기사 삽화와 출처가 표시된 제품 발표 이미지 |
 | `assets/guide.css` | AI가이드 본문 스타일 |

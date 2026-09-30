@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>오래 일하는 AI 에이전트, 어디까지 맡길 수 있을까? · AI뉴스 · 헬로우 휴먼</title>
+  <meta name="description" content="OpenAI Dots와 GPT-6.1 Sol, NVIDIA의 실행 통제, Team Bots와 Anthropic IPO 보도로 살펴보는 AI 에이전트의 실행·권한·비용·책임.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="../assets/style.css?v=4">
+  <link rel="stylesheet" href="../assets/news.css?v=9">
+  <link rel="stylesheet" href="../assets/news-agents.css?v=1">
+  <link rel="stylesheet" href="../assets/content-updates.css?v=1">
+</head>
+<body class="news-agents">
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+      <nav class="news-nav" aria-label="사이트 메뉴">
+        <a href="../">모임 소개</a><a href="./">AI뉴스</a><a href="../guides/">AI가이드</a><a href="../insights/">인사이트</a><a href="../case-studies/">사례연구</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <header class="news-article-header wrap">
+        <a class="news-back" href="./">← AI뉴스 목록</a>
+        <p class="news-kicker">AI NEWS <span aria-hidden="true">/</span> ISSUE 03</p>
+        <h1>오래 일하는 AI 에이전트,<br><em>어디까지 맡길 수 있을까?</em></h1>
+        <p class="news-deck">대화 사이에도 일을 이어가는 Dots, 실행을 통제하는 NVIDIA, 팀이 공유하는 에이전트.<br>더 많은 일을 맡길수록 함께 설계해야 할 실행·권한·비용·책임을 살펴봅니다.</p>
+        <div class="news-article-meta"><time datetime="2026-09-30">2026년 9월 30일</time><span>헬로우 휴먼 AI뉴스</span></div>
+      </header>
+
+      <figure class="agent-cover wrap" aria-labelledby="cover-heading">
+        <div class="agent-cover-inner">
+          <div class="agent-cover-message">
+            <span class="agent-eyebrow">일을 맡기는 순간의 두 질문</span>
+            <h2 id="cover-heading">“제가 없는 동안에도<br>일을 계속해 주세요.”</h2>
+            <p>그리고 함께 정해야 할 것</p>
+            <strong>“어디까지 실행해도 되나요?”</strong>
+            <span class="agent-cover-caption">배송 지연 대응을 맡기는 업무 설계 예시</span>
+          </div>
+          <div class="agent-cover-boundary">
+            <span class="agent-eyebrow">AI 에이전트에게 맡길 범위</span>
+            <ol>
+              <li><span class="agent-cover-icon" aria-hidden="true">✓</span><div><strong>지연 주문 찾기</strong><span>허용한 데이터 조회</span></div><b>허용</b></li>
+              <li><span class="agent-cover-icon" aria-hidden="true">✓</span><div><strong>고객 안내문 준비</strong><span>검토할 초안 작성</span></div><b>허용</b></li>
+              <li class="agent-cover-approval"><span class="agent-cover-icon" aria-hidden="true">Ⅱ</span><div><strong>고객에게 발송</strong><span>실행 전 사람에게 판단 요청</span></div><b>승인 필요</b></li>
+            </ol>
+            <p>같은 목표 안에서도 행동마다 권한은 다를 수 있습니다.</p>
+          </div>
+        </div>
+      </figure>
+
+      <div class="news-article-shell wrap">
+        <nav class="news-toc" aria-label="기사 목차">
+          <span>이번 호</span>
+          <a href="#at-a-glance">30초 요약</a><a href="#dots">계속 일하는 Dots</a><a href="#cost">Sol과 업무 비용</a><a href="#runtime">실행을 막는 경계</a><a href="#team-bots">팀이 공유하는 에이전트</a><a href="#responsibility">인프라와 책임</a><a href="#our-view">우리의 작은 실험</a>
+        </nav>
+        <div class="news-story">
+          <section id="at-a-glance" class="news-summary" aria-labelledby="summary-heading">
+            <p class="news-section-label">AT A GLANCE</p><h2 id="summary-heading">30초 요약</h2>
+            <ul>
+              <li><strong>지속성</strong> OpenAI Dots는 클라우드에서 작업을 이어가고, 결과나 사람의 결정이 필요한 지점을 전달합니다.</li>
+              <li><strong>실행 통제</strong> NVIDIA는 에이전트 바깥에서 접근과 행동을 제한하는 OpenShell과 Sentry 설계를 소개했습니다.</li>
+              <li><strong>팀의 업무</strong> Team Bots는 업무 지식과 도구를 여러 사람이 함께 쓰는 구조입니다. 비용과 책임도 업무 단위로 살펴봐야 합니다.</li>
+            </ul>
+          </section>
+          <p class="news-method">9월 28~29일 발표와 보도를 9월 30일 기준으로 확인했습니다. 제품 설명·기업 자체 평가·언론 보도를 구분하고, 업무 적용 예시는 헬로우 휴먼의 제안으로 읽습니다.</p>
+
+          <section id="dots" class="news-story-section">
+            <p class="news-section-label">01 / OPENAI DOTS</p>
+            <h2>대화를 마친 뒤에도,<br>맡긴 일을 이어가는 에이전트</h2>
+            <p>OpenAI가 9월 29일 공개한 <strong>Dots</strong>는 GPT-6 Astra를 바탕으로 동작하는 상시 에이전트입니다. 각 Dot은 클라우드 컴퓨터와 브라우저를 갖고, 연결을 허용한 앱과 이전 작업의 문맥을 활용합니다. 사용자 컴퓨터가 꺼져 있어도 작업을 이어가고, 결과나 결정이 필요한 사안을 전달하는 구조입니다. <a class="source-link" href="https://learn.chatgpt.com/docs/dots" target="_blank" rel="noopener noreferrer">Dots 소개 ↗</a></p>
+            <p>핵심은 <strong>작업의 연속성</strong>입니다. “이 오류의 원인을 알려줘”에서 한 걸음 더 나아가, “오류를 살펴보고 수정과 테스트를 진행한 뒤, 내가 검토할 결과를 준비해 줘”처럼 목표를 맡기는 방식입니다.</p>
+            <figure class="agent-figure" aria-labelledby="continuity-heading">
+              <div class="agent-figure-heading"><span class="agent-eyebrow">지속형 에이전트의 작업 흐름</span><h3 id="continuity-heading">답을 받은 다음 행동까지 맡긴다면</h3></div>
+              <ol class="agent-steps agent-steps-five">
+                <li><span>목표 설정</span><strong>무엇을 끝낼지</strong><p>완료 기준과 범위를 정합니다.</p></li>
+                <li><span>조회·작업</span><strong>도구로 실행</strong><p>허용된 정보와 기능을 씁니다.</p></li>
+                <li><span>상태 유지</span><strong>진행 내용 기록</strong><p>끝낸 일과 남은 일을 남깁니다.</p></li>
+                <li><span>작업 계속</span><strong>상황에 맞춰 재개</strong><p>새 정보와 일정에 대응합니다.</p></li>
+                <li class="agent-step-human"><span>결과·판단 요청</span><strong>사람에게 전달</strong><p>확인이 필요한 지점을 알립니다.</p></li>
+              </ol>
+              <figcaption>조회와 작업을 이어가더라도, 실행 범위를 바꿀 권한까지 자동으로 주어지는 것은 아닙니다.</figcaption>
+            </figure>
+            <p>OpenAI는 연결된 앱에서 도움이 될 정보를 스스로 찾는 탐색에 <strong>읽기 전용 도구</strong>를 사용한다고 설명합니다. 그 탐색 도구로는 메시지를 보내거나 앱 내용을 바꿀 수 없습니다. 이후 실제 행동에는 사용자 지시, 접근 권한, 별도 규칙과 행동 검토가 적용됩니다. <a class="source-link" href="https://learn.chatgpt.com/docs/dots/controls" target="_blank" rel="noopener noreferrer">Dots의 권한과 행동 검토 ↗</a></p>
+            <div class="news-insight"><span>헬로우 휴먼의 해석</span><p><strong>일을 발견하는 권한과 실제로 변경하는 권한을 나눠 설계할 수 있습니다.</strong> 배송 지연 주문을 찾고 안내문을 준비하는 일은 맡기되, 고객 발송과 보상 처리는 승인 이후에 진행하도록 정하는 식입니다.</p></div>
+            <p class="agent-availability">Dots는 대상 계정에 순차 제공 중입니다. 이용 가능 여부는 요금제·지역·워크스페이스 조건에 따라 달라집니다.</p>
+          </section>
+
+          <section id="cost" class="news-story-section">
+            <p class="news-section-label">02 / GPT-6.1 SOL</p>
+            <h2>토큰 가격이 낮아지면,<br>업무 한 건의 비용도 줄어들까?</h2>
+            <p>같은 날 선보인 <strong>GPT-6.1 Sol</strong>은 복잡한 코딩, 컴퓨터 사용, 전문 업무에서 Astra에 가까운 성능을 더 낮은 가격에 제공하는 모델로 소개됐습니다. 이는 OpenAI의 설명이며, 우리 업무에서도 같은 품질을 내는지는 별도로 비교해야 합니다. <a class="source-link" href="https://developers.openai.com/api/docs/models/gpt-6.1-sol" target="_blank" rel="noopener noreferrer">GPT-6.1 Sol 공식 사양 ↗</a></p>
+            <figure class="agent-figure" aria-labelledby="price-heading">
+              <div class="agent-figure-heading"><span class="agent-eyebrow">기본 API 가격 · 100만 토큰당</span><h3 id="price-heading">기본 토큰 단가는 Astra의 20%</h3></div>
+              <div class="agent-table-wrap">
+                <table class="agent-price-table">
+                  <caption class="agent-sr-only">GPT-6 Astra와 GPT-6.1 Sol의 기본 API 토큰 가격</caption>
+                  <thead><tr><th scope="col">모델</th><th scope="col">입력</th><th scope="col">출력</th></tr></thead>
+                  <tbody><tr><th scope="row">GPT-6 Astra</th><td>$10</td><td>$50</td></tr><tr class="agent-price-sol"><th scope="row">GPT-6.1 Sol</th><td>$2</td><td>$10</td></tr></tbody>
+                </table>
+              </div>
+              <figcaption>2026년 9월 30일 Standard 기준, 입력 27만 2천 토큰 이하 요청의 기본 단가입니다. 캐시·긴 입력·도구 사용·별도 처리 방식에는 다른 요금 조건이 적용됩니다. <a href="https://developers.openai.com/api/docs/models/gpt-6-astra" target="_blank" rel="noopener noreferrer">Astra 사양 ↗</a> · <a href="https://developers.openai.com/api/docs/models/gpt-6.1-sol" target="_blank" rel="noopener noreferrer">Sol 사양 ↗</a></figcaption>
+            </figure>
+            <p>같은 양의 기본 입력·출력 토큰을 쓴다면 단가는 Astra의 5분의 1입니다. 하지만 에이전트는 도구를 호출하고 파일을 읽고 테스트를 실행하며, 실패하면 다시 시도합니다. 검증을 통과하기까지 필요한 호출 수와 사람의 수정 시간이 달라질 수 있습니다.</p>
+            <div class="agent-cost-equation" aria-label="업무 총비용은 모델·도구·실행 환경 비용에 사람의 검토·수정 비용을 더한 값입니다.">
+              <span class="agent-eyebrow">업무 총비용</span><div><strong>모델·도구·실행 환경</strong><span aria-hidden="true">＋</span><strong>사람의 검토·수정</strong></div><p>실패한 시도와 재작업에 든 비용까지 포함합니다.</p>
+            </div>
+            <p>저렴하게 만든 수정안을 사람이 오래 고쳐야 한다면 전체 비용은 늘 수 있습니다. 우리가 비교할 값은 <strong>같은 완료 기준을 통과한 업무 한 건에 들어간 총비용</strong>입니다. <a class="source-link" href="2026-09-29-spatial-ai-efficiency.html#sonnet">앞선 뉴스: Sonnet 5.5의 작업당 비용 읽기 →</a></p>
+          </section>
+
+          <section id="runtime" class="news-story-section">
+            <p class="news-section-label">03 / NVIDIA OPEN AGENT SAFETY PLATFORM</p>
+            <h2>“수정하지 마”라는 지시와<br>수정할 수 없는 실행 환경의 차이</h2>
+            <p>NVIDIA는 9월 28일 <strong>Open Agent Safety Platform</strong>을 발표했습니다. 에이전트 실행을 통제하는 오픈소스 소프트웨어 <strong>OpenShell</strong>과, 독립된 감시 장치를 두는 <strong>Sentry 참조 설계</strong>를 결합하는 접근입니다. <a class="source-link" href="https://developer.nvidia.com/ko-kr/blog/nvidia-open-agent-safety-platform-a-reference-for-continuous-in-silicon-agent-monitoring/" target="_blank" rel="noopener noreferrer">NVIDIA의 플랫폼 설명 ↗</a></p>
+            <p>OpenShell은 에이전트가 실제로 동작하는 환경, 즉 <strong>런타임</strong>에서 접근 정책을 적용합니다. 예를 들어 “운영 DB를 수정하지 마세요”라고 지시하는 데 더해, DB 계정에는 조회 권한만 주고 실행 환경에서도 쓰기 요청을 막는 것입니다. 에이전트가 다른 판단을 하더라도 실행 경계가 남도록 설계합니다.</p>
+            <figure class="agent-figure" aria-labelledby="runtime-heading">
+              <div class="agent-figure-heading"><span class="agent-eyebrow">실행 통제의 개념도</span><h3 id="runtime-heading">허용할 행동은 에이전트 바깥에서 검사합니다</h3></div>
+              <div class="agent-runtime-diagram">
+                <div class="agent-runtime-worker"><span class="agent-eyebrow">샌드박스 안</span><strong>AI 에이전트</strong><p>계획하고 도구를 요청</p></div>
+                <span class="agent-diagram-arrow" aria-hidden="true">→</span>
+                <div class="agent-runtime-policy"><span class="agent-eyebrow">에이전트 바깥</span><strong>OpenShell 정책 검사</strong><p>대상·작업·권한 확인</p></div>
+                <span class="agent-diagram-arrow" aria-hidden="true">→</span>
+                <div class="agent-runtime-outcomes"><div><span>허용</span><strong>승인된 데이터 조회</strong></div><div><span>차단</span><strong>허용하지 않은 변경</strong></div></div>
+              </div>
+              <div class="agent-watchdog"><strong>Sentry · 별도 하드웨어에서 감시</strong><span>BlueField-4 DPU를 활용하는 참조 설계 · 이상 행동을 관찰하고 격리·중단</span></div>
+              <figcaption>역할을 단순화한 도식입니다. DPU는 네트워크·보안 같은 처리를 맡는 장치입니다. Sentry는 이를 이용해 에이전트가 실행되는 환경과 감시 기반을 분리합니다.</figcaption>
+            </figure>
+            <p>OpenShell은 파일과 프로세스의 접근 범위를 제한하고, 설정한 API 요청을 검사해 조회를 허용하거나 쓰기를 차단합니다. 허용·거부 내역도 기록합니다. <a class="source-link" href="https://developer.nvidia.com/ko-kr/blog/add-runtime-controls-to-ai-agents-with-nvidia-openshell/" target="_blank" rel="noopener noreferrer">OpenShell의 실행 제어와 예제 ↗</a></p>
+            <p>Sentry는 BlueField-4에서 동작하는 별도 감시 계층으로 제시됐습니다. NVIDIA는 정책 경계를 벗어나려는 행동을 감지해 에이전트를 격리하거나 중단하는 구조라고 설명합니다. <strong>공개된 OpenShell 소프트웨어와 Sentry 참조 설계는 제공 형태가 다릅니다.</strong> OpenShell 사용에 BlueField-4가 반드시 필요한 것은 아닙니다.</p>
+            <div class="news-insight"><span>헬로우 휴먼의 해석</span><p><strong>권한은 실행 환경에서 제한하고, 업무 결과는 따로 검증해야 합니다.</strong> 조회만 가능한 에이전트도 쿠폰 조건을 잘못 설명할 수 있습니다. 데이터 변경을 막았다고 답변까지 정확해지는 것은 아닙니다.</p></div>
+          </section>
+
+          <section id="team-bots" class="news-story-section">
+            <p class="news-section-label">04 / TEAM BOTS</p>
+            <h2>여러 사람이 같은 업무용<br>에이전트를 함께 쓴다면</h2>
+            <p>SpaceXAI는 9월 28일 <strong>Team Bots</strong>를 공개했습니다. 특정 역할에 필요한 문서, 지침, 앱과 도구를 Grok Bot에 연결하고 팀이 공유하는 방식입니다. Teams·Enterprise 요금제에서 공개 베타로 제공하며, 회사는 고객 계정 브리핑과 개발 프로젝트 조정 등을 자체 활용 사례로 소개했습니다. <a class="source-link" href="https://x.ai/news/team-bots" target="_blank" rel="noopener noreferrer">Team Bots 발표 ↗</a></p>
+            <p>여기서 ‘팀 에이전트’는 <strong>여러 사람이 같은 업무 지식과 도구를 갖춘 에이전트를 사용한다</strong>는 의미입니다. 공식 설명에 따르면 개인별 대화와 문맥·기억은 분리하고, 공통 지식과 스킬을 함께 활용합니다. Slack 채널에서는 여러 사람이 에이전트와 공동으로 대화할 수도 있습니다.</p>
+            <figure class="agent-figure" aria-labelledby="team-heading">
+              <div class="agent-figure-heading"><span class="agent-eyebrow">상품 등록 검수에 적용해 본다면</span><h3 id="team-heading">함께 관리할 업무 지식과, 개인별 대화</h3></div>
+              <div class="agent-team-shared"><span class="agent-eyebrow">팀이 공유</span><strong>상품 등록 검수 에이전트</strong><p>등록 기준 · 검수 절차 · 허용된 조회 도구</p></div>
+              <div class="agent-team-members">
+                <div><span>담당자 A</span><strong>상품명 확인</strong><p>개인 대화·문맥</p></div><div><span>담당자 B</span><strong>필수 항목 확인</strong><p>개인 대화·문맥</p></div><div><span>담당자 C</span><strong>수정안 검토</strong><p>개인 대화·문맥</p></div>
+              </div>
+              <figcaption>업무용 에이전트를 공유하는 것과 모든 개인 대화를 공개하는 것은 다릅니다. 각 도구의 데이터 접근 권한도 별도로 관리해야 합니다.</figcaption>
+            </figure>
+            <p>커머스 조직에서는 상품 등록 기준, 프로모션 규칙, 주문 장애 대응 절차를 업무별로 묶는 모습을 생각해볼 수 있습니다. 직원마다 비슷한 프롬프트를 다시 만드는 대신, <strong>팀이 업무 지식과 검증 절차를 함께 관리</strong>하는 것입니다.</p>
+            <p>그만큼 운영 책임도 구체적이어야 합니다. 누가 할인 규칙을 고치고, 오래된 문서를 갱신하며, 사용자별 데이터 접근 범위를 관리할지 정해야 합니다. 공유할 에이전트에는 기능뿐 아니라 관리할 사람도 필요합니다.</p>
+          </section>
+
+          <section id="responsibility" class="news-story-section">
+            <p class="news-section-label">05 / ANTHROPIC IPO 보도</p>
+            <h2>계속 일하는 AI 뒤에는<br>인프라 비용과 책임이 남습니다</h2>
+            <p>Reuters는 9월 29일 입수한 <strong>Anthropic의 비공개 IPO 투자설명서</strong>를 바탕으로, 향후 10년간 최소 <strong>5,180억 달러</strong> 규모의 AI 인프라 지출·약정을 보도했습니다. 약 80%는 취소할 수 없거나 사용량과 관계없이 대금을 지급해야 하는 조건이라고 전했습니다. <a class="source-link" href="https://kelo.com/2026/09/29/anthropics-518-billion-ai-buildout-hinges-largely-on-deals-that-cannot-be-canceled-filing-shows/" target="_blank" rel="noopener noreferrer">Reuters 보도 · KELO 게재 ↗</a></p>
+            <div class="agent-context-note"><strong>이 숫자가 가리키는 것</strong><p>장기간 컴퓨팅 자원을 확보하기 위한 계획과 계약상 부담입니다. 이미 지출한 금액이나 IPO로 조달할 금액을 뜻하지 않습니다. 공개 공시 원문을 확인한 수치가 아니라 Reuters의 문서 취재에 근거한 내용입니다.</p></div>
+            <p>사용자에게는 소프트웨어로 보이는 서비스지만, 지속적으로 제공하려면 연산 장비와 데이터센터 용량을 확보해야 합니다. AI 서비스의 가격표 뒤에 있는 장기 운영 비용도 함께 읽을 필요가 있습니다.</p>
+            <p>책임 문제도 등장했습니다. Reuters의 별도 보도에 따르면 Anthropic은 장기간 자율적으로 작동하는 에이전트가 데이터 삭제나 금융 거래 같은 결과를 일으킬 경우, 법적 책임이 어떻게 적용될지 불확실하다고 문서에 기재했습니다. 기업이 제시한 위험 요인이며, 특정 사건의 책임을 확정한 내용은 아닙니다. <a class="source-link" href="https://uk.marketscreener.com/news/anthropic-says-rogue-ai-agents-pose-uncertain-legal-risk-for-the-company-ce785addd18ffe27" target="_blank" rel="noopener noreferrer">Reuters 보도 · MarketScreener 게재 ↗</a></p>
+            <p>업무를 맡기는 팀에는 구체적인 질문이 남습니다. <strong>문제가 생기면 무엇을 중단하고, 어떤 기록으로 확인하며, 누가 후속 조치를 맡을 것인가.</strong> 실행할 권한과 함께 중단·조사·복구할 방법도 정해야 합니다.</p>
+          </section>
+
+          <section id="our-view" class="news-story-section agent-our-view">
+            <p class="news-section-label">HELLO, HUMAN / WORKLESS ENGINEERING</p>
+            <h2>없앨 반복과 남길 검증을,<br>작은 업무 하나에서 정해보기</h2>
+            <p>이번 소식을 우리 제품의 질문으로 바꾸면 네 가지가 남습니다. <strong>일을 얼마나 이어갈 수 있는가, 어디까지 실행할 수 있는가, 제대로 끝냈는가, 그 과정에 얼마가 들었는가.</strong></p>
+            <p>Workless Engineering은 사람이 매번 반복하던 확인을 줄이고, 결과를 확인할 수 있는 방식으로 일을 맡기는 접근입니다. 출발점으로 <strong>쿠폰 적용 조건을 확인하는 에이전트</strong>를 만들어볼 수 있습니다.</p>
+            <figure class="agent-figure agent-experiment" aria-labelledby="experiment-heading">
+              <div class="agent-figure-heading"><span class="agent-eyebrow">헬로우 휴먼의 실험 제안</span><h3 id="experiment-heading">조회하고, 규칙으로 판정하고, 근거를 정리하기</h3></div>
+              <ol class="agent-steps agent-steps-three">
+                <li><span>에이전트</span><strong>필요한 정보 조회</strong><p>상품·쿠폰·회원 조건을 읽습니다.</p></li>
+                <li><span>판정 코드</span><strong>명확한 규칙 계산</strong><p>유효기간·최소 금액·적용 대상을 검사합니다.</p></li>
+                <li><span>에이전트</span><strong>결과와 근거 정리</strong><p>적용 여부와 빠진 정보를 알려줍니다.</p></li>
+              </ol>
+              <div class="agent-permission-strip"><strong>실행 환경에서 차단</strong><span>쿠폰 발급 · 조건 변경 · 실제 주문 처리</span></div>
+              <figcaption>테스트 데이터와 Mock API로 시작할 수 있습니다. 에이전트는 정보를 모으고 설명하며, 명확한 할인 규칙의 판정은 코드가 맡습니다.</figcaption>
+            </figure>
+            <p>정답을 미리 정한 사례에는 정상 적용, 기간 만료, 대상 상품 불일치, 중복 할인 제한, 필수 정보 누락을 넣습니다. 수정 권한이 없는 상태에서 변경을 요청했을 때 실제로 차단되는지도 확인합니다.</p>
+            <div class="agent-scorecard" aria-label="실험에서 기록할 네 가지 지표">
+              <div><span>완료</span><strong>정답 기준 성공률</strong><p>적용 여부와 근거가 맞는가?</p></div>
+              <div><span>권한</span><strong>시도와 차단 결과</strong><p>허용하지 않은 호출이 막혔는가?</p></div>
+              <div><span>사람의 일</span><strong>검토·수정 시간</strong><p>기존 방식보다 일이 줄었는가?</p></div>
+              <div><span>비용</span><strong>성공한 한 건의 총비용</strong><p>실패와 재시도 비용도 포함했는가?</p></div>
+            </div>
+            <p>실행 상태, 사용한 도구, 차단된 요청, 사람에게 판단을 요청한 이유를 한곳에서 볼 수 있게 만들면 에이전트 운영을 관리하는 작은 관제 화면이 됩니다. 이런 관리 구조를 <strong>Agent Control Plane</strong>이라고 부를 수 있습니다.</p>
+            <p>에이전트를 추가한 방식이 기존 코드와 화면만으로 처리할 때보다 나아졌는지도 비교해야 합니다. 반복 확인이 줄고, 결과를 검증할 수 있으며, 권한 밖의 실행이 차단됐다는 기록이 남을 때 실제로 맡길 이유가 생깁니다.</p>
+            <blockquote class="agent-closing">오래 일하는 AI 에이전트의 가치는<br><strong>정해진 범위 안에서<br>일을 제대로 끝냈다는<br>증거에 있습니다.</strong></blockquote>
+          </section>
+
+          <section class="news-sources" aria-labelledby="sources-heading">
+            <h2 id="sources-heading">읽은 자료</h2>
+            <ul>
+              <li><a href="https://learn.chatgpt.com/docs/dots" target="_blank" rel="noopener noreferrer">OpenAI, Dots 소개 ↗</a></li>
+              <li><a href="https://learn.chatgpt.com/docs/dots/controls" target="_blank" rel="noopener noreferrer">OpenAI, Dots의 권한·행동 검토 ↗</a></li>
+              <li><a href="https://deploymentsafety.openai.com/gpt-6-astra/evaluating-auto-review" target="_blank" rel="noopener noreferrer">OpenAI, GPT-6 Astra 시스템 카드의 Dots 부록 ↗</a></li>
+              <li><a href="https://developers.openai.com/api/docs/models/gpt-6.1-sol" target="_blank" rel="noopener noreferrer">OpenAI, GPT-6.1 Sol 사양·가격 ↗</a> · <a href="https://developers.openai.com/api/docs/models/gpt-6-astra" target="_blank" rel="noopener noreferrer">GPT-6 Astra 사양·가격 ↗</a></li>
+              <li><a href="https://developer.nvidia.com/ko-kr/blog/nvidia-open-agent-safety-platform-a-reference-for-continuous-in-silicon-agent-monitoring/" target="_blank" rel="noopener noreferrer">NVIDIA, Open Agent Safety Platform의 구조 ↗</a></li>
+              <li><a href="https://developer.nvidia.com/ko-kr/blog/add-runtime-controls-to-ai-agents-with-nvidia-openshell/" target="_blank" rel="noopener noreferrer">NVIDIA, OpenShell로 실행 제어 추가하기 ↗</a></li>
+              <li><a href="https://x.ai/news/team-bots" target="_blank" rel="noopener noreferrer">SpaceXAI, Team Bots 발표 ↗</a></li>
+              <li><a href="https://kelo.com/2026/09/29/anthropics-518-billion-ai-buildout-hinges-largely-on-deals-that-cannot-be-canceled-filing-shows/" target="_blank" rel="noopener noreferrer">Reuters, Anthropic의 장기 인프라 약정 · KELO 게재 ↗</a></li>
+              <li><a href="https://uk.marketscreener.com/news/anthropic-says-rogue-ai-agents-pose-uncertain-legal-risk-for-the-company-ce785addd18ffe27" target="_blank" rel="noopener noreferrer">Reuters, 자율 에이전트의 법적 책임 위험 · MarketScreener 게재 ↗</a></li>
+            </ul>
+            <p>2026년 9월 30일 기준으로 작성했습니다. 한국어 공식 문서가 제공되는 출처는 한국어 페이지로 연결했습니다. 기업의 성능·안전성 설명은 자체 평가이며, 이번 글에서 독립적으로 재측정하지 않았습니다.</p>
+          </section>
+          <a class="news-end-link" href="./">AI뉴스 목록으로 돌아가기 <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer class="footer"><div class="wrap">헬로우 휴먼 · Workless Engineering Club</div></footer>
+  <script src="../assets/analytics.js?v=2" defer></script>
+  <script src="../assets/article-toc.js?v=1" defer></script>
+  <script type="module" src="../assets/content-updates.js?v=2"></script>
+</body>
+</html>
