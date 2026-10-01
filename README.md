@@ -46,6 +46,7 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `news/2026-09-25-ai-agents.html` | AI뉴스 첫 호 |
 | `news/2026-09-29-spatial-ai-efficiency.html` | AI뉴스 두 번째 호: World Labs 인수 계약과 Sonnet 5.5의 효율 |
 | `news/2026-09-30-long-running-agents.html` | AI뉴스 세 번째 호: 지속형 에이전트의 실행·권한·비용·책임 |
+| `news/2026-10-01-meta-muse-messages.html` | AI뉴스 단신 02: 메타 Muse의 메시지 접근 의혹과 권한·기록 검증 |
 | `case-studies/index.html` | AI 사례연구 소개와 목록 |
 | `case-studies/2026-09-27-tidewater.html` | AI 사례연구 첫 호: Tidewater |
 | `case-studies/2026-10-01-railcode.html` | AI 사례연구 두 번째 호: Railcode의 시안 탐색·비교 도구와 디자인 판단 |
