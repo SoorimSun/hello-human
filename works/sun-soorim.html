@@ -6,7 +6,7 @@
 <!-- 동호회 사이트: 검색엔진 수집·노출·캐시 차단. 지우지 마세요. -->
 <meta name="robots" content="noindex, nofollow, noarchive">
 <title>선수림의 모델별 웹 제작 실험 · 헬로우 휴먼</title>
-<meta name="description" content="같은 주제도 모델마다 어떻게 달라질까요? 선수림의 모델별 웹 제작 실험, 13개 모델의 결과 페이지 14편과 시간·토큰 벤치 기록을 직접 살펴보세요.">
+<meta name="description" content="같은 주제도 모델마다 어떻게 달라질까요? 선수림의 모델별 웹 제작 실험, 14개 모델의 결과 페이지 15편과 시간·토큰 벤치 기록을 직접 살펴보세요.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="선수림의 모델별 웹 제작 실험 · 헬로우 휴먼">
 <meta property="og:description" content="거울나라의 앨리스부터 달리의 꿈, 심해까지. AI 모델이 만든 웹페이지의 화면과 인터랙션을 직접 비교하고, 걸린 시간과 토큰도 재본 실험 기록.">
@@ -17,7 +17,7 @@
 <script src="../assets/theme.js?v=3"></script>
 <link rel="stylesheet" href="../assets/style.css?v=7">
 <link rel="stylesheet" href="../assets/showcase.css?v=1">
-<link rel="stylesheet" href="../assets/benchmark.css?v=3">
+<link rel="stylesheet" href="../assets/benchmark.css?v=4">
 <link rel="stylesheet" href="../assets/content-updates.css?v=1">
 </head>
 <body class="work-page bench-page">
@@ -36,13 +36,13 @@
       <p class="work-hero-title">모델을 바꾸면,<br><span>화면은 얼마나 달라질까?</span></p>
       <p class="work-hero-description">“상상할 수 있는 가장 아름다운 HTML 파일을 만들어 보세요.”<br>같은 요청을 여러 모델에 던지고, 한 번에 나온 결과를 모았습니다. 화면 구성부터 움직임과 작은 상호작용까지 직접 비교해보세요.</p>
       <ul class="work-tags" aria-label="실험 모음">
-        <li>13개 모델</li>
-        <li>결과 페이지 14편</li>
-        <li>벤치 보고서 4편</li>
+        <li>14개 모델</li>
+        <li>결과 페이지 15편</li>
+        <li>벤치 보고서 5편</li>
         <li>각각 한 번의 요청</li>
       </ul>
       <nav class="bench-nav" aria-label="실험 바로가기">
-        <a href="#alice">앨리스, 열두 가지 해석 <span aria-hidden="true">↓</span></a>
+        <a href="#alice">앨리스, 열세 가지 해석 <span aria-hidden="true">↓</span></a>
         <a href="#measured">시간 · 토큰 벤치 <span aria-hidden="true">↓</span></a>
         <a href="#other-themes">다른 주제로 해본 실험 <span aria-hidden="true">↓</span></a>
         <a href="#experiment-notes">프롬프트 · 소요 시간 <span aria-hidden="true">↓</span></a>
@@ -53,9 +53,9 @@
   <section id="alice" class="bench-section">
     <div class="wrap">
       <p class="label">THROUGH THE LOOKING-GLASS</p>
-      <h2>앨리스, 열두 가지 해석</h2>
-      <p class="bench-intro">‘거울나라의 앨리스’를 주제로 공통 프롬프트를 사용한 열두 모델의 결과입니다. 첫 화면을 나란히 보고, 궁금한 페이지를 열어 스크롤하거나 버튼을 눌러보세요. Opus 5.5, Sonnet 5.5, GPT-6.1 Sol, GPT-6 Sol은 걸린 시간과 토큰을 잰 벤치 보고서도 함께 남겼습니다.</p>
-      <p class="work-link-note">모델 체급순으로, 같은 체급 안에서는 최신 모델부터 놓았습니다. 이미지는 배포된 페이지의 실제 화면이며, 결과 페이지와 보고서는 새 탭으로 열립니다.</p>
+      <h2>앨리스, 열세 가지 해석</h2>
+      <p class="bench-intro">‘거울나라의 앨리스’를 주제로 공통 프롬프트를 사용한 열세 모델의 결과입니다. 첫 화면을 나란히 보고, 궁금한 페이지를 열어 스크롤하거나 버튼을 눌러보세요. Opus 5.5, Sonnet 5.5, GPT-6.1 Sol, GPT-6 Sol, Space Bunny Free는 걸린 시간과 토큰을 잰 벤치 보고서도 함께 남겼습니다.</p>
+      <p class="work-link-note">모델 체급순으로, 같은 체급 안에서는 최신 모델부터 놓았습니다. 체급이 공개되지 않은 익명 프리뷰 모델 Space Bunny Free는 맨 끝에 두었습니다. 이미지는 배포된 페이지의 실제 화면이며, 결과 페이지와 보고서는 새 탭으로 열립니다.</p>
       <div class="bench-grid">
         <article class="bench-card">
           <a class="bench-preview" href="https://soorimsun.github.io/prompt-test/gpt-6-astra/looking-glass.html" target="_blank" rel="noopener noreferrer" aria-label="GPT-6 Astra 결과 페이지 열기 (새 탭)">
@@ -193,6 +193,18 @@
             <p>원형 거울과 떠다니는 체스 기물을 한 화면에 모았습니다. 마우스 움직임과 클릭에 반응하는 효과를 살펴볼 수 있습니다.</p>
           </div>
         </article>
+        <article class="bench-card">
+          <a class="bench-preview" href="https://soorimsun.github.io/prompt-test/space-bunny-free/looking-glass.html" target="_blank" rel="noopener noreferrer" aria-label="Space Bunny Free 결과 페이지 열기 (새 탭)">
+            <img src="../assets/benchmarks/space-bunny-free.jpg" alt="보랏빛 어둠 속 금빛 앨리스 제목과 여러 겹의 고리가 도는 원형 거울 포털" width="1280" height="720" loading="lazy" decoding="async">
+            <span class="bench-preview-link">직접 열어보기 <span aria-hidden="true">↗</span></span>
+          </a>
+          <div class="bench-card-copy">
+            <h3>Space Bunny Free</h3>
+            <p class="bench-card-tag">거울 포털 · 돋보기 · 약병</p>
+            <p>여러 겹의 고리가 도는 거울 포털에서 시작해 스크롤로 토끼굴을 내려갑니다. 돋보기로 장면을 확대하고, 체스판의 나이트를 옮기고, 약병으로 앨리스의 크기를 바꿀 수 있습니다. 체셔 고양이와 하트 여왕 등 ‘이상한 나라’의 인물도 함께 등장합니다.</p>
+            <a class="bench-report-link" href="https://soorimsun.github.io/prompt-test/space-bunny-free/benchmark.html" target="_blank" rel="noopener noreferrer">벤치 보고서 · 54분 49초<span aria-hidden="true"> ↗</span><span class="work-sr-only"> (새 탭)</span></a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -201,26 +213,27 @@
     <div class="wrap">
       <p class="label">BENCHMARK LOG</p>
       <h2>이번에는 시간과 토큰도 쟀습니다</h2>
-      <p class="bench-intro">Opus 5.5, Sonnet 5.5, GPT-6.1 Sol, GPT-6 Sol은 결과 페이지를 완성한 뒤 작업 로그를 읽어 벤치 보고서를 따로 만들었습니다. 기억이 아닌 기록으로, 한 번의 요청에 걸린 시간과 처리한 토큰을 옮겼습니다.</p>
+      <p class="bench-intro">Opus 5.5, Sonnet 5.5, GPT-6.1 Sol, GPT-6 Sol, Space Bunny Free는 결과 페이지를 완성한 뒤 작업 로그를 읽어 벤치 보고서를 따로 만들었습니다. 기억이 아닌 기록으로, 한 번의 요청에 걸린 시간과 처리한 토큰을 옮겼습니다.</p>
       <div class="bench-table-scroll">
         <table class="bench-times bench-metrics">
           <caption>로그로 잰 제작 기록 <span>각 모델의 벤치 보고서에서 옮긴 값입니다. 보고서를 만드는 데 쓴 시간과 토큰은 들어 있지 않습니다.</span></caption>
-          <thead><tr><th scope="col">항목</th><th scope="col">Opus 5.5</th><th scope="col">Sonnet 5.5</th><th scope="col">GPT-6.1 Sol</th><th scope="col">GPT-6 Sol</th></tr></thead>
+          <thead><tr><th scope="col">항목</th><th scope="col">Opus 5.5</th><th scope="col">Sonnet 5.5</th><th scope="col">GPT-6.1 Sol</th><th scope="col">GPT-6 Sol</th><th scope="col">Space Bunny Free</th></tr></thead>
           <tbody>
-            <tr><th scope="row">작업 도구</th><td>Claude Code<small>추론 강도 xhigh</small></td><td>Claude Code<small>추론 강도 xhigh</small></td><td>Codex<small>추론 강도 xhigh</small></td><td>Codex<small>추론 강도 xhigh</small></td></tr>
-            <tr><th scope="row">소요 시간</th><td><strong>70분 21초</strong></td><td><strong>77분 34초</strong></td><td><strong>29분 20초</strong></td><td><strong>11분 46초</strong></td></tr>
-            <tr><th scope="row">누적 처리 토큰</th><td>41,212,402</td><td>63,860,532</td><td>1,519,489</td><td>2,179,937</td></tr>
-            <tr><th scope="row">입력 중 캐시</th><td>98.5%</td><td>98.0%</td><td>94.7%</td><td>95.6%</td></tr>
-            <tr><th scope="row">출력 토큰</th><td>415,722<small>사고 270,050 포함</small></td><td>435,829<small>사고 259,826 포함</small></td><td>31,624<small>추론 9,071 포함</small></td><td>34,261<small>추론 9,724 포함</small></td></tr>
-            <tr><th scope="row">API 환산 비용</th><td>$21.34<small>정가 단가 × 토큰</small></td><td>$21.77<small>정가 단가 × 토큰</small></td><td>$0.62<small>Standard 단가 · 이미지 생성 제외</small></td><td>기록 없음</td></tr>
-            <tr><th scope="row">결과 HTML</th><td>172,286바이트<small>2,489줄</small></td><td>559,767바이트<small>2,836줄 · 내장 서체 포함</small></td><td>4,445,546바이트<small>445줄 · 내장 그림·서체 포함</small></td><td>45,896바이트<small>447줄</small></td></tr>
-            <tr><th scope="row">브라우저 검증</th><td>동작 241회<small>문제 12건 수정</small></td><td>상호작용 27항목<small>화면 너비 5가지 · 오류 0건</small></td><td>화면 너비 6가지<small>오류 0건 · 키보드·터치 확인</small></td><td>화면 너비 5가지<small>페이지 오류 0건</small></td></tr>
-            <tr><th scope="row">보고서</th><td><a href="https://soorimsun.github.io/prompt-test/opus-5.5/benchmark.html" target="_blank" rel="noopener noreferrer">열어보기<span aria-hidden="true"> ↗</span><span class="work-sr-only"> Opus 5.5 벤치 보고서 (새 탭)</span></a></td><td><a href="https://soorimsun.github.io/prompt-test/sonnet-5.5/benchmark.html" target="_blank" rel="noopener noreferrer">열어보기<span aria-hidden="true"> ↗</span><span class="work-sr-only"> Sonnet 5.5 벤치 보고서 (새 탭)</span></a></td><td><a href="https://soorimsun.github.io/prompt-test/gpt-6.1-sol/benchmark.html" target="_blank" rel="noopener noreferrer">열어보기<span aria-hidden="true"> ↗</span><span class="work-sr-only"> GPT-6.1 Sol 벤치 보고서 (새 탭)</span></a></td><td><a href="https://soorimsun.github.io/prompt-test/gpt-6-sol/benchmark.html" target="_blank" rel="noopener noreferrer">열어보기<span aria-hidden="true"> ↗</span><span class="work-sr-only"> GPT-6 Sol 벤치 보고서 (새 탭)</span></a></td></tr>
+            <tr><th scope="row">작업 도구</th><td>Claude Code<small>추론 강도 xhigh</small></td><td>Claude Code<small>추론 강도 xhigh</small></td><td>Codex<small>추론 강도 xhigh</small></td><td>Codex<small>추론 강도 xhigh</small></td><td>OpenCode<small>추론 강도 max</small></td></tr>
+            <tr><th scope="row">소요 시간</th><td><strong>70분 21초</strong></td><td><strong>77분 34초</strong></td><td><strong>29분 20초</strong></td><td><strong>11분 46초</strong></td><td><strong>54분 49초</strong></td></tr>
+            <tr><th scope="row">누적 처리 토큰</th><td>41,212,402</td><td>63,860,532</td><td>1,519,489</td><td>2,179,937</td><td>14,837,887</td></tr>
+            <tr><th scope="row">입력 중 캐시</th><td>98.5%</td><td>98.0%</td><td>94.7%</td><td>95.6%</td><td>96.9%</td></tr>
+            <tr><th scope="row">출력 토큰</th><td>415,722<small>사고 270,050 포함</small></td><td>435,829<small>사고 259,826 포함</small></td><td>31,624<small>추론 9,071 포함</small></td><td>34,261<small>추론 9,724 포함</small></td><td>101,068<small>추론 28,624 포함</small></td></tr>
+            <tr><th scope="row">API 환산 비용</th><td>$21.34<small>정가 단가 × 토큰</small></td><td>$21.77<small>정가 단가 × 토큰</small></td><td>$0.62<small>Standard 단가 · 이미지 생성 제외</small></td><td>기록 없음</td><td>기록 없음<small>무료 프리뷰 모델</small></td></tr>
+            <tr><th scope="row">결과 HTML</th><td>172,286바이트<small>2,489줄</small></td><td>559,767바이트<small>2,836줄 · 내장 서체 포함</small></td><td>4,445,546바이트<small>445줄 · 내장 그림·서체 포함</small></td><td>45,896바이트<small>447줄</small></td><td>57,185바이트<small>1,084줄 · 외부 의존성 없음</small></td></tr>
+            <tr><th scope="row">브라우저 검증</th><td>동작 241회<small>문제 12건 수정</small></td><td>상호작용 27항목<small>화면 너비 5가지 · 오류 0건</small></td><td>화면 너비 6가지<small>오류 0건 · 키보드·터치 확인</small></td><td>화면 너비 5가지<small>페이지 오류 0건</small></td><td>화면 너비 5가지<small>오류 0건 · 결함 6건 수정</small></td></tr>
+            <tr><th scope="row">보고서</th><td><a href="https://soorimsun.github.io/prompt-test/opus-5.5/benchmark.html" target="_blank" rel="noopener noreferrer">열어보기<span aria-hidden="true"> ↗</span><span class="work-sr-only"> Opus 5.5 벤치 보고서 (새 탭)</span></a></td><td><a href="https://soorimsun.github.io/prompt-test/sonnet-5.5/benchmark.html" target="_blank" rel="noopener noreferrer">열어보기<span aria-hidden="true"> ↗</span><span class="work-sr-only"> Sonnet 5.5 벤치 보고서 (새 탭)</span></a></td><td><a href="https://soorimsun.github.io/prompt-test/gpt-6.1-sol/benchmark.html" target="_blank" rel="noopener noreferrer">열어보기<span aria-hidden="true"> ↗</span><span class="work-sr-only"> GPT-6.1 Sol 벤치 보고서 (새 탭)</span></a></td><td><a href="https://soorimsun.github.io/prompt-test/gpt-6-sol/benchmark.html" target="_blank" rel="noopener noreferrer">열어보기<span aria-hidden="true"> ↗</span><span class="work-sr-only"> GPT-6 Sol 벤치 보고서 (새 탭)</span></a></td><td><a href="https://soorimsun.github.io/prompt-test/space-bunny-free/benchmark.html" target="_blank" rel="noopener noreferrer">열어보기<span aria-hidden="true"> ↗</span><span class="work-sr-only"> Space Bunny Free 벤치 보고서 (새 탭)</span></a></td></tr>
           </tbody>
         </table>
       </div>
-      <p class="work-source-note">Opus 5.5와 Sonnet 5.5는 Claude Code, GPT-6.1 Sol과 GPT-6 Sol은 Codex로 작업해 토큰 집계 방식이 달라 숫자를 그대로 견주기는 어렵습니다. 누적 처리 토큰은 호출할 때마다 다시 읽은 대화까지 모두 더한 값이라, 새로 쓴 글의 양이나 실제 청구 비용과 다릅니다. API 환산 비용은 모델별 정가 단가에 토큰을 곱한 참고값입니다(100만 토큰당 Opus 5.5 입력 $4·출력 $20·캐시 읽기 $0.20, Sonnet 5.5 입력 $2·출력 $10·캐시 읽기 $0.20, GPT-6.1 Sol Standard 입력 $2·출력 $10·캐시 읽기 $0.10). GPT-6 Sol 보고서에는 비용 기록이 없습니다. 소요 시간에는 브라우저로 확인하고 고친 시간도 들어 있습니다.</p>
+      <p class="work-source-note">Opus 5.5와 Sonnet 5.5는 Claude Code, GPT-6.1 Sol과 GPT-6 Sol은 Codex, Space Bunny Free는 OpenCode로 작업해 토큰 집계 방식이 달라 숫자를 그대로 견주기는 어렵습니다. 누적 처리 토큰은 호출할 때마다 다시 읽은 대화까지 모두 더한 값이라, 새로 쓴 글의 양이나 실제 청구 비용과 다릅니다. API 환산 비용은 모델별 정가 단가에 토큰을 곱한 참고값입니다(100만 토큰당 Opus 5.5 입력 $4·출력 $20·캐시 읽기 $0.20, Sonnet 5.5 입력 $2·출력 $10·캐시 읽기 $0.20, GPT-6.1 Sol Standard 입력 $2·출력 $10·캐시 읽기 $0.10). GPT-6 Sol과 Space Bunny Free 보고서에는 비용 기록이 없습니다. 소요 시간에는 브라우저로 확인하고 고친 시간도 들어 있습니다.</p>
       <p class="work-source-note">Sonnet 5.5의 결과 HTML에는 서체 388,492바이트가 내장되어 있습니다. GPT-6.1 Sol의 결과 HTML(4.4MB)에는 이미지 생성 도구로 만든 그림과 서체가 내장되어 있고, 이미지 생성에 든 비용과 사용량은 측정하지 않았습니다. GPT-6.1 Sol의 환산 비용에 Fast 단가를 적용하면 $1.23이며, 실제 처리 등급과 청구액은 확인되지 않았습니다. 이 모델은 Codex의 독립 하위 작업으로 실행했고 단일 HTML·브라우저 검증·조작 확인이 추가 조건으로 주어져, 보고서도 완전히 통제된 비교로 해석하기는 어렵다고 밝혔습니다.</p>
+      <p class="work-source-note">Space Bunny Free는 OpenCode에서 무료로 제공되는 익명 프리뷰 모델이며, 보고서는 가격을 추정하지 않았습니다. OpenCode는 추론 토큰을 출력과 따로 기록해, 보고서가 둘을 더해 다른 모델과 같은 형태로 맞춘 값을 옮겼습니다. 결과 HTML은 외부 서체나 이미지 없이 파일 하나로 동작합니다.</p>
     </div>
   </section>
 
@@ -267,7 +280,7 @@
       <p class="bench-intro">추가 실험 중 ‘시간이 녹는 밤’은 주제를 ‘살바도르 달리’로 바꿨고, ‘심연’은 주제를 지정하지 않았습니다. 심해라는 소재도 모델이 선택한 결과입니다.</p>
 
       <table class="bench-times">
-        <caption>소요 시간 메모 <span>로그로 잰 네 모델을 빼면 제작자의 기억에 따른 대략적인 시간입니다.</span></caption>
+        <caption>소요 시간 메모 <span>로그로 잰 다섯 모델을 빼면 제작자의 기억에 따른 대략적인 시간입니다.</span></caption>
         <thead><tr><th scope="col">모델</th><th scope="col">소요 시간</th><th scope="col">기준</th></tr></thead>
         <tbody>
           <tr><th scope="row">GPT-6 Astra</th><td>약 20분</td><td>기억</td></tr>
@@ -283,6 +296,7 @@
           <tr><th scope="row">Opus 5</th><td>약 1시간</td><td>기억</td></tr>
           <tr><th scope="row">MiMo 2.6 Flash</th><td>20분</td><td>기억</td></tr>
           <tr><th scope="row">Ling 3.0 Flash</th><td>50초 미만</td><td>기억</td></tr>
+          <tr><th scope="row">Space Bunny Free</th><td>54분 49초</td><td>로그 계측</td></tr>
         </tbody>
       </table>
       <p class="work-source-note">기억에 따른 값은 정확한 계측값이 아니고, 로그로 잰 값도 한 번 실행한 기록일 뿐 반복 측정 결과는 아닙니다. 소요 시간은 대략적인 참고값으로 보고, 화면과 인터랙션을 직접 살펴보세요.</p>
