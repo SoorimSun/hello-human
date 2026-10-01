@@ -51,6 +51,7 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `guides/index.html` | AI가이드 목록 |
 | `guides/2026-09-25-llm-selection.html` | AI가이드 첫 호 |
 | `guides/2026-09-30-jev-decisions.html` | AI가이드 두 번째 호: 에이전트의 작은 판단과 Jev 실습 |
+| `guides/2026-10-01-openai-dots.html` | AI가이드 세 번째 호: OpenAI Dots의 일상 활용 예시·공개 사례와 업무 실습 |
 | `insights/index.html` | 커머스 인사이트 목록 |
 | `insights/2026-09-25-agentic-commerce.html` | 커머스 인사이트 첫 호 |
 | `insights/2026-09-29-recommendation-evidence.html` | 커머스 인사이트 두 번째 글: 추천 에이전트의 근거와 검증 |
