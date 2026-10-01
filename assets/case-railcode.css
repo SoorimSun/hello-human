@@ -1,0 +1,97 @@
+/* Railcode 사례연구 06: 동일한 가상 주문으로 비교하는 화면 시안 */
+.railcode-proposals {
+  --mockup-urgent: #a5371d;
+  --mockup-urgent-bg: #fff0e9;
+  --mockup-checking: #2a5a86;
+  --mockup-checking-bg: #eaf3fb;
+  margin: 32px 0;
+}
+html[data-theme="dark"] .railcode-proposals {
+  --mockup-urgent: #ffb496;
+  --mockup-urgent-bg: #3e2822;
+  --mockup-checking: #a9d2f6;
+  --mockup-checking-bg: #213243;
+}
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]):not([data-theme="dark"]) .railcode-proposals {
+    --mockup-urgent: #ffb496;
+    --mockup-urgent-bg: #3e2822;
+    --mockup-checking: #a9d2f6;
+    --mockup-checking-bg: #213243;
+  }
+}
+.railcode-brief { padding: 20px; border-left: 3px solid var(--accent); background: var(--surface-2); }
+.railcode-brief > strong { display: block; margin-bottom: 8px; font-size: 16px; }
+.railcode-proposals .railcode-brief p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.75; }
+.railcode-proposal { min-width: 0; margin: 36px 0 44px; }
+.railcode-proposal:last-child { margin-bottom: 0; }
+.railcode-proposal > figcaption { display: flex; align-items: flex-start; gap: 13px; margin-bottom: 17px; }
+.railcode-proposal-letter { display: grid; place-items: center; flex: 0 0 36px; height: 36px; border: 1px solid var(--accent); border-radius: 8px; color: var(--accent); font: 700 16px var(--mono); }
+.railcode-proposals .railcode-proposal h3 { margin: 0 0 6px; font-size: 22px; line-height: 1.5; }
+.railcode-proposals figcaption p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+.railcode-screen { overflow: hidden; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); font-size: 13px; line-height: 1.55; }
+.railcode-screen-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; padding: 17px 18px 12px; }
+.railcode-screen-heading > strong { font-size: 17px; }
+.railcode-screen-heading > span { color: var(--muted); font-size: 11px; }
+.railcode-toolbar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 12px; padding: 0 18px 14px; color: var(--muted); font-size: 12px; }
+.railcode-toolbar b { color: var(--ink); }
+.railcode-screen-scroll { overflow-x: auto; }
+.railcode-proposals .railcode-order-table { width: 100%; min-width: 540px; margin: 0; border-collapse: collapse; font-size: 12px; line-height: 1.6; }
+.railcode-proposals .railcode-order-table th,
+.railcode-proposals .railcode-order-table td { padding: 13px 12px; border-bottom: 1px solid var(--line); vertical-align: middle; background: transparent; }
+.railcode-proposals .railcode-order-table thead th { border-top: 1px solid var(--line); background: var(--surface-2); color: var(--muted); font-size: 11px; white-space: nowrap; }
+.railcode-proposals .railcode-order-table tbody th { font: 500 12px var(--mono); white-space: nowrap; }
+.railcode-proposals .railcode-order-table tr:last-child > * { border-bottom: 0; }
+.railcode-proposals .railcode-order-table td:nth-child(2) { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.railcode-proposals .railcode-order-table .is-selected > * { background: color-mix(in srgb, var(--accent) 6%, var(--surface)); }
+.railcode-proposals .railcode-order-table .is-selected > :first-child { box-shadow: inset 3px 0 var(--accent); }
+.railcode-proposals .railcode-priority-table .is-priority > * { background: var(--mockup-urgent-bg); }
+.railcode-proposals .railcode-priority-table .is-priority > :first-child { box-shadow: inset 3px 0 var(--mockup-urgent); }
+.railcode-status { display: inline-block; width: fit-content; padding: 3px 7px; border-radius: 4px; background: var(--surface-2); color: var(--muted); font-family: var(--sans); font-size: 11px; font-weight: 650; line-height: 1.5; white-space: nowrap; }
+.railcode-status.is-urgent { color: var(--mockup-urgent); background: var(--mockup-urgent-bg); }
+.railcode-status.is-checking { color: var(--mockup-checking); background: var(--mockup-checking-bg); }
+.railcode-selected-label { display: inline-block; color: var(--accent); font-family: var(--sans); font-size: 10px; font-weight: 650; white-space: nowrap; }
+.railcode-screen-foot { padding: 11px 16px; border-top: 1px solid var(--line); color: var(--muted); background: var(--surface-2); font-size: 11px; line-height: 1.6; }
+.railcode-scroll-note { display: none; }
+.railcode-detail-preview { margin-top: 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.railcode-detail-preview > summary { padding: 13px 16px; cursor: pointer; color: var(--accent); font-size: 13px; font-weight: 650; line-height: 1.6; }
+.railcode-detail-preview[open] > summary { border-bottom: 1px solid var(--line); }
+.railcode-proposals .railcode-question { display: grid; gap: 4px; margin: 14px 0 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
+.railcode-question > strong { color: var(--ink); font-size: 12px; }
+.railcode-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); border-top: 1px solid var(--line); }
+.railcode-compact-list { min-width: 0; border-right: 1px solid var(--line); }
+.railcode-list-heading { display: flex; justify-content: space-between; gap: 8px; padding: 11px 16px; background: var(--surface-2); color: var(--muted); font-size: 11px; }
+.railcode-proposals .railcode-compact-list ul { margin: 0; padding: 0; list-style: none; }
+.railcode-proposals .railcode-compact-list li { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0; padding: 16px; border-top: 1px solid var(--line); }
+.railcode-compact-list li > div { display: grid; gap: 8px; }
+.railcode-compact-list li strong { font: 500 12px var(--mono); }
+.railcode-compact-list .is-selected { background: color-mix(in srgb, var(--accent) 6%, var(--surface)); box-shadow: inset 3px 0 var(--accent); }
+.railcode-days { white-space: nowrap; font-size: 13px; font-variant-numeric: tabular-nums; }
+.railcode-detail { min-width: 0; padding: 17px; font-size: 12px; line-height: 1.65; }
+.railcode-detail-heading { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.railcode-detail-heading > span:first-child { flex-basis: 100%; color: var(--muted); font-size: 11px; }
+.railcode-detail-heading > strong { font: 600 15px var(--mono); }
+.railcode-detail dl { display: grid; gap: 8px; margin: 19px 0; }
+.railcode-detail dl > div { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 8px; }
+.railcode-detail dt { color: var(--muted); }
+.railcode-detail dd { margin: 0; font-weight: 550; }
+.railcode-proposals .railcode-detail h4 { margin: 20px 0 10px; font-size: 12px; }
+.railcode-proposals .railcode-history { display: grid; gap: 11px; margin: 0 0 20px; padding: 0; list-style: none; }
+.railcode-proposals .railcode-history li { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 8px; margin: 0; padding: 0; }
+.railcode-history time { color: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.railcode-proposals .railcode-next-step { display: grid; gap: 4px; margin: 0; padding: 12px; border-left: 2px solid var(--accent); background: var(--surface-2); font-size: 12px; }
+.railcode-next-step > span { color: var(--muted); font-size: 11px; }
+.railcode-next-step > strong { font-weight: 650; }
+.railcode-sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+@media (max-width: 520px) {
+  .railcode-scroll-note { display: block; margin-top: 4px; }
+  .railcode-brief { padding: 17px; }
+  .railcode-proposals .railcode-proposal h3 { font-size: 20px; }
+  .railcode-proposal > figcaption { gap: 10px; }
+  .railcode-screen-heading { padding-inline: 14px; }
+  .railcode-toolbar { padding-inline: 14px; }
+  .railcode-split { grid-template-columns: minmax(0, 1fr); }
+  .railcode-compact-list { border-right: 0; border-bottom: 1px solid var(--line); }
+  .railcode-proposals .railcode-compact-list li { padding: 13px 16px; }
+  .railcode-compact-list li > div { grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 10px; }
+}

@@ -72,6 +72,7 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `assets/guide-jev.css` | AI가이드 02의 역할 분담·공개 사례·처리 경로 도식 스타일 |
 | `assets/guides/jev-request.json` | 가상 고객 문의로 Choice·Score·Noul을 호출하는 다운로드용 실습 입력 |
 | `assets/case-studies.css` | AI 사례연구 소개 카드·목록·본문 시각화 스타일 |
+| `assets/case-railcode.css` | 사례연구 02의 배송지연 주문 화면 A·B·C 시안 스타일 |
 | `assets/case-studies/` | 실제 게임·웹사이트 캡처와 출처가 표시된 사례 이미지 |
 | `assets/insights.css` | 커머스 인사이트 시각화 스타일 |
 | `assets/insight-evidence.css` | 인사이트 02의 구매 사례·검수 화면·아키텍처 도식 스타일 |

@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="../assets/news.css?v=9">
 <link rel="stylesheet" href="../assets/guide.css?v=4">
 <link rel="stylesheet" href="../assets/case-studies.css?v=2">
+<link rel="stylesheet" href="../assets/case-railcode.css?v=1">
 <link rel="stylesheet" href="../assets/content-updates.css?v=1">
 </head>
 <body>
@@ -51,7 +52,7 @@
 <div class="guide-intro">
 <p>AI에게 화면을 만들어 달라고 한 뒤, 이런 생각이 든 적이 있으신가요? “동작은 하는데, 우리 서비스 같지는 않다.”</p>
 <p>색상을 바꾸고, 버튼을 손보고, 설명을 추가해도 무언가 어색합니다. 그렇다고 어디를 어떻게 고쳐야 하는지 말로 설명하기도 쉽지 않습니다.</p>
-<p>이번에는 완성된 웹사이트만큼이나 그 앞에 놓인 시행착오를 살펴보려고 합니다. 주인공은 <strong>Railcode의 웹사이트 제작 과정</strong>입니다. 롤러코스터가 움직이는 첫 화면도 흥미롭지만, 더 눈여겨볼 부분은 그 화면을 고르기까지의 작업 방식입니다.</p>
+<p>이번에는 <strong>Railcode의 웹사이트 제작 과정</strong>을 통해 완성된 화면 뒤의 시행착오를 살펴봅니다. 롤러코스터가 움직이는 첫 화면도 흥미롭지만, 더 눈여겨볼 부분은 그 화면을 고르기까지의 작업 방식입니다.</p>
 <p>이 사례를 읽는 관점은 간단합니다. <strong>사람이 더 나은 디자인을 찾도록 AI를 어떻게 사용했는가</strong>입니다.</p>
 <div class="case-summary" aria-label="이 사례에서 살펴볼 세 가지">
 <div><span>01 / EXPLORE</span><strong>가능성을 넓히기</strong><p>서로 다른 시안에서 방향을 찾고, 맞지 않는 안은 버리기.</p></div>
@@ -143,11 +144,81 @@
 <p>대상은 <strong>커머스 운영자의 배송지연 주문 조회 화면</strong>으로 가정하겠습니다. 목적은 다음과 같이 정의합니다.</p>
 <blockquote><p>운영자가 우선 처리해야 할 주문을 찾고, 지연 사유를 확인한 뒤, 다음 조치를 판단하기 쉽게 만든다.</p></blockquote>
 <p>같은 가상 주문 데이터와 기능을 사용하되 정보 배치를 다르게 만든 세 가지 안을 비교합니다.</p>
-<div class="guide-table-scroll" tabindex="0" role="region" aria-label="세 가지 실험 시안 비교, 가로로 스크롤할 수 있습니다"><table><thead><tr><th scope="col">시안</th><th scope="col">바꾸는 부분</th><th scope="col">확인할 질문</th></tr></thead><tbody>
-<tr><td>기존 구조를 정리한 안</td><td>열 순서, 간격, 강조 방식</td><td>익숙한 구조를 유지해도 개선되는가?</td></tr>
-<tr><td>우선순위를 앞세운 안</td><td>지연 정도와 처리 필요 상태의 배치</td><td>급한 주문을 더 쉽게 찾는가?</td></tr>
-<tr><td>목록과 상세를 함께 보는 안</td><td>선택한 주문의 사유와 이력을 옆에 표시</td><td>정보를 확인하러 이동하는 부담이 줄어드는가?</td></tr>
-</tbody></table></div>
+<div class="railcode-proposals" aria-label="배송지연 주문 화면의 세 가지 시안">
+<aside class="railcode-brief"><strong>같은 주문으로, 다른 배치를 비교합니다</strong><p>아래는 헬로우 휴먼이 구성한 가상 시안입니다. 모두 주문 4건을 주문번호순으로 보여주며, <b>DEMO-103</b>을 선택한 장면입니다. A·B안의 상세 예시를 펼쳐 C안과 비교해 보세요. 실제 검색이나 주문 처리는 연결되어 있지 않습니다.</p></aside>
+
+<figure class="railcode-proposal" aria-labelledby="proposal-a-title">
+<figcaption><span class="railcode-proposal-letter" aria-hidden="true">A</span><div><h3 id="proposal-a-title">기존 구조를 정리한 안</h3><p>주문번호를 기준으로 훑고, 같은 열에서 같은 정보를 찾습니다.</p></div></figcaption>
+<div class="railcode-screen">
+<div class="railcode-screen-heading"><strong>배송지연 주문</strong><span>가상 데이터</span></div>
+<div class="railcode-toolbar"><span>전체 <b>4</b>건</span><span>주문번호 오름차순 · 10. 01 기준</span></div>
+<div class="railcode-screen-scroll" tabindex="0" role="region" aria-label="A안 주문 목록, 가로로 스크롤할 수 있습니다">
+<table class="railcode-order-table"><caption class="railcode-sr-only">A안. 주문번호, 지연, 사유, 상태 순서의 목록. DEMO-103 선택.</caption><thead><tr><th scope="col">주문번호</th><th scope="col">지연</th><th scope="col">지연 사유</th><th scope="col">처리 상태</th></tr></thead><tbody>
+<tr><th scope="row">DEMO-101</th><td>2일</td><td>입고 일정 변경</td><td><span class="railcode-status is-checking">확인 중</span></td></tr>
+<tr><th scope="row">DEMO-102</th><td>1일</td><td>출고 누락 확인</td><td><span class="railcode-status">처리 대기</span></td></tr>
+<tr class="is-selected"><th scope="row">DEMO-103 <span class="railcode-selected-label">선택</span></th><td><b>5일</b></td><td>택배사 인계 지연</td><td><span class="railcode-status is-urgent">우선 확인</span></td></tr>
+<tr><th scope="row">DEMO-104</th><td>3일</td><td>재고 이동 대기</td><td><span class="railcode-status">처리 대기</span></td></tr>
+</tbody></table>
+</div>
+<div class="railcode-screen-foot">목록에서 주문을 선택하고 별도 상세 화면으로 이동하는 구성<span class="railcode-scroll-note">표를 좌우로 밀어 나머지 열을 볼 수 있습니다.</span></div>
+</div>
+<details class="railcode-detail-preview"><summary>DEMO-103의 별도 상세 화면 예시</summary>
+<div class="railcode-detail"><div class="railcode-detail-heading"><span>주문 상세</span><strong>DEMO-103</strong><span class="railcode-status is-urgent">우선 확인</span></div>
+<dl><div><dt>예정 출고일</dt><dd>09. 26</dd></div><div><dt>지연 기간</dt><dd>5일</dd></div><div><dt>지연 사유</dt><dd>택배사 인계 지연</dd></div></dl>
+<h4>처리 이력</h4><ol class="railcode-history"><li><time datetime="2026-09-26">09. 26</time><span>예정 출고일 경과</span></li><li><time datetime="2026-09-29">09. 29</time><span>물류 담당자에게 확인 요청</span></li><li><time datetime="2026-10-01">10. 01</time><span>회신 대기</span></li></ol>
+<p class="railcode-next-step"><span>다음에 확인할 것</span><strong>물류 담당자의 회신과 인계 예정일</strong></p>
+</div></details>
+<p class="railcode-question"><strong>확인할 질문</strong>익숙한 구조를 유지하면서 열 순서와 간격만 정리해도 찾기 쉬워지는가?</p>
+</figure>
+
+<figure class="railcode-proposal" aria-labelledby="proposal-b-title">
+<figcaption><span class="railcode-proposal-letter" aria-hidden="true">B</span><div><h3 id="proposal-b-title">우선순위를 앞세운 안</h3><p>처리 상태와 지연 기간을 왼쪽에 모아 먼저 읽히게 합니다.</p></div></figcaption>
+<div class="railcode-screen">
+<div class="railcode-screen-heading"><strong>배송지연 주문</strong><span>가상 데이터</span></div>
+<div class="railcode-toolbar"><span>전체 <b>4</b>건</span><span>주문번호 오름차순 · 10. 01 기준</span></div>
+<div class="railcode-screen-scroll" tabindex="0" role="region" aria-label="B안 주문 목록, 가로로 스크롤할 수 있습니다">
+<table class="railcode-order-table railcode-priority-table"><caption class="railcode-sr-only">B안. 처리 상태와 지연 기간을 왼쪽에 배치. 주문 순서는 A안과 같고 DEMO-103 선택.</caption><thead><tr><th scope="col">처리 상태</th><th scope="col">지연</th><th scope="col">주문번호</th><th scope="col">지연 사유</th></tr></thead><tbody>
+<tr><td><span class="railcode-status is-checking">확인 중</span></td><td>2일</td><th scope="row">DEMO-101</th><td>입고 일정 변경</td></tr>
+<tr><td><span class="railcode-status">처리 대기</span></td><td>1일</td><th scope="row">DEMO-102</th><td>출고 누락 확인</td></tr>
+<tr class="is-selected is-priority"><td><span class="railcode-status is-urgent">우선 확인</span></td><td><b>5일</b></td><th scope="row">DEMO-103 <span class="railcode-selected-label">선택</span></th><td>택배사 인계 지연</td></tr>
+<tr><td><span class="railcode-status">처리 대기</span></td><td>3일</td><th scope="row">DEMO-104</th><td>재고 이동 대기</td></tr>
+</tbody></table>
+</div>
+<div class="railcode-screen-foot">주문 순서는 유지하고, 먼저 읽을 정보와 강조 위치만 변경<span class="railcode-scroll-note">표를 좌우로 밀어 나머지 열을 볼 수 있습니다.</span></div>
+</div>
+<details class="railcode-detail-preview"><summary>DEMO-103의 별도 상세 화면 예시</summary>
+<div class="railcode-detail"><div class="railcode-detail-heading"><span>주문 상세</span><strong>DEMO-103</strong><span class="railcode-status is-urgent">우선 확인</span></div>
+<dl><div><dt>예정 출고일</dt><dd>09. 26</dd></div><div><dt>지연 기간</dt><dd>5일</dd></div><div><dt>지연 사유</dt><dd>택배사 인계 지연</dd></div></dl>
+<h4>처리 이력</h4><ol class="railcode-history"><li><time datetime="2026-09-26">09. 26</time><span>예정 출고일 경과</span></li><li><time datetime="2026-09-29">09. 29</time><span>물류 담당자에게 확인 요청</span></li><li><time datetime="2026-10-01">10. 01</time><span>회신 대기</span></li></ol>
+<p class="railcode-next-step"><span>다음에 확인할 것</span><strong>물류 담당자의 회신과 인계 예정일</strong></p>
+</div></details>
+<p class="railcode-question"><strong>확인할 질문</strong>같은 주문을 보더라도 먼저 확인해야 할 건을 더 쉽게 찾는가?</p>
+</figure>
+
+<figure class="railcode-proposal" aria-labelledby="proposal-c-title">
+<figcaption><span class="railcode-proposal-letter" aria-hidden="true">C</span><div><h3 id="proposal-c-title">목록과 상세를 함께 보는 안</h3><p>선택한 주문의 사유와 이력을 목록 옆에서 바로 확인합니다.</p></div></figcaption>
+<div class="railcode-screen">
+<div class="railcode-screen-heading"><strong>배송지연 주문</strong><span>가상 데이터</span></div>
+<div class="railcode-toolbar"><span>전체 <b>4</b>건</span><span>주문번호 오름차순 · 10. 01 기준</span></div>
+<div class="railcode-split">
+<div class="railcode-compact-list"><div class="railcode-list-heading"><span>주문번호 · 처리 상태</span><span>지연</span></div>
+<ul aria-label="C안 주문 목록">
+<li><div><strong>DEMO-101</strong><span class="railcode-status is-checking">확인 중</span></div><span class="railcode-days">2일</span></li>
+<li><div><strong>DEMO-102</strong><span class="railcode-status">처리 대기</span></div><span class="railcode-days">1일</span></li>
+<li class="is-selected"><div><strong>DEMO-103 <span class="railcode-selected-label">선택</span></strong><span class="railcode-status is-urgent">우선 확인</span></div><span class="railcode-days"><b>5일</b></span></li>
+<li><div><strong>DEMO-104</strong><span class="railcode-status">처리 대기</span></div><span class="railcode-days">3일</span></li>
+</ul></div>
+<div class="railcode-detail"><div class="railcode-detail-heading"><span>주문 상세</span><strong>DEMO-103</strong><span class="railcode-status is-urgent">우선 확인</span></div>
+<dl><div><dt>예정 출고일</dt><dd>09. 26</dd></div><div><dt>지연 기간</dt><dd>5일</dd></div><div><dt>지연 사유</dt><dd>택배사 인계 지연</dd></div></dl>
+<h4>처리 이력</h4><ol class="railcode-history"><li><time datetime="2026-09-26">09. 26</time><span>예정 출고일 경과</span></li><li><time datetime="2026-09-29">09. 29</time><span>물류 담당자에게 확인 요청</span></li><li><time datetime="2026-10-01">10. 01</time><span>회신 대기</span></li></ol>
+<p class="railcode-next-step"><span>다음에 확인할 것</span><strong>물류 담당자의 회신과 인계 예정일</strong></p>
+</div>
+</div>
+<div class="railcode-screen-foot">A·B안의 상세 정보가 여기에 표시됨 · 좁은 화면에서는 목록 아래로 배치</div>
+</div>
+<p class="railcode-question"><strong>확인할 질문</strong>화면을 오가는 부담이 줄어드는가? 목록이 좁아져 오히려 놓치는 정보는 없는가?</p>
+</figure>
+</div>
 <p>세 안의 기능과 데이터가 다르면 무엇 때문에 결과가 달라졌는지 해석하기 어렵습니다. 검색·정렬 기능, 보여주는 주문과 정보, 수행할 과제는 같게 유지하고 비교하고 싶은 요소를 좁힙니다.</p>
 <p>반복해서 조절할 필요가 있다면 행 높이, 글자 크기, 열 너비를 바꾸는 임시 패널을 붙입니다. 상태의 의미와 색상 규칙은 기존 제품의 기준 안에서 유지합니다. 조절 도구는 시안을 고르는 데 사용하고, 사용자 과제를 관찰할 때는 설정을 고정해 비교 조건이 흔들리지 않게 합니다.</p>
 <aside class="case-note"><strong>실험의 범위</strong><p>가상 데이터와 격리된 환경에서 진행합니다. 주문 변경이나 고객 안내 발송 같은 실제 업무 실행은 연결하지 않습니다. 권한별 화면 차이를 시험하더라도 실제 권한 통제의 검증을 대신하지는 않습니다.</p></aside>
