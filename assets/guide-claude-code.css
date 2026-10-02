@@ -105,6 +105,13 @@
 .cc-pages-settings dt { color: var(--muted); font-family: var(--mono); font-size: 13px; }
 .cc-pages-settings dd { margin: 0; font-size: 16px; font-weight: 700; }
 #deploy-with-claude { scroll-margin-top: 100px; }
+.guide-story .cc-process-flow { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+.cc-process-flow li { display: grid; gap: 8px; min-width: 0; margin: 0; padding: 20px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface-2); }
+.cc-process-flow small { color: var(--accent); font-family: var(--mono); font-size: 11px; font-weight: 700; }
+.cc-process-flow strong { font-size: 23px; }
+.cc-process-flow span { color: var(--muted); font-size: 14px; }
+.cc-process-flow b { margin-top: 5px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 12px; font-weight: 500; }
+.guide-story .cc-process-loop { margin: 15px 0 0; padding: 14px 17px; border-radius: 8px; background: var(--accent-soft); color: var(--accent); font-size: 14px; font-weight: 700; text-align: center; }
 @media (max-width: 900px) {
   .cc-trio { grid-template-columns: 1fr; }
   .cc-trio > div { padding: 13px 16px; }
@@ -122,7 +129,7 @@
   .cc-effort-scale code { grid-row: span 2; align-self: center; }
   .cc-effort-scale strong, .cc-effort-scale small { margin: 0; }
   .cc-effort-tip { grid-template-columns: 1fr; }
-  .cc-route, .cc-screens, .cc-preview, .cc-decision { grid-template-columns: 1fr; }
+  .cc-route, .cc-screens, .cc-preview, .cc-decision, .guide-story .cc-process-flow { grid-template-columns: 1fr; }
   .cc-route a { padding: 14px 17px; }
   .cc-harness { padding: 15px; }
   .cc-loop { flex-wrap: wrap; gap: 8px; font-size: 14px; }

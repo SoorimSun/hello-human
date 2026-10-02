@@ -314,3 +314,84 @@ GitHub CLI를 사용할 수 없으면 내가 따라 할 브라우저 절차를 �
 ```
 
 위 프롬프트·파일 범위·완료 기준은 이 가이드를 위한 편집 제안이다. 공식 문서로 UI 순서와 API 형식을 확인했지만 실제 계정 권한, API 응답, 첫 배포 소요 시간, 게시 화면은 직접 검증하지 않았다.
+
+## 12. Wayfinder와 Superpowers로 의사결정부터 검증까지
+
+확인일은 2026-10-03이다. 이 절은 기본 실습 다음에 넣을 **교육용 안내의 조사 자료**다. 아래 명령은 독자가 사용할 예시이며, 이번 조사에서 플러그인 설치·설정 변경·이슈 생성·기능 구현·커밋은 실행하지 않았다.
+
+### 설치와 호출 이름
+
+두 프로젝트의 현재 README는 Claude Code 공식 마켓플레이스 설치를 안내한다. Claude Code 대화창에서 다음 명령을 각각 실행하는 경로를 기본으로 제시할 수 있다. Matt Pocock의 대안인 `npx skills@latest add mattpocock/skills`는 파일 복사 방식이므로 같은 스킬을 중복 설치하는 안내는 피한다. [Matt Pocock 설치 안내](https://github.com/mattpocock/skills), [Superpowers 설치 안내](https://github.com/obra/superpowers)
+
+```text
+/plugin install mattpocock-skills
+/plugin install superpowers@claude-plugins-official
+```
+
+Claude 공식 문서에서 플러그인 스킬의 호출 형식은 `/plugin-name:skill-name`이다. Matt 플러그인의 이름은 `mattpocock-skills`이므로 가이드에서는 `/mattpocock-skills:wayfinder`와 `/mattpocock-skills:setup-matt-pocock-skills`를 쓴다. README의 짧은 `/wayfinder` 표기와 파일 복사 설치의 이름을 혼동하지 않도록 설치 후 실제 `/` 목록을 확인한다. [Claude 스킬 이름 규칙](https://code.claude.com/docs/en/skills), [Matt 플러그인 manifest](https://github.com/mattpocock/skills/blob/main/.claude-plugin/plugin.json)
+
+공식 마켓플레이스는 저장소의 특정 커밋을 가리킬 수 있어 저장소 `main`의 지침과 독자가 설치한 버전이 항상 같다고 단정하지 않는다. 현재 설치 안내는 예전의 별도 마켓플레이스 등록 절차를 대체한다. [Matt 플러그인 배포 결정 기록](https://github.com/mattpocock/skills/blob/main/.agents/adr/0002-ship-as-a-claude-code-plugin.md)
+
+### Wayfinder의 역할과 로컬 실습 설정
+
+Wayfinder는 경로가 불명확한 여러 세션 규모의 작업에서 **무엇을 결정해야 하는지** 지도를 만든다. 기본 모드는 의사결정이며, 각 티켓은 구현 작업량보다 답해야 할 질문을 나타낸다. 첫 세션은 지도와 의존 관계를 만들고 멈춘다. 이후에는 막히지 않은 질문 하나씩 해결한다. 작거나 이미 명확한 요청이라면 지도가 필요 없다고 판단할 수 있다. [Wayfinder 원문](https://github.com/mattpocock/skills/blob/main/skills/engineering/wayfinder/SKILL.md), [용도 설명](https://github.com/mattpocock/skills/blob/main/docs/engineering/wayfinder.md)
+
+`setup-matt-pocock-skills`는 저장소마다 한 번 실행하는 설정 대화다. GitHub·Linear·로컬 파일 중 트래커와 문서 위치를 정한다. GitHub remote가 있으면 GitHub를 기본 제안할 수 있으므로, 입문 실습에서는 **로컬 Markdown**을 명시한다. 설정은 `docs/agents/issue-tracker.md` 등의 문서를 만들고 기존 `CLAUDE.md` 또는 `AGENTS.md`에 참조를 연결할 수 있다. [설정 스킬](https://github.com/mattpocock/skills/blob/main/skills/engineering/setup-matt-pocock-skills/SKILL.md)
+
+```text
+/mattpocock-skills:setup-matt-pocock-skills
+이번 저장소는 학습용이야. 이슈 트래커는 로컬 Markdown으로 설정해.
+.scratch/checklist/ 아래에 지도와 질문을 보관하고 GitHub·Linear 이슈는 만들지 마.
+제안하는 설정 파일과 기존 CLAUDE.md 변경 내용을 먼저 보여줘.
+```
+
+로컬 트래커 템플릿의 기본 구조는 `.scratch/<effort>/map.md`와 `.scratch/<effort>/issues/NN-<slug>.md`다. 질문 파일의 상태·의존 관계·답과 지도 링크로 진행 상황을 보존한다. 이는 Superpowers의 구현 계획과 별개다. [로컬 트래커 템플릿](https://github.com/mattpocock/skills/blob/main/skills/engineering/setup-matt-pocock-skills/issue-tracker-local.md)
+
+### 두 묶음을 잇는 교육용 과정
+
+다음 연결은 공식 공동 통합 절차가 아니라 **이 가이드의 편집 구성**이다. Wayfinder로 미결정을 정리한 뒤 Superpowers로 설계와 구현을 구체화한다. 앞의 ‘계획’은 질문·범위·완료 기준을 정하는 활동이고, 설계 뒤의 ‘구현 계획’은 변경 파일과 실행 순서를 정하는 활동이다.
+
+| 단계 | 역할 | 독자가 확인할 결과 |
+| --- | --- | --- |
+| 1. 의사결정 계획 | Wayfinder | 목표, 미결정 질문, 선택 이유, 이번에 하지 않을 범위 |
+| 2. 설계 | `superpowers:brainstorming` | 화면·동작·상태 저장·오류 처리·성공 기준 |
+| 3. 구현 계획 | `superpowers:writing-plans` | 변경 파일, 작업별 테스트, 실행 명령과 기대 결과 |
+| 4. 구현과 반복 테스트 | `superpowers:executing-plans` + `superpowers:test-driven-development` | 실패하는 테스트 → 최소 구현 → 통과 → 정리의 실제 결과 |
+| 5. 최종 확인 | `superpowers:verification-before-completion` | 전체 관련 검증, 요구사항 대조, 확인하지 못한 항목 |
+
+최신 brainstorming은 실험(spike)·기존 흐름의 제한된 변경(bounded)·새 프로젝트나 구조 변경(architectural)을 구분한다. bounded는 짧은 채팅 설계 확인 후 문서 계획 없이 구현할 수 있다. architectural은 설계 문서를 검토한 다음 구현 계획으로 넘어간다. 따라서 작은 체크리스트 기능에 모든 문서가 항상 필수라고 설명하지 않는다. 전체 단계를 연습하는 경우에는 학습 목적의 문서화를 별도로 요청한다. [brainstorming 원문](https://github.com/obra/superpowers/blob/main/skills/brainstorming/SKILL.md)
+
+문서가 필요한 경로의 기본 설계 위치는 `docs/superpowers/specs/YYYY-MM-DD-<topic>-design.md`, 구현 계획 위치는 `docs/superpowers/plans/YYYY-MM-DD-<feature-name>.md`다. writing-plans는 작업을 독립적으로 검증할 수 있는 단위로 나누고 테스트·구현·검증 순서와 구체적인 파일을 적는다. 계획을 읽은 뒤 사용자가 실행 방식을 선택하는 단계가 있다. [설계 문서 위치](https://github.com/obra/superpowers/blob/main/skills/brainstorming/SKILL.md), [writing-plans 원문](https://github.com/obra/superpowers/blob/main/skills/writing-plans/SKILL.md)
+
+최신 executing-plans는 **현재 세션에서 직접** 계획을 실행하고 마지막에 전체 변경을 별도 검토하는 경로다. 오래된 설명처럼 반드시 새 세션에서만 실행한다고 쓰지 않는다. 서브에이전트별 구현·검토를 원하는 경우의 `subagent-driven-development`와 구분한다. [executing-plans 원문](https://github.com/obra/superpowers/blob/main/skills/executing-plans/SKILL.md)
+
+TDD는 기능 구현 후 테스트를 몰아서 붙이는 절차가 아니다. 원하는 행동을 테스트로 표현하고 실제 실패를 확인한 뒤 최소 구현을 추가한다. 통과 후 정리하고 관련 전체 테스트도 확인한다. 최종 검증은 명령·종료 상태·출력을 읽고 주장할 수 있는 범위를 정하는 별도 단계다. [TDD 원문](https://github.com/obra/superpowers/blob/main/skills/test-driven-development/SKILL.md), [완료 전 검증 원문](https://github.com/obra/superpowers/blob/main/skills/verification-before-completion/SKILL.md)
+
+### 기본 모임 안내 페이지 다음에 넣을 체크리스트 예시
+
+아래는 **독자가 따라 하는 기능 추가 프롬프트**이며, 현재 가이드에 체크리스트 기능을 실제 구현하라는 요청이 아니다. 작은 예제에서는 Wayfinder가 지도를 생략하자고 할 수 있다는 설명을 함께 둔다.
+
+```text
+/mattpocock-skills:wayfinder
+기본 모임 안내 페이지에 ‘참가 준비 체크리스트’를 추가하는 과정을 연습하고 싶어.
+이 단계에서는 구현하지 말고 결정할 질문부터 정리해 줘.
+항목을 고정할지, 새로고침 후 체크 상태를 보존할지,
+완료 개수를 보여줄지, 키보드로 조작할 때 무엇을 확인할지 검토해.
+질문 지도는 로컬 .scratch/checklist/에 보관해.
+작은 요청이라 지도가 불필요하다면 그 이유와 간단한 결정 메모를 제안해.
+```
+
+지도가 생겼다면 후속 요청은 ‘열려 있고 막히지 않은 질문 하나를 함께 해결하자’다. 답을 결정 기록에 남긴 뒤 다음 단계로 넘긴다. 기능 티켓을 모두 구현하라는 의미로 지도 전체를 넘기지 않는다.
+
+```text
+/superpowers:brainstorming
+앞의 결정 기록을 읽고 참가 준비 체크리스트를 설계해 줘.
+이번에는 전체 과정을 배우려 하므로 짧은 설계 문서와 구현 계획도 남기고 싶어.
+완료 기준은 항목 체크·해제, 완료 개수의 정확성, 키보드 조작이야.
+저장 여부와 초기화 동작은 앞에서 선택한 결정을 따라.
+기존 안내 문구와 화면 구성을 확인하고, 설계 검토부터 진행해.
+```
+
+설계 확인 뒤에는 `/superpowers:writing-plans`로 파일·작업·검증 기준을 계획한다. 학습자는 계획을 읽고 ‘이 계획으로 현재 세션에서 진행해’라고 실행 방식을 지정한 다음 `/superpowers:executing-plans`로 이어갈 수 있다. 테스트 환경이 없는 정적 페이지라면 계획 단계에서 자동 검증 방법과 브라우저에서 직접 볼 항목을 먼저 정한다. 준비되지 않은 `npm test`가 이미 존재하는 것처럼 예시를 쓰지 않는다.
+
+완료 보고서에는 체크·해제·개수·키보드 조작 및 선택한 저장 동작을 각각 어떻게 확인했는지 적도록 한다. 자동 테스트 통과만으로 실제 작은 화면까지 검증했다고 표현하지 않는다. 이 예시의 기능 선택과 완료 기준은 교육용 편집 제안이며, 명령의 실제 설치 결과·생성 파일·테스트 결과는 이번 조사에서 실행 검증하지 않았다.

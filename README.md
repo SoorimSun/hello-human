@@ -58,8 +58,8 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `guides/2026-09-30-jev-decisions.html` | AI가이드 두 번째 호: Jev 실습, Clef·Perplexity·Mercury 등 디시전 모델과 리더보드 비교 (10월 2일 갱신) |
 | `research/2026-10-02-decision-models.md` | 디시전 모델 업데이트의 공식 출처·사양·평가 조건 조사 메모 |
 | `guides/2026-10-01-openai-dots.html` | AI가이드 세 번째 호: OpenAI Dots의 일상 활용 예시·공개 사례와 업무 실습 |
-| `guides/2026-10-03-claude-code.html` | AI가이드 네 번째 호: Claude Code 설치·Opus 5.5 effort·첫 페이지 제작·GitHub 공개 저장소와 Pages 배포·프로젝트 지침·ultracode |
-| `research/2026-10-03-claude-code.md` | Claude Code 최신 명령·권한·워크플로우와 GitHub Pages 배포의 공식 문서 조사 메모 |
+| `guides/2026-10-03-claude-code.html` | AI가이드 네 번째 호: Claude Code 설치·Opus 5.5 effort·첫 페이지 제작·GitHub Pages 배포·Wayfinder와 Superpowers 개발 과정·프로젝트 지침·ultracode |
+| `research/2026-10-03-claude-code.md` | Claude Code·GitHub Pages·Wayfinder·Superpowers의 공식 문서와 저장소 조사 메모 |
 | `insights/index.html` | 커머스 인사이트 목록 |
 | `insights/2026-09-25-agentic-commerce.html` | 커머스 인사이트 첫 호 |
 | `insights/2026-09-29-recommendation-evidence.html` | 커머스 인사이트 두 번째 글: 추천 에이전트의 근거와 검증 |
@@ -78,8 +78,8 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `assets/news/` | AI뉴스 기사 삽화와 출처가 표시된 제품 발표 이미지 |
 | `assets/guide.css` | AI가이드 본문 스타일 |
 | `assets/guide-jev.css` | AI가이드 02의 역할 분담·공개 사례·처리 경로 도식 스타일 |
-| `assets/guide-claude-code.css` | AI가이드 04의 하네스·입력 위치·권한·실습·컨텍스트 도식 스타일 |
-| `assets/guides/claude-code/` | 가상 모임 안내 실습 입력과 다운로드용 CLAUDE.md 예시 |
+| `assets/guide-claude-code.css` | AI가이드 04의 하네스·권한·실습·개발 과정·컨텍스트 도식 스타일 |
+| `assets/guides/claude-code/` | 가상 모임 안내 기본·심화 실습 입력과 다운로드용 CLAUDE.md 예시 |
 | `assets/guides/jev-request.json` | 가상 고객 문의로 Choice·Score·Noul을 호출하는 다운로드용 실습 입력 |
 | `assets/case-studies.css` | AI 사례연구 소개 카드·목록·본문 시각화 스타일 |
 | `assets/case-railcode.css` | 사례연구 02의 배송지연 주문 화면 A·B·C 시안 스타일 |
