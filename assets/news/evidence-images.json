@@ -1,0 +1,54 @@
+{
+  "article": "../../news/2026-10-02-ai-evidence.html",
+  "created": "2026-10-02",
+  "method": "Google official announcement image, Google DeepMind official research video, and an original cover illustration made with the built-in image_gen tool",
+  "disclosure": "Gemini 4 Argon은 Google 공식 발표 이미지. SynthID Bio는 DeepMind 공식 연구 영상과 원본에서 추출한 미리보기. 표지만 AI 생성 개념 삽화.",
+  "assets": [
+    {
+      "file": "evidence-argon.png",
+      "prompt": "Use case: illustration-story. Asset type: landscape editorial illustration for a news explainer about long-running AI coding tasks. An elegant tactile miniature paper-and-resin workbench: a dark blue translucent computing cube connects to a long folded continuous strip of code-like abstract marks, passing through small inspection lenses and neat completed paper stacks. Visually communicate reading a codebase, editing, testing, continuing work. Soft stone white studio background, teal and midnight blue, natural shadows. Wide 2:1 composition. No actual logos, no letters or readable text, no robots, no UI screenshots. Clearly conceptual editorial art, not an actual product photograph.",
+      "usage": "article cover"
+    },
+    {
+      "file": "gemini-4-argon-official.webp",
+      "usage": "Gemini 4 Argon section",
+      "type": "official announcement image",
+      "credit": "Google",
+      "sourcePage": "https://blog.google/intl/ko-kr/products/gemini-4-argon-kr/",
+      "sourceImage": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/g4_30-09-26_key-art_blog.width-1200.format-webp.webp",
+      "retrieved": "2026-10-02",
+      "dimensions": [
+        1200,
+        675
+      ]
+    },
+    {
+      "file": "synthid-bio-vegfa-official.mp4",
+      "usage": "SynthID Bio section",
+      "type": "official research visualization video",
+      "credit": "Google DeepMind",
+      "sourcePage": "https://deepmind.google/blog/introducing-synthid-bio/",
+      "sourceVideo": "https://storage.googleapis.com/gdm-deepmind-com-prod-public/media/zaQ58vlIj8pZHdtS/Figure1_Light.mp4",
+      "retrieved": "2026-10-02",
+      "dimensions": [
+        1920,
+        1136
+      ],
+      "durationSeconds": 12,
+      "note": "Original video, without edits; predicted structure of a watermarked VEGF-A protein binder. Colors indicate watermark signal per amino acid."
+    },
+    {
+      "file": "synthid-bio-vegfa-poster.jpg",
+      "usage": "Video poster",
+      "type": "frame extracted from official video",
+      "credit": "Google DeepMind",
+      "sourceFile": "synthid-bio-vegfa-official.mp4",
+      "frameTimeSeconds": 6,
+      "dimensions": [
+        1920,
+        1136
+      ],
+      "note": "Unaltered frame saved as JPEG for a lightweight video preview."
+    }
+  ]
+}

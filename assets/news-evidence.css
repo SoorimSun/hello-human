@@ -1,0 +1,97 @@
+/* AI뉴스 04: 오래 수행하는 작업과 다시 확인할 수 있는 실행 증거 */
+.news-evidence .wrap { max-width: 1140px; }
+.news-evidence .news-article-header h1 { max-width: 1040px; font-size: clamp(36px, 5.6vw, 66px); line-height: 1.2; }
+.news-evidence .news-deck { max-width: 900px; }
+.news-evidence .news-article-shell { grid-template-columns: 162px minmax(0, 1fr); gap: 44px; }
+.news-evidence .news-story-section h2 { font-size: clamp(28px, 3.5vw, 39px); }
+.news-evidence .news-story-section h3 { margin: 0; font-size: 21px; line-height: 1.5; letter-spacing: -.025em; }
+.news-evidence .news-story-section p { line-height: 1.85; }
+.news-evidence .news-summary { scroll-margin-top: 110px; }
+.evidence-cover { margin: 0 auto 50px; }
+.evidence-cover img { display: block; width: 100%; height: auto; border-radius: 14px 14px 0 0; }
+.evidence-cover-key { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 0 0 14px 14px; overflow: hidden; }
+.evidence-cover-key > div { padding: 19px 22px; background: var(--surface); }
+.evidence-cover-key span { display: block; font-size: 11px; font-family: var(--mono); color: var(--muted); }
+.evidence-cover-key strong { display: block; margin-top: 4px; font-size: 19px; }
+.evidence-cover > figcaption { margin-top: 10px; font-size: 12px; color: var(--muted); }
+.evidence-art { margin: 28px 0; }
+.evidence-art img, .evidence-art video { display: block; width: 100%; height: auto; border-radius: 10px; }
+.evidence-art video { background: #f6f7fc; }
+.evidence-art figcaption { margin-top: 9px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.evidence-figure { margin: 30px 0; padding: 28px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.evidence-eyebrow { display: block; margin-bottom: 8px; color: var(--muted); font-size: 11px; font-family: var(--mono); letter-spacing: .05em; }
+.evidence-figure figcaption { margin-top: 22px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; line-height: 1.75; }
+.evidence-flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; list-style: none; margin: 24px 0 0; padding: 0; }
+.evidence-flow > li { position: relative; min-width: 0; padding: 18px 13px; background: var(--surface-2); border-radius: 8px; }
+.evidence-flow > li:not(:last-child)::after { content: "→"; position: absolute; top: 50%; right: -18px; transform: translateY(-50%); color: var(--muted); }
+.evidence-flow > li > span { display: block; margin-bottom: 9px; color: var(--muted); font-family: var(--mono); font-size: 11px; }
+.evidence-flow strong { display: block; font-size: 16px; line-height: 1.5; }
+.news-evidence .evidence-flow p { margin: 7px 0 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.evidence-flow .evidence-human { background: var(--accent-soft); border: 1px solid var(--accent); }
+.evidence-human strong { color: var(--accent); }
+.evidence-limit { display: grid; grid-template-columns: 1fr 1fr; margin-top: 23px; gap: 20px; padding-top: 22px; border-top: 1px solid var(--line); }
+.evidence-limit strong { display: block; font-size: 26px; line-height: 1.4; }
+.evidence-limit span { display: block; margin-top: 7px; font-size: 13px; color: var(--muted); }
+.evidence-limit > div + div { border-left: 1px solid var(--line); padding-left: 20px; }
+.evidence-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 15px; text-align: left; }
+.evidence-table th, .evidence-table td { border-bottom: 1px solid var(--line); padding: 14px 12px; }
+.evidence-table thead th { color: var(--muted); font-weight: 500; font-size: 12px; }
+.evidence-table td { font-family: var(--mono); font-size: 21px; }
+.evidence-timeline { margin: 25px 0 0 7px; padding: 0 0 0 24px; border-left: 2px solid var(--line); list-style: none; }
+.evidence-timeline li { position: relative; display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 18px; padding: 0 0 24px; }
+.evidence-timeline li:last-child { padding-bottom: 0; }
+.evidence-timeline li::before { content: ""; position: absolute; left: -31px; top: 8px; width: 12px; height: 12px; border: 3px solid var(--surface); border-radius: 50%; background: var(--ink); box-shadow: 0 0 0 1px var(--line); }
+.evidence-timeline time { padding-top: 3px; color: var(--muted); font-family: var(--mono); font-size: 13px; }
+.evidence-timeline strong { display: block; font-size: 17px; }
+.news-evidence .evidence-timeline p { margin: 5px 0 0; font-size: 14px; color: var(--muted); }
+.evidence-bio-paths { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 24px; }
+.evidence-bio-paths > div { padding: 22px; border: 1px solid var(--line); border-radius: 8px; }
+.evidence-bio-paths h4 { margin: 0 0 8px; font-size: 18px; }
+.news-evidence .evidence-bio-paths p { margin: 8px 0 0; font-size: 14px; color: var(--muted); }
+.evidence-sequence { display: flex; gap: 6px; margin: 20px 0; }
+.evidence-sequence span { flex: 1; height: 33px; border-radius: 5px; background: var(--surface-2); border: 1px solid var(--line); }
+.evidence-sequence span:nth-child(3n) { background: #397b82; border-color: #397b82; }
+.evidence-protein { display: block; width: 100%; height: 74px; margin: 4px 0 11px; color: #397b82; }
+.evidence-boundary { margin-top: 20px; padding: 15px 18px; background: var(--surface-2); font-size: 14px; }
+.evidence-boundary strong { margin-right: 8px; }
+.evidence-ledger { margin-top: 26px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.evidence-ledger-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding: 16px 20px; background: var(--surface-2); font-size: 13px; }
+.evidence-ledger-head span { color: var(--muted); }
+.evidence-ledger dl { margin: 0; padding: 4px 20px; }
+.evidence-ledger dl > div { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 18px; padding: 15px 0; border-bottom: 1px solid var(--line); }
+.evidence-ledger dl > div:last-child { border-bottom: 0; }
+.evidence-ledger dt { color: var(--muted); font-size: 13px; }
+.evidence-ledger dd { margin: 0; font-size: 15px; }
+.evidence-json { margin-top: 20px; }
+.evidence-json summary { cursor: pointer; font-size: 14px; font-weight: 700; padding: 8px 0; }
+.evidence-json pre { max-width: 100%; overflow-x: auto; padding: 22px; margin: 12px 0 0; background: var(--term-bg); color: var(--term-ink); border-radius: 8px; font-size: 12px; line-height: 1.8; }
+.evidence-scorecard { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; margin: 30px 0; }
+.evidence-scorecard > div { border-bottom: 1px solid var(--line); padding: 19px 0; }
+.evidence-scorecard strong { font-size: 17px; }
+.news-evidence .evidence-scorecard p { margin: 5px 0 0; color: var(--muted); font-size: 14px; }
+.evidence-closing { margin: 34px 0 0; padding: 26px 0 0; border-top: 2px solid var(--ink); font-size: clamp(23px, 3vw, 32px); line-height: 1.6; letter-spacing: -.03em; }
+.evidence-closing strong { color: var(--accent); }
+@media (max-width: 950px) {
+  .news-evidence .news-article-shell { grid-template-columns: 140px minmax(0, 1fr); gap: 24px; }
+  .evidence-flow { grid-template-columns: 1fr; gap: 24px; }
+  .evidence-flow > li { padding: 17px 20px; }
+  .evidence-flow > li:not(:last-child)::after { top: auto; bottom: -23px; right: calc(50% - 7px); transform: rotate(90deg); }
+}
+@media (max-width: 720px) {
+  .news-evidence .news-article-shell { display: block; }
+  .evidence-cover-key { grid-template-columns: 1fr 1fr; }
+  .evidence-cover-key > div { padding: 16px 20px; }
+}
+@media (max-width: 520px) {
+  .news-evidence .news-article-header h1 { font-size: clamp(32px, 8.4vw, 43px); }
+  .news-evidence .news-article-header h1 em { display: block; margin-top: 8px; }
+  .news-evidence .news-deck br { display: none; }
+  .evidence-figure { padding: 22px 18px; }
+  .evidence-bio-paths, .evidence-scorecard, .evidence-limit { grid-template-columns: 1fr; }
+  .evidence-limit > div + div { border-left: 0; padding: 18px 0 0; border-top: 1px solid var(--line); }
+  .evidence-timeline li { grid-template-columns: 1fr; gap: 5px; }
+  .evidence-ledger dl > div { grid-template-columns: 1fr; gap: 5px; }
+  .evidence-table th, .evidence-table td { padding: 12px 6px; }
+  .evidence-table tbody th { font-size: 13px; }
+  .evidence-table td { font-size: 19px; }
+}

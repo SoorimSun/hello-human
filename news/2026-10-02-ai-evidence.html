@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>더 오래 일하는 AI, 더 중요해진 검증과 책임 · AI뉴스 · 헬로우 휴먼</title>
+  <meta name="description" content="Gemini 4 Argon, OpenAI의 추론 추출 공격 공개, SynthID Bio와 FTC 조사로 읽는 AI의 실행·보호·출처·책임. 소식별 그림과 도식, 실행 증거를 남기는 작은 실험.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+  <script src="../assets/theme.js?v=3"></script>
+  <link rel="stylesheet" href="../assets/style.css?v=7">
+  <link rel="stylesheet" href="../assets/news.css?v=9">
+  <link rel="stylesheet" href="../assets/news-evidence.css?v=2">
+  <link rel="stylesheet" href="../assets/content-updates.css?v=1">
+</head>
+<body class="news-evidence">
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+      <nav class="news-nav" aria-label="사이트 메뉴"><a href="../">모임 소개</a><a href="./">AI뉴스</a><a href="../guides/">AI가이드</a><a href="../insights/">인사이트</a><a href="../case-studies/">사례연구</a></nav>
+    </div>
+  </header>
+  <main>
+    <article>
+      <header class="news-article-header wrap">
+        <a class="news-back" href="./">← AI뉴스 목록</a>
+        <p class="news-kicker">AI NEWS <span aria-hidden="true">/</span> ISSUE 04</p>
+        <h1>더 오래 일하는 AI,<br><em>더 중요해진 검증과 책임</em></h1>
+        <p class="news-deck">Gemini 4 Argon, 추론 추출 공격, 생물학 워터마크, 그리고 FTC 조사.<br> AI의 능력이 커질수록 함께 중요해지는 과정·출처·책임을 살펴봅니다.</p>
+        <div class="news-article-meta"><time datetime="2026-10-02">2026년 10월 2일</time><span>헬로우 휴먼 AI뉴스</span></div>
+      </header>
+      <figure class="evidence-cover wrap">
+        <img src="../assets/news/evidence-argon.png" alt="연산 장치에서 나온 긴 작업 기록을 분석하고 수정하며 검증하는 모습을 표현한 삽화" width="1774" height="887" fetchpriority="high">
+        <div class="evidence-cover-key"><div><span>GEMINI 4 ARGON</span><strong>더 오래 실행</strong></div><div><span>MODEL SECURITY</span><strong>과정을 보호</strong></div><div><span>SYNTHID BIO</span><strong>출처를 확인</strong></div><div><span>AGENT ACCOUNTABILITY</span><strong>책임을 설계</strong></div></div>
+        <figcaption>AI 생성 개념 삽화 · 여러 번의 분석·수정·검증을 이어가는 작업을 표현했습니다. 실제 제품이나 작업 현장 사진이 아닙니다.</figcaption>
+      </figure>
+      <div class="news-article-shell wrap">
+        <nav class="news-toc" aria-label="기사 목차"><span>이번 호</span><a href="#at-a-glance">30초 요약</a><a href="#argon">오래 일하는 Argon</a><a href="#reasoning">보호해야 할 추론</a><a href="#synthid">단백질의 출처 표시</a><a href="#ftc">행동 뒤에 남는 책임</a><a href="#our-view">실행 증거 남기기</a><a href="#sources">읽은 자료</a></nav>
+        <div class="news-story">
+          <section id="at-a-glance" class="news-summary" aria-labelledby="summary-heading">
+            <p class="news-section-label">AT A GLANCE</p><h2 id="summary-heading">30초 요약</h2>
+            <ul><li><strong>실행</strong> Gemini 4 Argon은 긴 작업을 이어가기 위해 출력 토큰 한도를 100만 개로 늘렸습니다.</li><li><strong>보호</strong> OpenAI는 모델과의 대화를 조작해 보호된 추론을 추출하려 한 활동을 공개했습니다.</li><li><strong>출처</strong> SynthID Bio는 AI가 만든 단백질 서열·구조에 식별 신호를 남기는 초기 연구입니다.</li><li><strong>책임</strong> FTC의 AI 위험 조사가 보도됐습니다. 조사 자체가 위법 확정을 뜻하지는 않습니다.</li></ul>
+          </section>
+          <p class="news-method">9월 30일 발표·보도를 10월 2일 기준으로 확인했습니다. 기업 발표, 연구 결과, 언론 보도와 헬로우 휴먼의 해석을 구분합니다. Google·DeepMind 공식 자료와 AI 생성 표지는 각 캡션에 표시했으며, 도식과 업무 예시는 이해를 돕기 위해 구성했습니다.</p>
+          <p>AI가 큰 코드베이스를 고치고, 새로운 단백질을 설계하고, 외부 도구로 실제 작업까지 수행합니다. 서로 다른 분야의 소식처럼 보이지만 한 가지 질문으로 이어집니다. <strong>“그 결과가 어떤 과정을 거쳐 나왔는지 다시 확인할 수 있을까?”</strong></p>
+          <p>이번 호는 더 오래 일하는 능력과, 그 능력을 믿고 맡기기 위해 필요한 증거를 함께 읽습니다.</p>
+
+          <section id="argon" class="news-story-section">
+            <p class="news-section-label">01 / GEMINI 4 ARGON</p>
+            <h2>한 번 잘 답하는 AI에서,<br>긴 작업을 이어가는 AI로</h2>
+            <p>Google은 9월 30일 <strong>Gemini 4 Argon</strong>을 공개했습니다. 여러 파일을 읽고 코드를 고치거나, 자료를 비교해 조사하는 것처럼 단계가 많은 업무를 겨냥한 모델입니다. <a class="source-link" href="https://blog.google/intl/ko-kr/products/gemini-4-argon-kr/" target="_blank" rel="noopener noreferrer">Google 공식 발표 · 한국어 ↗</a></p>
+            <figure class="evidence-art"><img src="../assets/news/gemini-4-argon-official.webp" alt="파란 배경에 Gemini 4 Argon 이름과 큰 숫자 4를 배치한 Google 공식 발표 이미지" width="1200" height="675" loading="lazy" decoding="async"><figcaption>Google의 Gemini 4 Argon 공식 발표 이미지 · <a href="https://blog.google/intl/ko-kr/products/gemini-4-argon-kr/" target="_blank" rel="noopener noreferrer">출처: Google 공식 블로그 ↗</a></figcaption></figure>
+            <p>눈에 띄는 변화는 최대 <strong>출력 토큰 100만 개</strong>입니다. 토큰은 모델이 글과 코드를 처리하는 조각입니다. 이 숫자는 한 번에 읽을 자료의 양이 아니라, <strong>한 실행 흐름에서 생성할 수 있는 양의 한도</strong>를 뜻합니다. 실제로 매번 100만 개를 쓰거나, 그만큼 일이 정확해진다는 보장은 아닙니다.</p>
+            <figure class="evidence-figure" aria-labelledby="argon-flow-heading">
+              <span class="evidence-eyebrow">코드 수정 업무로 이해하기</span><h3 id="argon-flow-heading">긴 작업에는 답변 이후의 과정이 있습니다</h3>
+              <ol class="evidence-flow"><li><span>읽기</span><strong>코드 분석</strong><p>관련 파일과 원인을 찾습니다.</p></li><li><span>만들기</span><strong>수정안 작성</strong><p>필요한 변경을 적용합니다.</p></li><li><span>확인하기</span><strong>테스트 실행</strong><p>실패하면 다시 고칩니다.</p></li><li class="evidence-human"><span>검토하기</span><strong>결과와 근거</strong><p>사람이 변경과 검증 기록을 봅니다.</p></li></ol>
+              <div class="evidence-limit"><div><strong>100만 토큰</strong><span>Google이 발표한 최대 출력 한도</span></div><div><strong>완료를 보장하는 값은 아님</strong><span>정확도·실행 비용·검토 시간은 별도 확인</span></div></div>
+              <figcaption>작업 흐름은 설명용 예시입니다. 출력 한도 확대는 긴 작업을 위한 여유를 뜻하며, 입력 문맥 크기와는 다른 사양입니다.</figcaption>
+            </figure>
+            <p>Google은 내부 활용 사례로 데이터센터 메모리 <strong>300TiB 이상 절감</strong>과 대규모 C/C++ 코드의 Rust 이전 작업을 소개했습니다. Fuchsia의 Zircon 커널은 80만 줄 이상 규모가 대상입니다. 이전 작업은 검토·테스트를 거치는 중이며, 이 숫자를 모두 이전·배포를 마쳤다는 뜻으로 읽으면 안 됩니다.</p>
+            <p>실제 소프트웨어 개발 과제를 평가하는 DeepSWE v1.1에서는 <strong>77.9%</strong>를 발표했습니다. 내부 적용 사례와 점수는 Google이 공개한 결과입니다. 모든 개발 업무에서 가장 뛰어나다는 의미는 아니며, 우리 코드에서도 같은 효과가 나는지는 따로 검증해야 합니다.</p>
+            <figure class="evidence-figure" aria-labelledby="argon-price-heading"><span class="evidence-eyebrow">발표된 API 가격 · 100만 토큰당 · 미국 달러</span><h3 id="argon-price-heading">초기 가격과 이후 가격을 구분하세요</h3><table class="evidence-table"><thead><tr><th scope="col">적용 시기</th><th scope="col">입력</th><th scope="col">출력</th></tr></thead><tbody><tr><th scope="row">출시 초기</th><td>$2</td><td>$10</td></tr><tr><th scope="row">초기 기간 이후</th><td>$4</td><td>$20</td></tr></tbody></table><figcaption>일반 입력·출력 단가입니다. 캐시 입력은 별도 조건이 적용되며, 초기 기간 종료일은 발표문에 명시되지 않았습니다. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/" target="_blank" rel="noopener noreferrer">가격 각주가 포함된 공식 발표 ↗</a></figcaption></figure>
+            <p>접근 범위도 제한적입니다. 발표 기준으로 Fairwind 프로그램의 신뢰할 수 있는 사이버 보안 전문가에게 우선 제공하며, 이후 유료 API 고객과 Google AI Ultra 구독자부터 확대할 계획입니다. <strong>공개 발표와 누구나 바로 쓸 수 있는 출시는 다릅니다.</strong></p>
+            <div class="news-insight"><span>헬로우 휴먼의 해석</span><p>긴 작업을 버티는 능력은 중요합니다. 업무에 도입할 때는 <strong>테스트를 통과한 결과 한 건에 얼마의 비용과 검토 시간이 들었는지</strong>까지 함께 봐야 합니다.</p></div>
+          </section>
+
+          <section id="reasoning" class="news-story-section">
+            <p class="news-section-label">02 / PROTECTED REASONING</p><h2>모델의 답변뿐 아니라,<br>내부 작업 과정도 보호 대상이 됩니다</h2>
+            <p>OpenAI는 9월 30일 보호된 추론을 추출하려 한 조직적 활동을 차단했다고 밝혔습니다. 다른 모델의 출력이나 추론을 무단으로 대량 수집해 모델 학습·개선에 활용하는 <strong>적대적 증류</strong>에 해당하는 양상이라는 설명입니다. 증류 자체는 허가된 연구와 개발에서도 쓰이는 방법입니다. <a class="source-link" href="https://openai.com/ko-KR/index/disrupting-a-coordinated-model-distillation-campaign/" target="_blank" rel="noopener noreferrer">OpenAI 조사 공개 · 한국어 ↗</a></p>
+            <p>이번 발표에서 구분해야 할 것은 <strong>사건이 일어난 때와 공개된 때</strong>입니다. OpenAI가 밝힌 활동 시작은 7월 1일입니다. 9월에 새로 발생한 사건이라는 뜻이 아닙니다.</p>
+            <figure class="evidence-figure" aria-labelledby="reasoning-timeline-heading"><span class="evidence-eyebrow">OpenAI가 공개한 시간 순서 · 2026년</span><h3 id="reasoning-timeline-heading">7월의 활동을 9월 말에 공개했습니다</h3><ol class="evidence-timeline"><li><time datetime="2026-07-01">07. 01</time><div><strong>소규모 활동 시작</strong><p>7월 첫째 주부터 관련 시도를 관찰했습니다.</p></div></li><li><time datetime="2026-07-24">07. 24~25</time><div><strong>약 1만 6천 건의 요청</strong><p>4천 명 이상 사용자에게서 관련 추출 패턴을 관측했습니다.</p></div></li><li><time datetime="2026-07-28">07. 28까지</time><div><strong>관련 활동 차단</strong><p>추가 조사로 1만 5천 명 이상 사용자 집단의 관련 활동을 확인했습니다.</p></div></li><li><time datetime="2026-09-30">09. 30</time><div><strong>조사와 대응 내용 공개</strong><p>활동 범위·공격 주체에 대한 판단·완화 조치를 설명했습니다.</p></div></li></ol><figcaption>모두 OpenAI의 관측·설명에 따른 수치입니다. 요청 수는 <strong>추출 시도 규모</strong>이며 성공 횟수가 아닙니다. 사용자 규모와 요청 건수도 서로 다른 값입니다.</figcaption></figure>
+            <p>OpenAI 설명에 따르면 공격자는 데이터베이스에 침입하거나 암호화 자체를 깨지 않았습니다. 한 대화의 암호화된 추론 정보를 다른 대화에 전달하고, 모델이 보호된 내용을 다시 드러내도록 상호작용을 조작했습니다. <strong>모델이 처리하는 정보와 대화 사이의 경계</strong>가 문제가 된 것입니다.</p>
+            <p>OpenAI는 핵심 활동 집단을 Kimi 개발사 Moonshot AI와 연관된 개인들로 판단했습니다. 동시에 모든 활동이 한 주체에 속했는지는 불분명하다고 밝혔습니다. 이는 <strong>OpenAI의 조사와 귀속 판단</strong>이며, 독립적으로 확정된 결론으로 다루지 않습니다.</p>
+            <div class="news-insight"><span>헬로우 휴먼의 해석</span><p>다른 모델·도구·서비스로 정보를 넘기는 에이전트라면 <strong>무엇을 전달할 수 있고, 무엇은 경계를 넘으면 안 되는지</strong>를 정해야 합니다. 실행을 검증한다는 이유로 숨겨진 추론 전체를 기록할 필요는 없습니다. 도구 호출과 반환값, 검증 결과를 남기는 것부터 시작할 수 있습니다.</p></div>
+          </section>
+
+          <section id="synthid" class="news-story-section">
+            <p class="news-section-label">03 / SYNTHID BIO</p><h2>AI가 만든 단백질에도<br>출처를 확인할 흔적을 남긴다면</h2>
+            <p>Google DeepMind는 9월 30일 <strong>SynthID Bio</strong>를 발표했습니다. 같은 날 Nature에 공개된 논문은 AI가 만든 단백질의 기능을 유지하면서 워터마크를 넣는 방법을 제안합니다. 워터마크는 출처를 식별하기 위한 신호입니다. <a class="source-link" href="https://deepmind.google/blog/introducing-synthid-bio/" target="_blank" rel="noopener noreferrer">DeepMind 발표 ↗</a> · <a class="source-link" href="https://www.nature.com/articles/s41586-026-10965-y" target="_blank" rel="noopener noreferrer">Nature 논문 ↗</a></p>
+            <figure class="evidence-art">
+              <video controls playsinline muted preload="none" poster="../assets/news/synthid-bio-vegfa-poster.jpg" width="1920" height="1136" aria-label="DeepMind의 VEGF-A 결합 단백질 워터마크 시각화 영상" aria-describedby="synthid-video-caption">
+                <source src="../assets/news/synthid-bio-vegfa-official.mp4" type="video/mp4">
+                <a href="../assets/news/synthid-bio-vegfa-official.mp4">공식 연구 영상 열기</a>
+              </video>
+              <figcaption id="synthid-video-caption"><strong>DeepMind 공식 연구 영상 · 12초</strong><br>워터마크를 넣은 VEGF-A 결합 단백질의 예측 구조입니다. 파란색일수록 워터마크 신호가 강하고, 주황색일수록 약합니다. 실제 촬영 영상이 아닌 연구진의 구조 시각화입니다. <a href="https://deepmind.google/blog/introducing-synthid-bio/" target="_blank" rel="noopener noreferrer">출처: Google DeepMind 발표 ↗</a> · <a href="../assets/news/synthid-bio-vegfa-official.mp4" target="_blank" rel="noopener noreferrer">영상만 크게 보기 ↗</a></figcaption>
+            </figure>
+            <p>파일 이름이나 설명란에 “AI가 만들었다”고 적는 방식과는 다릅니다. <strong>아미노산의 배열 자체, 또는 예측한 3차원 구조의 좌표</strong>에 신호를 넣습니다. 여기에는 서로 다른 두 연구 경로가 있습니다.</p>
+            <figure class="evidence-figure" aria-labelledby="bio-paths-heading"><span class="evidence-eyebrow">단백질 서열과 예측 구조는 다른 대상입니다</span><h3 id="bio-paths-heading">출처 신호를 넣는 두 가지 위치</h3><div class="evidence-bio-paths"><div><span class="evidence-eyebrow">SEQUENCE / 서열</span><h4>아미노산을 고르는 과정</h4><div class="evidence-sequence" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><strong>설계 → 합성 → 기능 확인</strong><p>배열에 신호를 넣고, 실제로 만든 단백질이 표적에 결합하는지 실험했습니다.</p></div><div><span class="evidence-eyebrow">STRUCTURE / 구조</span><h4>예측한 원자 좌표</h4><svg class="evidence-protein" viewBox="0 0 250 74" aria-hidden="true"><path d="M12 48 C30 -12 56 91 83 25 S133 99 160 26 S211 78 238 19" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/><path d="M12 55 C51 28 64 19 95 48 S164 10 189 40 S224 58 238 31" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="4 6"/></svg><strong>구조 예측 → 신호 검출</strong><p>예측 정확도를 유지하면서 좌표에 식별 신호를 남기는 방법입니다.</p></div></div><div class="evidence-boundary"><strong>확인하는 것</strong>워터마크가 있는 설계·구조의 출처 단서</div><figcaption>색 블록과 선은 원리를 단순화한 도식이며 실제 서열·분자 데이터가 아닙니다. 워터마크 유무만으로 단백질의 안전성이나 모든 AI 생성 여부를 판정할 수는 없습니다.</figcaption></figure>
+            <p>연구진은 VEGF-A, SARS-CoV-2의 RBD, PD-L1이라는 세 표적에 결합하도록 설계한 단백질을 실험했습니다. 보고된 실험에서 워터마크를 넣은 설계는 비교 대상과 비슷한 결합 성능을 보였습니다. <strong>세 표적의 실험 결과를 모든 단백질에 대한 보장으로 확대할 수는 없습니다.</strong></p>
+            <p>논문은 이를 가능성을 확인한 <strong>초기 기술 검증</strong>으로 설명합니다. 변형 방식에 따라 신호가 약해지거나 제거될 수 있고, 실제 운영에는 추가 연구와 업계의 조율·표준화가 필요합니다. 출처 신호는 유용한 단서지만, 생물학적 안전 인증은 아닙니다.</p>
+            <div class="news-insight"><span>헬로우 휴먼의 해석</span><p>AI가 실제 세계에 쓰일 결과물을 만들수록 <strong>무엇을 만들었는지와 함께, 어디에서 나온 것인지</strong>를 확인하는 기술도 중요해집니다. 출처를 확인하는 일과 결과물의 품질·안전성을 검증하는 일은 함께 필요합니다.</p></div>
+          </section>
+
+          <section id="ftc" class="news-story-section">
+            <p class="news-section-label">04 / AGENT ACCOUNTABILITY</p><h2>에이전트가 실제로 행동하면,<br>그 뒤의 책임도 설계해야 합니다</h2>
+            <p>Reuters는 9월 30일 미국 연방거래위원회 <strong>FTC</strong>가 AI 기술의 잠재적 소비자 위험을 조사하고 있다고 보도했습니다. 고위 관계자는 OpenAI, Anthropic, AI 평가 연구기관 METR 등에 자료 제출을 요구하고 경영진의 증언을 요청할 계획이라고 설명했습니다. <a class="source-link" href="https://www.streetinsider.com/Reuters/FTC%2Bopens%2Bprobe%2Binto%2BAI%2Bgiants%2Bincluding%2BAnthropic%2Band%2BOpenAI/27126663.html" target="_blank" rel="noopener noreferrer">Reuters 보도 · StreetInsider 게재 ↗</a></p>
+            <p><strong>조사가 보도됐다는 것과 위법 행위가 확인됐다는 것은 다릅니다.</strong> 이 글은 보도 내용을 바탕으로 하며, 개별 기업의 법적 책임을 확정하지 않습니다.</p>
+            <p>우리 업무에서는 구체적인 설계 문제로 읽을 수 있습니다. AI가 안내문을 작성하는 것과, 로그인한 계정으로 그 안내문을 고객에게 발송하는 것은 결과가 다릅니다. 데이터를 바꾸는 도구까지 연결하면 잘못된 판단이 실제 변경으로 이어질 수 있습니다.</p>
+            <figure class="evidence-figure" aria-labelledby="control-flow-heading"><span class="evidence-eyebrow">헬로우 휴먼의 설계 예시 · 고객 안내 발송</span><h3 id="control-flow-heading">승인은 외부 행동을 하기 전에</h3><ol class="evidence-flow"><li><span>준비</span><strong>대상·초안 확인</strong><p>허용된 정보만 조회합니다.</p></li><li class="evidence-human"><span>실행 전</span><strong>권한 검사·승인</strong><p>수신자와 내용을 확인합니다.</p></li><li><span>실행</span><strong>승인 범위로 발송</strong><p>대상·작업을 제한합니다.</p></li><li><span>실행 후</span><strong>결과·기록 확인</strong><p>실패와 후속 조치를 남깁니다.</p></li></ol><div class="evidence-boundary"><strong>복구도 행동별로</strong>데이터 변경은 되돌릴 수 있어도, 이미 보낸 메시지는 완전히 회수하지 못할 수 있습니다.</div><figcaption>보도에서 의무화됐다고 발표한 규칙이 아닌, 헬로우 휴먼의 업무 설계 제안입니다. 승인한 내용이 바뀌면 다시 확인하고, 중단 방법과 후속 담당자도 정해둡니다.</figcaption></figure>
+            <div class="news-insight"><span>헬로우 휴먼의 해석</span><p>“주의해서 실행해”라는 지시만으로는 부족합니다. <strong>권한 제한, 실행 전 확인, 실행 기록, 중단·복구 방법과 담당자</strong>를 도구와 운영 절차에 넣어야 합니다. 문제가 생겼을 때 어떤 일이 있었는지 다시 볼 수 있어야 하기 때문입니다.</p></div>
+          </section>
+
+          <section id="our-view" class="news-story-section">
+            <p class="news-section-label">HELLO, HUMAN / WORKLESS ENGINEERING</p><h2>“완료했습니다”라는 답에,<br>확인할 수 있는 증거를 붙여보기</h2>
+            <p>네 소식은 실행 능력, 내부 정보 보호, 결과물의 출처, 행동의 책임을 각각 다룹니다. 이를 우리 일로 가져오면 <strong>AI에게 맡긴 일을 사람이 다시 확인할 수 있는가</strong>라는 질문이 남습니다.</p>
+            <p><a href="2026-09-30-long-running-agents.html#our-view">지난 호의 쿠폰 조건 확인 실험</a>을 한 단계 이어가봅시다. 가상의 상품·쿠폰 데이터를 가진 작은 Java/Spring API를 만들고, 에이전트에는 <strong>상품 조회·쿠폰 조건 조회·혜택가 계산</strong> 세 가지 읽기 도구만 제공합니다. 이번에는 결과와 함께 실행 증거를 남깁니다.</p>
+            <figure class="evidence-figure" aria-labelledby="receipt-heading"><span class="evidence-eyebrow">가상 데이터로 만든 실행 기록 예시</span><h3 id="receipt-heading">“이 상품에 내 쿠폰을 쓸 수 있나요?”</h3><div class="evidence-ledger"><div class="evidence-ledger-head"><strong>상품 P-100 · 쿠폰 C-10</strong><span>조회·계산만 수행</span></div><dl><div><dt>사용한 도구</dt><dd>상품 조회 → 쿠폰 조건 조회 → 혜택가 계산</dd></div><div><dt>반환값</dt><dd>상품 50,000원 · 10% 할인 · 최대 할인 7,000원</dd></div><div><dt>판정 근거</dt><dd>유효기간 내 · 대상 상품 일치 · 최소 구매액 30,000원 충족 · 중복 할인 없음</dd></div><div><dt>계산 결과</dt><dd><strong>5,000원 할인 → 혜택가 45,000원</strong></dd></div><div><dt>검증 결과</dt><dd>규칙 검사와 금액 재계산 통과 · 근거 누락 0건</dd></div></dl></div><figcaption>실행 완료를 주장하는 예시가 아닌, 실험에서 남길 기록의 모양입니다. 실제 주문·쿠폰 발급·고객 데이터 변경은 포함하지 않습니다.</figcaption></figure>
+            <details class="evidence-json"><summary>JSON 실행 기록 예시 펼치기</summary><pre><code>{
+  "exampleOnly": true,
+  "requestId": "demo-001",
+  "evaluatedAt": "2026-10-02T10:00:00+09:00",
+  "calls": [
+    {
+      "tool": "getProduct",
+      "input": { "productId": "P-100" },
+      "output": { "priceKrw": 50000 }
+    },
+    {
+      "tool": "getCoupon",
+      "input": { "couponId": "C-10" },
+      "output": {
+        "eligibleProductIds": ["P-100"],
+        "validFrom": "2026-10-01T00:00:00+09:00",
+        "validUntil": "2026-10-31T23:59:59+09:00",
+        "minimumKrw": 30000,
+        "rate": 0.1,
+        "maximumDiscountKrw": 7000,
+        "allowStacking": false
+      }
+    },
+    {
+      "tool": "calculateBenefit",
+      "input": {
+        "productId": "P-100", "couponId": "C-10",
+        "quantity": 1, "otherDiscountKrw": 0
+      },
+      "output": { "eligible": true, "finalPriceKrw": 45000 }
+    }
+  ],
+  "evidence": [
+    "date_valid", "product_matches", "minimum_met", "no_stacking"
+  ],
+  "verification": {
+    "rulesPassed": true,
+    "recalculatedPriceKrw": 45000,
+    "missingEvidenceCount": 0
+  }
+}</code></pre></details>
+            <p>실험용 API가 반환한 값과 규칙 검사 결과를 기록하고, 에이전트의 최종 답변과 대조합니다. 숨겨진 추론 전문을 요구하는 실험은 아닙니다. 실제 서비스로 확장할 때는 개인정보·인증정보를 로그에서 제외하고, 보관 기간과 접근 범위도 정합니다.</p>
+            <div class="evidence-scorecard" aria-label="실험에서 비교할 네 가지 지표"><div><strong>결과 정확도</strong><p>미리 정한 정답과 적용 여부·금액이 같은가?</p></div><div><strong>불필요한 도구 호출</strong><p>같은 조회를 반복하거나 필요 없는 정보를 읽었는가?</p></div><div><strong>증거 누락 횟수</strong><p>판정에 필요한 조건·반환값·검증 기록이 빠졌는가?</p></div><div><strong>사람의 재확인 시간</strong><p>기록을 보고 결과를 확인하는 시간이 줄었는가?</p></div></div>
+            <p>정상 적용뿐 아니라 기간 만료, 대상 상품 불일치, 필수 정보 누락 사례도 준비합니다. 같은 사례와 기록 형식을 유지하면 모델을 바꿔도 비교할 수 있습니다. AI가 직접 계산한 설명과 별개로, 금액과 명확한 규칙은 코드로 재검증합니다.</p>
+            <blockquote class="evidence-closing">더 많은 일을 맡기기 전에,<br><strong>끝낸 일을 다시 확인할 수 있게.</strong></blockquote>
+            <p>Workless Engineering은 사람이 반복하던 확인을 검증 가능한 시스템으로 옮기는 일에 가깝습니다. AI가 오래 일할수록, 결과를 믿을 근거도 함께 남아야 합니다.</p>
+          </section>
+          <section id="sources" class="news-sources" aria-labelledby="sources-heading"><h2 id="sources-heading">읽은 자료</h2><ul><li><a href="https://blog.google/intl/ko-kr/products/gemini-4-argon-kr/" target="_blank" rel="noopener noreferrer">Google, Gemini 4 Argon 공식 발표 · 한국어 ↗</a> <span>2026. 09. 30</span></li><li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/" target="_blank" rel="noopener noreferrer">Google, Gemini 4 Argon 영문 발표와 가격 각주 ↗</a></li><li><a href="https://openai.com/ko-KR/index/disrupting-a-coordinated-model-distillation-campaign/" target="_blank" rel="noopener noreferrer">OpenAI, 조직적인 모델 증류 활동 차단 · 한국어 ↗</a> <span>2026. 09. 30</span></li><li><a href="https://deepmind.google/blog/introducing-synthid-bio/" target="_blank" rel="noopener noreferrer">Google DeepMind, Introducing SynthID Bio ↗</a> <span>2026. 09. 30</span></li><li><a href="https://www.nature.com/articles/s41586-026-10965-y" target="_blank" rel="noopener noreferrer">Nature, Function-preserving watermarking of AI-generated proteins ↗</a> <span>2026. 09. 30</span></li><li><a href="https://www.streetinsider.com/Reuters/FTC%2Bopens%2Bprobe%2Binto%2BAI%2Bgiants%2Bincluding%2BAnthropic%2Band%2BOpenAI/27126663.html" target="_blank" rel="noopener noreferrer">Reuters, FTC의 AI 기업 조사 · StreetInsider 게재 ↗</a> <span>2026. 09. 30</span></li></ul><p>확인 기준일은 2026년 10월 2일입니다. 공식 한국어 문서가 있는 출처는 해당 페이지를 연결했습니다. 기업의 성능 수치는 직접 재측정하지 않았으며, 조사 보도와 귀속 판단은 출처의 설명으로 구분했습니다.</p><p>Gemini 4 Argon 이미지와 SynthID Bio 영상은 각각 Google과 Google DeepMind의 공식 발표 자료입니다. 영상의 미리보기는 원본의 한 프레임입니다. 표지는 헬로우 휴먼이 AI 이미지 생성 도구로 제작한 개념 삽화입니다.</p></section>
+          <a class="news-end-link" href="./">AI뉴스 목록으로 돌아가기 <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer class="footer"><div class="wrap">헬로우 휴먼 · Workless Engineering Club</div></footer>
+  <script src="../assets/analytics.js?v=2" defer></script>
+  <script src="../assets/article-toc.js?v=1" defer></script>
+  <script type="module" src="../assets/content-updates.js?v=2"></script>
+</body>
+</html>
