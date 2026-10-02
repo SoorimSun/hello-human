@@ -123,6 +123,49 @@
 .kospimap-role-flow strong { display: block; font-size: 15px; line-height: 1.6; }
 .kospimap-role-flow small { display: block; margin-top: 9px; color: var(--muted); font-size: 13px; line-height: 1.7; }
 .guide-table-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+/* 실제 3D 커머스 사례: 공식 이미지, 구매 흐름, 최적화 질문 */
+#commerce-cases, .kospimap-commerce-case { scroll-margin-top: 110px; }
+.kospimap-commerce-nav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 24px 0; }
+.kospimap-commerce-nav a { display: grid; align-content: start; gap: 8px; padding: 17px 14px; border: 1px solid var(--line); border-radius: 8px; text-decoration: none; background: var(--surface-2); }
+.kospimap-commerce-nav a:hover { border-color: var(--accent); }
+.kospimap-commerce-nav span { color: var(--accent); font-size: 11px; font-weight: 700; }
+.kospimap-commerce-nav strong { font-size: 15px; line-height: 1.55; }
+.kospimap-commerce-nav small { color: var(--muted); font-size: 12px; }
+.kospimap-commerce-cases { display: grid; gap: 28px; margin: 26px 0; }
+.kospimap-commerce-case { min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.kospimap-commerce-case > header { padding: 23px 24px; }
+.kospimap-commerce-case h4 { margin: 9px 0 0; font-size: 25px; line-height: 1.3; letter-spacing: -.02em; }
+.kospimap-commerce-case h4 small { display: block; margin-top: 9px; font-size: 15px; font-weight: 550; line-height: 1.6; letter-spacing: 0; }
+.kospimap-commerce-media { margin: 0; }
+.kospimap-commerce-media a { display: block; }
+.kospimap-commerce-media img { display: block; width: 100%; height: auto; }
+.kospimap-commerce-media figcaption { padding: 12px 24px 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.kospimap-commerce-copy { padding: 24px; }
+.case-story .kospimap-commerce-copy > p { margin: 19px 0; font-size: 15px; line-height: 1.85; }
+.kospimap-commerce-flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 0; padding: 0; list-style: none; }
+.kospimap-commerce-flow li { position: relative; margin: 0; padding: 13px 0; border-top: 2px solid var(--line); }
+.kospimap-commerce-flow li:last-child { border-color: var(--accent); }
+.kospimap-commerce-flow li:not(:last-child)::after { content: '→'; position: absolute; top: 31px; right: -20px; color: var(--muted); font-size: 16px; }
+.kospimap-commerce-flow span { display: block; margin-bottom: 8px; color: var(--muted); font-size: 11px; }
+.kospimap-commerce-flow strong { font-size: 14px; line-height: 1.65; }
+.kospimap-commerce-question { margin: 20px 0 16px; padding: 16px 18px; border-left: 3px solid var(--accent); background: var(--accent-soft); }
+.kospimap-commerce-question > span { display: block; margin-bottom: 8px; color: var(--accent); font-size: 11px; font-weight: 700; }
+.kospimap-commerce-question > strong { font-size: 15px; line-height: 1.7; }
+.case-story .kospimap-commerce-question p { margin: 8px 0 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.kospimap-commerce-nav a:focus-visible, .kospimap-commerce-media a:focus-visible { outline: 2px solid var(--accent); outline-offset: -3px; }
+.kospimap-config-demo { margin: 0; padding: 22px 24px; background: var(--surface-2); border-block: 1px solid var(--line); }
+.kospimap-config-demo > figcaption { display: grid; gap: 6px; margin-bottom: 20px; }
+.kospimap-config-demo > figcaption strong { font-size: 16px; }
+.kospimap-config-demo > figcaption span { color: var(--muted); font-size: 12px; }
+.kospimap-config-demo .kospimap-time-choice { margin-bottom: 0; }
+.kospimap-config-scene { display: block; width: 100%; height: auto; max-height: 280px; margin: 0 auto; }
+.kospimap-config-ground { fill: none; stroke: var(--line); stroke-width: 2; }
+.kospimap-config-measure { fill: none; stroke: var(--muted); stroke-width: 1.5; }
+.kospimap-config-changed { display: none; }
+.kospimap-config-demo:has(input[value="changed"]:checked) .kospimap-config-basic { display: none; }
+.kospimap-config-demo:has(input[value="changed"]:checked) .kospimap-config-changed { display: revert; }
+.case-story .kospimap-config-status { margin: 2px 0 0; text-align: center; font-size: 13px; font-weight: 700; }
+.case-story .kospimap-config-demo .kospimap-caption { margin-top: 14px; font-size: 12px; }
 @media (max-width: 720px) {
   .kospimap-figure { padding: 21px 18px; }
   .kospimap-engine { grid-template-columns: 1fr; }
@@ -150,8 +193,24 @@
   .kospimap-access-route li { grid-template-columns: 30px minmax(0, 1fr); gap: 11px; }
   .kospimap-route-number { width: 30px; height: 30px; }
   .kospimap-access-route li:not(:last-child)::after { left: 14px; top: 34px; }
+  .kospimap-commerce-nav { grid-template-columns: 1fr; gap: 8px; }
+  .kospimap-commerce-nav a { grid-template-columns: 1fr auto; gap: 5px 12px; padding: 13px 15px; }
+  .kospimap-commerce-nav a > span { grid-column: 1 / -1; }
+  .kospimap-commerce-nav small { align-self: center; font-size: 11px; }
+  .kospimap-commerce-nav strong { font-size: 14px; }
+  .kospimap-commerce-case > header, .kospimap-commerce-copy, .kospimap-config-demo { padding: 19px 16px; }
+  .kospimap-commerce-case h4 { font-size: 23px; }
+  .kospimap-commerce-media figcaption { padding: 12px 16px 0; }
+  .kospimap-commerce-flow { grid-template-columns: 1fr; gap: 0; }
+  .kospimap-commerce-flow li { display: grid; grid-template-columns: 82px minmax(0, 1fr); align-items: baseline; gap: 8px; padding: 12px 0; border-top-width: 1px; }
+  .kospimap-commerce-flow li:not(:last-child)::after { display: none; }
+  .kospimap-commerce-flow span { margin: 0; }
+  .kospimap-commerce-flow strong { font-size: 14px; }
+  .kospimap-commerce-question { padding: 14px; }
 }
 @media print {
   .kospimap-risk-demo .kospimap-risk-result { display: block !important; }
   .kospimap-time-choice { display: none; }
+  .kospimap-commerce-nav { display: none; }
+  .kospimap-commerce-case { break-inside: avoid; }
 }

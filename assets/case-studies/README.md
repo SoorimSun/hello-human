@@ -61,3 +61,21 @@
 엔진 출처: https://github.com/fdx5/stock_market/blob/1e62ba8125d64bfc51a8e7afc95b1fc00d1eb096/frontend/src/vendor/tidewater/NOTICE.md
 
 데이터 출처 구분, 엔진 연결, 탑상형 정면·판상형 측벽 도식은 헬로우 휴먼이 설명을 위해 구성한 HTML/CSS입니다. 성능 차트의 숫자는 개발일지 `성능과 메모리`에서 옮겼으며, 항목별 척도·범위·측정 조건을 본문에 표시했습니다.
+
+### 3D 커머스 적용 사례 시각화
+
+확인·저장: 2026-10-02. 두 이미지는 공식 페이지에 공개된 원본 JPEG를 저장했으며, 현재 쇼핑몰을 직접 캡처한 화면이 아닙니다. 사례 설명과 비평을 위해 사용하고, 본문에 원작과 출처를 표시합니다. 별도 재사용 라이선스는 확인하지 않았으며 원작의 권리는 각 권리자에게 있습니다.
+
+| 파일 | 출처와 용도 |
+| --- | --- |
+| `commerce-rebecca-minkoff.jpg` | Rebecca Minkoff·Shopify. Shopify 도입 사례의 1280×672 뷰어 소개 이미지. 가방을 여러 방향에서 확인하는 구매 경험 설명. |
+| `commerce-ikea-kreativ.jpg` | IKEA. 2024-02-22 한국 공식 출시 보도자료의 960×720 사용 장면. 방 안에 가구를 배치하는 구매 경험 설명. |
+
+- Rebecca Minkoff 사례: https://www.shopify.com/kr/case-studies/rebecca-minkoff (한국 지역 페이지, 본문 영문)
+- 이미지 원본: https://cdn.shopify.com/s/files/1/0693/0215/7334/files/rebecca-minkoff.caseStudy01.jpg?v=1714426409
+- IKEA 한국 출시 발표: https://www.ikea.com/kr/ko/newsroom/corporate-news/ikea-kreativ-pubfe339080/
+- 이미지 원본: https://www.ikea.com/images/13/b2/13b2426ec4bfe5485ba04783dd77789d.jpg?f=xxl
+- IKEA 현재 기능 안내: https://www.ikea.com/kr/ko/customer-service/knowledge/articles/9ed98a5f-8e3b-49a7-9521-5a0bc0ff159a.html
+- Tylko 공식 기능 설명: https://tylko.com/en-uk/faq/articles/customisation/what-is-the-configurator
+
+Tylko의 폭·색상 선택 시각화는 공식 설명에 근거해 헬로우 휴먼이 만든 HTML/CSS/SVG 도식입니다. 실제 화면·제품·치수·색상명·가격이나 3D 렌더러를 재현하지 않습니다. 구매 흐름은 공식 자료 요약이며, 최적화 질문은 헬로우 휴먼의 해석입니다. 각 브랜드의 WebGPU 사용이나 성능 개선을 검증한 자료가 아닙니다.
