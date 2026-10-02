@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive">
 <title>에이전트의 작은 판단, Jev로 빠르게 연결하기 · AI가이드 · 헬로우 휴먼</title>
-<meta name="description" content="Jev의 Choice·Score·Noul로 에이전트와 업무 프로그램의 작은 판단을 연결하는 실전 가이드. 고객 문의 분류부터 검색 재정렬, 한국어 평가와 실패 처리까지 살펴봅니다.">
+<meta name="description" content="Jev의 Choice·Score·Noul 실습과 Clef·Perplexity Decider·Mercury Decide 등 디시전 모델 비교. 공개 리더보드의 측정 조건, 한국어 평가, API 전환과 업무 한 건의 비용을 살펴봅니다.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="../assets/style.css?v=7">
 <link rel="stylesheet" href="../assets/news.css?v=9">
 <link rel="stylesheet" href="../assets/guide.css?v=4">
-<link rel="stylesheet" href="../assets/guide-jev.css?v=3">
+<link rel="stylesheet" href="../assets/guide-jev.css?v=4">
 <link rel="stylesheet" href="../assets/content-updates.css?v=1">
 </head>
 <body>
@@ -37,8 +37,8 @@
       <a class="news-back" href="./">← AI가이드 목록</a>
       <p class="news-kicker">AI GUIDE <span aria-hidden="true">/</span> GUIDE 02</p>
       <h1>에이전트의 작은 판단,<br><em>Jev로 빠르게 연결하기</em></h1>
-      <p class="news-deck">도구 선택과 기록 선별부터 고객 문의 분류까지, 코드와 AI의 역할을 나누는 실전 가이드</p>
-      <div class="news-article-meta"><time datetime="2026-09-30">2026년 9월 30일</time><span>헬로우 휴먼 AI가이드</span></div>
+      <p class="news-deck">Jev 실습에서 Clef·Perplexity·Mercury 비교까지, 작은 판단을 맡길 모델과 검증 기준을 고르는 가이드</p>
+      <div class="news-article-meta"><time datetime="2026-09-30">2026년 9월 30일</time><span>업데이트 <time datetime="2026-10-02">2026년 10월 2일</time></span><span>헬로우 휴먼 AI가이드</span></div>
     </header>
 
     <div class="news-article-shell guide-shell wrap">
@@ -46,13 +46,15 @@
         <span>이 가이드에서</span>
         <a href="#small-decisions"><span>01</span>에이전트 안의 작은 판단</a>
         <a href="#primitives"><span>02</span>세 가지 질문 방식</a>
-        <a href="#projects"><span>03</span>공개 프로젝트의 역할 분담</a>
-        <a href="#practice"><span>04</span>고객 문의 분류 실습</a>
-        <a href="#routing"><span>05</span>판단 이후의 처리</a>
-        <a href="#commerce"><span>06</span>커머스 업무로 확장</a>
-        <a href="#coding-agent"><span>07</span>코딩 에이전트로 구현</a>
-        <a href="#evaluation"><span>08</span>한국어로 평가하기</a>
-        <a href="#cost"><span>09</span>한 건을 끝내는 비용</a>
+        <a href="#decision-models"><span>03</span>Jev 이후의 디시전 모델</a>
+        <a href="#leaderboards"><span>04</span>리더보드 읽는 법</a>
+        <a href="#projects"><span>05</span>공개 프로젝트의 역할 분담</a>
+        <a href="#practice"><span>06</span>고객 문의 분류 실습</a>
+        <a href="#routing"><span>07</span>판단 이후의 처리</a>
+        <a href="#commerce"><span>08</span>커머스 업무로 확장</a>
+        <a href="#coding-agent"><span>09</span>코딩 에이전트로 구현</a>
+        <a href="#evaluation"><span>10</span>한국어로 평가하기</a>
+        <a href="#cost"><span>11</span>한 건을 끝내는 비용</a>
         <a href="#first-experiment"><span>↳</span>우리의 첫 실험</a>
       </nav>
 
@@ -62,6 +64,7 @@
           <p>요청에 맞는 도구를 고르고, 검색 결과에서 필요한 자료를 추리고, 작업 기록 중 다음 단계에 남길 정보를 정합니다. 여러 단계를 계획하는 능력과 함께, <strong>각 단계의 선택을 빠르고 일관되게 처리하는 설계</strong>가 중요해집니다. 현재 에이전트 문서도 모델, 도구, 실행 환경과 작업 상태를 함께 다룹니다. <a class="source-link" href="https://developers.openai.com/api/docs/guides/agents" target="_blank" rel="noopener noreferrer">OpenAI · 에이전트 구성 ↗</a></p>
           <p>이 가운데 문장의 의미를 읽어야 하지만, 결과는 선택지 하나나 점수면 충분한 일이 있습니다. Jev는 이런 판단을 프로그램에 연결하는 모델입니다. 이번 가이드에서는 <strong>에이전트와 기존 업무 코드 사이에 작은 판단을 넣는 방법</strong>을 살펴봅니다.</p>
           <p><a href="2026-09-25-llm-selection.html">첫 번째 가이드</a>에서 모델·도구·검증의 조합을 골랐다면, 이번에는 그 조합 안에서 반복되는 판단 하나를 분리해 보겠습니다.</p>
+          <p><strong>10월 2일 업데이트</strong> Clef, Perplexity Decider, Mercury Decide와 추가 후보를 비교하고, 두 공개 리더보드의 평가 조건을 확인했습니다. <a href="#decision-models">모델 비교</a>부터 읽거나, <a href="#practice">Jev 실습</a>을 따라간 뒤 같은 한국어 데이터로 후보를 비교해 보세요.</p>
         </div>
 
         <section class="guide-section" id="small-decisions" aria-labelledby="small-decisions-heading">
@@ -123,8 +126,69 @@
           <p>업무 유형, 긴급성, 변경 요청 여부를 한 요청에 담을 수 있습니다. 다만 각 질문은 같은 <code>state</code>를 보고 독립적으로 평가됩니다. ‘첫 번째 답이 취소일 때만 두 번째를 판단하라’는 연결을 가정하지 말고, 응답을 받은 코드가 필요한 결과를 선택해야 합니다. <a class="source-link" href="https://docs.typesafe.ai/primitives" target="_blank" rel="noopener noreferrer">TypeSafe · 여러 질문의 평가 방식 ↗</a></p>
         </section>
 
+        <section class="guide-section" id="decision-models" aria-labelledby="decision-models-heading">
+          <h2 id="decision-models-heading">3. Jev 이후의 디시전 모델, 무엇이 다른가</h2>
+          <p><strong>Jev는 TypeSafe의 제품명</strong>입니다. Cloudflare의 Clef, Perplexity의 Decider, Inception의 Mercury Decide는 각각 다른 모델입니다. 이들이 공유하는 방향은 상황과 선택 기준을 받아, 프로그램이 바로 쓸 수 있는 제한된 답과 확률을 돌려주는 것입니다.</p>
+          <p>선택할 때는 정답률뿐 아니라 <strong>어떤 입력을 읽는지, 직접 운영할 수 있는지, 기존 API와 어디까지 호환되는지</strong>를 함께 봐야 합니다. 아래는 2026년 10월 2일 확인한 공개 사양입니다.</p>
+          <div class="guide-table-scroll" role="region" aria-label="주요 디시전 모델의 입력과 제공 방식 비교" tabindex="0">
+            <table>
+              <thead><tr><th scope="col">모델</th><th scope="col">입력·공개 범위</th><th scope="col">이 가이드에 연결할 때</th></tr></thead>
+              <tbody>
+                <tr><th scope="row"><a href="https://docs.typesafe.ai/models" target="_blank" rel="noopener noreferrer">TypeSafe Jev 1.13 ↗</a></th><td>텍스트·JSON 입력<br>호스팅 API</td><td><code>state</code>와 <code>questions</code>로 Choice·Score·Noul을 요청합니다. 아래 실습의 기준 모델입니다.</td></tr>
+                <tr><th scope="row"><a href="https://huggingface.co/Cloudflare/clef" target="_blank" rel="noopener noreferrer">Cloudflare Clef ↗</a><br><a href="https://huggingface.co/Cloudflare/clef-flash" target="_blank" rel="noopener noreferrer">Clef-Flash ↗</a></th><td>텍스트·JSON·이미지·영상 입력<br>27B / 9B, Apache-2.0 공개 가중치<br>Workers AI 또는 직접 운영</td><td>Jev/SystemOne 요청·응답 호환을 명시합니다. Choice·Score·Noul과 선택지별 확률을 반환해 기존 질문 정의를 비교 실험에 활용하기 좋습니다.</td></tr>
+                <tr><th scope="row"><a href="https://huggingface.co/perplexity-ai/pplx-decider-v1-27b" target="_blank" rel="noopener noreferrer">Perplexity<br>pplx-decider-v1-27b ↗</a></th><td>텍스트·이미지 입력<br>Qwen3.8-27B 기반, Apache-2.0 공개 가중치<br>Decisions API 또는 직접 운영</td><td><a href="https://docs.perplexity.ai/docs/decisions/quickstart" target="_blank" rel="noopener noreferrer">호스팅 API ↗</a>는 Choice·Score·Noul을 지원합니다. 경로는 <code>/v1/decisions</code>이며, 공식 로컬 예제에서 안내하는 Choice·Noul과 구분합니다.</td></tr>
+                <tr><th scope="row"><a href="https://openrouter.ai/inception/mercury-decide:free" target="_blank" rel="noopener noreferrer">Inception<br>Mercury Decide ↗</a></th><td>텍스트 입력<br>호스팅 API<br>OpenRouter의 <code>:free</code> 경로 제공</td><td>Jev와 같은 <code>/v1/systemone</code> 스키마, Choice·Score·예/아니요 확률을 명시합니다. 무료 제공 조건과 호출 제한은 사용 시 확인해야 합니다.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <h3>Clef는 시각 입력과 운영 선택지가 넓습니다</h3>
+          <p>Cloudflare는 10월 1일 Clef와 Clef-Flash를 발표했습니다. Clef는 Qwen3.8-27B, Flash는 Qwen3.5-9B를 기반으로 하며, 여러 질문의 선택지를 한 번의 순전파로 평가합니다. 직접 모델을 운영하거나 Workers AI로 호출할 수 있다는 점이 선택 기준입니다. <a class="source-link" href="https://blog.cloudflare.com/clef-decision-models/" target="_blank" rel="noopener noreferrer">Cloudflare · 발표 ↗</a></p>
+          <p>커머스에서는 문의 문장에 첨부된 파손 사진이나 상품 이미지까지 검토 대상으로 넓힐 수 있습니다. 다만 <strong>이미지 입력 지원과 파손 판정의 정확도는 별개</strong>이므로, 실제 촬영 조건과 한국어 문의를 함께 평가해야 합니다. Flash도 모든 과제에서 Clef와 같은 품질을 내는 것은 아닙니다.</p>
+          <p>공개 모델 카드의 영상 지원과 호스팅 API의 입력 필드는 구분해야 합니다. 현재 Workers AI 규격은 첨부 이미지 확장을 명시하므로, 영상 처리에는 실제 사용할 실행 경로의 지원 범위를 먼저 확인하세요. <a class="source-link" href="https://developers.cloudflare.com/workers-ai/models/clef/" target="_blank" rel="noopener noreferrer">Workers AI · 입력 규격 ↗</a></p>
+          <h3>Perplexity는 확률 출력과 API 계약을 함께 봐야 합니다</h3>
+          <p>모델 카드의 11개 벤치마크 자체 평가에는 RAGTruth처럼 Jev보다 높은 항목과 BBH처럼 낮은 항목이 함께 있습니다. 이 결과를 모든 업무의 우열로 일반화할 수는 없습니다. 직접 운영할 때는 공식 예제가 가중치만 약 49GiB에 추가 작업 메모리를 요구한다는 점도 고려해야 합니다. <a class="source-link" href="https://huggingface.co/perplexity-ai/pplx-decider-v1-27b" target="_blank" rel="noopener noreferrer">Perplexity · 평가와 로컬 실행 조건 ↗</a></p>
+          <h3>Mercury Decide는 API로 빠르게 비교할 후보입니다</h3>
+          <p>OpenRouter는 9월 30일 공개된 Mercury Decide를 System One 엔드포인트로 소개하며, 32,768토큰 문맥과 보정된 확률 출력을 명시합니다. ‘초당 최대 14개 판단’은 제공 측 설명이며, 한국어 요청의 길이·질문 수·동시 처리 조건이 같은 측정은 아닙니다. 무료 경로는 초기 비교에 유용하지만 운영 용량을 보장하는 가격표로 읽어서는 안 됩니다. <a class="source-link" href="https://openrouter.ai/inception/mercury-decide:free" target="_blank" rel="noopener noreferrer">OpenRouter · Mercury Decide 사양과 제공 조건 ↗</a></p>
+          <h3>추가로 살펴볼 네 가지 후보</h3>
+          <p>같은 시기에 공개된 후보 중에서는 다음 네 가지가 서로 다른 실험 목적을 보여 줍니다. 아래의 적용 방향은 공개 사양을 바탕으로 한 헬로우 휴먼의 제안입니다.</p>
+          <div class="jev-projects">
+            <div class="jev-project"><span class="jev-role-label">작은 모델을 직접 운영</span><h3><a href="https://strandsagents.com/blog/introducing-strands-decider/" target="_blank" rel="noopener noreferrer">Strands Decider 2B ↗</a></h3><p>10월 1일 발표. Qwen3.5-2B의 텍스트 생성부를 선택지에 점수를 매기는 구조로 바꾸고, 코드·가중치·학습 자료를 공개했습니다. CPU·GPU 로컬 실행과 <a href="https://github.com/strands-labs/strands-decider" target="_blank" rel="noopener noreferrer">Jev 호환 서버</a>를 제공합니다.</p><p class="jev-project-takeaway">검토할 상황<br><strong>작은 분류기를 로컬에서 실행하고 직접 개선할 때</strong></p></div>
+            <div class="jev-project"><span class="jev-role-label">긴 문맥의 API 후보</span><h3><a href="https://openrouter.ai/upstage/solar-decide" target="_blank" rel="noopener noreferrer">Upstage Solar Decide ↗</a></h3><p>9월 28일 공개된 Solar Mini 4 기반 System One 모델입니다. 텍스트 입력과 524,288토큰 문맥을 명시합니다. 긴 정책 문서와 문의를 함께 읽는 후보로 볼 수 있지만, 한국어 업무의 우위는 직접 검증해야 합니다.</p><p class="jev-project-takeaway">검토할 상황<br><strong>문서가 긴 문의에서 필요한 근거를 놓치는지 비교할 때</strong></p></div>
+            <div class="jev-project"><span class="jev-role-label">호스팅 API 간 비교</span><h3><a href="https://openrouter.ai/liquid/d1" target="_blank" rel="noopener noreferrer">Liquid D1 ↗</a></h3><p>OpenRouter의 유료 D1 경로는 10월 1일 등록으로 표시됩니다. 텍스트 65,536토큰, Jev와 같은 SystemOne 스키마를 제공합니다. 기반 모델과 공개 가중치는 이 제공 페이지에서 확인되지 않습니다.</p><p class="jev-project-takeaway">검토할 상황<br><strong>자체 GPU 없이 같은 질문을 다른 API와 비교할 때</strong></p></div>
+            <div class="jev-project"><span class="jev-role-label">분류기의 추가 학습</span><h3><a href="https://www.together.ai/blog/how-to-train-your-own-jev" target="_blank" rel="noopener noreferrer">Together Tev1 ↗</a></h3><p>9월 23일 소개된 실험적 4B 모델입니다. Qwen3.5-4B를 학습해 답 문자 하나를 생성하며, 학습 코드와 방법을 공개했습니다. Jev와 동일한 확률 응답 API로 간주할 수 없고, 애플리케이션에서 답을 선택지에 연결해야 합니다.</p><p class="jev-project-takeaway">검토할 상황<br><strong>자체 학습을 탐색할 때. 가중치 라이선스는 <a href="https://huggingface.co/togethercomputer/Tev1-4B-experimental" target="_blank" rel="noopener noreferrer">모델 카드</a>에서 확정 여부 확인</strong></p></div>
+          </div>
+          <p>선택지가 많아졌다는 사실이 곧 모든 모델의 품질이 같다는 뜻은 아닙니다. <strong>빠른 API 비교, 시각 입력, 로컬 운영, 자체 학습 중 지금 필요한 조건</strong>으로 두세 후보를 좁힌 뒤 평가하는 편이 좋습니다.</p>
+        </section>
+
+        <section class="guide-section" id="leaderboards" aria-labelledby="leaderboards-heading">
+          <h2 id="leaderboards-heading">4. 리더보드는 순위보다 평가 조건부터</h2>
+          <p>사용할 자료는 두 곳입니다. <a href="https://huggingface.co/spaces/multimodalart/jev-decision-index" target="_blank" rel="noopener noreferrer">커뮤니티 Jev Decision Index</a>는 공개 재현 모델과 Jev를 비교합니다. <a href="https://clef-evals.workers-ai-mle.workers.dev/" target="_blank" rel="noopener noreferrer">Cloudflare Decision Model Leaderboard</a>는 그 결과에 Clef 계열의 자체 측정치를 더한 보드입니다. 두 곳 모두 모든 신제품을 평가한 목록은 아닙니다.</p>
+          <p><strong>Decision Index 점수는 정답률 퍼센트가 아닙니다.</strong> 0.2.1 지수는 38개 벤치마크를 지식·언어·검색/분류·도구·취향의 다섯 영역으로 묶고, 무작위 선택의 기대 성적을 보정해 가중 평균합니다. 0은 무작위 수준, 100은 완벽한 결과에 해당합니다. <a class="source-link" href="https://multimodalart-jev-decision-index.static.hf.space/methodology.html" target="_blank" rel="noopener noreferrer">Decision Index · 계산법과 재현 조건 ↗</a></p>
+          <div class="guide-table-scroll" role="region" aria-label="Decision Index 0.2.1 주요 결과와 측정 주체" tabindex="0">
+            <table>
+              <thead><tr><th scope="col">모델</th><th scope="col">지수</th><th scope="col">중앙 지연</th><th scope="col">p95 지연</th><th scope="col">결과의 출처</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Clef</th><td>61.21</td><td>209ms</td><td>239ms</td><td>Cloudflare 자체 보고<br>38개 중 36개 실행</td></tr>
+                <tr><th scope="row">Jev 1.13</th><td>57.91</td><td>524ms</td><td>536ms</td><td>커뮤니티의 호스팅 API 측정</td></tr>
+                <tr><th scope="row"><a href="https://huggingface.co/surogate/rune-26b-a4b-GGUF" target="_blank" rel="noopener noreferrer">Surogate Rune<br>26B-A4B v3 ↗</a></th><td>57.44</td><td>121ms</td><td>683ms</td><td>커뮤니티 보드 측정<br>BF16 실행</td></tr>
+                <tr><th scope="row">Clef-Flash</th><td>57.07</td><td>38.8ms</td><td>122ms</td><td>Cloudflare 자체 보고<br>38개 중 36개 실행</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>10월 2일 열람한 0.2.1 결과 중 일부입니다. 커뮤니티 원본의 갱신 표시는 9월 28일이며, Cloudflare 보드는 이 스냅샷에 자체 결과를 추가해 10월 1일 구성됐습니다. <strong>Clef의 수치는 원본 보드 운영자가 재현하지 않았고, 지연시간도 동일 하드웨어 비교가 아닙니다.</strong> 미실행 항목은 0점으로 반영합니다. <a class="source-link" href="https://clef-evals.workers-ai-mle.workers.dev/#methodology" target="_blank" rel="noopener noreferrer">Cloudflare 보드 · 자체 보고와 측정 조건 ↗</a></p>
+          <p>HF 원본은 <code>pplx-decider-v1-27b</code>의 지수를 56.4로 표시합니다. Cloudflare 스냅샷에는 AutoJev-27B라는 이름이 남아 있으므로, 이름과 비슷한 수치만으로 같은 체크포인트라고 단정하지 않습니다. 이 공개 재현 결과와 Perplexity가 별도로 발표한 API의 11개 평가도 다른 측정입니다. <a class="source-link" href="https://huggingface.co/spaces/multimodalart/jev-decision-index" target="_blank" rel="noopener noreferrer">HF · 원본 모델 표기 ↗</a></p>
+          <h3>우리 업무에 가까운 항목과 느린 요청을 함께 봅니다</h3>
+          <p>Cloudflare 공개 표에서 BANKING77의 macro-F1은 Clef 94.2, Jev 79.7이지만, BRIGHT의 nDCG@10은 Clef 45.9, Jev 47.5입니다. 고객 의도 분류와 검색 재정렬의 선택이 달라질 수 있다는 단서입니다. 서로 다른 지표를 같은 ‘정확도’로 합치거나 한국어 성능으로 옮겨 해석하지 않습니다. <a class="source-link" href="https://huggingface.co/Cloudflare/clef#decision-index" target="_blank" rel="noopener noreferrer">Clef · 항목별 공개 결과 ↗</a></p>
+          <ul>
+            <li><strong>평가 범위</strong> 내 업무에 가까운 과제와 실패·미응답 포함 여부를 확인합니다. 보드에 없는 모델은 미평가일 수 있습니다.</li>
+            <li><strong>지연시간</strong> 중앙값과 함께 느린 쪽 요청을 보여 주는 p95를 봅니다. API 네트워크, GPU, 양자화, 입력 길이, 질문 수와 동시 요청 수가 다르면 직접적인 배속 비교는 어렵습니다.</li>
+            <li><strong>확률 보정</strong> ECE는 예측 확률과 실제 정답 비율의 차이를 요약하며 낮을수록 좋습니다. 값이 비어 있으면 보정을 입증한 것으로 보지 않습니다. 전체 ECE가 낮아도 한국어의 드문 중요 요청은 별도로 검사합니다.</li>
+          </ul>
+          <p>공개 재현 모델인 Rune처럼 지수가 Jev에 가까운 후보도 있습니다. 한편 <a href="https://github.com/Mapika/decider" target="_blank" rel="noopener noreferrer">Mapika Decider</a>의 chat 항목처럼 기존 모델에 적용한 추론 방식도 같은 보드에 올라옵니다. <strong>새로 학습한 모델, 추론 기법, 호스팅 제품을 구분</strong>한 뒤 비교 대상을 정하세요.</p>
+        </section>
+
         <section class="guide-section" id="projects" aria-labelledby="projects-heading">
-          <h2 id="projects-heading">3. 공개 프로젝트에서 배우는 역할 분담</h2>
+          <h2 id="projects-heading">5. 공개 프로젝트에서 배우는 역할 분담</h2>
           <p>공개 프로젝트에서는 도구 선택, 작업 기록 선별, 코드 탐색처럼 좁은 판단에 Jev를 연결합니다. 각 사례에서 무엇을 판단하고, 생성 모델과 코드에 어떤 역할을 맡기는지 살펴보겠습니다.</p>
           <div class="jev-projects">
             <div class="jev-project"><span class="jev-role-label">다음 동작 선택</span><h3><a href="https://github.com/browser-use/jev-ultrafast" target="_blank" rel="noopener noreferrer">Browser Use · Jev Ultrafast ↗</a></h3><p>페이지 요소를 번호가 붙은 텍스트 상태로 만들고, Jev가 동작과 대상을 선택합니다. 입력 문장이 필요할 때 별도 생성 모델을 사용하며, 실행기는 선택된 대상을 다시 확인합니다.</p><p class="jev-project-takeaway">가져올 아이디어<br><strong>관리 화면의 조회 동선에서 선택과 조작을 분리하기</strong></p></div>
@@ -137,7 +201,7 @@
         </section>
 
         <section class="guide-section" id="practice" aria-labelledby="practice-heading">
-          <h2 id="practice-heading">4. 첫 실습은 고객 문의 분류기</h2>
+          <h2 id="practice-heading">6. 첫 실습은 고객 문의 분류기</h2>
           <p>고객 문의 한 건에서 업무 유형, 긴급성, 주문 변경 요청 여부를 판단해 보겠습니다. 첫 버전의 결과물은 <strong>분류 결과와 검토 필요 여부를 표시하는 화면</strong>입니다.</p>
           <h3>먼저 Playground에서 기준을 맞춥니다</h3>
           <p><a href="https://console.typesafe.ai/playground" target="_blank" rel="noopener noreferrer">TypeSafe Playground</a>에 가상 문의를 <code>state</code>로 넣고 Choice 하나부터 시작합니다. 서로 다른 두 사람이 같은 선택지를 읽고 같은 정답을 고를 수 있는지 확인한 뒤, 긴급성과 변경 요청 질문을 더합니다. <a class="source-link" href="https://docs.typesafe.ai/introduction/quickstart" target="_blank" rel="noopener noreferrer">TypeSafe · 시작하기 ↗</a></p>
@@ -201,13 +265,22 @@ curl --fail-with-body --silent --show-error \
             <li>변경 요청 여부는 <code>answers.change_requested.noul</code>의 0~1 값으로 읽습니다.</li>
           </ul>
           <p>이 문장의 기대 분류는 <code>delivery</code>입니다. 실제 응답이 다른지 확인하고, 틀린 문장과 질문 버전을 함께 기록하는 것이 실습의 핵심입니다.</p>
+          <h3>같은 실습을 다른 모델로 옮길 때</h3>
+          <p>처음에는 이 JSON의 가상 문의와 질문·선택지 문구를 고정합니다. 공급자별 호출 부분만 나누어 결과를 같은 화면에서 비교하세요. <strong>‘Jev 호환’은 같은 API 키나 URL을 쓴다는 뜻이 아닙니다.</strong></p>
+          <ul>
+            <li><strong>Clef·Clef-Flash</strong> Workers AI의 계정별 호출 경로와 인증을 사용하고, 모델 선택값을 맞춥니다. 요청당 질문은 최대 64개입니다. <a href="https://developers.cloudflare.com/workers-ai/models/clef/" target="_blank" rel="noopener noreferrer">공식 호출 예제 ↗</a></li>
+            <li><strong>Perplexity Decider</strong> <code>https://api.perplexity.ai/v1/decisions</code>와 Perplexity 키, 해당 모델 ID를 사용합니다. 공식 API는 세 질문 유형을 지원하며 최대 128개 질문을 받습니다. <a href="https://docs.perplexity.ai/docs/decisions/quickstart" target="_blank" rel="noopener noreferrer">공식 시작 예제 ↗</a></li>
+            <li><strong>Mercury Decide·D1·Solar Decide</strong> SystemOne 스키마 지원을 확인한 뒤 실제 제공 경로·인증·모델 ID와 호출 제한을 설정합니다. 일반 채팅 모델의 <code>messages</code> 요청과 섞지 않습니다.</li>
+          </ul>
+          <p>문맥 길이도 같은 기준으로 읽어야 합니다. Jev는 요청 전체 64k와 ‘state + 가장 긴 질문’ 32k라는 두 한도를 둡니다. Clef 호스팅의 65,536토큰과 공개 로컬 인코더의 기본 길이도 서로 다른 설정입니다. 최대 길이 숫자 하나만으로 긴 문서 처리 성능을 판단하지 마세요. <a class="source-link" href="https://docs.typesafe.ai/models" target="_blank" rel="noopener noreferrer">TypeSafe · 입력 한도 ↗</a> · <a class="source-link" href="https://huggingface.co/Cloudflare/clef#input-format" target="_blank" rel="noopener noreferrer">Clef · 로컬 입력 설정 ↗</a></p>
         </section>
 
         <section class="guide-section" id="routing" aria-labelledby="routing-heading">
-          <h2 id="routing-heading">5. 판단 이후의 처리를 설계하기</h2>
+          <h2 id="routing-heading">7. 판단 이후의 처리를 설계하기</h2>
           <h3>confidence는 분포에서 계산한 지표입니다</h3>
-          <p>Choice와 Score의 <code>confidence</code>는 답의 확률 분포가 얼마나 집중되어 있는지 계산한 0~1 값입니다. 선택된 항목의 확률과도 같은 값은 아닙니다. <a class="source-link" href="https://docs.typesafe.ai/confidence" target="_blank" rel="noopener noreferrer">TypeSafe · confidence ↗</a></p>
+          <p>Jev의 Choice와 Score에서 <code>confidence</code>는 답의 확률 분포가 얼마나 집중되어 있는지 계산한 0~1 값입니다. 선택된 항목의 확률과도 같은 값은 아닙니다. <a class="source-link" href="https://docs.typesafe.ai/confidence" target="_blank" rel="noopener noreferrer">TypeSafe · confidence ↗</a></p>
           <p><code>confidence = 0.9</code>를 ‘우리 업무에서 정답률 90%’로 읽어서는 안 됩니다. 모델은 높은 확신으로도 틀릴 수 있습니다. <strong>실제 정답률은 우리가 모은 평가 데이터로 확인해야 합니다.</strong></p>
+          <p>모델을 바꿀 때도 같은 숫자의 임계값을 그대로 옮기지 않습니다. 반환된 <code>confidence</code>의 계산법과 확률 보정 상태를 확인하고, <strong>같은 오분류 허용 수준에서 자동 처리할 수 있는 비율</strong>로 비교합니다. 형식 호환과 판단 품질의 호환은 각각 검증할 항목입니다.</p>
           <figure class="guide-visual jev-routing" aria-labelledby="jev-routing-title">
             <figcaption id="jev-routing-title"><span>DECIDE, THEN HANDLE</span><strong>모델의 응답과 다음 처리 경로를 구분합니다</strong></figcaption>
             <div class="jev-routing-input">고객 문의 <span aria-hidden="true">→</span> Jev의 판단 <span aria-hidden="true">→</span> 코드에서 응답 검증</div>
@@ -224,7 +297,7 @@ curl --fail-with-body --silent --show-error \
         </section>
 
         <section class="guide-section" id="commerce" aria-labelledby="commerce-heading">
-          <h2 id="commerce-heading">6. 커머스 업무에 적용할 세 가지 흐름</h2>
+          <h2 id="commerce-heading">8. 커머스 업무에 적용할 세 가지 흐름</h2>
           <h3>문의의 처리 경로 선택</h3>
           <p>단순 배송 조회는 업무 API로, 설명이 필요한 상품 문의는 전문 문맥을 가진 생성 모델로, 복합 요청이나 판단이 어려운 문의는 사람에게 전달하는 흐름입니다. 공식 Intent routing 예제도 분류 이후 코드·전문 모델·사람으로 처리 경로를 나눕니다. <a class="source-link" href="https://docs.typesafe.ai/patterns/intent-routing" target="_blank" rel="noopener noreferrer">TypeSafe · Intent routing ↗</a></p>
           <h3>상품기술서의 검토 우선순위</h3>
@@ -247,7 +320,7 @@ curl --fail-with-body --silent --show-error \
         </section>
 
         <section class="guide-section" id="coding-agent" aria-labelledby="coding-agent-heading">
-          <h2 id="coding-agent-heading">7. 코딩 에이전트로 첫 버전 구현하기</h2>
+          <h2 id="coding-agent-heading">9. 코딩 에이전트로 첫 버전 구현하기</h2>
           <p>Codex나 Claude Code에는 프로그램 구현을 맡기고, 완성된 프로그램이 실행 중 Jev를 호출하도록 구성합니다. TypeSafe도 Jev를 코딩 에이전트의 기반 모델로 교체하는 방식과, 에이전트로 Jev 연동 코드를 작성하는 방식을 구분합니다. <a class="source-link" href="https://docs.typesafe.ai/introduction/coding-agents" target="_blank" rel="noopener noreferrer">TypeSafe · 코딩 에이전트와 사용하기 ↗</a></p>
           <p>Java·Spring이라면 HTTP 호출을 감싼 작은 서비스로 시작하거나, 앞서 소개한 커뮤니티 클라이언트를 검토할 수 있습니다. 처음부터 에이전트 전체 구조를 바꿀 필요는 없습니다.</p>
           <pre><code class="language-text">현재 Java·Spring 프로젝트에 고객 문의 분류 실험을 추가해 주세요.
@@ -261,7 +334,8 @@ TypeSafe 공식 HTTP API 규격을 확인하고 jev-1.13.0을 사용하세요.
 오류·타임아웃·응답 누락은 판단 실패 상태로 구분하고
 사람 검토 또는 기존 처리로 전환해 주세요.
 
-모델 버전, 질문 버전, 판단 결과, 처리시간을 기록하세요.
+공급자별 호출을 분리해 같은 질문으로 대체 모델을 비교할 수 있게 하세요.
+모델 ID와 버전, 질문 버전, 판단 결과, 처리시간을 기록하세요.
 API 키는 서버에서 관리하고 키와 개인정보는 로그에 남기지 마세요.
 외부 호출 없는 테스트와 실제 API 평가를 분리해 주세요.</code></pre>
           <p>결과 화면에는 선택값만 표시하기보다 질문 기준, 확률 분포, 검토 상태를 함께 보여 주세요. 담당자가 오분류 이유를 찾고 기준을 수정할 수 있어야 실험이 이어집니다.</p>
@@ -269,7 +343,7 @@ API 키는 서버에서 관리하고 키와 개인정보는 로그에 남기지 
         </section>
 
         <section class="guide-section" id="evaluation" aria-labelledby="evaluation-heading">
-          <h2 id="evaluation-heading">8. 한국어로 틀리기 쉬운 문장을 모으기</h2>
+          <h2 id="evaluation-heading">10. 한국어로 틀리기 쉬운 문장을 모으기</h2>
           <p>첫 평가에서는 부정, 정정, 생략, 복합 요청을 따로 모아 보겠습니다. 아래 기대값은 모델의 측정 결과가 아니라 <strong>우리가 먼저 정해 둘 실습용 정답 기준</strong>입니다.</p>
           <div class="guide-table-scroll" role="region" aria-label="한국어 고객 문의 평가 사례" tabindex="0">
             <table>
@@ -285,21 +359,36 @@ API 키는 서버에서 관리하고 키와 개인정보는 로그에 남기지 
           </div>
           <p>처음 50~100건은 분류 기준과 실패 유형을 발견하는 데 사용할 수 있습니다. 이 작은 표본으로 운영 안전성을 입증했다고 보기는 어렵습니다. 질문을 수정할 때 사용한 문장과 최종 평가 문장도 나누어야 합니다.</p>
           <h3>같은 입력으로 세 가지 방식을 비교합니다</h3>
-          <p>기존 키워드·정규식 규칙, 생성형 모델의 구조화된 분류, Jev와 검토 전환을 결합한 방식을 비교해 보세요. 전체 정답률에 더해 다음을 함께 기록합니다.</p>
+          <p>기존 키워드·정규식 규칙, 생성형 모델의 구조화된 분류, 디시전 모델과 검토 전환을 결합한 방식을 비교해 보세요. 세 번째 방식 안에서 Jev와 후보 모델 두세 개를 같은 문의·질문·정답 기준으로 평가합니다. 전체 정답률에 더해 다음을 함께 기록합니다.</p>
           <ul>
             <li><strong>자동 분기된 건의 정확도</strong> 자동으로 보낸 것 중 실제로 맞은 비율</li>
             <li><strong>중요 요청의 누락률</strong> 변경 요청이나 복합 요청을 놓친 비율</li>
             <li><strong>자동 분기와 검토 비율</strong> 처리 부담을 얼마나 줄이고, 얼마나 다시 확인했는지</li>
-            <li><strong>처리시간과 재작업</strong> API 호출부터 사람의 수정까지 걸린 시간</li>
+            <li><strong>처리시간과 재작업</strong> 입력 길이·질문 수·동시 요청 수를 맞춘 중앙값과 p95, API 호출부터 사람의 수정까지 걸린 시간</li>
+            <li><strong>확률의 신뢰도</strong> 예측 확률 구간별 실제 정답률과 높은 확신으로 틀린 사례</li>
           </ul>
           <p>항상 사람에게 보내는 방식은 분류기의 효용을 보여 주기 어렵습니다. 자동 분기 비율만 높이는 방식도 오분류를 가릴 수 있습니다. <strong>정확도와 처리 범위를 함께 비교해야 합니다.</strong></p>
           <p>질문 문구, 선택지, 모델 버전이 바뀌면 같은 평가를 다시 실행합니다. 특히 ‘Jev 호환’ API로 옮길 때는 반환 형식뿐 아니라 확률·confidence의 의미와 우리 데이터의 성능도 확인해야 합니다.</p>
         </section>
 
         <section class="guide-section" id="cost" aria-labelledby="cost-heading">
-          <h2 id="cost-heading">9. 한 건을 정확히 끝내는 비용</h2>
-          <p>2026년 9월 30일 공식 문서 기준 Jev 1.13은 입력 100만 토큰당 <strong>0.042달러</strong>이며 출력 토큰은 무료입니다. 가격과 제공 조건은 도입 시 다시 확인하세요. <a class="source-link" href="https://docs.typesafe.ai/models" target="_blank" rel="noopener noreferrer">TypeSafe · 모델과 가격 ↗</a></p>
-          <p>호출당 과금 입력이 2,000토큰이고 1만 번 호출한다고 가정하면 다음과 같습니다.</p>
+          <h2 id="cost-heading">11. 한 건을 정확히 끝내는 비용</h2>
+          <p>2026년 10월 2일 공식 문서에서 확인한 입력 요금입니다. 같은 수의 토큰을 가정한 비교이며, 실제 요청에서는 모델별 토크나이저와 이미지 처리에 따라 과금 입력량이 달라질 수 있습니다.</p>
+          <div class="guide-table-scroll" role="region" aria-label="디시전 모델의 입력 요금과 제공 조건" tabindex="0">
+            <table>
+              <thead><tr><th scope="col">제공 경로</th><th scope="col">입력 100만 토큰</th><th scope="col">확인할 조건</th></tr></thead>
+              <tbody>
+                <tr><th scope="row"><a href="https://docs.typesafe.ai/models" target="_blank" rel="noopener noreferrer">Jev 1.13 ↗</a></th><td>$0.042</td><td>입력 과금, 출력 무료</td></tr>
+                <tr><th scope="row"><a href="https://developers.cloudflare.com/workers-ai/models/clef/" target="_blank" rel="noopener noreferrer">Clef ↗</a> / <a href="https://developers.cloudflare.com/workers-ai/models/clef-flash/" target="_blank" rel="noopener noreferrer">Clef-Flash ↗</a></th><td>$0.24 / $0.09</td><td>Workers AI의 입력 단가</td></tr>
+                <tr><th scope="row"><a href="https://docs.perplexity.ai/docs/decisions/quickstart#pricing" target="_blank" rel="noopener noreferrer">Perplexity Decisions API ↗</a></th><td>$0.04</td><td>출력 무료, 조직당 초당 10요청</td></tr>
+                <tr><th scope="row"><a href="https://openrouter.ai/inception/mercury-decide:free" target="_blank" rel="noopener noreferrer">Mercury Decide :free ↗</a></th><td>$0</td><td>확인 당시 무료 경로, 호출 제한 적용</td></tr>
+                <tr><th scope="row"><a href="https://openrouter.ai/liquid/d1" target="_blank" rel="noopener noreferrer">Liquid D1 ↗</a></th><td>$0.04</td><td>OpenRouter 유료 경로, 출력 무료</td></tr>
+                <tr><th scope="row"><a href="https://openrouter.ai/upstage/solar-decide" target="_blank" rel="noopener noreferrer">Solar Decide ↗</a></th><td>$0.05</td><td>확인 당시 50% 할인 표시, 출력 무료</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>가격과 제공 조건은 도입 시 다시 확인하세요. 공개 가중치를 직접 운영한다면 GPU·메모리·서빙과 운영 비용을 따로 계산해야 합니다.</p>
+          <p>Jev에서 호출당 과금 입력이 2,000토큰이고 1만 번 호출한다고 가정하면 다음과 같습니다.</p>
           <pre><code class="language-text">2,000토큰 × 10,000회 = 20,000,000토큰
 20,000,000 ÷ 1,000,000 × $0.042 = $0.84</code></pre>
           <p>가정에 따른 입력 요금 계산입니다. 실제 한국어 요청의 토큰 수를 측정한 값이나 서비스 전체 비용은 아닙니다.</p>
@@ -313,20 +402,25 @@ API 키는 서버에서 관리하고 키와 개인정보는 로그에 남기지 
 
         <section class="guide-section" id="first-experiment" aria-labelledby="first-experiment-heading">
           <h2 id="first-experiment-heading">작은 판단 하나를 우리 업무로 확인하기</h2>
-          <p>헬로우 휴먼의 첫 Jev 실험은 고객 문의 분류기 정도면 충분합니다. 가상 한국어 문의를 모으고, 기대 정답과 검토 기준을 합의한 뒤, 세 가지 처리 방식을 같은 입력으로 비교합니다.</p>
+          <p>헬로우 휴먼의 첫 실험은 고객 문의 분류기 정도면 충분합니다. 가상 한국어 문의를 모으고, 기대 정답과 검토 기준을 합의한 뒤, 세 가지 처리 방식을 같은 입력으로 비교합니다. Jev를 기준으로 호스팅 API 후보를 하나 더 붙이거나, 로컬 운영이 필요하다면 Strands Decider 같은 작은 공개 모델을 추가해 보세요.</p>
           <p>결과물이 쓸 만하면 검색 후보 재정렬이나 상품기술서 검토 순서로 범위를 넓힐 수 있습니다. 그때도 의미 판단, 사실 확인, 실제 실행의 담당을 명확히 나눕니다.</p>
           <blockquote><p>반복되는 선택은 모델이 돕고,<br>실행 조건과 완료 기준은 우리가 정합니다.</p></blockquote>
-          <p>에이전트가 오래 일할수록 단계마다 무엇을 선택했고 왜 멈췄는지 확인할 수 있어야 합니다. Jev의 활용 가치는 이 작은 판단들을 코드가 다룰 수 있는 형태로 연결하는 데 있습니다.</p>
+          <p>에이전트가 오래 일할수록 단계마다 무엇을 선택했고 왜 멈췄는지 확인할 수 있어야 합니다. Jev와 새로운 디시전 모델들의 활용 가치는 이 작은 판단들을 코드가 다룰 수 있는 형태로 연결하는 데 있습니다. 선택 기준은 우리 데이터에서의 오분류, 검토 부담, 전체 처리시간과 비용입니다.</p>
         </section>
 
         <section class="guide-resources" aria-labelledby="guide-resources-heading">
           <h2 id="guide-resources-heading">실습과 참고 자료</h2>
-          <p>2026년 9월 30일 공식 문서와 공개 프로젝트를 확인했습니다. API 실측과 한국어 운영 성능 검증은 별도로 수행해야 합니다.</p>
+          <p>기존 실습과 공개 프로젝트는 2026년 9월 30일, 추가 모델·리더보드·가격은 10월 2일 확인했습니다. 본문의 평가 수치는 출처의 공개 결과이며, 이 가이드에서 API 실측이나 한국어 운영 성능을 검증하지 않았습니다.</p>
           <ul>
             <li><a href="../assets/guides/jev-request.json" download="request.json">고객 문의 분류 실습 JSON 내려받기 ↓</a></li>
             <li><a href="https://docs.typesafe.ai/introduction" target="_blank" rel="noopener noreferrer">TypeSafe · Jev 소개와 문서 ↗</a></li>
             <li><a href="https://docs.typesafe.ai/api" target="_blank" rel="noopener noreferrer">TypeSafe · HTTP API 규격 ↗</a></li>
             <li><a href="https://docs.typesafe.ai/model-jaggedness/jev-1.13" target="_blank" rel="noopener noreferrer">TypeSafe · Jev 1.13의 알려진 한계 ↗</a></li>
+            <li><a href="https://huggingface.co/Cloudflare/clef" target="_blank" rel="noopener noreferrer">Cloudflare · Clef 모델 카드 ↗</a></li>
+            <li><a href="https://huggingface.co/perplexity-ai/pplx-decider-v1-27b" target="_blank" rel="noopener noreferrer">Perplexity · pplx-decider-v1-27b 모델 카드 ↗</a></li>
+            <li><a href="https://openrouter.ai/inception/mercury-decide:free" target="_blank" rel="noopener noreferrer">OpenRouter · Mercury Decide ↗</a></li>
+            <li><a href="https://clef-evals.workers-ai-mle.workers.dev/" target="_blank" rel="noopener noreferrer">Cloudflare · Decision Model Leaderboard ↗</a></li>
+            <li><a href="https://huggingface.co/spaces/multimodalart/jev-decision-index" target="_blank" rel="noopener noreferrer">커뮤니티 · Jev Decision Index ↗</a></li>
           </ul>
         </section>
         <a class="news-end-link" href="./">AI가이드 목록으로 돌아가기 <span aria-hidden="true">→</span></a>

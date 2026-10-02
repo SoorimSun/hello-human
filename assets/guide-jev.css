@@ -1,5 +1,9 @@
 /* AI가이드 02: 역할 분담, 공개 사례, 판단 이후의 처리 */
 #primitives th:first-child { width: 96px; min-width: 96px; white-space: nowrap; }
+#decision-models table { min-width: 650px; }
+#decision-models th:first-child { width: 175px; }
+#leaderboards table { min-width: 620px; }
+#leaderboards td:nth-child(2), #leaderboards td:nth-child(3), #leaderboards td:nth-child(4) { white-space: nowrap; font-variant-numeric: tabular-nums; }
 .jev-role-label { display: block; margin-bottom: 10px; color: var(--muted); font-size: 12px; font-weight: 650; }
 #jev-architecture-heading, #jev-architecture { scroll-margin-top: 84px; }
 .jev-architecture { line-height: 1.5; }
