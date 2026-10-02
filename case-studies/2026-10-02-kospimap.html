@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>낚시 게임의 엔진이 아파트 지도가 되기까지 · AI 사례연구 · 헬로우 휴먼</title>
+<meta name="description" content="KOSPIMAP 3D 단지뷰. Tidewater 엔진 재사용, 공공데이터 검증, 성능 비교와 되돌리기로 살펴보는 AI 협업의 실제.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="낚시 게임의 엔진이 아파트 지도가 되기까지">
+<meta property="og:description" content="KOSPIMAP 3D 단지뷰. 멋진 화면 뒤에 남은 데이터 검증과 판단의 기록.">
+<meta property="og:image" content="https://soorimsun.github.io/hello-human/assets/case-studies/kospimap-day.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta property="og:image:alt" content="KOSPIMAP이 공공데이터로 그린 래미안 원베일리와 한강변의 3D 장면">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+<script src="../assets/theme.js?v=3"></script>
+<link rel="stylesheet" href="../assets/style.css?v=7">
+<link rel="stylesheet" href="../assets/news.css?v=9">
+<link rel="stylesheet" href="../assets/guide.css?v=4">
+<link rel="stylesheet" href="../assets/case-studies.css?v=2">
+<link rel="stylesheet" href="../assets/case-kospimap.css?v=1">
+<link rel="stylesheet" href="../assets/content-updates.css?v=1">
+</head>
+<body>
+<header class="topbar"><div class="wrap topbar-inner">
+<a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+<nav class="news-nav" aria-label="사이트 메뉴">
+<a href="../">모임 소개</a><a href="../news/">AI뉴스</a><a href="../guides/">AI가이드</a><a href="../insights/">인사이트</a><a href="./" aria-current="page">사례연구</a>
+</nav></div></header>
+<main><article>
+<header class="news-article-header guide-article-header case-article-header wrap">
+<a class="news-back" href="./">← AI 사례연구 목록</a>
+<p class="news-kicker">HELLO, HUMAN! <span aria-hidden="true">/</span> CASE STUDY 03</p>
+<h1>낚시 게임의 엔진이<br><em>아파트 지도가 되기까지</em></h1>
+<p class="news-deck">KOSPIMAP 3D 단지뷰로 살펴보는<br>오픈소스 재사용, 데이터 검증, AI 협업의 실제</p>
+<div class="news-article-meta"><time datetime="2026-10-02">2026년 10월 2일</time><span>헬로우 휴먼 AI 사례연구</span></div>
+<div class="kospimap-maker"><span>사례 제작자</span><a href="../works/choi-taejun.html">헬로우휴먼 멤버 최태준</a><span>KOSPIMAP 개인 프로젝트</span></div>
+<div class="case-actions">
+<a href="https://kospimap.com/realestate-map?sido=11&amp;sgg=11650&amp;complex=11650%3A%EB%B0%98%ED%8F%AC%EB%8F%99%3A1%3A%EB%9E%98%EB%AF%B8%EC%95%88%EC%9B%90%EB%B2%A0%EC%9D%BC%EB%A6%AC&amp;3d=1" target="_blank" rel="noopener noreferrer">3D 단지뷰 열기 ↗</a>
+<a href="https://kospimap.com/making/3d-view.html" target="_blank" rel="noopener noreferrer">개발일지 원문 ↗</a>
+<a href="https://github.com/fdx5/stock_market" target="_blank" rel="noopener noreferrer">공개 소스 ↗</a>
+</div>
+</header>
+<figure class="case-visual case-hero wrap">
+<a href="../assets/case-studies/kospimap-day.jpg" target="_blank" rel="noopener noreferrer" aria-label="KOSPIMAP 낮 장면 크게 보기"><img src="../assets/case-studies/kospimap-day.jpg" alt="공공데이터로 구성한 래미안 원베일리의 고층 건물과 한강변 도로, 가로수, 주변 아파트가 함께 보이는 KOSPIMAP 3D 단지뷰" width="1600" height="900" fetchpriority="high"></a>
+<figcaption><strong>이 아파트들은 건물 하나씩 손으로 모델링한 결과가 아니다.</strong> 건물 윤곽과 높이, 지형 데이터를 조합한 래미안 원베일리의 낮 장면. 제작자가 <a href="https://kospimap.com/making/3d-view.html" target="_blank" rel="noopener noreferrer">개발일지</a>에 공개한 2026. 10. 02 캡처. 원본 이미지 확인·저장: 2026. 10. 02.</figcaption>
+</figure>
+<div class="news-article-shell guide-shell wrap">
+<nav class="news-toc guide-toc" aria-label="글 목차"><span>이 글에서</span>
+<a href="#data"><span>01</span>데이터로 짓는 아파트</a>
+<a href="#engine"><span>02</span>게임에서 가져온 엔진</a>
+<a href="#rules"><span>03</span>창문이 사라진 이유</a>
+<a href="#performance"><span>04</span>좋아졌는지 재는 법</a>
+<a href="#ai"><span>05</span>AI 협업에 남은 근거</a>
+<a href="#limits"><span>06</span>화면과 정확도의 거리</a>
+<a href="#practice"><span>07</span>우리 업무로 가져오기</a>
+</nav>
+<div class="news-story guide-story case-story">
+<aside class="case-note"><strong>이 글의 확인 범위</strong><p>2026년 10월 2일 공개 개발일지와 소스·커밋 기록을 대조했습니다. 이미지는 제작자가 공개한 실제 서비스 화면이며, 성능 수치는 제작자의 측정 기록입니다. 헬로우 휴먼이 별도 기기 벤치마크나 건물 정확도 검증을 수행한 것은 아닙니다. 본문의 도식은 과정을 설명하기 위한 재구성이며 커머스 적용은 실험 제안입니다.</p></aside>
+<div class="guide-intro">
+<p>낚시 게임에서 물과 빛을 그리던 기술로 아파트 단지를 만든다면 어떤 모습일까요?</p>
+<p><a href="2026-09-27-tidewater.html">첫 번째 사례연구의 Tidewater</a>는 브라우저에서 즐기는 낚시 게임이었습니다. 이번에는 그 게임의 렌더링 엔진이 공공데이터로 아파트와 주변 동네를 그리는 <strong>KOSPIMAP의 3D 단지뷰</strong>에 등장합니다.</p>
+<p>건물 아래에 지형이 놓이고, 도로에는 차가 다니고, 해가 지면 창에 불이 들어옵니다. 그런데 화면 뒤의 기록에는 뜻밖의 장면도 있습니다. 창문이 사라진 아파트, 1층인데 높이가 404m인 건물, GPU 부담을 줄였더니 더 끊기는 화면입니다.</p>
+<p>이 글은 그 문제를 따라갑니다. <strong>다른 프로젝트의 기술을 어떻게 가져왔고, 잘못된 입력을 어떻게 걸러냈으며, 좋아 보였던 개선을 왜 되돌렸을까요?</strong></p>
+</div>
+
+<section class="guide-section case-section" id="data" aria-labelledby="data-title">
+<span class="case-section-number">CASE STUDY / 01</span><h2 id="data-title">건물을 하나씩 만드는 대신, 데이터를 장면으로 바꾸다</h2>
+<p>3D 아파트라고 하면 먼저 건물 모델을 하나씩 만드는 작업을 떠올리기 쉽습니다. 이 프로젝트는 단지의 위치를 찾고, 건물의 평면 윤곽을 높이만큼 세우며, 지형과 도로 정보를 조합합니다. 브이월드 3D 건물의 형상을 등록 건물과 대응시켜 교체하는 처리도 있습니다.</p>
+<p>즉, 특정 단지의 완성된 모형을 보여주는 것보다 <strong>입력을 받아 장면을 구성하는 생성 과정</strong>에 가깝습니다. 같은 과정으로 여러 단지를 그릴 수 있지만, 원자료의 오류도 함께 화면에 나타납니다.</p>
+<p>개발일지의 <a href="https://kospimap.com/making/3d-view.html#survey" target="_blank" rel="noopener noreferrer">1층·404m 건물 사례</a>가 그 예입니다. 기록된 높이가 층수와 맞지 않아 층수 기준 높이로 바꿨습니다. 이상한 형상이 보이면 그리기 코드뿐 아니라, 그 형상을 만든 원자료까지 거슬러 올라가야 합니다.</p>
+<figure class="case-process"><figcaption><span>DATA → SCENE</span><strong>하나의 장면이 만들어지는 순서</strong></figcaption><ol>
+<li><span>01</span><strong>위치와 형상</strong><small>단지 좌표, 건물 윤곽·높이, 지형·도로 조회</small></li>
+<li><span>02</span><strong>검증과 보정</strong><small>3D 형상 대응, 높이 오류와 사진색 판정</small></li>
+<li><span>03</span><strong>동네 구성</strong><small>외벽·지면 재질, 나무·사람·차량 배치</small></li>
+<li><span>04</span><strong>화면에 그리기</strong><small>시간·날씨·조명을 반영해 렌더링</small></li>
+</ol></figure>
+<p>높이 데이터가 없을 때도 구분이 필요합니다. 공개 코드에는 층수가 있으면 층수로 높이를 계산하고, 둘 다 부족하면 추정값을 사용하는 경로가 있습니다. 이때 <code>height_source</code>에 값의 출처를 남깁니다.</p>
+<figure class="kospimap-figure"><figcaption><span>DATA PROVENANCE</span><strong>같은 높이처럼 보여도, 근거는 다르다</strong></figcaption>
+<dl class="kospimap-provenance">
+<div><dt>원자료</dt><dd>등록된 높이가 있는 건물<small>값을 읽어 사용해도 원자료 자체의 오류 가능성은 남는다.</small></dd></div>
+<div><dt>계산</dt><dd>높이는 없고 층수가 있는 건물<small>층수로 높이를 계산하고 <code>floors</code>로 표시한다.</small></dd></div>
+<div><dt>추정</dt><dd>높이와 층수가 모두 부족한 건물<small>대체 규칙을 적용하고 <code>estimated</code>로 표시한다.</small></dd></div>
+</dl><p class="kospimap-caption">공개 코드의 높이 보정 흐름을 단순화한 도식. 실제 서비스 화면에 이 구분이 모두 표시된다는 뜻은 아니다.</p></figure>
+<p><strong>자동 생성의 범위를 넓힐수록, 결과를 만든 데이터와 보정 과정도 설명할 수 있어야 합니다.</strong> 화면이 정교해졌다고 입력 데이터까지 정확해지는 것은 아니기 때문입니다.</p>
+<p class="case-sources">확인 자료 · <a href="https://kospimap.com/making/3d-view.html#data" target="_blank" rel="noopener noreferrer">개발일지, 데이터에서 시작하다 ↗</a> · <a href="https://github.com/fdx5/stock_market/blob/1e62ba8125d64bfc51a8e7afc95b1fc00d1eb096/backend/app/services/realestate_buildings.py" target="_blank" rel="noopener noreferrer">높이 계산·추정과 출처 기록 코드 ↗</a></p>
+</section>
+
+<section class="guide-section case-section" id="engine" aria-labelledby="engine-title">
+<span class="case-section-number">CASE STUDY / 02</span><h2 id="engine-title">게임에서 필요한 엔진을 가져오다</h2>
+<p>Tidewater의 낚시나 게임 진행 방식이 아파트 서비스로 옮겨온 것은 아닙니다. 저장소의 고지 문서는 <strong>엔진 소스만 포함하고 게임의 제3자 에셋은 포함하지 않았다</strong>고 밝힙니다. 가져온 버전과 MIT 라이선스, 파이프라인 캐시·GPU 버퍼 정리·측정 기능 등의 수정 범위도 기록되어 있습니다.</p>
+<p>연결 방식도 흥미롭습니다. three.js는 기존 장면의 형상과 카메라 조작, 클릭 판정을 맡습니다. <code>ComplexRenderer</code>라는 어댑터가 이 장면을 Tidewater 기반 WebGPU 렌더러와 이어줍니다.</p>
+<figure class="kospimap-figure"><figcaption><span>REUSE BY RESPONSIBILITY</span><strong>기존 장면을 유지하고, 그리는 부분을 연결하다</strong></figcaption>
+<div class="kospimap-engine">
+<div><strong>three.js 장면</strong><small>건물의 형상<br>카메라 조작 · 클릭 판정</small></div><span aria-hidden="true">→</span>
+<div><strong>연결 어댑터</strong><small>ComplexRenderer<br>장면과 재질을 동기화</small></div><span aria-hidden="true">→</span>
+<div><strong>Tidewater 기반 엔진</strong><small>WebGPU · WGSL<br>조명 · 그림자 · 화면 출력</small></div>
+</div><p class="kospimap-fallback">호환 경로 · WebGPU를 사용할 수 없을 때는 three.js의 WebGL 경로로 화면을 그린다.</p>
+<p class="kospimap-caption">엔진 고지 문서와 개발일지를 바탕으로 역할을 단순화했다. 두 경로의 표현 품질이 같다는 뜻은 아니다.</p></figure>
+<p>재사용할 기능과 기존 시스템이 계속 맡을 기능을 구분했기에 게임 기술을 다른 도메인에 연결할 수 있었습니다. 커머스에 새로운 검색 엔진이나 AI 서비스를 붙일 때도 상품·주문·회원 시스템 전체를 바꾸기 전에 이런 경계를 먼저 정할 수 있습니다.</p>
+<p><strong>재사용의 단위는 역할이 분명한 기능일 수 있습니다.</strong> 무엇을 가져오고, 무엇을 유지하고, 둘 사이에 어떤 정보를 주고받을지 정하는 일이 출발점입니다.</p>
+<div class="kospimap-gallery">
+<figure class="case-visual"><a href="../assets/case-studies/kospimap-night.jpg" target="_blank" rel="noopener noreferrer" aria-label="KOSPIMAP 밤 장면 크게 보기"><img src="../assets/case-studies/kospimap-night.jpg" alt="저녁 20시 40분으로 표시된 래미안 원베일리의 3D 장면. 창마다 켜진 실내등과 강변의 가로등이 보인다" width="1600" height="900" loading="lazy" decoding="async"></a><figcaption><strong>시간이 바뀌면, 창 안에 불이 켜진다.</strong> 제작자가 공개한 밤 장면. 건물 사진 한 장을 붙이는 것과 다른 표현이다.</figcaption></figure>
+<figure class="case-visual"><a href="../assets/case-studies/kospimap-rain.jpg" target="_blank" rel="noopener noreferrer" aria-label="KOSPIMAP 비 장면 크게 보기"><img src="../assets/case-studies/kospimap-rain.jpg" alt="흐린 하늘 아래 비가 내리고 젖은 지면이 표현된 래미안 원베일리의 3D 장면" width="1600" height="900" loading="lazy" decoding="async"></a><figcaption><strong>날씨가 바뀌면, 빛을 받는 방식도 달라진다.</strong> 제작자가 공개한 비 장면. 개발일지는 젖은 지면의 반사와 빗줄기 표현을 설명한다.</figcaption></figure>
+</div>
+<p class="case-sources">이미지 출처 · 제작자가 공개한 <a href="https://kospimap.com/making/3d-view.html#alive" target="_blank" rel="noopener noreferrer">개발일지의 낮·밤·날씨 화면 ↗</a>. 2026. 10. 02 확인·저장. 서로 다른 시점의 장면으로 성능 비교 이미지는 아니다.<br>구현 근거 · <a href="https://github.com/fdx5/stock_market/blob/1e62ba8125d64bfc51a8e7afc95b1fc00d1eb096/frontend/src/vendor/tidewater/NOTICE.md" target="_blank" rel="noopener noreferrer">엔진 출처·라이선스·수정 범위 ↗</a> · <a href="https://github.com/fdx5/stock_market/blob/1e62ba8125d64bfc51a8e7afc95b1fc00d1eb096/frontend/src/components/tidewater/ComplexRenderer.js" target="_blank" rel="noopener noreferrer">연결 어댑터 ↗</a></p>
+</section>
+
+<section class="guide-section case-section" id="rules" aria-labelledby="rules-title">
+<span class="case-section-number">CASE STUDY / 03</span><h2 id="rules-title">아파트 정면에서 창문이 사라진 이유</h2>
+<h3>사진에서 읽어낸 것은 반복되는 규칙</h3>
+<p>사진을 외벽에 그대로 붙이면 사진 속 그림자와 장면의 조명이 충돌합니다. 이 프로젝트는 사진의 밝기와 반복 간격을 계산해 창이 있는 면을 판별하고, 반복이 뚜렷할 때 층고·창 간격을 추정합니다. 외벽과 옥상 색을 읽는 처리도 별도로 있습니다.</p>
+<p>사진은 장면을 다시 구성하기 위한 속성을 얻는 자료가 됩니다. 이 분석은 공개 코드상 <strong>밝기·간격·반복성에 대한 수치 계산</strong>으로 구현되어 있습니다. 사진을 처리할 때마다 멀티모달 AI에 판단을 맡기는 구조는 아닙니다.</p>
+<figure class="case-visual"><a href="../assets/case-studies/kospimap-facade.jpg" target="_blank" rel="noopener noreferrer" aria-label="건물 외벽 표현 크게 보기"><img src="../assets/case-studies/kospimap-facade.jpg" alt="강변에서 가까이 바라본 래미안 원베일리의 고층 동들. 외벽에 반복되는 창과 발코니가 표현되어 있다" width="1600" height="900" loading="lazy" decoding="async"></a><figcaption>사진에서 읽은 창 간격과 층고를 반영한 외벽 표현. 제작자가 <a href="https://kospimap.com/making/3d-view.html#survey" target="_blank" rel="noopener noreferrer">개발일지에 공개한 화면 ↗</a>. 2026. 10. 02 확인·저장. 실제 치수를 독립 검증한 이미지는 아니다.</figcaption></figure>
+<h3>규칙이 틀렸을 때, 반대 사례까지 확인하다</h3>
+<p>규칙도 틀립니다. 개발일지에는 정사각형에 가까운 탑상형 아파트의 정면을 창문 없는 측벽으로 잘못 분류한 문제가 나옵니다. 긴 축과 짧은 축을 기준으로 판단하기 어려운 건물에 그 규칙을 적용한 것입니다. 여기에 그늘진 사진의 어두운 색을 외벽색으로 받아들이는 문제가 겹쳤습니다.</p>
+<p>수정은 해당 건물에만 예외를 넣는 방식이 아니었습니다. 측벽으로 인정할 폭의 조건을 좁히고, 지나치게 어두운 사진색은 외벽색으로 채택하지 않도록 공통 규칙을 바꿨습니다. 그리고 탑상형 정면의 창이 돌아왔는지 확인한 뒤, 판상형의 실제 측벽은 여전히 창 없이 남는지 살폈습니다.</p>
+<figure class="kospimap-figure"><figcaption><span>FIX + COUNTEREXAMPLE</span><strong>한쪽을 고친 뒤, 다른 쪽을 지켰는가</strong></figcaption>
+<div class="kospimap-rule-pair">
+<div><h3>문제가 된 탑상형 정면</h3><div class="kospimap-building has-windows" aria-hidden="true"></div><p>잘못 사라진 창이<br><b>다시 나타나야 한다.</b></p></div>
+<div><h3>반대 사례인 판상형 측벽</h3><div class="kospimap-building is-side" aria-hidden="true"></div><p>원래 없던 창이<br><b>새로 생기면 안 된다.</b></p></div>
+</div><p class="kospimap-caption">검증 조건을 설명하는 도식. 실제 건물의 비율이나 수정 전후 화면을 재현한 그림은 아니다.</p></figure>
+<p>특정 상품의 할인 오류를 고쳤더니 다른 프로모션이 달라지는 일도 같은 구조입니다. 공통 규칙을 수정했다면 <strong>문제가 발생한 사례와 그 규칙이 적용되면 안 되는 반대 사례</strong>를 함께 확인해야 합니다. 수정된 코드와 함께 남겨야 할 것은 그 수정이 지켜야 할 경계입니다.</p>
+<p class="case-sources">확인 자료 · <a href="https://kospimap.com/making/3d-view.html#survey" target="_blank" rel="noopener noreferrer">오류와 반대 사례를 확인한 개발 기록 ↗</a> · <a href="https://github.com/fdx5/stock_market/blob/1e62ba8125d64bfc51a8e7afc95b1fc00d1eb096/frontend/src/components/photoAnalysis.ts" target="_blank" rel="noopener noreferrer">사진의 밝기·반복성 분석 코드 ↗</a> · <a href="https://github.com/fdx5/stock_market/commit/860b437acbfe98d7453d8c71e1a51dc67ece0657" target="_blank" rel="noopener noreferrer">탑상형 창·외벽색 수정 커밋 ↗</a></p>
+</section>
+
+<section class="guide-section case-section" id="performance" aria-labelledby="performance-title">
+<span class="case-section-number">CASE STUDY / 04</span><h2 id="performance-title">좋아졌는지는 사용자가 겪는 결과로 판단하다</h2>
+<p>3D 화면에서는 성능 문제가 눈에 보입니다. 회전이 끊기고, 단지를 바꿀 때 멈추고, 이동할수록 메모리 사용량이 커집니다. 작업 기록은 이를 프레임 간격, 메인 스레드 작업, GPU 프로세스, 메모리 사용량으로 나눠 살펴봅니다.</p>
+<p>아래는 제작자가 <strong>서로 다른 개선 단계에서 보고한 수치</strong>입니다. 한 번의 수정으로 모두 달성한 결과는 아닙니다.</p>
+<figure class="kospimap-figure"><figcaption><span>BEFORE / AFTER · 제작자 측정</span><strong>무엇을 바꿨고, 무엇이 달라졌나</strong></figcaption>
+<div class="kospimap-chart">
+<div class="kospimap-metric"><h3>프레임률 <small>높을수록 원활</small></h3><p>모바일 화면 조건 · CPU 4배 감속 · 렌더링 준비 작업의 중복 제거</p>
+<div class="kospimap-bar-row"><span>이전</span><div class="kospimap-track" aria-hidden="true"><span class="kospimap-bar" style="--value:58.333%"></span><span class="kospimap-range" style="--start:58.333%;--range:8.334%"></span></div><strong>35~40 fps</strong></div>
+<div class="kospimap-bar-row is-after"><span>이후</span><div class="kospimap-track" aria-hidden="true"><span class="kospimap-bar" style="--value:73.333%"></span><span class="kospimap-range" style="--start:73.333%;--range:8.334%"></span></div><strong>44~49 fps</strong></div><div class="kospimap-scale" aria-hidden="true"><span>0</span><span>60 fps</span></div></div>
+<div class="kospimap-metric"><h3>GPU 버퍼 <small>사용량 감소</small></h3><p>그리지 않는 인스턴스 메시의 버퍼를 미리 만들지 않도록 변경</p>
+<div class="kospimap-bar-row"><span>이전</span><div class="kospimap-track" aria-hidden="true"><span class="kospimap-bar" style="--value:87.333%"></span></div><strong>52.4 MB</strong></div>
+<div class="kospimap-bar-row is-after"><span>이후</span><div class="kospimap-track" aria-hidden="true"><span class="kospimap-bar" style="--value:63.667%"></span></div><strong>38.2 MB</strong></div><div class="kospimap-scale" aria-hidden="true"><span>0</span><span>60 MB</span></div></div>
+<div class="kospimap-metric"><h3>GPU 텍스처 <small>단지 이동 중 사용량 감소</small></h3><p>떠난 단지의 재질을 20초 보관하던 방식에서 즉시 해제로 변경</p>
+<div class="kospimap-bar-row"><span>이전</span><div class="kospimap-track" aria-hidden="true"><span class="kospimap-bar" style="--value:92.143%"></span></div><strong>약 645 MB</strong></div>
+<div class="kospimap-bar-row is-after"><span>이후</span><div class="kospimap-track" aria-hidden="true"><span class="kospimap-bar" style="--value:69.857%"></span></div><strong>약 489 MB</strong></div><div class="kospimap-scale" aria-hidden="true"><span>0</span><span>700 MB</span></div></div>
+</div><p class="kospimap-caption">막대는 항목별 0에서 시작하며 척도가 다르다. 프레임률 끝의 빗금은 보고된 최솟값~최댓값 범위이며 신뢰구간이 아니다. 개발일지의 측정 환경은 Windows·Chrome·RTX 3070, 프로덕션 빌드, 같은 시각에 이전·이후 빌드를 번갈아 2회 이상 비교. <strong>CPU 감속 실험은 실제 휴대폰 벤치마크가 아니며</strong> 모든 기기의 결과를 대표하지 않는다.</p></figure>
+<h3>작업을 나누는 것만으로는 부족하다</h3>
+<p>큰 작업을 잘게 쪼개도 화면을 그리기 전에 작업 조각들이 연달아 실행되면 한 프레임이 길어질 수 있습니다. 공개된 <code>frameSlice</code> 구현은 프레임 시작 이후 사용한 시간을 살피고, 기본 9ms 예산을 기준으로 다음 작업을 언제 이어갈지 조절합니다.</p>
+<details class="kospimap-detail"><summary>9ms 예산은 무엇을 보장할까?</summary><p>이 코드는 작업 조각 사이에서 실행을 양보하는 방식입니다. 이미 시작한 개별 작업을 9ms에 강제로 중단하지 않습니다. 프레임마다 최소 한 조각은 진행하고 대기시간에도 상한이 있어, 모든 프레임이 9ms 안에 끝난다는 보장은 아닙니다. “비동기로 바꿨다”와 “화면이 덜 멈춘다”를 구분해야 하는 이유입니다.</p></details>
+<h3>GPU는 편해졌지만, 화면은 더 끊겼다</h3>
+<p>작업 기록에는 캔버스 그리기를 CPU 쪽으로 옮긴 시도가 나옵니다. GPU 프로세스 정체는 줄었지만 메인 스레드의 부담이 커져, 화면 표시 후 끊기는 시간은 오히려 늘었습니다.</p>
+<aside class="kospimap-rollback"><span>채택하지 않은 개선 · 화면 표시 후 끊김</span><strong>약 0.9초 → 1.3초</strong><p>제작자 기록에 따르면 페이지 캔버스는 GPU 그리기로 되돌리고, 페이지를 막지 않는 워커 캔버스만 CPU 그리기를 유지했습니다. 내부 지표가 나아졌어도 사용자의 화면이 더 멈췄기 때문입니다.</p></aside>
+<p>메모리도 원인을 구분해야 했습니다. 이 단지 이동 사례에서는 일정 시간이 지나면 사용량이 돌아왔고, 제작자는 누수 대신 재사용을 위해 보관하던 재질이 쌓인 현상으로 분석했습니다. 떠난 단지의 재질만 즉시 정리하도록 바꿔 재사용과 메모리 회수의 목적을 나눴습니다.</p>
+<p><strong>개선은 특정 지표 하나를 낮추는 데서 끝나지 않습니다.</strong> 원인을 설명하고, 사용자가 겪는 결과까지 나아졌는지 비교해야 합니다.</p>
+<p class="case-sources">확인 자료 · <a href="https://kospimap.com/making/3d-view.html#perf" target="_blank" rel="noopener noreferrer">성능 수치와 측정 조건 ↗</a> · <a href="https://kospimap.com/making/3d-view.html#hard" target="_blank" rel="noopener noreferrer">최적화를 되돌린 이유·재질 보관 분석 ↗</a> · <a href="https://github.com/fdx5/stock_market/blob/1e62ba8125d64bfc51a8e7afc95b1fc00d1eb096/frontend/src/components/frameSlice.ts" target="_blank" rel="noopener noreferrer">프레임 예산 구현 ↗</a> · <a href="https://github.com/fdx5/stock_market/commit/e797bd5834d8e409618699e2ab33f380d7df708b" target="_blank" rel="noopener noreferrer">단지 이동 시 재질 정리 커밋 ↗</a></p>
+</section>
+
+<section class="guide-section case-section" id="ai" aria-labelledby="ai-title">
+<span class="case-section-number">CASE STUDY / 05</span><h2 id="ai-title">AI가 참여했다는 흔적보다, 수정의 근거를 보다</h2>
+<p>공개 커밋에는 Claude를 공동 작성자로 표기한 기록이 있습니다. 앞서 살펴본 탑상형 정면과 외벽색 수정, 단지 이동 시 재질 정리에서도 확인됩니다. 다만 이 표기로 AI가 작성한 코드의 비율이나 실제 작업시간, 사람과 AI의 세부 역할까지 알 수는 없습니다.</p>
+<div class="case-evidence">
+<div><h3>공개 자료에서 확인한 것</h3><p>AI 공동 작성 표기, 오류를 설명한 개발 기록, 규칙 변경, 제작자가 보고한 비교 수치와 반대 사례 확인.</p></div>
+<div><h3>그 자료만으로 알 수 없는 것</h3><p>AI의 코드 기여율, 대화와 작업의 전체 과정, AI를 쓰지 않았을 때와 비교한 생산성 향상 폭.</p></div>
+</div>
+<p>따라서 “AI가 알아서 완성한 3D 서비스”라고 소개하기보다는, <strong>AI와 만든 변경을 검토할 근거가 남아 있는 사례</strong>로 읽는 편이 타당합니다. 어떤 화면이 잘못되었고, 무엇을 바꿨으며, 어떤 결과를 보고 채택하거나 되돌렸는지 따라갈 수 있기 때문입니다.</p>
+<p>헬로우 휴먼이 가져갈 질문도 구체적이어야 합니다. <strong>AI가 제안한 변경을 받아들일지 결정할 근거가 있는가?</strong> 코드가 실행되는지에 더해 다른 입력에서도 유지되는지, 화면이 더 정확해졌는지, 실제로 덜 멈추는지 판단할 기준이 필요합니다.</p>
+<p class="case-sources">확인 자료 · <a href="https://github.com/fdx5/stock_market/commit/860b437acbfe98d7453d8c71e1a51dc67ece0657" target="_blank" rel="noopener noreferrer">외벽 수정 커밋의 공동 작성 표기 ↗</a> · <a href="https://github.com/fdx5/stock_market/commit/e797bd5834d8e409618699e2ab33f380d7df708b" target="_blank" rel="noopener noreferrer">재질 정리 커밋의 공동 작성 표기 ↗</a></p>
+</section>
+
+<section class="guide-section case-section" id="limits" aria-labelledby="limits-title">
+<span class="case-section-number">CASE STUDY / 06</span><h2 id="limits-title">사실적인 화면과 정확한 정보 사이</h2>
+<p>이 장면을 볼 때 두 가지 경계를 기억할 필요가 있습니다.</p>
+<p><strong>데이터에 근거한 형상과 정확도가 보증된 분석 결과는 다릅니다.</strong> 등록 높이뿐 아니라 층수 계산과 추정값을 사용하는 경로가 있고, 사진 분석에도 밝기와 반복성에 따른 판정이 들어갑니다. 실제와 닮았다는 이유만으로 모든 위치·치수·외벽 표현이 검증되었다고 볼 수는 없습니다.</p>
+<p><strong>호환 경로가 있어도 표현과 품질은 따로 확인해야 합니다.</strong> three.js 기반 WebGL과 Tidewater 기반 WebGPU에서 핵심 정보와 조작이 어떻게 유지되는지, 여러 기기에서 어떤 품질을 보장할지는 별도의 검증 항목입니다.</p>
+<p>개발일지는 일조·조망 분석과 실제 교통량·날씨 반영 등을 앞으로의 가능성으로 소개합니다. 이를 이미 제공되는 검증된 분석 기능으로 읽어서는 안 됩니다. 특히 장면에 움직이는 차량과 비가 보인다고 해서 실제 교통과 실시간 기상을 재현한다는 뜻은 아닙니다.</p>
+<p>제품의 다음 질문은 화면 밖에도 있습니다. 추정값을 사용자에게 어떻게 알릴지, 오래되거나 부족한 데이터는 무엇으로 표시할지, 기능이 제한되는 기기에서는 어떤 정보를 지킬지 정해야 합니다. <strong>사실적으로 보이게 만드는 일과 정확하게 이해하도록 돕는 일은 함께 진행되어야 합니다.</strong></p>
+<p class="case-sources">확인 자료 · <a href="https://kospimap.com/making/3d-view.html#next" target="_blank" rel="noopener noreferrer">개발일지에 제시된 향후 발전 방향 ↗</a>. 위 검증 항목은 이를 바탕으로 한 헬로우 휴먼의 해석이다.</p>
+</section>
+
+<section class="guide-section case-section" id="practice" aria-labelledby="practice-title">
+<span class="case-section-number">CASE STUDY / 07</span><h2 id="practice-title">우리 업무에 가져올 검증 방식</h2>
+<p>이 사례에서 커머스 개발로 옮겨볼 만한 것은 <strong>입력을 가공하고, 오류를 분류하고, 변경의 효과를 확인하는 방식</strong>입니다. 다음은 실제 성과가 아닌 적용 아이디어입니다.</p>
+<div class="guide-table-scroll"><table><thead><tr><th scope="col">KOSPIMAP에서 본 방식</th><th scope="col">커머스에서 해볼 실험</th></tr></thead><tbody>
+<tr><td>원자료·계산·추정의 구분</td><td>협력사 상품정보와 자동 보정값을 구분하고, 보정 이유를 기록한다.</td></tr>
+<tr><td>공통 규칙 수정 후 반대 사례 확인</td><td>쿠폰 적용 상품과 제외 상품, 중복 할인이 금지된 상품을 함께 검증한다.</td></tr>
+<tr><td>내부 지표와 사용자 결과를 함께 비교</td><td>AI 응답속도뿐 아니라 검토시간·재작업률·업무 완료시간을 비교한다.</td></tr>
+</tbody></table></div>
+<p>예를 들어 상품정보 정비를 자동화한다면 작은 검증 세트부터 만들 수 있습니다. 정상 상품, 필수 정보가 빠진 상품, 단위가 섞인 상품, 예외 조건이 있는 상품을 넣고 수정 전후를 비교하는 것입니다.</p>
+<figure class="case-process"><figcaption><span>KEEP THE EVIDENCE</span><strong>다음 변경에도 다시 쓸 수 있는 기록</strong></figcaption><ol>
+<li><span>01</span><strong>입력 보관</strong><small>정상·누락·예외 사례를 함께 준비</small></li>
+<li><span>02</span><strong>변경 기록</strong><small>적용한 규칙·모델과 바꾼 이유</small></li>
+<li><span>03</span><strong>같은 조건 비교</strong><small>수정 전후와 반대 사례를 확인</small></li>
+<li><span>04</span><strong>판단 남기기</strong><small>채택·되돌리기와 미확인 항목</small></li>
+</ol></figure>
+<p>이렇게 해야 자동화의 성과도 구체적으로 말할 수 있습니다. “AI가 처리했습니다”에서 멈추지 않고, “이 범위의 입력에서 이 기준을 통과했고, 사람이 다시 확인할 부분은 여기입니다”라고 설명할 수 있습니다.</p>
+<h3>결과물보다 오래 남는 것은 판단 기준</h3>
+<p>KOSPIMAP 3D 단지뷰는 게임의 렌더링 엔진을 다른 도메인에 연결한 사례이자, 공개 데이터와 계산 규칙으로 만든 결과를 어떻게 검토할 것인지 보여주는 사례입니다.</p>
+<div class="case-closing"><p><strong>필요한 기능을 재사용하고, 입력을 의심하고, 수정 전후를 비교하고, 효과가 없으면 되돌린다.</strong></p><p>Workless Engineering이 줄이려는 것은 같은 확인을 매번 처음부터 반복하는 일입니다. 확인의 기준을 남기면 다음 개발자는 그 지점에서 출발할 수 있습니다. 좋은 사례는 멋진 결과물과 함께, 다시 사용할 수 있는 검증 방법을 남깁니다.</p></div>
+</section>
+
+<div class="guide-resources">
+<h2>직접 살펴볼 자료</h2>
+<ul>
+<li><a href="https://kospimap.com/realestate-map" target="_blank" rel="noopener noreferrer">KOSPIMAP 부동산 지도 ↗</a></li>
+<li><a href="https://kospimap.com/making/3d-view.html" target="_blank" rel="noopener noreferrer">KOSPIMAP 개발일지, 브라우저 안에서 공공 데이터로 아파트 단지를 다시 짓다 ↗</a></li>
+<li><a href="https://kospimap.com/making/3d-view.html#films" target="_blank" rel="noopener noreferrer">제작자가 공개한 두 단지의 시연 영상 ↗</a> · 장면을 프레임별로 캡처해 이어 붙인 영상이므로 실시간 성능의 근거로 사용하지 않았습니다.</li>
+<li><a href="https://github.com/fdx5/stock_market/tree/1e62ba8125d64bfc51a8e7afc95b1fc00d1eb096" target="_blank" rel="noopener noreferrer">확인 당시 공개 소스, 1e62ba8 ↗</a></li>
+<li><a href="https://github.com/dgreenheck/tidewater/tree/4811ba48d795197de5621985f404e765c0b7c0ef" target="_blank" rel="noopener noreferrer">KOSPIMAP이 가져온 Tidewater 엔진의 원본 버전 ↗</a></li>
+<li><a href="2026-09-27-tidewater.html">사례연구 01, AI와 만든 낚시 게임</a> · <a href="2026-10-01-railcode.html">사례연구 02, AI로 만든 웹사이트와 디자인 판단</a></li>
+<li><a href="../works/choi-taejun.html">헬로우휴먼 멤버 최태준의 다른 작업물</a></li>
+</ul>
+<p>자료 확인: 2026. 10. 02. 개발 과정과 성능 수치는 제작자 기록이며 별도의 재현 실험 결과가 아닙니다. 이미지는 개발일지의 원본을 사용하고 출처를 표시했습니다. 본문 소스 링크는 확인 당시 커밋에 고정했습니다.</p>
+<a class="news-end-link" href="./">AI 사례연구 목록으로 돌아가기 <span aria-hidden="true">→</span></a>
+</div>
+</div></div></article></main>
+<footer class="footer"><div class="wrap">헬로우 휴먼 · Workless Engineering Club</div></footer>
+<script src="../assets/article-toc.js?v=1" defer></script>
+<script src="../assets/analytics.js?v=2" defer></script>
+<script type="module" src="../assets/content-updates.js?v=2"></script>
+</body></html>

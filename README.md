@@ -51,6 +51,7 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `case-studies/index.html` | AI 사례연구 소개와 목록 |
 | `case-studies/2026-09-27-tidewater.html` | AI 사례연구 첫 호: Tidewater |
 | `case-studies/2026-10-01-railcode.html` | AI 사례연구 두 번째 호: Railcode의 시안 탐색·비교 도구와 디자인 판단 |
+| `case-studies/2026-10-02-kospimap.html` | AI 사례연구 세 번째 호: KOSPIMAP 3D 단지뷰, 엔진 재사용과 데이터·성능 검증 |
 | `guides/index.html` | AI가이드 목록 |
 | `guides/2026-09-25-llm-selection.html` | AI가이드 첫 호 |
 | `guides/2026-09-30-jev-decisions.html` | AI가이드 두 번째 호: 에이전트의 작은 판단과 Jev 실습 |
@@ -75,6 +76,7 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `assets/guides/jev-request.json` | 가상 고객 문의로 Choice·Score·Noul을 호출하는 다운로드용 실습 입력 |
 | `assets/case-studies.css` | AI 사례연구 소개 카드·목록·본문 시각화 스타일 |
 | `assets/case-railcode.css` | 사례연구 02의 배송지연 주문 화면 A·B·C 시안 스타일 |
+| `assets/case-kospimap.css` | 사례연구 03의 데이터 출처·엔진 연결·반대 사례 검증 도식과 성능 비교 차트 |
 | `assets/case-studies/` | 실제 게임·웹사이트 캡처와 출처가 표시된 사례 이미지 |
 | `assets/insights.css` | 커머스 인사이트 시각화 스타일 |
 | `assets/insight-evidence.css` | 인사이트 02의 구매 사례·검수 화면·아키텍처 도식 스타일 |

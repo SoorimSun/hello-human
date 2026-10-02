@@ -1,0 +1,68 @@
+/* 사례연구 03: 실제 장면, 데이터의 출처, 변경 전후의 판단 근거 */
+.kospimap-maker { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; margin-top: 22px; font-size: 15px; }
+.kospimap-maker > span { color: var(--muted); }
+.kospimap-maker a { font-weight: 700; text-underline-offset: 4px; }
+.kospimap-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin: 30px 0; }
+.kospimap-gallery .case-visual { margin: 0; }
+.kospimap-gallery figcaption > strong { display: block; margin-bottom: 4px; }
+.kospimap-figure { margin: 32px 0; padding: 26px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.kospimap-figure > figcaption { display: grid; gap: 7px; margin-bottom: 24px; }
+.kospimap-figure > figcaption > span { font: 500 11px var(--mono); letter-spacing: .08em; color: var(--muted); }
+.kospimap-figure > figcaption > strong { font-size: 21px; line-height: 1.45; }
+.case-story .kospimap-caption { margin: 18px 0 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
+.kospimap-provenance { display: grid; gap: 12px; margin: 0; }
+.kospimap-provenance > div { display: grid; grid-template-columns: 82px minmax(0, 1fr); gap: 16px; padding: 16px; border-left: 3px solid var(--muted); background: var(--surface-2); }
+.kospimap-provenance dt { align-self: center; font-weight: 750; }
+.kospimap-provenance dd { margin: 0; font-size: 14px; line-height: 1.7; }
+.kospimap-provenance dd small { display: block; color: var(--muted); }
+.kospimap-provenance > div:last-child { border-color: var(--accent); }
+.kospimap-engine { display: grid; grid-template-columns: 1fr 32px 1fr 32px 1fr; align-items: stretch; }
+.kospimap-engine > div { padding: 20px 15px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-2); }
+.kospimap-engine > span { align-self: center; text-align: center; color: var(--muted); }
+.kospimap-engine strong { display: block; font-size: 16px; line-height: 1.5; }
+.kospimap-engine small { display: block; margin-top: 10px; color: var(--muted); font-size: 13px; line-height: 1.65; }
+.case-story .kospimap-fallback { padding: 13px 16px; margin: 12px 0 0; border: 1px dashed var(--line); border-radius: 8px; color: var(--muted); font-size: 13px; }
+.kospimap-rule-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+.kospimap-rule-pair > div { min-width: 0; }
+.kospimap-rule-pair h3 { margin: 0 0 16px; font-size: 16px; }
+.kospimap-building { position: relative; width: 104px; height: 126px; margin: 20px auto; border: 2px solid var(--muted); background-color: var(--surface-2); }
+.kospimap-building::after { content: ''; position: absolute; width: 18px; height: 100%; left: 100%; top: -2px; border: 2px solid var(--muted); background: var(--line); transform: skewY(-20deg); transform-origin: left top; }
+.kospimap-building.has-windows { background-image: repeating-linear-gradient(0deg, transparent 0 15px, var(--surface-2) 15px 22px), repeating-linear-gradient(90deg, var(--muted) 0 10px, transparent 10px 20px); background-clip: content-box; padding: 8px; }
+.kospimap-building.is-side { width: 52px; }
+.kospimap-rule-pair p { font-size: 14px; line-height: 1.75; margin: 0; }
+.kospimap-rule-pair b { color: var(--accent); }
+.kospimap-chart { display: grid; gap: 28px; }
+.kospimap-metric h3 { margin: 0 0 5px; font-size: 17px; }
+.kospimap-metric > p { margin: 0 0 14px; color: var(--muted); font-size: 13px; }
+.kospimap-bar-row { display: grid; grid-template-columns: 30px minmax(0, 1fr) 92px; gap: 12px; align-items: center; margin-top: 10px; font-size: 13px; }
+.kospimap-bar-row > span:first-child { color: var(--muted); }
+.kospimap-bar-row strong { font: 500 13px var(--mono); text-align: right; white-space: nowrap; }
+.kospimap-track { position: relative; height: 22px; background: var(--surface-2); border-radius: 3px; overflow: hidden; }
+.kospimap-bar { display: block; width: var(--value); height: 100%; background: var(--muted); }
+.kospimap-bar-row.is-after .kospimap-bar { background: var(--ink); }
+.kospimap-range { position: absolute; left: var(--start); width: var(--range); top: 0; height: 100%; background: repeating-linear-gradient(135deg, var(--muted) 0 2px, var(--surface) 2px 5px); border-right: 2px solid var(--ink); }
+.kospimap-scale { display: flex; justify-content: space-between; margin: 5px 104px 0 42px; color: var(--muted); font: 10px var(--mono); }
+.kospimap-rollback { margin-top: 26px; padding: 23px; border-left: 3px solid var(--accent); background: var(--accent-soft); }
+.kospimap-rollback > span { color: var(--accent); font-size: 13px; font-weight: 700; }
+.kospimap-rollback > strong { display: block; margin: 12px 0; font: 700 clamp(26px, 5vw, 36px) var(--mono); }
+.case-story .kospimap-rollback p { margin: 0; font-size: 14px; line-height: 1.75; }
+.kospimap-detail { margin: 24px 0; padding: 18px 20px; border: 1px solid var(--line); border-radius: 8px; }
+.kospimap-detail summary { cursor: pointer; font-size: 15px; font-weight: 700; }
+.kospimap-detail summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; }
+.case-story .kospimap-detail p { margin: 16px 0 0; font-size: 14px; line-height: 1.8; }
+@media (max-width: 720px) {
+  .kospimap-figure { padding: 21px 18px; }
+  .kospimap-engine { grid-template-columns: 1fr; }
+  .kospimap-engine > span { padding: 5px; transform: rotate(90deg); }
+  .kospimap-engine > div { padding: 16px; }
+  .kospimap-engine small { margin-top: 5px; }
+}
+@media (max-width: 520px) {
+  .kospimap-gallery { grid-template-columns: 1fr; gap: 24px; }
+  .kospimap-provenance > div { grid-template-columns: 1fr; gap: 6px; }
+  .kospimap-rule-pair { gap: 18px; }
+  .kospimap-rule-pair h3 { font-size: 15px; }
+  .kospimap-bar-row { grid-template-columns: 26px minmax(0, 1fr) 87px; gap: 8px; }
+  .kospimap-bar-row strong { font-size: 12px; }
+  .kospimap-scale { margin-left: 34px; margin-right: 95px; }
+}
