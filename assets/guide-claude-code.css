@@ -112,6 +112,12 @@
 .cc-process-flow span { color: var(--muted); font-size: 14px; }
 .cc-process-flow b { margin-top: 5px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 12px; font-weight: 500; }
 .guide-story .cc-process-loop { margin: 15px 0 0; padding: 14px 17px; border-radius: 8px; background: var(--accent-soft); color: var(--accent); font-size: 14px; font-weight: 700; text-align: center; }
+.cc-desktop-tabs .is-code { border-color: var(--accent); background: var(--accent-soft); }
+.cc-desktop-tabs .is-code strong { color: var(--accent); }
+.cc-desktop-tabs strong span { display: inline-block; margin-left: 5px; font-size: 10px; font-weight: 500; }
+.cc-desktop-compare th:first-child { width: 18%; }
+.cc-desktop-compare th:not(:first-child) { width: 41%; }
+.cc-desktop-compare code { overflow-wrap: anywhere; }
 @media (max-width: 900px) {
   .cc-trio { grid-template-columns: 1fr; }
   .cc-trio > div { padding: 13px 16px; }

@@ -395,3 +395,47 @@ TDD는 기능 구현 후 테스트를 몰아서 붙이는 절차가 아니다. �
 설계 확인 뒤에는 `/superpowers:writing-plans`로 파일·작업·검증 기준을 계획한다. 학습자는 계획을 읽고 ‘이 계획으로 현재 세션에서 진행해’라고 실행 방식을 지정한 다음 `/superpowers:executing-plans`로 이어갈 수 있다. 테스트 환경이 없는 정적 페이지라면 계획 단계에서 자동 검증 방법과 브라우저에서 직접 볼 항목을 먼저 정한다. 준비되지 않은 `npm test`가 이미 존재하는 것처럼 예시를 쓰지 않는다.
 
 완료 보고서에는 체크·해제·개수·키보드 조작 및 선택한 저장 동작을 각각 어떻게 확인했는지 적도록 한다. 자동 테스트 통과만으로 실제 작은 화면까지 검증했다고 표현하지 않는다. 이 예시의 기능 선택과 완료 기준은 교육용 편집 제안이며, 명령의 실제 설치 결과·생성 파일·테스트 결과는 이번 조사에서 실행 검증하지 않았다.
+
+## 13. Claude 데스크톱 앱과 CLI의 차이
+
+확인일은 2026-10-03이다. 공식 최신 문서로 조사했으며 앱 설치·로그인·실제 세션 실행은 하지 않았다. 다음 안내는 입문 실습에 맞춘 **Code 탭의 Local 환경** 기준이다.
+
+### 어디서 시작하는가
+
+Claude 데스크톱의 Chat은 일반 대화, Cowork는 독립적으로 진행하는 작업, Code는 프로젝트 파일을 직접 다루는 개발 세션이다. 이 가이드의 HTML 실습에는 **Code**를 선택한다. 일반 구독 경로는 Pro·Max·Team·Enterprise를 지원한다. 앱에 Claude Code가 포함되므로 Code 탭 사용에 CLI나 Node.js를 먼저 설치할 필요는 없다. 터미널의 `claude` 명령을 쓰려면 CLI를 별도로 설치한다. 프로젝트 자체가 요구하는 실행 도구까지 모두 포함된다는 뜻은 아니다. [데스크톱 시작하기](https://code.claude.com/docs/ko/desktop-quickstart)
+
+macOS와 Windows용 앱 외에 **Linux 베타도 현재 제공**된다. Linux는 Ubuntu 22.04+/Debian 12+, x86_64·arm64가 대상이다. ‘Linux에서는 데스크톱 앱을 사용할 수 없다’는 오래된 설명을 옮기지 않는다. [현재 다운로드 안내](https://code.claude.com/docs/ko/desktop-quickstart), [Linux 베타 요구사항](https://code.claude.com/docs/ko/desktop-linux)
+
+독자가 따라 할 순서는 **앱 로그인 → Code → Local → Select folder → 기존 실습 폴더 → 모델 선택 → 요청 입력**이다. 기본 실습의 자연어 프롬프트는 같은 목표와 파일명을 사용하면 된다. 파일 변경은 권한 모드에 따라 승인하거나 적용 후 검토한다. `+12 -1` 같은 표시를 누르면 파일별 diff를 볼 수 있다. [첫 세션과 변경 검토](https://code.claude.com/docs/ko/desktop-quickstart)
+
+### CLI 명령을 데스크톱 조작으로 바꾸기
+
+| 하려는 일 | 데스크톱 Code 탭 |
+| --- | --- |
+| 모델·권한 선택 | 전송 버튼 옆 메뉴 |
+| effort 조정 | effort 메뉴. Windows `Ctrl+Shift+E`, macOS `Cmd+Shift+E` |
+| `index.html` 보기 | 채팅의 HTML 경로를 클릭하면 Browser 미리보기 |
+| 명령 실행 | Views → Terminal. Local에서 세션과 같은 작업 폴더 사용 |
+| 설정 변경 | `/config`는 Settings → Claude Code를 열며 뒤의 `key=value`는 무시 |
+
+[데스크톱 기능·단축키·CLI 차이](https://code.claude.com/docs/ko/desktop)
+
+`claude --model claude-opus-5-5 --effort medium --permission-mode default`는 **터미널에서 CLI를 시작하는 명령**이다. 데스크톱 프롬프트의 설정 명령으로 복사하지 않는다. `claude --desktop`에도 `--model`·`--effort`를 붙일 수 없다. 앱이 세션을 시작하므로 해당 플래그를 허용하지 않는다. [CLI 시작 플래그](https://code.claude.com/docs/en/cli-reference)
+
+가이드의 Opus 5.5·medium 추천은 데스크톱에서도 모델·effort 메뉴에서 선택하도록 표현한다. 일반 명령 참조는 `/effort medium` 구문을 설명하지만, 이번 조사에서 그 구문의 데스크톱 직접입력 및 저장 범위는 실행 확인하지 않았다. 따라서 데스크톱 예시는 확인된 메뉴 경로를 사용하고, CLI의 슬라이더 키나 저장 동작을 동일하다고 보장하지 않는다. [effort 의미와 CLI 설정](https://code.claude.com/docs/en/model-config), [앱의 effort 메뉴](https://code.claude.com/docs/ko/desktop)
+
+### 기존 스킬과 플러그인은 사용할 수 있는가
+
+가능하다. 데스크톱 Local에서 `/` 또는 **+ → Slash commands**로 설치된 스킬을 선택하고 요청을 덧붙인다. 플러그인 설치는 **+ → Plugins → Add plugin**, 관리는 **Manage plugins**를 사용한다. `mattpocock-skills`와 `superpowers`를 찾아 설치한 뒤 목록에서 `/mattpocock-skills:wayfinder`, `/superpowers:brainstorming` 등을 확인하는 방식으로 12절 실습을 연결한다. 스킬 호출과 `/plugin install ...` 설치 명령을 구분하여, 후자는 데스크톱 UI 절차로 안내한다. [스킬 선택](https://code.claude.com/docs/ko/desktop-quickstart), [플러그인 설치 표면별 절차](https://code.claude.com/docs/en/plugins/install)
+
+같은 컴퓨터의 CLI·데스크톱 Local·VS Code는 설정 파일을 공유하며, user 범위로 설치한 플러그인도 공유한다. 프로젝트 범위의 활성화는 설치 자체와 다르므로 다른 컴퓨터에 자동 설치된다고 설명하지 않는다. [플러그인 설치 범위](https://code.claude.com/docs/en/plugins)
+
+`CLAUDE.md`, 개인 skills, 권한 규칙·hooks·MCP 설정도 공유한다. 단, **Cloud는 로컬 설치 플러그인을 읽지 않고 WSL 세션에서는 플러그인을 지원하지 않는다**. Cowork와 Code를 같은 설정 화면·저장 위치라고 설명하지 않는다. 이 때문에 이번 확장 실습은 Local로 한정한다. [공유 구성과 환경별 차이](https://code.claude.com/docs/ko/desktop)
+
+### CLI에서 하던 대화 이어가기와 제한
+
+CLI 대화에서 `/desktop`으로 앱에 넘길 수 있다. macOS·x64 Windows와 Claude 구독 로그인이 조건이다. API 키 인증에는 해당하지 않는다. 셸의 `claude --desktop`은 v2.1.285+에서 지원하며, `--resume`을 함께 쓰면 이름이 아닌 세션 ID가 필요하다. [이동 명령](https://code.claude.com/docs/en/commands), [셸 플래그의 조건](https://code.claude.com/docs/en/cli-reference)
+
+또는 터미널 세션을 닫고 데스크톱 **Local의 `/resume`**에서 선택한다. 복사본이 아닌 같은 대화를 이어간다. Browser는 정적 HTML과 개발 서버 미리보기를 지원하며, 내장 터미널·파일 편집기는 앱 v1.2581.0+ 기능이다. CLI의 `-p`·`--output-format` 같은 비대화형 실행은 Code 탭의 대응 기능이 없다. 통합 터미널에서 별도 CLI를 실행하는 것과 Code 대화창 기능은 구분한다. [세션 재개·미리보기·지원 범위](https://code.claude.com/docs/ko/desktop)
+
+입문 가이드의 편집 방향은 ‘화면에서 폴더 선택·결과 검토를 배우려면 데스크톱, 명령 실행과 스크립트 자동화를 배우려면 CLI’다. 둘은 같은 Claude Code를 서로 다른 인터페이스에서 사용한다. 실제 계정에 표시되는 메뉴, 설치된 앱 버전, 플러그인 로딩과 예시 세션은 이번 조사에서 직접 확인하지 않았다.
