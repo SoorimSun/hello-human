@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>은행권 정보유출, ‘AI 해킹’ 뒤의 조회 서비스 빈틈 · AI뉴스 · 헬로우 휴먼</title>
+<meta name="description" content="신한·KB·하나·부산은행 정보유출 보도와 해외 AI 침해 사례를 대조하고, 인증·객체별 권한·응답 최소화를 도식과 가상 주문조회 예시로 설명합니다.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+<script src="../assets/theme.js?v=3"></script>
+<link rel="stylesheet" href="../assets/style.css?v=7">
+<link rel="stylesheet" href="../assets/news.css?v=9">
+<link rel="stylesheet" href="../assets/news-flash.css?v=1">
+<link rel="stylesheet" href="../assets/news-security.css?v=1">
+<link rel="stylesheet" href="../assets/content-updates.css?v=1">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+    <nav class="news-nav" aria-label="사이트 메뉴">
+      <a href="../">모임 소개</a>
+      <a href="./" aria-current="page">AI뉴스</a>
+      <a href="../guides/">AI가이드</a>
+      <a href="../insights/">인사이트</a>
+      <a href="../case-studies/">사례연구</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <article class="news-flash security-brief" aria-labelledby="flash-title">
+    <header class="news-article-header news-flash-header wrap">
+      <a class="news-back" href="./#briefs">← AI뉴스 속보·단신</a>
+      <p class="news-kicker"><span class="news-flash-badge">AI 단신</span> HELLO, HUMAN! / BRIEF 03</p>
+      <h1 id="flash-title">은행권 정보유출,<br> ‘AI 해킹’ 뒤의 <em>조회 서비스 빈틈</em></h1>
+      <p class="news-deck">신한·KB·하나·부산은행 사고와 해외 사례로 읽는 인증, 데이터 접근권한, 그리고 AI의 역할</p>
+      <div class="news-article-meta"><time datetime="2026-10-02">2026년 10월 2일</time><span>헬로우 휴먼 AI뉴스 · 단신·기술 해설</span></div>
+    </header>
+    <div class="news-flash-shell news-story wrap">
+      <p>은행권에서 정보유출 사고가 잇따랐습니다. 신한·KB국민·하나은행에서는 고객정보가, 부산은행에서는 외주 개발 직원의 정보가 유출됐다고 보도됐습니다. 공격에 AI 에이전트가 사용됐을 가능성도 제기됐지만, <strong>실제 사용 여부와 정확한 침해 원인은 추가 확인이 필요합니다.</strong> <a class="source-link" href="https://v.daum.net/v/20261002183601569" target="_blank" rel="noopener noreferrer">뉴스1 원문 ↗</a> <a class="source-link" href="https://www.yna.co.kr/amp/view/AKR20261002042352017" target="_blank" rel="noopener noreferrer">AI 사용 정황을 다룬 후속 보도 ↗</a></p>
+      <p>지금 살펴볼 핵심은 <strong>외부 업무지원 서비스가 개인정보를 돌려주기 전에 무엇을 검사했는가</strong>입니다. 금융위원회는 10월 2일, 외부에 노출된 시스템 전반과 인증 없이 내부정보를 조회할 수 있는 경로를 점검하도록 주문했습니다. <a class="source-link" href="https://fsc.go.kr/no010101/87869" target="_blank" rel="noopener noreferrer">금융위원회 발표 ↗</a></p>
+
+      <aside class="security-takeaway" aria-label="먼저 읽는 핵심">
+        <span class="security-eyebrow">이 글의 핵심</span>
+        <p>로그인, 조회 권한, 반환 항목.<br><strong>개인정보 앞에는 세 번의 확인이 필요합니다.</strong></p>
+        <div class="security-mini-flow" aria-label="인증 다음 권한 확인 다음 응답 최소화">
+          <span>누구인가</span><b aria-hidden="true">→</b><span>볼 권한이 있는가</span><b aria-hidden="true">→</b><span>어디까지 보낼까</span>
+        </div>
+      </aside>
+      <nav class="news-toc security-toc" aria-label="기사 목차">
+        <span>이 글에서</span>
+        <a href="#impact">피해 현황</a><a href="#path">조회 경로</a><a href="#controls">세 방어선</a><a href="#ai-evidence">AI의 역할</a><a href="#overseas">해외 사례</a><a href="#team-checks">업무에 적용</a>
+      </nav>
+
+      <section class="security-section" id="impact" aria-labelledby="impact-title">
+        <p class="news-section-label">01 / 공개된 피해</p>
+        <h2 id="impact-title">거래 시스템 밖에서도<br> 개인정보는 유출될 수 있습니다</h2>
+        <p>10월 2일 보도를 기준으로 정리한 수치입니다. 네 곳 모두 인터넷·모바일뱅킹의 금융거래 시스템과 별도인 업무 채널로 보도됐습니다. <a class="source-link" href="https://v.daum.net/v/20261002183601569" target="_blank" rel="noopener noreferrer">은행별 피해와 서비스 ↗</a></p>
+        <figure class="security-figure">
+          <div class="security-stats">
+            <div><span class="security-stat-name">신한은행</span><strong><small>약</small> 25,000<small>명</small></strong><span class="security-pill">고객</span><p>대출모집인용<br>모바일 간편조회</p></div>
+            <div><span class="security-stat-name">KB국민은행</span><strong>119<small>명</small></strong><span class="security-pill">고객</span><p>직원용 모바일<br>업무지원</p></div>
+            <div><span class="security-stat-name">하나은행</span><strong>89<small>명</small></strong><span class="security-pill">고객</span><p>영업지원<br>시스템</p></div>
+            <div class="security-staff"><span class="security-stat-name">부산은행</span><strong>11<small>명</small></strong><span class="security-pill">외주 개발 직원</span><p>모바일<br>영업지원</p></div>
+          </div>
+          <figcaption>그림 1 · 공개된 유출 규모. 부산은행의 11명은 고객이 아닙니다. 발표 시점의 집계이며, 같은 날 모두 발생했다는 뜻은 아닙니다.</figcaption>
+        </figure>
+        <p>신한은행에서는 이름·전화번호·연소득·대출한도와 함께 일부 고객의 <strong>주민등록번호 66건, 연계정보(CI) 97건</strong>도 유출됐다고 보도됐습니다. CI는 여러 서비스에서 동일인을 구분하는 데 쓰는 식별정보입니다. 거래 채널과 분리돼 있다는 사실만으로 보유한 개인정보의 중요도가 낮아지지는 않습니다. <a class="source-link" href="https://www.ytn.co.kr/_ln/0102_202610020052240586" target="_blank" rel="noopener noreferrer">YTN 유출 항목 보도 ↗</a></p>
+      </section>
+
+      <section class="security-section" id="path" aria-labelledby="path-title">
+        <p class="news-section-label">02 / 보도로 읽는 접근 경로</p>
+        <h2 id="path-title">한 번 얻은 고객번호가<br> 다음 조회의 열쇠가 된다면</h2>
+        <p>신한은행 사고는 대출모집인 서비스의 본인확인 절차를 우회한 접근으로 보도됐습니다. 다른 보도에서는 이곳에서 얻은 고객번호를 이용해 연락처·생년월일 등을 조회하는 서비스로 접근 범위가 넓어졌다고 설명했습니다. <a class="source-link" href="https://www.kookje.co.kr/news2011/asp/newsbody.asp?code=0200&amp;key=20261002.99099000415&amp;kid=" target="_blank" rel="noopener noreferrer">본인확인 우회 보도 ↗</a> <a class="source-link" href="https://www.hani.co.kr/arti/economy/finance/1280645.html" target="_blank" rel="noopener noreferrer">고객번호 기반 추가 조회 보도 ↗</a></p>
+        <figure class="security-figure security-panel">
+          <div class="security-figure-heading"><span class="security-eyebrow">보도 내용의 개념적 재구성</span><strong>작은 조회 기능도 데이터로 이어집니다</strong></div>
+          <ol class="security-attack-flow">
+            <li><span>01</span><strong>본인확인 우회</strong><p>비인가자가 업무용 서비스에 접근</p></li>
+            <li><span>02</span><strong>고객번호 확보</strong><p>간편조회에서 식별정보 획득</p></li>
+            <li><span>03</span><strong>연관 서비스 조회</strong><p>확보한 번호로 다른 정보에 접근</p></li>
+            <li><span>04</span><strong>개인정보 유출</strong><p>연락처 등 추가 정보 노출</p></li>
+          </ol>
+          <div class="security-boundary-note"><span aria-hidden="true">↳</span><p><strong>고객번호는 데이터를 찾는 표지입니다.</strong> 그 번호를 안다는 사실이 조회 권한을 증명하지는 않습니다.</p></div>
+          <figcaption>그림 2 · 공개 보도의 설명을 연결한 도식입니다. 실제 요청·응답, 서버 코드, 내부 연결 구조를 검증한 사고 재현도는 아닙니다.</figcaption>
+        </figure>
+        <p>이 흐름은 인증 누락과 데이터별 권한검사를 함께 확인해야 할 이유를 보여줍니다. 다만 공개 자료만으로 특정 취약점 분류나 네 은행의 동일한 침입 경로를 확정할 수는 없습니다.</p>
+      </section>
+
+      <section class="security-section" id="controls" aria-labelledby="controls-title">
+        <p class="news-section-label">03 / 기술을 이해하는 세 가지 질문</p>
+        <h2 id="controls-title">신분증 확인과 서류 열람 허가는<br> 서로 다른 검사입니다</h2>
+        <p>API는 화면과 서버가 데이터를 주고받는 창구입니다. 화면에서 로그인을 요구하거나 개인정보를 가려도, 서버가 직접 검사하지 않으면 정보가 전달될 수 있습니다. 아래는 OWASP 문서를 바탕으로 만든 일반적인 설계 해설이며, 은행의 실제 구현을 설명하는 것은 아닙니다.</p>
+        <figure class="security-figure security-panel">
+          <div class="security-figure-heading"><span class="security-eyebrow">서버가 매 요청에서 확인할 것</span><strong>한 번 통과했다고 끝나지 않는 세 방어선</strong></div>
+          <ol class="security-gates">
+            <li><span class="security-gate-number">1</span><span class="security-eyebrow">인증 / AUTHENTICATION</span><h3>누가 요청했나?</h3><p>유효한 세션·토큰으로 요청자의 신원을 확인합니다.</p><span class="security-gate-example">비유 · 방문자의 신분증 확인</span><b>실패하면 접근 거부</b></li>
+            <li><span class="security-gate-number">2</span><span class="security-eyebrow">인가 / AUTHORIZATION</span><h3>이 자료를 봐도 되나?</h3><p>사용자·소속·역할과 조회 대상의 관계를 검사합니다.</p><span class="security-gate-example">비유 · 담당 서류의 열람 허가</span><b>범위 밖이면 조회 거부</b></li>
+            <li><span class="security-gate-number">3</span><span class="security-eyebrow">응답 / DATA MINIMIZATION</span><h3>어떤 항목이 필요한가?</h3><p>해당 업무에 허용된 필드만 서버에서 반환합니다.</p><span class="security-gate-example">비유 · 필요한 항목만 발췌</span><b>불필요한 정보 제외</b></li>
+          </ol>
+          <figcaption>그림 3 · 신원 확인, 대상별 권한, 항목별 공개 범위는 각각 필요합니다. <a href="https://api-security.owasp.org/editions/2023/en/0xa2-broken-authentication/" target="_blank" rel="noopener noreferrer">OWASP 인증</a> · <a href="https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/" target="_blank" rel="noopener noreferrer">객체 권한</a> · <a href="https://api-security.owasp.org/editions/2023/en/0xa3-broken-object-property-level-authorization/" target="_blank" rel="noopener noreferrer">속성 권한</a></figcaption>
+        </figure>
+
+        <h3 class="security-subheading">로그인한 협력사 직원도 다른 회사의 주문은 볼 수 없습니다</h3>
+        <p>가상의 주문조회 서비스를 생각해 봅시다. A사 직원이 로그인한 뒤 주문번호만 바꿨는데 B사 고객정보까지 받을 수 있다면, <strong>객체 수준 권한검사 실패(BOLA)</strong>입니다. ‘객체’는 여기서 주문 한 건을 뜻합니다. 서버는 요청의 협력사코드를 그대로 믿지 말고, 검증된 사용자의 소속과 권한으로 조회 범위를 제한해야 합니다. 번호를 복잡하게 만드는 것만으로 이 검사를 대신할 수 없습니다. <a class="source-link" href="https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/" target="_blank" rel="noopener noreferrer">OWASP BOLA 설명 ↗</a></p>
+        <figure class="security-figure security-panel">
+          <div class="security-figure-heading"><span class="security-eyebrow">가상 예시 / 업무상 자기 회사 주문만 조회 가능</span><strong>같은 로그인, 다른 조회 결과</strong></div>
+          <div class="security-permission-row"><span class="security-actor">A사 직원<br><small>로그인 완료</small></span><span class="security-target">A사 주문<br><small>담당 범위 안</small></span><span class="security-outcome security-allow">✓ 허용<br><small>필요한 항목만 반환</small></span></div>
+          <div class="security-permission-row"><span class="security-actor">A사 직원<br><small>로그인 완료</small></span><span class="security-target">B사 주문<br><small>번호를 알고 있어도</small></span><span class="security-outcome security-deny">× 거부<br><small>개인정보 반환 없음</small></span></div>
+          <figcaption>그림 4 · 인증 성공과 다른 고객의 데이터에 대한 권한은 별개입니다. 특정 은행의 BOLA 취약점이 확정됐다는 의미는 아닙니다.</figcaption>
+        </figure>
+
+        <h3 class="security-subheading">화면에서 가리기 전에, 서버가 적게 보내야 합니다</h3>
+        <p>주문 상태만 필요한 업무라면 전체 전화번호나 주소까지 보낼 이유가 없습니다. <strong>화면에 별표를 그려도 API 응답에 원본이 있으면 이미 전달된 데이터</strong>입니다. OWASP는 반환할 속성을 명시적으로 선택하고, 응답을 업무상 필요한 최소 범위로 제한하도록 권고합니다. <a class="source-link" href="https://api-security.owasp.org/editions/2023/en/0xa3-broken-object-property-level-authorization/" target="_blank" rel="noopener noreferrer">OWASP 응답 필드 통제 ↗</a></p>
+        <figure class="security-figure security-response-compare">
+          <div class="security-response security-response-risk"><span class="security-eyebrow">주의 / 화면에서만 숨김</span><h4>브라우저가 원본을 받습니다</h4><div class="security-data-packet"><span>서버 응답</span><ul><li>주문 상태 <b>배송 중</b></li><li>전화번호 <b>전체 번호 포함</b></li><li>주소 <b>상세 주소 포함</b></li></ul></div><p class="security-screen">화면 표시 <strong>010-****-****</strong></p><p class="security-verdict">× 화면의 마스킹만으로는 보호되지 않음</p></div>
+          <div class="security-response"><span class="security-eyebrow">개선 / 서버에서 최소화</span><h4>필요한 항목만 받습니다</h4><div class="security-data-packet"><span>서버 응답</span><ul><li>주문 상태 <b>배송 중</b></li><li>전화번호 <b>필드 제외</b></li><li>주소 <b>필드 제외</b></li></ul></div><p class="security-screen">화면 표시 <strong>배송 중</strong></p><p class="security-verdict">✓ 이 업무에 불필요한 개인정보는 전송 안 함</p></div>
+          <figcaption>그림 5 · 주문 상태 확인만 허용된 업무의 가상 예시. 전화번호 확인이 필요한 다른 업무라면 별도의 항목별 권한과 마스킹 정책을 적용해야 합니다.</figcaption>
+        </figure>
+      </section>
+
+      <section class="security-section" id="ai-evidence" aria-labelledby="ai-evidence-title">
+        <p class="news-section-label">04 / AI 사용 정황의 확인 범위</p>
+        <h2 id="ai-evidence-title">도구의 흔적과 실제 사용은<br> 따로 입증해야 합니다</h2>
+        <p>연합뉴스는 공격에 쓰인 것으로 <strong>추정되는 서버의 웹페이지 제목에서 ARTEX 관련 문자열이 발견됐다</strong>는 보안업계 분석을 전했습니다. AI 침투테스트 도구와 관련된 정황이지만, 기사도 실제 공격 사용 여부는 미확인이라고 명시했습니다. <a class="source-link" href="https://www.yna.co.kr/amp/view/AKR20261002042352017" target="_blank" rel="noopener noreferrer">연합뉴스 후속 보도 ↗</a></p>
+        <figure class="security-figure security-evidence">
+          <div><span class="security-evidence-state">공개 발표·보도</span><strong>정보유출 피해</strong><p>은행별 피해 인원과 업무 서비스가 공개됐습니다.</p></div>
+          <div><span class="security-evidence-state">보도된 정황</span><strong>AI 도구 관련 흔적</strong><p>공격 추정 인프라의 페이지 제목에 관련 문자열이 있었습니다.</p></div>
+          <div><span class="security-evidence-state">추가 입증 필요</span><strong>실제 AI 사용·공격 주체</strong><p>실행 기록, 사용 모델, 공격자의 신원은 별도 확인이 필요합니다.</p></div>
+          <figcaption>그림 6 · 증거의 종류를 구분한 표입니다. 중국어 제목만으로 공격자의 국적이나 사용 모델을 확정할 수 없습니다.</figcaption>
+        </figure>
+        <p>또한 <strong>크리덴셜 스터핑</strong>은 다른 곳에서 확보한 아이디·비밀번호 조합으로 로그인을 시도하는 공격입니다. 고객번호를 바꿔 데이터를 조회하는 행위와는 다릅니다. ‘입력값을 반복한다’는 이유만으로 같은 공격이라고 부르면 어떤 방어가 필요한지 흐려집니다. <a class="source-link" href="https://api-security.owasp.org/editions/2023/en/0xa2-broken-authentication/" target="_blank" rel="noopener noreferrer">OWASP의 정의 ↗</a></p>
+        <p>반복 공격의 자동화는 AI 이전에도 존재했습니다. 해외 보고서가 보여주는 변화는 AI가 환경을 해석하고 도구를 작성하며 다음 작업을 조정하는 데까지 쓰인다는 점입니다. <strong>같은 시간과 인력으로 더 많은 경로를 시도할 가능성</strong>에 대비해야 한다는 것이 저희의 해석입니다. <a class="source-link" href="https://www.anthropic.com/threat-intelligence-report-september-2026" target="_blank" rel="noopener noreferrer">Anthropic의 악용 활동 분석 ↗</a></p>
+      </section>
+
+      <section class="security-section" id="overseas" aria-labelledby="overseas-title">
+        <p class="news-section-label">05 / 해외 기관이 직접 공개한 사례</p>
+        <h2 id="overseas-title">AI의 역할은 달라도<br> 확인할 경계는 구체적입니다</h2>
+        <p>아래는 각 기관이 공개한 조사 결과입니다. 국내 은행 사건과 동일한 공격자·도구가 연결됐다는 뜻은 아닙니다. 피해 단위와 조사 조건도 달라 규모를 직접 비교할 수 없습니다.</p>
+        <figure class="security-figure security-cases">
+          <div class="security-case">
+            <div class="security-case-date"><span>AWS</span><time datetime="2026-02-20">2026. 02. 20 공개</time><strong>600+<small>대의 장비</small></strong></div>
+            <div><h3>기본 인증의 빈틈을 넓게 공략</h3><div class="security-case-flow"><span>노출된 관리 화면</span><b aria-hidden="true">→</b><span>약한 인증정보</span><b aria-hidden="true">→</b><span>장비 침해</span></div><p>AWS는 1월 11일~2월 18일, 55개국 이상에서 FortiGate 장비 600대 이상이 침해됐다고 보고했습니다. 초기 침입에서 FortiGate 취약점 악용은 관측되지 않았고, 노출된 관리 포트·약한 인증정보·단일요소 인증이 악용됐습니다. AI는 계획과 도구 작성 등을 도왔습니다.</p><p class="security-case-lesson"><strong>점검할 경계</strong> 관리 화면의 외부 노출, 고유한 인증정보, 다중요소 인증(MFA)</p><a class="source-link" href="https://aws.amazon.com/blogs/security/ai-augmented-threat-actor-accesses-fortigate-devices-at-scale/" target="_blank" rel="noopener noreferrer">AWS 위협정보팀 원문 ↗</a></div>
+          </div>
+          <div class="security-case">
+            <div class="security-case-date"><span>ANTHROPIC</span><time datetime="2026-09-09">2026. 09. 09 후속</time><strong>4<small>건의 평가 사고</small></strong></div>
+            <div><h3>‘격리돼 있다’는 지시와 실제 연결의 차이</h3><div class="security-case-flow"><span>보안 평가 환경</span><b aria-hidden="true">→</b><span>열린 인터넷 경로</span><b aria-hidden="true">→</b><span>실제 시스템 접근</span></div><p>7월 30일에는 실제 조직 세 곳에 대한 무단 접근을 공개했고, 9월 9일 후속 보고서에서 1월에 발생한 네 번째 사고를 추가했습니다. 네 사례 모두 인터넷 접근이 없다는 프롬프트와 달리 설정 오류로 외부 연결이 가능했습니다.</p><p>회사는 모델이 실제 환경을 모의훈련으로 믿었다는 초기 해석도 수정했습니다. 모델의 자기 설명만으로 그렇게 단정하면 안 됐다는 것입니다. 범죄자의 AI 악용과는 다른, 평가 운영과 모델 행동의 문제입니다.</p><p class="security-case-lesson"><strong>점검할 경계</strong> 실제 네트워크 차단, 허용 대상, 실행 감시와 중단 장치</p><a class="source-link" href="https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents" target="_blank" rel="noopener noreferrer">Anthropic의 네 사건 재평가 ↗</a></div>
+          </div>
+          <div class="security-case">
+            <div class="security-case-date"><span>ANTHROPIC</span><time datetime="2026-09-10">2026. 09. 10 공개</time><strong>약 200<small>개 고객 조직</small></strong></div>
+            <div><h3>업무 도구의 침해가 고객사로 확산</h3><div class="security-case-flow"><span>SaaS 제공업체</span><b aria-hidden="true">→</b><span>고객사 접근 경로</span><b aria-hidden="true">→</b><span>연쇄 데이터 탈취</span></div><p>2025년 12월~2026년 8월 활동을 다룬 보고서에서, ShinyHunters 연관자로 추정한 공격자가 SaaS 제공업체를 침해한 뒤 약 200개 고객 조직의 데이터를 추출한 사례를 공개했습니다. 회사는 이 사례의 작업 대부분을 AI 에이전트가 수행했다고 설명했습니다.</p><p class="security-case-lesson"><strong>점검할 경계</strong> 공급업체 권한, 고객사 간 데이터 분리, 연결 토큰의 범위</p><a class="source-link" href="https://www.anthropic.com/threat-intelligence-report-september-2026" target="_blank" rel="noopener noreferrer">Anthropic 9월 위협 보고서 ↗</a></div>
+          </div>
+          <figcaption>그림 7 · 공개 시점 순으로 배치한 비교. ‘점검할 경계’는 각 보고서에서 도출한 헬로우 휴먼의 해석입니다. 두 Anthropic 사례는 별개의 조사입니다.</figcaption>
+        </figure>
+      </section>
+
+      <section class="security-section" id="team-checks" aria-labelledby="team-checks-title">
+        <p class="news-section-label">06 / 헬로우 휴먼의 시선</p>
+        <h2 id="team-checks-title">우리의 조회 서비스에도<br> 같은 질문을 던져봅니다</h2>
+        <p>파트너 포털, 공급망 관리, 상담·주문조회, 파일 다운로드도 고객정보로 이어지는 업무 경로입니다. 금융위원회의 점검 방향과 OWASP의 통제를 커머스 업무에 옮기면 다음과 같습니다.</p>
+        <ol class="security-checklist">
+          <li><span>01</span><div><strong>외부에서 열리는 업무 경로를 목록으로 만듭니다</strong><p>대고객 화면뿐 아니라 모바일 업무지원과 구버전 API까지 포함합니다.</p></div></li>
+          <li><span>02</span><div><strong>서버가 검증한 사용자로 조회 범위를 정합니다</strong><p>사용자가 보낸 협력사코드만 믿지 않습니다. 다운로드와 캐시에도 같은 권한 경계를 적용합니다.</p></div></li>
+          <li><span>03</span><div><strong>실제 응답과 파일의 개인정보를 줄입니다</strong><p>화면의 별표가 아니라 서버가 보내는 필드와 다운로드 파일을 확인합니다.</p></div></li>
+          <li><span>04</span><div><strong>거부돼야 할 조회도 배포 전에 검사합니다</strong><p>승인된 테스트 환경과 가상 데이터로 미인증·타 협력사·담당 범위 밖 요청의 거부를 검증합니다.</p></div></li>
+          <li><span>05</span><div><strong>반복 접근은 계정·세션·조회 대상까지 함께 봅니다</strong><p>IP 하나의 요청량만 세지 않고, 여러 IP에 걸친 지속적인 조회와 데이터 반출 징후를 살핍니다.</p></div></li>
+        </ol>
+        <p class="security-reading-note">실무 적용을 위한 제안입니다. <a href="https://fsc.go.kr/no010101/87869" target="_blank" rel="noopener noreferrer">금융위 점검 방향</a>, <a href="https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/" target="_blank" rel="noopener noreferrer">OWASP 권한검사·테스트</a>, <a href="https://api-security.owasp.org/editions/2023/en/0xa3-broken-object-property-level-authorization/" target="_blank" rel="noopener noreferrer">응답 최소화</a>를 참고했습니다.</p>
+        <aside class="security-closing"><p>누가 어떤 경로로 요청하더라도,<br><strong>허용된 데이터만 반환하는가?</strong></p><span>AI로 공격의 속도와 범위가 달라질수록, 이 질문은 실제 요청과 응답으로 검증해야 합니다.</span></aside>
+      </section>
+
+      <section class="news-flash-sources" id="sources" aria-labelledby="flash-sources-title">
+        <h2 id="flash-sources-title">원문과 확인 자료</h2>
+        <a class="news-flash-original" href="https://v.daum.net/v/20261002183601569" target="_blank" rel="noopener noreferrer"><span>뉴스1 · 2026. 10. 02</span><strong>신한·KB·하나·부산은행 정보유출을 다룬 원문</strong><span class="news-flash-original-cta">기사 읽기 <span aria-hidden="true">↗</span></span></a>
+        <ul>
+          <li><a href="https://fsc.go.kr/no010101/87869" target="_blank" rel="noopener noreferrer">금융위원회 · 긴급 상황대응 회의와 점검 방향</a><span> · 10. 02</span></li>
+          <li><a href="https://www.ytn.co.kr/_ln/0102_202610020052240586" target="_blank" rel="noopener noreferrer">YTN · 신한은행 유출 규모와 항목</a><span> · 10. 02</span></li>
+          <li><a href="https://www.hani.co.kr/arti/economy/finance/1280645.html" target="_blank" rel="noopener noreferrer">한겨레 · 고객번호를 활용한 추가 접근 보도</a><span> · 10. 02</span></li>
+          <li><a href="https://www.kookje.co.kr/news2011/asp/newsbody.asp?code=0200&amp;key=20261002.99099000415&amp;kid=" target="_blank" rel="noopener noreferrer">국제신문 · 본인확인 우회와 AI 사용 미확인 보도</a><span> · 10. 02</span></li>
+          <li><a href="https://www.yna.co.kr/amp/view/AKR20261002042352017" target="_blank" rel="noopener noreferrer">연합뉴스 · ARTEX 관련 정황과 확인 한계</a><span> · 10. 02</span></li>
+          <li><a href="https://aws.amazon.com/blogs/security/ai-augmented-threat-actor-accesses-fortigate-devices-at-scale/" target="_blank" rel="noopener noreferrer">AWS · AI 지원 공격자의 FortiGate 침해 조사</a><span> · 02. 20</span></li>
+          <li><a href="https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals" target="_blank" rel="noopener noreferrer">Anthropic · 보안 평가 중 발생한 세 사고의 최초 공개</a><span> · 07. 30</span></li>
+          <li><a href="https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents" target="_blank" rel="noopener noreferrer">Anthropic · 네 번째 사고와 초기 해석 수정</a><span> · 09. 09</span></li>
+          <li><a href="https://www.anthropic.com/threat-intelligence-report-september-2026" target="_blank" rel="noopener noreferrer">Anthropic · 9월 위협정보 보고서</a><span> · 09. 10</span></li>
+          <li><a href="https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/" target="_blank" rel="noopener noreferrer">OWASP API1 · 객체 수준 권한검사</a> / <a href="https://api-security.owasp.org/editions/2023/en/0xa2-broken-authentication/" target="_blank" rel="noopener noreferrer">API2 · 인증</a> / <a href="https://api-security.owasp.org/editions/2023/en/0xa3-broken-object-property-level-authorization/" target="_blank" rel="noopener noreferrer">API3 · 속성 수준 권한검사</a></li>
+        </ul>
+        <p class="news-flash-verification">확인 기준 2026년 10월 2일(한국시간). 국내 피해와 접근 경위는 은행 측 설명을 인용한 보도 및 금융위원회 발표를, 해외 사례는 공개 기관의 원문을 대조했습니다. 실제 은행 시스템이나 원본 로그를 조사한 것은 아닙니다. 도식은 보도의 개념적 재구성과 가상 업무 예시이며, 미확인된 취약점·AI 모델·공격 주체를 확정하지 않습니다. 해외 평가 사고는 9월 9일 후속 보고서까지 반영했습니다.</p>
+        <a class="news-end-link" href="./#briefs">AI뉴스 속보·단신으로 돌아가기 <span aria-hidden="true">→</span></a>
+      </section>
+    </div>
+  </article>
+</main>
+<footer class="footer"><div class="wrap">헬로우 휴먼 · Workless Engineering Club</div></footer>
+<script src="../assets/article-toc.js?v=1" defer></script>
+<script src="../assets/analytics.js?v=2" defer></script>
+<script type="module" src="../assets/content-updates.js?v=2"></script>
+</body>
+</html>

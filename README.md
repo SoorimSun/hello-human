@@ -48,6 +48,7 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `news/2026-09-30-long-running-agents.html` | AI뉴스 세 번째 호: 지속형 에이전트의 실행·권한·비용·책임 |
 | `news/2026-10-02-ai-evidence.html` | AI뉴스 네 번째 호: Gemini 4 Argon·추론 추출 공격·SynthID Bio·FTC 조사와 실행 증거 |
 | `news/2026-10-01-meta-muse-messages.html` | AI뉴스 단신 02: 메타 Muse의 메시지 접근 의혹과 권한·기록 검증 |
+| `news/2026-10-02-bank-data-breach.html` | AI뉴스 단신 03: 은행권 정보유출과 AI 사용 정황, 인증·조회 권한·응답 최소화 도식 |
 | `case-studies/index.html` | AI 사례연구 소개와 목록 |
 | `case-studies/2026-09-27-tidewater.html` | AI 사례연구 첫 호: Tidewater |
 | `case-studies/2026-10-01-railcode.html` | AI 사례연구 두 번째 호: Railcode의 시안 탐색·비교 도구와 디자인 판단 |
@@ -69,6 +70,7 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `assets/news-spatial.css` | AI뉴스 02의 공간 재구성·로봇 학습·작업 비용 도식 스타일 |
 | `assets/news-agents.css` | AI뉴스 03의 지속 작업·실행 통제·팀 공유·쿠폰 검증 도식 스타일 |
 | `assets/news-evidence.css` | AI뉴스 04의 작업 흐름·사건 타임라인·출처 표시·실행 기록 도식 스타일 |
+| `assets/news-security.css` | AI뉴스 단신 03의 피해 현황·접근 경로·세 방어선·해외 사례 비교 도식 스타일 |
 | `assets/news-sections.css` | 홈페이지의 속보 띠·일반 뉴스 카드와 뉴스 목록의 유형별 구분 스타일 |
 | `assets/news/` | AI뉴스 기사 삽화와 출처가 표시된 제품 발표 이미지 |
 | `assets/guide.css` | AI가이드 본문 스타일 |
