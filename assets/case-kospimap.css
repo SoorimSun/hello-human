@@ -50,6 +50,79 @@
 .kospimap-detail summary { cursor: pointer; font-size: 15px; font-weight: 700; }
 .kospimap-detail summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; }
 .case-story .kospimap-detail p { margin: 16px 0 0; font-size: 14px; line-height: 1.8; }
+/* 공간데이터를 주문 이행에 연결하는 인사이트와 설명용 도식 */
+.kospimap-spatial-cases { display: grid; gap: 16px; margin: 28px 0; }
+.kospimap-spatial-cases > div { padding: 23px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+.kospimap-evidence-label { display: block; color: var(--muted); font-size: 12px; font-weight: 650; }
+.kospimap-spatial-cases h4 { margin: 8px 0 12px; font-size: 20px; line-height: 1.5; }
+.case-story .kospimap-spatial-cases p { margin: 0 0 12px; font-size: 15px; }
+.kospimap-spatial-cases a { font-size: 13px; }
+.kospimap-time-choice { display: flex; flex-wrap: wrap; gap: 10px; min-width: 0; margin: 0 0 20px; padding: 0; border: 0; }
+.kospimap-time-choice legend { margin-bottom: 10px; color: var(--muted); font-size: 13px; }
+.kospimap-time-choice label { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-2); cursor: pointer; font-size: 14px; font-weight: 650; }
+.kospimap-time-choice label:has(input:checked) { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.kospimap-time-choice input { margin: 0; accent-color: var(--ink); }
+.kospimap-time-choice label:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 4px; }
+.kospimap-route-map { display: block; width: 100%; height: auto; color: var(--muted); }
+.kospimap-map-ground { fill: var(--surface-2); stroke: var(--line); }
+.kospimap-map-street { fill: none; stroke: var(--line); stroke-width: 18; }
+.kospimap-map-zone { color: var(--muted); opacity: .18; stroke: var(--muted); stroke-width: 2; }
+.kospimap-map-route { fill: none; stroke: var(--ink); stroke-width: 5; stroke-linejoin: round; }
+.kospimap-map-crossing { fill: none; stroke: var(--ink); stroke-width: 5; }
+.kospimap-map-pin { fill: var(--surface); stroke: var(--ink); stroke-width: 4; }
+.kospimap-route-map text { fill: var(--ink); font: 650 20px var(--sans); }
+.kospimap-route-map text.kospimap-map-small { fill: var(--muted); font-size: 16px; font-weight: 500; }
+.kospimap-risk-result { margin-top: 18px; padding: 18px; border-left: 3px solid var(--muted); background: var(--surface-2); }
+.kospimap-risk-result > span { display: block; margin-bottom: 7px; color: var(--muted); font-size: 12px; }
+.kospimap-risk-result > strong { display: block; font-size: 17px; line-height: 1.55; }
+.case-story .kospimap-risk-result p { margin: 9px 0 0; color: var(--muted); font-size: 14px; line-height: 1.75; }
+.kospimap-risk-late { display: none; border-color: var(--accent); background: var(--accent-soft); }
+.kospimap-risk-demo:has(input[value="late"]:checked) .kospimap-risk-early { display: none; }
+.kospimap-risk-demo:has(input[value="late"]:checked) .kospimap-risk-late { display: block; }
+.kospimap-risk-demo:has(input[value="late"]:checked) .kospimap-map-crossing { stroke: var(--accent); stroke-width: 7; stroke-dasharray: 9 4; }
+.kospimap-risk-demo:has(input[value="late"]:checked) .kospimap-map-zone { color: var(--accent); opacity: .35; stroke: var(--accent); }
+.kospimap-action-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
+.kospimap-action-grid > div { padding: 15px; border: 1px solid var(--line); border-radius: 8px; }
+.kospimap-action-grid b { display: block; font-size: 14px; }
+.kospimap-action-grid small { display: block; margin-top: 6px; color: var(--muted); font-size: 13px; line-height: 1.65; }
+.kospimap-formula { margin: 24px 0; padding: 19px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-2); }
+.kospimap-formula > span { display: block; color: var(--muted); font-size: 12px; }
+.kospimap-formula > strong { display: block; margin-top: 8px; font-size: 16px; line-height: 1.65; }
+.kospimap-formula > small { display: block; margin-top: 8px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.case-story .kospimap-demo-intro { margin: 0 0 24px; color: var(--muted); font-size: 14px; }
+.kospimap-pickup-stores { display: grid; gap: 22px; }
+.kospimap-pickup-store { padding: 19px; border: 1px solid var(--line); border-radius: 8px; }
+.kospimap-pickup-store.is-faster { border-color: var(--ink); }
+.kospimap-store-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 3px 12px; margin-bottom: 16px; }
+.kospimap-store-heading h3 { margin: 0; font-size: 17px; }
+.kospimap-store-heading > span { color: var(--muted); font-size: 12px; }
+.kospimap-time-row { display: grid; grid-template-columns: 62px minmax(0, 1fr) 35px; gap: 9px; align-items: center; margin-top: 10px; font-size: 12px; }
+.kospimap-time-row b { text-align: right; font-family: var(--mono); font-size: 12px; }
+.kospimap-time-track { height: 14px; overflow: hidden; border-radius: 2px; background: var(--surface-2); }
+.kospimap-time-track i { display: block; width: var(--duration); height: 100%; }
+.kospimap-time-track .is-travel { background: var(--ink); }
+.kospimap-time-track .is-prep { background: repeating-linear-gradient(135deg, var(--muted) 0 2px, var(--surface-2) 2px 5px); border: 1px solid var(--muted); }
+.case-story .kospimap-pickup-store p { margin: 20px 0 0; padding-top: 14px; border-top: 1px solid var(--line); }
+.kospimap-pickup-store p span { display: block; color: var(--muted); font-size: 12px; }
+.kospimap-pickup-store p strong { display: block; margin-top: 4px; font-size: 17px; }
+.kospimap-access-route { margin: 0; padding: 0; list-style: none; }
+.kospimap-access-route li { position: relative; display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 15px; margin: 0; padding: 0 0 28px; }
+.kospimap-access-route li:last-child { padding-bottom: 0; }
+.kospimap-access-route li:not(:last-child)::after { position: absolute; content: ''; left: 16px; top: 37px; bottom: 4px; border-left: 2px dashed var(--line); }
+.kospimap-route-number { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--ink); color: var(--surface); font: 500 13px var(--mono); }
+.kospimap-access-route strong { display: block; font-size: 16px; line-height: 1.65; }
+.case-story .kospimap-access-route p { margin: 5px 0; font-size: 14px; }
+.kospimap-access-route small { color: var(--muted); font-size: 12px; line-height: 1.7; }
+.kospimap-access-evidence { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 26px; padding-top: 23px; border-top: 1px solid var(--line); }
+.kospimap-access-evidence span, .kospimap-access-evidence small { display: block; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.kospimap-access-evidence strong { display: block; margin: 7px 0; font-size: 14px; }
+.kospimap-role-flow { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+.kospimap-role-flow li { margin: 0; padding: 17px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-2); }
+.kospimap-role-flow li:last-child { border-color: var(--accent); background: var(--accent-soft); }
+.kospimap-role-flow li > span { display: block; margin-bottom: 9px; color: var(--muted); font-size: 12px; }
+.kospimap-role-flow strong { display: block; font-size: 15px; line-height: 1.6; }
+.kospimap-role-flow small { display: block; margin-top: 9px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.guide-table-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 @media (max-width: 720px) {
   .kospimap-figure { padding: 21px 18px; }
   .kospimap-engine { grid-template-columns: 1fr; }
@@ -65,4 +138,20 @@
   .kospimap-bar-row { grid-template-columns: 26px minmax(0, 1fr) 87px; gap: 8px; }
   .kospimap-bar-row strong { font-size: 12px; }
   .kospimap-scale { margin-left: 34px; margin-right: 95px; }
+  .kospimap-spatial-cases > div { padding: 19px; }
+  .kospimap-action-grid, .kospimap-access-evidence, .kospimap-role-flow { grid-template-columns: 1fr; }
+  .kospimap-time-choice { gap: 8px; }
+  .kospimap-time-choice label { flex: 1; padding: 8px; font-size: 13px; }
+  .kospimap-route-map text { font-size: 24px; }
+  .kospimap-route-map text.kospimap-map-small { font-size: 20px; }
+  .kospimap-pickup-store { padding: 15px 12px; }
+  .kospimap-time-row { grid-template-columns: 54px minmax(0, 1fr) 31px; gap: 7px; font-size: 11px; }
+  .kospimap-formula { padding: 16px; }
+  .kospimap-access-route li { grid-template-columns: 30px minmax(0, 1fr); gap: 11px; }
+  .kospimap-route-number { width: 30px; height: 30px; }
+  .kospimap-access-route li:not(:last-child)::after { left: 14px; top: 34px; }
+}
+@media print {
+  .kospimap-risk-demo .kospimap-risk-result { display: block !important; }
+  .kospimap-time-choice { display: none; }
 }
