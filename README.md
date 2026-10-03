@@ -51,6 +51,8 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `research/2026-10-03-durable-ai-workflows.md` | AI뉴스 05의 공식 출처, 수치·발표일 검증과 편집 판단 |
 | `news/2026-10-01-meta-muse-messages.html` | AI뉴스 단신 02: 메타 Muse의 메시지 접근 의혹과 권한·기록 검증 |
 | `news/2026-10-02-bank-data-breach.html` | AI뉴스 단신 03: 은행권 정보유출과 AI 사용 정황, 인증·조회 권한·응답 최소화 도식 |
+| `news/2026-10-03-supabase-turso.html` | AI뉴스 단신 04: Supabase의 Turso 인수 발표, 공식 이미지와 에이전트 작업용 DB 도식 |
+| `research/2026-10-03-supabase-turso.md` | 단신 04의 공식 출처, 사실 확인과 이미지 출처 |
 | `case-studies/index.html` | AI 사례연구 소개와 목록 |
 | `case-studies/2026-09-27-tidewater.html` | AI 사례연구 첫 호: Tidewater |
 | `case-studies/2026-10-01-railcode.html` | AI 사례연구 두 번째 호: Railcode의 시안 탐색·비교 도구와 디자인 판단 |
@@ -82,6 +84,7 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `assets/news-workflows.css`, `assets/news-workflows.js` | AI뉴스 05의 복구·업무·권한 도식과 접근 가능한 이미지 비교 슬라이더 |
 | `assets/news/workflows-media.md` | AI뉴스 05의 공식 Pi 화면과 FLUX 편집 전후 이미지 출처 |
 | `assets/news-security.css` | AI뉴스 단신 03의 피해 현황·접근 경로·세 방어선·해외 사례 비교 도식 스타일 |
+| `assets/news-turso.css` | AI뉴스 단신 04의 제품 비교·작업 공간·운영 및 통합 계획 도식 스타일 |
 | `assets/news-sections.css` | 홈페이지의 속보 띠·일반 뉴스 카드와 뉴스 목록의 유형별 구분 스타일 |
 | `assets/news/` | AI뉴스 기사 삽화와 출처가 표시된 제품 발표 이미지 |
 | `assets/guide.css` | AI가이드 본문 스타일 |

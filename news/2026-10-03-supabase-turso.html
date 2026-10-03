@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Supabase, Turso 인수 발표… AI 에이전트마다 작은 DB 하나씩 · AI뉴스 · 헬로우 휴먼</title>
+<meta name="description" content="Supabase의 Turso 인수 발표를 쉽게 읽는 단신. 두 서비스의 역할, 에이전트의 작업용 DB, 실제 활용 사례와 향후 통합 계획을 공식 이미지와 도식으로 살펴봅니다.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+<script src="../assets/theme.js?v=3"></script>
+<link rel="stylesheet" href="../assets/style.css?v=7">
+<link rel="stylesheet" href="../assets/news.css?v=9">
+<link rel="stylesheet" href="../assets/news-flash.css?v=1">
+<link rel="stylesheet" href="../assets/news-turso.css?v=1">
+<link rel="stylesheet" href="../assets/content-updates.css?v=1">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+    <nav class="news-nav" aria-label="사이트 메뉴">
+      <a href="../">모임 소개</a>
+      <a href="./" aria-current="page">AI뉴스</a>
+      <a href="../guides/">AI가이드</a>
+      <a href="../insights/">인사이트</a>
+      <a href="../case-studies/">사례연구</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <article class="news-flash turso-brief" aria-labelledby="flash-title">
+    <header class="news-article-header news-flash-header wrap">
+      <a class="news-back" href="./#briefs">← AI뉴스 속보·단신</a>
+      <p class="news-kicker"><span class="news-flash-badge">AI 단신</span> HELLO, HUMAN! / BRIEF 04</p>
+      <h1 id="flash-title">Supabase, Turso 인수 발표<br> AI 에이전트마다 <em>작은 DB 하나씩</em></h1>
+      <p class="news-deck">AI도 일하려면 기록할 공간이 필요합니다.<br>작은 앱과 에이전트의 작업 공간을 넓히려는 두 회사의 만남</p>
+      <div class="news-article-meta"><time datetime="2026-10-03">2026년 10월 3일</time><span>헬로우 휴먼 AI뉴스 · 단신</span><span>약 4분</span></div>
+    </header>
+    <div class="news-flash-shell news-story wrap">
+      <p><strong>Supabase가 10월 2일, 데이터베이스 기업 Turso 인수를 발표했습니다.</strong> AI 에이전트가 만드는 수많은 작은 앱과 실험에, 가벼운 데이터베이스를 빠르게 제공하겠다는 구상입니다. Supabase는 Postgres 중심 개발을, Turso는 SQLite 중심 제품 개발을 이어 간다고 밝혔습니다. <a class="source-link" href="https://supabase.com/blog/supabase-is-acquiring-turso" target="_blank" rel="noopener noreferrer">Supabase 공식 발표 ↗</a></p>
+      <figure class="news-article-visual turso-official">
+        <a href="https://turso.tech/blog/turso-is-joining-supabase" target="_blank" rel="noopener noreferrer"><img src="../assets/news/turso-supabase-announcement.png" width="1600" height="900" alt="Turso와 Supabase가 함께하는 인수를 알리는 공식 발표 이미지" decoding="async"></a>
+        <figcaption><span>OFFICIAL IMAGE</span><div>Turso가 공개한 인수 발표 이미지. <a href="https://turso.tech/blog/turso-is-joining-supabase" target="_blank" rel="noopener noreferrer">원문 보기 ↗</a></div></figcaption>
+      </figure>
+      <p>AI에게 “상품 정보를 정리해 줘”라고 일을 맡겼다고 생각해 볼까요. AI도 <strong>무엇을 했고, 어디까지 끝냈으며, 다음에 무엇을 해야 하는지</strong> 기록할 공간이 필요합니다. 데이터베이스(DB)는 이런 내용을 저장하고 다시 꺼내 쓰는 곳입니다. 이번 발표는 에이전트마다 필요할 때 꺼내 쓸 수 있는 ‘작업 노트’를 마련하겠다는 이야기로 읽을 수 있습니다.</p>
+
+      <nav class="news-toc turso-toc" aria-label="기사 목차">
+        <span>이 글에서</span><a href="#services">두 서비스</a><a href="#workspace">AI의 작업 공간</a><a href="#outlook">기대와 확인</a>
+      </nav>
+
+      <section class="turso-section" id="services" aria-labelledby="services-title">
+        <p class="news-section-label">01 / 두 회사가 만드는 것</p>
+        <h2 id="services-title">앱의 기본 설비와<br>작고 가벼운 데이터 저장 공간</h2>
+        <div class="turso-products">
+          <section aria-labelledby="supabase-title">
+            <p class="turso-product-label">SUPABASE / 수파베이스</p>
+            <h3 id="supabase-title">앱의 기본 설비 세트</h3>
+            <p>Postgres DB를 중심으로 앱 개발에 필요한 기능을 함께 제공합니다.</p>
+            <ul><li>데이터 저장·조회</li><li>로그인·사용자 인증</li><li>파일 저장·실시간 기능</li></ul>
+            <a class="source-link" href="https://supabase.com/" target="_blank" rel="noopener noreferrer">공식 제품 소개 ↗</a>
+          </section>
+          <section aria-labelledby="turso-title">
+            <p class="turso-product-label">TURSO / 터소</p>
+            <h3 id="turso-title">작업마다 작은 DB</h3>
+            <p>사용자나 에이전트별로 가벼운 DB를 많이 만들어 운영하는 데 초점을 맞춥니다.</p>
+            <ul><li>필요할 때 DB 생성</li><li>작업별 데이터 분리</li><li>할 일·작업 상태 저장</li></ul>
+            <a class="source-link" href="https://turso.tech/solutions/ai-agents" target="_blank" rel="noopener noreferrer">에이전트용 DB 소개 ↗</a>
+          </section>
+        </div>
+        <p class="turso-note">Postgres와 SQLite는 데이터를 저장하고 다루는 DB 기술입니다. Turso는 SQLite와 호환되는 별도의 엔진을 Rust로 개발하는 회사로, 이번 인수 대상이 SQLite 자체인 것은 아닙니다. <a class="source-link" href="https://supabase.com/blog/supabase-is-acquiring-turso" target="_blank" rel="noopener noreferrer">인수 대상과 기술 설명 ↗</a></p>
+      </section>
+
+      <section class="turso-section" id="workspace" aria-labelledby="workspace-title">
+        <p class="news-section-label">02 / 데이터베이스 인수가 AI 뉴스인 이유</p>
+        <h2 id="workspace-title">AI가 일을 늘리면,<br>기록할 공간도 늘어납니다</h2>
+        <p>Supabase는 자사에서 <strong>매주 100만 개 이상의 DB가 새로 생성된다</strong>고 밝혔습니다. 운영 중인 유료 DB 수가 아닌, 회사가 발표한 생성량입니다. 작은 작업마다 전용 서버를 마련하는 부담을 줄이고, 필요한 순간에 DB를 제공하는 구조가 중요해졌다는 설명입니다. <a class="source-link" href="https://supabase.com/blog/supabase-is-acquiring-turso" target="_blank" rel="noopener noreferrer">발표 원문 ↗</a></p>
+        <figure class="turso-workspaces">
+          <div class="turso-figure-heading"><span class="turso-product-label">우리 업무에 대입해 보면</span><strong>맡은 일이 다르면, 기록할 내용도 다릅니다</strong></div>
+          <div class="turso-lane"><div class="turso-agent"><span>상품정보 정리 AI</span><small>수정할 내용을 찾아요</small></div><span class="turso-arrow" aria-hidden="true">→</span><div class="turso-database"><span>상품 검토용 DB</span><small>검토 대상 · 수정 제안 · 검증 결과</small></div></div>
+          <div class="turso-lane"><div class="turso-agent"><span>프로모션 실험 AI</span><small>여러 조건을 비교해요</small></div><span class="turso-arrow" aria-hidden="true">→</span><div class="turso-database"><span>실험용 DB</span><small>가상 할인 조건 · 비교 결과 · 이력</small></div></div>
+          <div class="turso-lane"><div class="turso-agent"><span>개발 지원 AI</span><small>할 일을 나눠 진행해요</small></div><span class="turso-arrow" aria-hidden="true">→</span><div class="turso-database"><span>프로젝트용 DB</span><small>할 일 · 진행 상태 · 테스트 결과</small></div></div>
+          <div class="turso-review"><span>실제 업무에 반영할 때</span><strong>담당자의 검토와 승인</strong><p>실험 기록과 주문·결제 같은 핵심 데이터의 경계를 정합니다.</p></div>
+          <figcaption>이해를 돕기 위한 가상의 업무 예시입니다. 실제 도입 사례나 두 제품의 자동 연동 기능을 나타내지 않습니다. DB를 나누는 것과 접근 권한을 설정하는 것은 각각 필요합니다.</figcaption>
+        </figure>
+        <p>실제 활용 사례도 있습니다. Turso가 공개한 <strong>CTO.new</strong> 사례에서는 프로젝트마다 DB 하나를 두고, AI 에이전트 팀이 할 일과 진행 상황을 공유합니다. 사람 팀이 업무 보드를 함께 쓰는 것과 비슷합니다. 핵심 운영 시스템에는 Postgres를 유지하면서, 에이전트의 작업 상태는 별도로 관리하는 방식입니다. <a class="source-link" href="https://turso.tech/blog/cto-new-coordinates-tens-of-thousands-of-ai-agents" target="_blank" rel="noopener noreferrer">공식 고객 사례 ↗</a></p>
+      </section>
+
+      <section class="turso-section" id="outlook" aria-labelledby="outlook-title">
+        <p class="news-section-label">03 / 기대와 확인</p>
+        <h2 id="outlook-title">통합은 앞으로,<br>기존 제품은 계속</h2>
+        <dl class="turso-status">
+          <div><dt>계속 운영</dt><dd>Turso는 기존 DB·API·워크플로와 오픈소스 개발을 이어 간다고 밝혔습니다.</dd></div>
+          <div><dt>향후 통합</dt><dd>두 회사는 필요에 따라 Postgres 생태계로 이어지는 경로와, 향후 수개월의 더 깊은 통합을 예고했습니다.</dd></div>
+        </dl>
+        <p>이번 발표만으로 <strong>SQLite에서 Postgres로 자동 이전하는 기능이 완성됐다고 볼 수는 없습니다.</strong> 어떤 기능이 언제 연결되는지는 후속 발표에서 확인할 부분입니다. <a class="source-link" href="https://turso.tech/blog/turso-is-joining-supabase" target="_blank" rel="noopener noreferrer">Turso의 운영·통합 방침 ↗</a></p>
+        <details class="turso-detail">
+          <summary>성능은 어떻게 읽어야 할까요?</summary>
+          <div>
+            <p>Turso는 9월 29일 공개한 0.8 버전에서 여러 작업이 동시에 데이터를 쓰는 성능을 개선했다고 발표했습니다. 한편 ClickBench의 공개 기록에는 이전 0.7 버전에서 대량 데이터 적재와 일부 분석 쿼리에 문제가 있었던 사례가 있습니다.</p>
+            <p>두 자료는 버전과 시험 조건이 다릅니다. 성능을 한 줄로 단정하기보다 <strong>우리가 사용할 데이터와 작업으로 검증해야 한다</strong>는 것이 실무적인 판단입니다.</p>
+            <p><a class="source-link" href="https://turso.tech/blog/turso-0.8.0" target="_blank" rel="noopener noreferrer">Turso 0.8 발표 ↗</a> · <a class="source-link" href="https://github.com/ClickHouse/ClickBench/pull/1159" target="_blank" rel="noopener noreferrer">ClickBench 공개 시험 기록 ↗</a></p>
+          </div>
+        </details>
+      </section>
+
+      <aside class="news-flash-distinction" aria-labelledby="perspective-title">
+        <p class="news-section-label">헬로우 휴먼의 시선</p>
+        <h2 id="perspective-title">일을 맡길 때, 기록할 자리도 함께</h2>
+        <p>작은 AI 실험을 시작할 때 상품정보 수정 제안, 프로모션 비교 결과, 테스트 이력을 어디에 남길지 함께 정해 보면 좋겠습니다. 작업 공간을 나누고 접근 권한·보관 기간·복구 방법을 정해 두면, 결과를 검토하고 다음 실험으로 이어 가기 쉬워집니다.</p>
+        <p><strong>AI가 코드를 만드는 다음 단계에는, 그 코드와 에이전트가 사용할 데이터 공간을 준비하는 일이 있습니다.</strong></p>
+      </aside>
+      <section class="news-flash-sources" aria-labelledby="flash-sources-title">
+        <h2 id="flash-sources-title">원문과 확인 자료</h2>
+        <a class="news-flash-original" href="https://supabase.com/blog/supabase-is-acquiring-turso" target="_blank" rel="noopener noreferrer">
+          <span>SUPABASE · 2026. 10. 02</span><strong>Supabase is acquiring Turso</strong><span class="news-flash-original-cta">공식 발표 읽기 <span aria-hidden="true">↗</span></span>
+        </a>
+        <ul>
+          <li><a href="https://turso.tech/blog/turso-is-joining-supabase" target="_blank" rel="noopener noreferrer">Turso · 인수 발표와 기존 제품 운영 방침</a><span> · 2026. 10. 02</span></li>
+          <li><a href="https://turso.tech/blog/cto-new-coordinates-tens-of-thousands-of-ai-agents" target="_blank" rel="noopener noreferrer">Turso · CTO.new의 프로젝트별 DB 활용 사례</a><span> · 2026. 08. 06</span></li>
+          <li><a href="https://turso.tech/blog/turso-0.8.0" target="_blank" rel="noopener noreferrer">Turso · 0.8 버전의 동시 쓰기 성능 발표</a><span> · 2026. 09. 29</span></li>
+          <li><a href="https://github.com/ClickHouse/ClickBench/pull/1159" target="_blank" rel="noopener noreferrer">ClickBench · Turso 0.7 시험 문제와 변경 제안 기록</a></li>
+        </ul>
+        <p class="news-flash-verification">확인 기준 2026년 10월 3일(한국시간). 두 회사의 공식 발표, 제품 설명, 고객 사례와 공개 시험 기록을 대조했습니다. 생성량·성능·고객 사례는 각 자료의 발표 내용이며 직접 재측정하지 않았습니다. 업무 도식과 적용 제안은 이해를 돕기 위한 헬로우 휴먼의 해석입니다.</p>
+        <a class="news-end-link" href="./#briefs">AI뉴스 속보·단신으로 돌아가기 <span aria-hidden="true">→</span></a>
+      </section>
+    </div>
+  </article>
+</main>
+<footer class="footer"><div class="wrap">헬로우 휴먼 · Workless Engineering Club</div></footer>
+<script src="../assets/analytics.js?v=2" defer></script>
+<script src="../assets/article-toc.js?v=1" defer></script>
+<script type="module" src="../assets/content-updates.js?v=2"></script>
+</body>
+</html>

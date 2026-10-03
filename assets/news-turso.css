@@ -1,0 +1,49 @@
+/* 단신 04: 두 서비스의 역할과 에이전트의 작업 공간 */
+.turso-brief .turso-section { margin: 38px 0; scroll-margin-top: 40px; }
+.turso-section h2 { margin: 10px 0 24px; font-size: clamp(27px, 4vw, 35px); line-height: 1.4; letter-spacing: -.035em; }
+.turso-section > p { margin-bottom: 22px; }
+.turso-official { margin: 30px 0; }
+.turso-brief .turso-toc { position: static; display: flex; flex-wrap: wrap; gap: 10px 18px; margin: 34px 0; padding: 18px 0; border-block: 1px solid var(--line); }
+.turso-toc > span { flex-basis: 100%; margin: 0; }
+.turso-brief .turso-toc a { margin: 0; }
+.turso-products { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 22px; }
+.turso-products > section { display: flex; flex-direction: column; padding: 24px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.turso-product-label { color: var(--muted); font-size: 13px; font-weight: 600; letter-spacing: .02em; }
+.turso-products h3 { margin: 0 0 12px; font-size: 23px; line-height: 1.4; letter-spacing: -.025em; }
+.turso-products p:not(.turso-product-label) { font-size: 16px; }
+.turso-products ul { margin: auto 0 18px; padding-left: 19px; font-size: 16px; }
+.turso-section .turso-note { color: var(--muted); font-size: 15px; }
+.turso-workspaces { margin: 28px 0; }
+.turso-figure-heading { display: grid; gap: 7px; margin-bottom: 18px; }
+.turso-figure-heading > strong { font-size: 20px; line-height: 1.5; }
+.turso-lane { display: grid; grid-template-columns: minmax(0, .85fr) 28px minmax(0, 1.2fr); align-items: stretch; gap: 10px; margin-bottom: 12px; }
+.turso-agent, .turso-database { display: grid; align-content: center; gap: 4px; padding: 17px 20px; border-radius: 10px; }
+.turso-agent { background: var(--surface-2); }
+.turso-database { border: 1px solid var(--line); background: var(--surface); }
+.turso-agent > span, .turso-database > span { font-size: 17px; font-weight: 700; }
+.turso-lane small { color: var(--muted); font-size: 14px; }
+.turso-arrow { align-self: center; color: var(--muted); font-size: 24px; text-align: center; }
+.turso-review { margin-top: 20px; padding: 18px 22px; border-left: 3px solid var(--accent); background: var(--accent-soft); }
+.turso-review > span { display: block; color: var(--muted); font-size: 14px; }
+.turso-review > strong { display: block; margin: 3px 0; font-size: 19px; }
+.turso-review p { margin: 0; font-size: 15px; }
+.turso-workspaces figcaption { margin-top: 12px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.turso-status { margin: 0 0 22px; border-top: 1px solid var(--line); }
+.turso-status > div { display: grid; grid-template-columns: 85px minmax(0, 1fr); gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.turso-status dt { font-weight: 700; }
+.turso-status dd { margin: 0; }
+.turso-detail { margin-top: 25px; padding: 17px 20px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.turso-detail summary { cursor: pointer; font-weight: 700; }
+.turso-detail summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+.turso-detail > div { padding-top: 18px; font-size: 16px; }
+.turso-detail > div > p:last-child { margin-bottom: 0; }
+@media (max-width: 520px) {
+  .turso-products { grid-template-columns: 1fr; }
+  .turso-products > section { padding: 22px; }
+  .turso-products ul { margin-top: 0; }
+  .turso-lane { grid-template-columns: minmax(0, 1fr); gap: 0; margin-bottom: 18px; }
+  .turso-agent { border-radius: 10px 10px 0 0; }
+  .turso-database { border-radius: 0 0 10px 10px; }
+  .turso-arrow { display: none; }
+  .turso-status > div { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+}
