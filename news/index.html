@@ -13,10 +13,10 @@
 <script src="../assets/theme.js?v=3"></script>
 <link rel="stylesheet" href="../assets/style.css?v=7">
 <link rel="stylesheet" href="../assets/news.css?v=9">
-<link rel="stylesheet" href="../assets/news-sections.css?v=1">
+<link rel="stylesheet" href="../assets/news-index.css?v=1">
 <link rel="stylesheet" href="../assets/content-updates.css?v=1">
 </head>
-<body>
+<body class="news-index">
 <header class="topbar">
   <div class="wrap topbar-inner">
     <a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
@@ -41,63 +41,116 @@
   <section class="news-list-section wrap" aria-labelledby="news-list-heading">
     <div class="news-list-heading">
       <h2 id="news-list-heading">발행한 뉴스</h2>
-      <span>총 9편</span>
+      <span>총 <span data-news-total>9</span>편</span>
     </div>
-    <section class="news-list-group" id="regular-news" aria-labelledby="regular-news-heading">
-      <div class="news-list-group-heading">
-        <h3 id="regular-news-heading">일반 뉴스</h3>
-        <span>5편 · ISSUE</span>
-      </div>
+    <div class="news-tabs" role="tablist" aria-label="뉴스 종류" hidden>
+      <button class="news-tab" type="button" role="tab" id="all-news" aria-controls="news-feed" aria-selected="true" data-news-filter="all">
+        전체 최신순 <span class="news-tab-count" data-news-count="all">9</span>
+      </button>
+      <button class="news-tab" type="button" role="tab" id="briefs" aria-controls="news-feed" aria-selected="false" tabindex="-1" data-news-filter="briefs">
+        속보·단신 <span class="news-tab-count" data-news-count="briefs">4</span>
+      </button>
+      <button class="news-tab" type="button" role="tab" id="regular-news" aria-controls="news-feed" aria-selected="false" tabindex="-1" data-news-filter="regular-news">
+        일반뉴스 <span class="news-tab-count" data-news-count="regular-news">5</span>
+      </button>
+    </div>
+    <p class="news-sort-note">최신 발행순 · 같은 날짜에는 속보·단신을 먼저 보여드립니다.</p>
+    <div id="news-feed">
+      <!-- Add each article once, newest first; tabs filter this shared catalogue. -->
       <ol class="news-issues">
-        <li>
+        <li data-news-kind="briefs">
+          <a class="news-issue" href="2026-10-03-supabase-turso.html">
+            <span class="news-issue-number">04</span>
+            <span class="news-issue-main">
+              <span class="news-issue-meta"><span class="news-kind news-kind-briefs">속보·단신</span> <time datetime="2026-10-03">2026. 10. 03</time> · 단신 04 / Supabase·Turso / 에이전트 DB</span>
+              <strong>Supabase, Turso 인수 발표… AI 에이전트마다 작은 DB 하나씩</strong>
+              <span>두 서비스의 역할과 작업용 DB, 기존 제품 운영과 향후 통합을 그림으로 읽는 단신</span>
+            </span>
+            <span class="news-issue-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li data-news-kind="regular-news">
           <a class="news-issue" href="2026-10-03-durable-ai-workflows.html">
             <span class="news-issue-number">05</span>
             <span class="news-issue-main">
-              <span class="news-issue-meta"><time datetime="2026-10-03">2026. 10. 03</time> · 뉴스 05 / AI 업무 / 복구·편집·권한</span>
+              <span class="news-issue-meta"><span class="news-kind news-kind-regular-news">일반뉴스</span> <time datetime="2026-10-03">2026. 10. 03</time> · 뉴스 05 / AI 업무 / 복구·편집·권한</span>
               <strong>AI는 일을 이어가고, 기업의 일상으로 들어간다</strong>
               <span>Pi Durable·Barclays·FLUX 3 Image·에이전트 조사로 읽는 AI에게 일을 맡길 조건</span>
             </span>
             <span class="news-issue-arrow" aria-hidden="true">↗</span>
           </a>
         </li>
-        <li>
+        <li data-news-kind="briefs">
+          <a class="news-issue" href="2026-10-02-bank-data-breach.html">
+            <span class="news-issue-number">03</span>
+            <span class="news-issue-main">
+              <span class="news-issue-meta"><span class="news-kind news-kind-briefs">속보·단신</span> <time datetime="2026-10-02">2026. 10. 02</time> · 단신 03 / 정보유출 / 인증·조회 권한</span>
+              <strong>은행권 정보유출, ‘AI 해킹’ 뒤의 조회 서비스 빈틈</strong>
+              <span>국내 은행 사고와 해외 사례, 인증·권한·응답의 세 방어선을 도식으로 읽는 기술 해설</span>
+            </span>
+            <span class="news-issue-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li data-news-kind="regular-news">
           <a class="news-issue" href="2026-10-02-ai-evidence.html">
             <span class="news-issue-number">04</span>
             <span class="news-issue-main">
-              <span class="news-issue-meta"><time datetime="2026-10-02">2026. 10. 02</time> · 뉴스 04 / AI 실행 / 보호·출처·책임</span>
+              <span class="news-issue-meta"><span class="news-kind news-kind-regular-news">일반뉴스</span> <time datetime="2026-10-02">2026. 10. 02</time> · 뉴스 04 / AI 실행 / 보호·출처·책임</span>
               <strong>더 오래 일하는 AI, 더 중요해진 검증과 책임</strong>
               <span>Gemini 4 Argon·추론 추출 공격·SynthID Bio·FTC 조사로 읽는 실행과 증거</span>
             </span>
             <span class="news-issue-arrow" aria-hidden="true">↗</span>
           </a>
         </li>
-        <li>
+        <li data-news-kind="briefs">
+          <a class="news-issue" href="2026-10-01-meta-muse-messages.html">
+            <span class="news-issue-number">02</span>
+            <span class="news-issue-main">
+              <span class="news-issue-meta"><span class="news-kind news-kind-briefs">속보·단신</span> <time datetime="2026-10-01">2026. 10. 01</time> · 단신 02 / Muse / 개인정보·권한</span>
+              <strong>메타 Muse, 개인 메시지 무단 접근 의혹…회사는 부인</strong>
+              <span>사용자 주장과 메타 해명, 설명 오류와 미확인된 권한 우회를 구분해 읽는 단신</span>
+            </span>
+            <span class="news-issue-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li data-news-kind="regular-news">
           <a class="news-issue" href="2026-09-30-long-running-agents.html">
             <span class="news-issue-number">03</span>
             <span class="news-issue-main">
-              <span class="news-issue-meta"><time datetime="2026-09-30">2026. 09. 30</time> · 뉴스 03 / AI 에이전트 / 실행·권한·비용</span>
+              <span class="news-issue-meta"><span class="news-kind news-kind-regular-news">일반뉴스</span> <time datetime="2026-09-30">2026. 09. 30</time> · 뉴스 03 / AI 에이전트 / 실행·권한·비용</span>
               <strong>오래 일하는 AI 에이전트, 어디까지 맡길 수 있을까?</strong>
               <span>Dots·NVIDIA·Team Bots로 살펴보는 지속형 에이전트의 실행 범위와 운영 책임</span>
             </span>
             <span class="news-issue-arrow" aria-hidden="true">↗</span>
           </a>
         </li>
-        <li>
+        <li data-news-kind="regular-news">
           <a class="news-issue" href="2026-09-29-spatial-ai-efficiency.html">
             <span class="news-issue-number">02</span>
             <span class="news-issue-main">
-              <span class="news-issue-meta"><time datetime="2026-09-29">2026. 09. 29</time> · 뉴스 02 / 공간 AI / 모델 효율</span>
+              <span class="news-issue-meta"><span class="news-kind news-kind-regular-news">일반뉴스</span> <time datetime="2026-09-29">2026. 09. 29</time> · 뉴스 02 / 공간 AI / 모델 효율</span>
               <strong>AMD의 공간 AI 베팅, Claude Sonnet 5.5의 효율 경쟁</strong>
               <span>World Labs 인수 계약부터 작업당 비용까지, AI가 넓히는 일과 줄여야 할 비용</span>
             </span>
             <span class="news-issue-arrow" aria-hidden="true">↗</span>
           </a>
         </li>
-        <li>
+        <li data-news-kind="briefs">
+          <a class="news-issue" href="2026-09-26-openai-government-sites.html">
+            <span class="news-issue-number">01</span>
+            <span class="news-issue-main">
+              <span class="news-issue-meta"><span class="news-kind news-kind-briefs">속보·단신</span> <time datetime="2026-09-26">2026. 09. 26</time> · 단신 01 / 에이전트 / 안전</span>
+              <strong>OpenAI 에이전트, 미 정부 사이트서 예상 밖 행동</strong>
+              <span>공개 데이터 접근과 실패한 침입 시도, 조사 중인 내용을 구분해 읽는 단신</span>
+            </span>
+            <span class="news-issue-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li data-news-kind="regular-news">
           <a class="news-issue" href="2026-09-25-ai-agents.html">
             <span class="news-issue-number">01</span>
             <span class="news-issue-main">
-              <span class="news-issue-meta"><time datetime="2026-09-25">2026. 09. 25</time> · 뉴스 01 / 에이전트 / 안전 / 연구</span>
+              <span class="news-issue-meta"><span class="news-kind news-kind-regular-news">일반뉴스</span> <time datetime="2026-09-25">2026. 09. 25</time> · 뉴스 01 / 에이전트 / 안전 / 연구</span>
               <strong>Meta Muse가 보여준 개인 AI 에이전트 전쟁</strong>
               <span>모델 경쟁을 넘어, 실행 환경·하드웨어·보안까지 묶는 에이전트 플랫폼 경쟁</span>
             </span>
@@ -105,65 +158,14 @@
           </a>
         </li>
       </ol>
-    </section>
-    <section class="news-list-group news-list-briefs" id="briefs" aria-labelledby="briefs-heading">
-      <div class="news-list-group-heading">
-        <h3 id="briefs-heading">속보·단신</h3>
-        <span>4편 · BRIEF</span>
-      </div>
-      <ol class="news-issues">
-        <li>
-          <a class="news-issue" href="2026-10-03-supabase-turso.html">
-            <span class="news-issue-number">04</span>
-            <span class="news-issue-main">
-              <span class="news-issue-meta"><time datetime="2026-10-03">2026. 10. 03</time> · 단신 04 / Supabase·Turso / 에이전트 DB</span>
-              <strong>Supabase, Turso 인수 발표… AI 에이전트마다 작은 DB 하나씩</strong>
-              <span>두 서비스의 역할과 작업용 DB, 기존 제품 운영과 향후 통합을 그림으로 읽는 단신</span>
-            </span>
-            <span class="news-issue-arrow" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li>
-          <a class="news-issue" href="2026-10-02-bank-data-breach.html">
-            <span class="news-issue-number">03</span>
-            <span class="news-issue-main">
-              <span class="news-issue-meta"><time datetime="2026-10-02">2026. 10. 02</time> · 단신 03 / 정보유출 / 인증·조회 권한</span>
-              <strong>은행권 정보유출, ‘AI 해킹’ 뒤의 조회 서비스 빈틈</strong>
-              <span>국내 은행 사고와 해외 사례, 인증·권한·응답의 세 방어선을 도식으로 읽는 기술 해설</span>
-            </span>
-            <span class="news-issue-arrow" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li>
-          <a class="news-issue" href="2026-10-01-meta-muse-messages.html">
-            <span class="news-issue-number">02</span>
-            <span class="news-issue-main">
-              <span class="news-issue-meta"><time datetime="2026-10-01">2026. 10. 01</time> · 단신 02 / Muse / 개인정보·권한</span>
-              <strong>메타 Muse, 개인 메시지 무단 접근 의혹…회사는 부인</strong>
-              <span>사용자 주장과 메타 해명, 설명 오류와 미확인된 권한 우회를 구분해 읽는 단신</span>
-            </span>
-            <span class="news-issue-arrow" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li>
-          <a class="news-issue" href="2026-09-26-openai-government-sites.html">
-            <span class="news-issue-number">01</span>
-            <span class="news-issue-main">
-              <span class="news-issue-meta"><time datetime="2026-09-26">2026. 09. 26</time> · 단신 01 / 에이전트 / 안전</span>
-              <strong>OpenAI 에이전트, 미 정부 사이트서 예상 밖 행동</strong>
-              <span>공개 데이터 접근과 실패한 침입 시도, 조사 중인 내용을 구분해 읽는 단신</span>
-            </span>
-            <span class="news-issue-arrow" aria-hidden="true">↗</span>
-          </a>
-        </li>
-      </ol>
-    </section>
+    </div>
   </section>
 </main>
 
 <footer class="footer">
   <div class="wrap">헬로우 휴먼 · Workless Engineering Club</div>
 </footer>
+<script src="../assets/news-index.js?v=1" defer></script>
 <script src="../assets/analytics.js?v=2" defer></script>
 <script type="module" src="../assets/content-updates.js?v=2"></script>
 </body>
