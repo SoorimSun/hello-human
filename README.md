@@ -67,6 +67,8 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `insights/index.html` | 커머스 인사이트 목록 |
 | `insights/2026-09-25-agentic-commerce.html` | 커머스 인사이트 첫 호 |
 | `insights/2026-09-29-recommendation-evidence.html` | 커머스 인사이트 두 번째 글: 추천 에이전트의 근거와 검증 |
+| `insights/2026-10-03-promotion-profit.html` | 커머스 인사이트 세 번째 글: 프로모션·가격 최적화, Jev의 근거 선별과 손익·실험 검증 |
+| `research/2026-10-03-promotion-profit.md` | 인사이트 03의 공식 출처, 제공 범위·수치 확인과 원본 미디어 기록 |
 | `works/choi-taejun.html` | 회원 최태준의 작업물 소개 |
 | `works/sun-soorim.html` | 회원 선수림의 모델별 웹 제작 실험 소개 |
 | `assets/style.css` | 공통 스타일 |
@@ -95,6 +97,7 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `assets/case-studies/` | 실제 게임·웹사이트 캡처와 출처가 표시된 사례 이미지 |
 | `assets/insights.css` | 커머스 인사이트 시각화 스타일 |
 | `assets/insight-evidence.css` | 인사이트 02의 구매 사례·검수 화면·아키텍처 도식 스타일 |
+| `assets/insight-promotion.css`, `assets/insight-promotion.js` | 인사이트 03의 할인별 공헌이익 가정 계산기와 검토서·실험·역할 도식 |
 | `assets/article-toc.js` | AI뉴스·AI 사례연구·AI가이드·커머스 인사이트 스크롤 위치에 맞춘 목차 표시 |
 | `assets/content-updates.js` | 발행 목록과 본문 변경 감지, 메뉴·카드의 New/Updated 표시 |
 | `assets/content-update-state.js` | 목록·글별 확인 기록과 갱신 판정 |
