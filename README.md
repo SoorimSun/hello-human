@@ -47,6 +47,8 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `news/2026-09-29-spatial-ai-efficiency.html` | AI뉴스 두 번째 호: World Labs 인수 계약과 Sonnet 5.5의 효율 |
 | `news/2026-09-30-long-running-agents.html` | AI뉴스 세 번째 호: 지속형 에이전트의 실행·권한·비용·책임 |
 | `news/2026-10-02-ai-evidence.html` | AI뉴스 네 번째 호: Gemini 4 Argon·추론 추출 공격·SynthID Bio·FTC 조사와 실행 증거 |
+| `news/2026-10-03-durable-ai-workflows.html` | AI뉴스 다섯 번째 호: Pi Durable·Barclays·FLUX 3 Image·에이전트 조사, 작업 복구 도식과 공식 편집 전후 비교 |
+| `research/2026-10-03-durable-ai-workflows.md` | AI뉴스 05의 공식 출처, 수치·발표일 검증과 편집 판단 |
 | `news/2026-10-01-meta-muse-messages.html` | AI뉴스 단신 02: 메타 Muse의 메시지 접근 의혹과 권한·기록 검증 |
 | `news/2026-10-02-bank-data-breach.html` | AI뉴스 단신 03: 은행권 정보유출과 AI 사용 정황, 인증·조회 권한·응답 최소화 도식 |
 | `case-studies/index.html` | AI 사례연구 소개와 목록 |
@@ -73,6 +75,8 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `assets/news-spatial.css` | AI뉴스 02의 공간 재구성·로봇 학습·작업 비용 도식 스타일 |
 | `assets/news-agents.css` | AI뉴스 03의 지속 작업·실행 통제·팀 공유·쿠폰 검증 도식 스타일 |
 | `assets/news-evidence.css` | AI뉴스 04의 작업 흐름·사건 타임라인·출처 표시·실행 기록 도식 스타일 |
+| `assets/news-workflows.css`, `assets/news-workflows.js` | AI뉴스 05의 복구·업무·권한 도식과 접근 가능한 이미지 비교 슬라이더 |
+| `assets/news/workflows-media.md` | AI뉴스 05의 공식 Pi 화면과 FLUX 편집 전후 이미지 출처 |
 | `assets/news-security.css` | AI뉴스 단신 03의 피해 현황·접근 경로·세 방어선·해외 사례 비교 도식 스타일 |
 | `assets/news-sections.css` | 홈페이지의 속보 띠·일반 뉴스 카드와 뉴스 목록의 유형별 구분 스타일 |
 | `assets/news/` | AI뉴스 기사 삽화와 출처가 표시된 제품 발표 이미지 |

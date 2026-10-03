@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>AI는 일을 이어가고, 기업의 일상으로 들어간다 · AI뉴스 · 헬로우 휴먼</title>
+  <meta name="description" content="Pi Durable의 작업 복구, Barclays의 Claude 도입, FLUX 3 Image의 부분 편집과 OpenAI의 에이전트 조사. 공식 제품 이미지와 도식으로 읽는 AI뉴스 05.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+  <script src="../assets/theme.js?v=3"></script>
+  <link rel="stylesheet" href="../assets/style.css?v=7">
+  <link rel="stylesheet" href="../assets/news.css?v=9">
+  <link rel="stylesheet" href="../assets/news-workflows.css?v=1">
+  <link rel="stylesheet" href="../assets/content-updates.css?v=1">
+</head>
+<body class="news-workflows">
+  <header class="topbar"><div class="wrap topbar-inner">
+    <a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+    <nav class="news-nav" aria-label="사이트 메뉴"><a href="../">모임 소개</a><a href="./">AI뉴스</a><a href="../guides/">AI가이드</a><a href="../insights/">인사이트</a><a href="../case-studies/">사례연구</a></nav>
+  </div></header>
+  <main><article>
+    <header class="news-article-header wrap">
+      <a class="news-back" href="./">← AI뉴스 목록</a>
+      <p class="news-kicker">AI NEWS <span aria-hidden="true">/</span> ISSUE 05</p>
+      <h1>AI는 일을 이어가고,<br><em>기업의 일상으로 들어간다</em></h1>
+      <p class="news-deck">멈춰도 이어 하는 에이전트, 은행의 이메일을 분류하는 Claude,<br>원하는 부분을 고치는 FLUX. AI에게 일을 반복해서 맡길 조건이 구체화됩니다.</p>
+      <div class="news-article-meta"><time datetime="2026-10-03">2026년 10월 3일</time><span>헬로우 휴먼 AI뉴스</span></div>
+    </header>
+
+    <div class="workflow-map wrap" aria-label="이번 호의 네 가지 변화">
+      <a href="#pi"><span>01 / PI DURABLE</span><strong>하던 일을 이어가기</strong><small>중단된 작업을 복구하는 기반</small></a>
+      <a href="#barclays"><span>02 / BARCLAYS</span><strong>매일의 업무에 넣기</strong><small>검색·메일 분류·개발로 확산</small></a>
+      <a href="#flux"><span>03 / FLUX 3 IMAGE</span><strong>원하는 부분 고치기</strong><small>좌표로 배치하고 반복 편집</small></a>
+      <a href="#security"><span>04 / AGENT SECURITY</span><strong>실행 범위를 정하기</strong><small>연결이 늘수록 중요해지는 권한</small></a>
+    </div>
+
+    <div class="news-article-shell wrap">
+      <nav class="news-toc" aria-label="기사 목차"><span>이번 호</span><a href="#at-a-glance">30초 요약</a><a href="#pi">멈춰도 이어 하는 AI</a><a href="#barclays">은행 업무 속 Claude</a><a href="#flux">FLUX 편집 전후</a><a href="#security">통보 숫자 뒤의 의미</a><a href="#our-view">우리의 작은 실험</a><a href="#sources">읽은 자료</a></nav>
+      <div class="news-story">
+        <section id="at-a-glance" class="news-summary" aria-labelledby="summary-heading">
+          <p class="news-section-label">AT A GLANCE</p><h2 id="summary-heading">30초 요약</h2>
+          <ul>
+            <li><strong>Pi Durable</strong> 저장한 작업 기록으로 중단 이후를 이어 가는 실험 단계의 개발 도구가 나왔습니다.</li>
+            <li><strong>Barclays</strong> Claude를 활용한 이메일 분류와 직원 지식 검색이 실제 은행 업무에서 운영되고 있습니다.</li>
+            <li><strong>FLUX 3 Image</strong> 이미지 속 요소의 위치를 상자로 지정하고 부분 수정을 요청할 수 있습니다.</li>
+            <li><strong>OpenAI</strong> 에이전트 활동과 관련해 100곳 넘게 통보했다고 밝혔습니다. 통보 건수는 침해 확정 건수가 아닙니다.</li>
+          </ul>
+        </section>
+        <p class="news-method">2026년 10월 3일 기준으로 공식 발표·개발 문서·후속 조사를 확인했습니다. 발표일은 원문 표기 기준입니다. 기업이 발표한 기능과 수치, 조사 중인 사실, 우리의 해석을 구분합니다. 아래 도식의 업무 예시는 설명용이며 제품 성능을 직접 시험한 결과가 아닙니다.</p>
+        <p>AI에게 상품 100개의 정보를 점검해 달라고 부탁했다고 생각해 봅시다. 50번째 상품을 읽다가 프로그램이 꺼졌습니다. 다시 켜면 처음부터 해야 할까요? 이미 끝낸 일은 어떻게 구분할까요? 점검하던 AI가 상품 정보를 직접 바꿔도 될까요?</p>
+        <p>AI가 업무에 들어오면 이런 질문이 생깁니다. 10월 초의 소식은 <strong>AI가 무엇을 할 수 있는지에서, 그 일을 어떻게 계속 맡길 수 있는지</strong>로 관심이 넓어지고 있음을 보여줍니다.</p>
+
+        <section id="pi" class="news-story-section">
+          <p class="news-section-label">01 / PI DURABLE</p><h2>프로그램이 꺼져도,<br>하던 일을 기억한다면</h2>
+          <p>Earendil은 10월 1일 <strong>Pi 1.0</strong>과 <strong>Pi Durable</strong>을 함께 공개했습니다. Pi는 터미널에서 파일을 읽고 코드를 고치는 AI 코딩 도구입니다. 여러 모델과 도구를 연결할 수 있고, 사용자가 필요한 기능을 붙이는 데 초점을 맞춥니다. 두 프로젝트 모두 MIT 라이선스로 공개됐습니다. <a class="source-link" href="https://earendil.com/posts/pi-1-0/" target="_blank" rel="noopener noreferrer">공식 발표 ↗</a></p>
+          <figure class="workflow-media workflow-pi-media">
+            <a href="../assets/news/pi-official-demo.png" target="_blank" rel="noopener noreferrer"><img src="../assets/news/pi-official-demo.png" alt="Pi 터미널에서 사용자의 요청을 받고 문서를 읽고 명령을 실행하는 공식 대화형 화면 예시" width="1500" height="1736" loading="lazy" decoding="async"></a>
+            <figcaption><strong>Pi는 이런 도구입니다.</strong> 대화 아래에 문서 읽기와 명령 실행 과정이 이어집니다. 공식 저장소의 대화형 화면 예시로, 이미지에 표시된 버전은 v0.85.1입니다. Pi 1.0의 새 화면이나 Durable 복구 시연은 아닙니다. <a href="https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/images/interactive-mode.png" target="_blank" rel="noopener noreferrer">이미지 출처 ↗</a> · <a href="https://pi.dev/" target="_blank" rel="noopener noreferrer">공식 사이트의 움직이는 데모 ↗</a></figcaption>
+          </figure>
+          <p>함께 나온 Pi Durable의 관심사는 조금 다릅니다. <strong>오래 걸리는 작업을 저장하고, 중단되면 다시 이어 갈 실행 기반</strong>입니다. 문서의 자동 저장과 비슷하지만, 글뿐 아니라 AI의 대화와 도구 실행 상태도 다룹니다. 아직 실험 단계이며 기존 Pi를 대체하는 완성형 서비스는 아닙니다.</p>
+          <figure class="workflow-figure" aria-labelledby="checkpoint-title">
+            <span class="workflow-eyebrow">상품 100건 점검 · 설명용 예시</span><h3 id="checkpoint-title">‘처음부터 다시’ 대신, 기록을 확인하고 이어가기</h3>
+            <ol class="workflow-steps"><li><span>01</span><strong>49건 완료</strong><p>건별 결과와 완료 상태를 저장</p></li><li class="workflow-stop"><span>02</span><strong>50번째에서 중단</strong><p>프로그램 종료 또는 연결 끊김</p></li><li><span>03</span><strong>저장 기록 확인</strong><p>완료·미완료·확인 필요를 구분</p></li><li class="workflow-resume"><span>04</span><strong>남은 작업 재개</strong><p>안전하게 반복할 수 있는 일부터</p></li></ol>
+            <figcaption>체크포인트는 ‘여기까지 끝났다’는 저장 지점입니다. 재시작 후 복구하려면 SQLite 같은 영속 저장소가 필요합니다. 메모리 저장소만 쓰면 프로세스 종료 후 기록이 남지 않습니다.</figcaption>
+          </figure>
+          <p>더 중요한 것은 <strong>무엇을 다시 실행해도 되는가</strong>입니다. 상품 정보를 다시 조회하는 일과 환불을 다시 보내는 일은 다릅니다. Pi Durable은 중단된 도구가 안전하게 반복 가능하다고 선언된 경우에만 자동 재실행하고, 그 외에는 중단 사실을 모델에 전달합니다. 같은 요청의 중복 제출을 막는 식별자도 제공합니다. <a class="source-link" href="https://earendil.com/posts/pi-durable/" target="_blank" rel="noopener noreferrer">복구 방식 설명 ↗</a></p>
+          <p>다만 이것만으로 외부 결제·환불이 반드시 한 번만 실행되지는 않습니다. 결제는 성공했는데 결과를 저장하기 전에 꺼졌다면, 외부 시스템에서 처리 여부를 먼저 확인해야 합니다. <strong>작업 기록을 복구하는 기능과 돈이 중복으로 나가지 않게 하는 설계는 함께 필요합니다.</strong></p>
+          <details class="workflow-detail"><summary>개발자가 알아둘 두 가지</summary><p>1.0은 MCP와 Codemode 지원을 포함한 안정화 지점입니다. 이 기능들은 9월 29일 v0.99.0에도 있었으므로 ‘1.0에서 처음 생겼다’고 보기는 어렵습니다. <a href="https://github.com/earendil-works/pi/releases" target="_blank" rel="noopener noreferrer">릴리스 기록 ↗</a></p><p>Pi의 공식 문서는 파일·네트워크·인증정보를 제한하는 내장 권한 시스템이 없다고 설명합니다. 컨테이너 등으로 실행 범위를 따로 제한해야 합니다. 복구 가능성과 권한 통제는 다른 문제입니다. <a href="https://github.com/earendil-works/pi#permissions--containerization" target="_blank" rel="noopener noreferrer">공식 권한 설명 ↗</a></p></details>
+          <div class="news-insight"><span>헬로우 휴먼의 해석</span><p>긴 작업의 가치는 ‘오래 켜 두기’보다 <strong>중간에 실패해도 어디서부터 다시 시작할지 아는 것</strong>에 있습니다.</p></div>
+        </section>
+
+        <section id="barclays" class="news-story-section">
+          <p class="news-section-label">02 / BARCLAYS × CLAUDE</p><h2>질문에 답하는 창을 넘어,<br>은행의 매일 하는 일 속으로</h2>
+          <p>영국 은행 Barclays는 Anthropic과의 협력을 확대하고 있습니다. 10월 1일 Anthropic이 소개한 운영 사례는 <strong>직원용 지식 검색과 고객 이메일 분류</strong>입니다. Claude 모델을 은행의 업무 시스템에 연결해, 직원이 필요한 정보를 찾고 고객 요청을 처리하도록 돕습니다. <a class="source-link" href="https://www.anthropic.com/news/barclays-scales-claude" target="_blank" rel="noopener noreferrer">Anthropic 공식 발표 ↗</a></p>
+          <figure class="workflow-figure" aria-labelledby="barclays-title">
+            <span class="workflow-eyebrow">회사 발표 기준 · 일반 업무의 운영 규모</span><h3 id="barclays-title">이미 운영 중인 두 가지 활용</h3>
+            <dl class="workflow-stats"><div><dt>현재 · Global Markets</dt><dd><strong>약 12만 통<span>/일</span></strong><p>분류·정보 보강·처리 경로 결정을 돕는 이메일 규모</p></dd></div><div><dt>현재 · 직원 지식 도우미</dt><dd><strong>1.6만 명<span>이상</span></strong><p>도입 직원 수. 2025년부터 운영, 누적 검색 100만 건 초과</p></dd></div></dl>
+            <figcaption>Claude 기반 업무 시스템에 대해 협력 당사자가 공개한 수치입니다. 이메일 처리량과 도입 직원 수는 활용 규모를 보여주며, 생산성 향상률을 뜻하지는 않습니다.</figcaption>
+          </figure>
+          <p>메일 12만 통을 AI가 혼자 답장하고 종결한다는 뜻은 아닙니다. 이메일의 종류를 분류하고, 필요한 정보를 보강하고, 적절한 처리 경로를 정해 담당자가 일하기 쉽게 만드는 것입니다. 직원 지식 도우미는 내부 자료를 찾아 고객 응대에 필요한 답을 얻도록 돕습니다.</p>
+          <figure class="workflow-figure" aria-labelledby="mail-title"><span class="workflow-eyebrow">발표 내용을 단순화한 업무 흐름</span><h3 id="mail-title">AI가 담당자 앞의 정리 작업을 맡습니다</h3><ol class="workflow-steps"><li><span>입력</span><strong>고객 이메일</strong><p>매일 들어오는 여러 종류의 문의</p></li><li><span>AI</span><strong>분류·정보 보강</strong><p>요청 종류와 처리에 필요한 정보 정리</p></li><li><span>연결</span><strong>처리 경로 결정</strong><p>담당 업무 흐름으로 전달</p></li><li class="workflow-human"><span>사람</span><strong>확인하고 조치</strong><p>직원의 감독과 업무 판단</p></li></ol><figcaption>실제 Barclays 내부 화면이나 시스템 설계도가 아닌 설명용 도식입니다.</figcaption></figure>
+          <p>발표문은 보안 통제와 사람의 감독을 강조하지만, 업무 처리 시간이 얼마나 줄었는지에 대한 독립 평가를 제시하지는 않습니다. 여기서 읽을 변화는 <strong>개인의 AI 사용이 조직의 업무 흐름으로 확대되고 있다는 점</strong>입니다. 직원이 매번 채팅창에 질문하는 데서 나아가, 매일 들어오는 업무를 정리하고 담당자에게 연결하는 과정에 AI가 들어갑니다.</p>
+          <aside id="barclays-developer-plan" class="workflow-target" aria-label="개발 조직의 별도 도입 계획">
+            <div><span>별도 계획 · 개발 조직</span><strong>2026년 말, 개발자 50%의 Claude Code 도입이 목표</strong></div>
+            <p>이메일 분류·지식 검색에 Claude를 활용하는 것과 별도로, 개발 조직에서는 Claude Code 도입을 확대할 계획입니다.</p>
+            <div class="workflow-half" role="img" aria-label="2026년 말 개발자 Claude Code 도입 목표 50퍼센트. 현재 달성률이 아닙니다."><span></span></div>
+            <small>2027년에는 개발자 다수로 확대할 계획입니다. 막대는 현재 사용률이 아닌 향후 도입 목표를 나타냅니다.</small>
+          </aside>
+        </section>
+
+        <section id="flux" class="news-story-section">
+          <p class="news-section-label">03 / FLUX 3 IMAGE</p><h2>“다 좋은데, 여기만 바꿔 주세요”가<br>이미지 AI의 중요한 일이 됩니다</h2>
+          <p>Black Forest Labs(BFL)는 10월 1일 <strong>FLUX 3 Image</strong>를 출시했습니다. <a href="https://bfl.ai/blog/flux-3" target="_blank" rel="noopener noreferrer">7월 발표한 FLUX 3 계열</a>의 이미지 생성·편집 기능입니다. 최대 10개 참조 이미지, 최대 4K 출력, 요소별 위치 지정을 지원합니다. <a class="source-link" href="https://docs.bfl.ai/release-notes" target="_blank" rel="noopener noreferrer">공식 출시 기록 ↗</a> · <a class="source-link" href="https://docs.bfl.ai/flux_3/flux3_image_overview" target="_blank" rel="noopener noreferrer">기능 안내 ↗</a></p>
+          <p>새 시안을 만드는 것만큼 자주 하는 일이 수정입니다. 배너가 마음에 들어도 상품을 조금 옮기거나 문구 공간을 비워야 합니다. 매번 새로 생성하면 잘된 부분까지 바뀔 수 있습니다. FLUX 3 Image는 이런 <strong>배치와 반복 수정</strong>을 주요 기능으로 내세웁니다.</p>
+          <figure class="workflow-media workflow-compare" aria-labelledby="flux-compare-title">
+            <span class="workflow-eyebrow">BFL 공식 제품 데모 · NEW SOFA</span><h3 id="flux-compare-title">같은 방에서, 앞쪽 가구를 소파로</h3>
+            <div class="workflow-comparison" id="sofa-comparison"><div class="workflow-before"><img src="../assets/news/flux-3-sofa-before.webp" alt="편집 전: 벽난로와 침대가 있는 방 앞쪽에 안락의자 두 개가 놓여 있다" width="1600" height="1067" loading="lazy" decoding="async"><span>편집 전</span></div><div class="workflow-after"><img src="../assets/news/flux-3-sofa-after.webp" alt="편집 후: 같은 방 앞쪽의 안락의자 두 개가 파란 소파 하나로 바뀌었다" width="1600" height="1067" loading="lazy" decoding="async"><span>편집 후</span></div></div>
+            <div class="workflow-compare-control" hidden><label for="sofa-split">편집 전후 비교</label><input id="sofa-split" type="range" min="0" max="100" value="50" aria-controls="sofa-comparison" aria-valuetext="편집 후 이미지 50% 표시"><span aria-hidden="true">전 ↔ 후</span></div>
+            <figcaption>BFL이 공개한 편집 전후 원본 이미지입니다. 앞쪽 가구가 바뀌고 주변 방의 모습이 유지되는 예시를 보여줍니다. 공급사가 선정한 데모이며, 모든 이미지에서 같은 보존 품질을 보장하는 검증 자료는 아닙니다. <a href="https://bfl.ai/models/flux-3-image" target="_blank" rel="noopener noreferrer">공식 데모 출처 ↗</a></figcaption>
+          </figure>
+          <p>배치를 정할 때는 <strong>바운딩 박스</strong>를 사용합니다. 어렵게 들리지만 ‘이 물체는 이 사각형 근처에 놓아 달라’는 위치 표시입니다. 요소마다 이름과 좌표를 붙이면 “왼쪽에 상품”이라는 문장만 쓸 때보다 배치 의도를 구체적으로 전달할 수 있습니다.</p>
+          <figure class="workflow-figure" aria-labelledby="layout-title"><span class="workflow-eyebrow">쇼핑 배너로 이해하기 · 설명용 배치도</span><h3 id="layout-title">이미지를 만들기 전에 자리부터 정합니다</h3><div class="workflow-layout" role="img" aria-label="배너의 왼쪽 40퍼센트는 상품 영역, 오른쪽 위는 제목 영역, 오른쪽 아래는 배경과 장식 영역인 개념 배치"><div class="workflow-product"><small>product</small><strong>상품 자리</strong><span>왼쪽 영역</span></div><div class="workflow-copy"><small>headline</small><strong>문구 자리</strong></div><div class="workflow-background"><small>background</small><strong>배경·장식</strong></div></div><figcaption>실제 FLUX 출력이나 조작 화면이 아닙니다. 공식 문서는 상자를 위치·크기를 유도하는 수단으로 설명하며, 경계 밖을 고정하는 마스크가 아니라고 명시합니다. <a href="https://docs.bfl.ai/flux_3/flux3_image_bounding_boxes" target="_blank" rel="noopener noreferrer">좌표 상자 문서 ↗</a></figcaption></figure>
+          <p>그래서 <strong>상자를 그렸다고 상품 원본이 완전히 잠기는 것은 아닙니다.</strong> BFL은 수정하지 않는 부분의 픽셀 보존을 강조하지만, 판매용 이미지에서는 로고·색상·구성품을 별도로 검수해야 합니다. 원본 상품 사진을 반드시 유지해야 한다면, 배경을 생성한 뒤 실제 상품 사진을 합성하는 방법도 생각할 수 있습니다.</p>
+          <p>제품 페이지는 자체 인프라 배포·미세조정을 위한 상업용 가중치 라이선스도 안내합니다. 이를 누구나 무료로 내려받는 오픈소스 공개와 같은 의미로 읽으면 안 됩니다. <a class="source-link" href="https://bfl.ai/models/flux-3-image" target="_blank" rel="noopener noreferrer">제품과 라이선스 안내 ↗</a></p>
+          <div class="news-insight"><span>헬로우 휴먼의 해석</span><p>좋은 이미지 한 장을 얻는 능력에 더해, <strong>이미 잘된 부분을 지키면서 필요한 부분을 고치는 능력</strong>이 실제 제작 시간을 좌우합니다.</p></div>
+        </section>
+
+        <section id="security" class="news-story-section">
+          <p class="news-section-label">04 / AGENT SECURITY</p><h2>오래 일할 수 있는 AI에게,<br>어디까지 허용할 것인가</h2>
+          <p>일을 계속 맡기려면 실행 범위도 함께 정해야 합니다. OpenAI는 Hugging Face 사고 이후 과거 모델 활동을 조사하고 있으며, <strong>9월 30일 업데이트에서 9월 26일까지 100곳 넘는 조직에 통보했다</strong>고 밝혔습니다. 10월 1일 Reuters가 보도한 숫자도 이 조사와 관련됩니다. <a class="source-link" href="https://openai.com/hugging-face-incident-and-misalignment/" target="_blank" rel="noopener noreferrer">OpenAI 사고 기록·업데이트 ↗</a> · <a class="source-link" href="https://www.marketscreener.com/news/openai-alerts-more-than-100-groups-about-rogue-ai-agent-activity-ce785ddada81f324" target="_blank" rel="noopener noreferrer">Reuters 보도 ↗</a></p>
+          <figure class="workflow-figure" aria-labelledby="security-title"><span class="workflow-eyebrow">숫자를 읽을 때 구분할 것</span><h3 id="security-title">통보한 조직 수와 확인된 피해는 다릅니다</h3><dl class="workflow-fact-rows"><div><dt>100곳 초과</dt><dd><strong>9월 26일까지 통보한 조직 수</strong><span>모두 침해됐다는 뜻이나, 하루에 발생한 사고 수가 아닙니다.</span></dd></div><div><dt>약 50PB</dt><dd><strong>조사 대상 학습·평가 기록 규모</strong><span>유출된 데이터의 양이 아닙니다.</span></dd></div><div><dt>조사 진행 중</dt><dd><strong>전체 영향은 아직 확인 중</strong><span>통보가 침해 확정은 아니지만, 아무 피해도 없었다는 뜻도 아닙니다.</span></dd></div></dl><figcaption>OpenAI의 설명을 정리했습니다. 업데이트 날짜, 통보 집계 기준일, 언론 보도일을 구분했습니다.</figcaption></figure>
+          <p>OpenAI는 일부 모델이 인터넷을 의도하지 않은 방식으로 사용했거나 필요한 제한이 충분히 적용되지 않았다고 설명합니다. 10월 1일 Asymmetric Security도 공개 기록에 기반한 별도 조사를 발표했습니다. 외부 서비스 접근 흔적을 제시했지만, 일부 시도의 성공 여부와 추가 데이터 추출은 확인하지 못했다고 밝혔습니다. <a class="source-link" href="https://www.asymmetricsecurity.com/newsroom/rogue-agents-investigation/" target="_blank" rel="noopener noreferrer">후속 조사 원문 ↗</a></p>
+          <p>이 소식을 업무에 연결하면 질문은 구체적입니다. 자료를 조사하는 AI에게 인터넷 전체와 사내 변경 권한이 모두 필요할까요? 주문 상태를 확인하는 도구와 주문을 취소하는 도구를 함께 줘야 할까요?</p>
+          <div class="workflow-permissions" aria-label="헬로우 휴먼의 업무 권한 설계 제안"><div><span>조회</span><strong>필요한 자료만 읽기</strong><p>허용한 도메인과 데이터 범위를 정합니다.</p></div><div><span>변경</span><strong>별도 승인 후 실행</strong><p>환불·발송·수정은 결과와 권한을 다시 확인합니다.</p></div><div><span>기록</span><strong>행동과 결과 남기기</strong><p>무엇을 호출했고 실제로 처리됐는지 확인합니다.</p></div></div>
+          <div class="news-insight"><span>헬로우 휴먼의 해석</span><p>지시문에 주의사항을 적는 것과 함께, <strong>도구와 실행 환경에서 가능한 행동의 범위를 제한하는 설계</strong>가 필요합니다.</p></div>
+        </section>
+
+        <section id="our-view" class="news-story-section">
+          <p class="news-section-label">HELLO, HUMAN'S VIEW</p><h2>AI를 믿고 맡기는 조건은<br>결과 주변에 있습니다</h2>
+          <p>Pi는 중단 후의 복구를, Barclays는 업무 흐름과 사람의 감독을, FLUX는 반복 편집을, OpenAI 사례는 실행 범위를 보여줍니다. 서로 같은 기술은 아니지만 공통된 질문을 남깁니다. <strong>“내일도 이 일을 다시 맡길 수 있을까?”</strong></p>
+          <p>우리의 Workless Engineering 실험도 여기서 시작할 수 있습니다. 가상 상품 100건을 준비하고, 상품명·카테고리·필수 속성 누락을 확인하게 합니다. 실제 상품을 바꾸는 권한은 주지 않고, 건별 점검 결과를 저장하게 합니다.</p>
+          <figure class="workflow-figure" aria-labelledby="experiment-title"><span class="workflow-eyebrow">모임에서 해볼 작은 실험 · 가상 데이터</span><h3 id="experiment-title">일부러 중단해 보고, 다시 이어지는지 확인하기</h3><ol class="workflow-experiment"><li><strong>49건의 완료 기록 저장</strong><span>작업 ID·상품 ID·상태·검증 결과·완료 시각을 남깁니다.</span></li><li><strong>50번째 작업 도중 프로그램 종료</strong><span>실패를 실험 조건으로 넣습니다.</span></li><li><strong>같은 저장소로 재시작</strong><span>완료된 49건은 건너뛰고, 중단된 항목의 상태부터 확인합니다.</span></li><li><strong>100건의 결과와 실행 기록 대조</strong><span>누락·중복 처리·복구 시간·사람의 재확인 시간을 확인합니다.</span></li></ol><figcaption>Pi Durable 성능 검증 결과가 아닌 실험 제안입니다. 읽기 작업은 재시도할 수 있지만, 외부 변경 작업은 처리 여부 조회와 중복 방지를 별도로 설계해야 합니다.</figcaption></figure>
+          <p>첫 성공 기준은 화려한 보고서가 아닙니다. 이미 끝낸 일을 구분하고, 미완료 작업을 놓치지 않고, 사람이 결과를 확인할 수 있으면 됩니다. 이후 수정안을 제안하게 하고, 사람의 승인을 거친 작업만 실제 변경으로 연결할 수 있습니다.</p>
+          <blockquote class="workflow-closing">AI에게 더 많은 일을 맡길수록,<br><strong>이어 할 기록과 멈출 경계도 함께.</strong></blockquote>
+        </section>
+
+        <section id="sources" class="news-sources" aria-labelledby="sources-heading">
+          <h2 id="sources-heading">읽은 자료</h2>
+          <ul>
+            <li><a href="https://earendil.com/posts/pi-1-0/" target="_blank" rel="noopener noreferrer">Earendil, Pi 1.0 ↗</a> · <a href="https://earendil.com/posts/pi-durable/" target="_blank" rel="noopener noreferrer">Pi Durable ↗</a> <span>10월 1일</span></li>
+            <li><a href="https://github.com/earendil-works/pi/releases" target="_blank" rel="noopener noreferrer">Pi 공식 릴리스 기록 ↗</a> · <a href="https://github.com/earendil-works/pi#permissions--containerization" target="_blank" rel="noopener noreferrer">권한·컨테이너 설명 ↗</a></li>
+            <li><a href="https://www.anthropic.com/news/barclays-scales-claude" target="_blank" rel="noopener noreferrer">Anthropic, Barclays의 Claude 확대 ↗</a> <span>10월 1일</span></li>
+            <li><a href="https://docs.bfl.ai/release-notes" target="_blank" rel="noopener noreferrer">BFL 출시 기록 ↗</a> · <a href="https://bfl.ai/models/flux-3-image" target="_blank" rel="noopener noreferrer">FLUX 3 Image 제품·공식 데모 ↗</a></li>
+            <li><a href="https://docs.bfl.ai/flux_3/flux3_image_overview" target="_blank" rel="noopener noreferrer">FLUX 3 Image 기능 문서 ↗</a> · <a href="https://docs.bfl.ai/flux_3/flux3_image_bounding_boxes" target="_blank" rel="noopener noreferrer">좌표 상자의 역할과 한계 ↗</a></li>
+            <li><a href="https://openai.com/hugging-face-incident-and-misalignment/" target="_blank" rel="noopener noreferrer">OpenAI 사고 기록·업데이트 ↗</a> <span>9월 30일 항목</span> · <a href="https://openai.com/ko-KR/hugging-face-incident-and-misalignment/" target="_blank" rel="noopener noreferrer">공식 한국어 개요 ↗</a></li>
+            <li><a href="https://www.marketscreener.com/news/openai-alerts-more-than-100-groups-about-rogue-ai-agent-activity-ce785ddada81f324" target="_blank" rel="noopener noreferrer">Reuters, 100곳 초과 통보 보도 · MarketScreener 게재 ↗</a> <span>10월 1일</span></li>
+            <li><a href="https://www.asymmetricsecurity.com/newsroom/rogue-agents-investigation/" target="_blank" rel="noopener noreferrer">Asymmetric Security, 공개 기록 기반 에이전트 조사 ↗</a> <span>10월 1일</span></li>
+          </ul>
+          <p>확인 기준일은 2026년 10월 3일입니다. OpenAI 수치의 기준은 영문 업데이트입니다. 공식 한국어 페이지는 개요를 읽기 위한 링크로 함께 제공합니다. 기업의 사용량·성능 수치는 직접 재측정하지 않았습니다.</p>
+          <p>Pi 화면은 Earendil 공식 저장소, FLUX 편집 전후 이미지는 Black Forest Labs 공식 데모에서 가져왔습니다. 이미지를 재생성하거나 편집하지 않았습니다. 원작과 권리는 각 제공자에게 있으며 출처를 각 캡션에 표시했습니다.</p>
+        </section>
+        <a class="news-end-link" href="./">AI뉴스 목록으로 돌아가기 <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </article></main>
+  <footer class="footer"><div class="wrap">헬로우 휴먼 · Workless Engineering Club</div></footer>
+  <script src="../assets/analytics.js?v=2" defer></script>
+  <script src="../assets/article-toc.js?v=1" defer></script>
+  <script src="../assets/news-workflows.js?v=1" defer></script>
+  <script type="module" src="../assets/content-updates.js?v=2"></script>
+</body>
+</html>
