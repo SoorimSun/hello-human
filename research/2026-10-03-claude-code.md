@@ -292,7 +292,7 @@ gh api "repos/OWNER/meetup-page/pages" --jq "{status: .status, url: .html_url, s
 
 ### Claude Code 프롬프트 편집안
 
-다음 두 요청은 독자가 실제 공개 작업을 준비하고 진행할 때 쓰는 예시다. 첫 요청으로 대상과 파일을 확인하고, 두 번째 요청에서 그 대상을 명시해 배포한다.
+다음 두 요청은 새 저장소와 Pages를 처음 설정할 때의 조사용 예시다. 이미 설정한 프로젝트의 제작·수정 요청에는 반복해서 넣지 않는다. 첫 요청으로 대상과 파일을 확인하고, 두 번째 요청에서 최초 설정을 진행한다.
 
 ```text
 이 연습 폴더의 가상 모임 안내 페이지를 GitHub Pages로 공개하려고 해.
@@ -315,6 +315,12 @@ GitHub CLI를 사용할 수 없으면 내가 따라 할 브라우저 절차를 �
 
 위 프롬프트·파일 범위·완료 기준은 이 가이드를 위한 편집 제안이다. 공식 문서로 UI 순서와 API 형식을 확인했지만 실제 계정 권한, API 응답, 첫 배포 소요 시간, 게시 화면은 직접 검증하지 않았다.
 
+### 제작 프롬프트와 최초 설정의 구분
+
+사용자 피드백을 반영해 가이드의 제작·수정·검증 프롬프트와 다운로드용 brief에서 배포 대상, 예상 사이트 URL, 공개 주소 보고 요구를 제거했다. 페이지 요구사항은 방문자가 볼 행사 내용과 화면 동작에 집중한다. 최초 저장소 생성 요청에는 필요한 계정·저장소명만 명시하고, 완성한 HTML은 유지하도록 했다.
+
+Pages의 브랜치 게시 설정을 마친 뒤에는 게시 원본 브랜치에 푸시한 변경이 자동 게시된다. 따라서 후속 요청은 현재 원격 연결·브랜치를 확인하고 검증한 변경만 커밋·푸시하는 것으로 정리했다. Actions와 실제 공개 화면 확인은 별도의 안내로 유지한다. 기능 브랜치에 푸시하는 것만으로 게시 브랜치가 갱신되는 것은 아니다. [GitHub 공식 게시 소스 설명](https://docs.github.com/ko/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+
 ## 12. Wayfinder와 Superpowers로 의사결정부터 검증까지
 
 확인일은 2026-10-03이다. 이 절은 기본 실습 다음에 넣을 **교육용 안내의 조사 자료**다. 아래 명령은 독자가 사용할 예시이며, 이번 조사에서 플러그인 설치·설정 변경·이슈 생성·기능 구현·커밋은 실행하지 않았다.
@@ -328,7 +334,7 @@ GitHub CLI를 사용할 수 없으면 내가 따라 할 브라우저 절차를 �
 /plugin install superpowers@claude-plugins-official
 ```
 
-Claude 공식 문서에서 플러그인 스킬의 호출 형식은 `/plugin-name:skill-name`이다. Matt 플러그인의 이름은 `mattpocock-skills`이므로 가이드에서는 `/mattpocock-skills:wayfinder`와 `/mattpocock-skills:setup-matt-pocock-skills`를 쓴다. README의 짧은 `/wayfinder` 표기와 파일 복사 설치의 이름을 혼동하지 않도록 설치 후 실제 `/` 목록을 확인한다. [Claude 스킬 이름 규칙](https://code.claude.com/docs/en/skills), [Matt 플러그인 manifest](https://github.com/mattpocock/skills/blob/main/.claude-plugin/plugin.json)
+Claude 공식 문서에서 플러그인 스킬의 전체 호출 이름은 `/plugin-name:skill-name`이지만, frontmatter의 `name`을 다른 명령이 사용하지 않으면 접두사 없는 짧은 이름으로도 호출할 수 있다. Matt 스킬의 `name`은 각각 `setup-matt-pocock-skills`와 `wayfinder`이므로 가이드에서는 `/setup-matt-pocock-skills`와 `/wayfinder`를 쓴다. 플러그인 설치에도 짧은 이름이 지원되므로 이를 파일 복사 설치 전용 표기로 설명하지 않는다. 이름이 겹치거나 짧은 명령이 인식되지 않을 때 `/` 목록에서 `/mattpocock-skills:wayfinder` 같은 전체 이름을 선택하도록 안내한다. [Claude 스킬 이름 규칙](https://code.claude.com/docs/ko/skills#%EC%8A%A4%ED%82%AC%EC%9D%B4-%EB%AA%85%EB%A0%B9-%EC%9D%B4%EB%A6%84%EC%9D%84-%EC%96%BB%EB%8A%94-%EB%B0%A9%EB%B2%95), [설정 스킬 이름](https://github.com/mattpocock/skills/blob/main/skills/engineering/setup-matt-pocock-skills/SKILL.md), [Wayfinder 스킬 이름](https://github.com/mattpocock/skills/blob/main/skills/engineering/wayfinder/SKILL.md)
 
 공식 마켓플레이스는 저장소의 특정 커밋을 가리킬 수 있어 저장소 `main`의 지침과 독자가 설치한 버전이 항상 같다고 단정하지 않는다. 현재 설치 안내는 예전의 별도 마켓플레이스 등록 절차를 대체한다. [Matt 플러그인 배포 결정 기록](https://github.com/mattpocock/skills/blob/main/.agents/adr/0002-ship-as-a-claude-code-plugin.md)
 
@@ -339,7 +345,7 @@ Wayfinder는 경로가 불명확한 여러 세션 규모의 작업에서 **무�
 `setup-matt-pocock-skills`는 저장소마다 한 번 실행하는 설정 대화다. GitHub·Linear·로컬 파일 중 트래커와 문서 위치를 정한다. GitHub remote가 있으면 GitHub를 기본 제안할 수 있으므로, 입문 실습에서는 **로컬 Markdown**을 명시한다. 설정은 `docs/agents/issue-tracker.md` 등의 문서를 만들고 기존 `CLAUDE.md` 또는 `AGENTS.md`에 참조를 연결할 수 있다. [설정 스킬](https://github.com/mattpocock/skills/blob/main/skills/engineering/setup-matt-pocock-skills/SKILL.md)
 
 ```text
-/mattpocock-skills:setup-matt-pocock-skills
+/setup-matt-pocock-skills
 이번 저장소는 학습용이야. 이슈 트래커는 로컬 Markdown으로 설정해.
 .scratch/checklist/ 아래에 지도와 질문을 보관하고 GitHub·Linear 이슈는 만들지 마.
 제안하는 설정 파일과 기존 CLAUDE.md 변경 내용을 먼저 보여줘.
@@ -372,7 +378,7 @@ TDD는 기능 구현 후 테스트를 몰아서 붙이는 절차가 아니다. �
 아래는 **독자가 따라 하는 기능 추가 프롬프트**이며, 현재 가이드에 체크리스트 기능을 실제 구현하라는 요청이 아니다. 작은 예제에서는 Wayfinder가 지도를 생략하자고 할 수 있다는 설명을 함께 둔다.
 
 ```text
-/mattpocock-skills:wayfinder
+/wayfinder
 기본 모임 안내 페이지에 ‘참가 준비 체크리스트’를 추가하는 과정을 연습하고 싶어.
 이 단계에서는 구현하지 말고 결정할 질문부터 정리해 줘.
 항목을 고정할지, 새로고침 후 체크 상태를 보존할지,
