@@ -13,9 +13,10 @@
   letter-spacing: .1em;
 }
 
-.news-list-intro { padding-top: 94px; padding-bottom: 80px; }
-.news-list-intro h1 { margin: 12px 0 22px; font-size: clamp(54px, 10vw, 92px); line-height: 1.07; letter-spacing: -.055em; }
-.news-list-intro > p:last-child { max-width: 650px; color: var(--muted); }
+/* Shared introduction scale for news, guides, insights and case-study lists. */
+.news-list-intro { padding-top: 48px; padding-bottom: 34px; }
+.news-list-intro h1 { margin: 10px 0 16px; font-size: clamp(44px, 8vw, 68px); line-height: 1.07; letter-spacing: -.055em; }
+.news-list-intro > p:last-child { max-width: 720px; margin-bottom: 0; color: var(--muted); font-size: 15px; }
 .news-list-intro .news-list-lead { color: var(--ink); font-size: clamp(21px, 3vw, 27px); font-weight: 700; letter-spacing: -.02em; }
 .news-list-section { padding-bottom: 110px; }
 .news-list-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--ink); }
@@ -115,7 +116,6 @@
 .news-end-link { display: inline-block; margin-top: 35px; font-weight: 700; }
 
 @media (max-width: 720px) {
-  .news-list-intro { padding-top: 72px; padding-bottom: 58px; }
   .news-article-header { padding-top: 30px; padding-bottom: 40px; }
   .news-hero-visual { margin-bottom: 36px; }
   .news-back { margin-bottom: 56px; }
@@ -132,6 +132,8 @@
 }
 
 @media (max-width: 520px) {
+  .news-list-intro { padding-top: 32px; padding-bottom: 26px; }
+  .news-list-intro .news-list-lead { font-size: 20px; }
   .topbar-inner:has(.news-nav) { height: auto; min-height: 56px; padding: 10px 16px; flex-wrap: wrap; gap: 7px; }
   .topbar-inner:has(.news-nav) .logo { flex-basis: 100%; }
   .news-nav { width: 100%; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 13px; }

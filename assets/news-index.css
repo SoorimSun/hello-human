@@ -1,7 +1,4 @@
-/* Keep the latest brief and the category tabs close to the page introduction. */
-.news-index .news-list-intro { padding-top: 48px; padding-bottom: 34px; }
-.news-index .news-list-intro h1 { margin: 10px 0 16px; font-size: clamp(44px, 8vw, 68px); }
-.news-index .news-list-intro > p:last-child { max-width: 720px; margin-bottom: 0; font-size: 15px; }
+/* News-specific category tabs and article rows; introduction sizing is shared in news.css. */
 .news-tabs { display: flex; gap: 8px; margin-top: 22px; }
 .news-tabs[hidden], .news-index .news-issues > li[hidden] { display: none; }
 .news-tab { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 46px; padding: 10px 17px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--muted); font: inherit; font-size: 15px; font-weight: 700; line-height: 1.4; white-space: nowrap; cursor: pointer; scroll-margin-top: 120px; }
@@ -15,8 +12,6 @@
 .news-kind { display: inline-block; margin-right: 7px; padding: 2px 7px; border: 1px solid var(--line); border-radius: 4px; color: var(--muted); font-family: var(--sans); font-size: 11px; font-weight: 700; line-height: 1.5; vertical-align: middle; white-space: nowrap; }
 .news-kind-briefs { border-color: var(--ink); background: var(--ink); color: var(--bg); }
 @media (max-width: 520px) {
-  .news-index .news-list-intro { padding-top: 32px; padding-bottom: 26px; }
-  .news-index .news-list-intro .news-list-lead { font-size: 20px; }
   .news-tabs { gap: 6px; }
   .news-tab { flex: 1; gap: 5px; min-width: 0; padding: 10px 6px; font-size: 13px; }
   .news-tab-count { font-size: 11px; }
