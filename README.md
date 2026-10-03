@@ -62,6 +62,8 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `guides/2026-10-01-openai-dots.html` | AI가이드 세 번째 호: OpenAI Dots의 일상 활용 예시·공개 사례와 업무 실습 |
 | `guides/2026-10-03-claude-code.html` | AI가이드 네 번째 호: Claude Code CLI·데스크톱 비교와 설치·Opus 5.5 effort·첫 페이지 제작·GitHub Pages 배포·Wayfinder와 Superpowers 개발 과정·ultracode |
 | `research/2026-10-03-claude-code.md` | Claude Code CLI·데스크톱·GitHub Pages·Wayfinder·Superpowers의 공식 문서와 저장소 조사 메모 |
+| `guides/2026-10-03-codex.html` | AI가이드 다섯 번째 호: Codex 앱·CLI·권한·effort, 요리 페이지 입문과 GitHub Pages 배포, Wayfinder·Superpowers로 결정·설계·계획·TDD·리뷰·검증을 경험하는 인분 계산기 심화 |
+| `research/2026-10-03-codex.md` | Codex 공식 문서, 설치·명령·스킬·플러그인과 요리 실습 구성 근거 |
 | `insights/index.html` | 커머스 인사이트 목록 |
 | `insights/2026-09-25-agentic-commerce.html` | 커머스 인사이트 첫 호 |
 | `insights/2026-09-29-recommendation-evidence.html` | 커머스 인사이트 두 번째 글: 추천 에이전트의 근거와 검증 |
@@ -83,6 +85,8 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `assets/guide.css` | AI가이드 본문 스타일 |
 | `assets/guide-jev.css` | AI가이드 02의 역할 분담·공개 사례·처리 경로 도식 스타일 |
 | `assets/guide-claude-code.css` | AI가이드 04의 하네스·권한·실습·개발 과정·컨텍스트 도식 스타일 |
+| `assets/guide-codex.css` | AI가이드 05의 요리 작업대·입문/심화·인분 계산·개발 과정 도식 스타일 |
+| `assets/guides/codex/` | Codex 실습용 recipe.md·AGENTS.md·심화 요구사항 advanced-brief.md |
 | `assets/guides/claude-code/` | 가상 모임 안내 기본·심화 실습 입력과 다운로드용 CLAUDE.md 예시 |
 | `assets/guides/jev-request.json` | 가상 고객 문의로 Choice·Score·Noul을 호출하는 다운로드용 실습 입력 |
 | `assets/case-studies.css` | AI 사례연구 소개 카드·목록·본문 시각화 스타일 |
