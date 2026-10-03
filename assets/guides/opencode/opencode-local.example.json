@@ -1,0 +1,24 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "enabled_providers": ["local"],
+  "model": "local/MODEL_ID_FROM_SERVER",
+  "small_model": "local/MODEL_ID_FROM_SERVER",
+  "provider": {
+    "local": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Local model",
+      "options": {
+        "baseURL": "http://127.0.0.1:1234/v1"
+      },
+      "models": {
+        "MODEL_ID_FROM_SERVER": {
+          "name": "Local HTML trial",
+          "limit": {
+            "context": 65536,
+            "output": 8192
+          }
+        }
+      }
+    }
+  }
+}

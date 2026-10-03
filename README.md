@@ -66,6 +66,10 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `research/2026-10-03-claude-code.md` | Claude Code CLI·데스크톱·GitHub Pages·Wayfinder·Superpowers의 공식 문서와 저장소 조사 메모 |
 | `guides/2026-10-03-codex.html` | AI가이드 다섯 번째 호: Codex 앱·CLI·권한·effort, 요리 페이지 입문과 GitHub Pages 배포, Wayfinder·Superpowers로 결정·설계·계획·TDD·리뷰·검증을 경험하는 인분 계산기 심화 |
 | `research/2026-10-03-codex.md` | Codex 공식 문서, 설치·명령·스킬·플러그인과 요리 실습 구성 근거 |
+| `guides/2026-10-03-opencode.html` | AI가이드 여섯 번째 호: OpenCode 설치·무료·스텔스·중국계·로컬 모델 연결, 같은 HTML 제작·수정 과제로 모델 비교 |
+| `research/2026-10-03-opencode.md` | OpenCode 공식 문서·소스, 무료 첫 실행과 로컬 연결·모델 비교 조건 조사 |
+| `assets/guide-opencode.css` | OpenCode 가이드의 모델 연결 도식·가상 페스티벌 시안·비교 과정 스타일 |
+| `assets/guides/opencode/` | NEON ATLAS 공통 요구사항·작업 지침·수정 요청·비교 기록지·로컬 연결 설정 예제 |
 | `insights/index.html` | 커머스 인사이트 목록 |
 | `insights/2026-09-25-agentic-commerce.html` | 커머스 인사이트 첫 호 |
 | `insights/2026-09-29-recommendation-evidence.html` | 커머스 인사이트 두 번째 글: 추천 에이전트의 근거와 검증 |

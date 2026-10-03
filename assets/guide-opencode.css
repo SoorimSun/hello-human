@@ -1,0 +1,99 @@
+/* OpenCode 입문: 모델 연결과 같은 HTML 과제 비교 */
+.oc-tagline { display: flex; flex-wrap: wrap; gap: 7px; margin: 22px 0 0; }
+.oc-tagline span { padding: 5px 10px; border: 1px solid var(--line); border-radius: 5px; font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.oc-paths { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 28px 0 0; }
+.oc-paths a { display: grid; gap: 7px; padding: 20px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--ink); text-decoration: none; }
+.oc-paths a:hover { border-color: var(--accent); }
+.oc-paths small { color: var(--accent); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; }
+.oc-paths strong { font-size: 19px; }
+.oc-paths span { color: var(--muted); font-size: 13px; }
+.oc-note { margin: 25px 0; padding: 19px 21px; border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; background: var(--surface-2); }
+.oc-note > strong { display: block; margin-bottom: 6px; font-size: 16px; }
+.oc-note p { margin: 0; font-size: 15px; }
+.oc-label { display: block; margin-top: 24px; color: var(--muted); font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .025em; }
+.guide-story .oc-label + pre { margin-top: 8px; }
+.guide-story pre.oc-prompt { white-space: pre-wrap; overflow-wrap: anywhere; }
+.oc-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; margin: 24px 0; }
+.oc-card { padding: 19px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.oc-card small { display: block; margin-bottom: 7px; font-family: var(--mono); font-size: 11px; color: var(--accent); }
+.oc-card strong { display: block; margin-bottom: 9px; font-size: 18px; }
+.oc-card p { margin: 0; font-size: 14px; line-height: 1.65; }
+.oc-chain { display: grid; grid-template-columns: 1fr 22px 1fr 22px 1fr; gap: 6px; align-items: center; }
+.oc-chain > div { display: grid; gap: 6px; align-content: center; min-height: 104px; padding: 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-2); }
+.oc-chain > b { text-align: center; color: var(--accent); }
+.oc-chain strong { font-size: 16px; }
+.oc-chain small { font-size: 12px; color: var(--muted); }
+.oc-files { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 19px; }
+.oc-files > div { min-width: 0; padding: 17px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-2); }
+.oc-files strong { display: block; margin-bottom: 8px; font-family: var(--mono); font-size: 13px; }
+.oc-files span { display: block; color: var(--muted); font-size: 13px; line-height: 1.8; }
+.oc-downloads { display: flex; flex-wrap: wrap; gap: 9px; margin: 22px 0; }
+.guide-story a.oc-download { display: inline-flex; align-items: center; justify-content: space-between; gap: 14px; padding: 11px 15px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); color: var(--ink); font-size: 14px; font-weight: 650; text-decoration: none; }
+.guide-story a.oc-download:hover { border-color: var(--accent); color: var(--accent); }
+.oc-download span { color: var(--accent); }
+.oc-mini { font-size: 13px; color: var(--muted); }
+.oc-fold { margin: 23px 0; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.oc-fold summary { padding: 17px 19px; font-size: 15px; font-weight: 700; cursor: pointer; }
+.oc-fold[open] summary { border-bottom: 1px solid var(--line); }
+.oc-fold-body { padding: 20px; }
+.oc-fold-body > :last-child { margin-bottom: 0; }
+.oc-stage { display: inline-block; margin-right: 8px; padding: 3px 7px; border-radius: 5px; background: var(--accent-soft); color: var(--accent); font-family: var(--mono); font-size: 11px; vertical-align: middle; }
+.oc-poster-wrap { padding: 0; overflow: hidden; background: var(--surface); }
+.oc-poster-wrap > figcaption { margin: 0; padding: 20px 23px; }
+.oc-poster-wrap .guide-visual-note { padding: 17px 23px 20px; margin: 0; }
+.oc-poster { position: relative; overflow: hidden; isolation: isolate; padding: 32px; background: #0b1022; color: #f1f7ff; }
+.oc-poster::before { position: absolute; z-index: -1; inset: 0; content: ""; background: radial-gradient(ellipse at 96% 4%, #9a49ff4d, transparent 57%), radial-gradient(ellipse at 4% 80%, #03dfd62b, transparent 52%), repeating-linear-gradient(90deg, transparent 0, transparent 47px, #d4e6ff09 48px); }
+.oc-poster-top { display: flex; justify-content: space-between; gap: 12px; position: relative; z-index: 2; font-family: var(--mono); font-size: 9px; letter-spacing: .1em; color: #aeb8d4; }
+.oc-poster-top span:last-child { color: #d8ff75; }
+.oc-poster-main { position: relative; min-height: 234px; padding: 32px 0 22px; }
+.oc-poster-title { position: relative; z-index: 1; display: block; max-width: 90%; font-family: Arial, Helvetica, sans-serif; font-weight: 900; font-size: clamp(48px, 7vw, 88px); line-height: .86; letter-spacing: -.07em; }
+.oc-poster-title span { display: block; color: #d8ff75; }
+.oc-poster-sub { position: relative; z-index: 1; margin-top: 19px; font-size: 14px; letter-spacing: -.01em; }
+.oc-orbit { position: absolute; right: -48px; top: -14px; width: 64%; height: 250px; opacity: .8; }
+.oc-poster-meta { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 8px 0 24px; font-family: var(--mono); font-size: 10px; color: #b6c4db; }
+.oc-poster-zones { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; }
+.oc-poster-zones > div { min-width: 0; padding: 15px 12px; border: 1px solid #d4e6ff30; background: #f0f6ff08; border-radius: 8px; }
+.oc-poster-zones small { display: block; color: #c5a2ff; font-family: var(--mono); font-size: 8px; }
+.oc-poster-zones strong { display: block; margin: 17px 0 4px; font-size: 18px; }
+.oc-poster-zones span { display: block; color: #b6c4db; font-size: 10px; }
+.oc-poster-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 21px; padding-top: 16px; border-top: 1px solid #d4e6ff30; font-size: 10px; color: #b6c4db; }
+.oc-poster-bottom b { color: #d8ff75; font-weight: 500; }
+.oc-test-flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; }
+.oc-test-flow > div { padding: 17px 13px; background: var(--surface-2); border-radius: 8px; }
+.oc-test-flow strong { display: block; margin-bottom: 8px; font-size: 15px; }
+.oc-test-flow span { display: block; font-size: 12px; color: var(--muted); }
+.oc-test-flow b { display: block; margin-top: 12px; font-family: var(--mono); font-size: 19px; color: var(--accent); }
+.oc-score-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; }
+.oc-score-grid > div { padding: 17px 13px; border-radius: 8px; border: 1px solid var(--line); }
+.oc-score-grid strong { display: block; font-size: 14px; }
+.oc-score-grid span { display: block; margin-top: 8px; color: var(--muted); font-size: 12px; }
+.oc-success { margin: 27px 0; padding: 23px; border: 1px solid var(--accent); border-radius: 10px; background: var(--accent-soft); }
+.oc-success strong { display: block; margin-bottom: 9px; font-size: 20px; }
+.oc-success p { margin: 0; font-size: 15px; }
+.guide-story .oc-schedule th:first-child, .guide-story .oc-schedule td:first-child { white-space: nowrap; font-family: var(--mono); }
+.oc-fold summary:focus-visible, .oc-download:focus-visible, .oc-paths a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+@media (max-width: 720px) {
+  .oc-poster-title { font-size: clamp(64px, 12vw, 88px); }
+  .oc-score-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 520px) {
+  .oc-paths, .oc-cards, .oc-files, .oc-test-flow { grid-template-columns: 1fr; }
+  .oc-chain { grid-template-columns: 1fr; gap: 5px; }
+  .oc-chain > div { min-height: 0; padding: 13px 15px; }
+  .oc-chain > b { transform: rotate(90deg); }
+  .oc-note { padding: 17px; }
+  .oc-fold-body { padding: 17px; }
+  .oc-poster { padding: 23px 19px; }
+  .oc-poster-wrap > figcaption { padding: 19px; }
+  .oc-poster-wrap .guide-visual-note { padding: 16px 19px; }
+  .oc-poster-title { font-size: clamp(54px, 17vw, 74px); }
+  .oc-poster-main { min-height: 207px; padding-top: 35px; }
+  .oc-poster-sub { max-width: 190px; font-size: 12px; }
+  .oc-orbit { width: 82%; right: -83px; opacity: .55; }
+  .oc-poster-top { font-size: 8px; letter-spacing: 0; }
+  .oc-poster-zones { gap: 6px; }
+  .oc-poster-zones > div { padding: 12px 9px; }
+  .oc-poster-zones strong { font-size: 14px; }
+  .oc-poster-zones span { font-size: 9px; }
+  .oc-downloads { display: grid; grid-template-columns: 1fr; }
+}
