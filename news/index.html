@@ -41,23 +41,34 @@
   <section class="news-list-section wrap" aria-labelledby="news-list-heading">
     <div class="news-list-heading">
       <h2 id="news-list-heading">발행한 뉴스</h2>
-      <span>총 <span data-news-total>9</span>편</span>
+      <span>총 <span data-news-total>10</span>편</span>
     </div>
     <div class="news-tabs" role="tablist" aria-label="뉴스 종류" hidden>
       <button class="news-tab" type="button" role="tab" id="all-news" aria-controls="news-feed" aria-selected="true" data-news-filter="all">
-        전체 최신순 <span class="news-tab-count" data-news-count="all">9</span>
+        전체 최신순 <span class="news-tab-count" data-news-count="all">10</span>
       </button>
       <button class="news-tab" type="button" role="tab" id="briefs" aria-controls="news-feed" aria-selected="false" tabindex="-1" data-news-filter="briefs">
         속보·단신 <span class="news-tab-count" data-news-count="briefs">4</span>
       </button>
       <button class="news-tab" type="button" role="tab" id="regular-news" aria-controls="news-feed" aria-selected="false" tabindex="-1" data-news-filter="regular-news">
-        일반뉴스 <span class="news-tab-count" data-news-count="regular-news">5</span>
+        일반뉴스 <span class="news-tab-count" data-news-count="regular-news">6</span>
       </button>
     </div>
     <p class="news-sort-note">최신 발행순 · 같은 날짜에는 속보·단신을 먼저 보여드립니다.</p>
     <div id="news-feed">
       <!-- Add each article once, newest first; tabs filter this shared catalogue. -->
       <ol class="news-issues">
+        <li data-news-kind="regular-news">
+          <a class="news-issue" href="2026-10-04-ai-lifecycle.html">
+            <span class="news-issue-number">06</span>
+            <span class="news-issue-main">
+              <span class="news-issue-meta"><span class="news-kind news-kind-regular-news">일반뉴스</span> <time datetime="2026-10-04">2026. 10. 04</time> · 뉴스 06 / AI 운영 / 교체·학습·검증</span>
+              <strong>AI 운영의 다음 문제, 모델보다 수명주기와 검증</strong>
+              <span>GitHub의 모델 교체·AWS의 검색 학습·Anthropic의 행동 평가와 OpenAI 안전 논쟁</span>
+            </span>
+            <span class="news-issue-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
         <li data-news-kind="briefs">
           <a class="news-issue" href="2026-10-03-supabase-turso.html">
             <span class="news-issue-number">04</span>

@@ -49,6 +49,9 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `news/2026-10-02-ai-evidence.html` | AI뉴스 네 번째 호: Gemini 4 Argon·추론 추출 공격·SynthID Bio·FTC 조사와 실행 증거 |
 | `news/2026-10-03-durable-ai-workflows.html` | AI뉴스 다섯 번째 호: Pi Durable·Barclays·FLUX 3 Image·에이전트 조사, 작업 복구 도식과 공식 편집 전후 비교 |
 | `research/2026-10-03-durable-ai-workflows.md` | AI뉴스 05의 공식 출처, 수치·발표일 검증과 편집 판단 |
+| `news/2026-10-04-ai-lifecycle.html` | AI뉴스 여섯 번째 호: GitHub 모델 교체·리뷰 API, AWS 멀티턴 학습, Anthropic 행동 평가와 OpenAI 안전 논쟁 |
+| `research/2026-10-04-ai-lifecycle.md` | AI뉴스 06의 날짜·평가 조건·반론 검증과 편집 판단 |
+| `assets/news-lifecycle.css`, `assets/news/lifecycle-media.md` | AI뉴스 06의 교체표·평가 그래프·행동 기록 도식과 공식 화면 출처 |
 | `news/2026-10-01-meta-muse-messages.html` | AI뉴스 단신 02: 메타 Muse의 메시지 접근 의혹과 권한·기록 검증 |
 | `news/2026-10-02-bank-data-breach.html` | AI뉴스 단신 03: 은행권 정보유출과 AI 사용 정황, 인증·조회 권한·응답 최소화 도식 |
 | `news/2026-10-03-supabase-turso.html` | AI뉴스 단신 04: Supabase의 Turso 인수 발표, 공식 이미지와 에이전트 작업용 DB 도식 |
