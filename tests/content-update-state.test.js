@@ -5,6 +5,7 @@ import { badgeFor, createSeenStore, resolveTarget, notificationKey } from '../as
 const root = 'https://example.com/hello-human/';
 const article = `${root}insights/article.html`;
 const collections = [
+  { path: 'newsletters/', section: 'newsletter' },
   { path: 'news/', section: 'ai-news' },
   { path: 'guides/', section: 'ai-guides' },
   { path: 'insights/', section: 'commerce-insights' },
@@ -12,7 +13,7 @@ const collections = [
   { path: 'works/', section: 'member-works' }
 ];
 
-test('only the five publishing areas and their content receive update badges', () => {
+test('only publishing areas and their content receive update badges', () => {
   for (const { path, section } of collections) {
     assert.equal(notificationKey(`#${section}`, root, root, collections), path);
     assert.equal(notificationKey(`${path}index.html`, root, root, collections), path);

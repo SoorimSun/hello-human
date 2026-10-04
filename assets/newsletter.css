@@ -1,0 +1,75 @@
+/* Newsletter: a readable digest using the site's existing theme. */
+.letter-shell { max-width: 920px; margin: auto; padding: 0 24px 80px; }
+.letter-cover { padding: 46px 0 34px; border-bottom: 2px solid var(--ink); }
+.letter-cover .news-back { margin-bottom: 28px; }
+.letter-cover h1 { max-width: 790px; margin: 18px 0 22px; font-size: clamp(36px, 6.6vw, 62px); line-height: 1.18; letter-spacing: -.045em; }
+.letter-cover h1 span { color: var(--accent); }
+.letter-deck { max-width: 720px; font-size: 20px; line-height: 1.7; }
+.letter-meta { display: flex; flex-wrap: wrap; gap: 8px 20px; color: var(--muted); font-size: 13px; }
+.letter-intro { max-width: 740px; padding: 32px 0 16px; }
+.letter-intro p { margin-bottom: 16px; }
+.letter-picks { margin: 20px 0 40px; padding: 26px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.letter-picks h2 { margin: 6px 0 20px; font-size: 24px; letter-spacing: -.025em; }
+.letter-pick-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.letter-pick { display: flex; flex-direction: column; gap: 9px; text-decoration: none; }
+.letter-pick + .letter-pick { border-left: 1px solid var(--line); padding-left: 24px; }
+.letter-pick small { color: var(--accent); font-size: 13px; font-weight: 700; }
+.letter-pick strong { font-size: 20px; line-height: 1.45; letter-spacing: -.025em; }
+.letter-pick p { color: var(--muted); font-size: 14px; margin: 0; }
+.letter-pick > span { margin-top: auto; padding-top: 4px; font-size: 14px; font-weight: 700; }
+.letter-pick:hover strong, .letter-entry a:hover { color: var(--accent); }
+.letter-contents { margin: 0 0 42px; }
+.letter-contents h2 { margin-bottom: 12px; font-size: 20px; }
+.letter-contents ul { display: flex; flex-wrap: wrap; gap: 9px; margin: 0; padding: 0; list-style: none; }
+.letter-contents a { display: block; padding: 8px 13px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); font-size: 14px; text-decoration: none; }
+.letter-contents a:hover { border-color: var(--accent); }
+.letter-contents b { margin-left: 6px; color: var(--accent); font-family: var(--mono); }
+.letter-note { margin: 14px 0 0; font-size: 13px; color: var(--muted); }
+.letter-section { margin-top: 42px; scroll-margin-top: 150px; }
+.letter-section-heading { padding-bottom: 18px; border-bottom: 2px solid var(--ink); }
+.letter-section-heading h2 { margin: 7px 0 10px; font-size: clamp(24px, 4vw, 31px); letter-spacing: -.03em; line-height: 1.4; }
+.letter-section-heading p:last-child { margin: 0; font-size: 15px; color: var(--muted); }
+.letter-entries { margin: 0; padding: 0; list-style: none; }
+.letter-entry { display: grid; grid-template-columns: 90px minmax(0, 1fr); gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+.letter-entry-meta { padding-top: 4px; font-size: 12px; color: var(--muted); }
+.letter-entry-meta span, .letter-entry-meta time { display: block; }
+.letter-entry h3 { margin: 0 0 8px; font-size: 20px; line-height: 1.5; letter-spacing: -.02em; }
+.letter-entry a { text-decoration: none; text-underline-offset: 4px; }
+.letter-entry a:hover { text-decoration: underline; }
+.letter-entry p { max-width: 690px; margin: 0; font-size: 15px; color: var(--muted); }
+.letter-practice { padding: 26px; margin-top: 42px; border-left: 3px solid var(--accent); background: var(--accent-soft); border-radius: 0 var(--radius) var(--radius) 0; }
+.letter-practice h2 { margin: 7px 0 14px; font-size: 25px; line-height: 1.4; letter-spacing: -.02em; }
+.letter-practice ol { padding-left: 23px; margin: 14px 0; font-size: 15px; }
+.letter-practice li { margin: 8px 0; }
+.letter-signoff { max-width: 720px; margin-top: 38px; }
+.letter-signoff p { font-size: 15px; }
+.letter-signoff > a { display: inline-block; margin-top: 12px; font-weight: 700; text-underline-offset: 5px; }
+.letter-home-card { display: block; max-width: 740px; padding: 25px 28px; margin: 24px 0 18px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: var(--radius); background: var(--surface); text-decoration: none; }
+.letter-home-card strong { display: block; margin: 10px 0; font-size: clamp(22px, 3vw, 30px); line-height: 1.4; letter-spacing: -.025em; }
+.letter-home-card p { margin-bottom: 14px; color: var(--muted); font-size: 15px; }
+.letter-home-card:hover strong { color: var(--accent); }
+.letter-archive-note { margin-top: 26px; padding: 22px 24px; background: var(--surface-2); border-radius: var(--radius); }
+.letter-archive-note h2 { margin: 0 0 10px; font-size: 20px; }
+.letter-archive-note p { margin: 0; font-size: 15px; }
+.letter-shell a:focus-visible, .letter-home-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+@media (max-width: 720px) {
+  .letter-pick-grid { grid-template-columns: 1fr; gap: 20px; }
+  .letter-pick + .letter-pick { border-left: 0; border-top: 1px solid var(--line); padding: 20px 0 0; }
+  .letter-pick p { max-width: 560px; }
+  .letter-shell .letter-section { scroll-margin-top: 180px; }
+}
+@media (max-width: 520px) {
+  .letter-shell { padding-inline: 20px; }
+  .letter-cover { padding-top: 28px; }
+  .letter-deck { font-size: 18px; }
+  .letter-picks, .letter-practice { padding: 22px 20px; }
+  .letter-entry { grid-template-columns: 1fr; gap: 7px; }
+  .letter-entry-meta { display: flex; flex-wrap: wrap; gap: 10px; }
+  .letter-entry h3 { font-size: 19px; }
+  .letter-home-card { padding: 22px; }
+}
+@media print {
+  .topbar, .letter-contents, .news-back, .content-update-badge { display: none !important; }
+  .letter-shell { max-width: none; padding: 0; }
+  .letter-entry, .letter-pick, .letter-practice { break-inside: avoid; }
+}

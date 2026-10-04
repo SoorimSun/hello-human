@@ -24,11 +24,12 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
 <!-- CSS를 고치면 ?v= 값을 올려주세요 (브라우저 캐시 때문에 예전 CSS가 보이는 것 방지) -->
 <script src="assets/theme.js?v=3"></script>
-<link rel="stylesheet" href="assets/style.css?v=7">
+<link rel="stylesheet" href="assets/style.css?v=8">
 <link rel="stylesheet" href="assets/showcase.css?v=1">
 <link rel="stylesheet" href="assets/news-sections.css?v=1">
 <link rel="stylesheet" href="assets/case-studies.css?v=2">
 <link rel="stylesheet" href="assets/content-updates.css?v=1">
+<link rel="stylesheet" href="assets/newsletter.css?v=1">
 </head>
 <body>
 
@@ -46,11 +47,13 @@
       <a href="#member-works">작업물</a>
       <a href="#how">운영 방식</a>
       <a href="#join">모집 안내</a>
+      <a data-newsletter-entry href="#newsletter">뉴스레터</a>
     </nav>
     <a class="mobile-news-link" href="news/">AI뉴스</a>
     <a class="mobile-news-link" href="guides/">AI가이드</a>
     <a class="mobile-news-link" href="insights/">인사이트</a>
     <a class="mobile-news-link" href="case-studies/">사례연구</a>
+    <a data-newsletter-entry class="mobile-news-link" href="newsletters/">뉴스레터</a>
   </div>
 </header>
 
@@ -193,6 +196,22 @@
       </ul>
 
       <p class="note">도구나 프레임워크는 그때그때 골라 씁니다. 직접 연결하고 실행해보면서 어디까지 맡길 수 있는지 확인합니다.</p>
+    </div>
+  </section>
+
+  <section id="newsletter" data-newsletter-entry class="section" aria-labelledby="newsletter-heading">
+    <div class="wrap">
+      <p class="label">HELLO, HUMAN / NEWSLETTER</p>
+      <h2 id="newsletter-heading">놓친 글을 한 번에,<br>어려운 기술은 쉽게</h2>
+      <p>AI 소식과 실습, 사례연구와 멤버들의 작업물을 한자리에 모았습니다.<br>짧은 소개를 읽고, 지금 나에게 필요한 글을 골라보세요.</p>
+      <a class="letter-home-card" href="newsletters/2026-10-06-first-letter.html">
+        <span class="news-home-meta">뉴스레터 01 · <time datetime="2026-10-06">2026. 10. 06</time> · 창간호</span>
+        <strong>AI로 무엇을 해볼까요?<br>지금까지의 모든 글을 한자리에</strong>
+        <p>은행권 정보유출 사례로 운영 시스템의 조회 권한을 먼저 점검해보세요. 기사 23편과 회원 작업물 소개 2편을 모두 담았습니다.</p>
+        <span class="news-home-cta">첫 번째 뉴스레터 읽기 <span aria-hidden="true">→</span></span>
+      </a>
+      <p class="note">매주 화요일에 만납니다. 1호는 10월 5일까지의 전체 글, 2호부터는 지난주 화요일부터 발행 직전 월요일까지의 모든 글을 소개합니다.</p>
+      <a class="text-link" href="newsletters/">뉴스레터 전체 보기 →</a>
     </div>
   </section>
 
@@ -467,6 +486,6 @@ Suggested Action
 </a>
 
 <script src="assets/analytics.js?v=2" defer></script>
-<script type="module" src="assets/content-updates.js?v=2"></script>
+<script type="module" src="assets/content-updates.js?v=3"></script>
 </body>
 </html>

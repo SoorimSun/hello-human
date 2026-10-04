@@ -3,6 +3,7 @@ import { badgeFor, createSeenStore, resolveTarget, notificationKey } from './con
 // The published lists are the catalogue: new articles need no separate revision file.
 const root = new URL('../', import.meta.url);
 const collections = [
+  { path: 'newsletters/', section: 'newsletter' },
   { path: 'news/', section: 'ai-news' },
   { path: 'guides/', section: 'ai-guides' },
   { path: 'insights/', section: 'commerce-insights' },
