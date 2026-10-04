@@ -53,7 +53,7 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `research/2026-10-04-ai-lifecycle.md` | AI뉴스 06의 날짜·평가 조건·반론 검증과 편집 판단 |
 | `assets/news-lifecycle.css`, `assets/news/lifecycle-media.md` | AI뉴스 06의 교체표·평가 그래프·행동 기록 도식과 공식 화면 출처 |
 | `news/2026-10-01-meta-muse-messages.html` | AI뉴스 단신 02: 메타 Muse의 메시지 접근 의혹과 권한·기록 검증 |
-| `news/2026-10-02-bank-data-breach.html` | AI뉴스 단신 03: 은행권 정보유출과 AI 사용 정황, 인증·조회 권한·응답 최소화 도식 |
+| `news/2026-10-02-bank-data-breach.html` | AI뉴스 단신 03: 금융권 정보유출과 인증·조회 권한·응답 최소화 도식, 10월 4일 7개 금융사 피해·ARTEX 구조·AI 활용 추정 현행화 |
 | `news/2026-10-03-supabase-turso.html` | AI뉴스 단신 04: Supabase의 Turso 인수 발표, 공식 이미지와 에이전트 작업용 DB 도식 |
 | `research/2026-10-03-supabase-turso.md` | 단신 04의 공식 출처, 사실 확인과 이미지 출처 |
 | `case-studies/index.html` | AI 사례연구 소개와 목록 |

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive">
 <title>은행권 정보유출, ‘AI 해킹’ 뒤의 조회 서비스 빈틈 · AI뉴스 · 헬로우 휴먼</title>
-<meta name="description" content="신한·KB·하나·부산은행 정보유출 보도와 해외 AI 침해 사례를 대조하고, 인증·객체별 권한·응답 최소화를 도식과 가상 주문조회 예시로 설명합니다.">
+<meta name="description" content="10월 4일 업데이트. 저축은행·캐피탈까지 확대된 7개 금융사 정보유출, ARTEX의 에이전트 구조와 AI 활용 추정의 확인 범위, 인증·조회 권한·응답 최소화를 도식으로 설명합니다.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="../assets/style.css?v=7">
 <link rel="stylesheet" href="../assets/news.css?v=10">
 <link rel="stylesheet" href="../assets/news-flash.css?v=1">
-<link rel="stylesheet" href="../assets/news-security.css?v=1">
+<link rel="stylesheet" href="../assets/news-security.css?v=2">
 <link rel="stylesheet" href="../assets/content-updates.css?v=1">
 </head>
 <body>
@@ -36,12 +36,18 @@
       <a class="news-back" href="./#briefs">← AI뉴스 속보·단신</a>
       <p class="news-kicker"><span class="news-flash-badge">AI 단신</span> HELLO, HUMAN! / BRIEF 03</p>
       <h1 id="flash-title">은행권 정보유출,<br> ‘AI 해킹’ 뒤의 <em>조회 서비스 빈틈</em></h1>
-      <p class="news-deck">신한·KB·하나·부산은행 사고와 해외 사례로 읽는 인증, 데이터 접근권한, 그리고 AI의 역할</p>
-      <div class="news-article-meta"><time datetime="2026-10-02">2026년 10월 2일</time><span>헬로우 휴먼 AI뉴스 · 단신·기술 해설</span></div>
+      <p class="news-deck">저축은행·캐피탈로 번진 정보유출, ARTEX의 작동 구조, 그리고 AI 활용 추정과 입증 사이</p>
+      <div class="news-article-meta"><time datetime="2026-10-02">발행 2026년 10월 2일</time><time datetime="2026-10-04">업데이트 10월 4일</time><span>헬로우 휴먼 AI뉴스 · 단신·기술 해설</span></div>
     </header>
     <div class="news-flash-shell news-story wrap">
-      <p>은행권에서 정보유출 사고가 잇따랐습니다. 신한·KB국민·하나은행에서는 고객정보가, 부산은행에서는 외주 개발 직원의 정보가 유출됐다고 보도됐습니다. 공격에 AI 에이전트가 사용됐을 가능성도 제기됐지만, <strong>실제 사용 여부와 정확한 침해 원인은 추가 확인이 필요합니다.</strong> <a class="source-link" href="https://v.daum.net/v/20261002183601569" target="_blank" rel="noopener noreferrer">뉴스1 원문 ↗</a> <a class="source-link" href="https://www.yna.co.kr/amp/view/AKR20261002042352017" target="_blank" rel="noopener noreferrer">AI 사용 정황을 다룬 후속 보도 ↗</a></p>
-      <p>지금 살펴볼 핵심은 <strong>외부 업무지원 서비스가 개인정보를 돌려주기 전에 무엇을 검사했는가</strong>입니다. 금융위원회는 10월 2일, 외부에 노출된 시스템 전반과 인증 없이 내부정보를 조회할 수 있는 경로를 점검하도록 주문했습니다. <a class="source-link" href="https://fsc.go.kr/no010101/87869" target="_blank" rel="noopener noreferrer">금융위원회 발표 ↗</a></p>
+      <p>은행권에서 시작된 정보유출 소식이 저축은행과 캐피탈사까지 확대됐습니다. 10월 4일 보도 기준으로 신한·KB국민·하나·부산은행에 예가람·웰컴저축은행, 현대캐피탈을 더한 <strong>7개 금융사에서 정보유출이 알려졌습니다.</strong> 고객정보뿐 아니라 외주 직원·대출모집인과 법인 담당자 정보도 포함돼 있습니다. <a class="source-link" href="https://v.daum.net/v/20261004175655330" target="_blank" rel="noopener noreferrer">한국경제 · 피해 확산 보도 ↗</a></p>
+      <p>한국경제의 10월 4일 기사는 AI 침투테스트 시스템 <strong>아르텍스(ARTEX)</strong>의 악용 가능성과 작동 방식을 다뤘습니다. 같은 날 금융보안원장은 정황상 AI 활용을 추정하면서도 직접 사용 흔적을 확인한 단계는 아니라고 설명했습니다. 따라서 이 글은 <strong>피해 사실, 도구의 공개 기능, 실제 공격에서의 사용 여부를 구분</strong>해 읽습니다. <a class="source-link" href="https://v.daum.net/v/20261004181916795" target="_blank" rel="noopener noreferrer">한국경제 · ARTEX 해설 ↗</a> <a class="source-link" href="https://www.newsway.co.kr/news/view?ud=2026100415443751173" target="_blank" rel="noopener noreferrer">금융보안원장 설명 보도 ↗</a></p>
+
+      <aside class="security-update" aria-label="10월 4일 업데이트 요약">
+        <span class="security-eyebrow">2026. 10. 04 업데이트</span>
+        <ul><li><strong>피해 범위</strong> 저축은행·캐피탈을 포함한 7곳의 대상과 집계 단위를 구분했습니다.</li><li><strong>AI의 역할</strong> ARTEX 공식 문서의 계획·실행·결과 공유 구조를 도식으로 추가했습니다.</li><li><strong>확인 한계</strong> AI 활용 추정, 관련 IP 관측, 공격자 특정은 서로 다른 판단입니다.</li></ul>
+      </aside>
+      <p>여전히 살펴볼 핵심은 <strong>외부 업무지원 서비스가 개인정보를 돌려주기 전에 무엇을 검사했는가</strong>입니다. 금융위원회는 10월 2일 인증 없이 내부정보를 조회할 수 있는 경로의 점검을 주문했습니다. 4일 회의에서는 전 금융권의 외부접근·인증·탐지체계를 다시 살피도록 했다고 보도됐습니다. <a class="source-link" href="https://fsc.go.kr/no010101/87869" target="_blank" rel="noopener noreferrer">금융위 10월 2일 발표 ↗</a> <a class="source-link" href="https://m.etnews.com/20261004000019" target="_blank" rel="noopener noreferrer">전자신문 · 10월 4일 점검 지시 ↗</a></p>
 
       <aside class="security-takeaway" aria-label="먼저 읽는 핵심">
         <span class="security-eyebrow">이 글의 핵심</span>
@@ -52,23 +58,31 @@
       </aside>
       <nav class="news-toc security-toc" aria-label="기사 목차">
         <span>이 글에서</span>
-        <a href="#impact">피해 현황</a><a href="#path">조회 경로</a><a href="#controls">세 방어선</a><a href="#ai-evidence">AI의 역할</a><a href="#overseas">해외 사례</a><a href="#team-checks">업무에 적용</a>
+        <a href="#impact">피해 현황</a><a href="#path">조회 경로</a><a href="#controls">세 방어선</a><a href="#ai-evidence">ARTEX와 증거</a><a href="#overseas">해외 사례</a><a href="#team-checks">당국 대응·업무 적용</a>
       </nav>
 
       <section class="security-section" id="impact" aria-labelledby="impact-title">
         <p class="news-section-label">01 / 공개된 피해</p>
         <h2 id="impact-title">거래 시스템 밖에서도<br> 개인정보는 유출될 수 있습니다</h2>
-        <p>10월 2일 보도를 기준으로 정리한 수치입니다. 네 곳 모두 인터넷·모바일뱅킹의 금융거래 시스템과 별도인 업무 채널로 보도됐습니다. <a class="source-link" href="https://v.daum.net/v/20261002183601569" target="_blank" rel="noopener noreferrer">은행별 피해와 서비스 ↗</a></p>
+        <p>10월 4일까지 확인한 보도를 반영했습니다. 처음 알려진 네 은행의 사고는 인터넷·모바일뱅킹의 금융거래 시스템과 별도인 업무 채널에서 발생한 것으로 보도됐습니다. 신한은행 수치는 초기의 ‘약 2만 5,000명’에서 4일 전자신문이 보도한 <strong>2만 5,729명</strong>으로 구체화했습니다. 수치가 정밀해진 것을 새로운 추가 유출로 해석하지는 않습니다. <a class="source-link" href="https://v.daum.net/v/20261002183601569" target="_blank" rel="noopener noreferrer">초기 은행별 보도 ↗</a> <a class="source-link" href="https://m.etnews.com/20261004000019" target="_blank" rel="noopener noreferrer">10월 4일 상세 수치 ↗</a></p>
         <figure class="security-figure">
+          <p class="security-stat-group">은행 4곳 · 기존 보도와 후속 집계</p>
           <div class="security-stats">
-            <div><span class="security-stat-name">신한은행</span><strong><small>약</small> 25,000<small>명</small></strong><span class="security-pill">고객</span><p>대출모집인용<br>모바일 간편조회</p></div>
+            <div><span class="security-stat-name">신한은행</span><strong>25,729<small>명</small></strong><span class="security-pill">고객</span><p>대출모집인용<br>모바일 간편조회</p></div>
             <div><span class="security-stat-name">KB국민은행</span><strong>119<small>명</small></strong><span class="security-pill">고객</span><p>직원용 모바일<br>업무지원</p></div>
             <div><span class="security-stat-name">하나은행</span><strong>89<small>명</small></strong><span class="security-pill">고객</span><p>영업지원<br>시스템</p></div>
             <div class="security-staff"><span class="security-stat-name">부산은행</span><strong>11<small>명</small></strong><span class="security-pill">외주 개발 직원</span><p>모바일<br>영업지원</p></div>
           </div>
-          <figcaption>그림 1 · 공개된 유출 규모. 부산은행의 11명은 고객이 아닙니다. 발표 시점의 집계이며, 같은 날 모두 발생했다는 뜻은 아닙니다.</figcaption>
+          <p class="security-stat-group">추가 반영 · 저축은행·캐피탈 3곳</p>
+          <div class="security-stats security-stats-extra">
+            <div><span class="security-stat-name">예가람저축은행</span><strong><small>약</small> 40,000<small>명</small></strong><span class="security-pill">고객 · 추정</span><p>이름·전화번호·생년월일 등<br><a href="https://imnews.imbc.com/replay/2026/nwdesk/article/6855617_37005.html" target="_blank" rel="noopener noreferrer">MBC · 10. 03 ↗</a></p></div>
+            <div><span class="security-stat-name">웰컴저축은행</span><strong><small>최대</small> 2,200<small>건</small></strong><span class="security-pill">법인 관련 정보 · 추정</span><p>법인명·담당자 연락처 등<br><a href="https://www.fnnews.com/news/202610041510525820" target="_blank" rel="noopener noreferrer">파이낸셜뉴스 · 10. 04 ↗</a></p></div>
+            <div class="security-staff"><span class="security-stat-name">현대캐피탈</span><strong>146<small>명</small></strong><span class="security-pill">주택대출 모집인</span><p>이름·휴대전화번호 등<br><a href="https://www.ajunews.com/view/20261003200140575" target="_blank" rel="noopener noreferrer">아주경제 · 10. 03 ↗</a></p></div>
+          </div>
+          <figcaption>그림 1 · 10월 4일까지 보도된 규모. ‘명’과 ‘건’, 고객과 직원·모집인은 다른 집계입니다. 부산은행 11명과 현대캐피탈 146명은 일반 고객 수가 아닙니다. 같은 날 발생한 사고나 중복을 제거한 전체 피해자 수를 뜻하지 않습니다.</figcaption>
         </figure>
-        <p>신한은행에서는 이름·전화번호·연소득·대출한도와 함께 일부 고객의 <strong>주민등록번호 66건, 연계정보(CI) 97건</strong>도 유출됐다고 보도됐습니다. CI는 여러 서비스에서 동일인을 구분하는 데 쓰는 식별정보입니다. 거래 채널과 분리돼 있다는 사실만으로 보유한 개인정보의 중요도가 낮아지지는 않습니다. <a class="source-link" href="https://www.ytn.co.kr/_ln/0102_202610020052240586" target="_blank" rel="noopener noreferrer">YTN 유출 항목 보도 ↗</a></p>
+        <p>‘정보유출 7만 건에 육박’이라는 종합 보도도 나왔지만, 위 숫자를 합쳐 <strong>고유한 개인 피해자 7만 명</strong>으로 읽어서는 안 됩니다. 웰컴저축은행의 법인 관련 정보에는 담당자의 개인정보도 포함돼 있습니다. 한편 우리·NH농협은행 등은 공격 시도가 있었으나 유출 피해는 없었다고 밝혔습니다. <strong>공격을 받은 기관 수와 유출이 확인된 기관 수도 구분</strong>해야 합니다. <a class="source-link" href="https://v.daum.net/v/20261004175655330" target="_blank" rel="noopener noreferrer">유출 집계와 공격 차단 보도 ↗</a></p>
+        <p>10월 2일 YTN 보도에서는 신한은행에서 이름·전화번호·연소득·대출한도와 함께 일부 고객의 <strong>주민등록번호 66건, 연계정보(CI) 97건</strong>도 유출됐다고 전했습니다. CI는 여러 서비스에서 동일인을 구분하는 데 쓰는 식별정보입니다. 거래 채널과 분리돼 있다는 사실만으로 보유한 개인정보의 중요도가 낮아지지는 않습니다. <a class="source-link" href="https://www.ytn.co.kr/_ln/0102_202610020052240586" target="_blank" rel="noopener noreferrer">YTN 유출 항목 보도 ↗</a></p>
       </section>
 
       <section class="security-section" id="path" aria-labelledby="path-title">
@@ -86,7 +100,7 @@
           <div class="security-boundary-note"><span aria-hidden="true">↳</span><p><strong>고객번호는 데이터를 찾는 표지입니다.</strong> 그 번호를 안다는 사실이 조회 권한을 증명하지는 않습니다.</p></div>
           <figcaption>그림 2 · 공개 보도의 설명을 연결한 도식입니다. 실제 요청·응답, 서버 코드, 내부 연결 구조를 검증한 사고 재현도는 아닙니다.</figcaption>
         </figure>
-        <p>이 흐름은 인증 누락과 데이터별 권한검사를 함께 확인해야 할 이유를 보여줍니다. 다만 공개 자료만으로 특정 취약점 분류나 네 은행의 동일한 침입 경로를 확정할 수는 없습니다.</p>
+        <p>이 흐름은 인증 누락과 데이터별 권한검사를 함께 확인해야 할 이유를 보여줍니다. 다만 공개 자료만으로 특정 취약점 분류나 모든 금융사의 동일한 침입 경로를 확정할 수는 없습니다. 10월 4일 금융보안원장 설명에서도 네 은행의 공격 IP는 거의 같지만 저축은행 쪽은 일부 다르고 수법이 유사하다는 수준으로 제시됐습니다. <a class="source-link" href="https://www.newsway.co.kr/news/view?ud=2026100415443751173" target="_blank" rel="noopener noreferrer">공격 연관성에 대한 설명 ↗</a></p>
       </section>
 
       <section class="security-section" id="controls" aria-labelledby="controls-title">
@@ -122,15 +136,36 @@
       </section>
 
       <section class="security-section" id="ai-evidence" aria-labelledby="ai-evidence-title">
-        <p class="news-section-label">04 / AI 사용 정황의 확인 범위</p>
+        <p class="news-section-label">04 / ARTEX와 AI 사용 정황 · 10월 4일 보강</p>
         <h2 id="ai-evidence-title">도구의 흔적과 실제 사용은<br> 따로 입증해야 합니다</h2>
-        <p>연합뉴스는 공격에 쓰인 것으로 <strong>추정되는 서버의 웹페이지 제목에서 ARTEX 관련 문자열이 발견됐다</strong>는 보안업계 분석을 전했습니다. AI 침투테스트 도구와 관련된 정황이지만, 기사도 실제 공격 사용 여부는 미확인이라고 명시했습니다. <a class="source-link" href="https://www.yna.co.kr/amp/view/AKR20261002042352017" target="_blank" rel="noopener noreferrer">연합뉴스 후속 보도 ↗</a></p>
+        <p>10월 2일 연합뉴스 보도의 출발점은 공격에 쓰인 것으로 <strong>추정되는 서버의 웹페이지 제목에서 ARTEX 관련 문자열이 발견됐다</strong>는 보안업계 분석이었습니다. 4일 한국경제는 금융당국이 최소 6개 은행을 겨냥한 공격에 ARTEX가 활용된 것으로 보고 있다고 전했습니다. 이 ‘최소 6개 은행’은 공격 대상으로, 앞 절의 ‘정보유출이 알려진 7개 금융사’와 범위가 다릅니다. <a class="source-link" href="https://www.yna.co.kr/amp/view/AKR20261002042352017" target="_blank" rel="noopener noreferrer">10월 2일 정황 보도 ↗</a> <a class="source-link" href="https://v.daum.net/v/20261004181916795" target="_blank" rel="noopener noreferrer">10월 4일 ARTEX 보도 ↗</a></p>
+        <p>다만 같은 날 박상원 금융보안원장의 설명은 <strong>수법과 정황상 AI 활용을 추정하며 관계기관과 조사 중</strong>이라는 것이었습니다. AI 에이전트를 직접 사용한 흔적은 확인하지 못했다고도 밝혔습니다. 따라서 ‘업계가 제기한 가능성’에서 ‘당국도 살피는 추정’으로 진전됐다고 쓸 수는 있지만, 공개된 실행 기록으로 ARTEX의 공격 수행이 입증됐다고 단정할 단계는 아닙니다. <a class="source-link" href="https://www.newsway.co.kr/news/view?ud=2026100415443751173" target="_blank" rel="noopener noreferrer">금융보안원장의 확인 범위 ↗</a></p>
         <figure class="security-figure security-evidence">
-          <div><span class="security-evidence-state">공개 발표·보도</span><strong>정보유출 피해</strong><p>은행별 피해 인원과 업무 서비스가 공개됐습니다.</p></div>
-          <div><span class="security-evidence-state">보도된 정황</span><strong>AI 도구 관련 흔적</strong><p>공격 추정 인프라의 페이지 제목에 관련 문자열이 있었습니다.</p></div>
-          <div><span class="security-evidence-state">추가 입증 필요</span><strong>실제 AI 사용·공격 주체</strong><p>실행 기록, 사용 모델, 공격자의 신원은 별도 확인이 필요합니다.</p></div>
-          <figcaption>그림 6 · 증거의 종류를 구분한 표입니다. 중국어 제목만으로 공격자의 국적이나 사용 모델을 확정할 수 없습니다.</figcaption>
+          <div><span class="security-evidence-state">10. 02 / 정황 보도</span><strong>도구 관련 문자열</strong><p>공격 추정 서버의 페이지 제목에 ARTEX 관련 표현이 발견됐습니다.</p></div>
+          <div><span class="security-evidence-state">10. 04 / 당국 설명</span><strong>AI 활용 추정·조사</strong><p>수법과 여러 정황으로 AI 활용을 추정한다는 설명이 나왔습니다.</p></div>
+          <div><span class="security-evidence-state">여전히 입증 필요</span><strong>실행·모델·공격 주체</strong><p>실제 도구 실행과 사용 모델, 공격자의 신원·국적은 확정할 수 없습니다.</p></div>
+          <figcaption>그림 6 · 10월 4일 공개 설명까지 반영한 증거의 구분. 관련 소프트웨어가 있다는 사실과 그 소프트웨어로 해당 공격을 수행했다는 사실은 다릅니다.</figcaption>
         </figure>
+
+        <h3 class="security-subheading">ARTEX는 모델을 연결해 일을 나누는 시스템입니다</h3>
+        <p>ARTEX의 공식 저장소는 이 도구를 <strong>여러 LLM 에이전트가 움직이는 침투테스트 시스템</strong>으로 설명합니다. 모델 제공자와 모델을 별도로 설정하며, 계획 담당 에이전트가 할 일을 나누고 실행 담당 에이전트가 도구를 사용해 결과를 기록합니다. 이 기록이 다음 계획에 다시 반영됩니다. 따라서 ARTEX라는 이름을 확인해도 어떤 LLM이 연결됐는지까지 알 수 있는 것은 아닙니다. <a class="source-link" href="https://github.com/Autumn-27/ARTEX#系统技术架构" target="_blank" rel="noopener noreferrer">ARTEX 공식 구조 설명 ↗</a></p>
+        <figure class="security-figure security-panel">
+          <div class="security-figure-heading"><span class="security-eyebrow">공식 문서를 단순화한 작동 원리</span><strong>한 번의 결과가 다음 계획으로 돌아갑니다</strong></div>
+          <ol class="security-attack-flow security-agent-flow">
+            <li><span>01</span><strong>목표·범위 설정</strong><p>사람이 점검할 대상과 과제를 지정</p></li>
+            <li><span>02</span><strong>계획·업무 분배</strong><p>계획 담당이 조사할 방향을 나눔</p></li>
+            <li><span>03</span><strong>도구 실행</strong><p>여러 실행 담당이 작업을 수행</p></li>
+            <li><span>04</span><strong>결과 공유</strong><p>확인한 사실과 진행 기록을 저장</p></li>
+          </ol>
+          <div class="security-loop-back"><span aria-hidden="true">↶</span><p><strong>결과를 읽고 다시 계획</strong> 새 정보에 따라 다음 조사 방향을 정합니다.</p></div>
+          <figcaption>그림 7 · 10월 4일 확인한 ARTEX 공개 문서의 개념도입니다. 이번 금융권 공격의 실행 순서나 사용 버전을 재현한 그림은 아닙니다. <a href="https://github.com/Autumn-27/ARTEX#引擎与意图生命周期一次探索的闭环" target="_blank" rel="noopener noreferrer">공식 문서의 반복 구조 ↗</a></figcaption>
+        </figure>
+        <p>한국경제가 설명한 변화도 결과를 해석해 다음 행동을 고르는 반복 구조입니다. 이를 보안 관점에서 읽으면, 알려진 약점을 찾고 후속 조회를 이어가는 데 필요한 수작업이 줄어들 수 있습니다. <strong>공격의 모든 단계를 AI가 수행했다거나 새로운 취약점을 만들었다는 결론은 별도 증거가 필요합니다.</strong> <a class="source-link" href="https://v.daum.net/v/20261004181916795" target="_blank" rel="noopener noreferrer">ARTEX의 판단·반복을 다룬 해설 ↗</a></p>
+
+        <aside class="security-observation" aria-label="ARTEX 관련 IP 관측 수치의 의미">
+          <div><span class="security-eyebrow">오아시스시큐리티 분석을 인용한 10. 04 보도</span><strong>359<small>개 IP · 14개 국가·지역</small></strong><span>관측 기간 09. 23~10. 03</span></div>
+          <p>ARTEX 관련 서버의 고유 IP 관측치입니다. <strong>국내 금융사를 공격한 서버 359개라는 뜻이 아닙니다.</strong> 정상적인 연구·점검용 설치도 포함될 수 있고, 서버 위치로 공격자의 국적을 판정할 수도 없습니다. <a class="source-link" href="https://www.newsis.com/view/NISX20261004_0003813958" target="_blank" rel="noopener noreferrer">뉴시스 · 분석 범위와 한계 ↗</a></p>
+        </aside>
         <p>또한 <strong>크리덴셜 스터핑</strong>은 다른 곳에서 확보한 아이디·비밀번호 조합으로 로그인을 시도하는 공격입니다. 고객번호를 바꿔 데이터를 조회하는 행위와는 다릅니다. ‘입력값을 반복한다’는 이유만으로 같은 공격이라고 부르면 어떤 방어가 필요한지 흐려집니다. <a class="source-link" href="https://api-security.owasp.org/editions/2023/en/0xa2-broken-authentication/" target="_blank" rel="noopener noreferrer">OWASP의 정의 ↗</a></p>
         <p>반복 공격의 자동화는 AI 이전에도 존재했습니다. 해외 보고서가 보여주는 변화는 AI가 환경을 해석하고 도구를 작성하며 다음 작업을 조정하는 데까지 쓰인다는 점입니다. <strong>같은 시간과 인력으로 더 많은 경로를 시도할 가능성</strong>에 대비해야 한다는 것이 저희의 해석입니다. <a class="source-link" href="https://www.anthropic.com/threat-intelligence-report-september-2026" target="_blank" rel="noopener noreferrer">Anthropic의 악용 활동 분석 ↗</a></p>
       </section>
@@ -152,16 +187,17 @@
             <div class="security-case-date"><span>ANTHROPIC</span><time datetime="2026-09-10">2026. 09. 10 공개</time><strong>약 200<small>개 고객 조직</small></strong></div>
             <div><h3>업무 도구의 침해가 고객사로 확산</h3><div class="security-case-flow"><span>SaaS 제공업체</span><b aria-hidden="true">→</b><span>고객사 접근 경로</span><b aria-hidden="true">→</b><span>연쇄 데이터 탈취</span></div><p>2025년 12월~2026년 8월 활동을 다룬 보고서에서, ShinyHunters 연관자로 추정한 공격자가 SaaS 제공업체를 침해한 뒤 약 200개 고객 조직의 데이터를 추출한 사례를 공개했습니다. 회사는 이 사례의 작업 대부분을 AI 에이전트가 수행했다고 설명했습니다.</p><p class="security-case-lesson"><strong>점검할 경계</strong> 공급업체 권한, 고객사 간 데이터 분리, 연결 토큰의 범위</p><a class="source-link" href="https://www.anthropic.com/threat-intelligence-report-september-2026" target="_blank" rel="noopener noreferrer">Anthropic 9월 위협 보고서 ↗</a></div>
           </div>
-          <figcaption>그림 7 · 공개 시점 순으로 배치한 비교. ‘점검할 경계’는 각 보고서에서 도출한 헬로우 휴먼의 해석입니다. 두 Anthropic 사례는 별개의 조사입니다.</figcaption>
+          <figcaption>그림 8 · 공개 시점 순으로 배치한 비교. ‘점검할 경계’는 각 보고서에서 도출한 헬로우 휴먼의 해석입니다. 두 Anthropic 사례는 별개의 조사입니다.</figcaption>
         </figure>
       </section>
 
       <section class="security-section" id="team-checks" aria-labelledby="team-checks-title">
-        <p class="news-section-label">06 / 헬로우 휴먼의 시선</p>
+        <p class="news-section-label">06 / 당국 대응과 헬로우 휴먼의 시선</p>
         <h2 id="team-checks-title">우리의 조회 서비스에도<br> 같은 질문을 던져봅니다</h2>
+        <p>10월 4일 금융당국의 긴급 점검회의를 다룬 보도에서 강조된 조치는 <strong>불필요한 외부접근 차단, 필요한 접근의 권한·조회정보 최소화, 공유된 공격정보의 실제 탐지·차단 반영</strong>입니다. 피해 범위 확인과 고객 안내, 보이스피싱·스미싱 등 2차 피해 대응도 주문했습니다. 이는 점검과 대응을 요구한 내용이며 모든 금융사의 개선 완료를 뜻하지는 않습니다. <a class="source-link" href="https://m.etnews.com/20261004000019" target="_blank" rel="noopener noreferrer">전자신문 · 전 금융권 점검회의 ↗</a></p>
         <p>파트너 포털, 공급망 관리, 상담·주문조회, 파일 다운로드도 고객정보로 이어지는 업무 경로입니다. 금융위원회의 점검 방향과 OWASP의 통제를 커머스 업무에 옮기면 다음과 같습니다.</p>
         <ol class="security-checklist">
-          <li><span>01</span><div><strong>외부에서 열리는 업무 경로를 목록으로 만듭니다</strong><p>대고객 화면뿐 아니라 모바일 업무지원과 구버전 API까지 포함합니다.</p></div></li>
+          <li><span>01</span><div><strong>외부에서 열리는 업무 경로를 목록으로 만들고 줄입니다</strong><p>모바일 업무지원과 구버전 API까지 포함해 필요성을 확인하고, 업무에 불필요한 외부접근은 닫습니다.</p></div></li>
           <li><span>02</span><div><strong>서버가 검증한 사용자로 조회 범위를 정합니다</strong><p>사용자가 보낸 협력사코드만 믿지 않습니다. 다운로드와 캐시에도 같은 권한 경계를 적용합니다.</p></div></li>
           <li><span>03</span><div><strong>실제 응답과 파일의 개인정보를 줄입니다</strong><p>화면의 별표가 아니라 서버가 보내는 필드와 다운로드 파일을 확인합니다.</p></div></li>
           <li><span>04</span><div><strong>거부돼야 할 조회도 배포 전에 검사합니다</strong><p>승인된 테스트 환경과 가상 데이터로 미인증·타 협력사·담당 범위 밖 요청의 거부를 검증합니다.</p></div></li>
@@ -173,8 +209,17 @@
 
       <section class="news-flash-sources" id="sources" aria-labelledby="flash-sources-title">
         <h2 id="flash-sources-title">원문과 확인 자료</h2>
+        <a class="news-flash-original" href="https://v.daum.net/v/20261004181916795" target="_blank" rel="noopener noreferrer"><span>한국경제 · 2026. 10. 04 / 업데이트 출발 기사</span><strong>해킹에 악용된 AI 에이전트는 ‘아르텍스’</strong><span class="news-flash-original-cta">기사 읽기 <span aria-hidden="true">↗</span></span></a>
         <a class="news-flash-original" href="https://v.daum.net/v/20261002183601569" target="_blank" rel="noopener noreferrer"><span>뉴스1 · 2026. 10. 02</span><strong>신한·KB·하나·부산은행 정보유출을 다룬 원문</strong><span class="news-flash-original-cta">기사 읽기 <span aria-hidden="true">↗</span></span></a>
         <ul>
+          <li><a href="https://v.daum.net/v/20261004175655330" target="_blank" rel="noopener noreferrer">한국경제 · 7개 금융사 피해 확산과 공격 차단 사례</a><span> · 10. 04</span></li>
+          <li><a href="https://m.etnews.com/20261004000019" target="_blank" rel="noopener noreferrer">전자신문 · 신한은행 상세 수치와 전 금융권 점검 지시</a><span> · 10. 04</span></li>
+          <li><a href="https://www.newsway.co.kr/news/view?ud=2026100415443751173" target="_blank" rel="noopener noreferrer">뉴스웨이 · 금융보안원장의 AI 활용 추정·조사 중 설명</a><span> · 10. 04</span></li>
+          <li><a href="https://www.newsis.com/view/NISX20261004_0003813958" target="_blank" rel="noopener noreferrer">뉴시스 · ARTEX 관련 IP 359개 관측의 의미와 한계</a><span> · 10. 04</span></li>
+          <li><a href="https://www.fnnews.com/news/202610041510525820" target="_blank" rel="noopener noreferrer">파이낸셜뉴스 · 웰컴저축은행 법인 관련 정보 유출 추정</a><span> · 10. 04</span></li>
+          <li><a href="https://imnews.imbc.com/replay/2026/nwdesk/article/6855617_37005.html" target="_blank" rel="noopener noreferrer">MBC · 예가람저축은행 약 4만 명 피해 추정</a><span> · 10. 03</span></li>
+          <li><a href="https://www.ajunews.com/view/20261003200140575" target="_blank" rel="noopener noreferrer">아주경제 · 현대캐피탈 주택대출 모집인 정보 유출</a><span> · 10. 03</span></li>
+          <li><a href="https://github.com/Autumn-27/ARTEX" target="_blank" rel="noopener noreferrer">ARTEX 공식 저장소 · 모델 설정과 다중 에이전트 구조</a><span> · 10. 04 확인, 사건 당시 사용 버전은 미확인</span></li>
           <li><a href="https://fsc.go.kr/no010101/87869" target="_blank" rel="noopener noreferrer">금융위원회 · 긴급 상황대응 회의와 점검 방향</a><span> · 10. 02</span></li>
           <li><a href="https://www.ytn.co.kr/_ln/0102_202610020052240586" target="_blank" rel="noopener noreferrer">YTN · 신한은행 유출 규모와 항목</a><span> · 10. 02</span></li>
           <li><a href="https://www.hani.co.kr/arti/economy/finance/1280645.html" target="_blank" rel="noopener noreferrer">한겨레 · 고객번호를 활용한 추가 접근 보도</a><span> · 10. 02</span></li>
@@ -186,7 +231,7 @@
           <li><a href="https://www.anthropic.com/threat-intelligence-report-september-2026" target="_blank" rel="noopener noreferrer">Anthropic · 9월 위협정보 보고서</a><span> · 09. 10</span></li>
           <li><a href="https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/" target="_blank" rel="noopener noreferrer">OWASP API1 · 객체 수준 권한검사</a> / <a href="https://api-security.owasp.org/editions/2023/en/0xa2-broken-authentication/" target="_blank" rel="noopener noreferrer">API2 · 인증</a> / <a href="https://api-security.owasp.org/editions/2023/en/0xa3-broken-object-property-level-authorization/" target="_blank" rel="noopener noreferrer">API3 · 속성 수준 권한검사</a></li>
         </ul>
-        <p class="news-flash-verification">확인 기준 2026년 10월 2일(한국시간). 국내 피해와 접근 경위는 은행 측 설명을 인용한 보도 및 금융위원회 발표를, 해외 사례는 공개 기관의 원문을 대조했습니다. 실제 은행 시스템이나 원본 로그를 조사한 것은 아닙니다. 도식은 보도의 개념적 재구성과 가상 업무 예시이며, 미확인된 취약점·AI 모델·공격 주체를 확정하지 않습니다. 해외 평가 사고는 9월 9일 후속 보고서까지 반영했습니다.</p>
+        <p class="news-flash-verification">확인 기준 2026년 10월 4일(한국시간). 10월 2일 발행 후 2금융권 피해, ARTEX 설명, 금융보안원장 발언과 당국 대응 보도를 추가했습니다. 10월 2일 금융위 발표는 공식 원문을, 4일 회의·발언은 현장 보도를 대조했습니다. 금융사별 수치는 보도 시점의 집계·추정이며 단위가 달라 합산하지 않았습니다. ARTEX 구조는 공개 저장소의 설명으로 확인했으며 실제 금융사 시스템·원본 로그나 사건 당시 도구 버전을 조사한 것은 아닙니다. 도식은 보도·문서의 개념적 재구성과 가상 업무 예시입니다. 해외 사례는 기존 공식 원문을 유지했고, Anthropic 평가 사고는 9월 9일 후속 보고서까지 반영했습니다.</p>
         <a class="news-end-link" href="./#briefs">AI뉴스 속보·단신으로 돌아가기 <span aria-hidden="true">→</span></a>
       </section>
     </div>
