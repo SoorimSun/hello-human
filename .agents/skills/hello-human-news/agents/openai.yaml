@@ -1,4 +1,0 @@
-interface:
-  display_name: "헬로우 휴먼 일반뉴스"
-  short_description: "최신 근거와 원본 미디어, 쉬운 시각화로 만드는 일반 AI뉴스"
-  default_prompt: "$hello-human-news를 사용해 이 프로젝트의 헬로우 휴먼 일반뉴스를 작성해줘. 자료를 최신화하고 쉬운 설명·시각화·공식 원본 미디어를 넣어 로컬 검토본으로 완성해줘. 커밋이나 푸시는 하지 마."

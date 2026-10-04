@@ -141,8 +141,6 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 
 AI뉴스는 발행 주기를 정하지 않고, 새 소식이 있을 때 정적 HTML 페이지를 추가합니다.
 
-일반뉴스를 작성하거나 수정할 때는 프로젝트 전용 스킬 [hello-human-news](.agents/skills/hello-human-news/SKILL.md)를 사용할 수 있습니다. Codex에서 `$hello-human-news`로 호출하면 최신 근거 조사, 쉬운 설명과 시각화, 원본 미디어, 목록·홈 반영과 로컬 검증 기준을 함께 적용합니다. 속보·단신과는 구분하며, 커밋·푸시·배포는 별도 요청이 있을 때만 진행합니다.
-
 1. `news/2026-09-25-ai-agents.html`을 복사해 `news/YYYY-MM-DD-주제.html`을 만듭니다. 제목·설명·날짜·호수와 기사 내용을 바꾸고, `<meta name="robots" content="noindex, nofollow, noarchive">`를 유지합니다. 목차 링크와 본문 절의 `id`를 맞추고 `article-toc.js`를 유지합니다.
 2. 공식 발표와 원문 링크를 기사 안에 넣고, 발표 사실·기업 자체 평가·우리의 해석을 구분합니다. 출시 예정이나 진행 중인 사건은 확인 날짜를 적습니다.
 3. `news/index.html`의 단일 목록 `#news-feed .news-issues`에 새 글을 한 번 추가하고, `data-news-kind`를 일반뉴스는 `regular-news`, 속보·단신은 `briefs`로 지정합니다. 날짜 내림차순, 같은 날짜는 속보·단신 먼저로 정렬하고 유형별 편수와 전체 편수를 갱신합니다. 일반뉴스는 `ISSUE`, 속보·단신은 `BRIEF` 번호를 각각 이어갑니다. 홈페이지 `index.html`의 `#ai-news`에서는 새 글이 해당 유형의 최신 글일 때 그 유형의 카드만 갱신합니다.
