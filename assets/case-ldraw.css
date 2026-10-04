@@ -108,14 +108,25 @@
 .nova-final-three strong { font-size: 15px; }
 .nova-story :is(input, summary):focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
 
+/* 제작자 영상과 전시 빌더 제안 */
+.nova-video-link { display: flex; align-items: center; gap: 20px; padding: 22px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface-2); text-decoration: none; }
+.nova-video-link > span:first-child { display: grid; place-items: center; flex: 0 0 46px; height: 46px; border-radius: 50%; color: var(--bg); background: var(--ink); font-size: 16px; }
+.nova-video-link strong { display: block; font-size: 17px; }
+.nova-video-link small { display: block; margin-top: 6px; font-size: 12px; color: var(--muted); }
+.nova-video-chapters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 18px; }
+.nova-video-chapters a { padding: 14px; border: 1px solid var(--line); border-radius: 8px; text-decoration: none; }
+.nova-video-chapters a:hover, .nova-video-link:hover { border-color: var(--accent); }
+.nova-video-chapters span { font: 12px var(--mono); color: var(--accent); }
+.nova-video-chapters strong { display: block; margin: 8px 0 5px; font-size: 14px; }
+.nova-video-chapters small { display: block; color: var(--muted); font-size: 12px; }
+.nova-video a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.nova-pipeline .nova-builder-core { padding: 18px 12px; border: 1px solid var(--accent); border-radius: 9px; background: var(--accent-soft); }
+.nova-builder-core > b { color: var(--accent); border-color: var(--accent); }
+.nova-builder-catalog { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.nova-builder-catalog > span { flex-basis: 100%; margin-bottom: 3px; font-size: 12px; color: var(--muted); }
+.nova-builder-catalog strong { padding: 7px 10px; border: 1px dashed var(--line); border-radius: 6px; font-size: 12px; }
+
 /* 전시모듈 적용 제안: 가상 구성과 콘텐츠 정책 */
-.nova-roadmap { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 28px 0; }
-.nova-roadmap > div { padding: 20px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
-.nova-roadmap > div:nth-child(2) { border-color: var(--accent); }
-.nova-roadmap > div > span { font: 11px var(--mono); color: var(--muted); }
-.nova-story .nova-roadmap h3 { font-size: 18px; margin: 12px 0; }
-.nova-story .nova-roadmap p { font-size: 14px; line-height: 1.8; }
-.nova-roadmap small { display: block; color: var(--muted); font-size: 12px; line-height: 1.7; }
 .nova-store-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 18px; padding-bottom: 22px; margin-bottom: 22px; border-bottom: 1px solid var(--line); }
 .nova-store-controls[hidden], .nova-store-plan[hidden], .nova-wire-products > i[hidden] { display: none; }
 .nova-store-controls > label { display: grid; gap: 8px; font-size: 13px; font-weight: 650; }
@@ -157,8 +168,6 @@
 .nova-story .nova-display-checks p { font-size: 13px; color: var(--muted); margin: 8px 0 0; line-height: 1.8; }
 .nova-store-controls select:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 @media (max-width: 720px) {
-  .nova-roadmap { grid-template-columns: 1fr; }
-  .nova-roadmap > div { padding: 18px; }
   .nova-figure { padding: 20px; }
   .nova-search-flow { grid-template-columns: 1fr; gap: 6px; }
   .nova-search-flow > span { transform: rotate(90deg); text-align: center; line-height: 1.1; }
@@ -169,6 +178,9 @@
   .nova-business-states b, .nova-business-states small { margin: 0; }
 }
 @media (max-width: 520px) {
+  .nova-video-link { gap: 12px; padding: 16px; }
+  .nova-video-link strong { font-size: 15px; }
+  .nova-video-chapters { grid-template-columns: 1fr; gap: 8px; }
   .nova-store-plan, .nova-display-checks { grid-template-columns: 1fr; }
   .nova-store-plan { gap: 24px; }
   .nova-store-controls { display: grid; gap: 8px; }
