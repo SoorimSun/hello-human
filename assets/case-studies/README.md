@@ -79,3 +79,29 @@
 - Tylko 공식 기능 설명: https://tylko.com/en-uk/faq/articles/customisation/what-is-the-configurator
 
 Tylko의 폭·색상 선택 시각화는 공식 설명에 근거해 헬로우 휴먼이 만든 HTML/CSS/SVG 도식입니다. 실제 화면·제품·치수·색상명·가격이나 3D 렌더러를 재현하지 않습니다. 구매 흐름은 공식 자료 요약이며, 최적화 질문은 헬로우 휴먼의 해석입니다. 각 브랜드의 WebGPU 사용이나 성능 개선을 검증한 자료가 아닙니다.
+
+## ldraw-nova / Copper Lane · 사례연구 04
+
+원작·이미지: anteloc / ldraw-nova. 공개 저장소: https://github.com/anteloc/ldraw-nova
+
+확인 기준 커밋: 5919d2289e023eeacc2ffc03cbe750e447a024dd. 확인·저장: 2026-10-04.
+
+제작자의 시각 검토 기록은 2026-09-07로 기재되어 있습니다. 아래 4장은 해당 커밋에 저장된 PNG 원본 바이트를 그대로 내려받았습니다. 실물 사진이나 이번 글에서 생성·실행한 결과가 아닙니다.
+
+| 파일 | 저장소 원본 경로 | 본문 용도 |
+| --- | --- | --- |
+| ldraw-copper-lane.png | examples/modular-street/preview.png | 대표 이미지, 수정 후 비교, 홈·목록 카드 |
+| ldraw-copper-before.png | examples/modular-street/before.png | 수정 전 이미지 |
+| ldraw-copper-front.png | examples/modular-street/front.png | 정면에서 본 서점 입구·간판·차양 |
+| ldraw-window.png | examples/modular-street/window.png | 재사용 가능한 창문 조립물 설명 |
+
+모두 1000×800 PNG입니다. 이미지마다 본문 캡션에 원작과 출처, 확인 날짜를 표시합니다.
+
+- 원본 폴더: https://github.com/anteloc/ldraw-nova/tree/5919d2289e023eeacc2ffc03cbe750e447a024dd/examples/modular-street
+- 시각 검토: https://github.com/anteloc/ldraw-nova/blob/5919d2289e023eeacc2ffc03cbe750e447a024dd/examples/modular-street/visual-review.md
+- 검증 결과: https://github.com/anteloc/ldraw-nova/blob/5919d2289e023eeacc2ffc03cbe750e447a024dd/examples/modular-street/validation.json
+- 저장소 라이선스: https://github.com/anteloc/ldraw-nova/blob/5919d2289e023eeacc2ffc03cbe750e447a024dd/LICENSE
+
+저장소는 AGPL-3.0을 표시합니다. 외부 LDraw 부품·자료의 권리는 각 라이선스와 권리자에게 있으며, 별도의 이미지 전용 재사용 조건은 확인하지 않았습니다. 사례 설명·비평용으로 출처를 표시한 것이며 원작의 권리를 소유한다는 의미는 아닙니다. 원본 장면을 합성하거나 AI로 재생성하지 않았습니다.
+
+창문 간격 조작, 생성 과정, 작업 환경, 검색과 사용 판단, 모듈 구조, 검사 상태, 커머스 업무 흐름은 헬로우 휴먼의 HTML/CSS/SVG 도식입니다. 창문 간격 도식은 임의 좌표의 반복 계산만 보여주며 실제 LDraw 생성기나 검사기를 실행하지 않습니다. 커머스 부분은 가상 업무 설계입니다.

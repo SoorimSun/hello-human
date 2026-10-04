@@ -104,6 +104,7 @@ GitHub Pages에 분석 스크립트를 직접 연결합니다. DNS나 호스팅�
 | `assets/case-studies.css` | AI 사례연구 소개 카드·목록·본문 시각화 스타일 |
 | `assets/case-railcode.css` | 사례연구 02의 배송지연 주문 화면 A·B·C 시안 스타일 |
 | `assets/case-kospimap.css` | 사례연구 03의 데이터·성능 도식, 배송 위험 시간대 전환, 픽업 시간 비교, 건물 접근·AI 역할 도식 |
+| `assets/case-ldraw.css`, `assets/case-ldraw.js` | 사례연구 04의 생성·검색·검증 도식, 원본 이미지 비교, 설명용 창문 간격 조작 |
 | `assets/case-studies/` | 실제 게임·웹사이트 캡처와 출처가 표시된 사례 이미지 |
 | `assets/insights.css` | 커머스 인사이트 시각화 스타일 |
 | `assets/insight-evidence.css` | 인사이트 02의 구매 사례·검수 화면·아키텍처 도식 스타일 |
