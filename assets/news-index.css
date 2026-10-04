@@ -7,7 +7,7 @@
 .news-tab:focus-visible, #news-feed:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .news-tab-count { font-family: var(--mono); font-size: 12px; font-weight: 500; opacity: .8; }
 .news-sort-note { margin: 16px 0 0; padding-bottom: 16px; border-bottom: 1px solid var(--line); color: var(--muted); font-size: 13px; }
-.news-index .news-issue { padding: 26px 0; }
+.news-index .news-issue { grid-template-columns: minmax(0, 1fr) 24px; padding: 26px 0; }
 .news-index .news-issue-main strong { font-size: clamp(21px, 2.7vw, 27px); }
 .news-kind { display: inline-block; margin-right: 7px; padding: 2px 7px; border: 1px solid var(--line); border-radius: 4px; color: var(--muted); font-family: var(--sans); font-size: 11px; font-weight: 700; line-height: 1.5; vertical-align: middle; white-space: nowrap; }
 .news-kind-briefs { border-color: var(--ink); background: var(--ink); color: var(--bg); }
@@ -17,6 +17,5 @@
   .news-tab-count { font-size: 11px; }
   .news-sort-note { font-size: 12px; }
   .news-index .news-issue { grid-template-columns: minmax(0, 1fr); padding: 22px 0; }
-  .news-index .news-issue-number { display: none; }
   .news-index .news-issue-meta { font-size: 12px; }
 }
