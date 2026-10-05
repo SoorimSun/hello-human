@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive">
-<title>한 시간의 라이브를 30초 숏폼으로, AI는 어디까지 맡을까? · 커머스 인사이트 · 헬로우 휴먼</title>
-<meta name="description" content="홈쇼핑·티커머스의 긴 판매방송에서 시연·질문·혜택 구간을 찾아 숏폼으로 만드는 AI 활용 사례. 신세계라이브쇼핑, 현대홈쇼핑, GS샵의 공개 자료와 원본 영상으로 제작 자동화의 실제 범위를 살펴봅니다.">
+<title>라이브 한 편을 여러 콘텐츠로, AI는 어디까지 맡을까? · 커머스 인사이트 · 헬로우 휴먼</title>
+<meta name="description" content="국내 홈쇼핑과 중국 라이브커머스, LAVE·EditDuet·TutoAI 등 영상 AI 연구를 통해 원본 방송을 숏폼·사용 가이드·질문 답변·다국어 영상으로 바꾸는 실제 범위와 검증 방법을 살펴봅니다.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="../assets/news.css?v=10">
 <link rel="stylesheet" href="../assets/guide.css?v=4">
 <link rel="stylesheet" href="../assets/insights.css?v=3">
-<link rel="stylesheet" href="../assets/insight-content-pipeline.css?v=2">
+<link rel="stylesheet" href="../assets/insight-content-pipeline.css?v=3">
 <link rel="stylesheet" href="../assets/content-updates.css?v=1">
 </head>
 <body class="content-pipeline-article">
@@ -34,13 +34,13 @@
     <header class="news-article-header guide-article-header insight-article-header wrap">
       <a class="news-back" href="./">← 커머스 인사이트 목록</a>
       <p class="news-kicker">HELLO, HUMAN! <span aria-hidden="true">/</span> COMMERCE INSIGHT 04</p>
-      <h1>한 시간의 라이브를<br> <em>30초 숏폼으로,<br> AI는 어디까지 맡을까?</em></h1>
-      <p class="news-deck">홈쇼핑·티커머스의 방송에서 시연을 찾고, 세로로 편집하고, 지금 팔 수 있는 영상으로 만드는 일</p>
+      <h1>라이브 한 편을<br> <em>여러 콘텐츠로,<br> AI는 어디까지 맡을까?</em></h1>
+      <p class="news-deck">국내 홈쇼핑과 중국 라이브커머스, 영상 AI 연구로 살펴보는 숏폼·사용 가이드·질문 답변·다국어 영상 제작</p>
       <div class="news-article-meta"><time datetime="2026-10-05">2026년 10월 5일</time><span>헬로우 휴먼 커머스 인사이트</span></div>
       <ol class="cp-reading" aria-label="이 글의 세 가지 질문">
-        <li><a href="#cases"><span>01 · 실제 적용</span><strong>방송을 어떻게 줄일까?</strong></a></li>
-        <li><a href="#editing"><span>02 · 편집의 판단</span><strong>어느 장면을 남길까?</strong></a></li>
-        <li><a href="#pilot"><span>03 · 작은 실험</span><strong>사람의 일이 줄었을까?</strong></a></li>
+        <li><a href="#china"><span>01 · 국내와 중국</span><strong>어디까지 쓰고 있을까?</strong></a></li>
+        <li><a href="#research"><span>02 · 편집 AI 연구</span><strong>무엇을 자동화할까?</strong></a></li>
+        <li><a href="#reuse"><span>03 · 숏폼 그다음</span><strong>무엇으로 다시 만들까?</strong></a></li>
       </ol>
     </header>
     <div class="news-article-shell guide-shell wrap">
@@ -48,11 +48,13 @@
         <span>이 글에서</span>
         <a href="#case"><span>00</span>방송 한 편, 숏폼 세 가지</a>
         <a href="#cases"><span>01</span>국내에서 이미 하는 일</a>
-        <a href="#search"><span>02</span>AI가 장면을 찾는 방식</a>
-        <a href="#editing"><span>03</span>30초를 편집하는 판단</a>
-        <a href="#tools"><span>04</span>재편집과 새 영상 생성</a>
-        <a href="#changes"><span>05</span>방송이 끝난 뒤의 정보</a>
-        <a href="#pilot"><span>06</span>방송 10편으로 검증하기</a>
+        <a href="#china"><span>02</span>중국의 상품별 영상 재사용</a>
+        <a href="#search"><span>03</span>상품과 장면을 함께 찾기</a>
+        <a href="#editing"><span>04</span>30초를 편집하는 판단</a>
+        <a href="#research"><span>05</span>논문 속 AI 편집 작업대</a>
+        <a href="#reuse"><span>06</span>숏폼 밖의 2차 콘텐츠</a>
+        <a href="#changes"><span>07</span>원본과 파생물을 함께 관리</a>
+        <a href="#pilot"><span>08</span>방송 10편으로 검증하기</a>
         <a href="#sources"><span>↗</span>자료와 읽는 법</a>
       </nav>
       <div class="news-story guide-story insight-story">
@@ -104,7 +106,8 @@
             </div>
             <p class="cp-caption">시간·상품·사용 조건은 설명을 위한 가정입니다. 30초와 20초는 편집 목표 길이이며, AI의 처리시간이나 성능 측정값이 아닙니다.</p>
           </figure>
-          <p>여기서 AI의 역할은 영상 전체를 새로 그리는 데 한정되지 않습니다. <strong>찾기, 고르기, 자르기, 화면 맞추기, 자막 붙이기</strong>를 나누면 이미 자동화할 수 있는 작업과 사람이 판단할 작업이 보입니다.</p>
+          <p>이 방송은 숏폼으로만 다시 쓸 수 있을까요? 세척 장면은 사진이 있는 사용 가이드로, 질문과 답변은 상담 자료로, 검증된 설명 영상은 다른 언어 버전으로 바꿀 수 있습니다. 그러려면 <strong>원본의 어떤 상품·장면·설명을 가져왔는지</strong>를 먼저 연결해야 합니다.</p>
+          <p>국내 홈쇼핑의 도입 사례에서 출발해 중국의 상품별 영상 재사용, AI 편집 연구, 영상 밖의 2차 콘텐츠까지 살펴보겠습니다. 각 사례에서 자동화한 작업과 아직 사람이 확인하는 부분을 함께 읽는 것이 중요합니다.</p>
         </section>
 
         <section class="guide-section insight-section" id="cases" aria-labelledby="cases-title">
@@ -132,8 +135,31 @@
           </figure>
         </section>
 
+        <section class="guide-section insight-section" id="china" aria-labelledby="china-title">
+          <p class="cp-eyebrow">02 · 중국 라이브커머스의 재사용 구조</p>
+          <h2 id="china-title">여러 상품을 파는 방송을<br>상품별 콘텐츠로 나눕니다</h2>
+          <p>라이브 한 편에서 여러 상품을 설명했다면, 좋은 장면만 찾는 것으로는 부족합니다. 어느 상품을 설명하는지 나누고, 그 상품의 판매 포인트와 장면을 묶어야 합니다. 중국의 공개 자료에서는 <strong>라이브 → 상품별 구간 → 유입용 영상</strong>이라는 흐름이 구체적으로 나타납니다.</p>
+          <div class="cp-case-card">
+            <div class="cp-case-heading"><span>플랫폼 적용 설명 · 공급사 자료집에 수록</span><h3>도우인 전자상거래 × 화산엔진</h3></div>
+            <p>화산엔진의 <em>2025 스마트 영상·엣지 실무 자료집</em>은 도우인 전자상거래가 라이브에서 상품 하이라이트와 핵심 판매 포인트를 찾아 짧은 영상을 만드는 적용을 소개합니다. 기술 설명에서는 특정 행동이 나타난 구간을 찾는 단계와, 이야기 흐름에 맞게 장면을 편집하는 단계를 연결합니다.</p>
+            <ol class="cp-inline-flow" aria-label="공개 자료의 처리 흐름을 재구성"><li>상품 설명 구간</li><li>핵심 시연·판매 포인트</li><li>이야기 순서로 편집</li><li>라이브 유입용 영상</li></ol>
+            <p class="cp-case-takeaway"><strong>가져올 생각</strong> 무엇을 잘랐는지뿐 아니라, 이 클립이 어느 상품으로 고객을 안내하는지까지 연결합니다.</p>
+            <p class="cp-caption">공급사 자료집에 수록된 적용 설명이며, 해당 장은 甲子光年 기사입니다. 특정 판매자의 독립 검증 성과나 무인 운영 비율은 확인되지 않아 수치를 옮기지 않았습니다.</p>
+            <a class="source-link" href="https://www.cdut.edu.cn/__local/1/81/9D/E05EDA063BF333A4F9829370B67_8346F923_99381A.pdf#page=163" target="_blank" rel="noopener noreferrer">자료집 공개본 · PDF 163·202쪽 ↗</a>
+          </div>
+          <div class="cp-case-card">
+            <div class="cp-case-heading"><span>공식 제품 기능·활용 시나리오 · 고객 성과와 구분</span><h3>텐센트: 영상과 상품 설명을 함께 출력</h3></div>
+            <p>텐센트의 Media AI 문서는 여러 상품을 다룬 긴 판매방송을 상품별 설명 영상으로 나누고, 핵심 판매 포인트를 함께 정리하는 활용 방식을 제시합니다. 2026년 5월 갱신된 미디어 처리 문서에는 파일이나 라이브를 입력받아 <strong>클립·표지·시작과 끝 시각·제목·요약</strong>을 돌려주는 절차가 나옵니다.</p>
+            <p class="cp-case-takeaway"><strong>가져올 생각</strong> 출력물을 영상 파일 하나로 설계하지 않습니다. 제목·요약·원본 시간은 검색, 상품 연결, 재검수에 다시 쓰입니다.</p>
+            <p class="cp-caption">공식 제공 기능의 범위입니다. 상품별 분할 정확도와 한국어 판매방송 성능은 공개 자료만으로 판단할 수 없습니다.</p>
+            <a class="source-link" href="https://cloud.tencent.com/document/product/1186/42260" target="_blank" rel="noopener noreferrer">커머스 활용 문서 · 2025.01.08 ↗</a>
+            <a class="source-link" href="https://cloud.tencent.com/document/product/862/112098" target="_blank" rel="noopener noreferrer">영상 분할 처리 문서 · 2026.05.19 ↗</a>
+          </div>
+          <p>이 자료들에서 얻을 설계 힌트는 분명합니다. 방송 전체를 한 줄로 요약하는 것보다 <strong>상품 단위로 구간을 나누고, 장면과 판매 설명을 같이 보관하는 것</strong>이 재사용의 출발점입니다. 그다음 문제는 AI가 상품과 시간을 얼마나 정확하게 연결하느냐입니다.</p>
+        </section>
+
         <section class="guide-section insight-section" id="search" aria-labelledby="search-title">
-          <p class="cp-eyebrow">02 · 2026년 공개 기술 사례</p>
+          <p class="cp-eyebrow">03 · 영상 이해와 상품 연결</p>
           <h2 id="search-title">“상품을 쓰는 장면”은<br>대본 검색만으로 찾기 어렵습니다</h2>
           <p>쇼호스트가 “이렇게 해 보세요”라고 말하며 뚜껑을 열었다면, 음성을 글로 옮긴 기록에 ‘뚜껑’이라는 단어가 없을 수 있습니다. 반대로 ‘뚜껑’을 말하는 순간 화면은 가격 안내일 수도 있습니다. <strong>말, 실제 행동, 화면에 쓰인 글을 함께 보는 이유</strong>입니다.</p>
           <div class="cp-signal-grid" aria-label="영상에서 확인할 세 종류의 정보">
@@ -143,6 +169,19 @@
           </div>
           <p><strong>GS샵의 2026년 5월 공개 사례</strong>가 이 문제를 구체적으로 보여줍니다. AWS 기술 블로그에 따르면, PD는 방송의 시연 장면을 찾는 동시에 바뀐 카드 혜택이나 라이브 한정 멘트도 제거해야 했습니다. 팀은 TwelveLabs의 영상 이해 모델을 이용해 자연어로 방송 구간을 찾는 검색 화면을 구현했습니다.</p>
           <p>이후에는 숏픽 영상의 소구점, 즉 고객이 관심을 가질 특징을 추출해 추천에 활용했습니다. 다만 이 글은 당시 숏픽을 사람이 제작했다고 명시합니다. <strong>자동 검색·영상 이해의 사례와 완전 자동 편집의 사례를 구분해야 합니다.</strong> <a class="source-link" href="https://aws.amazon.com/ko/blogs/tech/gs-shop-ai-powered-video-recommendation-platform/" target="_blank" rel="noopener noreferrer">GS샵·AWS 기술 사례, 2026.05.15 ↗</a></p>
+          <h3>2026년 연구는 ‘같은 순간’과 ‘같은 상품’을 더 따져 묻습니다</h3>
+          <div class="cp-research-note">
+            <span class="cp-evidence-label">연구 사전공개 · TLive-Omni · 2026.08</span>
+            <p>타오바오·티몰 연구진의 <strong>TLive-Omni</strong>는 시간 정보가 붙은 화면 묶음에 같은 구간의 음성을 연결합니다. 화면 속 글자와 발언, 상품을 보여주는 순간을 함께 이해하려는 방식입니다. 출력은 설명·답변 같은 텍스트이며, 완성 영상을 편집해 내보내는 엔진은 아닙니다.</p>
+            <p class="cp-caption">커머스 특화 평가를 제시하지만 길고 시끄러운 방송, 모호한 지시가 한계로 남습니다. 논문 결과를 국내 방송의 편집 정확도로 옮길 수는 없습니다.</p>
+            <a class="source-link" href="https://arxiv.org/abs/2608.20958" target="_blank" rel="noopener noreferrer">TLive-Omni 논문 ↗</a>
+          </div>
+          <div class="cp-research-note">
+            <span class="cp-evidence-label">연구 사전공개 · Grounded Product Understanding · 2026.09</span>
+            <p><strong>Grounded Product Understanding in Livestream Videos</strong>는 ‘어떤 상품인가’와 ‘언제 등장하는가’를 함께 맞히는 과제로 봅니다. 패션 상품 목록과 라이브를 연결하며, 같은 상품이 여러 번 나타나는 구간도 찾게 합니다. 비슷하게 생긴 다른 상품의 시연을 잘라 붙이면 영상은 자연스러워도 판매 정보는 틀리기 때문입니다.</p>
+            <p class="cp-caption">데이터와 평가 방법을 제시한 연구이며 상용 도입 성과는 아닙니다. 우리 방송에서는 상품 ID와 시간 구간을 따로, 또 함께 평가해야 한다는 힌트를 줍니다.</p>
+            <a class="source-link" href="https://arxiv.org/abs/2609.20508" target="_blank" rel="noopener noreferrer">논문 · 2026.09.28 수정본 기준 ↗</a>
+          </div>
           <figure class="insight-visual insight-architecture" aria-labelledby="search-caption">
             <figcaption id="search-caption"><span>헬로우 휴먼의 제작 흐름 제안</span><strong>AI에게 ‘최고의 장면’보다, 찾을 행동과 제외할 조건을 알려주기</strong></figcaption>
             <ol>
@@ -156,7 +195,7 @@
         </section>
 
         <section class="guide-section insight-section" id="editing" aria-labelledby="editing-title">
-          <p class="cp-eyebrow">03 · 짧게 만드는 것과 설명을 완성하는 것</p>
+          <p class="cp-eyebrow">04 · 짧게 만드는 것과 설명을 완성하는 것</p>
           <h2 id="editing-title">30초 안에도<br>남겨야 할 순서가 있습니다</h2>
           <p>밀폐용기 방송에서 세척 안내만 뽑아 보겠습니다. “식기세척기 사용 가능”에서 자르면 뒤에 이어지는 “뚜껑은 제외”가 사라집니다. 문장의 끝보다 <strong>상품 설명이 완결되는 지점</strong>을 기준으로 잘라야 합니다.</p>
           <figure class="cp-storyboard" aria-labelledby="storyboard-caption">
@@ -200,25 +239,72 @@
           <p>방송 자막을 읽는 AI는 오래된 혜택을 찾는 데에도 쓰입니다. 하지만 그 자막 위에 새 자막을 덮는 것만으로 해결됐다고 볼 수는 없습니다. 원래 음성에 혜택이 남았는지, 작은 글씨의 조건이 잘렸는지까지 함께 확인해야 합니다.</p>
         </section>
 
-        <section class="guide-section insight-section" id="tools" aria-labelledby="tools-title">
-          <p class="cp-eyebrow">04 · 공개 도구에서 확인할 수 있는 작업</p>
-          <h2 id="tools-title">기존 영상을 편집하는 AI와<br>장면을 생성하는 AI를 나눠 씁니다</h2>
-          <p><strong>OpusClip의 ClipAnything</strong>은 영상과 자연어 요청을 받아 관련 구간을 찾고 클립을 만드는 기능을 공개하고 있습니다. 화면·소리·대화의 단서를 활용하며 9:16 같은 비율로 재구성하는 기능도 안내합니다. 라이브 방송에서 “상품을 펼쳐 보여주는 장면”을 찾는 작업에 적용해 볼 수 있습니다. 이는 이 글의 적용 제안이며, 한국 홈쇼핑에서의 정확도를 검증한 결과는 아닙니다. <a class="source-link" href="https://www.opus.pro/clipanything" target="_blank" rel="noopener noreferrer">ClipAnything 공식 기능 설명 ↗</a></p>
-          <figure class="cp-media">
-            <div class="cp-video"><iframe src="https://www.youtube.com/embed/F5pfPDEvWsg?rel=0" title="OpusClip 공식 ClipAnything 기능 소개 영상" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-            <figcaption><strong>공식 기능 소개 · OpusClip, 2024.08.07</strong><span>화면·소리·감정 등을 단서로 구간을 찾는 개념을 보여주는 출시 소개 영상입니다. 현재 기능은 위 제품 문서와 대조했으며, 국내 커머스 적용 성과의 근거로 사용하지 않았습니다.</span><a href="https://www.youtube.com/watch?v=F5pfPDEvWsg" target="_blank" rel="noopener noreferrer">YouTube 원본 보기 ↗</a></figcaption>
-          </figure>
-          <p><strong>TikTok Symphony</strong>는 이미 촬영한 영상에 대본·자막·음악을 더하거나 번역·더빙하는 다른 부분을 맡습니다. 공식 사례 갤러리에는 Pacinos의 브랜드 영상 리믹스, Zero Coffee의 자막·음성 추가, VOGGSMEDIA의 현지화 영상이 있습니다. <a class="source-link" href="https://ads.tiktok.com/creative/creativestudio/home/ko" target="_blank" rel="noopener noreferrer">실제 영상 사례 보기 ↗</a></p>
-          <div class="cp-tool-split">
-            <div><span>방송의 사실을 재사용</span><h3>탐색·편집·자막</h3><p>원본의 시연과 발언을 찾아 짧게 구성합니다. 제품 설명이 잘리지 않았는지 확인합니다.</p><small>이 글의 시작점</small></div>
-            <div><span>새로운 표현을 추가</span><h3>배경·아바타·더빙</h3><p>새 장면과 음성을 생성합니다. 실제 촬영·실사용 증거와 구분해 표시하고 검토합니다.</p><small>별도로 검증할 확장 범위</small></div>
+        <section class="guide-section insight-section" id="research" aria-labelledby="research-title">
+          <p class="cp-eyebrow">05 · 논문 속 AI 편집 작업대</p>
+          <h2 id="research-title">영상 이해 다음에는<br>편집 계획과 실행이 필요합니다</h2>
+          <p>장면을 찾는 모델이 곧 편집기를 뜻하지는 않습니다. “질문으로 시작해서 시연을 보여줘”라는 목표를 장면 선택, 순서, 자르기, 파일 출력으로 바꿔야 합니다. 다음 두 연구는 그 사이에 필요한 작업대를 보여줍니다.</p>
+          <div class="cp-paper-card">
+            <span class="cp-evidence-label">LAVE · ACM IUI 2024 · 학회 논문</span>
+            <h3>말로 계획하고, 확인하면서 편집하기</h3>
+            <ol class="cp-inline-flow" aria-label="LAVE의 처리 흐름"><li>촬영본 + 편집 목표</li><li>장면 설명·편집 계획</li><li>사용자 확인·함수 실행</li><li>수정 가능한 타임라인</li></ol>
+            <p>LAVE는 영상을 언어로 설명한 정보를 바탕으로 검색, 아이디어, 장면 순서, 구간 자르기를 계획합니다. 사용자가 작업을 확인하면 실제 편집 함수를 실행하고, 사용자는 타임라인에서도 직접 손볼 수 있습니다.</p>
+            <p class="cp-application"><strong>커머스에 가져오면</strong> “여는 방법 → 보관 모습 → 세척 조건”이라는 순서를 먼저 제안받고, PD가 원본을 대조하며 컷을 확정하는 방식입니다.</p>
+            <details class="cp-study-limits"><summary>연구에서 확인한 범위와 한계</summary><p>토론토대·Meta·UCSD 연구진의 8명 사용자 연구입니다. 대규모 제작 현장의 시간 절감률을 입증한 실험은 아닙니다. 영상 정보를 글로 압축하며 놓치는 부분과 잘못된 판단이 남습니다.</p></details>
+            <p class="cp-source-row"><a href="https://arxiv.org/html/2402.10294v1" target="_blank" rel="noopener noreferrer">논문 원문 ↗</a><a href="https://www.dgp.toronto.edu/~bryanw/lave/" target="_blank" rel="noopener noreferrer">연구진 프로젝트·기능 시연 ↗</a></p>
           </div>
-          <p>Symphony의 2026년 6월 문서는 제품 이미지를 든 아바타와 이미지의 영상 변환도 안내합니다. 그러나 생성된 사용 장면을 실제 상품의 시연처럼 쓰는 것은 다른 문제입니다. 네이버 쇼핑라이브 운영정책도 AI 착용·동작을 실제 상품의 효과나 기능으로 오인시키는 표현을 제한합니다. <a class="source-link" href="https://ads.tiktok.com/resources/help/article/about-symphony-creative-studio?lang=ko" target="_blank" rel="noopener noreferrer">Symphony 현행 기능 ↗</a> <a class="source-link" href="https://help.naver.com/service/21349/contents/14583?lang=ko&amp;osType=COMMONOS" target="_blank" rel="noopener noreferrer">네이버 운영정책 ↗</a></p>
-          <p>첫 제품에서는 <strong>이미 확보한 방송의 좋은 장면을 더 빨리 찾고, 다시 쓰는 범위</strong>부터 검증할 수 있습니다. 새로운 제품 시연을 생성하지 않아도 반복 작업은 줄일 여지가 있습니다.</p>
+          <figure class="cp-media">
+            <div class="cp-video"><iframe src="https://www.youtube.com/embed/t3jAqp0D3FI?rel=0" title="LAVE 연구진의 영상 검색·스토리보드·트리밍 시연" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+            <figcaption><strong>연구진 원본 시연 · LAVE, IUI 2024</strong><span>말로 요청한 편집을 계획하고 타임라인에서 실행하는 연구 프로토타입입니다. 홈쇼핑 적용 사례나 상용 서비스의 처리 성능을 보여주는 영상은 아닙니다.</span><a href="https://www.youtube.com/watch?v=t3jAqp0D3FI" target="_blank" rel="noopener noreferrer">YouTube 원본 보기 ↗</a></figcaption>
+          </figure>
+          <div class="cp-paper-card">
+            <span class="cp-evidence-label">EditDuet · SIGGRAPH 2025 · 학회 논문</span>
+            <h3>편집하는 AI와, 결과를 다시 보는 AI</h3>
+            <ol class="cp-inline-flow" aria-label="EditDuet의 처리 흐름"><li>설명 영상 + 보조 클립</li><li>Editor: 검색·배치</li><li>Critic: 검토·수정 요구</li><li>다시 편집·출력</li></ol>
+            <p>EditDuet는 인터뷰·내레이션에 보조 화면을 붙이는 작업을 다룹니다. 편집 역할의 에이전트가 장면을 찾아 자르고 배치하면, 검토 역할의 에이전트가 지시를 충족했는지 확인하고 수정을 요청합니다.</p>
+            <p class="cp-application"><strong>커머스에 가져오면</strong> 상품 설명에 맞는 클로즈업을 붙인 뒤, 같은 장면의 반복이나 빠진 시연을 다시 점검하는 구조입니다. 이 적용은 논문 결과를 바탕으로 한 제안입니다.</p>
+            <details class="cp-study-limits"><summary>연구에서 확인한 범위와 한계</summary><p>다큐멘터리 5편의 영상으로 평가한 연구입니다. 최종 방식에도 영상 출력 실패가 8.2% 남았고, 존재하지 않는 파일·함수와 잘못된 시간값 등이 원인으로 분석됐습니다. 화면 효과·픽셀·오디오 편집은 향후 과제이며, 검토 에이전트가 사람 검수를 대체했다는 결과는 아닙니다.</p></details>
+            <p class="cp-source-row"><a href="https://arxiv.org/html/2509.10761v1" target="_blank" rel="noopener noreferrer">논문 원문 ↗</a><a href="https://mudtriangle.com/editduet/" target="_blank" rel="noopener noreferrer">프로젝트·원본 시연 ↗</a><a href="https://research.adobe.com/publication/editduet-a-multi-agent-system-for-video-non-linear-editing/" target="_blank" rel="noopener noreferrer">Adobe 출판 기록 ↗</a></p>
+          </div>
+          <p>두 연구의 공통점은 <strong>장면 설명 → 편집 계획 → 도구 실행 → 수정 가능한 결과</strong>를 연결한다는 점입니다. “영상 하나 만들어줘”라는 요청을 여러 단계로 나누면 어느 판단이 틀렸는지 고치기도 쉬워집니다.</p>
+          <p>상용 도구에서는 <a href="https://www.opus.pro/clipanything" target="_blank" rel="noopener noreferrer">OpusClip의 ClipAnything</a>이 자연어로 구간을 찾고 화면 비율을 재구성하는 기능을 제공합니다. 논문은 설계 원리를, 제품 문서는 실제 시험해 볼 작업 범위를 알려줍니다. 어느 쪽도 한국어 홈쇼핑에서의 정확도를 대신 보장하지는 않습니다.</p>
+        </section>
+
+        <section class="guide-section insight-section" id="reuse" aria-labelledby="reuse-title">
+          <p class="cp-eyebrow">06 · 원본 영상에서 2차 콘텐츠로</p>
+          <h2 id="reuse-title">숏폼 다음에는<br>읽고, 묻고, 다른 언어로 보는 콘텐츠가 있습니다</h2>
+          <p>숏폼은 시청 시간을 줄입니다. 사용 가이드는 절차를 따라 하게 돕고, 질문 답변은 필요한 설명으로 바로 데려가며, 번역 영상은 다른 언어의 고객에게 같은 내용을 전달합니다. <strong>원본이 같아도 재구성의 목적은 다릅니다.</strong></p>
+          <figure class="cp-reuse-map" aria-labelledby="reuse-caption">
+            <figcaption id="reuse-caption"><span>가상 커머스 적용안 · 아래는 실제 생성 결과가 아닙니다</span><strong>영상 한 편에서, 고객이 필요한 형태로</strong></figcaption>
+            <div class="cp-reuse-origin"><span>원본 · 60분 밀폐용기 방송</span><strong>시연 18:10 · 보관 32:40 · 세척 답변 44:10</strong></div>
+            <div class="cp-evidence-index"><span aria-hidden="true">↓</span><strong>먼저 장면의 근거를 묶습니다</strong><p>상품·옵션 / 원본 시간 / 발언·화면 / 사용 조건</p><span aria-hidden="true">↓</span></div>
+            <div class="cp-reuse-outputs">
+              <div><span class="cp-format">01 · 숏폼</span><h3>먼저 보고 이해하기</h3><div class="cp-mini-video"><span aria-hidden="true">▶</span><strong>열고, 담고, 쌓기</strong><small>30초 시연 편집안</small></div><p>남길 동작·조건과<br>세로 구도를 확인합니다.</p><small class="cp-output-origin">근거 · 18:10 + 32:40</small></div>
+              <div><span class="cp-format">02 · 사용 가이드</span><h3>단계대로 따라 하기</h3><ol class="cp-mini-guide"><li>뚜껑과 본체 분리</li><li>본체 세척</li><li>뚜껑은 별도 관리</li></ol><p>각 단계에 원본 사진과<br>예외 조건을 붙입니다.</p><small class="cp-output-origin">근거 · 44:10의 장면·답변</small></div>
+              <div><span class="cp-format">03 · 질문 답변</span><h3>궁금한 점만 확인하기</h3><div class="cp-mini-answer"><strong>Q. 식기세척기에 넣어도 되나요?</strong><span>본체는 가능, 뚜껑은 제외.</span><small>설명한 원본 시점 함께 제공</small></div><p>그럴듯한 답변보다<br>해당 상품의 근거가 먼저입니다.</p><small class="cp-output-origin">근거 · 44:10 + 현재 사용 조건</small></div>
+              <div><span class="cp-format">04 · 다국어 영상</span><h3>같은 설명을 다른 언어로</h3><div class="cp-mini-languages"><span>KO</span><b aria-hidden="true">→</b><span>EN</span><span>JA</span></div><p>검증한 시연을 번역하고<br>음성·자막·화면 속 글을 대조합니다.</p><small class="cp-output-origin">근거 · 승인한 편집본 + 용어집</small></div>
+            </div>
+            <p class="cp-caption">가상의 상품 조건과 시간입니다. 실제 도구에 입력해 얻은 결과가 아니며, 번역본은 길이가 달라질 수 있어 원본 시간 연결도 다시 확인합니다.</p>
+          </figure>
+          <div class="cp-paper-card">
+            <span class="cp-evidence-label">TutoAI · CHI 2024 · 학회 논문</span>
+            <h3>시연을 사진과 글이 있는 사용법으로</h3>
+            <p>TutoAI는 설명 영상과 시간 정보가 있는 자막에서 작업 단계·도구·재료를 뽑고, 대표 프레임과 물체 정보를 결합합니다. 결과는 글·사진·영상·단계 간 관계가 함께 있는 튜토리얼입니다. 사용자는 단계 경계와 사진, 물체와 관계를 수정할 수 있습니다.</p>
+            <p class="cp-application"><strong>커머스에 가져오면</strong> 조립·조리·세척 시연을 구매 후 사용법으로 바꿀 수 있습니다. 말을 짧게 요약하는 것에 더해, 각 설명을 보여주는 장면을 함께 고르는 작업입니다.</p>
+            <details class="cp-study-limits"><summary>연구에서 확인한 범위와 한계</summary><p>메릴랜드대·Adobe 연구진은 일반 사용자 24명과 유튜브 제작자 2명을 대상으로 평가했습니다. 모든 영상에서 비교 도구보다 통계적으로 나은 결과가 나온 것은 아닙니다. 물체 이름으로 단계 관계를 추정하고 장면 경계로 사진 후보를 고르는 방식에도 한계가 있습니다.</p></details>
+            <p class="cp-source-row"><a href="https://www.hdi.cs.umd.edu/papers/TutoAI_CHI24.pdf" target="_blank" rel="noopener noreferrer">논문·화면 예시 ↗</a><a href="https://hdi.cs.umd.edu/papers/TutoAI_CHI24_Supp.pdf" target="_blank" rel="noopener noreferrer">연구진 보충자료 ↗</a></p>
+          </div>
+          <h3>실제 제품과 고객 사례에서는 어떻게 쓰고 있을까요?</h3>
+          <div class="cp-derivative-grid">
+            <div class="cp-derivative-card"><span class="cp-evidence-label">Guidde · 공식 제공 기능</span><h4>시연 영상 → 단계별 문서</h4><p>기존 MP4·WebM을 올려 문맥별 단계로 나누고 영상과 설명 문서를 만듭니다. 문서의 제목·설명·이미지를 편집할 수 있습니다.</p><p><strong>적용 제안</strong> 설치·세척 시연을 사진이 있는 설명서로 바꾸고, 단계가 빠지지 않았는지 확인합니다.</p><p class="cp-caption">Business·Enterprise 기능입니다. 문서를 직접 수정하면 영상과의 자동 동기화가 분리됩니다.</p><a href="https://help.guidde.com/en/articles/11193962-upload-mp4-videos-to-guidde" target="_blank" rel="noopener noreferrer">영상 업로드 문서 ↗</a><a href="https://help.guidde.com/en/articles/9997243-the-document-editor" target="_blank" rel="noopener noreferrer">문서 편집·동기화 ↗</a></div>
+            <div class="cp-derivative-card"><span class="cp-evidence-label">Panopto · 실명 고객 사용 증언</span><h4>교육 영상 → 근거가 붙은 답변</h4><p>Panopto AI Search는 접근 권한이 있는 영상에서 답변을 구성하고 원본 시점을 연결합니다. Sumitomo Heavy Industries Material Solutions의 장비 교육팀은 절차와 설명을 찾는 데 활용한다고 말합니다.</p><p><strong>적용 제안</strong> 상품 상담 답변 옆에 그 설명을 확인할 시연 구간을 붙입니다.</p><p class="cp-caption">장비 교육 사례입니다. 공개 쇼핑 FAQ 도입이나 정량 성과를 뜻하지 않습니다.</p><a href="https://www.panopto.com/kr/capabilities/ai-capabilities/ai-search/" target="_blank" rel="noopener noreferrer">공식 기능·고객 증언 ↗</a></div>
+            <div class="cp-derivative-card"><span class="cp-evidence-label">Wistia · 공식 작업 가이드</span><h4>웨비나 → 글·메일·뉴스레터</h4><p>Wistia와 Superpath가 공개한 작업은 전사에서 주장과 사례를 골라 글·메일·뉴스레터 초안을 만드는 흐름입니다. 원본 시간을 남기고 전사에 없는 내용을 덧붙이지 않도록 지시합니다.</p><p><strong>적용 제안</strong> 상품 설명과 실제 질문을 구매 가이드·구매 후 안내 메일로 재구성합니다.</p><p class="cp-caption">편집·검증이 포함된 작업법입니다. 모든 문장에 자동 근거가 보장되는 기능은 아닙니다.</p><a href="https://wistia.com/blog/ai-webinar-transcript-content" target="_blank" rel="noopener noreferrer">작업 예시 · 2026.08.26 ↗</a></div>
+            <div class="cp-derivative-card"><span class="cp-evidence-label">HeyGen × Happy Cats · 고객 사례</span><h4>기존 영어 강의 → 다른 언어 영상</h4><p>Happy Cats의 Anneleen Bru는 기존 영어 교육 영상을 업로드해 프랑스어·독일어 버전을 만드는 것으로 시작했다고 설명합니다. 이후 새 아바타 제작으로 확장한 과정과는 구분할 수 있는 재사용 사례입니다.</p><p><strong>적용 제안</strong> 검증한 상품 사용 영상을 해외 고객용으로 번역합니다.</p><p class="cp-caption">화면에 박힌 글자는 자동 번역되지 않습니다. 발화 길이와 용어, 사용 조건도 검수해야 합니다.</p><a href="https://www.heygen.com/customer-stories/happy-cats" target="_blank" rel="noopener noreferrer">고객 사례 ↗</a><a href="https://help.heygen.com/en/articles/10029081-how-to-get-started-with-video-translation" target="_blank" rel="noopener noreferrer">영상 번역의 범위 ↗</a></div>
+          </div>
+          <p>네 사례의 공통점은 원본의 설명을 새로운 형태로 재구성한다는 것입니다. 다만 <strong>짧아진 영상, 단계가 있는 문서, 근거가 붙은 답변, 번역한 영상</strong>은 서로 다른 완성 기준이 필요합니다. 같은 방송에서 만들었다고 같은 검사만으로 통과시킬 수는 없습니다.</p>
         </section>
 
         <section class="guide-section insight-section" id="changes" aria-labelledby="changes-title">
-          <p class="cp-eyebrow">05 · 생성 이후의 운영</p>
+          <p class="cp-eyebrow">07 · 생성 이후의 운영</p>
           <h2 id="changes-title">방송의 정보와<br>지금의 판매 조건은 다릅니다</h2>
           <p>“지금 주문하면 한 개 더 드립니다”라는 멘트는 방송 당시에는 맞았어도 다음 날의 숏폼에서는 틀릴 수 있습니다. 상품 상세페이지를 수정한다고 영상 속 말과 자막까지 바뀌지는 않습니다.</p>
           <figure class="insight-visual" aria-labelledby="change-caption">
@@ -230,43 +316,62 @@
               <div><span class="cp-status">혜택형 · 중단 또는 재편집</span><strong>쿠폰을 강조한 영상</strong><p>노출을 멈추고, 해당 음성·장면을 수정한 뒤 새로 검수합니다.</p></div>
             </div>
           </figure>
-          <p>이를 위해 <strong>방송 원본, 발췌 시간, 상품·옵션, 적용 혜택, 숏폼 파일, 게시 위치</strong>를 함께 기록하자는 것이 이 글의 제안입니다. 현재 조건을 확인할 수 없다면 혜택형 후보는 보류하고 시연형부터 검토합니다.</p>
+          <p>이를 위해 <strong>방송 원본, 발췌 시간, 상품·옵션, 적용 혜택, 파생 콘텐츠, 게시 위치</strong>를 함께 기록하자는 것이 이 글의 제안입니다. 사용 조건이 바뀌면 숏폼뿐 아니라 그 장면에서 만든 설명서·답변·번역본도 찾아야 합니다.</p>
+          <p>내용이 수정되는 경로도 중요합니다. 번역으로 길이가 달라지면 원본과 시간이 어긋날 수 있고, 별도로 고친 문서는 영상의 변경을 따라가지 않을 수 있습니다. <strong>원본 수정 → 영향받는 파생물 찾기 → 내용 대조 → 필요한 것만 재검수</strong>의 연결이 있어야 여러 콘텐츠를 계속 운영할 수 있습니다.</p>
           <p>노출 중단도 채널마다 다릅니다. 네이버는 숏클립의 상품 상세페이지 팝업 플레이어만 따로 제어할 수 없으며, 삭제 또는 자동 생성 숏클립의 노출 설정을 통해 관리한다고 안내합니다. 한 번의 수정으로 모든 게시물이 회수된다고 가정하지 않아야 합니다. <a class="source-link" href="https://help.naver.com/service/21349/contents/23085?lang=ko&amp;osType=COMMONOS" target="_blank" rel="noopener noreferrer">네이버 숏클립 노출 관리 ↗</a></p>
         </section>
 
         <section class="guide-section insight-section" id="pilot" aria-labelledby="pilot-title">
-          <p class="cp-eyebrow">06 · 헬로우 휴먼의 작은 제품 제안</p>
+          <p class="cp-eyebrow">08 · 헬로우 휴먼의 작은 제품 제안</p>
           <h2 id="pilot-title">첫 제품은<br>‘방송을 다시 보는 시간’을 줄입니다</h2>
           <p>방송 10편을 골라 같은 원본을 기존 편집 방식과 AI 보조 방식으로 각각 처리해 보겠습니다. 10편은 업무 점검을 위한 가정이며, 구매 효과를 증명할 통계 표본 수는 아닙니다. 공개 도구를 연결하는 것부터 시작하되, 우리 상품의 말투·자막·구도에서 어디가 실패하는지 확인합니다.</p>
           <dl class="cp-pilot">
-            <div><dt>사용자</dt><dd>홈쇼핑·티커머스의 디지털 콘텐츠 PD와 상품 담당자</dd></div>
+            <div><dt>사용자</dt><dd>홈쇼핑·티커머스·라이브커머스의 콘텐츠 PD와 상품 담당자</dd></div>
             <div><dt>입력</dt><dd>사용 권한을 확보한 방송 10편, 큐시트, 상품·옵션과 사용 조건, 현재 혜택</dd></div>
-            <div><dt>출력</dt><dd>원본 위치·선정 이유가 붙은 후보, 세로형 미리보기, 수정·보류 사유</dd></div>
-            <div><dt>첫 범위</dt><dd>한 상품군, 한 게시 채널, 시연형·질문형 숏폼. 새 제품 시연 생성과 무인 게시는 제외</dd></div>
+            <div><dt>출력</dt><dd>상품·원본 시간·선정 이유가 붙은 후보, 숏폼 미리보기와 사용 가이드 초안, 수정·보류 사유</dd></div>
+            <div><dt>첫 범위</dt><dd>한 상품군에서 시연형·질문형 숏폼과 단계별 사용 가이드를 비교. 사람이 확인한 결과부터 한 채널에 게시</dd></div>
             <div><dt>비교 방법</dt><dd>두 방식에 같은 원본·완성 기준을 적용하고, 중복 시청의 학습 효과를 줄이도록 편집자·처리 순서를 교차 배정</dd></div>
           </dl>
           <div class="cp-measure-grid">
-            <div><span>제작에서 확인</span><h3>검수까지 빨라졌나?</h3><p>찾기·편집·수정·검수의 사람 작업시간, 조건 누락, 제품·손 잘림, 통과율을 기록합니다.</p><strong>분모는 검수를 통과한 숏폼</strong></div>
+            <div><span>제작에서 확인</span><h3>검수까지 빨라졌나?</h3><p>찾기·편집·수정·검수의 사람 작업시간을 잽니다. 숏폼의 잘림, 가이드의 단계 누락과 사진 불일치는 따로 기록합니다.</p><strong>형식별로 통과율·재작업 측정</strong></div>
             <div><span>게시 후 확인</span><h3>구매 판단에 도움이 됐나?</h3><p>동일한 상품·혜택·노출 조건에서 실제 고객 실험을 설계하고, 구매 전환과 취소·반품을 함께 봅니다.</p><strong>조회수와 구매 효과는 별도</strong></div>
           </div>
           <p>GS샵의 공개 자료는 영상 이해를 더한 <strong>추천 방식</strong>을 기존 방식과 비교해 총주문고객수 57.5% 증가를 보고합니다. 같은 영역·기간에 트래픽을 절반씩 나눈 시험입니다. 이 수치를 AI 자동 편집의 매출 효과로 가져올 수는 없습니다. 제작 자동화와 추천 변경을 함께 적용하면 무엇이 결과를 바꿨는지 분리하기 어렵습니다. <a class="source-link" href="https://aws.amazon.com/ko/blogs/tech/gs-shop-ai-powered-video-recommendation-platform/" target="_blank" rel="noopener noreferrer">측정 조건과 향후 계획 ↗</a></p>
-          <div class="cp-cost"><span>비용도 완성본을 기준으로</span><strong>통과한 숏폼 1편의 운영 비용</strong><p>(AI 처리·렌더링·저장 비용 + 사람의 편집·검수·재작업 비용)<br>÷ 검수를 통과한 숏폼 수</p><small>폐기한 후보의 비용도 분자에 포함합니다. 통과한 영상이 0편이면 계산하지 않으며, 초기 개발·연동과 유지보수 비용은 별도로 합산합니다.</small></div>
-          <div class="insight-closing-summary"><p>방송 한 편을 여러 번 활용하려면</p><p><strong>좋은 장면을 찾고,<br>설명을 온전히 남기고,<br>지금도 맞는 정보로 게시해야 합니다.</strong></p></div>
+          <p>첫 실험부터 출력 개수를 목표로 잡지는 않습니다. 다른 상품을 잘못 연결했는지, “뚜껑 제외” 조건이 숏폼과 설명서 양쪽에 남았는지, 수정했을 때 연결된 결과를 찾을 수 있는지부터 확인합니다. 질문 답변과 다국어 영상은 각각 근거 일치와 번역 검수 기준을 마련한 뒤 넓힐 수 있습니다.</p>
+          <div class="cp-cost"><span>비용도 형식별 완성본을 기준으로</span><strong>검수를 통과한 콘텐츠 1개의 운영 비용</strong><p>(해당 형식의 AI·출력·저장 비용 + 사람의 편집·검수·재작업 비용)<br>÷ 해당 형식에서 검수를 통과한 결과 수</p><small>숏폼과 가이드의 개수를 섞지 않고 각각 계산합니다. 공통 원본 분석 비용의 배분 기준을 정하고, 폐기 후보의 비용도 포함합니다. 통과한 결과가 0개면 계산하지 않으며 초기 개발·연동·유지보수는 별도로 합산합니다.</small></div>
+          <div class="insight-closing-summary"><p>방송 한 편을 여러 콘텐츠로 바꾸려면</p><p><strong>상품과 장면을 연결하고,<br>목적에 맞게 다시 구성하고,<br>원본의 설명을 끝까지 추적해야 합니다.</strong></p></div>
         </section>
 
         <div class="guide-resources insight-resources" id="sources">
           <h2>자료와 읽는 법</h2>
-          <p>공개 자료 확인일은 <strong>2026년 10월 5일</strong>입니다. 국내 방송 재편집 사례, 영상 이해 사례, 공개 편집 도구를 구분했습니다. 공급사 소개·성과를 독립 검증한 결과는 아니며, 실제 방송 파일로 AI 도구를 실행하거나 게시 API를 시험하지 않았습니다.</p>
+          <p>공개 자료 확인일은 <strong>2026년 10월 5일</strong>입니다. 실제 도입·고객 증언, 공식 제품 기능, 학회 논문, 사전공개 연구, 헬로우 휴먼의 적용 제안을 구분했습니다. 공급사 소개를 독립 검증한 결과는 아니며, 실제 방송 파일로 AI 도구를 실행하거나 게시 API를 시험하지 않았습니다.</p>
+          <h3>방송 재사용과 상품·장면 이해</h3>
           <ul>
             <li><a href="https://www.shinsegaegroupnewsroom.com/new-era-live-shopping-ai/" target="_blank" rel="noopener noreferrer">신세계그룹 뉴스룸 · AI 숏츠 도입</a> · 2024.07.09. 20~60분 방송의 1분 숏츠 전환과 도입 당시 운영 규모.</li>
             <li><a href="https://www.shinsegaegroupnewsroom.com/new-world-live-shopping-app/" target="_blank" rel="noopener noreferrer">신세계그룹 뉴스룸 · AI 서비스 소개 영상</a> · 2024.08.06. 서비스 이용 화면을 보여주는 공식 홍보 영상.</li>
             <li><a href="https://together.ehyundai.com/vol029/sub0103_w5.html?code=0103" target="_blank" rel="noopener noreferrer">현대백화점그룹 웹진 · 현대H몰 개편과 숏딜</a> · 방송 구간 분석·1분 이내 숏폼 활용. 본문에 발행연도가 없어 최신 호의 날짜와 구분했습니다.</li>
             <li><a href="https://aws.amazon.com/ko/blogs/tech/gs-shop-ai-powered-video-recommendation-platform/" target="_blank" rel="noopener noreferrer">AWS · GS SHOP의 영상 기반 AI 상품 추천 플랫폼 구축기</a> · 2026.05.15. 장면 검색과 영상 이해, 추천 실험. 자동 제작 성과로 일반화하지 않습니다.</li>
-            <li><a href="https://www.opus.pro/clipanything" target="_blank" rel="noopener noreferrer">OpusClip · ClipAnything</a> / <a href="https://www.youtube.com/watch?v=F5pfPDEvWsg" target="_blank" rel="noopener noreferrer">공식 소개 영상</a> · 현재 기능 설명과 2024.08.07 출시 소개 영상. 한국어 홈쇼핑 정확도는 미검증.</li>
-            <li><a href="https://ads.tiktok.com/resources/help/article/about-symphony-creative-studio?lang=ko" target="_blank" rel="noopener noreferrer">TikTok · Symphony Creative Studio 현행 도움말</a> / <a href="https://ads.tiktok.com/creative/creativestudio/home/ko" target="_blank" rel="noopener noreferrer">공식 영상 사례</a> · 도움말 2026.06 갱신. 리믹스·자막·아바타·더빙은 각각 다른 작업입니다.</li>
-            <li><a href="https://help.naver.com/service/21349/contents/14583?lang=ko&amp;osType=COMMONOS" target="_blank" rel="noopener noreferrer">네이버 쇼핑라이브 · 창작자 운영정책</a> / <a href="https://help.naver.com/service/21349/contents/23085?lang=ko&amp;osType=COMMONOS" target="_blank" rel="noopener noreferrer">숏클립 노출 관리</a> · 해당 플랫폼에 적용되는 조건이며 모든 채널의 공통 규칙은 아닙니다.</li>
+            <li><a href="https://www.cdut.edu.cn/__local/1/81/9D/E05EDA063BF333A4F9829370B67_8346F923_99381A.pdf#page=163" target="_blank" rel="noopener noreferrer">화산엔진 · 2025 스마트 영상·엣지 실무 자료집</a> · 대학 사이트 공개본. PDF 163쪽(인쇄 156쪽)의 도우인 적용 설명, 202쪽(인쇄 195쪽)의 처리 흐름. 공급사 자료집 수록 기사로 읽었습니다.</li>
+            <li><a href="https://cloud.tencent.com/document/product/1186/42260" target="_blank" rel="noopener noreferrer">텐센트 · 커머스 영상 재사용</a> / <a href="https://cloud.tencent.com/document/product/862/112098" target="_blank" rel="noopener noreferrer">영상 분할 처리</a> · 각각 2025.01.08·2026.05.19 갱신. 제품 기능이며 특정 판매자의 실적은 아닙니다.</li>
+            <li><a href="https://arxiv.org/abs/2608.20958" target="_blank" rel="noopener noreferrer">TLive-Omni</a> · 2026.08.21 사전공개. 시간에 맞춘 영상·음성 이해 연구.</li>
+            <li><a href="https://arxiv.org/abs/2609.20508" target="_blank" rel="noopener noreferrer">Grounded Product Understanding in Livestream Videos</a> · 2026.09.17 사전공개, 09.28 수정. 상품과 여러 등장 구간을 함께 찾는 과제.</li>
           </ul>
-          <p>밀폐용기 방송, 시간표, 30초 편집안, 구도 비교, 방송 10편 실험은 헬로우 휴먼의 가상 예시·설계 제안입니다. 본문 영상은 공식 플레이어로 연결하며 자동 재생하지 않습니다.</p>
+          <h3>편집·제작을 더 읽을 논문과 기술 글</h3>
+          <ul>
+            <li><a href="https://arxiv.org/html/2402.10294v1" target="_blank" rel="noopener noreferrer">LAVE: LLM-Powered Agent Assistance and Language Augmentation for Video Editing</a> · IUI 2024. <a href="https://www.dgp.toronto.edu/~bryanw/lave/" target="_blank" rel="noopener noreferrer">저자 프로젝트·시연</a>을 함께 보면 계획과 편집기의 연결이 보입니다.</li>
+            <li><a href="https://arxiv.org/html/2509.10761v1" target="_blank" rel="noopener noreferrer">EditDuet: A Multi-Agent System for Video Non-Linear Editing</a> · SIGGRAPH 2025. <a href="https://mudtriangle.com/editduet/" target="_blank" rel="noopener noreferrer">프로젝트·시연</a>에서 편집과 결과 검토의 역할을 나눠 볼 수 있습니다.</li>
+            <li><a href="https://www.hdi.cs.umd.edu/papers/TutoAI_CHI24.pdf" target="_blank" rel="noopener noreferrer">TutoAI: A Cross-domain Framework for AI-assisted Mixed-media Tutorial Creation on Physical Tasks</a> · CHI 2024. 영상이 단계·사진·관계를 갖춘 사용법으로 바뀌는 과정을 다룹니다.</li>
+            <li><a href="https://www.opus.pro/clipanything" target="_blank" rel="noopener noreferrer">OpusClip · ClipAnything</a> · 공개 편집 도구의 현재 기능 범위. 한국어 홈쇼핑 성능은 직접 시험하지 않았습니다.</li>
+          </ul>
+          <h3>숏폼 외의 파생 콘텐츠와 운영</h3>
+          <ul>
+            <li><a href="https://help.guidde.com/en/articles/11193962-upload-mp4-videos-to-guidde" target="_blank" rel="noopener noreferrer">Guidde · 기존 영상 업로드</a> / <a href="https://help.guidde.com/en/articles/9997243-the-document-editor" target="_blank" rel="noopener noreferrer">문서 편집</a> · 2026.08.16·06.03 문서. 영상에서 단계별 가이드를 만드는 제공 기능.</li>
+            <li><a href="https://www.panopto.com/kr/capabilities/ai-capabilities/ai-search/" target="_blank" rel="noopener noreferrer">Panopto · AI Search와 Sumitomo 고객 증언</a> / <a href="https://community.panopto.com/discussion/2984/september-2026-release-notes" target="_blank" rel="noopener noreferrer">2026.09 릴리스 노트</a> · 지역별 09.30·10.01 배포. 관리자 활성화와 AI Credits가 필요합니다.</li>
+            <li><a href="https://wistia.com/blog/ai-webinar-transcript-content" target="_blank" rel="noopener noreferrer">Wistia · 웨비나 전사로 글·메일·뉴스레터 만들기</a> · 2026.08.26. 공급사가 공개한 편집·검증 포함 작업법.</li>
+            <li><a href="https://www.heygen.com/customer-stories/happy-cats" target="_blank" rel="noopener noreferrer">HeyGen · Happy Cats 고객 사례</a> / <a href="https://help.heygen.com/en/articles/10029081-how-to-get-started-with-video-translation" target="_blank" rel="noopener noreferrer">영상 번역 도움말</a> · 사례 발행일 미표시. 기존 영상 번역과 이후 아바타 제작을 구분했습니다.</li>
+            <li><a href="https://help.naver.com/service/21349/contents/23085?lang=ko&amp;osType=COMMONOS" target="_blank" rel="noopener noreferrer">네이버 쇼핑라이브 · 숏클립 노출 관리</a> · 해당 플랫폼의 운영 제약이며 모든 채널의 공통 규칙은 아닙니다.</li>
+          </ul>
+          <p>밀폐용기 방송, 시간표, 편집안, 구도 비교, 파생 콘텐츠 도식, 방송 10편 실험은 헬로우 휴먼의 가상 예시·설계 제안입니다. 본문 영상은 공식 플레이어로 연결하며 자동 재생하지 않습니다.</p>
           <p>함께 읽기 · <a href="2026-09-29-recommendation-evidence.html">인사이트 02 · 추천 근거 검사기</a> / <a href="2026-10-03-promotion-profit.html">인사이트 03 · 프로모션·가격 최적화</a></p>
           <a class="news-end-link" href="./">커머스 인사이트 목록으로 돌아가기 <span aria-hidden="true">→</span></a>
         </div>
