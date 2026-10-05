@@ -1,0 +1,44 @@
+/* AI 위험 논쟁 단신: 실제 사고의 흐름과 통제에 대한 두 관점 */
+.risk-photo { margin: 28px 0 36px; }
+.risk-photo a { display: block; }
+.risk-photo img { display: block; width: 100%; height: auto; border-radius: 10px; background: var(--surface-2); }
+.risk-photo figcaption { margin-top: 10px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.risk-photo figcaption a { display: inline; }
+.risk-section { margin: 36px 0; }
+.risk-section > h2 { margin: 0 0 16px; font-size: clamp(23px, 3.4vw, 29px); line-height: 1.4; letter-spacing: -.03em; }
+.risk-compare { margin: 26px 0; padding: 26px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.risk-compare > figcaption { margin-bottom: 22px; }
+.risk-compare > figcaption strong { display: block; margin-top: 6px; font-size: 22px; line-height: 1.4; }
+.risk-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.risk-view { min-width: 0; border-top: 3px solid var(--ink); padding-top: 16px; }
+.risk-view h3 { margin: 0 0 6px; font-size: 19px; }
+.risk-view .risk-thesis { margin: 0 0 18px; font-size: 19px; font-weight: 700; line-height: 1.6; }
+.risk-view dl { margin: 0; }
+.risk-view dt { margin: 15px 0 4px; color: var(--muted); font-size: 12px; font-weight: 700; }
+.risk-view dd { margin: 0; font-size: 15px; line-height: 1.7; }
+.risk-view .risk-origin { display: block; margin-top: 16px; font-size: 12px; line-height: 1.6; }
+.risk-compare .risk-common { margin: 24px 0 0; padding-top: 18px; border-top: 1px solid var(--line); font-size: 14px; line-height: 1.7; }
+.risk-explainer { margin: 24px 0; padding: 23px 26px; border-left: 3px solid var(--accent); background: var(--accent-soft); }
+.risk-explainer h3 { margin: 0 0 12px; font-size: 20px; line-height: 1.5; }
+.risk-explainer p { margin: 12px 0 0; font-size: 16px; line-height: 1.8; }
+.risk-incident { margin: 28px 0; padding: 26px 0 18px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.risk-incident figcaption > strong { display: block; margin: 7px 0 23px; font-size: 22px; line-height: 1.5; }
+.risk-flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin: 0; padding: 0; list-style: none; }
+.risk-flow li { position: relative; min-width: 0; }
+.risk-flow li:not(:last-child)::after { content: '→'; position: absolute; right: -19px; top: 35px; color: var(--muted); font-size: 19px; }
+.risk-flow .risk-step { display: block; margin-bottom: 10px; font-family: var(--mono); font-size: 13px; color: var(--accent); }
+.risk-flow strong { display: block; margin-bottom: 9px; font-size: 17px; line-height: 1.5; }
+.risk-flow li > span:last-child { font-size: 13px; line-height: 1.75; }
+.risk-incident > p { margin: 22px 0 0; color: var(--muted); font-size: 12px; line-height: 1.75; }
+.risk-takeaway { margin-top: 32px; }
+.risk-takeaway p { font-size: 17px; line-height: 1.8; }
+@media (max-width: 540px) {
+  .risk-compare { padding: 21px; }
+  .risk-columns { grid-template-columns: 1fr; gap: 26px; }
+  .risk-explainer { padding: 20px; }
+  .risk-flow { grid-template-columns: 1fr; gap: 23px; }
+  .risk-flow li { display: grid; grid-template-columns: 30px 1fr; column-gap: 12px; padding-bottom: 16px; }
+  .risk-flow .risk-step { grid-row: span 2; margin-top: 3px; }
+  .risk-flow li > span:last-child br { display: none; }
+  .risk-flow li:not(:last-child)::after { content: '↓'; top: auto; bottom: -16px; left: 7px; right: auto; }
+}
