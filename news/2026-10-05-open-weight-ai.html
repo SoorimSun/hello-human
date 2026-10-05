@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>오픈웨이트 AI, 이제 ‘직접 운영’의 조건을 볼 때 · AI뉴스 · 헬로우 휴먼</title>
+  <meta name="description" content="Reflection의 공개 계획과 Aleph Alpha Kolibri의 실제 배포, Sam Altman의 접근성 발언을 구분합니다. 가중치 공개 범위·장문 처리·운영비·실행 권한으로 읽는 AI뉴스 07.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+  <script src="../assets/theme.js?v=3"></script>
+  <link rel="stylesheet" href="../assets/style.css?v=8">
+  <link rel="stylesheet" href="../assets/news.css?v=10">
+  <link rel="stylesheet" href="../assets/news-open-weight.css?v=1">
+  <link rel="stylesheet" href="../assets/content-updates.css?v=1">
+</head>
+<body class="news-open-weight">
+  <header class="topbar"><div class="wrap topbar-inner">
+    <a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+    <nav class="news-nav" aria-label="사이트 메뉴"><a href="../">모임 소개</a><a href="./">AI뉴스</a><a href="../guides/">AI가이드</a><a href="../insights/">인사이트</a><a href="../case-studies/">사례연구</a><a data-newsletter-entry href="../newsletters/">뉴스레터</a></nav>
+  </div></header>
+  <main><article>
+    <header class="news-article-header wrap">
+      <a class="news-back" href="./">← AI뉴스 목록</a>
+      <p class="news-kicker">AI NEWS <span aria-hidden="true">/</span> ISSUE 07</p>
+      <h1>오픈웨이트 AI, <br>이제 <em>‘직접 운영’의 조건</em>을 볼 때</h1>
+      <p class="news-deck">Reflection의 공개 계획, Kolibri의 실제 배포, <br>Sam Altman의 접근성 발언에서 AI를 통제한다는 말의 범위를 살펴봅니다.</p>
+      <div class="news-article-meta"><time datetime="2026-10-05">2026년 10월 5일</time><span>헬로우 휴먼 AI뉴스</span></div>
+    </header>
+
+    <nav class="ow-map wrap" aria-label="세 소식의 서로 다른 상태">
+      <a href="#reflection"><span>REFLECTION</span><strong>공개 계획</strong><small>어디까지 열겠다는 약속인가</small></a>
+      <a href="#kolibri"><span>ALEPH ALPHA · KOLIBRI</span><strong>가중치 배포</strong><small>지금 내려받아 쓸 수 있는가</small></a>
+      <a href="#access"><span>SAM ALTMAN</span><strong>접근성 논쟁</strong><small>누가 AI를 사용할 수 있는가</small></a>
+    </nav>
+
+    <div class="news-article-shell wrap">
+      <nav class="news-toc" aria-label="기사 목차"><span>이번 호</span><a href="#at-a-glance">30초 요약</a><a href="#reflection">Reflection의 공개 계획</a><a href="#kolibri">Kolibri의 운영 조건</a><a href="#access">접근성과 실행 권한</a><a href="#our-view">우리의 작은 실험</a><a href="#sources">읽은 자료</a></nav>
+      <div class="news-story">
+        <section id="at-a-glance" class="news-summary" aria-labelledby="summary-heading">
+          <p class="news-section-label">AT A GLANCE</p><h2 id="summary-heading">30초 요약</h2>
+          <ul>
+            <li><strong>Reflection</strong> 모델 가중치·연구·소프트웨어를 공개하고 기업이 직접 운영하는 구조를 만들겠다는 전략을 제시합니다.</li>
+            <li><strong>Kolibri</strong> Aleph Alpha가 10월 3일 공개한 오픈웨이트 모델입니다. 장문 처리 범위와 운영 장비, 한국어 적합성을 함께 봐야 합니다.</li>
+            <li><strong>Altman</strong> AI의 폭넓은 접근성을 강조했습니다. 가중치 공개나 새 안전 기술을 발표한 것은 아닙니다.</li>
+          </ul>
+        </section>
+        <p class="news-method">2026년 10월 5일 한국시간 기준으로 공식 문서와 보도를 확인했습니다. 발표·보도일은 원문 표기를 따르며, 회사의 계획·자체 평가와 모임의 해석을 구분합니다. 모델 성능은 직접 측정하지 않았습니다.</p>
+        <p>AI를 업무에 쓰다 보면 성능 다음의 질문이 생깁니다. 우리 자료는 어디에서 처리될까요? 공급사가 서비스를 바꾸면 어떻게 할까요? 모델을 직접 운영하면 무엇을 더 결정할 수 있을까요?</p>
+        <p><strong>오픈웨이트</strong>는 AI가 학습한 수치인 ‘가중치’를 내려받아, 정해진 이용 조건 안에서 실행하거나 수정할 수 있게 공개하는 방식입니다. 흔히 ‘모델 소유’라고 부르지만, 여기서는 <strong>실행 환경과 운영 방식을 선택할 여지</strong>로 이해하는 편이 정확합니다. 가중치를 받는다고 모델의 모든 권리를 넘겨받거나 학습 데이터까지 받는 것은 아닙니다.</p>
+
+        <section id="reflection" class="news-story-section">
+          <p class="news-section-label">01 / REFLECTION</p><h2>모델 공개에서<br>운영 기반까지 이어지는 구상</h2>
+          <p>Axios는 10월 4일 Reflection의 첫 오픈웨이트 모델 공개가 임박했다고 보도했습니다. <a class="source-link" href="https://www.axios.com/2026/10/04/reflection-open-weight-ai" target="_blank" rel="noopener noreferrer">Axios 원문 ↗</a></p>
+          <p>Reflection은 NVIDIA가 투자자로 참여한 회사입니다. 공식 소개에서 가중치뿐 아니라 연구 논문·기술 보고서, 모델을 조정하고 활용하는 소프트웨어도 공개하겠다고 밝힙니다. <a class="source-link" href="https://reflection.ai/blog/frontier-open-intelligence/" target="_blank" rel="noopener noreferrer">회사 소개 발표 ↗</a> <a class="source-link" href="https://reflection.ai/about" target="_blank" rel="noopener noreferrer">공개 원칙 ↗</a></p>
+          <p>공식 솔루션 설명은 이 약속을 운영 구조로 연결합니다. 기업이 모델을 업무에 맞게 조정하고, 자체 설비나 협력사 인프라에서 실행하며, 그 위에 업무 서비스를 얹는 구상입니다. 회사가 말하는 <strong>AI Factory</strong>는 모델을 실제 서비스 규모로 돌리는 장비와 운영 기반을 뜻합니다.</p>
+          <figure class="ow-figure" aria-labelledby="factory-title">
+            <span class="ow-eyebrow">Reflection 공식 전략 · 설명용 재구성</span>
+            <h3 id="factory-title">공개 모델이 업무 서비스가 되기까지</h3>
+            <ol class="ow-steps">
+              <li><span>01 / MODEL</span><strong>모델 가중치</strong><small>실행할 AI의 바탕</small></li>
+              <li><span>02 / SOFTWARE</span><strong>조정·실행 도구</strong><small>업무에 맞게 연결</small></li>
+              <li><span>03 / AI FACTORY</span><strong>장비와 운영</strong><small>지속적으로 서비스</small></li>
+              <li><span>04 / APPLICATION</span><strong>업무 서비스</strong><small>검색·분석·자동화</small></li>
+            </ol>
+            <figcaption>완성된 제품을 직접 사용한 결과가 아닙니다. <a href="https://reflection.ai/solutions" target="_blank" rel="noopener noreferrer">Reflection의 솔루션 구상</a>을 순서로 풀었습니다.</figcaption>
+          </figure>
+          <p>다만 10월 5일 확인한 공식 소개·뉴스·솔루션 페이지에서는 이 첫 모델의 배포 파일과 확정 출시일을 찾지 못했습니다. <strong>공개 계획을 성능 검증으로 읽어서는 안 됩니다.</strong> 실제 공개 시점에는 가중치, 이용 조건, 실행 도구와 평가 자료를 함께 확인해야 합니다.</p>
+          <div class="news-insight"><span>헬로우 휴먼의 해석</span><p>직접 운영할 선택권에는 책임도 따라옵니다. 업데이트, 장애 복구, 사용량 관리까지 누가 맡을지 정해야 모델을 내려받은 다음 단계로 갈 수 있습니다.</p></div>
+        </section>
+
+        <section id="kolibri" class="news-story-section">
+          <p class="news-section-label">02 / ALEPH ALPHA · KOLIBRI</p><h2>내려받을 수 있는 모델,<br>운영 조건까지 함께 읽기</h2>
+          <p>Aleph Alpha는 10월 3일 <strong>Kolibri-1</strong>을 공개했습니다. 공식 저장소에는 실제 가중치 파일이 올라와 있습니다. 독일어·영어를 중심으로, 답을 단계적으로 찾는 추론과 외부 도구 호출, 정해진 형식의 출력을 지원합니다. <a class="source-link" href="https://aleph-alpha.com/en/blog/kolibri-has-landed-a-sovereign-open-weight-model/" target="_blank" rel="noopener noreferrer">공식 발표 ↗</a> <a class="source-link" href="https://huggingface.co/Aleph-Alpha/Kolibri-1/tree/main" target="_blank" rel="noopener noreferrer">배포 파일 ↗</a></p>
+          <p>모델은 입력에 따라 일부 전문가 네트워크를 골라 쓰는 <strong>MoE</strong> 구조입니다. 매번 사용하는 파라미터가 적어도 전체 모델을 담을 메모리는 별도로 필요합니다. 파라미터는 모델 내부의 학습된 수치이며, 개수만으로 업무 정확도를 판단할 수는 없습니다.</p>
+          <dl class="ow-stats" aria-label="Kolibri의 파라미터 수, Aleph Alpha 발표값">
+            <div><dt>전체 파라미터</dt><dd>약 781억 개<small>모델 전체의 규모</small></dd></div>
+            <div><dt>토큰당 활성 파라미터</dt><dd>약 34.6억 개<small>한 번의 처리에 참여하는 규모</small></dd></div>
+          </dl>
+          <p>토큰은 모델이 글을 나눠 처리하는 단위입니다. Kolibri의 장문 학습 길이는 <strong>262,144토큰</strong>이며, 회사는 그보다 긴 <strong>1,048,576토큰</strong>까지 검증했다고 설명합니다. 복잡한 작업이나 응답 속도·처리량이 중요한 서비스에는 262,144토큰 이하를 권장합니다. <a class="source-link" href="https://huggingface.co/Aleph-Alpha/Kolibri-1#intended-use" target="_blank" rel="noopener noreferrer">공식 모델 카드 ↗</a></p>
+          <figure class="ow-figure" aria-labelledby="context-title">
+            <span class="ow-eyebrow">Aleph Alpha 발표값 · 단위 토큰</span>
+            <h3 id="context-title">학습한 길이와 확장 검증 범위는 다릅니다</h3>
+            <div class="ow-range-label"><strong>장문 학습 길이</strong><b>262,144</b></div>
+            <div class="ow-track" aria-hidden="true"><span class="ow-native"></span></div>
+            <div class="ow-range-label"><strong>확장 검증 상한</strong><b>1,048,576</b></div>
+            <div class="ow-track" aria-hidden="true"><span class="ow-extended"></span></div>
+            <div class="ow-axis" aria-hidden="true"><span>0</span><span>1,048,576</span></div>
+            <figcaption>같은 길이 축으로 표시했습니다. 성능·정확도 비교가 아닙니다. 긴 글을 입력할 수 있다는 설명만으로 모든 정보를 정확히 찾아낸다고 볼 수는 없습니다.</figcaption>
+          </figure>
+          <details class="ow-details"><summary>메모리와 가중치 이용 조건 더 보기</summary>
+            <p>공식 FP8 배포판은 가중치를 낮은 정밀도로 저장해도 모델 메모리가 약 78GB입니다. 공식 최소 구성 예시는 A100 80GB 2장, H100 SXM5 2장, 또는 H200·B200·B300 중 1장입니다. 긴 입력의 처리 정보와 동시 요청에도 메모리가 필요합니다.</p>
+            <p>모델 카드의 Apache 2.0 적용 범위는 저장소의 가중치와 설정 파일입니다. 그 밖의 코드·아키텍처·학습 방법까지 같은 조건으로 공개한다는 의미는 아닙니다. <a href="https://huggingface.co/Aleph-Alpha/Kolibri-1#license-and-terms" target="_blank" rel="noopener noreferrer">공식 설명의 적용 범위 ↗</a></p>
+          </details>
+          <p>공식 발표의 성능표는 Aleph Alpha의 자체 평가입니다. 공개 이후 <a href="https://forums.developer.nvidia.com/t/kolibri-1-aleph-alphas-78b-fp8-moe-runs-on-the-spark-setup-numbers-and-a-few-things-id-love-to-share/385048" target="_blank" rel="noopener noreferrer">NVIDIA 포럼의 사용자 실행 보고</a>도 올라왔지만, 특정 환경의 경험을 업무 전반의 품질 보증으로 확대할 수는 없습니다. 저희는 이 결과를 재현하지 않았습니다.</p>
+          <div class="news-insight"><span>우리에게 먼저 필요한 확인</span><p>독일어·영어 중심이라는 설계는 한국어 업무에 곧바로 적합하다는 뜻이 아닙니다. 한국어 상품명, 사내 용어를 대신한 가상 문서, 누락된 정보를 처리하는 방식부터 따로 평가해야 합니다.</p></div>
+        </section>
+
+        <section id="access" class="news-story-section">
+          <p class="news-section-label">03 / ACCESS &amp; PERMISSIONS</p><h2>AI를 쓸 권한과<br>실제 일을 바꿀 권한</h2>
+          <p>Reuters는 10월 4일, OpenAI CEO Sam Altman이 POLITICO의 Decoded 인터뷰에서 AI의 혜택을 위해 일부 위험을 감수하더라도 폭넓은 접근성을 유지해야 한다고 말했다고 보도했습니다. 강력한 AI를 한 연구소에 집중시키는 방식에 반대하는 입장입니다. <a class="source-link" href="https://www.streetinsider.com/Reuters/OpenAIs%2BAltman%2Bsays%2BAI%2Bbenefits%2Bwarrant%2Baccepting%2Bsome%2Brisks/27144435.html" target="_blank" rel="noopener noreferrer">Reuters 보도 · StreetInsider 게재 ↗</a></p>
+          <p>이는 <strong>접근성과 규제를 둘러싼 경영자의 견해</strong>입니다. OpenAI가 새 오픈웨이트 모델을 발표했다거나, 위험을 줄일 필요가 없다고 입증한 소식으로 해석할 수는 없습니다. Reuters 보도에서도 접근성 논쟁과 개발 속도에 관한 입장을 함께 다룹니다.</p>
+          <p>업무 시스템을 만드는 입장에서는 세 질문을 나눠 볼 수 있습니다. 누가 AI를 사용할 수 있는지, AI가 어떤 자료를 읽는지, 결과를 바탕으로 무엇을 실제 변경할 수 있는지입니다. 이는 아래의 <strong>모임 설계 제안</strong>이며 인터뷰에서 제시한 제품 구조가 아닙니다.</p>
+          <figure class="ow-figure" aria-labelledby="permission-title">
+            <span class="ow-eyebrow">가상 주문 업무 · 설명용 개념도</span>
+            <h3 id="permission-title">주문을 읽을 수 있어도, 환불은 별도 승인</h3>
+            <ol class="ow-permissions">
+              <li><b>사용</b><div><strong>누가 AI에게 물어볼 수 있나</strong><p>업무 계정과 사용 범위를 정합니다.</p></div></li>
+              <li><b>조회</b><div><strong>어떤 주문 정보를 읽을 수 있나</strong><p>필요한 항목만 전달하고 조회 기록을 남깁니다.</p></div></li>
+              <li class="ow-human"><b>실행</b><div><strong>누가 실제 환불을 허용하나</strong><p>금액·대상·승인자를 확인한 뒤 별도 시스템이 처리합니다.</p></div></li>
+            </ol>
+            <figcaption>모델 이용 허용이 주문 취소·환불·포인트 지급 권한까지 자동으로 뜻하지는 않습니다. 자체 운영 모델에도 같은 구분이 필요합니다.</figcaption>
+          </figure>
+        </section>
+
+        <section id="our-view" class="news-story-section">
+          <p class="news-section-label">HELLO, HUMAN'S VIEW</p><h2>어디서 실행하든,<br>업무 한 건을 마치는 비용으로</h2>
+          <p>이번 소식에서 읽을 변화는 성능 경쟁에 <strong>운영 방식의 선택</strong>이 더해진다는 점입니다. 이미 제공되는 서비스를 이용할지, 가중치를 받아 직접 운영할지, 업무마다 어떤 조합을 택할지의 문제입니다.</p>
+          <p>여기서 <strong>모델의 공개 방식과 서비스 이용 방식은 다른 축</strong>입니다. 오픈웨이트 모델도 외부 업체가 운영하는 API로 쓸 수 있습니다. API는 프로그램이 모델에 요청을 보내는 연결 방식이며, 그 자체가 폐쇄형 모델을 뜻하지 않습니다.</p>
+          <div class="ow-compare">
+            <div><span>외부 운영 서비스를 이용하면</span><strong>설비 운영 부담을 줄일 수 있습니다</strong><p>대신 어떤 데이터가 전송·저장되는지, 공급사의 변경과 장애에 어떻게 대응할지 확인해야 합니다.</p></div>
+            <div><span>모델을 직접 운영하면</span><strong>실행 환경을 직접 정할 수 있습니다</strong><p>대신 GPU·운영 인력·업데이트·장애 대응을 맡아야 합니다. 연결한 외부 도구와 로그의 데이터 흐름도 살펴야 합니다.</p></div>
+          </div>
+          <figure class="ow-figure" aria-labelledby="routing-title">
+            <span class="ow-eyebrow">헬로우 휴먼의 설계 제안 · 실제 제품 내부 구조 아님</span>
+            <h3 id="routing-title">업무와 데이터에 맞춰 경로를 고릅니다</h3>
+            <div class="ow-routing">
+              <div><span>먼저 확인</span><strong>업무·데이터 규칙</strong><small>외부 전송 가능 범위, 품질·비용 기준</small></div>
+              <div><span>조건에 맞는 경로</span><strong>외부 운영 서비스<br>또는 자체 운영 모델</strong><small>업무별로 선택하며 필요하면 함께 사용</small></div>
+              <div class="ow-human"><span>변경하기 전 확인</span><strong>검증·승인 → 실행</strong><small>처리 결과와 증거를 남기기</small></div>
+            </div>
+            <figcaption>경로를 고르는 부분을 ‘모델 라우터’라고 부를 수 있습니다. 처음부터 자동화하지 않고 업무별 사용 규칙으로 시작해도 됩니다.</figcaption>
+          </figure>
+          <h3>작은 실험, 가상 상품 50건을 같은 기준으로 검수하기</h3>
+          <p>판매기간 오류, 필수 속성 누락, 상품명 규칙 위반, 카테고리 불일치, 이미지 URL 누락을 섞은 <strong>가상 상품 50건</strong>을 준비합니다. 정상 상품도 포함하고 정답을 미리 정합니다. 여기서 이미지는 URL의 유무만 확인하며 사진 내용은 평가하지 않습니다.</p>
+          <p>같은 지시문과 출력 형식을 외부 API와 실행 가능한 오픈웨이트 모델에 줍니다. Kolibri를 꼭 쓸 필요는 없습니다. 오류가 없는데 있다고 한 경우와 실제 오류를 놓친 경우를 따로 세고, 사람이 최종 결과를 고치는 시간까지 기록합니다.</p>
+          <figure class="ow-figure" aria-labelledby="experiment-title">
+            <span class="ow-eyebrow">아직 실행하지 않은 모임 실험 제안</span>
+            <h3 id="experiment-title">모델 비용 옆에 사람의 시간을 놓기</h3>
+            <dl class="ow-metrics">
+              <div><dt>검수 품질</dt><dd>놓친 오류 수와 잘못 지적한 건수</dd></div>
+              <div><dt>완료 시간</dt><dd>요청부터 결과까지, 초기 로딩은 별도 기록</dd></div>
+              <div><dt>건당 비용</dt><dd>API 요금 또는 GPU·전력·운영비의 배분</dd></div>
+              <div><dt>데이터 이동</dt><dd>모델·검색·로그로 실제 전달한 항목</dd></div>
+              <div class="ow-human"><dt>사람의 수정 시간</dt><dd>검토부터 최종 승인까지 걸린 시간</dd></div>
+            </dl>
+            <figcaption>모델·버전·설정·장비·동시 요청 수를 남기고 같은 입력을 여러 번 실행합니다. 50건은 첫 점검용이며 전체 업무 품질을 대표하지 않습니다.</figcaption>
+          </figure>
+          <p>기간·필수 항목처럼 규칙이 명확한 검사는 일반 프로그램으로도 할 수 있습니다. 이 기준선과 비교해야 AI를 추가한 이득이 보입니다. 장비 비용도 예상 월 처리량에 나눠 계산해야 하며, 실험 한 번의 전기요금만으로 자체 운영이 더 싸다고 결론 내릴 수는 없습니다.</p>
+          <p>Workless Engineering의 관점에서 중요한 것은 <strong>같은 품질로 업무를 끝내는 데 드는 총비용</strong>입니다. 모델 사용료가 낮아도 수정과 운영에 시간이 더 들면 이득이 줄어듭니다. 반대로 품질이 충분하고 처리량이 꾸준하다면 직접 운영이 유용한 선택이 될 수 있습니다.</p>
+          <blockquote class="ow-closing">AI를 고르는 질문에 하나를 더합니다.<br><strong>어디서 실행하고, 어디까지 맡길 것인가.</strong></blockquote>
+        </section>
+
+        <section id="sources" class="news-sources" aria-labelledby="sources-heading">
+          <h2 id="sources-heading">읽은 자료</h2>
+          <ul>
+            <li><a href="https://www.axios.com/2026/10/04/reflection-open-weight-ai" target="_blank" rel="noopener noreferrer">Axios, Reflection 모델 공개 관련 보도 ↗</a> <span>10월 4일 · 보도</span></li>
+            <li><a href="https://reflection.ai/about" target="_blank" rel="noopener noreferrer">Reflection, 공개 원칙 ↗</a> · <a href="https://reflection.ai/solutions" target="_blank" rel="noopener noreferrer">솔루션 구상 ↗</a> <span>공식 전략</span></li>
+            <li><a href="https://reflection.ai/blog/frontier-open-intelligence/" target="_blank" rel="noopener noreferrer">Reflection, 투자자·공개 모델 전략 소개 ↗</a> <span>2025년 10월 9일 · 배경 자료</span></li>
+            <li><a href="https://aleph-alpha.com/en/blog/kolibri-has-landed-a-sovereign-open-weight-model/" target="_blank" rel="noopener noreferrer">Aleph Alpha, Kolibri 공식 발표 ↗</a> <span>10월 3일</span></li>
+            <li><a href="https://huggingface.co/Aleph-Alpha/Kolibri-1" target="_blank" rel="noopener noreferrer">Kolibri-1 모델 카드 ↗</a> · <a href="https://huggingface.co/Aleph-Alpha/Kolibri-1/tree/main" target="_blank" rel="noopener noreferrer">가중치 파일 목록 ↗</a> <span>사양·운영 권장·이용 조건</span></li>
+            <li><a href="https://www.streetinsider.com/Reuters/OpenAIs%2BAltman%2Bsays%2BAI%2Bbenefits%2Bwarrant%2Baccepting%2Bsome%2Brisks/27144435.html" target="_blank" rel="noopener noreferrer">Reuters, Altman의 AI 접근성 발언 · StreetInsider 게재 ↗</a> <span>10월 4일 18:35 EDT · 한국시간 10월 5일 07:35</span></li>
+            <li><a href="https://forums.developer.nvidia.com/t/kolibri-1-aleph-alphas-78b-fp8-moe-runs-on-the-spark-setup-numbers-and-a-few-things-id-love-to-share/385048" target="_blank" rel="noopener noreferrer">NVIDIA 개발자 포럼, Kolibri 실행 경험 ↗</a> <span>10월 4일 · 이용자 보고이며 NVIDIA의 공식 검증이 아님</span></li>
+          </ul>
+          <p>확인 기준일은 2026년 10월 5일입니다. POLITICO 인터뷰 전문은 직접 확인하지 못해 Reuters가 보도한 범위만 소개했습니다. 해당 발표의 공식 한국어 원문은 확인하지 못해 영문 자료를 연결했습니다.</p>
+          <p>도식은 원문 설명·수치를 바탕으로 직접 구성했습니다. 제품 화면·직접 성능 실험이 아니며, 업무 경로와 상품 검수 실험은 헬로우 휴먼의 제안입니다.</p>
+        </section>
+        <a class="news-end-link" href="./">AI뉴스 목록으로 돌아가기 <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </article></main>
+  <footer class="footer"><div class="wrap">헬로우 휴먼 · Workless Engineering Club</div></footer>
+  <script src="../assets/analytics.js?v=2" defer></script>
+  <script src="../assets/article-toc.js?v=1" defer></script>
+  <script type="module" src="../assets/content-updates.js?v=3"></script>
+</body>
+</html>
