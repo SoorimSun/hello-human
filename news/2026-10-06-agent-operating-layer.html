@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow, noarchive">
-  <title>AI 에이전트 경쟁, 모델에서 운영 계층으로 이동 · AI뉴스 · 헬로우 휴먼</title>
-  <meta name="description" content="Reflection Beam, Cohere North 2, Together Link, GitHub Agentic Workflows로 읽는 모델 교체·비용·권한·작업 상태의 변화. 공식 발표와 제공 조건을 구분한 AI뉴스 08.">
+  <title>AI 에이전트, 성능만큼 운영도 중요해집니다 · AI뉴스 · 헬로우 휴먼</title>
+  <meta name="description" content="Beam·North 2·Together Link·GitHub의 새 소식을 통해 AI를 업무에 쓰는 데 필요한 비용 관리, 권한 설정, 작업 기록을 살펴봅니다. 헬로우 휴먼 AI뉴스 08.">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,162 +25,172 @@
     <header class="news-article-header wrap">
       <a class="news-back" href="./">← AI뉴스 목록</a>
       <p class="news-kicker">AI NEWS <span aria-hidden="true">/</span> ISSUE 08</p>
-      <h1>AI 에이전트 경쟁, <br>모델에서 운영 계층으로 이동</h1>
-      <p class="news-deck">Reflection Beam, Cohere North 2, Together Link, GitHub Agentic Workflows. <br>모델을 고르는 일에서, 비용·권한·작업 상태를 관리하는 일로 넓어집니다.</p>
+      <h1>AI 에이전트, <br>성능만큼 운영도 중요해집니다</h1>
+      <p class="news-deck">Beam·North 2·Together Link·GitHub의 새 소식을 통해<br>AI를 업무에 쓰는 데 필요한 비용 관리, 권한 설정, 작업 기록을 살펴봅니다.</p>
       <div class="news-article-meta"><time datetime="2026-10-06">2026년 10월 6일</time><span>헬로우 휴먼 AI뉴스</span></div>
     </header>
 
     <nav class="ol-map wrap" aria-label="네 소식의 핵심 질문">
-      <a href="#beam"><span>01 / REFLECTION BEAM</span><strong>얼마나 효율적인가</strong><small>모델의 연산과 학습</small></a>
-      <a href="#north"><span>02 / COHERE NORTH 2</span><strong>어디까지 맡길까</strong><small>사용량과 실행 권한</small></a>
-      <a href="#link"><span>03 / TOGETHER LINK</span><strong>모델을 바꿀 수 있나</strong><small>작업 환경과 모델의 연결</small></a>
-      <a href="#workflows"><span>04 / GITHUB WORKFLOWS</span><strong>일을 어떻게 이어갈까</strong><small>대기열과 지속되는 기록</small></a>
+      <a href="#beam"><span>01 / REFLECTION BEAM</span><strong>연산을 얼마나 줄일까</strong><small>모델의 성능과 효율</small></a>
+      <a href="#north"><span>02 / COHERE NORTH 2</span><strong>어디까지 맡길까</strong><small>사용량 한도와 실행 권한</small></a>
+      <a href="#link"><span>03 / TOGETHER LINK</span><strong>모델을 바꿔 쓸 수 있나</strong><small>익숙한 도구에 다른 모델 연결</small></a>
+      <a href="#workflows"><span>04 / GITHUB WORKFLOWS</span><strong>하던 일을 어떻게 이어갈까</strong><small>할 일의 순서와 처리 기록</small></a>
     </nav>
 
     <div class="news-article-shell wrap">
-      <nav class="news-toc" aria-label="기사 목차"><span>이번 호</span><a href="#at-a-glance">30초 요약</a><a href="#beam">Beam의 추론 효율</a><a href="#north">North 2의 운영 통제</a><a href="#link">Together의 모델 연결</a><a href="#workflows">GitHub의 작업 장부</a><a href="#permissions">OS까지 이어지는 권한</a><a href="#our-view">헬로우 휴먼의 관점</a><a href="#experiment">모임에서 해볼 실험</a><a href="#sources">읽은 자료</a></nav>
+      <nav class="news-toc" aria-label="기사 목차"><span>이번 호</span><a href="#at-a-glance">30초 요약</a><a href="#beam">Beam의 연산 효율</a><a href="#north">North 2의 사용량·권한</a><a href="#link">Together Link의 모델 연결</a><a href="#workflows">GitHub의 작업 기록</a><a href="#permissions">운영체제의 파일 접근 권한</a><a href="#our-view">헬로우 휴먼의 관점</a><a href="#experiment">모임에서 해볼 실험</a><a href="#sources">읽은 자료</a></nav>
       <div class="news-story">
         <section id="at-a-glance" class="news-summary" aria-labelledby="summary-heading">
           <p class="news-section-label">AT A GLANCE</p><h2 id="summary-heading">30초 요약</h2>
           <ul>
-            <li><strong>Beam</strong> 추론 효율을 강조한 모델 발표입니다. 가중치는 10월 중 공개 예정으로 안내됐습니다.</li>
-            <li><strong>North 2</strong> 기업 에이전트에 세션 간 기억, 사용량 한도, 권한 관리를 묶습니다.</li>
-            <li><strong>Together Link</strong> 기존 코딩 도구에 다른 모델을 연결합니다. 절감률과 라우팅 조건을 따로 확인해야 합니다.</li>
-            <li><strong>GitHub</strong> 작업 대기열과 지속 기록을 보강했습니다. 도구 호출 예산은 적용 엔진의 범위가 있습니다.</li>
+            <li><strong>Beam</strong> 적은 연산으로 높은 성능을 내는 데 초점을 맞춘 모델입니다. 모델 실행에 필요한 가중치는 10월 중 공개할 예정입니다.</li>
+            <li><strong>North 2</strong> 기업용 에이전트가 업무 배경을 기억하도록 돕고, 관리자가 사용량과 권한을 정할 수 있게 합니다.</li>
+            <li><strong>Together Link</strong> 쓰던 코딩 도구에 다른 모델을 연결합니다. 실제 비용이 얼마나 줄어드는지는 업무별로 비교해야 합니다.</li>
+            <li><strong>GitHub</strong> 에이전트가 처리할 일을 대기열에 넣고, 실행 기록을 대화 밖에 저장하는 기능을 보강했습니다.</li>
           </ul>
         </section>
-        <p class="news-method">2026년 10월 6일 한국시간 기준으로 10월 2~5일의 공식 발표·릴리스와 현재 문서를 확인했습니다. 날짜는 원문 표기를 따릅니다. 공급사의 성능·비용 주장과 모임의 해석을 구분하며, 제품 실행이나 성능 측정은 직접 하지 않았습니다.</p>
-        <p>AI에게 일을 맡기면 모델의 답변 능력만으로는 설명되지 않는 문제가 생깁니다. 검색을 몇 번 더 할지, 실패한 작업을 어디서 다시 시작할지, 어느 파일까지 읽게 할지, 비용이 늘어나면 언제 멈출지를 정해야 합니다.</p>
-        <p>이번 소식의 공통점은 <strong>모델을 실제 업무에 연결하고 계속 운영하는 부분</strong>이 제품의 중심으로 들어온다는 데 있습니다. 이를 이 글에서는 ‘운영 계층’이라고 부릅니다. 모델 성능 경쟁이 끝났다는 뜻은 아닙니다. 성능 위에 모델 선택·상태 저장·비용·권한을 관리하는 경쟁이 겹치고 있습니다.</p>
+        <p class="news-method">10월 2~5일의 공식 발표와 개발 문서를 2026년 10월 6일 한국시간 기준으로 확인했습니다. 날짜는 원문 표기를 따릅니다. 성능·비용 수치는 각 회사의 발표이며, 제품을 직접 실행해 측정하지는 않았습니다.</p>
+        <p>AI에게 자료 조사를 맡겼는데 같은 검색을 반복한다면 언제 멈춰야 할까요? 작업 도중 오류가 나면 처음부터 다시 해야 할까요? AI가 여러 단계를 거쳐 일을 처리할수록, 어떤 모델을 쓸지와 함께 <strong>얼마나 맡기고 어떻게 관리할지</strong>도 정해야 합니다.</p>
+        <p>이번에 살펴볼 네 소식은 이 문제를 서로 다른 방향에서 다룹니다. 연산을 줄이는 모델부터 사용량과 권한을 관리하는 플랫폼, 모델을 바꿔 연결하는 도구, 작업 기록을 남기는 기능까지 나왔습니다. 이 글에서 말하는 <strong>‘운영 계층’</strong>은 AI를 업무에 연결하고 비용·권한·진행 상황을 관리하는 장치들을 뜻합니다.</p>
 
         <section id="beam" class="news-story-section">
-          <p class="news-section-label">01 / REFLECTION BEAM</p><h2>추론 효율을 앞세운 모델,<br>가중치 공개는 아직 다음 단계</h2>
-          <p>Reflection은 10월 5일 첫 오픈웨이트 모델 <strong>Beam</strong>을 발표했습니다. 코딩·추론·에이전트 작업을 겨냥하며, 입력에 따라 일부 전문가 네트워크를 골라 쓰는 <strong>MoE</strong> 구조입니다. <a class="source-link" href="https://reflection.ai/blog/introducing-beam" target="_blank" rel="noopener noreferrer">공식 발표 ↗</a></p>
+          <p class="news-section-label">01 / REFLECTION BEAM</p><h2>Beam, 적은 연산으로<br>높은 성능을 내는 데 초점을 맞춥니다</h2>
+          <p>Reflection은 10월 5일 코딩과 추론, 에이전트 작업을 위한 모델 <strong>Beam</strong>을 발표했습니다. 모델을 실행하는 데 필요한 학습된 수치, 즉 가중치를 공개하는 <strong>오픈웨이트</strong> 방식으로 제공할 예정입니다. <a class="source-link" href="https://reflection.ai/blog/introducing-beam" target="_blank" rel="noopener noreferrer">공식 발표 ↗</a></p>
+          <p>Beam은 입력에 따라 모델의 일부만 골라 계산하는 <strong>MoE</strong> 구조를 사용합니다. 아래 수치에서 파라미터는 모델이 학습한 수치를, 토큰은 글을 나누어 처리하는 단위를 뜻합니다.</p>
           <dl class="ol-stats" aria-label="Reflection이 발표한 Beam 파라미터 수">
-            <div><dt>전체 파라미터</dt><dd>5,010억 개<small>모델 전체의 학습된 수치</small></dd></div>
-            <div><dt>토큰당 활성 파라미터</dt><dd>230억 개<small>한 번의 처리에 참여하는 부분</small></dd></div>
+            <div><dt>전체 파라미터</dt><dd>5,010억 개<small>모델 전체에 저장된 수치</small></dd></div>
+            <div><dt>토큰당 활성 파라미터</dt><dd>230억 개<small>토큰 하나를 처리할 때 쓰는 수치</small></dd></div>
           </dl>
-          <p>활성 파라미터가 적으면 연산을 줄이는 데 도움이 됩니다. 그렇다고 전체 모델을 저장할 메모리나 실제 서비스 비용까지 같은 비율로 줄어드는 것은 아닙니다. Reflection의 연산량 비교도 입력 처리와 서비스 운영 부담 일부를 제외한 <strong>추정치</strong>이며, 청구 비용을 직접 측정한 결과가 아닙니다.</p>
-          <p>회사는 GLM 5.2에 견줄 만한 일부 추론 성능을 더 적은 연산으로 냈다고 설명합니다. 반면 공개한 코딩·터미널 평가표에서는 Kimi K3와 DeepSeek V4.1 Flash 등이 앞서는 항목도 있습니다. ‘가장 강한 모델’이라는 순위보다 <strong>필요한 품질에 얼마나 적은 연산으로 도달하는가</strong>가 이번 발표의 관점입니다.</p>
-          <details class="ol-details"><summary>학습 규모에서 보이는 변화</summary>
+          <p>회사는 일부 추론 평가에서 GLM 5.2와 비슷한 성능을 더 적은 연산으로 냈다고 설명합니다. 코딩·터미널 평가 중에는 Kimi K3와 DeepSeek V4.1 Flash 등이 앞선 항목도 있습니다. 이번 발표에서 눈여겨볼 점은 <strong>필요한 성능을 내면서 연산을 얼마나 줄일 수 있느냐</strong>입니다.</p>
+          <p>연산에 참여하는 파라미터가 적으면 계산량을 줄이는 데 도움이 됩니다. 다만 전체 모델을 저장할 메모리는 여전히 필요합니다. 회사가 제시한 연산량도 입력 처리와 서비스 운영에 드는 연산 일부를 뺀 <strong>추정치</strong>여서, 실제 이용 요금이 같은 비율로 줄어든다고 볼 수는 없습니다.</p>
+          <details class="ol-details"><summary>Beam은 어떤 규모로 학습했을까요?</summary>
             <p>Reflection은 NVIDIA GB300 GPU 1만500개를 4주간 사용해 1억 회 넘는 강화학습 실행 기록을 생성했다고 밝혔습니다. 코딩·도구 사용·과학 및 수학 문제 등을 위한 환경도 약 100만 개 마련했다고 설명합니다. 모두 회사 발표값입니다.</p>
-            <p>이때 <strong>rollout</strong>은 문제를 풀려고 행동하고 결과를 받는 한 차례의 실행 기록입니다. 문서를 읽는 사전학습에 더해, 환경 안에서 시도하고 피드백을 받는 과정에 대규모 자원을 투입했다는 점을 볼 수 있습니다.</p>
+            <p>이런 실행 기록을 <strong>rollout</strong>이라고 합니다. 모델이 문제를 풀기 위해 행동하고 결과를 받는 과정을 담습니다. 자료로 학습하는 사전학습에 더해, 직접 시도하고 피드백을 받는 훈련에도 큰 규모의 자원을 투입한 것입니다.</p>
           </details>
-          <div class="ol-status"><strong>발표와 다운로드 가능 상태를 나눠 읽기</strong><p>공식 발표는 최종 안전성 시험·평가 중이며, 얼리 액세스 신청을 받고 가중치·기술 보고서·모델 카드·개발 도구를 <b>10월 중 공개할 예정</b>이라고 안내합니다. 자체 구축의 장비 조건과 이용 범위는 실제 배포 자료가 나온 뒤 확인해야 합니다.</p></div>
-          <p class="ol-related">앞선 <a href="2026-10-05-open-weight-ai.html#reflection">일반뉴스 07의 Reflection 공개 계획</a>에 이어 모델의 이름과 사양이 발표된 소식입니다. 원문의 게임·지도·개발 작업 예시는 <a href="https://reflection.ai/blog/introducing-beam" target="_blank" rel="noopener noreferrer">Reflection이 선정한 데모</a>에서 볼 수 있습니다.</p>
+          <div class="ol-status"><strong>가중치는 10월 중 공개 예정입니다</strong><p>발표 당시 Beam은 최종 안전성 시험과 평가를 진행 중이었으며, 사전 이용 신청을 받고 있었습니다. 가중치와 기술 보고서, 모델 설명서, 개발 도구는 <b>10월 중 공개할 예정</b>이라고 밝혔습니다. 직접 운영하는 데 필요한 장비와 이용 조건은 배포 자료가 나온 뒤 확인해야 합니다.</p></div>
+          <p class="ol-related"><a href="2026-10-05-open-weight-ai.html#reflection">일반뉴스 07에서 소개한 Reflection의 공개 계획</a>에 이어, 이번에는 모델의 이름과 사양이 나왔습니다. 게임·지도·개발 작업 예시는 <a href="https://reflection.ai/blog/introducing-beam" target="_blank" rel="noopener noreferrer">Reflection이 선정한 데모</a>에서 볼 수 있습니다.</p>
         </section>
 
         <section id="north" class="news-story-section">
-          <p class="news-section-label">02 / COHERE NORTH 2</p><h2>에이전트에도<br>사용량 한도와 권한 관리가 필요합니다</h2>
-          <p>Cohere가 10월 5일 소개한 <strong>North 2</strong>는 기업용 에이전트 플랫폼입니다. 여러 단계의 업무를 조율하는 실행 구조에 반복해서 쓰는 업무 능력인 Skills, 공유 지식인 Libraries, 세션을 넘어 문맥을 유지하는 Memory, 자동화 기능을 묶습니다. <a class="source-link" href="https://cohere.com/ko/blog/introducing-north-2" target="_blank" rel="noopener noreferrer">공식 한국어 발표 ↗</a></p>
-          <p>여러 번 대화해도 업무 배경을 유지하는 것은 유용합니다. 다만 <strong>대화 문맥을 기억하는 기능과 실제 처리 상태를 보장하는 장부는 다른 역할</strong>입니다. “이 고객 건을 기억한다”는 것만으로 “이미 처리했으니 다시 실행하지 않는다”는 보장이 생기지는 않습니다.</p>
+          <p class="news-section-label">02 / COHERE NORTH 2</p><h2>North 2, 에이전트의 사용량과<br>권한을 관리합니다</h2>
+          <p>Cohere가 10월 5일 소개한 <strong>North 2</strong>는 기업이 AI 에이전트를 업무에 활용하고 관리하는 플랫폼입니다. 여러 단계로 이루어진 일을 자동화하고, 반복 업무에 필요한 기능과 지식을 다시 쓸 수 있도록 돕습니다. <a class="source-link" href="https://cohere.com/ko/blog/introducing-north-2" target="_blank" rel="noopener noreferrer">공식 한국어 발표 ↗</a></p>
+          <p>반복해서 쓰는 업무 기능은 <strong>Skills</strong>로, 함께 참고할 지식은 <strong>Libraries</strong>로 관리합니다. <strong>Memory</strong>는 새 대화에서도 이전 업무의 배경을 기억하게 해주는 기능입니다.</p>
+          <p>관리자용 <strong>North Admin</strong>에서는 누가 얼마나 사용했는지 살피고, 사용자와 에이전트의 권한을 정할 수 있습니다.</p>
           <div class="news-capability-grid">
-            <div><span>USAGE / 얼마나 쓰는가</span><strong>사용자·에이전트별 가시성</strong><p>사용량을 살피고 요청·토큰 속도, 사용자 할당량, 조직 한도를 관리합니다.</p></div>
-            <div><span>ACCESS / 무엇을 할 수 있나</span><strong>모델·역할·행동 권한</strong><p>누가 어떤 모델을 쓸지 정하고, 중요한 결정이나 행동에 사람의 관여를 요구할 수 있습니다.</p></div>
+            <div><span>USAGE / 얼마나 쓰는가</span><strong>사용량 확인과 한도 설정</strong><p>사용자·에이전트별 사용량을 확인합니다. 일정 시간에 허용할 요청·토큰 수와 사용자·조직별 한도를 관리합니다.</p></div>
+            <div><span>ACCESS / 무엇을 할 수 있나</span><strong>모델 사용과 실행 권한</strong><p>사용할 모델과 역할별 권한을 정합니다. 중요한 결정이나 행동에는 사람이 관여하도록 설정할 수 있습니다.</p></div>
           </div>
-          <p>North Admin의 비용 관리와 세부 권한은 기존 업무 시스템의 운영 문제를 에이전트에도 적용한 것입니다. 한 번의 요청이 검색·도구 호출·재시도로 길어질 수 있으므로, 토큰 단가뿐 아니라 <strong>업무 한 건에 허용할 사용량과 중단 기준</strong>을 정해야 합니다.</p>
-          <p>Cohere는 자체 설비·가상 사설 클라우드·외부망과 분리된 환경 등 배포 선택지도 안내합니다. 이는 제공 가능한 운영 방식의 설명입니다. 실제 도입에서는 필요한 모델·연결 도구·한도 동작이 해당 환경에서 어떻게 제공되는지 확인해야 합니다.</p>
-          <div class="news-insight"><span>헬로우 휴먼의 해석</span><p>예산을 알려주는 화면과 예산에 도달했을 때 실행을 멈추는 규칙은 별개입니다. 알림·속도 제한·할당량을 어떤 순서로 적용하고, 멈춘 일은 누가 이어받을지까지 정해야 통제가 작동합니다.</p></div>
+          <p>이런 관리가 필요한 이유는 한 번의 지시가 여러 번의 검색과 도구 실행으로 이어질 수 있기 때문입니다. 오류가 나서 재시도하면 사용량도 늘어납니다. 따라서 <strong>업무 한 건에 어느 정도의 사용량을 허용하고, 언제 멈출지</strong>를 정해야 합니다.</p>
+          <p>업무를 이어갈 때는 기억 기능과 처리 기록도 구분해야 합니다. 예를 들어 고객 문의의 배경을 기억하더라도, 답변을 이미 발송했는지는 별도의 기록으로 확인해야 중복 처리를 막을 수 있습니다.</p>
+          <p>Cohere는 자체 설비나 가상 사설 클라우드, 외부망과 분리된 환경에서 운영하는 선택지도 안내합니다. 도입할 때는 선택한 환경에서 필요한 모델과 연결 도구를 쓸 수 있는지, 사용량 한도가 어떻게 적용되는지 확인해야 합니다.</p>
+          <div class="news-insight"><span>헬로우 휴먼의 해석</span><p>사용량을 확인하는 화면은 관리의 시작입니다. 한도에 가까워지면 알릴지, 요청을 늦출지, 실행을 멈출지도 정해야 합니다. 중단된 일을 누가 이어받을지까지 정해두어야 실제 업무에서 쓸 수 있습니다.</p></div>
         </section>
 
         <section id="link" class="news-story-section">
           <p class="news-section-label">03 / TOGETHER LINK</p><h2>익숙한 코딩 도구에<br>다른 모델을 연결하는 방법</h2>
-          <p>Together AI는 10월 5일 <strong>Together Link</strong>를 소개했습니다. 공식 문서상 베타이며 Claude Code·Claude Desktop·Codex·ChatGPT Desktop·OpenCode·Pi에서 Together가 제공하는 모델을 연결한다고 설명합니다. 현재 설치 요구사항은 <strong>macOS 또는 Linux와 Together API 키</strong>입니다. <a class="source-link" href="https://www.together.ai/blog/together-link-frontier-quality-open-models-in-the-harness-you-already-use" target="_blank" rel="noopener noreferrer">발표 ↗</a> <a class="source-link" href="https://docs.together.ai/docs/togetherlink" target="_blank" rel="noopener noreferrer">제공 조건 ↗</a></p>
-          <p>핵심은 <strong>하네스(harness)</strong>와 모델의 구분입니다. 하네스는 파일을 읽고 명령을 실행하며 승인과 대화 상태를 다루는 작업 환경입니다. 모델은 그 안에서 다음 행동이나 답변을 제안합니다. 작업 환경을 유지하면서 연결 모델을 바꾸면, 사용자에게 익숙한 흐름으로 여러 모델을 비교할 수 있습니다.</p>
+          <p>Together AI는 10월 5일 <strong>Together Link</strong>를 소개했습니다. 쓰던 코딩 도구를 유지하면서 Together가 제공하는 다른 모델을 연결할 수 있게 해주는 도구입니다. <a class="source-link" href="https://www.together.ai/blog/together-link-frontier-quality-open-models-in-the-harness-you-already-use" target="_blank" rel="noopener noreferrer">공식 발표 ↗</a></p>
+          <p>코딩 에이전트에서는 모델이 코드나 다음 행동을 제안하고, 이를 둘러싼 작업 환경이 파일을 읽거나 명령을 실행합니다. 실행 승인과 대화 기록도 이 환경에서 관리합니다. 이처럼 모델을 실제 작업에 연결하는 환경을 <strong>하네스(harness)</strong>라고 부릅니다. Together Link는 이 환경에 연결할 모델을 바꾸는 역할을 합니다.</p>
           <figure class="ol-figure" aria-labelledby="routing-title">
-            <span class="ol-eyebrow">제품의 역할을 풀어 쓴 설명용 개념도</span><h3 id="routing-title">작업 환경과 모델 선택을 나누기</h3>
+            <span class="ol-eyebrow">제품의 역할을 설명하는 개념도</span><h3 id="routing-title">쓰던 도구에 다른 모델 연결하기</h3>
             <ol class="ol-flow">
               <li><span>작업 환경</span><strong>코딩 에이전트</strong><small>파일·도구·승인 흐름</small></li>
-              <li><span>연결과 선택</span><strong>Together Link</strong><small>게이트웨이·모델 경로</small></li>
+              <li><span>연결과 선택</span><strong>Together Link</strong><small>요청을 보낼 모델 선택</small></li>
               <li><span>응답 생성</span><strong>선택된 모델</strong><small>계획·코드·다음 행동</small></li>
             </ol>
-            <figcaption>원래 도구의 모든 기능·성능이 그대로 보장된다는 뜻은 아닙니다. 도구 호출 형식과 응답 품질, 모델별 지원 범위를 함께 확인해야 합니다.</figcaption>
+            <figcaption>모델을 바꾸면 답변 품질과 지원 기능도 달라질 수 있습니다. 연결한 모델이 해당 도구의 실행 요청을 제대로 처리하는지 확인해야 합니다.</figcaption>
           </figure>
-          <p>공식 안내에는 세션의 토큰·비용을 보여주는 사용 기록도 있습니다. “50% 이상 절감”은 Together의 주장이고, 비교 화면은 같은 사용량을 다른 모델 가격에 대입한 계산을 포함합니다. <strong>같은 업무를 같은 품질로 끝냈는지까지 측정한 보증은 아닙니다.</strong> 재시도와 사람의 수정 시간을 포함하면 실제 결과는 달라질 수 있습니다. API 사용료는 기존 도구의 구독료와 따로 봐야 합니다. <a class="source-link" href="https://www.together.ai/link" target="_blank" rel="noopener noreferrer">사용 기록·지원 앱 안내 ↗</a></p>
-          <details class="ol-details"><summary>라우팅 단위는 공식 자료 사이에 차이가 있습니다</summary>
-            <p>10월 5일 발표 글과 제품 페이지는 첫 요청으로 모델을 고른 뒤 <strong>세션 단위</strong>로 유지한다고 설명합니다. 반면 10월 6일 확인한 개발 문서는 <strong>요청마다</strong> 게이트웨이가 모델을 선택한다고 안내합니다. 확인한 공식 자료만으로 현재 동작을 하나로 확정하기 어렵습니다.</p>
-            <p>따라서 “세션마다 한 번만 바뀌므로 캐시가 유지된다”는 보장으로 읽지 않는 편이 좋습니다. 실제 비교에서는 요청별 모델과 캐시 사용량을 기록해야 합니다. 현재 문서는 Anthropic API 키를 쓴 Claude 계열 세션에 Opus 경로가 열리며, Codex·OpenCode·Pi·ChatGPT Desktop은 Together 모델 경로에 머문다고 설명합니다. <a href="https://docs.together.ai/docs/togetherlink#how-the-auto-router-works" target="_blank" rel="noopener noreferrer">라우팅 문서 ↗</a></p>
+          <p>10월 6일 확인한 공식 문서에서는 베타로 안내하고 있습니다. 지원 앱은 Claude Code·Claude Desktop·Codex·ChatGPT Desktop·OpenCode·Pi이며, 설치하려면 <strong>macOS 또는 Linux와 Together API 키</strong>가 필요합니다. <a class="source-link" href="https://docs.together.ai/docs/togetherlink" target="_blank" rel="noopener noreferrer">설치·지원 조건 ↗</a></p>
+          <p>사용 기록에서는 한 작업 세션에서 쓴 토큰과 비용을 볼 수 있습니다. Together는 비용을 “50% 이상 절감”할 수 있다고 주장합니다. 다만 비교 화면에는 같은 토큰 사용량에 모델별 가격을 대입한 계산이 포함돼 있습니다. <strong>같은 일을 같은 품질로 끝내는 데 든 비용을 비교한 결과로 보기는 어렵습니다.</strong> <a class="source-link" href="https://www.together.ai/link" target="_blank" rel="noopener noreferrer">사용 기록·지원 앱 안내 ↗</a></p>
+          <p>실제 비용을 비교하려면 실패한 작업의 재시도와 사람이 수정한 시간까지 살펴야 합니다. Together API 사용료와 기존 도구의 구독료도 각각 계산해야 합니다.</p>
+          <details class="ol-details"><summary>모델이 바뀌는 시점은 공식 자료마다 설명이 다릅니다</summary>
+            <p>요청을 처리할 모델을 고르는 과정을 <strong>라우팅</strong>이라고 합니다. 10월 5일 발표 글과 제품 페이지는 첫 요청에서 모델을 고른 뒤 같은 작업 세션 동안 유지한다고 설명합니다. 반면 10월 6일 확인한 개발 문서는 <strong>요청마다 모델을 고른다</strong>고 안내합니다. 어느 설명이 현재 동작과 일치하는지는 확인하지 못했습니다.</p>
+            <p>따라서 실제 비교에서는 요청마다 어떤 모델을 썼는지, 이전 계산을 재사용하는 캐시가 얼마나 적용됐는지 기록해야 합니다. 모델을 한 번만 고르거나 캐시가 계속 유지된다고 가정하기는 어렵습니다.</p>
+            <p>개발 문서에 따르면 Anthropic API 키를 사용하는 Claude 계열 세션에서는 Opus도 선택할 수 있습니다. Codex·OpenCode·Pi·ChatGPT Desktop은 Together 모델을 사용합니다. <a href="https://docs.together.ai/docs/togetherlink#how-the-auto-router-works" target="_blank" rel="noopener noreferrer">라우팅 문서 ↗</a></p>
           </details>
         </section>
 
         <section id="workflows" class="news-story-section">
-          <p class="news-section-label">04 / GITHUB AGENTIC WORKFLOWS</p><h2>에이전트에<br>작업 대기열과 장부가 생깁니다</h2>
-          <p><strong>GitHub Agentic Workflows</strong>는 글로 정의한 저장소 업무를 GitHub Actions에서 에이전트가 실행하도록 연결하는 도구입니다. 10월 5일 주간 업데이트는 <strong>10월 3일 사전 릴리스된 v0.90.3</strong>을 중심으로 최근 변화를 정리했습니다. <a class="source-link" href="https://github.com/github/gh-aw/releases/tag/v0.90.3" target="_blank" rel="noopener noreferrer">해당 릴리스 ↗</a></p>
-          <p>눈에 띄는 기능은 <strong>work queue</strong>와 <strong>ledger</strong>입니다. 대기열은 앞으로 처리할 일과 순서를 관리합니다. 장부는 실행 과정의 정보를 모델 대화 밖에 남깁니다. v0.90.3은 Git 기반 대기열 명령과 로그·집합·키-값·표·카운터 형태의 장부를 소개합니다.</p>
+          <p class="news-section-label">04 / GITHUB AGENTIC WORKFLOWS</p><h2>GitHub, 할 일과 처리 기록을<br>대화 밖에 남깁니다</h2>
+          <p><strong>GitHub Agentic Workflows</strong>는 코드 저장소에서 할 일을 글로 적으면 에이전트가 실행하도록 연결하는 도구입니다. 실행에는 GitHub의 자동화 서비스인 GitHub Actions를 사용합니다. 10월 5일 주간 업데이트에서는 <strong>10월 3일에 사전 공개한 v0.90.3</strong>을 중심으로 최근 변경 사항을 소개했습니다. <a class="source-link" href="https://github.com/github/gh-aw/releases/tag/v0.90.3" target="_blank" rel="noopener noreferrer">v0.90.3 릴리스 ↗</a></p>
+          <p>눈에 띄는 기능은 작업 대기열인 <strong>work queue</strong>와 기록 저장소인 <strong>ledger</strong>입니다. 대기열은 앞으로 처리할 일과 순서를 관리합니다. 장부에 해당하는 ledger는 실행 중 생긴 정보를 모델과의 대화 밖에 저장합니다. 대화가 끝나도 다음 실행에서 참고할 기록을 남길 수 있는 것입니다.</p>
+          <p>v0.90.3에는 Git을 이용해 대기열을 관리하는 명령이 추가됐습니다. 장부에는 로그, 집합, 이름과 값을 짝지은 데이터, 표, 횟수를 세는 카운터 등 여러 형태로 정보를 저장할 수 있습니다.</p>
           <figure class="ol-figure" aria-labelledby="queue-title">
-            <span class="ol-eyebrow">가상 저장소 점검 업무 · 설명용 흐름</span><h3 id="queue-title">대화가 끝나도 작업 기록은 남기기</h3>
+            <span class="ol-eyebrow">가상의 저장소 점검 업무 · 설명용 예시</span><h3 id="queue-title">다음 실행에서 참고할 기록 남기기</h3>
             <ol class="ol-flow ol-flow-four">
               <li><span>01 / 등록</span><strong>대기 작업</strong><small>문서 링크 점검</small></li>
               <li><span>02 / 실행</span><strong>에이전트</strong><small>문제와 수정안 찾기</small></li>
-              <li class="ol-human"><span>03 / 검토</span><strong>검사·사람 확인</strong><small>반영 조건 점검</small></li>
-              <li><span>04 / 기록</span><strong>완료·실패</strong><small>다음 실행의 근거</small></li>
+              <li class="ol-human"><span>03 / 검토</span><strong>결과 확인</strong><small>검사와 사람의 검토</small></li>
+              <li><span>04 / 기록</span><strong>완료·실패</strong><small>다음 실행에서 참고</small></li>
             </ol>
-            <div class="ol-ledger"><strong>실행 밖에 남는 장부</strong><span>작업 식별자 · 처리 상태 · 결과 근거 · 재시도 기록</span></div>
-            <figcaption>제품의 실제 화면이나 자동 복구 보장에 대한 그림이 아닙니다. 중복 실행 방지와 실패 후 재개 규칙은 별도로 설계해야 합니다.</figcaption>
+            <div class="ol-ledger"><strong>대화 밖에 저장할 기록</strong><span>작업 번호 · 처리 상태 · 결과와 근거 · 재시도 내역</span></div>
+            <figcaption>기록을 업무에 활용하는 방법을 그린 예시입니다. 같은 일을 두 번 처리하지 않게 하거나 실패한 지점부터 다시 시작하려면, 그에 맞는 규칙을 별도로 설계해야 합니다.</figcaption>
           </figure>
-          <p>같은 릴리스의 실행 전체 도구 호출 예산은 <strong>Copilot 개발 도구 모음(SDK) 기반 에이전트 대상</strong>으로 명시됐습니다. 모든 실행 엔진에 같은 예산 기능이 적용됐다고 확대하면 안 됩니다. 호출 횟수 한도 역시 토큰·시간·금액을 모두 제한하는 하나의 기능은 아닙니다.</p>
-          <p>GitHub App의 접근 범위를 워크플로 파일을 변환할 때 명시하도록 하고, Claude의 외부 도구 연결 설정을 엄격하게 적용하는 변경도 포함됐습니다. 주간 업데이트에 함께 나온 감사 자료와 위협 탐지 결과 기록은 <strong>v0.90.1의 개선</strong>으로 구분됩니다. <a class="source-link" href="https://github.github.com/gh-aw/blog/2026-10-05-weekly-update/" target="_blank" rel="noopener noreferrer">공식 주간 업데이트 ↗</a></p>
-          <div class="news-insight"><span>헬로우 휴먼의 해석</span><p>대화 내용을 오래 보관하는 것만으로는 업무를 이어갈 수 없습니다. 무엇을 끝냈는지, 어떤 부작용이 이미 발생했는지, 다음에는 어디서 시작해야 하는지를 실행 환경이 판단할 수 있어야 합니다.</p></div>
+          <details class="ol-details"><summary>도구 호출 한도와 권한 설정은 어디에 적용될까요?</summary>
+            <p>v0.90.3에는 한 번의 실행에서 도구를 호출할 수 있는 횟수를 제한하는 기능도 포함됐습니다. 릴리스에 명시된 적용 대상은 <strong>Copilot SDK(개발 도구 모음)를 기반으로 한 에이전트</strong>입니다. 호출 횟수 제한만으로 토큰 사용량이나 시간, 금액까지 모두 제한할 수는 없습니다.</p>
+            <p>GitHub App의 접근 범위를 워크플로 파일 변환 단계에서 명시하도록 하고, Claude의 외부 도구 연결 설정을 더 엄격하게 적용하는 변경도 있습니다. 주간 업데이트에 함께 소개된 감사 자료와 위협 탐지 결과 기록은 <strong>v0.90.1에서 개선된 기능</strong>입니다. <a class="source-link" href="https://github.github.com/gh-aw/blog/2026-10-05-weekly-update/" target="_blank" rel="noopener noreferrer">공식 주간 업데이트 ↗</a></p>
+          </details>
+          <div class="news-insight"><span>헬로우 휴먼의 해석</span><p>하던 일을 이어가려면 무엇을 끝냈고, 실제로 무엇을 변경했으며, 다음에 어디서 시작해야 하는지 알 수 있어야 합니다. 이런 정보를 대화와 별도로 기록해두면 다음 실행의 기준으로 삼을 수 있습니다.</p></div>
         </section>
 
         <section id="permissions" class="news-story-section">
-          <p class="news-section-label">05 / OS PERMISSIONS</p><h2>앱의 권한 통제는<br>운영체제까지 이어집니다</h2>
-          <p>Apple도 10월 2일 macOS의 <strong>Full Disk Access</strong>에 추가 통제를 도입하겠다고 발표했습니다. 원래 백업 앱 등을 위해 넓은 접근을 허용한 권한이 파일·메일·메시지·브라우징 기록까지 노출할 수 있고, AI 에이전트의 자율성이 높아질수록 위험이 커진다는 설명입니다. <a class="source-link" href="https://developer.apple.com/news/?id=p6zjojqw" target="_blank" rel="noopener noreferrer">Apple Developer 원문 ↗</a></p>
-          <p>발표는 사용자가 매우 명시적인 행동으로 넓은 접근을 허용하게 만들겠다는 <strong>향후 계획</strong>입니다. 이 공지만으로 구체적인 적용 버전·시점이나 이미 배포된 승인 화면을 확정할 수는 없습니다.</p>
+          <p class="news-section-label">05 / OS PERMISSIONS</p><h2>AI 앱이 읽을 수 있는 파일,<br>운영체제의 권한도 확인해야 합니다</h2>
+          <p>권한 관리는 앱 설정에서 끝나지 않습니다. Apple은 10월 2일 macOS의 <strong>전체 디스크 접근 권한(Full Disk Access)</strong>에 추가 통제를 도입하겠다고 발표했습니다. 백업 앱 등에 필요했던 이 권한은 파일뿐 아니라 메일·메시지·브라우징 기록에도 폭넓게 접근할 수 있게 합니다. Apple은 AI 에이전트가 스스로 더 많은 행동을 할수록 이 권한의 위험도 커진다고 설명합니다. <a class="source-link" href="https://developer.apple.com/news/?id=p6zjojqw" target="_blank" rel="noopener noreferrer">Apple Developer 원문 ↗</a></p>
+          <p>Apple은 사용자가 이 권한을 줄 때 명확하게 동의하도록 절차를 바꿀 계획입니다. <strong>앞으로 도입할 변경</strong>이며, 해당 공지에서는 적용 버전과 일정, 구체적인 승인 화면까지 확인할 수는 없습니다.</p>
           <div class="ol-permission-band"><span>에이전트의 행동 규칙</span><b aria-hidden="true">＋</b><span>플랫폼의 계정·도구 권한</span><b aria-hidden="true">＋</b><span>OS의 파일 접근 권한</span></div>
-          <p>모임의 관점에서 보면 세 층을 함께 확인할 이유가 있습니다. 앱 안에서 제한을 설정했더라도, 그 앱이 운영체제에서 매우 넓은 접근 권한을 가지고 있다면 실제로 읽을 수 있는 데이터의 범위는 별도로 살펴야 합니다.</p>
+          <p>AI에게 어떤 일을 허용할지 정할 때는 앱 안의 규칙과 계정 권한, 운영체제의 파일 접근 권한을 함께 살펴야 합니다. 앱 내부의 설정만으로는 그 앱이 실제로 어디까지 읽을 수 있는지 알기 어렵기 때문입니다.</p>
         </section>
 
         <section id="our-view" class="news-story-section">
-          <p class="news-section-label">HELLO, HUMAN'S VIEW</p><h2>모델이 바뀌어도<br>업무의 규칙과 기록은 이어지도록</h2>
-          <p>Reflection은 모델의 효율을, Together는 기존 작업 환경과 모델의 연결을, Cohere는 기업 전체의 사용과 권한을, GitHub는 반복 실행되는 업무와 기록을 다룹니다. 서로 같은 제품을 만드는 것은 아니지만, <strong>모델을 운영 가능한 업무 시스템으로 묶는 문제</strong>와 만나고 있습니다.</p>
+          <p class="news-section-label">HELLO, HUMAN'S VIEW</p><h2>모델을 바꿔도<br>업무 규칙과 기록은 유지되어야 합니다</h2>
+          <p>Reflection은 모델이 쓰는 연산을 줄이고, Cohere는 기업의 사용량과 권한을 관리합니다. Together는 쓰던 도구에 다른 모델을 연결하고, GitHub는 할 일과 처리 기록을 남깁니다. 이 소식들을 함께 보면 <strong>AI를 업무에 쓰려면 모델 성능과 운영 방식을 함께 살펴야 한다</strong>는 점이 드러납니다.</p>
           <figure class="ol-figure ol-architecture" aria-labelledby="architecture-title">
-            <span class="ol-eyebrow">헬로우 휴먼의 설계 제안 · 특정 제품 내부 구조 아님</span><h3 id="architecture-title">모델의 제안과 실제 실행 사이에 둘 것</h3>
+            <span class="ol-eyebrow">헬로우 휴먼의 설계 제안 · 설명용 개념도</span><h3 id="architecture-title">모델의 제안을 실제 작업으로 옮기는 과정</h3>
             <div class="ol-intent"><strong>사람이 정한 목표와 업무 순서</strong><span>완료 조건 · 맡길 범위 · 예외 처리</span></div>
-            <div class="ol-runtime"><strong>실행 환경 / 하네스</strong><p>다음 작업을 정하고, 모델 응답을 받아, 허용된 도구를 실행합니다.</p></div>
+            <div class="ol-runtime"><strong>실행 환경 / 하네스</strong><p>모델에 다음 행동을 묻고, 응답을 바탕으로 허용된 도구를 실행합니다.</p></div>
             <div class="ol-branches">
-              <div><span>응답을 주고받음 ↕</span><strong>모델 선택 → 모델</strong><small>계획·판단·코드 생성</small></div>
-              <div class="ol-human"><span>실행 전 검사 → 결과 반환</span><strong>권한·승인 → 업무 도구</strong><small>파일·API·업무 시스템 변경</small></div>
+              <div><span>요청과 응답 ↕</span><strong>모델 선택 → 모델</strong><small>계획·판단·코드 생성</small></div>
+              <div class="ol-human"><span>실행과 결과 확인</span><strong>권한·승인 → 업무 도구</strong><small>파일 수정·업무 시스템 처리</small></div>
             </div>
-            <div class="ol-ledger"><strong>모든 단계에서 함께 관리</strong><span>상태 · 예산 · 시간 · 결과 근거 · 감사 기록</span></div>
-            <figcaption>모델이 업무 시스템을 바로 바꾸는 일렬 구조가 아닙니다. 실행 환경이 모델 호출과 도구 실행을 오가며, 필요한 검사와 승인을 사이에 둡니다.</figcaption>
+            <div class="ol-ledger"><strong>작업 내내 관리할 항목</strong><span>진행 상황 · 예산 · 시간 · 결과와 근거 · 실행 이력</span></div>
+            <figcaption>실행 환경은 모델에 판단을 요청하고, 필요한 검사와 승인을 거쳐 도구를 실행합니다. 이 과정을 반복하며 작업을 진행합니다. 특정 제품의 내부 구조를 나타낸 그림은 아닙니다.</figcaption>
           </figure>
-          <p>주문 시스템의 데이터베이스를 바꾸더라도 주문의 완료 조건을 새로 정의하지는 않습니다. AI에서도 모델 교체와 업무 규칙을 분리할 수 있어야 합니다. 다만 <strong>교체 가능하게 설계했다는 것과 아무 모델이나 같은 품질로 작동한다는 것은 다릅니다.</strong> 모델을 바꿀 때 도구 사용, 출력 형식, 실패 처리에 대한 검증은 다시 필요합니다.</p>
-          <p>Workless Engineering이 줄이려는 것은 반복 작업입니다. 한 번 좋은 답을 받는 것에서 더 나아가, 작업이 들어오고 실패하고 다시 처리되는 동안 사람의 반복 개입이 실제로 줄어드는지 봐야 합니다. 그 판단에 필요한 것이 예산과 권한, 작업 상태와 검증 기록입니다.</p>
+          <p>어떤 모델을 쓰든 업무의 완료 기준과 승인 절차, 처리 기록은 유지할 수 있어야 합니다. 이런 규칙을 모델과 분리해두면 모델을 바꿀 때마다 업무 절차 전체를 다시 만들 필요가 줄어듭니다. 다만 <strong>새 모델이 도구를 제대로 사용하고, 정해진 형식으로 답하며, 실패에 적절히 대응하는지</strong>는 다시 확인해야 합니다.</p>
+          <p>Workless Engineering이 줄이려는 것은 사람이 되풀이하는 일입니다. AI가 한 번 좋은 답을 냈는지에 더해, 오류를 고치고 다시 지시하는 시간까지 줄었는지 살펴야 합니다. 비용과 처리 기록을 남기는 이유도 실제로 일이 줄었는지 판단하기 위해서입니다.</p>
         </section>
 
         <section id="experiment" class="news-story-section">
-          <p class="news-section-label">SMALL EXPERIMENT</p><h2>작은 실험,<br>모델 단가 대신 완료 비용 비교하기</h2>
-          <p>가상 Java/Spring 프로젝트에 작업 20개를 준비해볼 수 있습니다. 데이터를 전달하는 객체(DTO) 추가·테스트 작성처럼 범위가 좁은 작업 10개와, 여러 처리를 한꺼번에 확정하는 트랜잭션의 오류·여러 모듈의 영향 분석처럼 맥락을 많이 읽는 작업 10개입니다. 이는 <strong>아직 수행하지 않은 모임 실험 제안</strong>입니다.</p>
+          <p class="news-section-label">SMALL EXPERIMENT</p><h2>같은 작업 20개로<br>일을 끝내는 데 드는 비용 비교하기</h2>
+          <p>이 차이를 확인하기 위해 모임에서 작은 비교 실험을 해볼 수 있습니다. <strong>아직 실행하지 않은 제안</strong>입니다. 가상의 Java/Spring 프로젝트에 작업 20개를 준비합니다. 데이터 전달용 객체를 추가하거나 테스트를 작성하는 작은 작업 10개, 여러 기능에 걸친 오류를 찾거나 변경의 영향을 분석하는 복잡한 작업 10개로 나눕니다.</p>
           <ol class="ol-experiment">
-            <li><strong>통과 기준부터 고정합니다.</strong> 각 작업의 기대 결과, 확인할 테스트, 재시도·시간 한도를 미리 적습니다. 결과를 본 뒤 ‘쉬운 작업’으로 분류하지 않습니다.</li>
-            <li><strong>같은 20개를 두 방식으로 실행합니다.</strong> 한쪽은 고성능 모델로 고정하고, 다른 쪽은 미리 정한 규칙으로 모델을 고릅니다. 같은 초기 코드·도구 권한으로 시작하고, 캐시 조건도 기록합니다.</li>
-            <li><strong>실패와 사람의 개입까지 남깁니다.</strong> 테스트 통과와 사람의 최종 검토를 구분합니다. 더 강한 모델로 다시 보낸 비용과 사람이 고친 시간도 해당 작업에 포함합니다.</li>
+            <li><strong>작업 분류와 완료 기준을 먼저 정합니다.</strong> 각 작업의 기대 결과, 확인할 테스트, 재시도 횟수와 시간 한도를 미리 적습니다. 작업 난이도도 결과를 보기 전에 분류합니다.</li>
+            <li><strong>같은 20개를 두 방식으로 실행합니다.</strong> 한쪽은 모든 작업에 고성능 모델을 씁니다. 다른 쪽은 미리 정한 규칙에 따라 모델을 고릅니다. 두 방식 모두 같은 코드와 도구 권한으로 시작하고, 캐시 사용 조건도 기록합니다.</li>
+            <li><strong>실패한 시도와 사람이 도운 시간도 기록합니다.</strong> 자동 테스트 결과와 사람의 최종 검토 결과를 각각 남깁니다. 더 강한 모델로 재시도한 비용과 사람이 고친 시간도 해당 작업에 포함합니다.</li>
           </ol>
           <dl class="ol-metrics">
-            <div><dt>성공률</dt><dd>사전에 정한 완료 기준을 충족한 작업 수 / 전체 20개</dd></div>
-            <div><dt>작업당 모델 비용</dt><dd>실패·재시도를 포함한 총 API 비용 / 전체 20개</dd></div>
-            <div><dt>완료 시간</dt><dd>대기와 재시도를 포함한 경과 시간, 미완료는 별도 표기</dd></div>
+            <div><dt>성공률</dt><dd>미리 정한 완료 기준을 충족한 작업 수 ÷ 전체 20개</dd></div>
+            <div><dt>작업당 모델 비용</dt><dd>실패·재시도를 포함한 총 API 비용 ÷ 전체 20개</dd></div>
+            <div><dt>완료 시간</dt><dd>대기와 재시도를 포함해 끝날 때까지 걸린 시간. 미완료 작업은 별도 표기</dd></div>
             <div><dt>사람이 쓴 시간</dt><dd>검토·수정·재지시에 실제로 든 시간</dd></div>
-            <div><dt>경로 선택의 적절성</dt><dd>저비용 경로의 실패·재배정 비율과, 같은 작업의 두 경로 품질 비교</dd></div>
+            <div><dt>모델 선택이 적절했는지</dt><dd>저비용 모델의 실패·모델 변경 비율과 두 방식의 결과 품질 비교</dd></div>
           </dl>
-          <p>품질 기준을 통과한 작업 수로 총비용을 나눈 <strong>성공 한 건당 비용</strong>도 함께 보면 실패를 빼고 절감률을 계산하는 실수를 줄일 수 있습니다. 성공이 한 건도 없으면 이 값은 계산할 수 없으며 실패 자체를 결과로 남깁니다. 사람의 시간을 돈으로 환산하려면 동일한 가정과 별도 계산을 밝혀야 합니다.</p>
-          <p>경로 선택의 오류율 하나가 낮다고 좋은 시스템이 완성된 것은 아닙니다. 저비용 모델의 실패를 빨리 발견하는지, 더 강한 모델도 풀지 못하는 일을 사람에게 넘기는지, 정한 예산 안에서 멈추는지까지 살펴봐야 합니다.</p>
-          <p class="ol-closing">다음 모델을 고르는 기준에<br><strong>일을 끝내는 비용과 멈추는 조건</strong>을 더해봅시다.</p>
+          <p><strong>성공 한 건당 모델 비용</strong>도 함께 계산합니다. 실패와 재시도를 포함한 총 API 비용을 완료 기준을 통과한 작업 수로 나누는 값입니다. 이렇게 해야 실패한 시도의 비용까지 반영할 수 있습니다. 성공이 한 건도 없으면 이 값은 계산하지 않고, 전부 실패했다고 기록합니다.</p>
+          <p>사람이 검토하고 수정한 시간은 별도로 비교합니다. 시간까지 금액으로 환산하려면 두 방식에 같은 시간당 비용을 적용하고, 계산 기준을 밝혀야 합니다.</p>
+          <p>결과를 볼 때는 비용과 함께 실패에 대응하는 방식도 살펴봅니다. 저비용 모델의 실패를 빨리 발견했는지, 더 강한 모델도 풀지 못한 일을 사람에게 넘겼는지, 정한 예산 안에서 멈췄는지가 그 기준입니다.</p>
+          <p class="ol-closing">AI에게 일을 맡길 때는<br><strong>끝내는 데 드는 비용과 멈춰야 할 조건</strong>도 함께 정해봅시다.</p>
         </section>
 
         <section id="sources" class="news-sources" aria-labelledby="sources-heading">
           <h2 id="sources-heading">읽은 자료</h2>
           <ul>
-            <li><a href="https://reflection.ai/blog/introducing-beam" target="_blank" rel="noopener noreferrer">Reflection, Beam 공식 발표 ↗</a> <span>10월 5일 · 사양·자체 평가·공개 예정 상태</span></li>
-            <li><a href="https://cohere.com/ko/blog/introducing-north-2" target="_blank" rel="noopener noreferrer">Cohere, North 2 공식 한국어 발표 ↗</a> · <a href="https://cohere.com/blog" target="_blank" rel="noopener noreferrer">공식 발표 목록 ↗</a> <span>10월 5일 · 기능·운영 통제</span></li>
-            <li><a href="https://www.together.ai/blog/together-link-frontier-quality-open-models-in-the-harness-you-already-use" target="_blank" rel="noopener noreferrer">Together AI, Together Link 발표 ↗</a> <span>10월 5일 · 연결 방식·회사 비용 주장</span></li>
-            <li><a href="https://docs.together.ai/docs/togetherlink" target="_blank" rel="noopener noreferrer">Together Link 개발 문서 ↗</a> · <a href="https://www.together.ai/link" target="_blank" rel="noopener noreferrer">제품 안내 ↗</a> <span>10월 6일 확인 · 라우팅 단위 설명 차이 있음</span></li>
+            <li><a href="https://reflection.ai/blog/introducing-beam" target="_blank" rel="noopener noreferrer">Reflection, Beam 공식 발표 ↗</a> <span>10월 5일 · 사양·자체 평가·공개 계획</span></li>
+            <li><a href="https://cohere.com/ko/blog/introducing-north-2" target="_blank" rel="noopener noreferrer">Cohere, North 2 공식 한국어 발표 ↗</a> · <a href="https://cohere.com/blog" target="_blank" rel="noopener noreferrer">공식 발표 목록 ↗</a> <span>10월 5일 · 주요 기능·사용량과 권한 관리</span></li>
+            <li><a href="https://www.together.ai/blog/together-link-frontier-quality-open-models-in-the-harness-you-already-use" target="_blank" rel="noopener noreferrer">Together AI, Together Link 발표 ↗</a> <span>10월 5일 · 모델 연결 방식·회사가 제시한 절감률</span></li>
+            <li><a href="https://docs.together.ai/docs/togetherlink" target="_blank" rel="noopener noreferrer">Together Link 개발 문서 ↗</a> · <a href="https://www.together.ai/link" target="_blank" rel="noopener noreferrer">제품 안내 ↗</a> <span>10월 6일 확인 · 모델 선택 시점에 관한 설명이 서로 다름</span></li>
             <li><a href="https://github.com/github/gh-aw/releases/tag/v0.90.3" target="_blank" rel="noopener noreferrer">GitHub Agentic Workflows v0.90.3 ↗</a> <span>10월 3일 · 사전 릴리스·기능의 적용 범위</span></li>
             <li><a href="https://github.github.com/gh-aw/blog/2026-10-05-weekly-update/" target="_blank" rel="noopener noreferrer">GitHub Agentic Workflows 주간 업데이트 ↗</a> <span>10월 5일 · 버전별 변경 구분</span></li>
             <li><a href="https://developer.apple.com/news/?id=p6zjojqw" target="_blank" rel="noopener noreferrer">Apple, macOS Full Disk Access 변경 예고 ↗</a> <span>10월 2일 · 향후 추가 통제 계획</span></li>
           </ul>
-          <p>도식은 사실의 관계를 설명하기 위해 직접 구성했습니다. 제품의 실제 화면이나 내부 설계도, 실행 결과가 아닙니다. Cohere는 확인한 공식 한국어 원문을, 나머지는 확인한 영문 자료를 연결했습니다.</p>
+          <p>도식은 이해를 돕기 위해 만든 설명용 그림입니다. 제품의 실제 화면이나 내부 설계도, 실행 결과를 보여주지는 않습니다. Cohere는 공식 한국어 발표를, 나머지는 확인한 영문 자료를 연결했습니다.</p>
         </section>
         <a class="news-end-link" href="./">AI뉴스 목록으로 돌아가기 <span aria-hidden="true">→</span></a>
       </div>
