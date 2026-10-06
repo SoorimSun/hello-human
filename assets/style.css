@@ -53,9 +53,6 @@
 
 /* ---------- base ---------- */
 
-/* 뉴스레터 공개 전 숨김. 2026-10-06 활성화 시 이 규칙을 제거합니다. */
-[data-newsletter-entry] { display: none !important; }
-
 *, *::before, *::after { box-sizing: border-box; }
 
 html {
