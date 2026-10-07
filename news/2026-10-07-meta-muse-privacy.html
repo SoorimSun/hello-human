@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>메타 Muse의 귀여운 얼굴 뒤, 개인정보와 권한의 문제 · AI뉴스 · 헬로우 휴먼</title>
+<meta name="description" content="메타의 AI 비서 Muse에서 무슨 일이 있었을까요? 보안 결함부터 메시지·중고거래 논란까지, Techdirt 보도와 후속 설명을 바탕으로 AI에게 어디까지 맡길 수 있을지 살펴봅니다.">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="헬로우 휴먼">
+<meta property="og:url" content="https://soorimsun.github.io/hello-human/news/2026-10-07-meta-muse-privacy.html">
+<meta property="og:title" content="메타 Muse의 귀여운 얼굴 뒤, 개인정보와 권한의 문제">
+<meta property="og:description" content="보안 결함부터 메시지·중고거래 논란까지, AI 비서에게 어디까지 맡길 수 있을까요?">
+<meta property="og:image" content="https://media.wired.com/photos/6abda258fa5a1bd6e2b21507/master/w_2560%2Cc_limit/Kernel-Panic-Muse-AI-Self-PWN-Security.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1232">
+<meta property="og:image:height" content="1232">
+<meta property="og:image:alt" content="붉은 배경의 Muse 아바타 자료 이미지. Photo-Illustration: WIRED Staff; Getty Images.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="메타 Muse의 귀여운 얼굴 뒤, 개인정보와 권한의 문제">
+<meta name="twitter:description" content="보안 결함부터 메시지·중고거래 논란까지, AI 비서에게 어디까지 맡길 수 있을까요?">
+<meta name="twitter:image" content="https://media.wired.com/photos/6abda258fa5a1bd6e2b21507/master/w_2560%2Cc_limit/Kernel-Panic-Muse-AI-Self-PWN-Security.jpg">
+<meta name="twitter:image:alt" content="붉은 배경의 Muse 아바타 자료 이미지. Photo-Illustration: WIRED Staff; Getty Images.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+<script src="../assets/theme.js?v=3"></script>
+<link rel="stylesheet" href="../assets/style.css?v=9">
+<link rel="stylesheet" href="../assets/news.css?v=10">
+<link rel="stylesheet" href="../assets/news-flash.css?v=1">
+<link rel="stylesheet" href="../assets/news-muse.css?v=1">
+<link rel="stylesheet" href="../assets/content-updates.css?v=1">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+    <nav class="news-nav" aria-label="사이트 메뉴">
+      <a href="../">모임 소개</a>
+      <a href="./" aria-current="page">AI뉴스</a>
+      <a href="../guides/">AI가이드</a>
+      <a href="../insights/">인사이트</a>
+      <a href="../case-studies/">사례연구</a>
+      <a data-newsletter-entry href="../newsletters/">뉴스레터</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <article class="news-flash" aria-labelledby="flash-title">
+    <header class="news-article-header news-flash-header wrap">
+      <a class="news-back" href="./#briefs">← AI뉴스 속보·단신</a>
+      <p class="news-kicker"><span class="news-flash-badge">AI 단신</span> HELLO, HUMAN! / BRIEF 06</p>
+      <h1 id="flash-title">메타 Muse의 귀여운 얼굴 뒤,<br><em>개인정보와 권한의 문제</em></h1>
+      <p class="news-deck">메시지를 읽고 거래를 돕는 AI 비서, 우리는 어디까지 허락한 걸까요?</p>
+      <div class="news-article-meta"><time datetime="2026-10-07">2026년 10월 7일</time><span>헬로우 휴먼 AI뉴스 · 단신 해설</span><span>약 6분</span></div>
+    </header>
+    <div class="news-flash-shell news-story wrap">
+      <p>식당을 예약하고, 장을 보고, 번거로운 일을 대신 처리해 주는 귀여운 AI 비서. 메타가 <strong>Muse(뮤즈)</strong>를 소개하며 그리는 모습입니다. 질문에 답하는 데서 그치지 않고, 사용자를 대신해 여러 앱에서 일을 처리하는 AI입니다. 그러려면 메일과 메시지를 읽고 계정이나 결제 기능을 이용할 권한도 필요하겠죠. <strong>편리함을 얻는 만큼, AI가 볼 수 있는 정보와 할 수 있는 일도 늘어납니다.</strong> <a class="source-link" href="https://about.fb.com/ko/news/2026/09/introducing-muse-the-worlds-first-personal-ai-agent-built-for-everyone/" target="_blank" rel="noopener noreferrer">메타의 Muse 소개 ↗</a></p>
+      <p>10월 6일 IT 매체 Techdirt는 Muse 출시 이후 불거진 보안 결함과 개인정보 논란을 짚었습니다. <strong>안전한 AI 비서를 만들겠다는 약속을 제대로 지켰느냐</strong>는 비판입니다. 기사에는 메시지 읽기부터 중고거래까지 여러 사례가 등장합니다. 각각 무슨 일이 있었는지, 이후 어떤 설명이 나왔는지 함께 살펴봤습니다. <a class="source-link" href="https://www.techdirt.com/2026/10/06/metas-muse-is-an-adorable-privacy-and-security-dumpster-fire/" target="_blank" rel="noopener noreferrer">Techdirt 원문 ↗</a></p>
+
+      <figure class="muse-photo">
+        <a href="https://www.wired.com/story/muse-creates-detailed-profiles-of-all-your-friends-and-family/" target="_blank" rel="noopener noreferrer" aria-label="Muse 이미지가 실린 WIRED 원문 열기">
+          <img src="https://media.wired.com/photos/6abda258fa5a1bd6e2b21507/master/w_2560%2Cc_limit/Kernel-Panic-Muse-AI-Self-PWN-Security.jpg" alt="행사 화면에 등장한 Muse의 둥글고 흰 아바타를 붉은 배경으로 구성한 자료 이미지" width="1232" height="1232" decoding="async" fetchpriority="high">
+        </a>
+        <figcaption>Muse 아바타를 담은 WIRED의 자료 이미지. Photo-Illustration: WIRED Staff; Getty Images.<br><a href="https://www.wired.com/story/muse-creates-detailed-profiles-of-all-your-friends-and-family/" target="_blank" rel="noopener noreferrer">WIRED 게재 원문 ↗</a></figcaption>
+      </figure>
+
+      <section class="muse-section" aria-labelledby="incidents-title">
+        <p class="news-section-label">세 가지 사례로 살펴보기</p>
+        <h2 id="incidents-title">Muse에서는 무슨 일이 있었을까요?</h2>
+        <h3>Mac 앱에서 보안 결함이 발견됐습니다</h3>
+        <p>보안 연구자 패트릭 워들은 Mac용 Muse에서 다른 프로그램이 악용할 수 있는 결함을 발견했습니다. Muse의 설정을 바꿔 <strong>‘토큰’이라고 부르는 로그인용 정보를 빼낼 수 있었다</strong>는 것입니다. 토큰은 계정에 들어가는 열쇠와 같습니다. 공격자가 이 열쇠를 손에 넣으면 Muse를 자기 뜻대로 움직이고, 사용자가 Muse에 허용한 기능까지 이용할 수 있습니다. <a class="source-link" href="https://arstechnica.com/security/2026/09/muse-metas-extraordinarily-privileged-ai-assistant-has-a-serious-0-day/" target="_blank" rel="noopener noreferrer">Ars Technica의 취재 보도 ↗</a></p>
+        <p>이 결함을 이용하려면 먼저 사용자의 Mac에서 공격자가 준비한 프로그램이나 명령이 실행돼야 했습니다. 문제는 <strong>권한이 적은 프로그램이 Muse를 통해 더 큰 권한을 얻을 수 있었다</strong>는 점입니다. 메타는 이후 이 결함을 고친 긴급 업데이트를 배포했다고 밝혔습니다.</p>
+
+        <h3>‘메시지를 읽어도 된다’고 허락했는지를 두고 말이 엇갈렸습니다</h3>
+        <p>Inc. 칼럼니스트 제이슨 에이튼은 Muse가 동료와 나눈 사적인 대화를 보고 기사 아이디어를 제안했다고 썼습니다. 그는 <strong>메시지를 읽도록 허락한 적이 없다</strong>고 했습니다. Muse에 어떻게 알았는지 묻자 ‘알림만 봤다’고 답했지만, 확인해 보니 메시지 기록이 Muse 쪽으로 복사돼 있었다는 주장입니다. <a class="source-link" href="https://www.inc.com/jason-aten/metas-new-muse-ai-agent-read-my-private-messages-i-never-asked-it-to/91408202" target="_blank" rel="noopener noreferrer">당사자의 경험담 ↗</a></p>
+        <p>메타의 설명은 달랐습니다. Mac의 파일에 폭넓게 접근할 수 있는 <strong>‘전체 디스크 접근’ 권한과 Muse 앱의 메시지 연결을 사용자가 모두 켜야</strong> 메시지를 읽을 수 있다는 것입니다. 당시 어떤 설정이 언제 켜졌는지는 공개된 자료만으로 확인하기 어렵습니다. Muse가 Mac의 보안 장치를 뚫었는지, 권한을 설정하는 과정에서 혼선이 있었는지는 아직 결론을 내리기 어렵습니다. 자세한 경위는 <a href="2026-10-01-meta-muse-messages.html">앞선 단신</a>에서도 다뤘습니다. <a class="source-link" href="https://thenextweb.com/news/meta-muse-private-messages-denial-jason-aten" target="_blank" rel="noopener noreferrer">메타의 해명을 전한 후속 보도 ↗</a></p>
+        <p>이후 <strong>애플도 10월 2일 전체 디스크 접근 권한의 위험을 지적</strong>했습니다. 사용자가 충분히 이해하지 못한 채 이 권한을 주면 자신의 정보는 물론 대화 상대의 개인정보까지 노출될 수 있다는 것입니다. 애플은 권한을 켤 때 사용자의 의사를 더 분명하게 확인하도록 절차를 강화하겠다고 예고했습니다. Muse를 직접 지목한 공지는 아니며, <strong>실제 변경은 앞으로 적용할 계획</strong>입니다. <a class="source-link" href="https://developer.apple.com/news/?id=p6zjojqw" target="_blank" rel="noopener noreferrer">애플 개발자 공지 ↗</a></p>
+
+        <h3>‘항상 허용’을 눌렀더니 거래 상대에게 주소가 전달됐습니다</h3>
+        <p>유튜버 맷 롭은 Muse에 중고거래를 맡겼다가, AI가 구매자에게 주소를 보내고 낮은 가격에 합의했다며 문제를 제기했습니다. 그는 나중에 <strong>‘항상 허용’을 선택했지만, 가격 제안을 받아들이기 전에는 다시 물어볼 줄 알았다</strong>고 설명했습니다. 낮은 가격에 합의한 것처럼 보였던 부분은 금액 표시 오류였다는 후속 설명도 나왔고, 메타는 이를 수정했다고 밝혔습니다. <a class="source-link" href="https://www.businessinsider.com/muse-agent-facebook-marketplace-address-setting-meta-always-allow-2026-9" target="_blank" rel="noopener noreferrer">Business Insider의 후속 취재 ↗</a></p>
+        <p>여기서 눈여겨볼 것은 <strong>사용자가 이해한 ‘허용’의 범위와 AI가 실제로 한 일 사이의 차이</strong>입니다. 메시지를 대신 보내도 된다는 허락에 주소 공유와 거래 확정까지 포함되는지, 사용자가 알 수 있어야 합니다. 버튼 하나를 눌렀다는 사실만으로 이 문제가 해결되지는 않습니다.</p>
+      </section>
+
+      <figure class="muse-flow" aria-labelledby="flow-title">
+        <figcaption><span class="news-section-label">개인정보가 쓰이는 과정</span><strong id="flow-title">읽어도 되는 정보와 보내도 되는 정보는 다릅니다</strong></figcaption>
+        <ol class="muse-steps">
+          <li><span class="muse-step">01 / READ</span><strong>내 정보 읽기</strong><p>메일·메시지·일정 등<br>허용한 자료를 읽습니다.</p><p class="muse-question">어디까지 읽는지<br>내가 알고 있을까요?</p></li>
+          <li><span class="muse-step">02 / REMEMBER</span><strong>기억으로 남기기</strong><p>사람과의 관계나 할 일을<br>정리해 저장합니다.</p><p class="muse-question">기억을 고치거나 지울 수 있을까요?<br>대화 상대의 정보도 들어갈까요?</p></li>
+          <li><span class="muse-step">03 / ACT</span><strong>연락하고 거래하기</strong><p>답장을 보내거나<br>예약·구매를 진행합니다.</p><p class="muse-question">누구에게 무엇을 보내고<br>얼마까지 써도 될까요?</p></li>
+        </ol>
+        <p class="muse-caption">공식 설명과 관련 보도를 바탕으로, 단계별로 살펴볼 점을 정리했습니다.</p>
+      </figure>
+
+      <section class="muse-section" aria-labelledby="memory-title">
+        <p class="news-section-label">보안 결함이 없어도 남는 질문</p>
+        <h2 id="memory-title">나를 기억하는 비서는, 내 주변 사람도 기억합니다</h2>
+        <p>WIRED는 Muse의 내부 지침을 살펴보다가 <strong>가족·친구·동료 등 주변 사람의 정보를 각각 정리하도록 한 내용</strong>을 확인했습니다. 메타는 공개된 정보와 사용자가 공유한 내용을 바탕으로 사람들과의 관계를 기억해야 유용한 도움을 줄 수 있다고 설명했습니다. 이 보도는 Muse가 정보를 정리하는 방식을 다룬 것으로, 모든 사용자의 지인 정보가 실제로 얼마나 수집됐는지를 조사한 결과는 아닙니다. <a class="source-link" href="https://www.wired.com/story/muse-creates-detailed-profiles-of-all-your-friends-and-family/" target="_blank" rel="noopener noreferrer">WIRED의 분석과 메타 답변 ↗</a></p>
+        <p>일정이나 지난 대화를 매번 다시 설명하지 않아도 된다면 분명 편리할 것입니다. 그런데 내 메시지를 AI에 연결하면 <strong>상대방이 보낸 이야기도 함께 들어갑니다.</strong> 나는 동의했지만 상대방은 자신의 이야기가 AI에 저장된다는 사실을 모를 수 있죠. 개인정보를 어디까지 맡길지 생각할 때, 내 정보뿐 아니라 대화 상대의 정보도 함께 고려해야 하는 이유입니다.</p>
+        <p>정보가 어디에 쓰이는지도 살펴볼 필요가 있습니다. 메타는 Muse와 나눈 대화나 작업 공간의 데이터를 광고 시스템에 공유하지 않는다고 설명합니다. 한편 사용자의 대화 등을 <strong>AI 학습에 쓰지 않도록 하는 설정</strong>도 따로 안내합니다. 광고에 쓰이는지와 AI를 학습시키는 데 쓰이는지는 별도로 확인해야 한다는 뜻입니다. <a class="source-link" href="https://about.fb.com/ko/news/2026/09/introducing-muse-the-worlds-first-personal-ai-agent-built-for-everyone/" target="_blank" rel="noopener noreferrer">메타의 데이터 활용·설정 안내 ↗</a></p>
+      </section>
+
+      <section class="muse-section" aria-labelledby="boundary-title">
+        <p class="news-section-label">AI가 움직일 수 있는 범위</p>
+        <h2 id="boundary-title">관리자 권한을 얻으면 어디까지 할 수 있을까요?</h2>
+        <p>Techdirt에는 Muse를 설득해 관리자 권한을 얻었다는 사례도 나옵니다. 이때 중요한 것은 <strong>그 권한으로 어디까지 들어갈 수 있느냐</strong>입니다. 메타의 설계에 따르면 Muse는 다른 시스템과 분리된 작업 공간에서 움직입니다. 그 안에서 갖는 강한 관리 권한을 ‘root(루트)’라고 부르는데, 이 권한은 해당 공간 안에서만 쓰도록 제한돼 있습니다. <a class="source-link" href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse" target="_blank" rel="noopener noreferrer">메타의 실행 환경 설명 ↗</a></p>
+        <figure class="muse-boundary" aria-labelledby="boundary-figure-title">
+          <figcaption id="boundary-figure-title">내 작업실 안의 열쇠와 건물 전체의 열쇠는 다릅니다</figcaption>
+          <div class="muse-boundary-grid">
+            <div><span class="muse-boundary-label">허용된 작업 공간</span><h3>내 파일을 보고 프로그램 실행하기</h3><p>자기 작업실 안의 물건을 꺼내 쓰는 것과 같습니다. 이 안에서 관리자 권한이 있다고 해서 다른 공간까지 들어갈 수 있는 것은 아닙니다.</p></div>
+            <div><span class="muse-boundary-label">허용된 범위 밖</span><h3>다른 사람의 공간이나 운영 시스템에 들어가기</h3><p>허락 없이 건물의 다른 방까지 들어가는 셈입니다. AI가 이런 경계를 넘을 수 있다면 보안 문제로 다뤄야 합니다.</p></div>
+          </div>
+          <p class="muse-caption">메타의 공개 설계를 작업실과 건물에 빗대어 설명했습니다.</p>
+        </figure>
+        <p>10월 5일 404 Media가 보도한 것은 바로 이 경계를 넘어갈 수 있는 보안 결함입니다. 매체는 내부 문서와 익명 관계자를 근거로, 일부 결함을 이용하면 <strong>Muse의 작업 공간을 벗어나 메타 내부 시스템까지 접근할 수 있었다</strong>고 전했습니다. 메타가 출시를 앞두고 이 문제들을 서둘러 수정했다는 내용입니다. 메타는 테스트와 보안 연구를 통해 보호 장치를 계속 강화하고 있다고 답했습니다. <a class="source-link" href="https://www.404media.co/meta-rushed-to-fix-muse-vm-escape-vulnerability-immediately-before-launch/" target="_blank" rel="noopener noreferrer">404 Media의 취재 보도 ↗</a></p>
+        <p>여기서 따져야 할 것은 <strong>AI가 허용된 공간 안에 머물도록 만든 장치가 실제로 작동하느냐</strong>입니다. 다만 이 기사는 출시 전 결함을 발견하고 수정한 과정을 다룬 보도입니다. 현재 대규모 정보유출이 일어났다는 보도와는 구분해서 읽어야 합니다.</p>
+      </section>
+
+      <section class="muse-section" aria-labelledby="protections-title">
+        <p class="news-section-label">메타가 내놓은 보호 장치</p>
+        <h2 id="protections-title">메타는 어떤 방식으로 보호한다고 설명할까요?</h2>
+        <p>메타는 사용자마다 인터넷에 별도의 작업용 컴퓨터를 마련합니다. 이를 <strong>가상 컴퓨터(VM)</strong>라고 부릅니다. 비밀번호는 따로 보관하고, 민감한 일을 할 때는 사용자의 승인을 받으며, 무슨 일을 했는지 기록으로 남긴다는 설명입니다. <strong>Sentinel(센티널)</strong>이라는 별도의 AI가 Muse의 외부 행동을 확인하고 허용 여부를 판단한다고도 합니다. 이런 장치들이 각각의 사건에서 제대로 작동했는지는 별도로 확인할 문제입니다. <a class="source-link" href="https://about.fb.com/ko/news/2026/09/introducing-muse-the-worlds-first-personal-ai-agent-built-for-everyone/" target="_blank" rel="noopener noreferrer">메타 공식 한국어 설명 ↗</a></p>
+        <p>또 하나 살펴볼 점은 <strong>메타도 내 정보를 볼 수 있느냐</strong>입니다. 현재 구조에서는 서비스 운영 등에 필요할 때 메타가 데이터에 접근할 수 있습니다. 메타조차 내용을 볼 수 없도록 하겠다는 기능은 ‘Muse Confidential VM’이라는 이름으로 <strong>올해 후반 제공을 예고한 상태</strong>입니다. 현재의 보호 장치와 앞으로 추가할 기능을 구분해 볼 필요가 있습니다. <a class="source-link" href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse" target="_blank" rel="noopener noreferrer">현재 구조와 Confidential VM 계획 ↗</a></p>
+      </section>
+
+      <aside class="news-flash-distinction muse-takeaway" aria-labelledby="takeaway-title">
+        <p class="news-section-label">헬로우 휴먼의 시선</p>
+        <h2 id="takeaway-title">편하게 맡기려면, 어디까지 맡길지부터 정해야 합니다</h2>
+        <p>AI가 내 메시지를 읽고 내 이름으로 거래까지 한다면, 작은 오해도 실제 피해로 이어질 수 있습니다. Techdirt의 비판도 결국 <strong>그만큼 큰 역할을 맡기는 제품에 충분한 보호 장치와 설명이 갖춰졌느냐</strong>는 질문으로 이어집니다. 보안 결함을 고치는 일과 사용자가 허용 범위를 이해하도록 돕는 일이 함께 필요합니다.</p>
+        <p>저희가 생각하는 개선 방향은 구체적입니다. 중고거래라면 AI가 시세를 조사하고 답장을 준비하되, <strong>사용자가 정한 최저 가격을 어기는 거래는 진행되지 않도록 막는 것</strong>입니다. 주소를 보낼 때도 누구에게 어떤 정보를 보내는지 확인하게 할 수 있겠죠. 무엇을 맡겨도 되고 어디서 다시 확인할지를 작업별로 정하는 방식입니다.</p>
+        <p>업무에서도 마찬가지입니다. 고객 문의를 읽고 답변 초안을 만드는 일과 실제로 환불하는 일에는 서로 다른 권한이 필요합니다. AI에게 ‘조심해 줘’라고 부탁하는 데서 나아가, <strong>설정으로 할 수 있는 일을 제한하고 기록으로 실제 행동을 확인할 수 있어야</strong> 안심하고 일을 맡길 수 있습니다.</p>
+      </aside>
+
+      <section class="news-flash-sources" aria-labelledby="flash-sources-title">
+        <h2 id="flash-sources-title">원문과 함께 확인한 자료</h2>
+        <a class="news-flash-original" href="https://www.techdirt.com/2026/10/06/metas-muse-is-an-adorable-privacy-and-security-dumpster-fire/" target="_blank" rel="noopener noreferrer"><span>TECHDIRT · 2026. 10. 06</span><strong>Karl Bode · Muse의 개인정보·보안 문제를 짚은 비평</strong><span class="news-flash-original-cta">원문 기사 읽기 ↗</span></a>
+        <ul>
+          <li><a href="https://about.fb.com/ko/news/2026/09/introducing-muse-the-worlds-first-personal-ai-agent-built-for-everyone/" target="_blank" rel="noopener noreferrer">Meta · Muse 소개와 보호 장치</a><span> · 공식 한국어 안내</span></li>
+          <li><a href="https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse" target="_blank" rel="noopener noreferrer">Meta AI Research · 현재 보안 구조와 향후 계획</a><span> · 2026. 09. 08</span></li>
+          <li><a href="https://arstechnica.com/security/2026/09/muse-metas-extraordinarily-privileged-ai-assistant-has-a-serious-0-day/" target="_blank" rel="noopener noreferrer">Ars Technica · Mac 취약점과 메타의 패치 발표</a></li>
+          <li><a href="https://www.inc.com/jason-aten/metas-new-muse-ai-agent-read-my-private-messages-i-never-asked-it-to/91408202" target="_blank" rel="noopener noreferrer">Inc. · 메시지 접근을 문제 삼은 당사자 글</a><span> · 2026. 09. 19</span></li>
+          <li><a href="https://thenextweb.com/news/meta-muse-private-messages-denial-jason-aten" target="_blank" rel="noopener noreferrer">The Next Web · 메타의 부인과 권한 설명</a><span> · 2026. 09. 30</span></li>
+          <li><a href="https://developer.apple.com/news/?id=p6zjojqw" target="_blank" rel="noopener noreferrer">Apple · 전체 디스크 접근 통제 강화 예고</a><span> · 2026. 10. 02</span></li>
+          <li><a href="https://www.businessinsider.com/muse-agent-facebook-marketplace-address-setting-meta-always-allow-2026-9" target="_blank" rel="noopener noreferrer">Business Insider · 중고거래 사례의 후속 설명</a><span> · 2026. 09. 29</span></li>
+          <li><a href="https://www.wired.com/story/muse-creates-detailed-profiles-of-all-your-friends-and-family/" target="_blank" rel="noopener noreferrer">WIRED · 주변 사람에 관한 기억과 개인정보</a><span> · 2026. 10. 03</span></li>
+          <li><a href="https://www.404media.co/meta-rushed-to-fix-muse-vm-escape-vulnerability-immediately-before-launch/" target="_blank" rel="noopener noreferrer">404 Media · 출시 전 격리 경계 취약점 수정 보도</a><span> · 2026. 10. 05</span></li>
+        </ul>
+        <p class="news-flash-verification">2026년 10월 7일(한국시간) 기준으로 Techdirt 원문, 당사자의 글과 후속 보도, 메타·애플의 공식 설명을 대조했습니다. 개별 기기의 권한 설정 기록이나 보안 업데이트의 효과를 직접 시험한 것은 아닙니다.</p>
+        <a class="news-end-link" href="./#briefs">다른 AI 단신 읽기 <span aria-hidden="true">→</span></a>
+      </section>
+    </div>
+  </article>
+</main>
+<footer class="footer"><div class="wrap">헬로우 휴먼 · Workless Engineering Club</div></footer>
+<script src="../assets/analytics.js?v=2" defer></script>
+<script type="module" src="../assets/content-updates.js?v=3"></script>
+</body>
+</html>

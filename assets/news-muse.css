@@ -1,0 +1,35 @@
+/* Muse 단신: 데이터 이동과 권한의 차이를 설명하는 도식 */
+.muse-photo { margin: 30px 0 38px; }
+.muse-photo > a { display: block; }
+.muse-photo img { display: block; width: 100%; height: auto; max-height: 460px; object-fit: contain; border-radius: 10px; background: var(--surface-2); }
+.muse-photo figcaption { margin-top: 10px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.muse-section { margin: 38px 0; }
+.muse-section > h2 { margin: 0 0 18px; font-size: clamp(23px, 3.5vw, 29px); line-height: 1.4; letter-spacing: -.03em; }
+.muse-section > h3 { margin: 26px 0 12px; font-size: 21px; line-height: 1.5; }
+.muse-flow { margin: 30px 0; padding: 26px 0; border-block: 1px solid var(--line); }
+.muse-flow figcaption > strong { display: block; margin: 8px 0 22px; font-size: 23px; line-height: 1.45; }
+.muse-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px; margin: 0; padding: 0; list-style: none; }
+.muse-steps li { position: relative; min-width: 0; padding-top: 15px; border-top: 3px solid var(--ink); }
+.muse-steps li:not(:last-child)::after { content: '→'; position: absolute; top: 42px; right: -20px; color: var(--muted); }
+.muse-step { display: block; color: var(--accent); font-family: var(--mono); font-size: 12px; }
+.muse-steps strong { display: block; margin: 9px 0; font-size: 19px; line-height: 1.45; }
+.muse-steps p { margin: 0; font-size: 14px; line-height: 1.7; }
+.muse-steps .muse-question { margin-top: 14px; color: var(--muted); font-size: 13px; }
+.muse-flow .muse-caption { margin: 23px 0 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.muse-boundary { margin: 27px 0; padding: 25px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.muse-boundary > figcaption { margin-bottom: 20px; font-size: 22px; font-weight: 700; line-height: 1.45; }
+.muse-boundary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+.muse-boundary-grid > div { min-width: 0; border-top: 3px solid var(--ink); padding-top: 15px; }
+.muse-boundary-grid h3 { margin: 7px 0 10px; font-size: 19px; line-height: 1.5; }
+.muse-boundary-grid p { margin: 0; font-size: 15px; line-height: 1.75; }
+.muse-boundary-label { color: var(--accent); font-size: 12px; font-weight: 700; }
+.muse-boundary .muse-caption { margin: 20px 0 0; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; line-height: 1.75; }
+.muse-takeaway p { font-size: 17px; line-height: 1.8; }
+@media (max-width: 540px) {
+  .muse-steps, .muse-boundary-grid { grid-template-columns: 1fr; }
+  .muse-steps { gap: 30px; }
+  .muse-steps li { padding: 13px 0 8px; }
+  .muse-steps li:not(:last-child)::after { content: '↓'; top: auto; bottom: -27px; right: auto; left: 0; }
+  .muse-boundary { padding: 20px; }
+  .muse-photo img { max-height: none; }
+}

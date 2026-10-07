@@ -42,14 +42,14 @@
   <section class="news-list-section wrap" aria-labelledby="news-list-heading">
     <div class="news-list-heading">
       <h2 id="news-list-heading">발행한 뉴스</h2>
-      <span>총 <span data-news-total>13</span>편</span>
+      <span>총 <span data-news-total>14</span>편</span>
     </div>
     <div class="news-tabs" role="tablist" aria-label="뉴스 종류" hidden>
       <button class="news-tab" type="button" role="tab" id="all-news" aria-controls="news-feed" aria-selected="true" data-news-filter="all">
-        전체 최신순 <span class="news-tab-count" data-news-count="all">13</span>
+        전체 최신순 <span class="news-tab-count" data-news-count="all">14</span>
       </button>
       <button class="news-tab" type="button" role="tab" id="briefs" aria-controls="news-feed" aria-selected="false" tabindex="-1" data-news-filter="briefs">
-        속보·단신 <span class="news-tab-count" data-news-count="briefs">5</span>
+        속보·단신 <span class="news-tab-count" data-news-count="briefs">6</span>
       </button>
       <button class="news-tab" type="button" role="tab" id="regular-news" aria-controls="news-feed" aria-selected="false" tabindex="-1" data-news-filter="regular-news">
         일반뉴스 <span class="news-tab-count" data-news-count="regular-news">8</span>
@@ -59,6 +59,16 @@
     <div id="news-feed">
       <!-- Add each article once, newest first; tabs filter this shared catalogue. -->
       <ol class="news-issues">
+        <li data-news-kind="briefs">
+          <a class="news-issue" href="2026-10-07-meta-muse-privacy.html">
+            <span class="news-issue-main">
+              <span class="news-issue-meta"><span class="news-kind news-kind-briefs">단신 06</span> <time datetime="2026-10-07">2026. 10. 07</time> · Muse / 개인정보·권한</span>
+              <strong>메타 Muse의 귀여운 얼굴 뒤, 개인정보와 권한의 문제</strong>
+              <span>보안 결함부터 메시지·중고거래 논란까지, AI 비서에게 어디까지 맡길 수 있을까요?</span>
+            </span>
+            <span class="news-issue-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
         <li data-news-kind="regular-news">
           <a class="news-issue" href="2026-10-06-agent-operating-layer.html">
             <span class="news-issue-main">
