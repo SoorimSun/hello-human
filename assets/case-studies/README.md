@@ -1,5 +1,31 @@
 # AI 사례연구 이미지 출처
 
+## 35mm-studio · 사례연구 05
+
+원작·이미지: Shan Hannadige. 제작기: https://shannadige.com/blog/darkroom/ (2026-10-02 게시).
+
+확인·저장: 2026-10-07. 제작기의 WebP 원본 4종을 수정 없이 저장했습니다. 앱을 직접 실행한 캡처가 아닙니다.
+
+| 파일 | 원본과 용도 |
+| --- | --- |
+| `darkroom-dust.webp` | https://shannadige.com/_astro/studio-dust.DpKR0CZa_Z1UaBey.webp · 2400×1500 검토 화면. 먼지 제거 절의 전체 화면과 부분 확대. |
+| `darkroom-studio.webp` | https://shannadige.com/_astro/studio-contact-sheet.gpPWZWTB_2lgeDQ.webp · 2400×2567 롤 목록 화면. 01절·홈·목록·공유 대표 이미지. |
+| `darkroom-negative.webp` | https://shannadige.com/_astro/neg-raw0002.CGyTqUJq_Z218Bfo.webp · 변환 전 네거티브. |
+| `darkroom-positive.webp` | https://shannadige.com/_astro/pos-raw0002.uu-DUJ2__Z1QWGGT.webp · 동일 프레임의 제작자 변환 결과. |
+
+본문은 원본 비율을 유지하고 확대 링크와 출처를 표시합니다. 홈·목록은 기존 썸네일 표시 방식을 사용합니다. 합성·AI 재생성은 하지 않았습니다. 별도 이미지 재사용 라이선스는 확인하지 않았으며 코드의 MIT 라이선스를 사진에 적용하지 않습니다. 권리는 원권리자에게 있습니다. 자세한 근거는 [조사 기록](../../research/2026-10-07-darkroom.md)에 있습니다.
+
+먼지 제거 절에서 `darkroom-dust.webp` 원본 전체와 일부 확대를 함께 표시합니다. 확대는 CSS로 같은 원본의 하늘 표시 영역과 왼쪽 DUST 패널을 보여주는 방식이며, 파일 바이트나 사진 내용은 바꾸지 않았습니다. 원본 2400×1500 기준 영역은 각각 `x=1000, y=120, w=600, h=360`, `x=18, y=1000, w=500, h=300`입니다. 바닷물 반사광 오검출의 수정 전후 사진이 아님을 본문에 명시했습니다.
+
+### 상품 이미지 검수 가상 예시
+
+- 파일: `darkroom-product-review.png` (1254×1254 PNG).
+- 생성일: 2026-10-07. 도구: 내장 `image_gen`, 새 이미지 생성 모드.
+- 용도: 상품 등록 정보와 업로드 이미지를 대조하고, 표면 자국을 사람이 확인하는 가상 업무 설명.
+- 실제 상품·브랜드·35mm-studio 화면이 아닌 AI 생성 이미지입니다. 이미지의 용량 문구, 번호, 강조 영역은 별도 HTML/CSS로 표시합니다.
+- 등록 정보와 검토 의견은 설명을 위한 가정이며 모델 추론 결과가 아닙니다. 위의 제작자 원본 4종과 출처를 구분합니다.
+- 생성 프롬프트와 상세 범위는 [조사 기록](../../research/2026-10-07-darkroom.md#상품-이미지-검수-가상-예시)에 있습니다.
+
 ## Tidewater · 사례연구 01
 
 원작: Daniel Greenheck. 게임: https://dgreenheck.github.io/tidewater/
