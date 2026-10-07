@@ -1,0 +1,68 @@
+/* Issue 09: reusable work capabilities and model delivery. */
+.news-capability { --radius: 8px; }
+.news-capability .wrap { max-width: 1140px; }
+.news-capability .news-article-header h1 { max-width: 1050px; font-size: clamp(36px, 4.8vw, 58px); line-height: 1.24; }
+.news-capability .news-deck { max-width: 960px; font-size: 21px; }
+.news-capability .news-back { margin-bottom: 46px; }
+.news-capability .news-article-shell { grid-template-columns: 176px minmax(0, 1fr); gap: 40px; }
+.news-capability .news-summary .news-section-label { color: #b4b3ba; }
+.news-capability .news-story-section h2 { font-size: clamp(29px, 3.6vw, 40px); }
+.news-capability .cap-product figcaption { display: block; }
+.news-capability .cap-product figcaption > span { display: block; margin-bottom: 6px; }
+.news-capability .cap-stats, .news-capability .cap-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0; }
+.news-capability .cap-stats > div, .news-capability .cap-metrics > div { min-width: 0; padding: 22px; background: var(--surface); border-top: 2px solid var(--muted); }
+.news-capability .cap-stats dt { color: var(--muted); font-size: 14px; }
+.news-capability .cap-stats dd { margin: 8px 0; font-size: clamp(23px, 3vw, 32px); font-weight: 750; }
+.news-capability .cap-stats small, .news-capability .cap-note { color: var(--muted); font-size: 13px; }
+.news-capability .cap-stats small { display: block; margin-top: 8px; font-weight: 400; }
+.news-capability .cap-figure { margin: 30px 0; padding: 26px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.news-capability .cap-eyebrow { color: var(--muted); font: 600 12px/1.6 var(--mono); }
+.news-capability .cap-figure h3 { margin: 9px 0 24px; font-size: 23px; line-height: 1.45; }
+.news-capability .cap-figure figcaption { margin-top: 20px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.news-capability .cap-flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin: 0; padding: 0; list-style: none; }
+.news-capability .cap-flow li { position: relative; min-width: 0; padding: 18px 14px; background: var(--surface-2); }
+.news-capability .cap-flow li + li::before { content: '→'; position: absolute; left: -20px; top: 40%; color: var(--muted); }
+.news-capability .cap-flow span, .news-capability .cap-prompt > span { display: block; margin-bottom: 12px; color: var(--muted); font-size: 12px; }
+.news-capability .cap-flow strong { display: block; font-size: 17px; line-height: 1.45; }
+.news-capability .cap-flow small, .news-capability .cap-routes small { display: block; margin-top: 9px; color: var(--muted); font-size: 13px; }
+.news-capability .cap-routes { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.news-capability .cap-routes > div { min-width: 0; padding: 18px; background: var(--surface-2); }
+.news-capability .cap-routes p { margin: 10px 0 0; font-size: 15px; }
+.news-capability .cap-band { display: flex; align-items: center; gap: 14px; padding: 24px 18px; margin: 28px 0; border-block: 1px solid var(--line); }
+.news-capability .cap-band span { flex: 1; text-align: center; font-size: 15px; font-weight: 650; }
+.news-capability .cap-band b { color: var(--muted); }
+.news-capability .cap-prompt { margin: 26px 0; padding: 22px; border-left: 3px solid var(--muted); background: var(--surface-2); }
+.news-capability .cap-prompt p { margin: 0; }
+.news-capability .cap-mix { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.news-capability .cap-mix > div { padding: 18px 14px; border-top: 2px solid var(--muted); background: var(--surface-2); }
+.news-capability .cap-mix strong { font-size: 16px; }
+.news-capability .cap-mix span, .news-capability .cap-intent span, .news-capability .cap-evidence span { display: block; margin-top: 8px; font-size: 13px; color: var(--muted); }
+.news-capability .cap-intent { padding: 18px; margin-bottom: 16px; text-align: center; border: 1px solid var(--line); }
+.news-capability .cap-evidence { margin-top: 16px; padding: 18px; border: 1px dashed var(--muted); }
+.news-capability .cap-experiment { padding-left: 24px; }
+.news-capability .cap-experiment li { padding-left: 6px; margin-bottom: 18px; }
+.news-capability .cap-metrics dt { font-weight: 700; font-size: 16px; }
+.news-capability .cap-metrics dd { margin: 8px 0 0; color: var(--muted); font-size: 14px; }
+.news-capability .cap-closing { margin-top: 32px; padding-top: 26px; border-top: 2px solid var(--ink); font-size: clamp(23px, 3vw, 29px); line-height: 1.55; }
+.news-capability .cap-closing strong { color: var(--accent); }
+.news-capability a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+@media (max-width: 900px) {
+  .news-capability .cap-flow, .news-capability .cap-mix { grid-template-columns: 1fr; }
+  .news-capability .cap-flow li + li::before { content: '↓'; top: -24px; left: 20px; }
+}
+@media (max-width: 720px) {
+  .news-capability .news-article-shell { display: block; }
+  .news-capability .cap-figure { padding: 21px; }
+}
+@media (max-width: 520px) {
+  .news-capability .news-deck { font-size: 19px; }
+  .news-capability .news-deck br { display: none; }
+  .news-capability .cap-stats, .news-capability .cap-metrics, .news-capability .cap-routes { grid-template-columns: 1fr; }
+  .news-capability .cap-band { flex-direction: column; gap: 8px; }
+  .news-capability .cap-band span { flex: auto; }
+}
+@media print {
+  .news-capability .news-toc { display: none; }
+  .news-capability .news-article-shell { display: block; }
+  .news-capability .cap-figure, .news-capability .cap-product, .news-capability .cap-stats { break-inside: avoid; }
+}

@@ -1,0 +1,96 @@
+.darkroom-page { letter-spacing: 0; }
+.darkroom-page .case-article-header h1 { max-width: 1000px; font-size: 56px; letter-spacing: 0; word-break: keep-all; overflow-wrap: anywhere; }
+.darkroom-page .guide-section h2 { font-size: 34px; letter-spacing: 0; word-break: keep-all; }
+.darkroom-page .guide-section h3 { font-size: 25px; letter-spacing: 0; }
+.darkroom-page .case-visual img { border-radius: 8px; }
+.darkroom-page .darkroom-contact { max-width: 620px; margin-inline: auto; }
+.darkroom-flow, .darkroom-rule { margin: 32px 0; padding-block: 24px; border-block: 1px solid var(--line); }
+.darkroom-flow figcaption, .darkroom-rule figcaption { display: grid; gap: 7px; margin-bottom: 22px; line-height: 1.5; }
+.darkroom-flow figcaption strong, .darkroom-rule figcaption strong { font-size: 18px; }
+.darkroom-flow figcaption > span, .darkroom-rule figcaption > span { color: var(--muted); font-size: 13px; }
+.darkroom-page .darkroom-flow ol { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 28px; margin: 0; padding: 0; list-style: none; counter-reset: stage; }
+.darkroom-page .darkroom-flow li { min-width: 0; margin: 0; padding: 0 0 0 15px; border-left: 3px solid var(--accent); counter-increment: stage; }
+.darkroom-flow li:nth-child(even) { border-color: var(--muted); }
+.darkroom-flow li > span { display: block; margin-bottom: 6px; color: var(--muted); font-size: 12px; }
+.darkroom-flow li > span::before { content: "0" counter(stage) " / "; font-family: var(--mono); }
+.darkroom-flow li strong { display: block; font-size: 17px; }
+.darkroom-flow li small { display: block; margin-top: 6px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.darkroom-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 30px 0; }
+.darkroom-pair > div { min-width: 0; }
+.darkroom-pair strong { display: block; margin-bottom: 10px; font-size: 14px; }
+.darkroom-pair img { display: block; width: 100%; height: auto; border-radius: 6px; }
+.darkroom-pair figcaption { grid-column: 1 / -1; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.darkroom-rule-path { display: grid; grid-template-columns: minmax(0, 1fr) 24px 120px; align-items: center; gap: 12px; padding: 18px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+.darkroom-rule-path > strong { color: var(--accent); }
+.darkroom-rule-path.is-review > strong { color: var(--ink); }
+.darkroom-page .darkroom-rule > p { margin: 15px 0 0; color: var(--muted); font-size: 13px; }
+.darkroom-page .guide-resources ul { margin-bottom: 24px; }
+.darkroom-dust-study { margin: 32px 0; }
+.darkroom-page .darkroom-dust-overview { margin: 0 0 24px; }
+.darkroom-dust-details { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.darkroom-dust-detail { min-width: 0; margin: 0; }
+.dust-detail-window { position: relative; display: block; overflow: hidden; aspect-ratio: 5 / 3; border-radius: 6px; background: #181817; }
+.dust-detail-window:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.darkroom-page .dust-detail-window img { position: absolute; display: block; height: auto; max-width: none; border-radius: 0; }
+/* Windows onto the unmodified 2400 x 1500 source: markers (1000,120,600,360), panel (18,1000,500,300). */
+.darkroom-page .dust-detail-window--markers img { width: 400%; left: -166.666667%; top: -33.333333%; }
+.darkroom-page .dust-detail-window--panel img { width: 480%; left: -3.6%; top: -333.333333%; }
+.darkroom-dust-detail figcaption { margin-top: 14px; color: var(--muted); font-size: 13px; line-height: 1.75; }
+.darkroom-dust-detail figcaption > strong { display: block; margin-bottom: 10px; color: var(--ink); font-size: 15px; line-height: 1.6; }
+.darkroom-page .darkroom-dust-detail figcaption p { margin: 10px 0 0; font-size: 13px; line-height: 1.75; }
+.dust-status { display: flex; align-items: center; gap: 8px; margin-top: 4px; color: var(--ink); }
+.dust-status-dot { flex: 0 0 13px; width: 13px; height: 13px; border: 2px solid #548f64; border-radius: 50%; }
+.dust-status-dot.is-review { border-color: #b89439; border-style: dashed; }
+.darkroom-page .darkroom-dust-note { margin: 20px 0 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
+.darkroom-inspection { margin: 32px 0; padding-block: 24px; border-block: 1px solid var(--line); scroll-margin-top: 108px; }
+.darkroom-inspection > figcaption { display: grid; gap: 7px; line-height: 1.5; }
+.darkroom-inspection > figcaption strong { font-size: 18px; }
+.darkroom-inspection > figcaption > span { color: var(--muted); font-size: 13px; }
+.darkroom-page .inspection-question { margin: 24px 0 18px; font-size: 19px; font-weight: 700; line-height: 1.6; }
+.inspection-example-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); align-items: start; gap: 24px; }
+.inspection-example-grid > div { min-width: 0; }
+.inspection-eyebrow { display: block; margin-bottom: 12px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.inspection-photo { position: relative; aspect-ratio: 1; isolation: isolate; background: #ededed; border: 1px solid var(--line); border-radius: 6px; }
+.inspection-photo img { display: block; width: 100%; height: 100%; border-radius: 6px; }
+.inspection-capacity { position: absolute; top: 6%; left: 7%; padding: 8px 10px; border: 2px solid #a83f10; color: #25282a; background: #fff; line-height: 1.4; }
+.inspection-capacity > span:not(.inspection-pin) { display: block; font-size: 11px; }
+.inspection-capacity > strong { display: block; font-size: 22px; }
+.inspection-pin { position: absolute; top: -13px; left: -13px; display: grid; place-items: center; width: 24px; height: 24px; border: 2px solid #fff; border-radius: 50%; background: #a83f10; color: #fff; font-size: 12px; font-weight: 700; line-height: 1; }
+.inspection-mark { position: absolute; top: 61%; left: 58%; width: 9%; height: 7%; border: 2px solid #a83f10; border-radius: 2px; }
+.inspection-mark .inspection-pin { left: auto; right: -13px; }
+.darkroom-page .inspection-photo-note { margin: 10px 0 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.inspection-reference { padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.inspection-reference > strong { font-size: 16px; }
+.inspection-reference dl { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px; margin: 10px 0 0; }
+.inspection-reference dt { color: var(--muted); font-size: 13px; }
+.inspection-reference dd { margin: 0; font-size: 22px; font-weight: 700; }
+.darkroom-page .inspection-issues { display: grid; gap: 20px; margin: 20px 0 0; padding: 0; list-style: none; }
+.darkroom-page .inspection-issues > li { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 10px; margin: 0; padding: 0; }
+.inspection-number { display: grid; place-items: center; width: 24px; height: 24px; border: 1px solid var(--accent); border-radius: 50%; color: var(--accent); font-size: 12px; font-weight: 700; line-height: 1; }
+.inspection-issues strong { display: block; font-size: 15px; line-height: 1.6; }
+.darkroom-page .inspection-issues p { margin: 6px 0 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
+.darkroom-page .inspection-decisions { margin: 24px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.darkroom-page .inspection-decisions > li { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 16px; margin: 0; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.inspection-role { padding-top: 2px; color: var(--muted); font-size: 12px; font-weight: 700; line-height: 1.6; }
+.inspection-decisions strong { display: block; font-size: 15px; line-height: 1.6; }
+.darkroom-page .inspection-decisions p { margin: 6px 0 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
+.inspection-human .inspection-role, .inspection-human strong { color: var(--accent); }
+.darkroom-page .inspection-disclaimer { margin: 18px 0 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
+@media (max-width: 720px) {
+  .darkroom-page .case-article-header h1 { font-size: 40px; }
+  .darkroom-page .guide-section h2 { font-size: 29px; }
+  .darkroom-page .guide-section h3 { font-size: 23px; }
+  .inspection-example-grid { grid-template-columns: 1fr; }
+  .inspection-submitted { width: 100%; max-width: 440px; margin-inline: auto; }
+  .inspection-reference { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 4px 16px; }
+  .inspection-reference .inspection-eyebrow { grid-column: 1 / -1; margin-bottom: 2px; }
+  .inspection-reference dl { margin: 0; }
+}
+@media (max-width: 520px) {
+  .darkroom-page .case-article-header h1 { font-size: 34px; }
+  .darkroom-page .guide-section h2 { font-size: 27px; }
+  .darkroom-page .darkroom-flow ol, .darkroom-pair { grid-template-columns: 1fr; }
+  .darkroom-dust-details { grid-template-columns: 1fr; gap: 28px; }
+  .darkroom-rule-path { grid-template-columns: minmax(0, 1fr) 18px 70px; gap: 8px; }
+  .darkroom-page .inspection-decisions > li { grid-template-columns: 60px minmax(0, 1fr); gap: 12px; }
+}

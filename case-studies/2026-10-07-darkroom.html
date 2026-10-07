@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>AI로 만든 디지털 암실, 핵심은 ‘전부 자동화’가 아니었다 · 헬로우 휴먼</title>
+<meta name="description" content="35mm-studio로 살펴보는 선택적 AI 적용, 사람의 검토, 되돌릴 수 있는 자동화">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI로 만든 디지털 암실, 핵심은 ‘전부 자동화’가 아니었다">
+<meta property="og:description" content="35mm-studio로 살펴보는 선택적 AI 적용, 사람의 검토, 되돌릴 수 있는 자동화">
+<meta property="og:image" content="https://soorimsun.github.io/hello-human/assets/case-studies/darkroom-studio.webp">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="2567">
+<meta property="og:image:alt" content="롤 목록과 필름·카메라 정보, 변환한 사진을 함께 보여주는 35mm-studio 화면">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+<script src="../assets/theme.js?v=3"></script>
+<link rel="stylesheet" href="../assets/style.css?v=9">
+<link rel="stylesheet" href="../assets/news.css?v=10">
+<link rel="stylesheet" href="../assets/guide.css?v=4">
+<link rel="stylesheet" href="../assets/case-studies.css?v=2">
+<link rel="stylesheet" href="../assets/case-darkroom.css?v=4">
+<link rel="stylesheet" href="../assets/content-updates.css?v=1">
+</head>
+<body class="darkroom-page">
+<header class="topbar"><div class="wrap topbar-inner">
+<a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+<nav class="news-nav" aria-label="사이트 메뉴">
+<a href="../">모임 소개</a><a href="../news/">AI뉴스</a><a href="../guides/">AI가이드</a><a href="../insights/">인사이트</a><a href="./" aria-current="page">사례연구</a>
+      <a data-newsletter-entry href="../newsletters/">뉴스레터</a>
+</nav></div></header>
+<main><article>
+<header class="news-article-header guide-article-header case-article-header wrap">
+<a class="news-back" href="./">← AI 사례연구 목록</a>
+<p class="news-kicker">HELLO, HUMAN! <span aria-hidden="true">/</span> CASE STUDY 05</p>
+<h1>AI로 만든 디지털 암실,<br> 핵심은 <em>‘전부 자동화’</em>가 아니었다</h1>
+<p class="news-deck">35mm-studio로 살펴보는 선택적 AI 적용, 사람의 검토, 되돌릴 수 있는 자동화</p>
+<div class="news-article-meta"><time datetime="2026-10-07">2026년 10월 7일</time><span>헬로우 휴먼 AI 사례연구</span><span>약 12분</span></div>
+<div class="case-actions"><a href="https://shannadige.com/blog/darkroom/" target="_blank" rel="noopener noreferrer">제작기 읽기 ↗</a><a href="https://github.com/shannadige/35mm-studio" target="_blank" rel="noopener noreferrer">공개 코드 ↗</a><a href="https://darkroom.shannadige.com/" target="_blank" rel="noopener noreferrer">사진 갤러리 ↗</a></div>
+</header>
+<div class="news-article-shell guide-shell wrap">
+<nav class="news-toc guide-toc" aria-label="글 목차"><span>이 글에서</span><a href="#studio"><span>01</span>스캔 뒤의 개인 작업실</a>
+<a href="#boundary"><span>02</span>실패가 바꾼 자동화 범위</a>
+<a href="#roles"><span>03</span>코드와 AI의 역할</a>
+<a href="#dust"><span>04</span>지우지 않을 것을 남기기</a>
+<a href="#decisions"><span>05</span>다음 실행에도 남는 판단</a>
+<a href="#evidence"><span>06</span>성과를 읽는 기준</a>
+<a href="#practice"><span>07</span>업무에 가져올 한 구간</a></nav>
+<div class="news-story guide-story case-story"><div class="guide-intro"><p>사진을 찍는 일보다 사진을 처리하는 데 더 많은 시간을 쓰게 된다면, 무엇을 바꿔야 할까요?</p>
+<p>이 프로젝트의 제작자는 36장짜리 필름 한 롤을 스캔하고 편집하는 데 평균 4시간가량을 썼다고 합니다. 촬영은 즐거웠지만, 찍은 사진을 컴퓨터로 옮기고 정리하는 일은 점점 부담스러워졌습니다.</p>
+<p>그가 만든 <strong>35mm-studio</strong>는 이 부담을 줄이기 위한 개인용 사진 작업실입니다. 스캔한 네거티브를 일반 사진으로 변환하고, 먼지를 보정하고, 검색용 태그를 붙입니다. 사람이 결과를 검토하고 공개할 사진을 고르면 발행까지 이어집니다.</p>
+<p>이 사례에서 눈여겨볼 점은 자동화의 범위를 정한 방식입니다. <strong>AI에게 맡길 일, 기존 도구를 그대로 쓸 일, 사람이 직접 판단할 일을 나눴습니다.</strong></p>
+<p class="case-sources">근거 · <a href="https://shannadige.com/blog/darkroom/" target="_blank" rel="noopener noreferrer">제작기의 작업 시간 기록 ↗</a></p></div><aside class="case-note"><strong>어디까지 확인한 글인가요?</strong><p>2026년 10월 7일 제작기, 공개 설계 문서와 <a href="https://github.com/shannadige/35mm-studio/tree/fdbc060fc8ce811f1ad89c44e557b74788217166" target="_blank" rel="noopener noreferrer">커밋 fdbc060 ↗</a>의 코드를 대조했습니다. 개발 기간과 초기 시험 수치는 제작자 기록입니다. 스캐너·앱·모델을 직접 실행한 재현 시험이나 독립적인 화질 평가는 포함하지 않습니다. 도식과 업무 적용 예시는 헬로우 휴먼의 설명·제안입니다.</p></aside>
+<section class="guide-section case-section" id="studio" aria-labelledby="studio-title"><span class="case-section-number">CASE STUDY / 01</span><h2 id="studio-title">무엇을 만든 프로젝트인가</h2>
+<p>35mm-studio는 <strong>스캔 이후의 작업을 연결하는 로컬 애플리케이션</strong>입니다. 필름을 현상하거나 스캐너를 대신 조작하는 장비는 아닙니다.</p>
+<p>사진을 처리하는 서버는 Python과 FastAPI로, 화면은 React와 Vite로 만들었습니다. 기본적인 사진 처리와 검토는 사용자의 컴퓨터에서 이루어집니다. 발행할 결과는 로컬 폴더에 저장하거나 Cloudflare R2로 전송할 수 있습니다.</p>
+<p>스캔부터 발행까지는 다음 순서로 이어집니다.</p>
+<figure class="darkroom-flow"><figcaption><strong>자동화는 파일이 생긴 다음부터 시작합니다</strong><span>공개 설계·코드를 단순화한 설명용 흐름</span></figcaption><ol><li><span>사람 + 기존 도구</span><strong>필름 장착·스캔</strong><small>VueScan이 원본 TIFF 저장</small></li><li><span>로컬 처리</span><strong>변환·먼지 보정</strong><small>태그 초안은 별도 작업</small></li><li><span>사람</span><strong>검토·수정·선택</strong><small>보정 여부와 공개할 사진 결정</small></li><li><span>발행</span><strong>웹용 이미지 전송</strong><small>로컬 폴더 또는 R2 → 갤러리</small></li></ol></figure>
+<p>설계 문서에 따르면 앱은 스캐너와 직접 통신하지 않습니다. VueScan이 스캔 파일을 저장하면 그다음 처리를 이어받습니다. 상대적으로 오래 걸리는 태그 생성은 별도 작업으로 분리했습니다.</p>
+<p>완성한 사진을 공개하는 갤러리도 만들었습니다. 제작자는 Three.js로 구현한 필름 통을 고른 뒤, 필름을 꺼내듯 사진을 살펴보도록 구성했다고 설명합니다. 사진을 정리하는 작업실과 감상하는 공간을 따로 만든 셈입니다.</p>
+<p>이 구성을 보면 프로젝트의 목적이 드러납니다. 누구에게나 맞는 범용 사진 도구를 만들기보다, <strong>자신이 사진을 찍고 보관하고 다시 꺼내 보는 방식에 맞춰 소프트웨어를 만든 것</strong>으로 볼 수 있습니다.</p>
+<figure class="case-visual darkroom-contact"><a href="../assets/case-studies/darkroom-studio.webp" target="_blank" rel="noopener noreferrer" aria-label="롤 목록과 필름·카메라 정보, 변환한 사진 28장을 함께 보여주는 35mm-studio 화면 원본 크게 보기"><img src="../assets/case-studies/darkroom-studio.webp" alt="롤 목록과 필름·카메라 정보, 변환한 사진 28장을 함께 보여주는 35mm-studio 화면" width="2400" height="2567" loading="lazy" decoding="async"></a><figcaption><strong>한 롤의 결과를 함께 살펴봅니다.</strong> 제작자가 공개한 목록 화면이며 직접 실행한 화면이 아닙니다. <a href="https://shannadige.com/blog/darkroom/" target="_blank" rel="noopener noreferrer">제작자 원본 ↗</a> · 2026. 10. 07 확인·저장.</figcaption></figure><p class="case-sources">근거 · <a href="https://github.com/shannadige/35mm-studio/blob/fdbc060fc8ce811f1ad89c44e557b74788217166/README.md" target="_blank" rel="noopener noreferrer">프로젝트 소개 ↗</a> · <a href="https://github.com/shannadige/35mm-studio/blob/fdbc060fc8ce811f1ad89c44e557b74788217166/DESIGN.md" target="_blank" rel="noopener noreferrer">설계 문서 ↗</a> · <a href="https://shannadige.com/blog/darkroom/" target="_blank" rel="noopener noreferrer">갤러리 제작 기록 ↗</a></p></section>
+<section class="guide-section case-section" id="boundary" aria-labelledby="boundary-title"><span class="case-section-number">CASE STUDY / 02</span><h2 id="boundary-title">첫 시도는 하드웨어 제어에서 멈췄다</h2>
+<p>처음에는 스캔부터 편집까지 모두 자동화하려고 했습니다.</p>
+<p>제작자는 Claude가 오픈소스 스캐너 드라이버인 SANE을 통해 장비를 직접 제어하도록 시도했습니다. 하지만 스캔 방향과 장비 구동에 문제가 생겨 스캐너를 분해하고 수리해야 했다고 합니다. 이는 제작자가 설명한 고장 경위입니다. 이 글에서 정확한 원인을 독립적으로 재현해 확인한 것은 아닙니다.</p>
+<p>이 일을 겪은 뒤에는 자동화 범위를 바꿨습니다. 스캔은 기존 도구에 맡기고, 파일이 만들어진 다음부터 자동으로 처리하도록 했습니다.</p>
+<p>여기서 주목할 점은 실패 뒤에 내린 설계 결정입니다. <strong>전체 과정을 자동화하지 못하더라도, 반복되는 일부 작업을 줄이는 것만으로 충분히 가치가 있을 수 있습니다.</strong></p>
+<p>필름을 장착하는 일이 여전히 사람의 몫이라면 스캐너 제어까지 새로 구현할 필요가 있는지 따져볼 수 있습니다. 이미 잘 작동하는 스캔 도구에 후처리 자동화를 연결하는 편이 목적에 더 잘 맞을 수도 있습니다.</p>
+<p>하드웨어를 직접 제어해야 하는 프로젝트라면 그에 맞는 조건부터 정해야 합니다. 허용할 동작과 이동 범위, 재시도 횟수, 이상 징후가 생겼을 때 멈출 기준이 필요합니다. 원인을 모르는 상태에서 같은 동작을 반복하는 것을 복구 방법으로 삼아서는 안 됩니다.</p>
+<p>이 사례의 전환점은 <strong>실패했을 때 손실이 큰 장비 제어에서 벗어나, 결과를 확인하고 수정하기 쉬운 후처리에 자동화를 집중한 것</strong>입니다.</p>
+<p class="case-sources">근거 · <a href="https://shannadige.com/blog/darkroom/" target="_blank" rel="noopener noreferrer">스캐너 제어 시도와 전환 ↗</a> · <a href="https://github.com/shannadige/35mm-studio/blob/fdbc060fc8ce811f1ad89c44e557b74788217166/DESIGN.md" target="_blank" rel="noopener noreferrer">현재 작업 흐름 ↗</a></p></section>
+<section class="guide-section case-section" id="roles" aria-labelledby="roles-title"><span class="case-section-number">CASE STUDY / 03</span><h2 id="roles-title">AI를 사용했지만, 모든 처리를 AI에게 맡기지는 않았다</h2>
+<p>35mm-studio 안에서는 일반 코드와 AI 모델이 서로 다른 일을 맡습니다. 공개 코드를 보면 그 역할을 구체적으로 확인할 수 있습니다.</p>
+<div class="guide-table-scroll" role="region" tabindex="0" aria-label="코드와 AI의 역할 비교표"><table>
+<thead>
+<tr>
+<th>작업</th>
+<th>구현 방식</th>
+<th>맡긴 역할</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>네거티브 변환과 색 보정</td>
+<td>수치 계산 도구 NumPy</td>
+<td>필름과 사진에서 측정한 값을 바탕으로 변환</td>
+</tr>
+<tr>
+<td>먼지 후보 위치 탐지</td>
+<td>영상 처리 도구 OpenCV와 규칙</td>
+<td>먼지로 의심되는 영역 선별</td>
+</tr>
+<tr>
+<td>선택된 먼지 영역 채우기</td>
+<td>LaMa 이미지 인페인팅 모델</td>
+<td>지정된 영역을 주변과 어울리게 보정</td>
+</tr>
+<tr>
+<td>검색용 태그 초안</td>
+<td>Ollama를 통한 비전 모델 호출</td>
+<td>사진에 보이는 내용을 검색어로 정리</td>
+</tr>
+</tbody></table></div>
+<p>색 변환, 먼지 검출, 모델 호출은 코드에서도 각각 분리되어 있습니다.</p>
+<h3>색 변환은 재현 가능한 계산으로</h3>
+<p>색 변환에는 필름이 빛을 얼마나 흡수하는지를 나타내는 광학적 농도와 색 채널별 측정값을 사용합니다. 촬영되지 않은 필름 영역에서 기준값을 얻거나 롤 전체에서 기준을 추정한 뒤, 각 사진을 보정합니다. 이때 사진마다 색 채널을 조정할 수 있는 범위에는 제한을 둡니다.</p>
+<p>쉽게 말해 <strong>한 롤의 공통 기준을 먼저 잡고, 사진별로 필요한 만큼만 조정하는 방식</strong>입니다.</p>
+<p>결과가 마음에 들지 않을 때도 원인을 나누어 살펴볼 수 있습니다. 롤의 기준값이 잘못됐는지, 특정 사진의 노출이 다른지, 사람이 선택한 설정이 영향을 줬는지 확인하는 것입니다.</p>
+<figure class="darkroom-pair"><div><strong>스캔한 네거티브</strong><img src="../assets/case-studies/darkroom-negative.webp" width="800" height="531" alt="주황색 네거티브 속 큰 종이꽃 옆에 선 사람" loading="lazy" decoding="async"></div><div><strong>제작자의 변환 결과</strong><img src="../assets/case-studies/darkroom-positive.webp" width="800" height="530" alt="같은 장면에서 분홍색 종이꽃과 사람을 확인할 수 있는 변환 사진" loading="lazy" decoding="async"></div><figcaption><a href="https://shannadige.com/blog/darkroom/" target="_blank" rel="noopener noreferrer">제작기의 동일 프레임 비교 ↗</a>. 원본 두 장을 나란히 배치했습니다. 이 글에서 변환한 결과나 독립적인 화질 시험이 아닙니다. 원본 확인·저장: 2026. 10. 07.</figcaption></figure><h3>비전 모델은 태그 작성에 집중</h3>
+<p>사진의 내용을 읽는 비전 모델은 검색용 태그를 제안합니다. 로컬에서 모델을 실행하는 도구인 Ollama를 이용하며, 기본적으로 Qwen3-VL 계열을 우선 선택하되 다른 모델로 바꿀 수도 있습니다. 응답은 정해진 항목으로 데이터를 주고받는 JSON 형식으로 요청합니다. 형식이 맞더라도 태그의 내용이 정확한지는 별도로 검토해야 합니다.</p>
+<p>설계 기록에는 <strong>효과가 없어 제거한 AI 기능</strong>도 나옵니다. 비전 모델에 색 이상이나 먼지 여부를 판단하게 했지만, 유용한 결과를 얻지 못해 제외했다고 합니다.</p>
+<p>이 선택은 AI의 역할을 정할 때도 참고할 만합니다. 규칙으로 처리하기 좋은 일, 전문 모델이 적합한 일, 사람이 결정해야 하는 일을 나누면 각 작업에 맞는 방법을 고를 수 있습니다.</p>
+<p><strong>개발을 돕는 AI의 역할과 완성된 시스템에서 AI가 맡는 역할도 구분해서 평가해야 합니다.</strong></p>
+<p class="case-sources">근거 · <a href="https://github.com/shannadige/35mm-studio/blob/fdbc060fc8ce811f1ad89c44e557b74788217166/server/darkroom/convert.py" target="_blank" rel="noopener noreferrer">색 변환 ↗</a> · <a href="https://github.com/shannadige/35mm-studio/blob/fdbc060fc8ce811f1ad89c44e557b74788217166/server/darkroom/dust/detect.py" target="_blank" rel="noopener noreferrer">먼지 탐지 ↗</a> · <a href="https://github.com/shannadige/35mm-studio/blob/fdbc060fc8ce811f1ad89c44e557b74788217166/server/darkroom/dust/inpaint.py" target="_blank" rel="noopener noreferrer">LaMa 보정 ↗</a> · <a href="https://github.com/shannadige/35mm-studio/blob/fdbc060fc8ce811f1ad89c44e557b74788217166/server/darkroom/ollama.py" target="_blank" rel="noopener noreferrer">모델 호출 ↗</a> · <a href="https://github.com/shannadige/35mm-studio/blob/fdbc060fc8ce811f1ad89c44e557b74788217166/DESIGN.md" target="_blank" rel="noopener noreferrer">제거한 AI 기능 ↗</a></p></section>
+<section class="guide-section case-section" id="dust" aria-labelledby="dust-title"><span class="case-section-number">CASE STUDY / 04</span><h2 id="dust-title">먼지는 지우고, 사진 속 빛은 남기려면</h2>
+<p>먼지 제거 기능을 보면 자동 처리와 사람의 검토를 왜 나눴는지 알 수 있습니다. 제작자는 초기 검출기가 바닷물에 반사된 햇빛 약 2,000개를 먼지로 잘못 표시했다고 설명합니다.</p>
+<p>이 후보들을 모두 지웠다면 사진 속 실제 빛까지 사라졌을 것입니다. 먼지를 많이 찾는 것만큼, 먼지가 아닌 것을 잘못 지우지 않는 일이 중요합니다.</p>
+<div class="darkroom-dust-study">
+<figure class="case-visual darkroom-dust-overview">
+<a href="../assets/case-studies/darkroom-dust.webp" target="_blank" rel="noopener noreferrer" aria-label="제작자가 공개한 먼지 검토 화면 원본 크게 보기"><img src="../assets/case-studies/darkroom-dust.webp" width="2400" height="1500" loading="lazy" decoding="async" alt="얼어붙은 호수 사진 위에 초록색 실선과 노란색 점선으로 보정 영역을 구분한 35mm-studio 검토 화면. 왼쪽에는 자동 보정과 검토 보류 항목이 있습니다."></a>
+<figcaption><strong>같은 사진 안에서도, 바로 지울 곳과 확인할 곳을 나눕니다.</strong> 제작자 Shan Hannadige가 공개한 실제 검토 화면입니다. 바닷물 반사광 오검출의 수정 전후 사진은 아닙니다. <a href="https://shannadige.com/blog/darkroom/" target="_blank" rel="noopener noreferrer">제작기 원본 ↗</a> · 2026. 10. 02 게시 · 2026. 10. 07 확인.</figcaption>
+</figure>
+<div class="darkroom-dust-details">
+<figure class="darkroom-dust-detail">
+<a class="dust-detail-window dust-detail-window--markers" href="../assets/case-studies/darkroom-dust.webp" target="_blank" rel="noopener noreferrer" aria-label="사진 위 보정 표시의 확대 영역, 전체 원본 보기"><img src="../assets/case-studies/darkroom-dust.webp" width="2400" height="1500" loading="lazy" decoding="async" alt="같은 원본의 하늘 부분 확대. 초록색 실선 원과 노란색 점선 원이 서로 다른 보정 상태를 나타냅니다."></a>
+<figcaption><strong>사진 위 표시를 읽으면</strong><span class="dust-status"><span class="dust-status-dot" aria-hidden="true"></span>초록색 실선 · 자동 보정</span><span class="dust-status"><span class="dust-status-dot is-review" aria-hidden="true"></span>노란색 점선 · 검토 보류</span><p>검출된 후보라고 해서 모두 지우지는 않습니다. 바로 처리하지 않은 영역은 따로 표시합니다.</p></figcaption>
+</figure>
+<figure class="darkroom-dust-detail">
+<a class="dust-detail-window dust-detail-window--panel" href="../assets/case-studies/darkroom-dust.webp" target="_blank" rel="noopener noreferrer" aria-label="왼쪽 먼지 검토 패널의 확대 영역, 전체 원본 보기"><img src="../assets/case-studies/darkroom-dust.webp" width="2400" height="1500" loading="lazy" decoding="async" alt="같은 원본의 DUST 패널 확대. 75 spots filled, Sure filled automatically 75 of 75 on, Held for review 0 of 273 on이 표시되어 있습니다."></a>
+<figcaption><strong>왼쪽 패널에서 상태를 확인합니다</strong><p>이 화면에서는 <strong>75곳에 자동 보정을 적용</strong>하고, <strong>273곳은 보정을 적용하지 않은 채 검토 대상으로 남겼습니다.</strong> 사진 한 장의 검토 상태이며, 전체 처리 성능을 뜻하는 수치는 아닙니다.</p></figcaption>
+</figure>
+</div>
+<p class="darkroom-dust-note">두 확대 이미지는 같은 원본의 일부입니다. 사진의 내용과 표시를 수정하거나 새로 생성하지 않았으며, 직접 앱을 실행해 캡처한 화면도 아닙니다.</p>
+</div>
+<p>공개된 검출 코드는 주변 질감이 매끄러운 영역을 우선 살핍니다. 후보와 주변의 농도 차이, 후보의 형태를 바탕으로 점수를 매깁니다. 후보가 한곳에 몰려 있거나 어두운 장면에 작은 광원이 있는 경우에는 자동으로 처리하지 않고 검토 대상으로 남깁니다. 대신 복잡한 질감 속 먼지를 놓칠 수 있다는 한계도 설계 문서에 적혀 있습니다.</p>
+<p>여기서 <code>confidence</code>라는 값은 농도와 형태를 조합해 계산한 <strong>규칙 기반 점수</strong>입니다. 자동 처리 기준이 <code>0.75</code>라고 해서, 먼지일 확률이 통계적으로 75%라는 뜻은 아닙니다.</p>
+<p>실제로 사용할 때는 <strong>이 점수로도 걸러내지 못하는 오류가 무엇인지, 어떤 상황에서 자동 처리를 보류하는지</strong>를 살펴봐야 합니다.</p>
+<p>선택한 영역은 LaMa라는 인페인팅 모델이 주변과 어울리게 채웁니다. 다만 자연스러워 보이는 보정 결과가 가려진 실제 장면을 정확히 복원했다는 뜻은 아닙니다.</p>
+<p>이 프로젝트는 수정할 영역을 별도로 기록하고 보정 전 미리보기를 보관합니다. 사람은 후보별로 보정을 적용할지 바꿀 수 있습니다. <strong>잘못 판단할 가능성이 있는 만큼, 수정 후보를 찾는 과정과 실제 수정을 구분하고 되돌릴 방법도 마련한 것입니다.</strong></p>
+<figure class="darkroom-rule"><figcaption><strong>같은 후보라도 처리 경로는 다릅니다</strong><span>검출 코드의 분기 조건을 단순화한 설명용 도식</span></figcaption><div class="darkroom-rule-path"><span>점수 ≥ 0.75<br>주변 후보 밀집 아님<br>어두운 장면의 작은 광원 아님</span><span aria-hidden="true">→</span><strong>자동 보정 후보</strong></div><div class="darkroom-rule-path is-review"><span>위 조건 중 하나라도 충족하지 않음</span><span aria-hidden="true">→</span><strong>검토 대기</strong></div><p>사람이 이전에 바꾼 적용 여부는 별도의 상태 관리 단계에서 반영됩니다. 0.75는 확률이 아닌 규칙 기반 점수입니다.</p></figure><p class="case-sources">근거 · <a href="https://shannadige.com/blog/darkroom/" target="_blank" rel="noopener noreferrer">오검출 제작 기록 ↗</a> · <a href="https://github.com/shannadige/35mm-studio/blob/fdbc060fc8ce811f1ad89c44e557b74788217166/server/darkroom/dust/detect.py" target="_blank" rel="noopener noreferrer">점수와 검토 분기 ↗</a> · <a href="https://github.com/advimman/lama" target="_blank" rel="noopener noreferrer">LaMa 공식 저장소 ↗</a></p></section>
+<section class="guide-section case-section" id="decisions" aria-labelledby="decisions-title"><span class="case-section-number">CASE STUDY / 05</span><h2 id="decisions-title">다시 실행해도 사람의 판단이 남아 있어야 합니다</h2>
+<p>검토 화면을 만드는 것만으로 사람의 판단이 존중되는 것은 아닙니다. 한 번 거절한 보정이 재실행할 때마다 다시 적용된다면 사용자는 같은 검토를 반복해야 합니다. 내부 기준이 바뀌었다는 이유로 이미 승인한 결과까지 사용자 모르게 달라지는 일도 문제입니다.</p>
+<p>35mm-studio는 원본과 설정, 사람의 선택을 따로 보관하고 자동 재처리의 범위를 제한하는 방식으로 이런 상황을 다룹니다.</p>
+<h3>원본과 편집 설정의 분리</h3>
+<p>각 롤은 일반 폴더로 관리합니다. 폴더 안에는 원본 스캔, 사진별 JSON 설정, 작업용 TIFF, 출력용 JPEG를 나누어 보관합니다. 편집할 때는 원본을 덮어쓰지 않고 설정을 바꾼 뒤 다시 처리합니다.</p>
+<p>덕분에 결과가 이상할 때 원본과 처리 설정을 함께 살펴볼 수 있습니다. 같은 원본에 다른 설정을 적용해 비교할 수도 있습니다. 원본을 보존하는 일이 결과를 검토하고 수정할 수 있는 기반이 되는 것입니다.</p>
+<h3>사람이 바꾼 판단의 유지</h3>
+<p>먼지를 다시 검출할 때는 새 후보를 이전 후보와 비교합니다. 같은 후보로 판단되면 사람이 정한 보정 적용 여부를 이어받습니다. 사람이 손으로 추가한 보정 영역도 따로 보관합니다.</p>
+<p>다만 같은 후보인지는 위치를 기준으로 판단합니다. 중심 좌표가 얼마나 가까운지, 새 후보의 중심이 이전 영역 안에 들어오는지를 비교합니다. 이미지나 검출 결과가 크게 달라져도 언제나 같은 대상을 찾아낸다고 보장할 수는 없습니다.</p>
+<p>이 방식은 한 번의 수정을 취소하는 데서 더 나아가, 다시 처리할 때도 사람의 선택을 이어가려는 설계입니다.</p>
+<h3>자동 재처리와 승인 결과의 구분</h3>
+<p>처리할 일을 순서대로 담는 작업 큐에도 우선순위가 있습니다. 사람의 편집 작업을 새 파일 처리나 백그라운드 작업보다 먼저 처리하도록 합니다. 다만 이미 실행 중인 작업을 즉시 중단하고 끼어드는 방식은 아닙니다.</p>
+<p>롤의 색 기준이 바뀌어 사진을 자동으로 다시 처리할 때는 이미 승인한 사진을 제외합니다. 이 보호는 해당 자동 재처리에만 적용되며, 사람이 직접 편집하거나 다시 처리하는 것까지 막지는 않습니다.</p>
+<p>새 파일을 처리할 시점도 정해 두었습니다. 파일을 감시하는 코드는 크기와 수정 시각이 4초 동안 변하지 않는지 확인한 뒤 작업을 등록합니다. 다만 잠시 변화가 없다는 사실만으로 모든 저장 환경에서 파일 쓰기가 끝났다고 보장할 수는 없습니다. 다른 환경에 적용할 때는 이 조건이 적절한지 다시 확인해야 합니다.</p>
+<p>작은 개인용 앱에서도 <strong>언제 처리하고, 무엇을 먼저 처리하며, 어떤 결과는 그대로 둘지</strong> 정해야 합니다. 이런 규칙이 있어야 자동 처리와 사람의 편집이 서로 충돌하는 일을 줄일 수 있습니다.</p>
+<p class="case-sources">근거 · <a href="https://github.com/shannadige/35mm-studio/blob/fdbc060fc8ce811f1ad89c44e557b74788217166/README.md" target="_blank" rel="noopener noreferrer">원본과 편집 설정 ↗</a> · <a href="https://github.com/shannadige/35mm-studio/blob/fdbc060fc8ce811f1ad89c44e557b74788217166/server/darkroom/dust/state.py" target="_blank" rel="noopener noreferrer">사람의 선택 유지 ↗</a> · <a href="https://github.com/shannadige/35mm-studio/blob/fdbc060fc8ce811f1ad89c44e557b74788217166/server/darkroom/worker.py" target="_blank" rel="noopener noreferrer">작업 큐와 재처리 ↗</a></p></section>
+<section class="guide-section case-section" id="evidence" aria-labelledby="evidence-title"><span class="case-section-number">CASE STUDY / 06</span><h2 id="evidence-title">이 사례의 성과는 어디까지 확인됐을까요?</h2>
+<h3>기존 도구로 해결할 수 있는 일도 많다</h3>
+<p>네거티브 변환, 롤 단위 관리, 먼지 보정, 원본을 보존하는 비파괴 편집은 기존 도구에도 있는 기능입니다. 예를 들어 NegPy의 공식 문서는 이런 기능과 함께 롤 전체 분석, 메타데이터 관리를 소개합니다.</p>
+<p>따라서 이 프로젝트를 AI가 없던 기능을 처음 만들어 낸 사례로 보기는 어렵습니다. <strong>기존 기술을 개인의 작업 흐름에 맞게 연결한 사례</strong>로 읽는 편이 적절합니다.</p>
+<p>직접 만든 도구는 계속 고치고 관리해야 합니다. 기존 도구에 작은 연결 기능을 더하는 것으로 충분한지, 별도 앱을 만들고 유지할 만큼 불편이 반복되는지 함께 따져봐야 합니다.</p>
+<h3>필름을 장착하고 스캔하는 일은 남아 있습니다</h3>
+<p>완성된 앱도 필름 장착과 스캐너 조작은 대신하지 않습니다. 따라서 사용자가 어느 작업에 시간을 많이 쓰는지에 따라 효과가 달라질 수 있습니다.</p>
+<p>후처리와 정리에 시간을 많이 쓴다면 도움이 될 수 있습니다. 반면 필름을 옮겨 끼우고 스캔이 끝나기를 기다리는 일이 가장 큰 부담이라면 다른 개선이 먼저일 수 있습니다.</p>
+<p>자동화의 가치는 <strong>사용자가 실제로 시간을 많이 쓰는 구간을 얼마나 개선했는지</strong>로 평가해야 합니다.</p>
+<h3>제작 기록과 성능 검증은 다르다</h3>
+<p>제작자는 개발에 11일이 걸렸고 64개의 커밋을 남겼으며, 갤러리에 22롤의 사진 314장을 공개했다고 기록했습니다.</p>
+<p>설계 문서에는 한 롤로 진행한 초기 변환 시험에서 29장 중 28장이 사용할 만한 결과였다는 평가가 나옵니다. 제작기에서는 에이전트가 이 평가를 제시하고 제작자가 결과의 방향에 동의합니다. 독립적인 평가자가 진행한 시험이나 표준 화질 평가의 결과는 아닙니다.</p>
+<p>각 기록이 보여주는 것과 아직 입증하지 못한 것을 나누면 다음과 같습니다.</p>
+<div class="guide-table-scroll" role="region" tabindex="0" aria-label="성과를 읽는 기준 비교표"><table>
+<thead>
+<tr>
+<th>공개된 기록</th>
+<th>보여주는 것</th>
+<th>입증하지 않는 것</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>11일·64개 커밋</td>
+<td>제작자가 보고한 개발 과정</td>
+<td>순수 작업 시간, AI 단독 기여도</td>
+</tr>
+<tr>
+<td>29장 중 28장을 사용 가능한 결과로 평가</td>
+<td>한 롤의 초기 시험에서 확인한 가능성</td>
+<td>다양한 필름·장비에서의 일반적인 정확도</td>
+</tr>
+<tr>
+<td>22롤·314장의 갤러리</td>
+<td>실제 사진을 모아 공개한 결과</td>
+<td>전체 작업시간의 절감률, 보정 품질의 우월성</td>
+</tr>
+</tbody></table></div>
+<p>기존에 걸리던 4시간이 앱 도입 후 얼마나 줄었는지는 공개 자료만으로 알 수 없습니다. 자동 처리 시간과 사람이 검토·수정하는 시간을 따로 측정해야 합니다.</p>
+<p>개발 속도와 함께 <strong>유지보수 부담은 어느 정도인지, 실제로 더 편하게 쓸 수 있는지</strong>도 검증해야 합니다.</p>
+<h3>취미에서 무엇을 남길지는 사용자가 정합니다</h3>
+<p>수작업을 줄이고 싶다면 디지털카메라를 쓰면 되지 않느냐고 물을 수도 있습니다. 하지만 필름으로 촬영하는 경험은 좋아하면서 스캔 이후의 반복 작업은 줄이고 싶을 수 있습니다. 반대로 직접 변환하고 보정하는 과정까지 즐기는 사람도 있습니다.</p>
+<p>어느 쪽이 더 올바른 취미인지 정할 필요는 없습니다. 이 프로젝트도 <strong>제작자가 남기고 싶은 경험과 줄이고 싶은 수고를 잘 구분했는지</strong>를 기준으로 평가할 수 있습니다.</p>
+<p>3D 갤러리와 사진 검토 도구 역시 목적에 맞게 봐야 합니다. 감상하는 공간에서는 개성 있는 표현이 즐거움을 줄 수 있습니다. 반복해서 사진을 검토하는 도구에서는 접근성, 빠른 탐색, 예측 가능한 조작이 더 중요합니다.</p>
+<p class="case-sources">근거 · <a href="https://github.com/marcinz606/NegPy" target="_blank" rel="noopener noreferrer">NegPy 공식 기능 설명 ↗</a> · <a href="https://shannadige.com/blog/darkroom/" target="_blank" rel="noopener noreferrer">개발 기간과 갤러리 기록 ↗</a> · <a href="https://github.com/shannadige/35mm-studio/blob/fdbc060fc8ce811f1ad89c44e557b74788217166/DESIGN.md" target="_blank" rel="noopener noreferrer">초기 시험의 범위 ↗</a></p></section>
+<section class="guide-section case-section" id="practice" aria-labelledby="practice-title"><span class="case-section-number">CASE STUDY / 07</span><h2 id="practice-title">헬로우 휴먼의 시선<br> 책임질 수 있는 한 구간부터</h2>
+<p>커머스나 개발·운영 업무에서도 이런 역할 분담을 참고할 수 있습니다. 어떤 일은 코드로 처리하고, 어떤 일은 모델에 맡기며, 어디에서 사람이 확인할지 정하는 것입니다.</p>
+<p>예를 들어 <strong>협력사 상품 이미지 검수를 돕는 도구</strong>를 만든다고 가정해 보겠습니다. 아래는 35mm-studio에서 얻은 설계 원칙을 확장한 가상의 예시이며, 이 프로젝트에 구현된 기능은 아닙니다.</p>
+<figure class="darkroom-inspection" id="product-review-example" aria-labelledby="product-review-caption">
+<figcaption id="product-review-caption"><strong>상품 이미지 검수에 적용한다면</strong><span>헬로우 휴먼의 가상 업무 설계</span></figcaption>
+<p class="inspection-question">이 사진을 그대로 상품 페이지에 올려도 될까요?</p>
+<div class="inspection-example-grid">
+<div class="inspection-submitted">
+<span class="inspection-eyebrow">업로드된 이미지 · v1 (가정)</span>
+<div class="inspection-photo">
+<img src="../assets/case-studies/darkroom-product-review.png" width="1254" height="1254" loading="lazy" decoding="async" alt="설명용으로 AI가 생성한 민트색 텀블러. 몸체 오른쪽 아래에 먼지인지 흠집인지 확인이 필요한 회색 자국이 있습니다.">
+<div class="inspection-capacity"><span class="inspection-pin" aria-hidden="true">1</span><span>민트 텀블러</span><strong>500mL</strong></div>
+<span class="inspection-mark" aria-hidden="true"><span class="inspection-pin">2</span></span>
+</div>
+<p class="inspection-photo-note">사진의 문구와 자국을 검토 대상으로 표시한 예시</p>
+</div>
+<div class="inspection-findings">
+<div class="inspection-reference"><span class="inspection-eyebrow">비교할 상품 등록 정보</span><strong>민트 텀블러</strong><dl><dt>용량</dt><dd>350mL</dd></dl></div>
+<ol class="inspection-issues">
+<li><span class="inspection-number" aria-hidden="true">1</span><div><strong>용량 표기가 다릅니다</strong><p>이미지에는 500mL, 등록 정보에는 350mL. 어느 쪽이 맞는지 확인해야 합니다.</p></div></li>
+<li><span class="inspection-number" aria-hidden="true">2</span><div><strong>이 자국, 지워도 될까요?</strong><p>촬영 중 묻은 먼지일까요, 상품의 흠집일까요? 사진만 보고 지우면 실제 상태를 감출 수 있습니다.</p></div></li>
+</ol>
+</div>
+</div>
+<ol class="inspection-decisions">
+<li><span class="inspection-role">코드</span><div><strong>파일 규격은 확인할 수 있습니다</strong><p>형식·해상도 등 정해진 조건을 검사합니다. 규격을 통과해도 상품 정보가 정확하다는 뜻은 아닙니다.</p></div></li>
+<li><span class="inspection-role">AI + 코드</span><div><strong>의심되는 부분을 검토 후보로 남깁니다</strong><p>모델이 이미지의 문구와 자국을 찾아 표시하고, 코드는 추출한 용량을 등록 정보와 대조합니다.</p></div></li>
+<li class="inspection-human"><span class="inspection-role">사람</span><div><strong>발행 보류 · 협력사에 확인 요청</strong><p>정확한 용량과 자국 부위의 상세 사진을 요청합니다. 원본은 보관하고, 확인한 내용을 반영한 수정본을 다시 검토합니다.</p></div></li>
+</ol>
+<p class="inspection-disclaimer">가상 예시 · 상품 사진은 AI로 생성했고, 용량 문구와 표시 영역은 설명을 위해 덧붙였습니다. 등록 정보와 검토 의견도 가정한 내용이며, 실제 상품이나 검수 모델의 실행 결과가 아닙니다.</p>
+</figure>
+<p>이 예시에서 중요한 것은 사진을 자동으로 “깨끗하게” 만드는 일이 아닙니다. <strong>무엇을 확인해야 하는지 좁혀 주고, 확인 전에는 상품 정보를 바꾸지 않는 것</strong>입니다. 기존 업로드 경로를 유지하면서 이런 검토 단계를 덧붙일 수 있습니다.</p>
+<p>사진의 얼룩을 자동으로 지우는 기능은 신중하게 적용해야 합니다. 촬영 중 생긴 먼지와 상품 자체의 흠집을 구분하지 못하면 상품 상태를 보여주는 정보까지 지울 수 있습니다. 검수 단계에서는 직접 지우기보다 <strong>의심되는 부분을 표시하고 사람에게 확인을 요청하는 방식</strong>이 더 적절할 수 있습니다.</p>
+<p>한 번 승인한 결과라도 입력 이미지나 판정 기준이 바뀌면 다시 검토하도록 설계해야 합니다. 단순히 “확인 완료”라고 저장하는 데 그치지 않고, <strong>어떤 이미지를 보고 어느 버전의 결과를 승인했는지</strong> 기록하는 것입니다.</p>
+<p>먼저 기존 업무의 한 구간을 골라 시험해 볼 수 있습니다. 자동으로 판정할 범위, 사람이 검토할 시점, 결과를 반영하거나 다시 처리할 조건을 정하고 실제로 적절한지 확인합니다.</p>
+<p>효과를 평가할 때도 처리 건수뿐 아니라 처음부터 끝까지 걸린 시간을 봐야 합니다. 사람의 재검토 부담이 늘지는 않았는지, 잘못된 변경을 얼마나 빨리 발견하고 되돌릴 수 있는지도 함께 살펴야 합니다.</p>
+<p>35mm-studio가 우리에게 던지는 질문도 여기에 있습니다. <strong>어디까지 자동화에 맡기고, 잘못된 결과는 어떻게 확인하고 고칠 것인가?</strong></p>
+<p>반복할 필요가 없는 일을 줄이면 취향과 책임이 필요한 결정에 더 많은 시간을 쓸 수 있습니다. Workless Engineering도 이런 방향을 지향할 수 있습니다.</p>
+<p><strong>좋은 자동화는 사람이 남기고 싶은 일을 더 잘할 수 있게 해 줍니다.</strong></p>
+</section>
+<div class="guide-resources" id="sources"><h2>직접 살펴볼 자료</h2><ul>
+<li><a href="https://shannadige.com/blog/darkroom/" target="_blank" rel="noopener noreferrer">Shan Hannadige · Automating my 35mm film scanning pipeline (2026. 10. 02) ↗</a></li>
+<li><a href="https://darkroom.shannadige.com/" target="_blank" rel="noopener noreferrer">제작자의 사진 갤러리 ↗</a></li>
+<li><a href="https://github.com/shannadige/35mm-studio/blob/fdbc060fc8ce811f1ad89c44e557b74788217166/README.md" target="_blank" rel="noopener noreferrer">35mm-studio 소개와 실행 구조 ↗</a></li>
+<li><a href="https://github.com/shannadige/35mm-studio/blob/fdbc060fc8ce811f1ad89c44e557b74788217166/DESIGN.md" target="_blank" rel="noopener noreferrer">설계 결정·초기 시험·제작 중 변경 기록 ↗</a></li>
+<li><a href="https://github.com/marcinz606/NegPy" target="_blank" rel="noopener noreferrer">NegPy 공식 기능 설명 ↗</a></li>
+<li><a href="https://github.com/advimman/lama" target="_blank" rel="noopener noreferrer">LaMa 이미지 인페인팅 모델 ↗</a></li>
+</ul><p>원본 이미지 4종은 제작자 공개 자료를 수정 없이 사용했습니다. 사진·이미지의 권리는 원권리자에게 있으며 코드의 MIT 라이선스를 외부 이미지에 적용하지 않습니다. 별도 이미지 재사용 라이선스는 확인하지 않았습니다.</p>
+<p>확인일: 2026. 10. 07. 코드 링크는 확인 당시 커밋으로 고정했습니다. 개발 기간과 갤러리 규모는 제작기 게시 시점의 기록이며 현재 사진 수를 재집계하지 않았습니다.</p>
+<a class="news-end-link" href="./">AI 사례연구 목록으로 돌아가기 <span aria-hidden="true">→</span></a></div>
+</div></div></article></main>
+<footer class="footer"><div class="wrap">헬로우 휴먼 · Workless Engineering Club</div></footer>
+<script src="../assets/article-toc.js?v=1" defer></script>
+<script src="../assets/analytics.js?v=2" defer></script>
+<script type="module" src="../assets/content-updates.js?v=3"></script>
+</body></html>
