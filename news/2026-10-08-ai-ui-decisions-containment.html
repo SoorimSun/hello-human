@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>AI가 화면을 만들고, 작은 모델이 판단하며, 실행은 격리한다 · AI뉴스 · 헬로우 휴먼</title>
+  <meta name="description" content="대화창 안에서 만드는 계산기, 반복 업무의 비용을 낮춘 작은 모델, AI의 파일 접근을 제한하는 실행 환경. 다섯 가지 소식으로 살펴보는 AI에게 일을 맡기는 방법. 헬로우 휴먼 AI뉴스 10.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AI가 화면을 만들고, 작은 모델이 판단하며, 실행은 격리한다">
+  <meta property="og:description" content="대화 속 계산기부터 저렴한 분류 모델, 실행 권한을 제한하는 도구까지. AI에게 일을 나눠 맡기는 방법을 살펴봅니다.">
+  <meta property="og:url" content="https://soorimsun.github.io/hello-human/news/2026-10-08-ai-ui-decisions-containment.html">
+  <meta property="og:image" content="https://soorimsun.github.io/hello-human/assets/news/intelligent-ui-bill-input.jpg">
+  <meta property="og:image:width" content="1265">
+  <meta property="og:image:height" content="712">
+  <meta property="og:image:alt" content="OpenAI 공식 Intelligent UI 데모의 더치페이 계산기 요청과 이름 입력 화면">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+  <script src="../assets/theme.js?v=3"></script>
+  <link rel="stylesheet" href="../assets/style.css?v=9">
+  <link rel="stylesheet" href="../assets/news.css?v=10">
+  <link rel="stylesheet" href="../assets/news-ui-decisions.css?v=1">
+  <link rel="stylesheet" href="../assets/content-updates.css?v=1">
+</head>
+<body class="news-ui-decisions">
+  <header class="topbar"><div class="wrap topbar-inner">
+    <a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+    <nav class="news-nav" aria-label="사이트 메뉴"><a href="../">모임 소개</a><a href="./">AI뉴스</a><a href="../guides/">AI가이드</a><a href="../insights/">인사이트</a><a href="../case-studies/">사례연구</a><a data-newsletter-entry href="../newsletters/">뉴스레터</a></nav>
+  </div></header>
+  <main><article>
+    <header class="news-article-header wrap">
+      <a class="news-back" href="./">← AI뉴스 목록</a>
+      <p class="news-kicker">AI NEWS <span aria-hidden="true">/</span> ISSUE 10</p>
+      <h1>AI가 화면을 만들고,<br> 작은 모델이 판단하며,<br> 실행은 격리한다</h1>
+      <p class="news-deck">대화 속 계산기부터 저렴한 분류 모델, 실행 권한을 제한하는 도구까지. AI에게 일을 나눠 맡기는 방법을 살펴봅니다.</p>
+      <div class="news-article-meta"><time datetime="2026-10-08">2026년 10월 8일</time><span>헬로우 휴먼 AI뉴스</span></div>
+    </header>
+    <div class="news-article-shell wrap">
+      <nav class="news-toc" aria-label="기사 목차"><span>이번 호</span><a href="#at-a-glance">30초 요약</a><a href="#intelligent-ui">대화 안의 화면</a><a href="#haiku">작은 모델의 비용</a><a href="#decisions">판단 전용 API</a><a href="#containment">실행 권한의 경계</a><a href="#secret-detection">비밀정보 검사</a><a href="#our-view">헬로우 휴먼의 관점</a><a href="#experiment">모임에서 해볼 실험</a><a href="#sources">읽은 자료</a></nav>
+      <div class="news-story">
+        <section id="at-a-glance" class="news-summary" aria-labelledby="summary-heading">
+          <p class="news-section-label">AT A GLANCE</p><h2 id="summary-heading">30초 요약</h2>
+          <ul>
+            <li><strong>화면</strong> ChatGPT의 Intelligent UI는 질문에 답하면서 대화창 안에 버튼·차트·계산기를 만들어 줍니다.</li>
+            <li><strong>비용</strong> Haiku 5.5는 요약·분류 같은 반복 작업의 비용을 낮추는 모델입니다. 요청에 담긴 내용이 얼마나 긴지에 따라 단가가 달라집니다.</li>
+            <li><strong>판단</strong> Decisions API는 문의를 분류하거나 우선순위를 매기는 데 쓸 수 있습니다. 현재 공개 시험 서비스로 제공됩니다.</li>
+            <li><strong>실행</strong> MXC와 Copilot의 샌드박스는 AI가 어떤 파일과 네트워크에 접근할 수 있는지 제한합니다.</li>
+            <li><strong>검사</strong> GitHub은 주변 코드까지 읽어 비밀번호를 찾는 새 모델을 도입했습니다. 일부 검사 기능은 아직 제한된 사용자에게만 제공됩니다.</li>
+          </ul>
+        </section>
+        <p class="news-method">10월 6~7일의 공식 발표와 관련 문서를 <b>2026년 10월 8일 한국시간 기준</b>으로 확인했습니다. 발표 날짜는 각 회사의 표기를 따릅니다. 비용·성능 수치는 발표사의 설명이며, 업무에 적용할 아이디어는 모임의 해석으로 구분했습니다.</p>
+        <p>AI에게 비용 비교를 부탁하면, 직접 값을 바꿔볼 수 있는 계산기로 답을 받을 수 있습니다. 고객 문의를 작은 모델이 분류하게 하거나, AI가 미리 허용한 폴더 안에서만 파일을 수정하도록 제한할 수도 있습니다. 최근 발표들은 AI를 업무에 쓰는 방식이 어떻게 달라지고 있는지 보여줍니다.</p>
+        <p>OpenAI와 Anthropic은 화면을 만들고 반복 작업을 처리하는 기능을 넓혔습니다. Microsoft와 GitHub은 AI가 할 수 있는 행동을 제한하고 결과물을 검사하는 도구를 보강했습니다. 이번 호에서는 이 다섯 가지 소식을 통해 <strong>AI에게 어떤 일을 맡길 수 있고, 어디에 사람의 확인이 필요한지</strong> 살펴봅니다.</p>
+
+        <section id="intelligent-ui" class="news-story-section">
+          <p class="news-section-label">01 / GPT-6 INTELLIGENT UI</p><h2>답을 읽는 대화에서,<br> 직접 조작하는 화면으로</h2>
+          <p>OpenAI는 10월 7일 ChatGPT에서 GPT-6와 <strong>Intelligent UI</strong>를 더 많은 사용자에게 순차적으로 제공하기 시작했습니다. Intelligent UI는 질문에 맞춰 글과 도표, 버튼, 입력창을 함께 보여주는 기능입니다. 계산이 필요하면 대화창 안에 계산기를 만들어, 사용자가 값을 바꿔가며 결과를 확인할 수 있게 합니다. <a class="source-link" href="https://openai.com/ko-KR/index/gpt-6-for-everyone/" target="_blank" rel="noopener noreferrer">공식 발표 ↗</a></p>
+          <p>이처럼 AI가 목적에 맞는 화면을 만드는 방식을 <strong>생성형 UI(Generative UI)</strong>라고 합니다. UI는 사용자가 보고 조작하는 화면을 뜻합니다. “다섯 명의 식사비를 나눠줘”라고 말하면, 설명을 읽고 따로 계산할 필요 없이 이름과 금액을 입력하는 화면에서 바로 나눠볼 수 있는 식입니다.</p>
+          <p>OpenAI는 버튼과 차트처럼 미리 준비한 화면 부품을 AI가 조합하도록 했다고 설명합니다. 이 구성을 실제 화면으로 바꾸는 프로그램인 ‘컴파일러’도 함께 사용합니다. 덕분에 답변이 모두 끝날 때까지 기다리지 않아도 화면이 조금씩 나타납니다.</p>
+          <div class="news-product-gallery">
+            <figure>
+              <a href="../assets/news/intelligent-ui-bill-input.jpg" target="_blank" rel="noopener noreferrer"><img src="../assets/news/intelligent-ui-bill-input.jpg" width="1265" height="712" loading="lazy" decoding="async" alt="OpenAI 공식 더치페이 데모. 다섯 명의 식사비를 나누는 계산기를 클립보드처럼 만들어 달라는 요청과 이름 입력란이 보입니다."></a>
+              <figcaption><strong>요청과 입력 화면</strong> OpenAI가 공개한 시연입니다. 다섯 명이 각자 먹은 음식에 맞춰 식사비를 나누는 도구를 요청한 모습입니다.</figcaption>
+            </figure>
+            <figure>
+              <a href="../assets/news/intelligent-ui-bill-result.jpg" target="_blank" rel="noopener noreferrer"><img src="../assets/news/intelligent-ui-bill-result.jpg" width="1265" height="712" loading="lazy" decoding="async" alt="같은 공식 데모의 계산 결과. 총 107.78달러가 20.47, 20.47, 22.64, 23.73, 20.47달러로 나뉘어 표시됩니다."></a>
+              <figcaption><strong>계산 결과</strong> 시연에 들어 있던 값을 그대로 두고 계산 버튼을 눌렀습니다. 각자 낼 금액이 표시됩니다. 이미지를 누르면 크게 볼 수 있습니다.</figcaption>
+            </figure>
+          </div>
+          <p class="source-link">자료 제공 OpenAI · 10월 8일 공개 시연 화면을 캡처했습니다. ChatGPT에 새로 요청해 만든 결과는 아닙니다. <a href="https://cdn.openai.com/ctf-cdn/intelligent-ui/bill-splitter-v5.html" target="_blank" rel="noopener noreferrer">공식 더치페이 시연 열기 ↗</a></p>
+          <p>기능은 Chat 탭의 유료 플랜부터 순차적으로 제공하고, 10월 8일부터 Free·Go로 확대하는 일정입니다. 따라서 계정에 따라 보이는 시점이 다를 수 있습니다. 기업용 Enterprise에서는 관리자 설정도 확인해야 합니다.</p>
+          <p>이용 범위에는 예외가 있습니다. ‘Pro’ 추론 옵션을 선택해 GPT-6 Astra를 사용할 때는 Intelligent UI를 지원하지 않습니다. 이번 변경은 Chat에 적용되며, Work·Codex의 모델은 그대로입니다. <a class="source-link" href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener noreferrer">ChatGPT 릴리스 노트 ↗</a></p>
+          <div class="news-insight"><span>헬로우 휴먼의 적용 아이디어</span><p>상품 운영 업무에도 비슷한 방식을 생각해볼 수 있습니다. “이번 주에 판매가 끝나는데 재고가 남은 상품을 보여줘”라고 요청하면 목록과 종료일을 한 화면에 모아주는 것입니다. 아직 이런 업무 기능이 출시됐다는 뜻은 아닙니다. 실제 가격을 바꾸거나 주문을 취소할 때는 기존 업무 규칙과 담당자의 권한을 확인해야 합니다.</p></div>
+        </section>
+
+        <section id="haiku" class="news-story-section">
+          <p class="news-section-label">02 / CLAUDE HAIKU 5.5</p><h2>작은 모델이 저렴해지면<br> 반복 작업에 쓰기 쉬워집니다</h2>
+          <p>Anthropic은 10월 7일 <strong>Claude Haiku 5.5</strong>를 출시했습니다. 문서 요약, 내용 분류, 간단한 정보 조회처럼 자주 반복하는 작업에 초점을 맞춘 모델입니다. 코딩에서는 다른 AI가 맡은 큰 작업 중 일부를 나눠 처리하는 <strong>보조 에이전트(Subagent)</strong>로도 활용할 수 있다고 소개했습니다. <a class="source-link" href="https://support.claude.com/ko/articles/12138966-릴리스-노트" target="_blank" rel="noopener noreferrer">한국어 릴리스 노트 ↗</a></p>
+          <p>가격을 읽으려면 ‘토큰’을 먼저 알아두면 좋습니다. <strong>토큰은 AI가 글을 처리할 때 나누는 작은 단위</strong>로, 글자 수와 정확히 같지는 않습니다. AI에게 보내는 질문과 자료는 ‘입력’, AI가 돌려주는 답은 ‘출력’으로 계산합니다. 이번 가격은 질문과 참고자료 등 AI에게 보내는 내용, 즉 ‘프롬프트’의 길이에 따라 두 구간으로 나뉩니다.</p>
+          <figure class="ui-figure" aria-labelledby="price-heading">
+            <p class="ui-eyebrow">Anthropic 발표 가격 · 100만 토큰당 미국 달러</p><h3 id="price-heading">Haiku 5.5, 짧은 요청과 긴 요청의 단가가 다릅니다</h3>
+            <div class="ui-price-grid">
+              <div>
+                <h4>입력 토큰</h4>
+                <div class="ui-price-row"><div class="ui-price-label"><span>Haiku 4.5</span><strong>$1.00</strong></div><div class="ui-price-track" aria-hidden="true"><span class="ui-price-bar" style="--bar:100%"></span></div></div>
+                <div class="ui-price-row current"><div class="ui-price-label"><span>5.5 · 프롬프트 10만 이하</span><strong>$0.10</strong></div><div class="ui-price-track" aria-hidden="true"><span class="ui-price-bar" style="--bar:10%"></span></div></div>
+                <div class="ui-price-row current"><div class="ui-price-label"><span>5.5 · 프롬프트 10만 초과</span><strong>$0.50</strong></div><div class="ui-price-track" aria-hidden="true"><span class="ui-price-bar" style="--bar:50%"></span></div></div>
+                <div class="ui-price-axis" aria-hidden="true"><span>$0</span><span>$1.00</span></div>
+              </div>
+              <div>
+                <h4>출력 토큰</h4>
+                <div class="ui-price-row"><div class="ui-price-label"><span>Haiku 4.5</span><strong>$5.00</strong></div><div class="ui-price-track" aria-hidden="true"><span class="ui-price-bar" style="--bar:100%"></span></div></div>
+                <div class="ui-price-row current"><div class="ui-price-label"><span>5.5 · 프롬프트 10만 이하</span><strong>$0.50</strong></div><div class="ui-price-track" aria-hidden="true"><span class="ui-price-bar" style="--bar:10%"></span></div></div>
+                <div class="ui-price-row current"><div class="ui-price-label"><span>5.5 · 프롬프트 10만 초과</span><strong>$2.50</strong></div><div class="ui-price-track" aria-hidden="true"><span class="ui-price-bar" style="--bar:50%"></span></div></div>
+                <div class="ui-price-axis" aria-hidden="true"><span>$0</span><span>$5.00</span></div>
+              </div>
+            </div>
+            <figcaption>10월 7일 발표, 8일 확인. 한 요청에 담긴 프롬프트가 10만 토큰을 넘는지에 따라 입력·출력 단가가 모두 달라집니다. 두 그래프는 달러 축의 범위가 다릅니다. 캐시나 여러 요청을 묶어 처리할 때의 할인은 제외한 기본 단가입니다. <a href="https://www.anthropic.com/claude-haiku-5-5" target="_blank" rel="noopener noreferrer">가격표·계산 조건 ↗</a></figcaption>
+          </figure>
+          <p>Haiku 4.5와 비교하면 <strong>10만 토큰 이하 요청의 입력·출력 단가는 각각 90%, 10만 토큰을 넘는 요청은 각각 50% 낮아졌습니다.</strong> 짧은 요청을 많이 처리하는 업무에서 특히 비용을 줄일 여지가 커진 셈입니다.</p>
+          <p>Anthropic은 평균 실행 비용이 약 75% 줄었다고 설명합니다. 이 수치는 이전 사용자들이 보낸 요청의 길이와, 새 모델이 글을 토큰으로 나누는 방식의 변화까지 반영한 회사 측 계산입니다. 우리 업무에서 얼마나 절약되는지는 실제 입력·출력량과 재시도 횟수를 확인해야 알 수 있습니다.</p>
+          <p>Sonnet 5.5의 비용도 일부 낮아졌습니다. AI에게 매번 같은 지침이나 자료를 보낼 때, 앞서 처리한 내용을 재사용하는 기능이 <strong>캐시</strong>입니다. 이번에 캐시를 읽는 단가는 100만 토큰당 $0.20에서 $0.10으로 절반이 됐습니다. Anthropic은 이 인하로 대부분의 에이전트 작업비가 약 20% 줄어들 것으로 추정합니다. 실제 절감 폭은 같은 내용을 얼마나 자주 재사용하느냐에 따라 달라집니다.</p>
+          <p>Haiku 5.5는 개발자용 Claude Platform과 AWS·Google Cloud·Azure에서 이용할 수 있습니다. GitHub Copilot도 일부 유료 플랜에 정식 추가했으며, 계정별 제공 시점과 조직의 허용 설정은 다를 수 있습니다. <a class="source-link" href="https://www.anthropic.com/claude-haiku-5-5" target="_blank" rel="noopener noreferrer">Anthropic 발표 ↗</a> <a class="source-link" href="https://github.blog/changelog/2026-10-07-claude-haiku-5-5-in-github-copilot/" target="_blank" rel="noopener noreferrer">Copilot 이용 범위 ↗</a></p>
+          <div class="news-insight"><span>헬로우 휴먼의 해석</span><p>요약이나 분류처럼 할 일이 분명한 작업부터 작은 모델에 맡겨볼 수 있겠습니다. 비용과 함께 얼마나 정확한지, 몇 번 다시 시켜야 하는지, 사람이 고치는 데 얼마나 걸리는지도 비교해보면 좋겠습니다.</p></div>
+        </section>
+
+        <section id="decisions" class="news-story-section">
+          <p class="news-section-label">03 / DECISIONS API</p><h2>긴 답변이 필요 없는 일에는<br> 판단 결과만 받습니다</h2>
+          <p>“주문한 상품이 아직 오지 않았어요”라는 문의를 받았다고 해보겠습니다. 먼저 필요한 일은 이 문의를 ‘배송’ 담당자에게 보내는 것입니다. 이 단계에서는 긴 답변보다 정확한 분류가 더 유용합니다.</p>
+          <p>OpenAI가 10월 6일 공개 베타, 즉 일반 개발자가 써볼 수 있는 시험 서비스로 출시한 <strong>Decisions API</strong>가 이런 판단을 맡습니다. API는 다른 프로그램에서 AI 기능을 이용할 수 있도록 연결하는 창구입니다. Decisions는 현재 GPT-6 Luna를 사용해 글이나 이미지를 살펴보고 다음 세 가지 형태로 결과를 돌려줍니다. <a class="source-link" href="https://developers.openai.com/api/docs/changelog" target="_blank" rel="noopener noreferrer">출시 기록 ↗</a></p>
+          <figure class="ui-figure" aria-labelledby="decision-heading">
+            <p class="ui-eyebrow">공식 판단 유형 · 예시는 이해를 위한 가상 업무</p><h3 id="decision-heading">세 가지 질문에 맞춘 결과</h3>
+            <div class="ui-tiles">
+              <div><strong>조건 판단</strong><small>Predicate</small><p>“사진 속 상품이 파손됐나요?”<br> 파손됐을 가능성을 추정해 확률로 알려줍니다.</p></div>
+              <div><strong>선택</strong><small>Choice</small><p>“상품·주문·배송 중 어디로 보낼까요?”<br> 미리 정한 선택지에서 하나를 고릅니다.</p></div>
+              <div><strong>점수</strong><small>Score</small><p>“이 문의는 얼마나 긴급한가요?”<br> 미리 정한 단계에 따라 점수를 매깁니다.</p></div>
+            </div>
+            <figcaption>선택·점수 결과에는 각 선택지나 단계의 확률과, 판단의 확신 정도를 나타내는 confidence 값도 포함됩니다. 점수는 단계별 확률을 반영한 평균이어서 단계 사이의 값도 나올 수 있습니다. <a href="https://developers.openai.com/api/docs/guides/decisions" target="_blank" rel="noopener noreferrer">공식 가이드 ↗</a></figcaption>
+          </figure>
+          <p>일반적인 Responses API에서도 결과를 정해진 형식으로 받을 수 있습니다. 이 기능을 ‘구조화 출력(Structured Outputs)’이라고 합니다. Decisions는 그중에서도 <strong>조건을 확인하고, 항목을 고르고, 점수를 매기는 일에 집중한 API</strong>입니다. 결과의 형태가 정해져 있어 문의 분류나 업무 배정 같은 다음 단계에 연결하기 쉽습니다.</p>
+          <p>기본 요금은 <strong>입력 100만 토큰당 $0.10</strong>입니다. 출력이나 캐시 저장·읽기 비용은 따로 청구하지 않지만, 긴 입력이나 특정 지역에서의 처리에는 추가 요금이 붙습니다. OpenAI는 Responses API보다 판단 결과를 약 10배 빠르게 받을 수 있다고 설명합니다. 이는 AI가 결과를 돌려주는 속도에 관한 설명이므로, 상담 업무 전체가 10배 빨라진다고 보기는 어렵습니다.</p>
+          <p>분류가 끝나도 실제 처리를 위한 확인은 남습니다. 모델이 ‘환불 문의’로 분류했다면 환불 담당자에게 보낼 수는 있지만, 실제 환불은 별도의 규칙과 권한을 확인한 뒤 처리해야 합니다. confidence 값도 정답을 보장하지는 않습니다. 정답을 아는 사례로 모델을 시험하고, 애매한 요청은 사람이 확인하도록 기준을 정하는 것이 좋습니다.</p>
+        </section>
+
+        <section id="containment" class="news-story-section">
+          <p class="news-section-label">04 / MXC &amp; COPILOT SANDBOX</p><h2>건드리면 안 되는 파일은<br> 실행 환경에서 막습니다</h2>
+          <p>AI에게 파일 수정이나 명령 실행을 맡기면, 관계없는 문서까지 건드리지 않을까 걱정될 수 있습니다. 이때 작업에 필요한 폴더와 네트워크만 사용할 수 있도록 제한하는 환경을 <strong>샌드박스</strong>라고 합니다.</p>
+          <p>Microsoft는 10월 7일 이런 실행 환경을 제공하는 <strong>Microsoft Execution Containers(MXC)</strong>를 정식 출시했습니다. 개발자나 조직이 허용 범위를 정하면, 운영체제의 기능을 이용해 그 범위를 벗어나는 접근을 제한합니다. AI가 지시를 따르는 것에 더해, 실행 환경에서도 허용된 범위를 지키게 하는 것입니다. <a class="source-link" href="https://blogs.windows.com/windowsdeveloper/2026/10/07/microsoft-execution-containers-policy-driven-containment-for-ai-agents/" target="_blank" rel="noopener noreferrer">Microsoft 발표 ↗</a></p>
+          <figure class="ui-figure" aria-labelledby="policy-heading">
+            <p class="ui-eyebrow">Microsoft의 웹사이트 수정 사례를 바탕으로 한 예시</p><h3 id="policy-heading">AI가 읽고 바꿀 수 있는 범위를 정합니다</h3>
+            <dl class="ui-policy">
+              <div><dt>작업할 코드 폴더</dt><dd>파일 읽기·수정 허용</dd></div>
+              <div><dt>운영 서버 설정 파일</dt><dd>읽기만 허용 · 수정 차단</dd></div>
+              <div><dt>개인 문서·관계없는 폴더</dt><dd>접근 차단</dd></div>
+              <div><dt>네트워크 연결</dt><dd>업무에 필요한 범위로 제한</dd></div>
+              <div><dt>접근 범위를 넓힐지 결정</dt><dd class="ui-human">사용자나 조직이 정합니다</dd></div>
+            </dl>
+            <figcaption>원리를 설명하기 위한 예시이며 실제 설정 화면은 아닙니다. 어떤 접근을 막을 수 있는지는 선택한 실행 환경과 설정에 따라 달라집니다.</figcaption>
+          </figure>
+          <p>실행 중인 프로그램의 접근을 제한하는 기본 방식은 Windows 11·macOS·Linux에서 제공됩니다. 사용자와 분리된 별도 작업 공간이나, Windows 안에서 리눅스를 쓰는 WSL 실행 환경은 Windows 11용입니다. 작은 가상 머신을 쓰는 <strong>MicroVM 방식은 아직 실험 단계</strong>입니다. 어떤 AI가 작업했는지 구별하고 관리하는 기능을 넓히는 것도 향후 계획에 포함됐습니다.</p>
+          <p>GitHub도 같은 날 Copilot에서 PC 안의 작업을 격리하는 기능을 정식 제공했습니다. 대상은 <strong>명령줄에서 쓰는 Copilot CLI, Copilot 앱, Agent Host라는 실행 환경을 사용하는 VS Code 작업</strong>입니다. 조직이 정한 제한을 개발자가 임의로 풀지 못하게 하는 설정도 지원합니다. <a class="source-link" href="https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available/" target="_blank" rel="noopener noreferrer">GitHub 출시 범위 ↗</a></p>
+          <div class="news-caution"><strong>도구마다 제한을 적용하는 방식은 다릅니다</strong><p>Microsoft의 설명에 따르면, 터미널 명령과 PC에서 실행하는 일부 보조 도구는 운영체제 수준에서 격리됩니다. 반면 Copilot에 내장된 파일 도구는 앱 내부에서 권한을 검사합니다. 외부 서버의 도구는 PC 안의 격리 범위에 포함되지 않습니다. 어떤 도구를 쓰는지에 따라 실제 보호 범위도 확인해야 합니다. <a href="https://commandline.microsoft.com/local-models-sandboxed-tools-github-windows/" target="_blank" rel="noopener noreferrer">도구별 적용 설명 ↗</a></p></div>
+          <p>어떤 모델을 쓰느냐와 그 모델이 어디까지 작업할 수 있느냐는 별도로 정할 수 있습니다. 다만 허용된 폴더 안에서도 엉뚱한 파일을 고칠 수는 있습니다. <strong>접근 범위를 제한한 뒤에도 결과가 맞는지 확인하는 과정은 필요합니다.</strong></p>
+        </section>
+
+        <section id="secret-detection" class="news-story-section">
+          <p class="news-section-label">05 / GITHUB SECRET DETECTION</p><h2>비밀번호인지 예시인지,<br> 주변 코드를 함께 살펴봅니다</h2>
+          <p>GitHub은 10월 7일 <strong>코드에 남아 있는 비밀정보를 찾는 새 AI 모델</strong>을 도입했다고 발표했습니다. 여기서 비밀정보는 비밀번호나 API 키처럼 서비스에 접속할 때 사용하는 인증 정보를 뜻합니다. 이런 값이 코드와 함께 공개되면 다른 사람이 서비스에 접근하는 데 이용할 수 있습니다. <a class="source-link" href="https://github.blog/ai-and-ml/github-copilot/secret-protection-must-scale-with-software/" target="_blank" rel="noopener noreferrer">GitHub 기술 설명 ↗</a></p>
+          <p>문제는 글자만 보고 실제 비밀번호인지 예시인지 구별하기 어려운 경우입니다. 새 모델은 <strong>그 값이 주변 코드에서 어떻게 쓰이는지까지 살펴 비밀정보일 가능성을 판단</strong>합니다. 글을 쓰는 범용 AI와 달리, 이런 분류 작업에 초점을 맞춘 모델입니다.</p>
+          <p>GitHub은 이전에도 주변 코드를 살피는 탐지 방식을 사용했습니다. 이번에는 전용 모델을 개선하면서 검사할 수 있는 단계도 넓히려 합니다. 다만 기능마다 이용할 수 있는 시점은 다릅니다.</p>
+          <ul class="ui-status" aria-label="2026년 10월 8일 확인한 기능별 제공 단계">
+            <li><b>이미 적용</b><div><strong>기존 AI 비밀번호 경고</strong><p>기존 경고 기능을 쓰던 고객에게 새 모델이 적용됐습니다. 보안 서비스인 Secret Protection·Advanced Security에 포함된 이 검사는 추가 요금 없이 유지됩니다.</p></div></li>
+            <li><b>일부 사용자 시험</b><div><strong>AI Push Protection</strong><p>코드를 GitHub에 올릴 때 비밀정보가 섞여 있는지 검사합니다. 현재는 초대받은 사용자만 시험하는 비공개 프리뷰 단계입니다. 별도로 켜서 사용하는 새 검사에는 사용량에 따른 AI Credits 과금이 도입될 예정입니다.</p></div></li>
+            <li><b>시험 제공 예정</b><div><strong>Copilot /security-review의 새 검사</strong><p>기존 보안 검토 기능에 새 탐지 모델을 더할 계획입니다. Copilot CLI·앱에서 비공개 프리뷰로 제공할 예정이며, 별도로 켜야 사용할 수 있습니다. 이용 대상과 과금 조건도 확인해야 합니다.</p></div></li>
+          </ul>
+          <p class="source-link"><a href="https://github.blog/changelog/2026-10-07-purpose-built-model-for-leaked-secret-detection/" target="_blank" rel="noopener noreferrer">제공 단계와 과금 계획 원문 ↗</a> · 10월 8일 확인 기준입니다.</p>
+          <p>이 사례에서 눈여겨볼 점은 <strong>코드를 만드는 AI와 특정 문제를 검사하는 도구에 역할을 나눠 맡긴다</strong>는 것입니다. 비밀번호 유출을 찾았다고 코드의 모든 오류를 검사한 것은 아니므로, 기능이 제대로 동작하는지 확인하는 테스트와 다른 보안 검사도 함께 필요합니다.</p>
+        </section>
+
+        <section id="our-view" class="news-story-section">
+          <p class="news-section-label">OUR VIEW</p><h2>일을 맡기는 것과 함께<br> 확인할 지점도 정해둡니다</h2>
+          <p>이번 소식들은 AI가 맡을 수 있는 일을 서로 다른 방향으로 넓히고 있습니다. 필요한 화면을 만들고, 반복 업무를 저렴하게 처리하고, 다음 일을 고르는 판단을 빠르게 돌려줍니다. 동시에 파일 접근을 제한하거나 결과물을 검사하는 도구도 발전하고 있습니다.</p>
+          <p>우리 업무에 가져올 때는 이 기능들을 모두 한꺼번에 도입할 필요는 없습니다. 먼저 <strong>AI가 어떤 일을 맡을지, 어디까지 실행하게 할지, 끝난 뒤 무엇을 확인할지</strong>를 나눠 정해보면 좋겠습니다.</p>
+          <figure class="ui-figure" aria-labelledby="boundary-heading">
+            <p class="ui-eyebrow">헬로우 휴먼의 해석 · 가상 업무 흐름</p><h3 id="boundary-heading">요청을 받고 일을 마칠 때까지</h3>
+            <ol class="ui-steps">
+              <li><small>01</small><strong>요청 이해하기</strong><span>필요한 정보를 받고, 보기 쉬운 화면으로 보여줍니다.</span></li>
+              <li><small>02</small><strong>할 일 고르기</strong><span>어떤 업무인지 분류하고 사용할 도구를 제안합니다.</span></li>
+              <li class="ui-human"><small>03</small><strong>권한 확인하기</strong><span>해도 되는 일인지 확인하고, 필요하면 사람의 승인을 받습니다.</span></li>
+              <li><small>04</small><strong>결과 확인하기</strong><span>허용된 작업을 수행한 뒤, 결과가 맞는지 확인하고 기록합니다.</span></li>
+            </ol>
+            <figcaption>업무를 나눠 생각하기 위한 예시입니다. 다섯 제품이 실제로 이렇게 연결돼 있다는 뜻은 아닙니다. 모델과 도구는 업무에 맞게 고르고, 필요한 단계에 검사를 더할 수 있습니다.</figcaption>
+          </figure>
+          <p>예를 들어 상품 조회 화면은 AI가 편하게 만들어줄 수 있습니다. 하지만 가격을 바꿀 수 있는 사람은 누구인지, 어떤 조건에서 바꿔도 되는지는 기존 업무 규칙으로 정해야 합니다. “수정했습니다”라는 답을 받았다면 실제 가격이 의도한 대로 바뀌었는지도 확인해야 합니다.</p>
+          <p>AI에게 맡기는 일이 늘어날수록 누가 무엇을 할 수 있고, 실제로 무엇을 바꿨는지 남기는 기록이 중요해집니다. 사람이 매번 모든 단계를 지켜보지 않더라도, 필요한 순간에는 판단의 근거와 작업 결과를 확인할 수 있어야 하기 때문입니다.</p>
+        </section>
+
+        <section id="experiment" class="news-story-section news-view">
+          <p class="news-section-label">CLUB EXPERIMENT</p><h2>가상 문의 50건으로<br> 작게 시작해보면 어떨까요?</h2>
+          <p>모임에서는 상품·주문·쿠폰·배송에 관한 <strong>가상 문의 50건</strong>으로 실험해볼 수 있겠습니다. “쿠폰이 적용되지 않아요”처럼 분명한 문의와, 여러 문제가 섞이거나 설명이 부족한 문의를 함께 준비합니다. 아래는 앞으로 해볼 실험 제안입니다.</p>
+          <ol>
+            <li><strong>사람이 먼저 정답을 적습니다.</strong> 문의를 어느 담당자에게 보내고 어떤 정보를 조회해야 할지 정합니다. 내용이 모호한 문의는 ‘담당자 검토’로 분류합니다.</li>
+            <li><strong>AI에게 분류와 조회만 맡깁니다.</strong> Decisions나 이용 가능한 분류 모델이 문의를 나누면, 가상 데이터를 보여주는 테스트용 조회 기능으로 연결합니다. 정보는 읽을 수만 있게 하고, 주문 취소나 쿠폰 발급은 할 수 없게 만듭니다.</li>
+            <li><strong>처리 과정과 결과를 기록합니다.</strong> 문의별로 AI의 분류, 선택한 도구, 실제 실행 여부와 결과를 남기고 사람이 확인합니다. 판단이 불확실하거나 AI가 답변을 거절한 경우, 미리 정한 업무 범위를 벗어난 경우에는 담당자에게 넘깁니다.</li>
+          </ol>
+          <figure class="ui-figure" aria-labelledby="metrics-heading">
+            <p class="ui-eyebrow">실험에서 확인할 항목 · 실제 결과 아님</p><h3 id="metrics-heading">비용과 함께 정확도, 사람의 시간도 봅니다</h3>
+            <dl class="ui-policy">
+              <div><dt>맞게 분류하고 도구를 골랐나요?</dt><dd>분류와 도구 선택 각각의 정답 수 ÷ 전체 50건</dd></div>
+              <div><dt>허용한 일만 했나요?</dt><dd>금지된 작업을 시도한 건수와 실제 실행한 건수를 따로 기록</dd></div>
+              <div><dt>비용과 시간은 얼마나 들었나요?</dt><dd>실패하거나 다시 시킨 경우까지 포함한 문의당 비용과 처리 시간</dd></div>
+              <div><dt>사람의 일이 줄었나요?</dt><dd>직접 처리할 때와 비교해 결과를 검토하고 고치는 데 든 시간</dd></div>
+            </dl>
+            <figcaption>같은 자료로 시험하고, 무엇을 성공으로 볼지도 미리 정합니다. 이 실험에서 잘됐더라도 실제 고객 문의로 범위를 넓힐 때는 다시 확인해야 합니다.</figcaption>
+          </figure>
+          <p>이렇게 작은 범위에서 효과를 확인한 뒤 실제 업무에 연결할 부분을 검토하면 됩니다. 외부 AI를 사용할 수 없는 환경에서는 가상 자료와 회사가 허용한 내부 도구로 진행합니다.</p>
+          <p class="ui-closing">AI에게 일을 맡기기 전에,<br> <strong>잘 끝났는지 확인할 방법도 함께 정해두면 좋겠습니다.</strong></p>
+        </section>
+
+        <section id="sources" class="news-sources" aria-labelledby="sources-heading">
+          <h2 id="sources-heading">읽은 자료</h2>
+          <ul>
+            <li><a href="https://openai.com/ko-KR/index/gpt-6-for-everyone/" target="_blank" rel="noopener noreferrer">OpenAI, GPT-6 and Intelligent UI for everyone ↗</a> <span>10월 7일 · 한국어 경로, 본문 일부 영문</span></li>
+            <li><a href="https://openai.com/index/gpt-6-for-everyone/" target="_blank" rel="noopener noreferrer">OpenAI 발표 영문 원문 ↗</a> <span>구성 방식·공급사 선정 데모·제공 범위</span></li>
+            <li><a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener noreferrer">ChatGPT 릴리스 노트 ↗</a> <span>10월 7일 항목 · 플랜·추론 옵션·배포 일정</span></li>
+            <li><a href="https://www.anthropic.com/claude-haiku-5-5" target="_blank" rel="noopener noreferrer">Anthropic, Claude Haiku 5.5 ↗</a> <span>10월 7일 · 가격 구간·평균 비용 산정·Sonnet 캐시</span></li>
+            <li><a href="https://support.claude.com/ko/articles/12138966-릴리스-노트" target="_blank" rel="noopener noreferrer">Anthropic 한국어 릴리스 노트 ↗</a> <span>10월 7일 출시 확인</span></li>
+            <li><a href="https://github.blog/changelog/2026-10-07-claude-haiku-5-5-in-github-copilot/" target="_blank" rel="noopener noreferrer">GitHub Copilot의 Haiku 5.5 ↗</a> <span>대상 플랜·점진 배포·정책</span></li>
+            <li><a href="https://developers.openai.com/api/docs/changelog" target="_blank" rel="noopener noreferrer">OpenAI API 변경 기록 ↗</a> <span>10월 6일 · Decisions 베타</span></li>
+            <li><a href="https://developers.openai.com/api/docs/guides/decisions" target="_blank" rel="noopener noreferrer">Decisions 공식 가이드 ↗</a> <span>유형·확률·요금·일반 API와의 구분</span></li>
+            <li><a href="https://blogs.windows.com/windowsdeveloper/2026/10/07/microsoft-execution-containers-policy-driven-containment-for-ai-agents/" target="_blank" rel="noopener noreferrer">Microsoft, MXC 정식 출시 ↗</a> <span>격리 방식·정책·향후 신원 관리</span></li>
+            <li><a href="https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available/" target="_blank" rel="noopener noreferrer">GitHub Copilot 로컬 샌드박스 정식 제공 ↗</a> <span>지원 환경·조직 정책</span></li>
+            <li><a href="https://commandline.microsoft.com/local-models-sandboxed-tools-github-windows/" target="_blank" rel="noopener noreferrer">Microsoft, 로컬 모델과 샌드박스 도구 ↗</a> <span>프로세스 격리·내장 파일 도구·원격 MCP의 차이</span></li>
+            <li><a href="https://github.blog/ai-and-ml/github-copilot/secret-protection-must-scale-with-software/" target="_blank" rel="noopener noreferrer">GitHub, Secret protection must scale with software ↗</a> <span>전용 분류기와 문맥 기반 탐지</span></li>
+            <li><a href="https://github.blog/changelog/2026-10-07-purpose-built-model-for-leaked-secret-detection/" target="_blank" rel="noopener noreferrer">GitHub, 비밀정보 탐지 기능·과금 공지 ↗</a> <span>현재 제공·비공개 프리뷰·향후 과금 구분</span></li>
+          </ul>
+          <p>모든 자료는 10월 8일 확인했습니다. 제품 화면은 OpenAI의 공개 데모를 캡처했으며, 나머지 도식은 가격표의 시각화 또는 설명용입니다. API 비용·속도·보안 성능을 직접 시험한 결과는 포함하지 않았습니다.</p>
+        </section>
+        <a class="news-end-link" href="./">AI뉴스 목록으로 돌아가기 <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </article></main>
+  <footer class="footer"><div class="wrap">헬로우 휴먼 · Workless Engineering Club</div></footer>
+  <script src="../assets/analytics.js?v=2" defer></script>
+  <script src="../assets/article-toc.js?v=1" defer></script>
+  <script type="module" src="../assets/content-updates.js?v=3"></script>
+</body>
+</html>
