@@ -1,0 +1,54 @@
+/* AI 송도 사례의 실행 흐름, 연구 도식과 비용 계산. */
+.songdo-research-visual > a { display: block; border-radius: 12px; cursor: zoom-in; }
+.songdo-research-visual img { background: #fff; }
+.songdo-visual-credit { display: block; margin-top: 6px; }
+.songdo-visual-credit a { white-space: nowrap; }
+.songdo-video iframe { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border: 1px solid var(--line); border-radius: 12px; background: #000; }
+.songdo-execution { margin: 30px 0; padding: 24px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.songdo-execution figcaption { display: grid; gap: 6px; margin-bottom: 22px; }
+.songdo-execution figcaption strong { font-size: 19px; }
+.songdo-execution figcaption > span, .songdo-cost figcaption { color: var(--muted); font-size: 13px; }
+.songdo-execution ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+.songdo-execution li { position: relative; margin: 0; padding: 16px; background: var(--surface-2); border-radius: 8px; }
+.songdo-execution li:not(:last-child)::after { content: '→'; position: absolute; right: -11px; top: 32px; color: var(--accent); }
+.songdo-execution li > span, .songdo-branches > div > span { display: block; margin-bottom: 8px; font-size: 12px; font-weight: 700; color: var(--accent); }
+.songdo-execution li strong, .songdo-branches strong { font-size: 15px; }
+.songdo-branches { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 18px; }
+.songdo-branches > div { padding: 18px; border: 1px solid var(--line); border-radius: 8px; }
+.songdo-branches > div:first-child { border-color: var(--accent); }
+.songdo-branches p { margin: 8px 0 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.songdo-page .songdo-loop { margin: 18px 0 0; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; text-align: center; }
+.songdo-cost { margin: 30px 0; padding: 24px; border: 1px solid var(--accent); border-radius: 12px; background: var(--surface); text-align: center; }
+.songdo-cost > strong { display: block; margin: 12px 0 18px; font-size: 20px; }
+.songdo-cost > div { display: inline-grid; max-width: 100%; font-size: 15px; line-height: 1.65; }
+.songdo-cost > div > span { padding: 10px 4px; }
+.songdo-cost > div > span:first-child { border-bottom: 1px solid var(--ink); }
+.songdo-team, .songdo-rehearsal { margin: 32px 0; padding: 24px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.songdo-team figcaption, .songdo-rehearsal figcaption { display: grid; gap: 8px; margin-bottom: 22px; line-height: 1.5; }
+.songdo-team figcaption > span, .songdo-rehearsal figcaption > span { font-size: 12px; color: var(--accent); }
+.songdo-team figcaption > strong, .songdo-rehearsal figcaption > strong { font-size: 21px; }
+.songdo-role-grid { display: grid; gap: 12px; }
+.songdo-role-grid > div { padding: 20px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-2); }
+.songdo-role-grid > div > span { color: var(--accent); font-size: 12px; font-family: var(--mono); }
+.songdo-role-grid h3 { margin: 9px 0 14px; font-size: 18px; }
+.songdo-role-grid p { margin: 8px 0 0; font-size: 14px; color: var(--muted); line-height: 1.65; }
+.songdo-role-grid p > strong { display: inline-block; margin-right: 5px; color: var(--ink); }
+.songdo-shared { margin-top: 16px; padding: 20px; border: 1px solid var(--accent); border-radius: 8px; text-align: center; }
+.songdo-shared p, .songdo-expected p { margin: 9px 0 0; font-size: 14px; color: var(--muted); line-height: 1.65; }
+.songdo-page .songdo-team-note { margin: 18px 0 0; font-size: 13px; color: var(--muted); text-align: center; }
+.songdo-fixture { margin: 0 0 20px; }
+.songdo-fixture > div { display: grid; grid-template-columns: 95px minmax(0, 1fr); gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 14px; line-height: 1.65; }
+.songdo-fixture dt { color: var(--muted); }
+.songdo-fixture dd { margin: 0; }
+.songdo-rehearsal ol { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.songdo-rehearsal li { display: grid; grid-template-columns: 70px minmax(0, 1fr); gap: 12px; margin: 0; padding: 14px; border-radius: 8px; background: var(--surface-2); font-size: 14px; line-height: 1.65; }
+.songdo-rehearsal li > strong { color: var(--accent); }
+.songdo-expected { margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--accent); }
+@media (max-width: 600px) {
+  .songdo-execution, .songdo-cost, .songdo-team, .songdo-rehearsal { padding: 18px; }
+  .songdo-execution ol, .songdo-branches { grid-template-columns: 1fr; }
+  .songdo-execution li:not(:last-child)::after { content: '↓'; top: auto; bottom: -16px; right: 50%; }
+  .songdo-cost > strong { font-size: 18px; }
+  .songdo-role-grid > div { padding: 16px; }
+  .songdo-fixture > div, .songdo-rehearsal li { grid-template-columns: 1fr; gap: 4px; }
+}

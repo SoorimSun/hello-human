@@ -1,5 +1,48 @@
 # AI 사례연구 이미지 출처
 
+## AI 송도 월드 · 사례연구 06
+
+원작·화면: AI 송도 월드. 서비스: https://situswise.com/ · 공식 설명: https://situswise.com/about
+
+2026-10-08 브라우저에서 실제 사이트를 열어 직접 캡처했습니다. 시민과 사건은 AI가 만든 가상이며, 실존 인물의 행동이나 실제 업무 로그가 아닙니다.
+
+| 파일 | 출처와 용도 |
+| --- | --- |
+| `songdo-city.jpg` | 3D 도시·시민 위치·랜드마크가 보이는 뷰포트 캡처. 본문·홈·목록·공유 대표 이미지. |
+| `songdo-events.jpg` | ‘지금 일어나는 일’ 패널을 연 실제 화면. 사건과 도시의 상태 변화를 함께 보는 관찰 방식 설명. |
+
+원본 캡처를 합성·보정하거나 AI로 재생성하지 않았습니다. 화면의 지표는 캡처 시점 값이며 본문의 제작자 13일 기록과 시점이 다를 수 있습니다. 지도 © OpenStreetMap contributors (ODbL), 상가 정보 소상공인시장진흥공단, 인구 통계 행정안전부. 서비스와 이미지의 권리는 원권리자에게 있으며 별도 이미지 재사용 라이선스는 확인하지 않았습니다.
+
+실행·기억·관찰 흐름과 비용 식은 헬로우 휴먼의 HTML/CSS 설명용 도식입니다. MD·마케터·기획자·풀필먼트 역할 구성, 주문 이후의 업무 흐름, 기획전의 재고 변경과 출고 처리량 감소 시나리오도 설명을 위한 가상 실험 설계입니다. 실제 시스템의 계측 결과가 아닙니다. [AI 송도 조사 기록](../../research/2026-10-08-ai-songdo.md), [커머스 실험 환경 조사 기록](../../research/2026-10-08-commerce-agent-sandbox.md), [풀필먼트 조사 기록](../../research/2026-10-08-fulfillment-agent-sandbox.md)에 출처와 확인 범위를 남겼습니다.
+
+### 07절 커머스 실험 사례의 공식 도식
+
+확인·저장: 2026-10-08. 아래 5장은 연구진·기업의 공식 발표 또는 논문에 공개된 원본 파일입니다. 합성·보정·AI 재생성 없이 저장했으며 각 사례 설명 뒤에 한국어 해설, 출처, 확대 링크와 함께 배치했습니다.
+
+| 파일 | 원작·용도 | 크기 |
+| --- | --- | --- |
+| `songdo-magentic-marketplace.png` | Microsoft Research. 고객·사업자 에이전트의 검색 → 대화 → 거래 환경. | 936×393 |
+| `songdo-vending-bench.png` | Andon Labs. Vending-Bench의 원격·자판기 도구, 시뮬레이션, 평가 구조. | 2525×1221 |
+| `songdo-project-vend.png` | Anthropic·Andon Labs. Project Vend 2단계의 에이전트 역할과 공급·물품 보충 연결. | 3840×2160 |
+| `songdo-tau-bench.svg` | Sierra. τ-bench의 도구·에이전트·사용자 구조와 항공 예약 예시. | 1680×791 |
+| `songdo-ecommerce-bench.png` | E-Commerce Bench 연구진. 실행·도구·환경·데이터 네 계층의 아키텍처. | 920×840 |
+
+- Magentic Marketplace [공식 발표](https://www.microsoft.com/en-us/research/blog/magentic-marketplace-an-open-source-simulation-environment-for-studying-agentic-markets/) · [이미지 원본](https://www.microsoft.com/en-us/research/wp-content/uploads/2025/10/Magentic-Marketplace_Figure1.png)
+- Vending-Bench [공식 발표](https://andonlabs.com/evals/vending-bench) · [이미지 원본](https://andonlabs.com/images/evals/vending-machine/vending_bench.png)
+- Project Vend [공식 발표](https://www.anthropic.com/research/project-vend-2) · [이미지 원본](https://www-cdn.anthropic.com/images/4zrzovbb/website/60ab1e5b018843e80e352e274d868e1766f6418b-3840x2160.png)
+- τ-bench [공식 발표](https://sierra.ai/uk/blog/benchmarking-ai-agents) · [SVG 원본](https://cdn.sanity.io/images/ca4jck6w/production/2f1b2fa4702af30cba1c1ec8d078a38bd3fd1829-1680x791.svg)
+- E-Commerce Bench [논문](https://arxiv.org/html/2608.30730v1) · [이미지 원본](https://arxiv.org/html/2608.30730v1/overview.png)
+
+사례 설명·비평에 필요한 원작 도식이며, 해당 실험 환경을 실행해 생성한 결과가 아닙니다. 도식의 권리는 각 원권리자에게 있습니다. 별도의 이미지 전용 재사용 라이선스는 확인하지 않았고, 각 프로젝트의 코드 라이선스를 도식에 일괄 적용하지 않습니다.
+
+### 09절 창고 디지털 트윈 영상
+
+- 영상: NVIDIA, **Industrial Digital Twins for Simulating Robot Fleets**.
+- 공식 소개 글: https://blogs.nvidia.co.kr/blog/mega-omniverse-blueprint/
+- YouTube 원본: https://www.youtube.com/watch?v=IuWk0C3MzBQ
+- 확인일: 2026-10-08. 공식 소개 글에 포함된 동일한 영상 ID와 제목을 확인해 ‘어디까지 가상 환경으로 만들까’에 임베드했습니다. KION·Accenture의 Mega 활용 사례를 설명하는 원본 영상이며 다운로드·편집하지 않았습니다.
+- 지연 로딩, 16:9 반응형 화면, 전체 화면 재생, 원본 링크를 제공하며 자동 재생하지 않습니다.
+
 ## 35mm-studio · 사례연구 05
 
 원작·이미지: Shan Hannadige. 제작기: https://shannadige.com/blog/darkroom/ (2026-10-02 게시).
