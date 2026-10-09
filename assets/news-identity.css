@@ -1,0 +1,53 @@
+/* ISSUE 11: 신원·검증·정책의 조건을 본문과 함께 읽는 도식. */
+.news-identity .identity-figure { margin: 30px 0; padding: 26px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.news-identity .identity-eyebrow { margin: 0 0 10px; color: var(--muted); font-size: 12px; font-weight: 700; line-height: 1.6; }
+.news-identity .identity-figure h3 { margin: 0 0 24px; font-size: 23px; line-height: 1.4; }
+.news-identity .identity-figure figcaption { margin-top: 20px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.news-identity .identity-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin: 0; padding: 0; list-style: none; }
+.news-identity .identity-steps-four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.news-identity .identity-steps li { position: relative; min-width: 0; margin: 0; padding: 18px 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); }
+.news-identity .identity-steps li:not(:last-child)::after { content: '→'; position: absolute; top: 43px; right: -20px; color: var(--muted); }
+.news-identity .identity-steps small { display: block; margin-bottom: 16px; color: var(--muted); font: 12px var(--mono); }
+.news-identity .identity-steps strong { display: block; font-size: 17px; line-height: 1.5; }
+.news-identity .identity-steps span { display: block; margin-top: 8px; color: var(--muted); font-size: 14px; line-height: 1.65; }
+.news-identity .identity-definitions { margin: 0; }
+.news-identity .identity-definitions > div { display: grid; grid-template-columns: 145px minmax(0, 1fr); gap: 20px; padding: 15px 0; border-bottom: 1px solid var(--line); }
+.news-identity .identity-definitions > div:last-child { border-bottom: 0; }
+.news-identity .identity-definitions dt { font-weight: 750; }
+.news-identity .identity-definitions dd { margin: 0; color: var(--muted); }
+.news-identity .identity-numbers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.news-identity .identity-numbers > div { padding: 24px 20px; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; }
+.news-identity .identity-numbers strong { display: block; margin-bottom: 8px; font: 700 clamp(26px, 4vw, 39px)/1.2 var(--mono); }
+.news-identity .identity-numbers span { display: block; font-size: 14px; color: var(--muted); }
+.news-identity .identity-result-bar { display: flex; height: 26px; gap: 3px; overflow: hidden; border-radius: 4px; }
+.news-identity .identity-result-qualified { flex: 85; background: var(--accent); }
+.news-identity .identity-result-duplicate { flex: 11; background: var(--ink); }
+.news-identity .identity-result-invalid { flex: 1; background: var(--muted); }
+.news-identity .identity-result-labels { display: grid; gap: 9px; margin: 20px 0 0; padding: 0; list-style: none; font-size: 14px; }
+.news-identity .identity-result-labels li { display: grid; grid-template-columns: 12px 40px minmax(0, 1fr); gap: 10px; align-items: baseline; }
+.news-identity .identity-result-labels i { width: 10px; height: 10px; border-radius: 2px; }
+.news-identity .identity-key-qualified { background: var(--accent); }
+.news-identity .identity-key-duplicate { background: var(--ink); }
+.news-identity .identity-key-invalid { background: var(--muted); }
+.news-identity .identity-experiment { padding-left: 24px; }
+.news-identity .identity-experiment li { margin-bottom: 18px; padding-left: 5px; }
+.news-identity .identity-experiment li::marker { color: var(--accent); font-family: var(--mono); }
+.news-identity .identity-experiment strong { display: block; margin-bottom: 5px; }
+@media (max-width: 1100px) {
+  .news-identity .identity-steps-four { grid-template-columns: 1fr; gap: 26px; }
+  .news-identity .identity-steps-four li:not(:last-child)::after { content: '↓'; top: auto; right: 50%; bottom: -26px; }
+}
+@media (max-width: 600px) {
+  /* 공통 문서의 72px 스크롤 여백과 합쳐 목차의 읽기 기준선 안에 둡니다. */
+  .news-identity .news-story-section, .news-identity .news-summary, .news-identity .news-sources { scroll-margin-top: 64px; }
+  .news-identity .identity-figure { padding: 21px 17px; }
+  .news-identity .identity-steps { grid-template-columns: 1fr; gap: 26px; }
+  .news-identity .identity-steps li:not(:last-child)::after { content: '↓'; top: auto; right: 50%; bottom: -26px; }
+  .news-identity .identity-numbers { grid-template-columns: 1fr; }
+  .news-identity .identity-definitions > div { grid-template-columns: 1fr; gap: 4px; }
+  .news-identity .news-view { padding: 27px 20px; }
+}
+@media print {
+  .news-identity .identity-figure { break-inside: avoid; }
+  .news-identity .identity-result-bar, .news-identity .identity-result-labels i { print-color-adjust: exact; }
+}
