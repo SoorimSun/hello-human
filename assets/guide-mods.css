@@ -1,4 +1,4 @@
-/* Claude Code Mods guide and its two entry cards. */
+/* Claude Code Mods guide and its home card. */
 .mods-cover { margin: 32px 0 0; }
 .mods-cover img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: var(--radius); }
 .mods-cover figcaption, .mods-media figcaption { margin-top: 10px; color: var(--muted); font-size: 13px; line-height: 1.65; }
@@ -27,6 +27,11 @@
 .mods-media > a { display: block; }
 .mods-media img, .mods-media video { display: block; width: 100%; height: auto; background: #18181b; border: 1px solid var(--line); border-radius: 10px; }
 .mods-media video { aspect-ratio: 16 / 9; }
+.mods-video-link { position: relative; border-radius: 10px; text-decoration: none; }
+.mods-video-action { position: absolute; left: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: 12px; padding: 11px 16px; border-radius: 8px; background: #fff; color: #18181b; font-size: 15px; font-weight: 700; box-shadow: 0 2px 12px #0004; }
+.mods-video-action small { display: block; margin-top: 2px; font-size: 11px; font-weight: 400; }
+.mods-video-link:hover .mods-video-action { background: #f0ebe5; }
+.mods-video-link:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 .mods-sample-tag { display: inline-block; padding: 3px 9px; border-radius: 4px; background: var(--surface-2); color: var(--muted); font: 11px var(--mono); vertical-align: middle; }
 .mods-command-label { display: block; margin-top: 25px; font-size: 12px; color: var(--muted); font-weight: 650; }
 .mods-command-label + pre { margin-top: 7px; }

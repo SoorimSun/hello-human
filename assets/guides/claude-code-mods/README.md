@@ -5,14 +5,14 @@
 | 로컬 파일 | 원본 | 사용 위치 |
 | --- | --- | --- |
 | `official-cover.png` | [공식 글의 OG 이미지](https://claude.dev/blog/getting-started-with-claude-code-mods/og.png) | 가이드 표지, 홈 썸네일, 공유 메타데이터 |
-| `official-demo-poster.jpg` | [공식 종합 영상의 포스터](https://claude.dev/media/6acebe833d3657a8320e610e6e2d3e850d8d7c0fdc45eaf3519c8775afc30d53.jpg) | 영상 재생 전 미리보기 |
+| `official-demo-poster.jpg` | [공식 종합 영상의 포스터](https://claude.dev/media/6acebe833d3657a8320e610e6e2d3e850d8d7c0fdc45eaf3519c8775afc30d53.jpg) | 새 탭에서 공식 영상을 여는 미리보기 |
 | `token-weather-showers.png` | [Token Weather 원본](https://github.com/anthropics/claude-code-playground/blob/569c5283d9a0a7ee7938df85bb32e4f48cbb8c86/claude-code/mods/token-weather/screenshots/token-weather-showers.png) | 컨텍스트 사용률 설명 |
 | `replay-theater-pane.png` | [Replay Theater 원본](https://github.com/anthropics/claude-code-playground/blob/569c5283d9a0a7ee7938df85bb32e4f48cbb8c86/claude-code/mods/replay-theater/screenshots/replay-theater-pane.png) | 편집 검토 설명 |
 | `blast-radius-pane.png` | [Blast Radius 원본](https://github.com/anthropics/claude-code-playground/blob/569c5283d9a0a7ee7938df85bb32e4f48cbb8c86/claude-code/mods/blast-radius/screenshots/blast-radius-pane.png) | 실행 확인 설명 |
 | `claude-image-view.png` | [Jarrod Watts의 원본](https://github.com/jarrodwatts/claude-image-view/blob/b3c412bb6d167cafade79148e95f9114ee1aad7c/claude-image-view.png) | 커뮤니티 사례의 이미지 미리보기 화면, 1734×1040 |
 | `intermission-preview.png` | [Jarrod Watts의 원본](https://github.com/jarrodwatts/intermission/blob/f37a26b526c630bdea91688f3f1da733bac5ae84/intermission-preview.png) | 커뮤니티 사례의 Claude Code·Doom 분할 화면, 1726×1040 |
 
-공식 종합 영상은 [Getting started with Claude Code mods](https://claude.dev/blog/getting-started-with-claude-code-mods/)의 FIG A, Terminal 버전입니다. 원본 [MP4](https://claude.dev/media/a4e8983c1c68c9549dbf74a7478c8e2b7932e65d881a978d51a5191e2c7ce5ac.mp4)를 `controls`, `playsinline`, `preload="none"`으로 연결했습니다. 자동 재생하지 않습니다. 재생 불가 시 원문 링크와 정적 이미지·한국어 설명으로 내용을 확인할 수 있습니다.
+공식 종합 영상은 [Getting started with Claude Code mods](https://claude.dev/blog/getting-started-with-claude-code-mods/)의 FIG A, Terminal 버전입니다. 원본 [MP4](https://claude.dev/media/a4e8983c1c68c9549dbf74a7478c8e2b7932e65d881a978d51a5191e2c7ce5ac.mp4)는 79.9초이며, 표지를 클릭하면 새 탭에서 재생됩니다. 영상 서버의 `Cross-Origin-Resource-Policy: same-origin` 응답 때문에 외부 페이지의 `<video>` 삽입은 동작하지 않아 직접 링크로 변경했습니다. 공식 원문 링크와 정적 이미지·한국어 설명도 함께 제공합니다. 영상을 복제하거나 프록시하지 않습니다.
 
 공개 저장소의 샘플 이미지 3장은 저장소의 Apache-2.0 라이선스를 따르며 [원본 LICENSE](https://github.com/anthropics/claude-code-playground/blob/569c5283d9a0a7ee7938df85bb32e4f48cbb8c86/LICENSE)를 `LICENSE-anthropic.txt`로 보관했습니다. 공식 블로그의 표지·포스터·영상까지 이 라이선스를 적용한다고 주장하지 않습니다. 블로그 이미지는 해당 공식 자료를 소개하는 출처 표시와 함께 사용합니다.
 

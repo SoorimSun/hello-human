@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="../assets/style.css?v=9">
   <link rel="stylesheet" href="../assets/news.css?v=10">
   <link rel="stylesheet" href="../assets/guide.css?v=4">
-  <link rel="stylesheet" href="../assets/guide-mods.css?v=2">
+  <link rel="stylesheet" href="../assets/guide-mods.css?v=3">
   <link rel="stylesheet" href="../assets/content-updates.css?v=1">
 </head>
 <body>
@@ -112,11 +112,11 @@
         <h2>세 가지 샘플로 보는<br>상태 표시, 편집 검토, 실행 전 확인</h2>
         <p>Anthropic 개발자 관계팀이 공개한 세 가지 샘플부터 살펴봅시다. 모두 <strong>Mods를 배우고 실험하기 위한 예제</strong>여서 지속적인 지원이나 유지보수가 보장되지는 않습니다. 각 샘플로 무엇을 할 수 있는지, 사용할 때 무엇을 알아두면 좋은지 함께 보겠습니다.</p>
         <figure class="mods-media">
-          <video controls playsinline preload="none" poster="../assets/guides/claude-code-mods/official-demo-poster.jpg" width="1920" height="1080" aria-label="세 가지 Mods의 공식 터미널 데모. 아래 캡션과 각 샘플 설명에서 내용을 읽을 수 있습니다.">
-            <source src="https://claude.dev/media/a4e8983c1c68c9549dbf74a7478c8e2b7932e65d881a978d51a5191e2c7ce5ac.mp4" type="video/mp4">
-            <a href="https://claude.dev/blog/getting-started-with-claude-code-mods/">공식 데모 원문에서 보기</a>
-          </video>
-          <figcaption>공식 종합 데모 · Token Weather의 상태 표시, Blast Radius의 실행 확인, Replay Theater의 편집 검토 순서입니다. 재생 버튼을 누르면 공식 사이트의 영상을 불러옵니다. <a href="https://claude.dev/blog/getting-started-with-claude-code-mods/">영상이 안 보이면 원문에서 보기 ↗</a></figcaption>
+          <a class="mods-video-link" href="https://claude.dev/media/a4e8983c1c68c9549dbf74a7478c8e2b7932e65d881a978d51a5191e2c7ce5ac.mp4" target="_blank" rel="noopener noreferrer" aria-label="공식 터미널 데모 재생, 1분 20초, 새 탭에서 열기">
+            <img src="../assets/guides/claude-code-mods/official-demo-poster.jpg" width="1920" height="1080" alt="Blast Radius가 파일 삭제 전 확인을 요청하는 공식 데모 장면" loading="lazy" decoding="async">
+            <span class="mods-video-action"><span aria-hidden="true">▶</span><span>공식 데모 재생<small>1분 20초 · 새 탭에서 열기 ↗</small></span></span>
+          </a>
+          <figcaption>공식 종합 데모 · Token Weather의 상태 표시, Blast Radius의 실행 확인, Replay Theater의 편집 검토 순서입니다. 표지를 누르면 공식 영상이 새 탭에서 재생됩니다. <a href="https://claude.dev/blog/getting-started-with-claude-code-mods/">공식 설명과 함께 보기 ↗</a></figcaption>
         </figure>
         <h3>Token Weather <span class="mods-sample-tag">관찰</span></h3>
         <p>Token Weather는 입력창 위에 <strong>컨텍스트 사용률</strong>을 날씨로 표시합니다. 컨텍스트는 모델이 답변할 때 참고하는 대화와 코드 등의 정보입니다. 이 정보를 담을 수 있는 공간이 얼마나 찼는지 보여주는 셈입니다.</p>
