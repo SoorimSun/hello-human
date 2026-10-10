@@ -1,0 +1,48 @@
+/* ISSUE 12: 사건의 시간, 평가 공개 비율, 실행 권한을 구분하는 기사 도식. */
+.news-boundaries .news-hero-visual .boundary-caption-note { font-family: inherit; font-weight: 400; letter-spacing: 0; white-space: normal; }
+.news-boundaries .boundary-figure { margin: 30px 0; padding: 26px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.news-boundaries .boundary-eyebrow { margin: 0 0 10px; color: var(--muted); font-size: 12px; font-weight: 700; line-height: 1.6; }
+.news-boundaries .boundary-figure h3 { margin: 0 0 24px; font-size: 23px; line-height: 1.4; }
+.news-boundaries .boundary-figure figcaption { margin-top: 22px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.news-boundaries .boundary-timeline { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; list-style: none; margin: 0; padding: 0; }
+.news-boundaries .boundary-timeline li { min-width: 0; padding-top: 14px; border-top: 3px solid var(--accent); }
+.news-boundaries .boundary-timeline time { display: block; margin-bottom: 14px; color: var(--accent); font: 700 22px var(--mono); }
+.news-boundaries .boundary-timeline strong { display: block; font-size: 16px; line-height: 1.5; }
+.news-boundaries .boundary-timeline span { display: block; margin-top: 8px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.news-boundaries .boundary-stat { display: grid; gap: 8px; margin-bottom: 28px; }
+.news-boundaries .boundary-stat > strong { font: 700 clamp(36px, 5vw, 52px)/1.15 var(--mono); }
+.news-boundaries .boundary-stat small { color: var(--muted); font-size: 20px; font-weight: 400; }
+.news-boundaries .boundary-stat > span { color: var(--muted); font-size: 14px; }
+.news-boundaries .boundary-bar-label { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 16px; margin: 20px 0 8px; font-size: 14px; }
+.news-boundaries .boundary-bar-label b { font-family: var(--mono); font-size: 13px; }
+.news-boundaries .boundary-bar { height: 16px; overflow: hidden; border-radius: 3px; background: var(--line); }
+.news-boundaries .boundary-bar span { display: block; height: 100%; }
+.news-boundaries .boundary-bar-all { width: 100%; background: var(--muted); }
+.news-boundaries .boundary-bar-published { width: calc(31 / 857 * 100%); background: var(--accent); }
+.news-boundaries .boundary-bar-launch { width: calc(9 / 857 * 100%); background: var(--ink); }
+.news-boundaries .boundary-flow-figure { padding: 22px; background: var(--bg); }
+.news-boundaries .boundary-flow { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; padding: 0; list-style: none; }
+.news-boundaries .boundary-flow li { margin: 0; padding: 17px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.news-boundaries .boundary-flow li:nth-child(2) { border-color: var(--accent); }
+.news-boundaries .boundary-flow small { display: block; margin-bottom: 8px; color: var(--accent); font: 700 12px var(--mono); }
+.news-boundaries .boundary-flow strong { display: block; font-size: 17px; }
+.news-boundaries .boundary-flow span { display: block; margin-top: 6px; color: var(--muted); font-size: 14px; }
+.news-boundaries .boundary-stop { margin: 18px 0 0; padding-top: 18px; border-top: 1px dashed var(--line); font-size: 14px; }
+.news-boundaries .boundary-stop strong { display: block; margin-bottom: 6px; }
+.news-boundaries .boundary-experiment { padding-left: 24px; }
+.news-boundaries .boundary-experiment li { margin-bottom: 20px; padding-left: 5px; }
+.news-boundaries .boundary-experiment li::marker { color: var(--accent); font-family: var(--mono); }
+.news-boundaries .boundary-experiment strong { display: block; margin-bottom: 5px; }
+@media (max-width: 1000px) {
+  .news-boundaries .boundary-timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 18px; }
+}
+@media (max-width: 600px) {
+  .news-boundaries .news-story-section, .news-boundaries .news-summary, .news-boundaries .news-sources { scroll-margin-top: 64px; }
+  .news-boundaries .boundary-figure { padding: 21px 17px; }
+  .news-boundaries .boundary-flow { grid-template-columns: 1fr; }
+  .news-boundaries .news-view { padding: 27px 20px; }
+}
+@media print {
+  .news-boundaries .boundary-figure { break-inside: avoid; }
+  .news-boundaries .boundary-bar { print-color-adjust: exact; }
+}
