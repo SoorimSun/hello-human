@@ -39,7 +39,7 @@
 .work-hero-description { font-size: 18px; }
 .work-source-note { max-width: 650px; color: var(--muted); font-size: 14px; }
 
-.work-index { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 36px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.work-index { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin-top: 36px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
 .work-index a { display: flex; flex-direction: column; justify-content: space-between; gap: 20px; padding: 20px 16px; text-decoration: none; }
 .work-index a + a { border-left: 1px solid var(--line); }
 .work-index a:hover { background: var(--surface-2); }
@@ -56,6 +56,13 @@
 .work-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
 .work-tags li { padding: 4px 9px; border: 1px solid var(--line); border-radius: 6px; color: var(--muted); font-size: 12px; }
 .work-tags .is-recommended { color: var(--ink); background: var(--surface-2); font-weight: 700; }
+.work-gallery { display: grid; gap: 16px; margin-top: 28px; }
+.work-gallery figure { margin: 0; }
+.work-gallery a { display: block; overflow: hidden; border: 1px solid var(--line); border-radius: 10px; background: var(--surface-2); }
+.work-gallery a:hover { border-color: var(--accent); }
+.work-gallery img { display: block; width: 100%; height: auto; }
+.work-gallery figcaption { margin-top: 6px; color: var(--muted); font-size: 12px; }
+.work-gallery-note { margin: 10px 0 0; color: var(--muted); font-size: 12px; }
 .work-description { font-size: 18px; }
 .work-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0 28px; }
 .work-button { display: inline-flex; align-items: center; justify-content: center; gap: 16px; min-height: 44px; padding: 9px 15px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); font-size: 14px; font-weight: 700; text-decoration: none; }
@@ -79,12 +86,13 @@
   .member-work-card { grid-template-columns: 1fr; gap: 24px; padding: 24px; }
   .work-project { grid-template-columns: 1fr; gap: 28px; padding: 48px 0; }
   .work-index { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .work-index a:nth-child(3) { border-left: 0; }
+  .work-index a:nth-child(odd) { border-left: 0; }
   .work-index a:nth-child(n + 3) { border-top: 1px solid var(--line); }
   .work-index a:first-child { border-radius: var(--radius) 0 0 0; }
   .work-index a:nth-child(2) { border-radius: 0 var(--radius) 0 0; }
-  .work-index a:nth-child(3) { border-radius: 0 0 0 var(--radius); }
+  .work-index a:nth-last-child(2):nth-child(odd) { border-radius: 0 0 0 var(--radius); }
   .work-index a:last-child { border-radius: 0 0 var(--radius) 0; }
+  .work-index a:last-child:nth-child(odd) { grid-column: 1 / -1; border-radius: 0 0 var(--radius) var(--radius); }
 }
 
 @media (max-width: 520px) {

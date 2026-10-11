@@ -6,17 +6,17 @@
 <!-- 동호회 사이트: 검색엔진 수집·노출·캐시 차단. 지우지 마세요. -->
 <meta name="robots" content="noindex, nofollow, noarchive">
 <title>최태준의 작업물 · 헬로우 휴먼</title>
-<meta name="description" content="헬로우 휴먼 회원 최태준의 개인 프로젝트. K-Stock Hub, BATTLE CHESS, 삼국지, VOLTARIS의 제작 도구와 운영 이야기를 소개합니다.">
+<meta name="description" content="헬로우 휴먼 회원 최태준의 개인 프로젝트. 주식·부동산 지도 K-Stock Hub와 BATTLE CHESS, 삼국지, VOLTARIS, BOOMZY의 구성과 운영 이야기를 소개합니다.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="최태준의 작업물 · 헬로우 휴먼">
-<meta property="og:description" content="주식 정보 사이트 하나, 플레이할 게임 셋. AI 도구와 함께 만든 네 가지 개인 프로젝트를 구경해보세요.">
+<meta property="og:description" content="주식·부동산을 살피는 사이트 하나, 플레이할 게임 넷. AI 도구와 함께 만든 다섯 가지 개인 프로젝트를 구경해보세요.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
 <script src="../assets/theme.js?v=3"></script>
 <link rel="stylesheet" href="../assets/style.css?v=9">
-<link rel="stylesheet" href="../assets/showcase.css?v=1">
+<link rel="stylesheet" href="../assets/showcase.css?v=3">
 <link rel="stylesheet" href="../assets/content-updates.css?v=1">
 </head>
 <body class="work-page">
@@ -33,15 +33,16 @@
     <div class="wrap">
       <p class="eyebrow">MEMBER SHOWCASE</p>
       <h1>최태준의 작업물</h1>
-      <p class="work-hero-title">주식 정보부터<br><span>3D 게임까지.</span></p>
-      <p class="work-hero-description">AI 도구를 곁에 두고, 궁금한 것을 직접 만들어본 기록.<br>헬로우 휴먼 회원 최태준님의 개인 프로젝트 네 편을 소개합니다.</p>
-      <p class="work-source-note">제작자가 보내준 소개를 바탕으로 정리했습니다. 개발 범위와 운영 정보는 소개 당시 기준입니다.</p>
+      <p class="work-hero-title">주식·부동산 지도부터<br><span>3D 게임까지.</span></p>
+      <p class="work-hero-description">AI 도구를 곁에 두고, 궁금한 것을 직접 만들어본 기록.<br>헬로우 휴먼 회원 최태준님의 개인 프로젝트 다섯 편을 소개합니다.</p>
+      <p class="work-source-note">제작자가 보내준 소개와 공개 저장소를 바탕으로 정리했습니다. 개발 범위와 운영 정보는 소개 당시 기준입니다.</p>
 
       <nav class="work-index" aria-label="작업물 바로가기">
-        <a href="#k-stock-hub"><span>K-Stock Hub</span><small>주식 정보 <span aria-hidden="true">↘</span></small></a>
+        <a href="#k-stock-hub"><span>K-Stock Hub</span><small>주식·부동산 <span aria-hidden="true">↘</span></small></a>
         <a href="#battle-chess"><span>BATTLE CHESS</span><small>3D 체스 <span aria-hidden="true">↘</span></small></a>
         <a href="#three-kingdoms"><span>삼국지</span><small>타워 디펜스 <span aria-hidden="true">↘</span></small></a>
         <a href="#voltaris"><span>VOLTARIS</span><small>3D 슈팅 <span aria-hidden="true">↘</span></small></a>
+        <a href="#boomzy"><span>BOOMZY</span><small>캐주얼 슈팅 <span aria-hidden="true">↘</span></small></a>
       </nav>
       <p class="work-link-note">사이트·게임·GitHub 등 외부 링크는 새 탭으로 열립니다.</p>
     </div>
@@ -50,30 +51,60 @@
   <div class="wrap work-projects">
     <article id="k-stock-hub" class="work-project" aria-labelledby="stock-title">
       <header class="work-project-heading">
-        <p class="label">MARKET DASHBOARD</p>
+        <p class="label">STOCK &amp; REAL ESTATE MAPS</p>
         <h2 id="stock-title">K-Stock Hub</h2>
-        <p class="work-one-liner">국내외 주식 정보를<br>한곳에 모으다.</p>
+        <p class="work-one-liner">주식 시장에서 아파트 단지까지,<br>지도로 살펴보다.</p>
         <ul class="work-tags" aria-label="K-Stock Hub 분야">
-          <li>웹 서비스</li>
-          <li>주식 정보</li>
+          <li>주식·부동산</li>
+          <li>실거래가 지도</li>
+          <li>3D 단지뷰</li>
         </ul>
+        <div class="work-gallery" aria-label="K-Stock Hub 스크린샷">
+          <figure>
+            <a href="../assets/works/k-stock-hub-map.jpg" target="_blank" rel="noopener noreferrer" aria-label="K-Stock Hub 코스피 시가총액 맵 크게 보기 (새 탭)">
+              <img src="../assets/works/k-stock-hub-map.jpg" alt="종목별 시가총액과 등락률을 사각형의 크기와 색으로 보여주는 코스피 지도" width="1265" height="712" loading="lazy" decoding="async">
+            </a>
+            <figcaption>코스피 시가총액 맵</figcaption>
+          </figure>
+          <figure>
+            <a href="../assets/works/k-stock-hub-realestate-map.jpg" target="_blank" rel="noopener noreferrer" aria-label="K-Stock Hub 부동산 실거래가 지도 크게 보기 (새 탭)">
+              <img src="../assets/works/k-stock-hub-realestate-map.jpg" alt="서울 반포동 아파트의 실거래 기준가와 등락을 타일의 크기와 색으로 보여주는 부동산맵" width="1265" height="988" loading="lazy" decoding="async">
+            </a>
+            <figcaption>부동산맵 · 지역별 아파트 실거래가</figcaption>
+          </figure>
+          <figure>
+            <a href="../assets/works/k-stock-hub-realestate-3d.jpg" target="_blank" rel="noopener noreferrer" aria-label="K-Stock Hub 3D 단지뷰 크게 보기 (새 탭)">
+              <img src="../assets/works/k-stock-hub-realestate-3d.jpg" alt="반포동 래미안원베일리와 주변 건물·도로·조경을 렌더링하고 시간대와 날씨를 바꿀 수 있는 3D 단지뷰" width="1280" height="720" loading="lazy" decoding="async">
+            </a>
+            <figcaption>시간대·날씨를 바꾸는 3D 단지뷰</figcaption>
+          </figure>
+        </div>
+        <p class="work-gallery-note">2026.10.11 서비스 화면 · 눌러서 크게 보기</p>
       </header>
       <div class="work-project-body">
-        <p class="work-description">코스피·코스닥부터 S&amp;P 500·나스닥까지, 국내외 주식 종합 정보를 제공하는 사이트입니다.</p>
+        <p class="work-description">국내외 주식 정보와 아파트 실거래가를 함께 살펴보는 웹 서비스입니다. 코스피·코스닥·S&amp;P 500·나스닥 100의 시가총액 맵에 더해, 부동산맵에서 지역별 가격 흐름과 단지별 거래 이력을 탐색할 수 있습니다.</p>
+        <p class="work-description">부동산맵은 타일의 크기로 기준가를, 색으로 등락을 보여줍니다. 관심 단지의 매매·전세·월세 이력을 확인하고 최대 3개 단지를 비교할 수 있으며, 3D 단지뷰와 드론 탐험으로 주변 공간도 둘러볼 수 있습니다.</p>
         <div class="work-actions">
           <a class="work-button is-primary" href="https://kospimap.com" target="_blank" rel="noopener noreferrer" aria-label="K-Stock Hub 사이트 열기 (새 탭)">사이트 열기 <span aria-hidden="true">↗</span></a>
+          <a class="work-button" href="https://kospimap.com/realestate-map" target="_blank" rel="noopener noreferrer" aria-label="K-Stock Hub 부동산맵 열기 (새 탭)">부동산맵 <span aria-hidden="true">↗</span></a>
+          <a class="work-button" href="https://kospimap.com/drone-explore" target="_blank" rel="noopener noreferrer" aria-label="K-Stock Hub 드론 탐험 열기 (새 탭)">드론 탐험 <span aria-hidden="true">↗</span></a>
           <a class="work-button" href="https://github.com/fdx5/stock_market" target="_blank" rel="noopener noreferrer" aria-label="K-Stock Hub GitHub 코드 보기 (새 탭)">GitHub 코드 <span aria-hidden="true">↗</span></a>
         </div>
         <dl class="work-facts">
           <div><dt>제작 도구</dt><dd>Claude Sonnet + Opus 중심으로 개발</dd></div>
-          <div><dt>데이터베이스</dt><dd>Turso</dd></div>
-          <div><dt>배포·운영</dt><dd>Render · 월 US$25<br>8월에 도메인을 구매해 운영 중</dd></div>
+          <div><dt>부동산 탐색</dt><dd>시·도 / 시·군·구 / 읍·면·동별 조회<br>3개월·6개월·1년 · 가격·면적·거래 조건 필터</dd></div>
+          <div><dt>단지 상세</dt><dd>매매·전세·월세 이력 · 평형별 조회<br>최대 3개 단지 비교 · 관심 단지 브라우저 저장</dd></div>
+          <div><dt>3D 체험</dt><dd>시간대·날씨를 바꾸는 단지뷰<br>열기구 시점 · 드론 가상 비행</dd></div>
+          <div><dt>데이터 출처</dt><dd>국토교통부 아파트 실거래가<br>브이월드 건물·지형 공간정보</dd></div>
+          <div><dt>기술·운영</dt><dd>React / TypeScript / Three.js<br>Python / FastAPI / Turso · Render 배포</dd></div>
         </dl>
         <aside class="work-note">
-          <h3>만드는 것에서, 운영하는 것으로</h3>
-          <p>도메인을 마련하고 매달 운영비를 들이며 서비스를 이어가고 있습니다. 제작자가 커뮤니티에 올린 소개 글에서도 작업물 이야기를 읽어볼 수 있습니다.</p>
+          <h3>숫자를 읽는 지도에서, 공간을 보는 지도로</h3>
+          <p>주식 시가총액을 시각화하던 프로젝트가 아파트 실거래가와 3D 공간 탐색으로 확장됐습니다. 건물 윤곽·높이와 지형 자료 위에 외벽·조경·차량 같은 표현을 더해 단지 주변을 둘러보는 경험을 만들었습니다.</p>
+          <p><a href="../case-studies/2026-10-02-kospimap.html">3D 부동산 지도 제작 사례 읽기 <span aria-hidden="true">→</span></a></p>
           <a href="https://damoang.net/stock/14729" target="_blank" rel="noopener noreferrer">다모앙 소개 글 읽기 <span aria-hidden="true">↗</span><span class="work-sr-only"> (새 탭)</span></a>
         </aside>
+        <p class="work-source-note">2026.10.11 공개 저장소와 서비스 화면 기준. 제작 도구는 제작자 소개 기준입니다.</p>
       </div>
     </article>
 
@@ -86,6 +117,15 @@
           <li>온라인 대전</li>
           <li>모바일·태블릿</li>
         </ul>
+        <div class="work-gallery" aria-label="BATTLE CHESS 스크린샷">
+          <figure>
+            <a href="../assets/works/battle-chess-board.jpg" target="_blank" rel="noopener noreferrer" aria-label="BATTLE CHESS 3D 대전 화면 크게 보기 (새 탭)">
+              <img src="../assets/works/battle-chess-board.jpg" alt="실사 파노라마 배경 앞에 캐릭터 모양의 3D 기물이 놓인 BATTLE CHESS 체스판" width="1280" height="720" loading="lazy" decoding="async">
+            </a>
+            <figcaption>3D 기물과 파노라마 배경</figcaption>
+          </figure>
+        </div>
+        <p class="work-gallery-note">2026.10.11 서비스 화면 · 눌러서 크게 보기</p>
       </header>
       <div class="work-project-body">
         <p class="work-description">절차적으로 생성한 3D 기물과 기물별 전투 연출을 갖춘 브라우저 체스 게임입니다. 로컬·CPU·온라인 대전과 전적 기록을 지원합니다.</p>
@@ -115,6 +155,21 @@
           <li>레벨 6까지</li>
           <li>모바일·태블릿</li>
         </ul>
+        <div class="work-gallery" aria-label="삼국지 스크린샷">
+          <figure>
+            <a href="../assets/works/three-kingdoms-title.jpg" target="_blank" rel="noopener noreferrer" aria-label="삼국지 전장 선택 화면 크게 보기 (새 탭)">
+              <img src="../assets/works/three-kingdoms-title.jpg" alt="삼국지 Last Stand 제목과 장별 전장 목록이 보이는 출정 메뉴" width="1280" height="720" loading="lazy" decoding="async">
+            </a>
+            <figcaption>전장 선택과 출정 메뉴</figcaption>
+          </figure>
+          <figure>
+            <a href="../assets/works/three-kingdoms-battle.jpg" target="_blank" rel="noopener noreferrer" aria-label="삼국지 호뢰관 방어전 화면 크게 보기 (새 탭)">
+              <img src="../assets/works/three-kingdoms-battle.jpg" alt="3D 마을과 성문 사이에 세운 망루로 진군하는 황건적을 막는 삼국지 방어전" width="1280" height="720" loading="lazy" decoding="async">
+            </a>
+            <figcaption>황건적의 난 · 호뢰관 방어</figcaption>
+          </figure>
+        </div>
+        <p class="work-gallery-note">2026.10.11 서비스 화면 · 눌러서 크게 보기</p>
       </header>
       <div class="work-project-body">
         <p class="work-description">후한 말을 배경으로 한 웹 타워 디펜스 게임입니다. 맵을 3D로 구현했으며, 소개 시점에는 레벨 6까지 개발되어 있습니다.</p>
@@ -144,6 +199,21 @@
           <li>5스테이지</li>
           <li class="is-recommended">PC 플레이 권장</li>
         </ul>
+        <div class="work-gallery" aria-label="VOLTARIS 스크린샷">
+          <figure>
+            <a href="../assets/works/voltaris-menu.jpg" target="_blank" rel="noopener noreferrer" aria-label="VOLTARIS 출격 메뉴 크게 보기 (새 탭)">
+              <img src="../assets/works/voltaris-menu.jpg" alt="지구와 3D 전투기를 배경으로 출격과 행성별 작전을 선택하는 VOLTARIS 메뉴" width="1280" height="720" loading="lazy" decoding="async">
+            </a>
+            <figcaption>전투기와 작전 선택 메뉴</figcaption>
+          </figure>
+          <figure>
+            <a href="../assets/works/voltaris-battle.jpg" target="_blank" rel="noopener noreferrer" aria-label="VOLTARIS 지구 궤도 전투 화면 크게 보기 (새 탭)">
+              <img src="../assets/works/voltaris-battle.jpg" alt="지구 궤도와 우주정거장을 배경으로 적 기체를 향해 레이저를 발사하는 VOLTARIS 전투 화면" width="1280" height="720" loading="lazy" decoding="async">
+            </a>
+            <figcaption>STAGE 01 · 지구 궤도 전투</figcaption>
+          </figure>
+        </div>
+        <p class="work-gallery-note">2026.10.11 서비스 화면 · 눌러서 크게 보기</p>
       </header>
       <div class="work-project-body">
         <p class="work-description">지구·화성·목성·해왕성을 배경으로 한 5스테이지 3D 횡스크롤 슈팅 게임입니다. 사용자·세션·게임 이력·클리어 기록을 서버와 데이터베이스에 저장합니다.</p>
@@ -160,6 +230,50 @@
         <aside class="work-note">
           <h3>게임 프롬프트부터 구현까지, Astra와 함께</h3>
           <p>처음으로 Astra를 활용해 게임 프롬프트를 만드는 단계부터 전체 구현을 진행한 프로젝트입니다. Opus도 함께 사용했습니다.</p>
+        </aside>
+      </div>
+    </article>
+
+    <article id="boomzy" class="work-project" aria-labelledby="boomzy-title">
+      <header class="work-project-heading">
+        <p class="label">CASUAL 3D TOP-DOWN SHOOTER</p>
+        <h2 id="boomzy-title">BOOMZY <span lang="ko">붐지</span></h2>
+        <p class="work-one-liner">파스텔 전장에서 펼치는<br>8인 슈팅 대전.</p>
+        <ul class="work-tags" aria-label="BOOMZY 플레이 방식과 지원 환경">
+          <li>봇 대전</li>
+          <li>PC·모바일·태블릿</li>
+        </ul>
+        <div class="work-gallery" aria-label="BOOMZY 스크린샷">
+          <figure>
+            <a href="../assets/works/boomzy-lobby.jpg" target="_blank" rel="noopener noreferrer" aria-label="BOOMZY 캐릭터 로비 스크린샷 크게 보기 (새 탭)">
+              <img src="../assets/works/boomzy-lobby.jpg" alt="민트색 곰 캐릭터 토토와 파스텔색 배경이 보이는 BOOMZY 로비" width="1280" height="720" loading="lazy" decoding="async">
+            </a>
+            <figcaption>캐릭터 로비</figcaption>
+          </figure>
+          <figure>
+            <a href="../assets/works/boomzy-battle.jpg" target="_blank" rel="noopener noreferrer" aria-label="BOOMZY 대전 스크린샷 크게 보기 (새 탭)">
+              <img src="../assets/works/boomzy-battle.jpg" alt="나무와 수풀, 바위가 있는 파스텔 초원에서 토토가 대전 중인 BOOMZY 플레이 화면" width="1280" height="720" loading="lazy" decoding="async">
+            </a>
+            <figcaption>파스텔 초원 대전</figcaption>
+          </figure>
+        </div>
+        <p class="work-gallery-note">2026.10.11 서비스 화면 · 눌러서 크게 보기</p>
+      </header>
+      <div class="work-project-body">
+        <p class="work-description">각기 다른 무기를 쓰는 귀여운 캐릭터 6종과 맵 5종을 갖춘 3D 탑다운 슈팅 게임입니다. 봇과 겨루는 8인 개인전에서 수풀에 숨고, 슈퍼 공격과 가젯을 활용해 살아남습니다.</p>
+        <div class="work-actions">
+          <a class="work-button is-primary" href="https://bommzy.onrender.com/" target="_blank" rel="noopener noreferrer" aria-label="BOOMZY 게임 열기 (새 탭)">게임 열기 <span aria-hidden="true">↗</span></a>
+          <a class="work-button" href="https://github.com/fdx5/bommzy" target="_blank" rel="noopener noreferrer" aria-label="BOOMZY GitHub 코드 보기 (새 탭)">GitHub 코드 <span aria-hidden="true">↗</span></a>
+        </div>
+        <dl class="work-facts">
+          <div><dt>기술 구성</dt><dd>TypeScript / Vite / Three.js<br>Web Audio로 효과음·배경음악 생성</dd></div>
+          <div><dt>플레이</dt><dd>8인 개인전 · 봇 대전<br>PC·모바일·태블릿 브라우저 지원</dd></div>
+          <div><dt>캐릭터·맵</dt><dd>캐릭터 6종 · 맵 5종<br>무기·슈퍼 공격·가젯 조합</dd></div>
+          <div><dt>배포</dt><dd>Render</dd></div>
+        </dl>
+        <aside class="work-note">
+          <h3>캐릭터와 사운드를 코드로 만들다</h3>
+          <p>3D 캐릭터와 맵의 모델을 코드로 생성하고, 효과음과 배경음악도 합성합니다. 수풀 은신, 파괴되는 지형, 점점 좁아지는 자기장으로 짧은 대전에 변화를 더했습니다.</p>
         </aside>
       </div>
     </article>
