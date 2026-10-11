@@ -1,0 +1,39 @@
+/* ISSUE 13: 연결 설정, 접근 권한, 공개 상태를 구분하는 기사 도식. */
+.news-connections .news-hero-visual .connections-caption { font: inherit; letter-spacing: 0; white-space: normal; }
+.news-connections .connections-figure { margin: 30px 0; padding: 26px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.news-connections .connections-eyebrow { margin: 0 0 10px; color: var(--muted); font-size: 12px; font-weight: 700; }
+.news-connections .connections-figure h3 { margin: 0 0 24px; font-size: 23px; line-height: 1.4; }
+.news-connections .connections-figure figcaption { margin-top: 22px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.news-connections .connections-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.news-connections .connections-grid > div { min-width: 0; padding: 18px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); }
+.news-connections .connections-grid > div:last-child { border-color: var(--accent); }
+.news-connections .connections-grid small { display: block; margin-bottom: 12px; color: var(--accent); font-weight: 700; }
+.news-connections .connections-grid strong { display: block; font-size: 17px; line-height: 1.5; }
+.news-connections .connections-grid p { margin: 10px 0 18px; font-size: 14px; }
+.news-connections .connections-grid span { display: block; padding-top: 12px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+.news-connections .connections-timeline { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin: 0; padding: 0; list-style: none; }
+.news-connections .connections-timeline li { min-width: 0; padding-top: 16px; border-top: 3px solid var(--accent); }
+.news-connections .connections-timeline li:last-child { border-top-style: dashed; }
+.news-connections .connections-timeline time, .news-connections .connections-date { display: block; margin-bottom: 14px; color: var(--accent); font-size: 20px; font-weight: 700; }
+.news-connections .connections-timeline time { font-family: var(--mono); }
+.news-connections .connections-timeline strong { display: block; font-size: 16px; }
+.news-connections .connections-timeline p { margin: 8px 0 0; color: var(--muted); font-size: 13px; }
+.news-connections .connections-changes, .news-connections .connections-experiment { padding-left: 24px; }
+.news-connections .connections-changes li, .news-connections .connections-experiment li { padding-left: 5px; margin-bottom: 20px; }
+.news-connections .connections-changes strong, .news-connections .connections-experiment strong { display: block; margin-bottom: 5px; }
+.news-connections .connections-experiment li::marker { color: var(--accent); font-family: var(--mono); }
+@media (max-width: 1100px) {
+  .news-connections .connections-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .news-connections .news-article-header h1 br { display: initial; }
+  .news-connections .news-story-section, .news-connections .news-summary, .news-connections .news-sources { scroll-margin-top: 64px; }
+  .news-connections .connections-figure { padding: 21px 17px; }
+  .news-connections .connections-timeline { grid-template-columns: 1fr; gap: 22px; }
+  .news-connections .connections-timeline li { padding-top: 12px; }
+  .news-connections .connections-timeline time, .news-connections .connections-date { margin-bottom: 8px; }
+  .news-connections .news-view { padding: 27px 20px; }
+}
+@media print {
+  .news-connections .connections-figure { break-inside: avoid; }
+}
