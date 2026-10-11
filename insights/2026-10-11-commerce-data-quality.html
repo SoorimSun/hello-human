@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>AI가 읽는 상품 정보, 실제 판매 조건과 일치해야 합니다 · 커머스 인사이트 · 헬로우 휴먼</title>
+<meta name="description" content="AI가 읽는 상품페이지·피드의 가격·재고·배송 정보는 고객에게 실제로 적용되는 판매 조건과 일치해야 합니다. 업무 자료와 비교해 불일치를 찾는 검수 도구와 작은 실험을 제안합니다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI가 읽는 상품 정보, 실제 판매 조건과 일치해야 합니다">
+<meta property="og:description" content="가격·재고·배송의 불일치를 찾아, AI 쇼핑의 신뢰를 높이는 일">
+<meta property="og:url" content="https://soorimsun.github.io/hello-human/insights/2026-10-11-commerce-data-quality.html">
+<meta property="og:image" content="https://soorimsun.github.io/hello-human/assets/insights/commerce-data-quality/commerce-data-check.png">
+<meta property="og:image:width" content="1733">
+<meta property="og:image:height" content="908">
+<meta property="og:image:alt" content="검정색 가방과 상품 카드, 가격표·재고 상자·배송 달력을 연결한 주황색 선">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://soorimsun.github.io/hello-human/assets/insights/commerce-data-quality/commerce-data-check.png">
+<meta name="twitter:image:alt" content="검정색 가방과 상품 카드, 가격표·재고 상자·배송 달력을 연결한 주황색 선">
+<link rel="image_src" href="../assets/insights/commerce-data-quality/commerce-data-check.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+<script src="../assets/theme.js?v=3"></script>
+<link rel="stylesheet" href="../assets/style.css?v=9">
+<link rel="stylesheet" href="../assets/news.css?v=10">
+<link rel="stylesheet" href="../assets/guide.css?v=4">
+<link rel="stylesheet" href="../assets/insights.css?v=3">
+<link rel="stylesheet" href="../assets/insight-data-quality.css?v=7">
+<link rel="stylesheet" href="../assets/content-updates.css?v=1">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+    <nav class="news-nav" aria-label="사이트 메뉴">
+      <a href="../">모임 소개</a>
+      <a href="../news/">AI뉴스</a>
+      <a href="../guides/">AI가이드</a>
+      <a href="./" aria-current="page">인사이트</a>
+      <a href="../case-studies/">사례연구</a>
+      <a data-newsletter-entry href="../newsletters/">뉴스레터</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <article>
+    <header class="news-article-header guide-article-header insight-article-header wrap">
+      <a class="news-back" href="./">← 커머스 인사이트 목록</a>
+      <p class="news-kicker">HELLO, HUMAN! <span aria-hidden="true">/</span> COMMERCE INSIGHT 06</p>
+      <h1>AI가 읽는 상품 정보,<br> <em>실제 판매 조건과 일치해야 합니다</em></h1>
+      <p class="news-deck">가격·재고·배송의 불일치를 찾아, AI 쇼핑의 신뢰를 높이는 일</p>
+      <div class="news-article-meta"><time datetime="2026-10-11">2026년 10월 11일</time><span>헬로우 휴먼 커머스 인사이트</span></div>
+    </header>
+    <figure class="news-hero-visual wrap">
+      <img src="../assets/insights/commerce-data-quality/commerce-data-check.png" width="1733" height="908" alt="검정색 가방과 상품 카드, 가격표·재고 상자·배송 달력을 연결한 주황색 선" fetchpriority="high">
+      <figcaption>상품 정보와 가격·재고·배송 조건을 대조하는 과정을 표현한 AI 생성 삽화입니다.</figcaption>
+    </figure>
+    <div class="news-article-shell guide-shell wrap">
+      <nav class="news-toc guide-toc insight-toc" aria-label="글 목차">
+        <span>이 글에서</span>
+        <a href="#discovery"><span>01</span>GEO와 판매 조건</a>
+        <a href="#mismatch"><span>02</span>상품 정보와 판매 자료</a>
+        <a href="#delivery"><span>03</span>배송 약속의 조건</a>
+        <a href="#checker"><span>04</span>작은 검수 제품</a>
+        <a href="#roles"><span>05</span>AI와 업무 로직</a>
+        <a href="#pilot"><span>06</span>효과를 확인하는 실험</a>
+        <a href="#sources"><span>↗</span>자료와 읽는 법</a>
+      </nav>
+      <div class="news-story guide-story insight-story">
+        <div class="guide-intro">
+          <p><strong>AI가 읽는 상품 정보는 고객이 실제로 구매할 때 적용되는 판매 조건과 일치해야 합니다.</strong> AI가 안내한 가격과 결제 금액이 다르거나, 살 수 있다고 소개한 색상이 품절이라면 고객은 추천을 믿기 어렵습니다.</p>
+          <blockquote><p>“16인치 노트북이 들어가고, 무게가 800g 이하인 검정색 가방 1개를 찾아주세요. 배송비까지 12만 원 이하이고, 목요일까지 받을 수 있어야 합니다.”</p></blockquote>
+          <p>가상의 요청입니다. 크기·무게뿐 아니라 검정색 상품의 재고, 회원가 여부, 배송비, 도착 예상일도 확인해야 합니다.</p>
+          <p>안내 정보가 실제 판매 조건을 정확히 담는 것이 이 글에서 말하는 <strong>데이터 신뢰성</strong>입니다. 확인을 돕기 위해 상품페이지·피드와 판매자의 업무 자료를 비교하는 검수 도구를 제안합니다.</p>
+        </div>
+
+        <section class="guide-section insight-section" id="discovery" aria-labelledby="discovery-title">
+          <h2 id="discovery-title">1. GEO로 발견된 정보, 판매 조건까지 확인합니다</h2>
+          <p><strong>GEO(생성형 엔진 최적화)</strong>는 생성형 AI의 검색이나 답변에서 콘텐츠가 잘 발견되도록 다듬는 일입니다. 검색 결과에 잘 나오도록 돕는 <strong>SEO(검색엔진 최적화)</strong>와도 연결됩니다.</p>
+          <p>Google은 자사 AI 개요와 AI 모드에도 기존 SEO 권장사항이 유효하다고 안내합니다. AI 전용 파일이나 특수한 구조화 데이터도 필요하지 않다고 설명합니다. 구조화 데이터는 검색엔진이 읽기 쉽게 정해진 형식으로 표시한 정보입니다. 이는 <strong>Google 검색에 관한 안내</strong>로, 다른 AI 서비스의 상품 연동 조건까지 같다는 뜻은 아닙니다. <a class="source-link" href="https://developers.google.com/search/docs/appearance/ai-features?hl=ko" target="_blank" rel="noopener noreferrer">Google 공식 가이드 ↗</a></p>
+          <p>상품 정보를 전달할 때는 웹페이지 외에 <strong>상품 피드</strong>도 사용합니다. 상품명·옵션·가격·판매 가능 여부를 정해진 형식으로 정리해 보내는 목록입니다. OpenAI는 2026년 3월 24일 상품 탐색을 돕기 위한 제품 정보·할인 행사 정보의 연동과 Shopify Catalog 연결을 발표했습니다. <a class="source-link" href="https://openai.com/ko-KR/index/powering-product-discovery-in-chatgpt/" target="_blank" rel="noopener noreferrer">OpenAI 발표 ↗</a></p>
+          <p>상품 후보를 찾았다면 안내된 판매 조건부터 확인해야 합니다. 확인한 가격과 배송일을 바탕으로 고객의 예산과 희망 도착일에 맞는지 판단합니다.</p>
+          <figure class="discovery-check" aria-labelledby="discovery-caption">
+            <figcaption id="discovery-caption"><span>가상 구매 상황 · 정보 대조에서 구매 판단까지</span><strong>AI가 읽을 상품 정보,<br>실제 판매 조건과 맞을까요?</strong></figcaption>
+            <div class="discovery-request"><span>확인할 구매 조건</span><p>검정색 가방 1개 · 배송비 포함 12만 원 이하<br>목요일까지 도착</p></div>
+            <div class="discovery-stage">
+              <div class="discovery-stage-title"><b>01</b><div><span>발견</span><h3>필요한 상품 후보를 찾았나요?</h3></div></div>
+              <div class="discovery-find">
+                <div class="discovery-routes"><strong>AI가 참고할 상품 정보</strong><p>GEO·SEO로 발견을 돕는 상품페이지<br>서비스별 상품 피드 연동</p></div>
+                <span aria-hidden="true">→</span>
+                <div class="discovery-candidate"><small>가상 후보</small><strong>검정색 가방</strong><span>가격·재고·배송은 확인 전</span></div>
+              </div>
+            </div>
+            <div class="discovery-connector"><span aria-hidden="true">↓</span><strong>안내된 조건을 판매자의 자료와 비교합니다</strong></div>
+            <div class="discovery-stage is-conditions">
+              <div class="discovery-stage-title"><b>02</b><div><span>판매 조건 대조</span><h3>같은 옵션·고객 조건·시점으로 확인합니다</h3></div></div>
+              <ul class="discovery-conditions" aria-label="상품 정보와 판매 자료에서 대조할 네 가지 조건">
+                <li><span>옵션</span><strong>같은 검정색 가방인가?</strong><p>상품페이지·피드와 판매 자료의 옵션 코드를 맞춥니다.</p></li>
+                <li><span>가격</span><strong>안내된 금액이 실제 가격과 맞나?</strong><p>회원·쿠폰·배송비를 반영하고, 12만 원 예산 안에 드는지도 봅니다.</p></li>
+                <li><span>재고</span><strong>‘구매 가능’ 표시가 재고와 맞나?</strong><p>판매 가능 수량과 예약 판매 규칙을 확인합니다.</p></li>
+                <li><span>배송</span><strong>안내한 도착일에 근거가 있나?</strong><p>주문 시각·배송지·영업일로 목요일까지 받을 수 있는지 봅니다.</p></li>
+              </ul>
+            </div>
+            <div class="discovery-connector"><span aria-hidden="true">↓</span><strong>조회 후에도 판매 조건은 바뀔 수 있습니다</strong></div>
+            <div class="discovery-stage is-final">
+              <div class="discovery-stage-title"><b>03</b><div><span>주문 직전 다시 확인</span><h3>지금도 이 조건으로 살 수 있나요?</h3></div></div>
+              <p class="discovery-recheck">판매 조건을 다시 조회해 안내된 정보와 대조합니다. 확인한 조건이 고객의 요청에도 맞는지 보고, 근거와 조회 시각을 남깁니다.</p>
+              <ul class="discovery-decisions" aria-label="구매 조건 확인 뒤의 세 가지 경로">
+                <li><b aria-hidden="true">✓</b><strong>조건 충족</strong><span>고객이 구매 여부 판단</span></li>
+                <li><b aria-hidden="true">≠</b><strong>조건 미충족</strong><span>다른 후보 검토</span></li>
+                <li class="is-unknown"><b aria-hidden="true">?</b><strong>정보 부족</strong><span>확인 필요로 보류</span></li>
+              </ul>
+            </div>
+          </figure>
+          <p>이제 검정색 가방의 상품 정보와 판매 자료를 모아, 어디가 다른지 살펴보겠습니다.</p>
+        </section>
+
+        <section class="guide-section insight-section" id="mismatch" aria-labelledby="mismatch-title">
+          <h2 id="mismatch-title">2. AI가 읽는 정보와 판매 자료를 비교합니다</h2>
+          <p>가방은 판매 중이어도 검정색만 품절일 수 있습니다. 그래서 색상·크기로 나뉜 <strong>같은 옵션끼리</strong> 비교해야 합니다.</p>
+          <p>OpenAI의 상품 파일 업로드 규격도 옵션별 구분 코드인 <strong>고유 식별자</strong>를 요구합니다. 옵션마다 행을 나눠 가격과 판매 가능 여부를 적습니다. <a class="source-link" href="https://developers.openai.com/commerce/specs/file-upload/products#variants" target="_blank" rel="noopener noreferrer">OpenAI 옵션 규격 ↗</a></p>
+          <figure class="mismatch-map" aria-labelledby="mismatch-map-caption">
+            <figcaption id="mismatch-map-caption"><span>가상 상품 · 안내 정보와 판매 자료를 나란히 봅니다</span><strong>AI가 참고할 정보와<br>판매자의 자료를 비교합니다</strong></figcaption>
+            <div class="mismatch-product"><span class="mismatch-product-swatch" aria-hidden="true"></span><div><small>비교할 대상</small><strong>검정색 가방 옵션</strong><span>옵션 코드 BAG-BLACK · 검정색 옵션의 자료만 비교</span></div></div>
+            <div class="mismatch-map-connector" aria-hidden="true">↓</div>
+            <div class="mismatch-sources">
+              <section class="mismatch-source" aria-labelledby="mismatch-page-title">
+                <div class="mismatch-source-label"><span>AI가 참고할 정보</span><h3 id="mismatch-page-title">상품 상세페이지</h3></div>
+                <div class="mismatch-source-value"><strong>89,000<small>원</small></strong><span>고객에게 표시된 가격</span></div>
+                <p class="mismatch-source-state">표시: <strong>구매 가능</strong></p>
+              </section>
+              <section class="mismatch-source is-feed" aria-labelledby="mismatch-feed-title">
+                <div class="mismatch-source-label"><span>AI가 참고할 정보</span><h3 id="mismatch-feed-title">외부 채널의 상품 피드</h3></div>
+                <div class="mismatch-source-value"><strong>79,000<small>원</small></strong><span>외부 채널에 전달된 가격</span></div>
+                <p class="mismatch-source-state">표시: <strong>구매 가능</strong></p>
+              </section>
+              <section class="mismatch-source is-stock" aria-labelledby="mismatch-stock-title">
+                <div class="mismatch-source-label"><span>판매 조건을 확인할 자료</span><h3 id="mismatch-stock-title">승인된 재고 자료</h3></div>
+                <div class="mismatch-source-value"><strong>0<small>개</small></strong><span>판매 가능 수량</span></div>
+                <p class="mismatch-source-state">판매 정책: <strong>예약 주문 불가</strong></p>
+              </section>
+              <section class="mismatch-source is-delivery" aria-labelledby="mismatch-shipping-title">
+                <div class="mismatch-source-label"><span>AI가 참고할 정보</span><h3 id="mismatch-shipping-title">배송 안내 문구</h3></div>
+                <div class="mismatch-source-value"><strong>당일 출고</strong><span>오후 2시 이전 주문 시</span></div>
+                <p class="mismatch-source-state">이 문구에는 <strong>도착일 정보가 없음</strong></p>
+              </section>
+            </div>
+            <div class="mismatch-map-connector" aria-hidden="true">↓</div>
+            <div class="mismatch-questions">
+              <strong>실제 판매 조건과 맞는지 확인할 세 가지</strong>
+              <dl>
+                <div><dt>가격 차이</dt><dd><strong>89,000원과 79,000원은 왜 다를까요?</strong><p>같은 고객에게, 같은 시점에 적용되는 가격인지 봅니다.</p></dd></div>
+                <div><dt>판매 상태</dt><dd><strong>‘구매 가능’인데 실제로 살 수 있을까요?</strong><p>같은 시점의 재고와 예약 판매가 가능한지 확인합니다.</p></dd></div>
+                <div><dt>도착일</dt><dd><strong>‘당일 출고’면 언제 받을 수 있을까요?</strong><p>고객의 배송지·주문 시각·운송 조건으로 따로 확인합니다.</p></dd></div>
+              </dl>
+            </div>
+            <p class="mismatch-map-footnote">각 자료의 고객 조건과 기준 시점은 아직 확인 전입니다. 재고 외에 가격·배송의 기준 자료도 확보해 대조해야 합니다.</p>
+          </figure>
+          <h3 id="price-comparison-title">가격이 다르다는 이유만으로 오류일까요?</h3>
+          <p>두 가격의 차이는 1만 원입니다. 하지만 <strong>누구에게, 언제 적용되는 가격인지</strong>에 따라 판단은 달라집니다.</p>
+          <figure class="price-check" aria-labelledby="price-check-caption">
+            <figcaption id="price-check-caption"><span>가상 예시 · 같은 가격 차이, 다른 판단</span><strong>숫자를 비교하기 전에<br>가격의 조건을 맞춥니다</strong></figcaption>
+            <div class="price-check-amounts" aria-label="상세페이지 89,000원, 상품 피드 79,000원">
+              <div class="price-check-amount"><span>상품 상세페이지</span><strong>89,000<small>원</small></strong></div>
+              <span class="price-check-versus" aria-hidden="true">↔</span>
+              <div class="price-check-amount"><span>상품 피드</span><strong>79,000<small>원</small></strong></div>
+            </div>
+            <p class="price-check-gap">차액 <strong>10,000원</strong><span>어느 값이 틀렸는지는 아직 모릅니다.</span></p>
+            <p class="price-check-common"><strong>세 경우의 공통 조건</strong>같은 검정색 옵션·판매 채널·1개·원화 기준<br>배송비 별도, 세금 포함으로 가정합니다.</p>
+            <ol class="price-check-cases">
+              <li class="price-check-case">
+                <div class="price-check-context">
+                  <h4><span>01</span>고객 조건과 시각이 같다면</h4>
+                  <div class="price-check-pair">
+                    <div><small>상세페이지</small><strong>비회원</strong><span>기준 10:00</span></div>
+                    <span class="price-check-relation" aria-label="조건이 같음">=</span>
+                    <div><small>상품 피드</small><strong>비회원</strong><span>기준 10:00</span></div>
+                  </div>
+                </div>
+                <div class="price-check-verdict"><span class="price-check-symbol" aria-hidden="true">!</span><strong>불일치</strong><p>같은 조건인데 가격이 다릅니다. 기준으로 정한 가격표와 비교해 고칠 곳을 찾습니다.</p></div>
+              </li>
+              <li class="price-check-case">
+                <div class="price-check-context">
+                  <h4><span>02</span>79,000원이 회원가라면</h4>
+                  <div class="price-check-pair">
+                    <div><small>상세페이지</small><strong>비회원</strong><span>기준 10:00</span></div>
+                    <span class="price-check-relation" aria-label="고객 조건이 다름">≠</span>
+                    <div class="price-check-changed"><small>상품 피드</small><strong>회원</strong><span>기준 10:00</span></div>
+                  </div>
+                </div>
+                <div class="price-check-verdict"><span class="price-check-symbol" aria-hidden="true">≠</span><strong>조건 차이</strong><p>회원과 비회원의 가격이 다를 수 있습니다. 같은 회원 조건으로 다시 비교합니다.</p></div>
+              </li>
+              <li class="price-check-case">
+                <div class="price-check-context">
+                  <h4><span>03</span>피드에 조건 정보가 없다면</h4>
+                  <div class="price-check-pair">
+                    <div><small>상세페이지</small><strong>비회원</strong><span>기준 10:00</span></div>
+                    <span class="price-check-relation" aria-label="비교할 수 없음">?</span>
+                    <div class="price-check-missing"><small>상품 피드</small><strong>회원 조건 ?</strong><span>기준 시각 ?</span></div>
+                  </div>
+                </div>
+                <div class="price-check-verdict"><span class="price-check-symbol" aria-hidden="true">?</span><strong>확인 불가</strong><p>빠진 정보를 채울 때까지 판단을 미룹니다. 문제가 없다고 처리하지 않습니다.</p></div>
+              </li>
+            </ol>
+            <p class="price-check-footnote">여기서 ‘기준 시각’은 가격이 적용되는 때입니다. 자료를 가져온 시각이 같아도, 한쪽은 예전 가격이고 다른 쪽은 현재 가격일 수 있습니다.</p>
+          </figure>
+          <p>회원가라면 피드에 회원 전용 조건이 담겼는지, 채널의 규칙에도 맞는지 확인해야 합니다. Google Merchant Center는 피드와 연결된 페이지의 가격 불일치를 수정하도록 안내하며, 요구사항을 지키지 않으면 상품이 비승인 처리될 수 있다고 설명합니다. <a class="source-link" href="https://support.google.com/merchants/answer/9773429?hl=ko" target="_blank" rel="noopener noreferrer">Google 가격 불일치 안내 ↗</a></p>
+          <p><strong>값이 같아도 안심할 수는 없습니다.</strong> 두 곳에 똑같이 예전 가격이 남아 있을 수 있습니다. 담당자와 실제 가격을 확인할 자료를 정하고, 언제 적용되는 가격인지 확인해야 합니다.</p>
+        </section>
+
+        <section class="guide-section insight-section" id="delivery" aria-labelledby="delivery-title">
+          <h2 id="delivery-title">3. 배송 약속에는 계산 조건이 필요합니다</h2>
+          <p>배송 문구도 실제 출고·운송 조건과 맞아야 합니다. “빠른 배송”, “당일 출고”, “평균 2일 배송”만으로는 “목요일까지 도착한다”고 안내할 수 없습니다.</p>
+          <p>Google Merchant Center는 예상 배송일을 계산할 때 주문 마감 시각, 상품 준비 기간, 운송 기간을 구분하고 영업일·휴일을 고려합니다. <a class="source-link" href="https://support.google.com/merchants/answer/14949917?hl=ko" target="_blank" rel="noopener noreferrer">Google 예상 배송 기간 설정 ↗</a></p>
+          <p>이번에는 <strong>재고가 있는 상품을 금요일에 주문하는 별도 상황</strong>을 보겠습니다. 주문 시각만 달라도 도착 예상일이 달라집니다.</p>
+          <figure class="delivery-check" aria-labelledby="delivery-check-caption">
+            <figcaption id="delivery-check-caption"><span>가상 예시 · AI의 배송 안내를 확인하는 기준</span><strong>‘당일 출고’를 읽고<br>도착일을 단정할 수 있을까요?</strong></figcaption>
+            <div class="delivery-check-distinction"><span>당일 <b>출고</b><small>판매자에게서 떠나는 날</small></span><b aria-label="같지 않음">≠</b><span>다음 날 <b>도착</b><small>고객이 받는 날</small></span></div>
+            <div class="delivery-check-assumptions">
+              <strong>이 달력의 가정</strong>
+              <ul>
+                <li>재고가 있는 같은 옵션 1개, 같은 배송 지역</li>
+                <li>14:00 전 주문은 당일 출고, 이후는 다음 출고 영업일</li>
+                <li>출고 다음 운송 영업일에 도착한다고 가정</li>
+                <li>출고·운송 모두 월~금 운영, 공휴일 없음</li>
+              </ul>
+            </div>
+            <ol class="delivery-check-cases">
+              <li>
+                <div class="delivery-check-case-title"><h3><span>01</span> 금요일 13:00 주문</h3><span>마감 전</span></div>
+                <ol class="delivery-check-calendar" aria-label="마감 전 주문: 금요일 출고, 주말 운송 휴무, 월요일 도착 예상">
+                  <li class="is-dispatch"><span>금</span><strong>주문<br>출고</strong><small>13:00</small></li>
+                  <li class="is-off"><span>토</span><strong>운송<br>휴무</strong></li>
+                  <li class="is-off"><span>일</span><strong>운송<br>휴무</strong></li>
+                  <li class="is-arrival"><span>월</span><strong>도착<br>예상</strong><small>운송 1일</small></li>
+                  <li class="is-empty"><span>화</span><span aria-label="해당 없음">·</span></li>
+                </ol>
+                <p class="delivery-check-result">금요일에 출고해도, 주말을 건너 <strong>월요일 도착 예상</strong>입니다.</p>
+              </li>
+              <li>
+                <div class="delivery-check-case-title"><h3><span>02</span> 금요일 15:00 주문</h3><span>마감 후</span></div>
+                <ol class="delivery-check-calendar" aria-label="마감 후 주문: 금요일 주문, 주말 출고 휴무, 월요일 출고, 화요일 도착 예상">
+                  <li class="is-order"><span>금</span><strong>주문<br>마감 후</strong><small>15:00</small></li>
+                  <li class="is-off"><span>토</span><strong>출고<br>휴무</strong></li>
+                  <li class="is-off"><span>일</span><strong>출고<br>휴무</strong></li>
+                  <li class="is-dispatch"><span>월</span><strong>출고</strong></li>
+                  <li class="is-arrival"><span>화</span><strong>도착<br>예상</strong><small>운송 1일</small></li>
+                </ol>
+                <p class="delivery-check-result">마감을 넘기면 출고부터 밀려 <strong>화요일 도착 예상</strong>입니다.</p>
+              </li>
+            </ol>
+            <div class="delivery-check-unknown"><span aria-hidden="true">?</span><div><strong>배송지를 모른다면 → 확인 필요</strong><p>지역별 운송 기간을 정할 수 없습니다. 주소나 출고 조건이 빠지면 도착일을 확정하지 않습니다.</p></div></div>
+            <p class="delivery-check-footnote">실제 적용 시에는 해당 판매자·운송사의 영업일, 휴일, 지역별 조건을 확인해야 합니다.</p>
+          </figure>
+          <p>정보의 갱신 시각도 중요합니다. OpenAI는 판매자가 가격·배송 조건을 바꿔도 ChatGPT에 반영되기까지 시간이 걸릴 수 있다고 안내합니다. <a class="source-link" href="https://help.openai.com/ko-kr/articles/11128490-shopping-with-chatgpt-search" target="_blank" rel="noopener noreferrer">OpenAI 쇼핑 도움말 ↗</a></p>
+          <div class="insight-note"><strong>확인한 것과 보장한 것은 다릅니다</strong><p>재고가 있다는 사실을 확인해도 그 물건을 고객 몫으로 확보한 것은 아닙니다. 도착 예정일을 계산해도 그날 배송을 보장한 것은 아닙니다. 실제 확보나 보장이 필요하다면 별도의 예약·주문 절차를 거쳐야 합니다.</p></div>
+        </section>
+
+        <section class="guide-section insight-section" id="checker" aria-labelledby="checker-title">
+          <h2 id="checker-title">4. 작은 제품은 ‘AI 커머스 데이터 검수기’</h2>
+          <p>이 비교 작업을 돕는 검수기가 <strong>헬로우 휴먼의 제품 제안</strong>입니다. 상품페이지·피드를 판매자의 가격·재고·배송 자료와 대조하고, 맞지 않는 정보와 근거를 보고서로 보여줍니다. 담당자는 이를 보고 고칠 원본을 정합니다.</p>
+          <figure class="checker-flow" aria-labelledby="workflow-caption">
+            <figcaption id="workflow-caption"><span>제안하는 제품 · 읽기 전용 검수 흐름</span><strong>AI에 전달할 정보를<br>실제 판매 기준과 대조합니다</strong></figcaption>
+            <div class="checker-stage-label"><span>01</span><strong>담당자가 사용 권한이 있는 자료를 넣습니다</strong></div>
+            <ul class="checker-inputs" aria-label="검수할 세 가지 자료">
+              <li><span aria-hidden="true">PAGE</span><strong>공개 상세페이지</strong><small>고객과 AI가 참고할 정보</small></li>
+              <li><span aria-hidden="true">FEED</span><strong>상품 피드</strong><small>외부 채널·AI에 전달할 정보</small></li>
+              <li><span aria-hidden="true">FILE</span><strong>판매자 승인 자료</strong><small>실제 가격·재고·판매 정책을 확인할 자료</small></li>
+            </ul>
+            <p class="checker-source-note"><strong>어디서 가져왔는지, 언제 가져왔는지, 언제의 정보인지</strong>도 함께 기록합니다.</p>
+            <div class="checker-connector" aria-hidden="true">↓</div>
+            <div class="checker-engine">
+              <div class="checker-stage-label"><span>02</span><strong>검수기가 같은 대상을 대조합니다</strong></div>
+              <ol class="checker-engine-steps">
+                <li><b>1</b><div><strong>같은 상품·옵션인가?</strong><p>옵션 코드로 같은 대상을 찾습니다. 이름만 비슷하거나 어느 옵션인지 불분명하면 담당자에게 확인을 요청합니다.</p></div></li>
+                <li><b>2</b><div><strong>같은 조건인가?</strong><p>회원 여부·판매 채널·수량·통화·배송비·적용 기간을 맞춥니다.</p></div></li>
+                <li><b>3</b><div><strong>실제 판매 기준과 맞나?</strong><p>담당자와 정한 가격·재고·배송 자료와 대조합니다. 그 자료가 언제의 판매 조건인지도 확인합니다.</p></div></li>
+              </ol>
+              <p class="checker-engine-exception"><b>?</b> 같은 상품인지 불분명하거나 자료를 가져와 읽지 못하면 <strong>확인 불가</strong>로 남깁니다. 판매 기준이나 적용 시점을 확인할 수 없을 때도 통과시키지 않습니다.</p>
+            </div>
+            <div class="checker-connector" aria-hidden="true">↓</div>
+            <div class="checker-stage-label"><span>03</span><strong>판정과 근거를 보고서로 받습니다</strong></div>
+            <ul class="checker-outcomes" aria-label="검수 보고서의 네 가지 판정">
+              <li><b aria-hidden="true">=</b><div><strong>일치</strong><small>확인한 판매 기준과 맞음</small></div></li>
+              <li class="is-mismatch"><b aria-hidden="true">!</b><div><strong>불일치</strong><small>충돌한 값과 근거를 확인</small></div></li>
+              <li><b aria-hidden="true">≠</b><div><strong>조건 차이</strong><small>조건을 맞춰 다시 비교</small></div></li>
+              <li class="is-unknown"><b aria-hidden="true">?</b><div><strong>확인 불가</strong><small>빠진 자료를 보완</small></div></li>
+            </ul>
+            <div class="checker-review-loop"><span aria-hidden="true">↻</span><div><strong>담당자 확인·수정 → 다시 수집·검사</strong><p>수정한 정보가 판매 기준과 맞는지 다시 확인하고, 수정 이유와 검사 시각을 남깁니다.</p></div></div>
+            <p class="checker-flow-footnote">가격 변경·판매 중지·주문·결제는 자동 실행하지 않습니다.</p>
+          </figure>
+          <h3>어디를 고쳐야 할지 보여주는 보고서</h3>
+          <p>앞서 본 ‘구매 가능’ 표시와 재고 0개를 보고서로 옮겨 보겠습니다. 두 자료의 옵션·고객 조건·기준 시점을 맞춘 예시입니다.</p>
+          <figure class="checker-report" aria-labelledby="report-caption">
+            <figcaption id="report-caption"><span>가상 검토 보고서 · 실제 제품 화면이 아닙니다</span><strong>‘판매 가능’인데<br>판매할 재고가 0개입니다</strong></figcaption>
+            <div class="checker-report-product"><strong>검정색 가방 <small>BAG-BLACK</small></strong><span><b aria-hidden="true">!</b> 불일치</span></div>
+            <dl class="checker-report-context">
+              <div><dt>비교 조건</dt><dd>자사몰 · 비회원 · 1개</dd></div>
+              <div><dt>자료 기준</dt><dd>양쪽 모두 2026.10.11 10:00 KST</dd></div>
+              <div><dt>수집 시각</dt><dd>2026.10.11 10:01 KST</dd></div>
+            </dl>
+            <div class="checker-evidence" aria-label="상품 피드의 판매 가능 표시와 승인 재고 파일의 판매 가능 수량 0개가 충돌">
+              <div><span>AI가 참고할 상품 피드</span><strong>판매 가능</strong><small>이 옵션을 살 수 있다고 표시</small></div>
+              <span class="checker-evidence-conflict" aria-label="서로 충돌">≠</span>
+              <div class="checker-evidence-stock"><span>승인된 재고 파일</span><strong>0<small>개</small></strong><small>판매 가능 수량 · 예약 주문 불가</small></div>
+            </div>
+            <p class="checker-report-reason"><strong>판정 근거</strong>같은 옵션·시점의 자료인데, 판매할 재고가 없고 예약 주문도 불가능한 상품이 피드에는 ‘판매 가능’으로 표시돼 있습니다.</p>
+            <div class="checker-report-action"><span>다음 할 일</span><strong>재고 자료와 피드의 변경 내역 확인</strong><p>담당자가 실제 판매 조건을 확인해 고칠 원본을 정합니다. 수정 뒤에는 기준 자료와 다시 비교합니다.</p></div>
+            <div class="checker-report-limit"><b aria-hidden="true">?</b><p><strong>확인하지 못한 범위</strong>실시간 주문 시스템과 재고 예약은 조회하지 않았습니다. 현재 주문 가능 여부를 보증하지 않습니다.</p></div>
+          </figure>
+          <p>보고서에서 근거가 담긴 파일의 행이나 페이지를 바로 열 수 있게 합니다. 내부 재고를 볼 권한이 없다면 표시값만 비교할 수 있습니다. 이때는 <strong>‘표시값 일치’와 ‘실제 판매 조건 확인’을 구분</strong>하고, 재고는 미확인으로 남겨야 합니다.</p>
+          <h3>판매 조건을 확인하는 반복 업무를 줄일 수 있을까요?</h3>
+          <p>상품 정보를 연결하고 검사하는 기능은 이미 있습니다. 새 제품은 판매자마다 다른 회원가, 옵션별 판매 제한, 방송 중 할인, 공급사별 출고 조건까지 확인하는 반복 업무를 얼마나 줄이는지 보여줘야 합니다.</p>
+          <p>외부 플랫폼 연동에는 참여 조건도 있습니다. 2026년 10월 11일 확인한 OpenAI 문서는 승인된 파트너에게 상품 피드의 직접 연동 절차를 안내합니다. 파일이나 기능을 만들었다고 바로 연결할 수 있는 것은 아닙니다. <a class="source-link" href="https://developers.openai.com/commerce/guides/get-started" target="_blank" rel="noopener noreferrer">OpenAI 연동 시작 안내 ↗</a></p>
+        </section>
+
+        <section class="guide-section insight-section" id="roles" aria-labelledby="roles-title">
+          <h2 id="roles-title">5. AI와 업무 로직의 역할을 나눕니다</h2>
+          <p>검수용 AI는 문구에서 판매 조건과 근거를 찾습니다. 가격 계산과 재고 확인은 프로그램에 정해 둔 규칙, 즉 <strong>업무 로직</strong>이 맡습니다. 가방의 회원가 안내와 재고를 예로 역할을 나눠 보겠습니다.</p>
+          <figure class="roles-check" aria-labelledby="roles-check-caption">
+            <figcaption id="roles-check-caption"><span>가상 검수 사례 · 회원가 안내와 재고 확인</span><strong>AI는 판매 조건을 읽고,<br>업무 로직은 자료와 대조합니다</strong></figcaption>
+            <div class="roles-check-input"><strong>AI가 참고할 정보와 판매 기준을 함께 확인</strong><p>공개 상세페이지 + 상품 피드 + 판매자 승인 자료</p><small>BAG-BLACK · 자사몰 · 1개 · 같은 기준 시점</small></div>
+            <div class="roles-check-branches" aria-hidden="true"><span>↓</span><span>↓</span></div>
+            <div class="roles-check-lanes">
+              <section class="roles-check-lane" aria-labelledby="roles-ai-title">
+                <div class="roles-check-heading"><span>검수 AI</span><h3 id="roles-ai-title">문장에 담긴 조건을 찾습니다</h3></div>
+                <dl class="roles-check-evidence">
+                  <div><dt>상세페이지 혜택 문구</dt><dd>“회원 전용 79,000원”</dd></div>
+                  <div><dt>피드의 가격 안내</dt><dd>79,000원 · 회원 조건 표시 없음</dd></div>
+                </dl>
+                <p class="roles-check-task">페이지에서 회원 전용 조건을 읽고, <strong>피드에도 그 조건이 전달되는지 확인할 근거</strong>를 모읍니다.</p>
+                <div class="roles-check-output is-review"><span>AI가 남길 결과</span><strong><b aria-hidden="true">?</b> 회원 조건 확인 필요</strong><p>같은 회원가를 뜻하는지, 조건이 빠진 것인지 확인해야 합니다.</p></div>
+              </section>
+              <section class="roles-check-lane is-rules" aria-labelledby="roles-logic-title">
+                <div class="roles-check-heading"><span>업무 로직</span><h3 id="roles-logic-title">값과 규칙을 대조합니다</h3></div>
+                <dl class="roles-check-evidence">
+                  <div><dt>피드의 판매 상태</dt><dd>판매 가능</dd></div>
+                  <div><dt>승인된 재고·판매 정책</dt><dd><strong>0개</strong> · 예약 주문 불가</dd></div>
+                </dl>
+                <p class="roles-check-task">비회원 1개 구매 기준으로 재고와 예약 판매 규칙을 확인합니다. <strong>승인된 자료와 정해진 규칙으로 판단</strong>합니다.</p>
+                <div class="roles-check-output is-conflict"><span>업무 로직이 남길 결과</span><strong><b aria-hidden="true">!</b> 판매 가능 표시 불일치</strong><p>같은 옵션·시점인데, 재고와 판매 규칙이 피드의 표시와 맞지 않습니다.</p></div>
+              </section>
+            </div>
+            <p class="roles-check-required">가격·할인·재고·배송은 <strong>미리 정한 필수 항목을 빠짐없이 검사</strong>합니다.</p>
+            <div class="roles-check-handoff"><span aria-hidden="true">↓</span><strong>원문·판정 근거·미확인 항목을 전달</strong><span aria-hidden="true">↓</span></div>
+            <section class="roles-check-human" aria-labelledby="roles-human-title">
+              <div class="roles-check-heading"><span>담당자</span><h3 id="roles-human-title">정책과 예외를 판단합니다</h3></div>
+              <ul>
+                <li><strong>가격의 적용 조건 확인</strong><span>원문과 가격표를 확인해 누구에게 적용되는 가격인지, 피드에 그 조건이 담겼는지 검토합니다.</span></li>
+                <li><strong>기준 자료·갱신 내역 확인</strong><span>승인 재고와 피드 갱신 내역을 확인해 수정할 원본을 정합니다.</span></li>
+              </ul>
+              <div class="roles-check-loop"><b aria-hidden="true">↻</b><strong>원본 수정·이유 기록 → 재검사 요청</strong></div>
+            </section>
+          </figure>
+          <p>AI가 찾은 회원 조건은 원문과 대조하고, 적용할 가격·쿠폰은 기존 업무 규칙으로 계산합니다. Java·Spring 등으로 만든 업무 시스템이 있다면 검증된 기능을 활용할 수 있습니다.</p>
+          <p>도입은 사용을 허용받은 파일이나 조회 전용 연결로 시작할 수 있습니다. 고객마다 내부 데이터베이스에 새로 연결해야 한다면 그 비용도 다음 실험에 포함해야 합니다.</p>
+        </section>
+
+        <section class="guide-section insight-section" id="pilot" aria-labelledby="pilot-title">
+          <h2 id="pilot-title">6. 효과는 같은 자료로 비교합니다</h2>
+          <p>검수기는 <strong>안내 정보와 실제 판매 조건의 차이를 얼마나 정확히 찾는지</strong>로 평가합니다. 같은 자료를 수작업·기존 규칙·규칙+AI로 검사해 품질, 작업 시간, 전체 비용을 비교합니다.</p>
+          <p>평가에는 오류뿐 아니라 회원가처럼 조건이 달라 생긴 차이도 넣습니다. 양쪽에 같은 예전 가격이 남은 경우, 품절·예약 판매, 주문 마감 전후, 자료를 불러오지 못한 경우도 다룹니다. <strong>표시가 같거나 정보가 부족하다는 이유로 잘못 통과시키지 않는지</strong> 확인하기 위해서입니다.</p>
+          <figure class="pilot-check" aria-labelledby="pilot-check-caption">
+            <figcaption id="pilot-check-caption"><span>제안하는 비교 실험 · 측정된 성과가 아닙니다</span><strong>같은 판매 기준으로 검사하고,<br>정확도·시간·비용을 비교합니다</strong></figcaption>
+            <div class="pilot-stage-label"><span>01</span><strong>비교할 자료와 실제 판매 기준을 먼저 정합니다</strong></div>
+            <div class="pilot-sample" aria-label="한 판매자의 상품 옵션 30개와 구매 질문 20개">
+              <div><span>상품 옵션</span><strong>30<small>개</small></strong></div>
+              <span aria-hidden="true">+</span>
+              <div><span>구매 질문</span><strong>20<small>개</small></strong></div>
+            </div>
+            <p class="pilot-sample-note">한 판매자의 <strong>같은 자료·상품·회원 조건·기준 시점</strong>으로 비교합니다.</p>
+            <div class="pilot-reference"><strong>담당자가 실제 판매 조건을 확인해 기준 답안 작성</strong><span>가격표·재고·배송 규칙과 적용 시점을 확인합니다. 확인할 수 없는 건은 ‘확인 불가’로 남깁니다.</span></div>
+            <div class="pilot-connector" aria-hidden="true">↓</div>
+            <div class="pilot-stage-label"><span>02</span><strong>세 방식에 같은 자료를 넣습니다</strong></div>
+            <ul class="pilot-methods" aria-label="동일 자료로 비교할 세 가지 검수 방식">
+              <li><span>A</span><strong>수작업</strong><p>담당자가 읽고<br>직접 대조</p></li>
+              <li><span>B</span><strong>기존 규칙</strong><p>정해진 검사 항목과<br>업무 로직으로 대조</p></li>
+              <li><span>C</span><strong>규칙 + AI</strong><p>같은 규칙에<br>AI의 읽기·설명 추가</p></li>
+            </ul>
+            <p class="pilot-order-note">같은 사례를 반복해서 본 덕분에 빨라지는 영향을 줄이도록, 담당자와 처리 순서를 바꿉니다.</p>
+            <div class="pilot-connector" aria-hidden="true">↓</div>
+            <div class="pilot-stage-label"><span>03</span><strong>세 가지 지표를 함께 기록합니다</strong></div>
+            <dl class="pilot-measures">
+              <div><dt><span aria-hidden="true">!</span> 검수 품질</dt><dd><strong>놓친 오류 · 잘못된 경고 · 확인하지 못했는데 통과시킨 건</strong><p>판매 조건으로 확인한 기준 답안과 비교합니다. 각 건수와 전체 검사 대상 수를 함께 기록합니다.</p></dd></div>
+              <div><dt><span aria-hidden="true">↻</span> 작업 시간</dt><dd><strong>자료 준비 → 검토 → 수정 → 재검사</strong><p>전체 작업 시간과 재작업 건수를 비교합니다.</p></dd></div>
+              <div><dt><span aria-hidden="true">₩</span> 전체 비용</dt><dd><strong>AI 사용 + 자료 연결·조회 + 실패 후 재시도 + 담당자 확인</strong><p>고객마다 자료를 새로 연결하는 비용도 포함합니다.</p></dd></div>
+            </dl>
+            <div class="pilot-decision">
+              <strong>실험 전에 합의한 기준으로 판단</strong>
+              <p>중요한 오류를 얼마나 엄격히 막을지, 작업 시간을 얼마나 줄여야 할지, 비용은 얼마까지 감당할지 정합니다.</p>
+              <div class="pilot-decision-paths">
+                <div><span>기준 충족</span><strong>다른 기간·상품군에서 재검증</strong></div>
+                <div><span>기준 미달</span><strong>원인을 수정하고 다시 실험</strong></div>
+              </div>
+            </div>
+            <p class="pilot-check-footnote">개발할 때 참고한 사례와 평가할 사례는 따로 준비합니다. 적은 수의 사례에서 잘됐다고 모든 상품에서 같은 성능이 나온다고 보지는 않습니다.</p>
+          </figure>
+          <p>효과를 확인해 현장에 도입한 뒤에는 주문과 고객 문의의 변화도 살펴봅니다.</p>
+          <div class="pilot-business">
+            <div class="pilot-stage-label"><span>운영 적용 후</span><strong>실제 거래 결과는 따로 확인합니다</strong></div>
+            <div class="pilot-business-grid">
+              <div><strong>안내와 실제 주문 조건의 일치</strong><p>안내한 가격·배송 조건이 실제 주문 때도 맞았는지 봅니다. 불일치로 생긴 취소·문의와 오류 재발도 기록합니다.</p></div>
+              <div><strong>매출·공헌이익</strong><p>공헌이익은 매출에서 상품 원가 등 판매에 따라 늘어나는 비용을 뺀 금액입니다. 행사·가격·광고·계절 수요의 영향도 함께 살펴봅니다.</p></div>
+            </div>
+          </div>
+          <p>AI의 상품 언급이나 방문자 수가 늘어도 검수기가 매출을 높였다고 단정할 수는 없습니다. 거래 효과를 보려면 비교 대상과 관찰 기간을 먼저 정해야 합니다.</p>
+          <h3>AI가 읽는 정보와 실제 판매 조건을 맞추는 일</h3>
+          <p>AI가 찾은 상품을 믿고 사려면 안내 정보가 실제 판매 조건과 맞아야 합니다. 검수 도구는 그 차이를 찾고, 확인하지 못한 부분을 드러내는 역할을 합니다.</p>
+          <p>이 도구가 확인·수정 시간을 줄이는지, 고객이 그 개선에 비용을 낼 의사가 있는지는 작은 실험으로 확인해야 합니다. 헬로우 휴먼의 Workless Engineering도 믿을 수 있는 상품 정보를 관리하는 반복 업무를 줄이는 데서 시작할 수 있습니다.</p>
+          <div class="insight-closing-summary"><p>믿고 구매할 수 있는 AI 쇼핑을 위해</p><p><strong>AI가 읽는 상품 정보와<br>실제 판매 조건이<br>일치해야 합니다.</strong></p></div>
+        </section>
+
+        <div class="guide-resources insight-resources" id="sources">
+          <h2>자료와 읽는 법</h2>
+          <p>공식 공개 자료는 <strong>2026년 10월 11일</strong>에 확인했습니다. 아래 자료는 각 플랫폼의 기능과 상품 정보 형식, 운영 기준을 설명합니다. 본문의 검수 도구와 비교 실험은 헬로우 휴먼의 제안입니다. 실제 상품 피드나 업무 시스템을 연결하거나, 오류를 찾는 성능과 매출 효과를 측정한 글은 아닙니다.</p>
+          <ul>
+            <li><a href="https://developers.google.com/search/docs/appearance/ai-features?hl=ko" target="_blank" rel="noopener noreferrer">Google 검색 센터 · AI 기능 및 웹사이트</a> · 기존 SEO와 AI 기능의 관계. Google 검색에 한정한 설명입니다.</li>
+            <li><a href="https://openai.com/ko-KR/index/powering-product-discovery-in-chatgpt/" target="_blank" rel="noopener noreferrer">OpenAI · ChatGPT의 제품 탐색 지원</a> · 2026.03.24 발표. 제품 정보·프로모션 연결 방향과 Shopify Catalog 경로.</li>
+            <li><a href="https://support.google.com/merchants/answer/9773429?hl=ko" target="_blank" rel="noopener noreferrer">Google Merchant Center · 피드와 방문 페이지의 가격 불일치</a> · 기존 검수·수정 절차와 채널 요구사항.</li>
+            <li><a href="https://developers.openai.com/commerce/specs/file-upload/products" target="_blank" rel="noopener noreferrer">OpenAI · 상품 파일 업로드 규격</a> · 옵션별 식별자·행·가격·판매 가능 여부. 파일 업로드 형식의 설명입니다.</li>
+            <li><a href="https://support.google.com/merchants/answer/14949917?hl=ko" target="_blank" rel="noopener noreferrer">Google Merchant Center · 예상 배송 기간 설정</a> · 주문 마감·준비·운송 기간과 영업일.</li>
+            <li><a href="https://help.openai.com/ko-kr/articles/11128490-shopping-with-chatgpt-search" target="_blank" rel="noopener noreferrer">OpenAI · ChatGPT 웹 검색으로 쇼핑하기</a> · 가격·배송 조건의 반영 지연과 상품 데이터 연결.</li>
+            <li><a href="https://developers.openai.com/commerce/guides/get-started" target="_blank" rel="noopener noreferrer">OpenAI · 상품 피드 연동 시작하기</a> · 확인일 기준 승인된 파트너의 연동 시작 절차. 연결 전 최신 조건을 확인해야 합니다.</li>
+          </ul>
+          <p>상품·가격·보고서는 모두 가상 예시이며 도식은 설명을 위해 작성했습니다. 함께 읽기 · <a href="2026-09-29-recommendation-evidence.html">인사이트 02 · 추천 근거 검사기</a> / <a href="2026-10-03-promotion-profit.html">인사이트 03 · 프로모션·가격 최적화</a></p>
+          <a class="news-end-link" href="./">커머스 인사이트 목록으로 돌아가기 <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </article>
+</main>
+<footer class="footer"><div class="wrap">헬로우 휴먼 · Workless Engineering Club</div></footer>
+<script src="../assets/article-toc.js?v=1" defer></script>
+<script src="../assets/analytics.js?v=2" defer></script>
+<script type="module" src="../assets/content-updates.js?v=3"></script>
+</body>
+</html>
