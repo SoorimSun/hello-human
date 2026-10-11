@@ -1,12 +1,13 @@
 # Claude Code Mods 가이드 미디어
 
-확인·저장일: 2026-10-10. 공식 샘플은 Anthropic, 커뮤니티 사례는 각 제작자의 공개 자료입니다. 직접 실행한 화면으로 소개하지 않습니다. 원본 이미지를 수정하지 않고 저장했으며 웹페이지에서는 비율을 유지해 축소 표시합니다.
+공개 자료 확인·저장일: 2026-10-10. 공식 샘플은 Anthropic, 커뮤니티 사례는 각 제작자의 공개 자료입니다. 이들 자료는 직접 실행한 화면으로 소개하지 않습니다. 첫 실습에는 2026-10-11 멤버가 제공한 캡처를 추가했습니다. 원본 이미지를 수정하지 않고 저장했으며 웹페이지에서는 비율을 유지해 축소 표시합니다.
 
 | 로컬 파일 | 원본 | 사용 위치 |
 | --- | --- | --- |
 | `official-cover.png` | [공식 글의 OG 이미지](https://claude.dev/blog/getting-started-with-claude-code-mods/og.png) | 가이드 표지, 홈 썸네일, 공유 메타데이터 |
 | `official-demo-poster.jpg` | [공식 종합 영상의 포스터](https://claude.dev/media/6acebe833d3657a8320e610e6e2d3e850d8d7c0fdc45eaf3519c8775afc30d53.jpg) | 새 탭에서 공식 영상을 여는 미리보기 |
 | `token-weather-showers.png` | [Token Weather 원본](https://github.com/anthropics/claude-code-playground/blob/569c5283d9a0a7ee7938df85bb32e4f48cbb8c86/claude-code/mods/token-weather/screenshots/token-weather-showers.png) | 컨텍스트 사용률 설명 |
+| `token-weather-first-session.png` | 멤버가 2026-10-11 제공한 첫 실습 캡처, 원본 1595×914 | README 설명 요청 뒤의 응답과 화면 하단의 실제 상태 표시 확인 |
 | `replay-theater-pane.png` | [Replay Theater 원본](https://github.com/anthropics/claude-code-playground/blob/569c5283d9a0a7ee7938df85bb32e4f48cbb8c86/claude-code/mods/replay-theater/screenshots/replay-theater-pane.png) | 편집 검토 설명 |
 | `blast-radius-pane.png` | [Blast Radius 원본](https://github.com/anthropics/claude-code-playground/blob/569c5283d9a0a7ee7938df85bb32e4f48cbb8c86/claude-code/mods/blast-radius/screenshots/blast-radius-pane.png) | 실행 확인 설명 |
 | `claude-image-view.png` | [Jarrod Watts의 원본](https://github.com/jarrodwatts/claude-image-view/blob/b3c412bb6d167cafade79148e95f9114ee1aad7c/claude-image-view.png) | 커뮤니티 사례의 이미지 미리보기 화면, 1734×1040 |
