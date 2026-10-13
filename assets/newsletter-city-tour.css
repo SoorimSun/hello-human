@@ -1,0 +1,28 @@
+/* A paired feature for newsletter 02, using the existing newsletter theme. */
+.letter-city-tour { margin: 20px 0 40px; padding: 26px; border: 1px solid var(--line); border-top: 4px solid var(--accent); border-radius: var(--radius); background: var(--surface); scroll-margin-top: 110px; }
+.letter-city-heading h2 { margin: 8px 0 16px; font-size: clamp(27px, 4.5vw, 38px); line-height: 1.3; letter-spacing: -.035em; }
+.letter-city-heading > p:last-child { max-width: 720px; margin-bottom: 24px; color: var(--muted); font-size: 15px; }
+.letter-city-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.letter-city-card { min-width: 0; }
+.letter-city-card figure { margin: 0 0 20px; }
+.letter-city-card figure > a { display: block; }
+.letter-city-card img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; background: var(--surface-2); border: 1px solid var(--line); border-radius: 7px; }
+.letter-city-card figcaption { margin-top: 9px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.letter-city-card h3 { margin: 8px 0 14px; font-size: 22px; line-height: 1.45; letter-spacing: -.025em; }
+.letter-city-body > p:not(.news-section-label) { margin: 0 0 14px; font-size: 15px; }
+.letter-city-actions { display: flex; flex-wrap: wrap; gap: 10px 16px; margin-top: 18px; font-size: 14px; font-weight: 700; }
+.letter-city-actions a { text-underline-offset: 4px; }
+.letter-city-question { margin: 26px 0 0; padding-top: 20px; border-top: 1px solid var(--line); font-size: 15px; }
+.letter-city-question strong { display: block; margin-bottom: 6px; }
+@media (max-width: 720px) {
+  .letter-city-tour { scroll-margin-top: 140px; }
+  .letter-city-grid { grid-template-columns: 1fr; gap: 28px; }
+  .letter-city-card + .letter-city-card { padding-top: 28px; border-top: 1px solid var(--line); }
+}
+@media (max-width: 520px) {
+  .letter-city-tour { padding: 22px 20px; }
+  .letter-city-card h3 { font-size: 21px; }
+}
+@media print {
+  .letter-city-card { break-inside: avoid; }
+}
