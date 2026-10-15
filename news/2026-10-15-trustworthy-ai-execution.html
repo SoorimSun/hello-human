@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>GitHub, 모델끼리 검토하고 실행할 코드는 고정한다 · AI뉴스 · 헬로우 휴먼</title>
+  <meta name="description" content="GitHub의 HydraFusion Max와 Actions Lockfile은 무엇을 바꿀까요? NVIDIA의 안전성 연구 지원, Google의 과학 연구자 지원과 함께 살펴보는 헬로우 휴먼 AI뉴스 17.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="GitHub, 모델끼리 검토하고 실행할 코드는 고정한다">
+  <meta property="og:description" content="GitHub이 모델의 검토 방식과 코드 실행을 개선합니다. NVIDIA와 Google의 연구 지원 소식도 함께 살펴봅니다.">
+  <meta property="og:url" content="https://soorimsun.github.io/hello-human/news/2026-10-15-trustworthy-ai-execution.html">
+  <meta property="og:image" content="https://soorimsun.github.io/hello-human/assets/news/trustworthy-ai-execution.png">
+  <meta property="og:image:width" content="1672">
+  <meta property="og:image:height" content="941">
+  <meta property="og:image:alt" content="세 AI 모듈이 검증 장치에 연결되고 문서가 확인 표시를 얻는 AI 생성 설명용 삽화">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://soorimsun.github.io/hello-human/assets/news/trustworthy-ai-execution.png">
+  <meta name="twitter:image:alt" content="세 AI 모듈이 검증 장치에 연결되고 문서가 확인 표시를 얻는 AI 생성 설명용 삽화">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+  <script src="../assets/theme.js?v=3"></script>
+  <link rel="stylesheet" href="../assets/style.css?v=9">
+  <link rel="stylesheet" href="../assets/news.css?v=10">
+  <link rel="stylesheet" href="../assets/news-execution.css?v=5">
+  <link rel="stylesheet" href="../assets/content-updates.css?v=1">
+</head>
+<body class="news-execution">
+  <header class="topbar"><div class="wrap topbar-inner">
+    <a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+    <nav class="news-nav" aria-label="사이트 메뉴"><a href="../">모임 소개</a><a href="./">AI뉴스</a><a href="../guides/">AI가이드</a><a href="../insights/">인사이트</a><a href="../case-studies/">사례연구</a><a data-newsletter-entry href="../newsletters/">뉴스레터</a></nav>
+  </div></header>
+  <main><article>
+    <header class="news-article-header wrap">
+      <a class="news-back" href="./">← AI뉴스 목록</a>
+      <p class="news-kicker">AI NEWS <span aria-hidden="true">/</span> ISSUE 17</p>
+      <h1>GitHub,<br> 모델끼리 검토하고<br> <em>실행할 코드는 고정한다</em></h1>
+      <p class="news-deck">GitHub은 모델의 검토 방식과 코드 실행을 개선하고, NVIDIA와 Google은 연구에 필요한 자원을 지원합니다. 네 가지 소식으로 AI에게 일을 맡길 때 필요한 조건을 살펴봅니다.</p>
+      <div class="news-article-meta"><time datetime="2026-10-15">2026년 10월 15일</time><span>헬로우 휴먼 AI뉴스</span></div>
+    </header>
+    <figure class="news-hero-visual wrap">
+      <a href="../assets/news/trustworthy-ai-execution.png" target="_blank" rel="noopener noreferrer" aria-label="AI 실행 구조 설명용 삽화 크게 보기">
+        <img src="../assets/news/trustworthy-ai-execution.png" width="1672" height="941" alt="세 AI 모듈이 주황색 검증 장치에 연결되고, 문서가 통제된 경로를 지나 확인 표시를 얻는 설명용 삽화" fetchpriority="high">
+      </a>
+      <figcaption><span>조합하고, 검토하고, 실행합니다</span><span class="execution-caption-note">헬로우 휴먼 · AI 생성 설명용 삽화. 실제 제품 화면이나 구조도가 아닙니다.</span></figcaption>
+    </figure>
+    <section id="at-a-glance" class="execution-overview wrap" aria-labelledby="summary-heading">
+      <p class="news-section-label">모델의 능력에서 실제 작업까지</p><h2 id="summary-heading">30초 요약</h2>
+      <ul class="execution-cards">
+        <li><span>01 / GITHUB</span><strong>모델마다 역할을 나눕니다</strong><p>HydraFusion이 작업에 따라 한 모델을 쓰거나, 여러 모델에 작성과 검토를 나눠 맡깁니다.</p></li>
+        <li><span>02 / GITHUB</span><strong>실행할 버전을 고정합니다</strong><p>Actions Lockfile이 외부 도구의 코드 버전을 기록해, 다음에도 같은 코드를 실행하게 합니다.</p></li>
+        <li><span>03 / NVIDIA</span><strong>안전성을 시험할 자원을 줍니다</strong><p>영국의 안전성 연구에 5년간 2억5천만 달러 상당의 컴퓨팅 자원을 지원할 계획입니다.</p></li>
+        <li><span>04 / GOOGLE</span><strong>과학 연구자의 도구를 넓힙니다</strong><p>유럽 연구자 최대 200명에게 과학 AI 도구와 총 300만 달러의 컴퓨팅 크레딧을 지원합니다.</p></li>
+      </ul>
+    </section>
+    <div class="news-article-shell wrap">
+      <nav class="news-toc" aria-label="기사 목차"><span>이번 호</span><a href="#at-a-glance">30초 요약</a><a href="#hydrafusion">모델이 서로 검토한다</a><a href="#lockfile">실행할 코드를 고정한다</a><a href="#safety">안전성 연구를 지원한다</a><a href="#science">과학 연구 도구를 넓힌다</a><a href="#our-view">헬로우 휴먼의 관점</a><a href="#experiment">모임에서 해볼 실험</a><a href="#sources">읽은 자료</a></nav>
+      <div class="news-story">
+        <p class="news-method"><b>2026년 10월 14일자 공식 발표</b>와 관련 문서를 <b>10월 15일 한국시간 기준</b>으로 확인했습니다. 현재 시험 제공하는 기능과 앞으로 지원할 계획을 구분하고, 모임의 해석은 별도로 적었습니다.</p>
+        <p>AI가 코드를 작성했다고 해서 바로 업무에 쓸 수 있는 것은 아닙니다. 요구한 대로 동작하는지 살펴보고, 실행할 때 사용하는 외부 도구도 확인해야 합니다. 파일을 바꾸거나 외부 서비스에 요청을 보내는 일까지 맡긴다면, 허용된 범위 안에서만 행동하는지도 중요합니다.</p>
+        <p>GitHub은 결과를 검토하고 실행 코드를 관리하는 기능을 개선했습니다. NVIDIA는 안전성을 시험할 연구 자원을, Google은 과학 연구에 쓸 도구와 자원을 지원합니다. 각 소식이 다루는 문제를 살펴보며 <strong>모델의 답을 실제 업무에 쓰려면 무엇이 필요한지</strong> 생각해봅니다.</p>
+
+        <section id="hydrafusion" class="news-story-section">
+          <p class="news-section-label">01 / GITHUB HYDRAFUSION</p><h2>한 모델이 작성하고,<br> 다른 모델이 검토합니다</h2>
+          <p>GitHub은 여러 모델을 조합해 작업하는 <strong>HydraFusion을 개선하고, 복잡한 작업을 위한 Max 옵션</strong>을 추가했습니다. 두 옵션 모두 이용자의 피드백을 받으며 시험하는 연구 프리뷰 단계입니다.</p>
+          <p>HydraFusion은 작업에 따라 한 모델을 쓰거나, 여러 모델에 작성과 검토를 나눠 맡깁니다. 이렇게 모델의 역할과 작업 순서를 조정하는 시스템을 <strong>모델 오케스트레이터</strong>라고 합니다. 이용자는 중간 단계를 직접 연결할 필요 없이 최종 답변을 받습니다.</p>
+          <p>사용할 수 있는 모델에는 Claude Opus 5.5, GPT-6 Astra, GPT-6.1 Sol, GPT-6 Luna 등이 포함됩니다. 매번 모두를 쓰는 것은 아니며, 작업 방식과 이용 조건에 따라 선택이 달라집니다. <a class="source-link" href="https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option/" target="_blank" rel="noopener noreferrer">GitHub의 업데이트 발표 ↗</a></p>
+
+          <figure class="execution-figure" aria-labelledby="patterns-heading">
+            <p class="news-section-label">공식 문서를 풀어 쓴 설명용 도식</p><h3 id="patterns-heading">작업마다 세 가지 중 하나를 고릅니다</h3>
+            <div class="execution-pattern"><h4>Single <span>한 모델로 충분할 때</span></h4><ol class="execution-flow"><li>모델 하나가 작업</li><li>결과 전달</li></ol></div>
+            <div class="execution-pattern"><h4>Cascade <span>필요한 경우에만 보완</span></h4><ol class="execution-flow"><li>효율적인 모델이 초안 작성</li><li>평가 모델이 확인</li><li>그대로 쓰거나 더 강한 모델이 보완</li></ol></div>
+            <div class="execution-pattern"><h4>Critique <span>여러 관점으로 검토</span></h4><ol class="execution-flow"><li>첫 모델이 초안 작성</li><li>여러 모델이 병렬 검토</li><li>의견을 모아 첫 모델이 한 번 수정</li></ol></div>
+            <figcaption><a href="https://docs.github.com/en/early-access/copilot/hydrafusion" target="_blank" rel="noopener noreferrer">GitHub 공식 문서</a>의 세 가지 작업 방식을 풀어 쓴 도식입니다. 실제 제품 화면이나 성능 측정 결과는 아니며, 시험 제공 중에는 방식이 달라질 수 있습니다.</figcaption>
+          </figure>
+
+          <p>이번 Critique 개선의 핵심은 <strong>검토 모델이 실제 파일과 작업 환경을 도구로 직접 살펴본다</strong>는 점입니다. 코드를 작성한 모델의 요약에 주로 기대던 검토를 보완한 것입니다. 여러 검토 모델을 동시에 쓰는 방식도 도입했습니다.</p>
+          <p>여러 파일을 함께 고치는 작업이라면, 작성 모델이 놓친 파일 사이의 관계를 다른 모델이 찾아볼 수 있습니다. Cascade에는 초안을 평가한 뒤 필요한 경우에만 수정을 요청하는 단계가 추가됐습니다.</p>
+          <p>다만 모델이 여럿이어도 같은 오류를 놓칠 수 있습니다. <strong>모델의 검토 의견과 실제 테스트 결과를 함께 봐야 하는 이유</strong>입니다.</p>
+
+          <h3>Max는 깊이 있는 검토에 초점을 맞춥니다</h3>
+          <p>일반 HydraFusion은 속도·비용·결과 품질의 균형을 고려합니다. Max는 더 어려운 작업을 깊이 분석하고 꼼꼼하게 검토하는 데 초점을 맞췄습니다.</p>
+          <p>추가 검토에는 시간과 비용이 들 수 있습니다. HydraFusion 자체의 별도 사용료는 없지만, <strong>실제로 사용한 모델마다 표준 요금이 붙습니다.</strong> 단순한 수정인지, 여러 파일에 영향을 주는 복잡한 변경인지에 따라 추가 검토의 가치를 따져볼 필요가 있습니다. <a class="source-link" href="https://docs.github.com/en/early-access/copilot/hydrafusion#billing-for-hydrafusion" target="_blank" rel="noopener noreferrer">이용 요금 설명 ↗</a></p>
+          <details class="execution-details"><summary>어디에서 쓰고, 무엇을 주의해야 하나요?</summary>
+            <p>두 옵션 모두 <strong>VS Code·GitHub Copilot 앱·명령줄 도구인 Copilot CLI</strong>에서 제공합니다. 대상 구독은 Copilot Pro·Pro+·Business·Enterprise입니다. 시험 기능을 켜야 하며, 조직에서 허용한 모델만 사용할 수 있습니다. 이번 발표에는 JetBrains 지원이 명시되지 않았습니다.</p>
+            <p>GitHub은 실제 운영 업무에 쓰도록 제공하는 기능이 아니며, 서비스 수준 보장(SLA)도 없다고 안내합니다. 또 <strong>초안을 버려도 그 과정에서 수정한 파일이 자동으로 원상복구되지는 않습니다.</strong> 작업을 마치면 답변과 함께 파일의 변경 내역도 확인해야 합니다. <a class="source-link" href="https://docs.github.com/en/early-access/copilot/hydrafusion#limitations-of-hydrafusion" target="_blank" rel="noopener noreferrer">연구 프리뷰의 제약 ↗</a></p>
+          </details>
+        </section>
+
+        <section id="lockfile" class="news-story-section">
+          <p class="news-section-label">02 / GITHUB ACTIONS LOCKFILE</p><h2>검토할 때와 실행할 때,<br> 같은 코드인가요?</h2>
+          <p>GitHub Actions는 코드를 실행 가능한 프로그램으로 만들고, 시험하고, 배포하는 작업을 자동화하는 도구입니다. 개발 과정에서 이런 작업을 이어서 자동 실행하는 체계를 CI/CD라고 부릅니다.</p>
+          <p>작업 순서를 적은 설정을 <strong>워크플로</strong>라고 합니다. 여기에는 다른 사람이 만든 도구인 Action을 연결할 수 있습니다. 예를 들어 <code>v4</code>라는 버전 이름으로 도구를 불러오더라도, 나중에는 같은 이름이 다른 코드를 가리킬 수 있습니다. <strong>우리 설정을 고치지 않았어도 다음 실행에서 다른 코드가 쓰일 수 있는 것입니다.</strong></p>
+          <p>GitHub이 공개 시험을 시작한 <strong>Workflow Lockfile</strong>은 사용할 코드의 버전을 별도 파일에 기록합니다. 특정 시점의 코드 상태를 기록한 <strong>커밋</strong>을 고정해, 같은 버전 이름이 다른 코드를 가리키더라도 기록해 둔 코드를 실행하게 합니다. 외부 도구를 통해 들어오는 위험을 줄이는 공급망 보안 기능입니다. <a class="source-link" href="https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview/" target="_blank" rel="noopener noreferrer">공개 프리뷰 발표 ↗</a></p>
+
+          <figure class="execution-figure" aria-labelledby="locking-heading">
+            <p class="news-section-label">버전 이름이 가리키는 코드가 바뀐다면 · 가상 예시</p><h3 id="locking-heading">이름은 v4로 같아도, 코드는 달라질 수 있습니다</h3>
+            <div class="execution-lock-row"><strong>버전 이름만 참조</strong><p><code>@v4</code>가 코드 A에서 B를 가리키도록 바뀝니다.</p><span>다음 실행 → 코드 B</span></div>
+            <div class="execution-lock-row execution-lock-fixed"><strong>Lockfile 적용</strong><p><code>@v4</code>에 대해 검토한 코드 A를 기록해 둡니다.</p><span>다음 실행 → 기록된 코드 A</span></div>
+            <figcaption>Lockfile을 적용한 워크플로와 버전 이름만 참조하는 워크플로를 비교한 설명입니다. 코드 A에 원래 문제가 있었다면, 버전을 고정해도 그 문제는 남습니다.</figcaption>
+          </figure>
+
+          <p>AI가 배포 설정을 작성하더라도 확인할 점은 같습니다. <strong>작업이 성공했는지와 함께, 어떤 코드를 실행했는지도 봐야 합니다.</strong> Lockfile은 그 버전을 확인하고 관리하는 데 도움을 줍니다. 고정할 코드가 안전한지, 필요한 만큼의 권한만 줬는지는 별도로 검토해야 합니다.</p>
+          <details class="execution-details"><summary>개발자가 알아둘 적용 범위와 지원 조건</summary>
+            <p>파일은 <code>.github/workflows/actions.lock</code>에 둡니다. GitHub의 명령줄 도구에 설치하는 확장 기능 <code>gh actions-lock</code>으로 생성·관리하고, 워크플로별로 하나씩 적용할 수 있습니다. 버전 업데이트를 제안하는 Dependabot은 이미 적용된 워크플로의 Action을 갱신할 때 Lockfile도 함께 갱신합니다.</p>
+            <p>직접 연결한 Action뿐 아니라 그 Action이 사용하는 다른 도구도 고정할 수 있습니다. 다른 저장소에 있는 워크플로를 통째로 불러올 때는 범위가 나뉩니다. <strong>불러오는 워크플로의 버전은 우리 Lockfile에, 그 안에서 사용하는 도구들의 버전은 원래 저장소의 Lockfile에 기록합니다.</strong> 파일 하나가 모든 저장소의 실행 버전을 고정하지는 않습니다. <a class="source-link" href="https://docs.github.com/en/actions/concepts/security/workflow-dependency-lockfiles#how-does-the-lockfile-work" target="_blank" rel="noopener noreferrer">공식 문서의 적용 범위 ↗</a></p>
+            <p>공개 프리뷰 대상은 Free·Team·Enterprise Cloud입니다. 데이터를 지정한 지역에 보관하는 Enterprise Cloud의 데이터 레지던시 환경도 포함됩니다. 10월 14일 발표문의 지원 구독 정정을 반영했습니다.</p>
+          </details>
+        </section>
+
+        <section id="safety" class="news-story-section">
+          <p class="news-section-label">03 / NVIDIA · UK RESEARCH</p><h2>안전성을 반복해서 시험할<br> 컴퓨팅 자원을 지원합니다</h2>
+          <p>NVIDIA는 영국의 <strong>에이전트 안전성·보안 연구에 5년간 2억5천만 달러 상당의 컴퓨팅 자원</strong>을 지원하겠다고 발표했습니다. 컴퓨팅 자원은 대규모 AI 실험을 돌리는 데 필요한 서버 등의 계산 자원을 뜻합니다.</p>
+          <p>에이전트는 파일을 수정하거나 도구를 호출하며 작업하는 AI입니다. 예를 들어 파일을 수정하는 에이전트라면, 접근 권한이 없는 파일을 바꾸려 할 때 실제로 차단되는지 시험해야 합니다. 모델과 실행 환경을 바꿔가며 이런 시험을 반복하려면 많은 계산 자원이 필요합니다.</p>
+          <figure class="execution-figure" aria-labelledby="compute-heading">
+            <p class="news-section-label">NVIDIA 발표 · 향후 컴퓨팅 지원 약정</p><h3 id="compute-heading">연간 5천만 달러 상당 × 5년</h3>
+            <div class="execution-commitment"><strong>총 2억5천만 달러 상당</strong><span>영국에 있는 컴퓨팅 시설을 연구에 이용하도록 지원</span></div>
+            <figcaption>NVIDIA가 발표한 향후 지원 규모입니다. 현금을 지급하거나 이미 이 금액을 집행했다는 뜻은 아닙니다. 시설을 제공할 업체와 기술 구성, 계약 조건은 아직 확정되지 않았습니다. <a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Commits-250-Million-to-Advance-UK-Agentic-Safety-and-Security-Research-Over-the-Next-Five-Years/default.aspx" target="_blank" rel="noopener noreferrer">공식 보도자료 ↗</a></figcaption>
+          </figure>
+          <p>자원은 영국에 시설을 둔 NVIDIA의 클라우드 협력사를 통해 제공합니다. 지원 대상은 영국 연구계 전반이며, 일부는 Oxford가 이끄는 BOLD, UCL이 이끄는 SOFAIR, Imperial College London의 연구에 쓰일 계획입니다. 에이전트와 공개 모델의 보안, 같은 조건으로 반복할 수 있는 실험, 로봇 안전성 등을 연구합니다.</p>
+          <h3>잘못된 판단이 실제 행동으로 이어지지 않게</h3>
+          <p>발표에는 OpenShell과 시스템 구성안인 Sentry를 활용하는 연구도 포함됩니다. <strong>OpenShell은 에이전트가 파일과 네트워크에 접근할 수 있는 범위를 통제하는 소프트웨어</strong>입니다. NVIDIA는 에이전트가 스스로 규칙을 지키는 데만 기대지 않고, 바깥의 실행 환경에서 접근을 제한하는 방식이라고 설명합니다. <a class="source-link" href="https://www.nvidia.com/en-us/ai/openshell/" target="_blank" rel="noopener noreferrer">OpenShell 공식 구조 설명 ↗</a></p>
+          <p>이번 발표는 안전성을 더 연구하기 위한 지원 계획입니다. 우리 업무에서도 <strong>AI가 잘못된 행동을 선택했을 때 실제 실행을 막을 수 있는지</strong> 확인할 필요가 있습니다. 좋은 답변을 내놓는 능력과 허용된 범위에서만 행동하는 능력은 각각 시험해야 합니다.</p>
+        </section>
+
+        <section id="science" class="news-story-section">
+          <p class="news-section-label">04 / GOOGLE · SCIENCE</p><h2>과학 연구자에게<br> 전문 도구와 계산 자원을 제공합니다</h2>
+          <p>Google DeepMind와 Google Cloud는 <strong>유럽 과학 연구자 최대 200명에게 과학 AI 도구를 직접 쓸 기회와 총 300만 달러의 컴퓨팅 크레딧</strong>을 제공한다고 발표했습니다. 크레딧은 연구에 필요한 컴퓨팅 서비스 이용료로 쓸 수 있는 금액입니다. <a class="source-link" href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/were-powering-european-scientific-discovery-with-advanced-ai-compute-and-frontier-models/" target="_blank" rel="noopener noreferrer">Google의 지원 발표 ↗</a></p>
+          <div class="execution-science-stats" aria-label="Google 발표의 지원 대상과 전체 크레딧">
+            <div><span>지원할 연구자 수</span><strong>최대 200명</strong><p>유럽 과학 연구자 대상</p></div><div><span>컴퓨팅 이용 비용 지원</span><strong>총 300만 달러</strong><p>연구자 전체에 제공할 크레딧 규모</p></div>
+          </div>
+          <p>지원 도구들은 분자 구조나 날씨처럼 특정 분야의 문제를 다룹니다. 이번 발표는 <strong>연구자들이 이 도구를 활용할 기회와 자원을 넓히는 데</strong> 초점을 맞췄습니다.</p>
+          <details class="execution-details"><summary>어떤 과학 AI 도구를 지원하나요?</summary>
+            <p><strong>AlphaFold 3</strong>는 분자 구조와 상호작용을, <strong>AlphaGenome</strong>은 유전체 정보의 기능적 특성을 예측하는 데 쓰입니다.</p>
+            <p><strong>WeatherNext</strong>는 날씨 예측, <strong>AlphaEvolve</strong>는 알고리즘 탐색과 개선, <strong>AlphaEarth Foundations</strong>는 지구 관측 데이터 분석을 돕습니다. <a class="source-link" href="https://deepmind.google/science/" target="_blank" rel="noopener noreferrer">과학 도구별 역할 ↗</a></p>
+          </details>
+          <p>일부 모델은 유럽연합의 <strong>RAISE</strong>를 통해 제공합니다. RAISE는 여러 연구팀이 계산 자원·데이터·인재·연구비를 함께 활용하도록 연결하는 가상 연구기관 구상입니다. <a class="source-link" href="https://research-and-innovation.ec.europa.eu/strategy/strategy-research-and-innovation/our-digital-future/european-ai-science-strategy/raise-resource-ai-science-europe_en" target="_blank" rel="noopener noreferrer">유럽연합의 RAISE 안내 ↗</a></p>
+          <p>연구자별 배정량과 신청·선정 일정은 이번 발표에 자세히 나와 있지 않습니다. 지원이 어떤 연구 성과로 이어질지도 앞으로 확인해야 합니다.</p>
+          <p>우리 업무에서도 <strong>작업에 맞는 전문 도구를 연결하는 방식</strong>을 생각해볼 수 있습니다. 예를 들어 고객 문의의 뜻을 파악하는 데는 언어 모델을, 수요 예측에는 별도의 예측 모델을 쓰는 방식입니다. 이는 이번 소식에서 떠올린 업무 적용 아이디어입니다.</p>
+        </section>
+
+        <section id="our-view" class="news-story-section news-view">
+          <p class="news-section-label">OUR VIEW · 헬로우 휴먼의 해석</p><h2>사람이 다시 고치는 일까지<br> 줄어들어야 합니다</h2>
+          <p>네 소식은 모델의 역할 분담, 실행할 코드의 관리, 안전성 시험, 전문 연구 도구라는 서로 다른 문제를 다룹니다. 모임에서는 이를 <strong>AI에게 일을 맡기기 전에 무엇을 준비해야 하는가</strong>라는 질문으로 연결해볼 수 있습니다.</p>
+          <p>가령 쿠폰 계산 코드를 바꾼다고 해봅시다. 다른 모델은 업무 규칙이 빠지지 않았는지 검토하고, 자동 테스트는 할인 금액이 예상대로 나오는지 확인합니다. Lockfile은 빌드에 쓰는 외부 도구의 버전을 고정합니다. 담당자는 이런 결과와 실제 변경 내역을 보고 배포 여부를 판단합니다.</p>
+          <p>이처럼 확인할 일을 나누면 사람이 집중해야 할 부분이 더 분명해질 수 있습니다. 다만 검토 단계만 늘려서는 도움이 되지 않습니다. <strong>검토에 드는 시간과 비용을 감안해도, 사람이 오류를 찾고 다시 고치는 부담이 줄어드는지</strong> 봐야 합니다. Workless Engineering에서 확인하려는 변화도 여기에 있습니다.</p>
+        </section>
+
+        <section id="experiment" class="news-story-section">
+          <p class="news-section-label">TRY TOGETHER · 모임에서 해볼 실험</p><h2>주문 8건을 맡겼더니,<br> 검토 전후 무엇이 달라졌을까요?</h2>
+          <p>이 가운데 <strong>다른 모델의 검토가 실제 답을 어떻게 바꾸는지</strong>를 작은 과제로 확인해봤습니다. 가상의 쿠폰 정책을 주고, 주문 8건의 적용 여부와 결제액을 판단하게 했습니다.</p>
+          <p>Codex에서 <strong>GPT-6 Luna가 초안을 쓰고, GPT-6 Astra가 검토한 뒤, 같은 Luna가 수정</strong>했습니다.</p>
+          <aside class="execution-figure" aria-labelledby="trial-result-heading">
+            <p class="news-section-label">직접 해본 결과 · 2026.10.15 · 1회 실행</p><h3 id="trial-result-heading">배송비 누락과 적립금 설명,<br> 두 문제가 바로잡혔습니다</h3>
+            <table class="execution-result-table">
+              <caption>같은 초안의 검토 전후 비교 · 금액과 설명은 실제 응답을 요약했습니다.</caption>
+              <thead><tr><th scope="col">확인 항목</th><th scope="col">검토 전</th><th scope="col">검토 후</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">B 주문<br>결제액</th><td><strong>35,000원</strong><small>배송비 누락</small></td><td class="execution-result-changed"><strong>38,000원</strong><small>배송비 3,000원 반영</small></td></tr>
+                <tr><th scope="row">E 주문<br>적립금 설명</th><td><strong>‘차감 전’</strong><small>58,000원·68,000원을 적립금 차감 전 금액으로 안내</small></td><td class="execution-result-changed"><strong>‘차감 후’</strong><small>두 금액은 이미 적립금을 뺀 결과라고 수정</small></td></tr>
+                <tr><th scope="row">판단·금액·이유<br>모두 정확</th><td><strong>6/8건</strong></td><td class="execution-result-changed"><strong>8/8건</strong><small>B·E의 오류 수정</small></td></tr>
+                <tr><th scope="row">쿠폰 적용<br>여부 판단</th><td><strong>8/8건</strong></td><td><strong>8/8건</strong><small>처음부터 모두 정확</small></td></tr>
+              </tbody>
+            </table>
+            <p class="execution-result-note">판단·금액·핵심 이유가 모두 맞은 주문을 셌습니다. E의 두 금액은 각각 쿠폰 대상일 때와 아닐 때의 결제액입니다. 구매 이력이 확인되지 않아 ‘확인 필요’와 ‘미정’ 판정은 유지했습니다.</p>
+            <p class="execution-result-note">실행 전에 정한 기준으로 비교했으며, 수정본에서 새 오류는 발견하지 못했습니다. 첫 초안을 그대로 사용한 한 번의 관찰로, 같은 모델의 재검토와 비교한 실험은 아닙니다.</p>
+          </aside>
+          <h3 id="trial-heading">따라 하는 방법 · 세 번만 요청하세요</h3>
+          <p>사용할 수 있는 서로 다른 모델 두 개를 고릅니다. 각 단계의 복사 버튼으로 요청문을 옮기고, 정답은 모델에게 보내지 않습니다.</p>
+          <ol class="execution-steps">
+            <li><p><strong>작성.</strong> 첫 모델의 새 대화에 아래 요청을 보내고, 첫 답을 ‘초안’으로 저장합니다.</p>
+              <div class="execution-prompt">
+              <details class="execution-details"><summary>정책·주문·작성 요청</summary>
+                <div id="order-writer-prompt" class="execution-lock-row" tabindex="-1">
+              <p>[가상 쇼핑몰의 첫 구매 쿠폰 정책]<br>모든 주문은 행사 기간 안에 앱에서 진행합니다. 아래 규칙만 사용하세요.</p>
+              <p>R1. 과거 구매 이력이 없는 회원이 대상입니다. 과거 주문이 전부 ‘결제취소’ 또는 ‘전체 반품 완료’라면 구매 이력이 없는 것으로 봅니다. ‘부분 반품’ 주문은 구매 이력에 남습니다.<br>R2. 최소 구매 금액은 ‘일반 상품 합계 - 일반 상품에 붙은 즉시할인’으로 계산합니다. 행사 상품과 배송비는 이 기준에 포함하지 않습니다. 적립금을 쓰더라도 최소 구매 금액의 기준은 줄어들지 않습니다.<br>R3. 회원 조건을 충족하고 기준 금액이 5만 원 이상이면 해당 일반 상품 금액의 20%를 할인하며, 이번 쿠폰의 할인액은 최대 1만 원입니다. 행사 상품은 이번 쿠폰으로 할인하지 않습니다.<br>R4. 다른 쿠폰과 이번 쿠폰을 함께 쓸 수 없습니다. 이미 선택된 다른 쿠폰은 유지하고, 임의로 빼거나 바꾸지 마세요. 상품 즉시할인은 다른 쿠폰이 아니며 함께 적용됩니다. 적립금은 쿠폰 할인 후 결제액에서 차감합니다.<br>R5. 제공된 정보로 판정을 확정할 수 없을 때만 ‘확인 필요’로 표시합니다. 확인되지 않은 정보를 임의로 가정하지 마세요.</p>
+              <p>[공통 금액 조건]<br>아래 일반 상품 금액은 즉시할인 전 금액입니다. 행사 상품 금액에는 추가 상품 할인이 없습니다. 배송비는 주문마다 3,000원이며 무료배송은 없습니다. 적힌 것 외의 상품·할인·적립금은 없습니다. 최종 결제액에는 일반 상품과 행사 상품, 배송비를 모두 포함하고, 적용 가능한 할인과 사용할 적립금을 차감합니다.</p>
+              <p>[판단할 주문 8건]<br>A: 과거 주문은 결제취소 1건뿐. 일반 54,000원 / 행사 10,000원 / 즉시할인 5,000원 / 다른 쿠폰 없음 / 적립금 0원.<br>B: 과거 주문은 전체 반품 완료 1건뿐. 일반 60,000원 / 행사 0원 / 즉시할인 0원 / 다른 쿠폰 없음 / 적립금 15,000원.<br>C: 과거 주문은 부분 반품 1건. 일반 80,000원 / 행사 0원 / 즉시할인 0원 / 다른 쿠폰 없음 / 적립금 0원.<br>D: 과거 주문 없음. 일반 40,000원 / 행사 30,000원 / 즉시할인 0원 / 다른 쿠폰 없음 / 적립금 0원.<br>E: 과거 구매 이력 미확인. 일반 70,000원 / 행사 0원 / 즉시할인 0원 / 다른 쿠폰 없음 / 적립금 5,000원.<br>F: 과거 구매 이력 미확인. 일반 55,000원 / 행사 0원 / 즉시할인 6,000원 / 다른 쿠폰 없음 / 적립금 0원.<br>G: 과거 주문 없음. 일반 75,000원 / 행사 0원 / 즉시할인 0원 / 다른 쿠폰 5,000원 할인 선택됨 / 적립금 0원.<br>H: 과거 주문은 결제취소 1건과 전체 반품 완료 1건뿐. 일반 55,000원 / 행사 15,000원 / 즉시할인 5,000원 / 다른 쿠폰 없음 / 적립금 10,000원.</p>
+              <p>[작성 요청]<br>각 주문을 판단해 ‘주문 / 이번 쿠폰 적용: 가능·불가·확인 필요 / 최소 구매 판단용 금액 / 이번 쿠폰 할인액 / 최종 결제액 / 핵심 이유와 규칙 번호’ 표로 작성해주세요. 확정할 수 없는 금액은 ‘미정’으로 적으세요. ‘확인 필요’인 주문에는 꼭 확인해야 할 정보도 적어주세요. 계산은 원 단위로 표시하고, 정책에 없는 조건은 추가하지 마세요.</p>
+            </div>
+              </details>
+                <div class="execution-prompt-actions" hidden><button type="button" class="execution-copy" data-execution-copy="order-writer-prompt" aria-label="작성 요청 복사" aria-describedby="order-writer-copy-status">복사</button></div>
+                <span id="order-writer-copy-status" class="execution-copy-status" role="status" aria-live="polite"></span>
+              </div>
+            </li>
+            <li><p><strong>검토.</strong> 다른 모델의 새 대화에 <strong>1단계의 전체 요청과 초안</strong>을 붙여 넣습니다. 아래 검토 요청도 덧붙여 한 번에 보냅니다.</p>
+              <div class="execution-prompt">
+              <details class="execution-details"><summary>검토 요청</summary>
+                <div id="order-reviewer-prompt" class="execution-lock-row" tabindex="-1">
+              <p>정책과 주문 자료를 근거로 다른 모델의 표를 검토해주세요. 각 주문의 쿠폰 적용 판단, 판단용 금액, 이번 쿠폰 할인액, 최종 결제액, 핵심 이유가 서로 맞는지 독립적으로 확인해주세요.<br>문제가 있다면 ‘주문 / 원래 답의 해당 내용 / 적용해야 할 규칙 / 올바른 판단과 금액 / 수정 이유’로 정리해주세요. 정보 부족과 적용 불가를 구분하고, 근거 없는 가정을 하지 마세요. 틀린 부분이 없으면 없다고 말해주세요. 말투 변경은 오류 수정에 포함하지 말고, 아직 전체 표를 다시 작성하지는 마세요.</p>
+          </div>
+              </details>
+                <div class="execution-prompt-actions" hidden><button type="button" class="execution-copy" data-execution-copy="order-reviewer-prompt" aria-label="검토 요청 복사" aria-describedby="order-reviewer-copy-status">복사</button></div>
+                <span id="order-reviewer-copy-status" class="execution-copy-status" role="status" aria-live="polite"></span>
+              </div>
+            </li>
+            <li><p><strong>수정.</strong> 초안을 만든 대화로 돌아가 <strong>검토 응답 전체와 아래 수정 요청</strong>을 함께 보냅니다. 받은 답은 ‘수정본’으로 저장합니다.</p>
+              <div class="execution-prompt">
+              <details class="execution-details"><summary>수정 요청</summary>
+                <div id="order-revision-prompt" class="execution-lock-row" tabindex="-1">
+              <p>이 검토 의견을 원래 정책과 주문 자료에 대조해주세요. 근거가 있는 의견만 반영해 처음 요청한 열 구성으로 주문 8건의 최종 표를 작성해주세요. 이미 정확한 값은 유지하고 새로운 조건을 가정하지 마세요. 표 아래에 실제로 바꾼 주문과 변경 전후 값·이유를 적고, 반영하지 않은 검토 의견이 있다면 이유도 적어주세요. 수정할 부분이 없으면 기존 표를 유지해도 됩니다.</p>
+          </div>
+              </details>
+                <div class="execution-prompt-actions" hidden><button type="button" class="execution-copy" data-execution-copy="order-revision-prompt" aria-label="수정 요청 복사" aria-describedby="order-revision-copy-status">복사</button></div>
+                <span id="order-revision-copy-status" class="execution-copy-status" role="status" aria-live="polite"></span>
+              </div>
+            </li>
+          </ol>
+          <p>마지막으로 초안과 수정본을 아래 정답에 대조해, 맞은 주문 수와 실제로 바뀐 내용을 비교합니다.</p>
+          <details class="execution-details"><summary>주문별 정답과 비교 기준 보기</summary>
+            <p><strong>적용 판단·판단용 금액·이번 쿠폰 할인액·최종 결제액·핵심 이유가 모두 맞으면 주문당 1점</strong>, 총 8점입니다. 초안과 수정본에 같은 기준을 적용합니다. 금액이 맞아도 설명의 계산 단계가 틀렸다면 그 주문은 보완이 필요합니다. 말투만 바꾼 것은 점수에 반영하지 않습니다.</p>
+            <dl class="execution-measures">
+              <div><dt>A · 불가</dt><dd>판단용 <strong>49,000원</strong> / 이번 쿠폰 0원 / 결제 <strong>62,000원</strong>.<br>취소된 주문은 구매 이력에서 제외되지만, 즉시할인 후 금액이 5만 원 미만입니다. 행사 상품 10,000원과 배송비는 결제액에 포함합니다.</dd></div>
+              <div><dt>B · 가능</dt><dd>판단용 <strong>60,000원</strong> / 이번 쿠폰 10,000원 / 결제 <strong>38,000원</strong>.<br>전체 반품 완료 주문은 이력에서 제외합니다. 적립금은 최소 구매 기준을 줄이지 않습니다. 60,000 + 3,000 − 10,000 − 15,000원입니다.</dd></div>
+              <div><dt>C · 불가</dt><dd>판단용 <strong>80,000원</strong> / 이번 쿠폰 0원 / 결제 <strong>83,000원</strong>.<br>부분 반품 주문은 구매 이력에 남아 첫 구매 조건을 충족하지 못합니다.</dd></div>
+              <div><dt>D · 불가</dt><dd>판단용 <strong>40,000원</strong> / 이번 쿠폰 0원 / 결제 <strong>73,000원</strong>.<br>행사 상품 30,000원은 최소 구매 기준에는 포함하지 않지만 실제 결제액에는 포함합니다.</dd></div>
+              <div><dt>E · 확인 필요</dt><dd>판단용 <strong>70,000원</strong> / 이번 쿠폰·결제액 <strong>미정</strong>.<br>과거 주문 이력과 취소·반품 상태를 확인해야 합니다. 자격을 충족하면 쿠폰 10,000원·결제 58,000원, 아니면 쿠폰 0원·결제 68,000원입니다. 두 결제액 모두 적립금 5,000원을 뺀 뒤의 금액입니다.</dd></div>
+              <div><dt>F · 불가</dt><dd>판단용 <strong>49,000원</strong> / 이번 쿠폰 0원 / 결제 <strong>52,000원</strong>.<br>구매 이력을 모르더라도 최소 구매 금액을 충족하지 못하므로 적용 불가로 확정할 수 있습니다. ‘확인 필요’로 미루지 않습니다.</dd></div>
+              <div><dt>G · 불가</dt><dd>판단용 <strong>75,000원</strong> / 이번 쿠폰 0원 / 결제 <strong>73,000원</strong>.<br>이미 선택된 다른 쿠폰을 유지합니다. 이번 쿠폰은 중복으로 쓸 수 없고, 다른 쿠폰 5,000원은 결제액에서 차감합니다.</dd></div>
+              <div><dt>H · 가능</dt><dd>판단용 <strong>50,000원</strong> / 이번 쿠폰 10,000원 / 결제 <strong>48,000원</strong>.<br>취소·전체 반품 주문은 모두 이력에서 제외합니다. 즉시할인 후 정확히 5만 원으로 조건을 충족합니다. 결제액은 50,000 + 15,000 + 3,000 − 10,000 − 10,000원입니다.</dd></div>
+            </dl>
+          </details>
+          <p><strong>공유할 내용</strong> 사용한 두 모델 · 정확한 주문 __/8 → __/8 · 바뀐 답과 이유 · 남거나 새로 생긴 오류.</p>
+          <p>처음부터 모두 맞아도 그대로 기록합니다. 오류를 넣거나 틀릴 때까지 다시 생성하지 않습니다. 이 활동은 추가 검토의 도움을 살펴보는 실험이며, HydraFusion의 성능 측정은 아닙니다.</p>
+        </section>
+
+        <section id="sources" class="news-sources">
+          <p class="news-section-label">SOURCES</p><h2>읽은 자료</h2>
+          <ul>
+            <li><a href="https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option/" target="_blank" rel="noopener noreferrer">GitHub, HydraFusion 업데이트와 Max ↗</a> <span>10월 14일 · 후보 모델·추론 단계·지원 환경</span></li>
+            <li><a href="https://docs.github.com/en/early-access/copilot/hydrafusion" target="_blank" rel="noopener noreferrer">GitHub Docs, HydraFusion 이용 안내 ↗</a> <span>세 실행 패턴·과금·프리뷰 제약·파일 변경 복구</span></li>
+            <li><a href="https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview/" target="_blank" rel="noopener noreferrer">GitHub, Actions Lockfile 공개 프리뷰 ↗</a> <span>10월 14일 · 같은 날 정정한 지원 구독·Dependabot 연계</span></li>
+            <li><a href="https://docs.github.com/en/actions/concepts/security/workflow-dependency-lockfiles" target="_blank" rel="noopener noreferrer">GitHub Docs, Workflow dependency lockfiles ↗</a> <span>고정 범위·재사용 워크플로의 저장소 경계</span></li>
+            <li><a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Commits-250-Million-to-Advance-UK-Agentic-Safety-and-Security-Research-Over-the-Next-Five-Years/default.aspx" target="_blank" rel="noopener noreferrer">NVIDIA, 영국 안전성 연구 컴퓨팅 지원 ↗</a> <span>10월 14일 보도자료 · 지원 가치·기간·기관·미확정 조건</span></li>
+            <li><a href="https://www.nvidia.com/en-us/ai/openshell/" target="_blank" rel="noopener noreferrer">NVIDIA, OpenShell 공식 소개 ↗</a> <span>에이전트 실행과 접근 정책을 적용하는 구조</span></li>
+            <li><a href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/were-powering-european-scientific-discovery-with-advanced-ai-compute-and-frontier-models/" target="_blank" rel="noopener noreferrer">Google, 유럽 과학 연구자의 AI 접근 지원 ↗</a> <span>10월 14일 · 최대 200명·총 300만 달러·대상 도구</span></li>
+            <li><a href="https://research-and-innovation.ec.europa.eu/strategy/strategy-research-and-innovation/our-digital-future/european-ai-science-strategy/raise-resource-ai-science-europe_en" target="_blank" rel="noopener noreferrer">유럽연합, RAISE 공식 안내 ↗</a> <span>과학 AI 연구 자원을 연결하는 구상</span></li>
+            <li><a href="https://deepmind.google/science/" target="_blank" rel="noopener noreferrer">Google DeepMind, 과학 AI 도구 소개 ↗</a> <span>도구별 연구 분야와 역할</span></li>
+          </ul>
+          <p>자료 확인일은 2026년 10월 15일입니다. 이번 발표의 공식 한국어 원문을 확보하지 못해 영문 자료를 연결했습니다. 기능과 지원 규모는 각 회사의 발표를 바탕으로 썼으며, 성능이나 지원 집행 실적을 직접 확인한 결과는 아닙니다. 도식은 문서 내용을 풀어 쓴 설명입니다. 주문 8건 판단 실험에는 GPT-6 Luna 작성·GPT-6 Astra 검토·Luna 수정을 각 한 번씩 실행한 결과를 표시했습니다.</p>
+        </section>
+        <a class="news-end-link" href="./">AI뉴스 목록으로 돌아가기 <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </article></main>
+  <footer class="footer"><div class="wrap">헬로우 휴먼 · Workless Engineering Club</div></footer>
+  <script src="../assets/analytics.js?v=2" defer></script>
+  <script src="../assets/article-toc.js?v=1" defer></script>
+  <script src="../assets/news-execution.js?v=2" defer></script>
+  <script type="module" src="../assets/content-updates.js?v=3"></script>
+</body>
+</html>
