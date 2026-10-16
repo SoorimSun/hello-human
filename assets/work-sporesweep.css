@@ -1,0 +1,73 @@
+/* 포자 대청소 소개 전용. 플레이 흐름 도식과 제작자의 소개 이미지. */
+.spore-page { --spore-green: #216247; --spore-soft: #eaf2ec; }
+.spore-page .spore-intro { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 36px; align-items: center; }
+.spore-page .work-hero-title { font-size: clamp(36px, 5.6vw, 56px); }
+.spore-page .work-hero-title span { color: var(--spore-green); }
+.spore-name { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; margin-bottom: 14px; font-size: 21px; font-weight: 700; }
+.spore-name span { font-family: var(--mono); font-size: 15px; font-weight: 500; color: var(--muted); }
+.spore-status { display: flex; align-items: center; gap: 8px; margin-top: 24px; margin-bottom: 8px; color: var(--spore-green); font-size: 14px; font-weight: 600; }
+.spore-status > span { width: 7px; height: 7px; border-radius: 50%; background: currentColor; flex: 0 0 auto; }
+.spore-page .work-index { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.spore-journey { min-width: 0; margin: 0; padding: 26px 22px 20px; border: 1px solid var(--line); border-radius: 18px; background: var(--spore-soft); }
+.spore-journey-label { margin: 0 0 22px; font-size: 15px; font-weight: 700; color: var(--spore-green); }
+.spore-loop { margin: 0; padding: 0; list-style: none; }
+.spore-loop li { position: relative; display: grid; grid-template-columns: 62px minmax(0, 1fr); align-items: center; gap: 16px; min-height: 100px; padding: 14px 0; }
+.spore-loop li + li { border-top: 1px solid color-mix(in srgb, var(--spore-green) 20%, transparent); }
+.spore-loop strong { display: block; font-size: 17px; }
+.spore-loop li > div:last-child > span { display: block; margin-top: 4px; color: var(--muted); font-size: 12px; }
+.spore-match { display: flex; gap: 3px; }
+.spore-match i { display: grid; place-items: center; width: 19px; height: 28px; border: 1px solid var(--spore-green); border-radius: 5px; background: var(--surface); color: var(--spore-green); font-size: 13px; font-style: normal; }
+.spore-collect { display: grid; justify-items: center; width: 62px; }
+.spore-collect span { color: var(--spore-green); font-size: 32px; line-height: 1; }
+.spore-collect i { width: 40px; height: 17px; border: solid var(--spore-green); border-width: 0 2px 2px; border-radius: 0 0 9px 9px; }
+.spore-restore { position: relative; display: flex; align-items: flex-end; justify-content: center; gap: 3px; width: 62px; height: 58px; padding-bottom: 2px; border-bottom: 2px solid var(--spore-green); }
+.spore-restore span { position: absolute; top: -4px; right: 5px; color: var(--spore-green); font-size: 18px; }
+.spore-restore i { width: 13px; height: 24px; background: var(--spore-green); border-radius: 3px 3px 0 0; }
+.spore-restore i:nth-of-type(2) { height: 35px; }
+.spore-restore i:nth-of-type(3) { height: 18px; }
+.spore-journey figcaption { margin-top: 18px; color: var(--muted); font-size: 11px; }
+.spore-page .work-project { grid-template-columns: minmax(0, .85fr) minmax(0, 1.45fr); gap: 40px; }
+.spore-page .work-project-heading h2 { font-size: clamp(27px, 3.6vw, 35px); line-height: 1.4; }
+.spore-making-list { margin-top: 30px; }
+.spore-making-list section { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--line); }
+.spore-making-list h3 { margin: 0 0 10px; font-size: 18px; }
+.spore-making-list p { margin: 0; font-size: 16px; }
+.spore-platforms { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 28px; }
+.spore-platforms section { padding-top: 18px; border-top: 3px solid var(--spore-green); }
+.spore-platform-label { margin-bottom: 10px; color: var(--spore-green); font-family: var(--mono); font-size: 12px; font-weight: 700; }
+.spore-platforms h3 { margin: 0 0 10px; font-size: 19px; }
+.spore-platforms section > p:not(.spore-platform-label) { color: var(--muted); font-size: 14px; }
+.spore-release-note { margin: 20px 0 0; font-size: 14px; color: var(--muted); }
+.spore-release-note time { display: block; margin-top: 4px; font-size: 12px; }
+.spore-source-links { margin-top: 22px; }
+.spore-source-links a { text-underline-offset: 4px; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .spore-page { --spore-green: #9bd6b3; --spore-soft: #18261f; }
+}
+:root[data-theme="dark"] .spore-page { --spore-green: #9bd6b3; --spore-soft: #18261f; }
+@media (max-width: 720px) {
+  .spore-page .spore-intro { grid-template-columns: 1fr; gap: 26px; }
+  .spore-page .work-project { grid-template-columns: 1fr; gap: 28px; }
+  .spore-journey { padding: 20px; }
+  .spore-loop li { min-height: 88px; }
+  .spore-page .work-index a { border: 0; border-radius: 0; padding: 16px 12px; gap: 12px; }
+  .spore-page .work-index a + a { border-left: 1px solid var(--line); }
+  .spore-page .work-index a:last-child { grid-column: auto; }
+}
+@media (max-width: 420px) {
+  .spore-page .work-index { grid-template-columns: 1fr; }
+  .spore-page .work-index a { flex-direction: row; align-items: center; gap: 8px; }
+  .spore-page .work-index a + a { border-left: 0; border-top: 1px solid var(--line); }
+  .spore-page .work-index small { gap: 8px; font-size: 11px; }
+  .spore-page .work-index a > span { font-size: 13px; }
+  .spore-platforms { grid-template-columns: 1fr; gap: 16px; }
+  .spore-status { font-size: 12px; }
+}
+
+.spore-overview { grid-column: 1 / -1; width: 100%; max-width: 760px; justify-self: center; margin: 0; }
+.spore-overview > a { display: block; overflow: hidden; border-radius: 10px; cursor: zoom-in; }
+.spore-overview img { display: block; width: 100%; height: auto; }
+.spore-overview figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 20px; margin-top: 10px; color: var(--muted); font-size: 12px; }
+.spore-overview figcaption > span { flex: 1 1 300px; }
+.spore-overview figcaption a { text-underline-offset: 3px; }
+.spore-enlarge { display: inline-flex; align-items: center; min-height: 44px; white-space: nowrap; font-weight: 600; }
