@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>DeepSeek, 코딩·검색 강화…쇼핑 에이전트는 접근 제한에 부딪혔다 · AI뉴스 · 헬로우 휴먼</title>
+  <meta name="description" content="DeepSeek의 모델 업데이트와 Search·Fetch API, 웹사이트의 에이전트 접근 제한, Shopify의 공식 연결, Anthropic의 칩 금융 보도를 살펴봅니다. 성능과 접근 권한, 작업 비용을 나눠 읽습니다.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="DeepSeek, 코딩·검색 강화…쇼핑 에이전트는 접근 제한에 부딪혔다">
+  <meta property="og:description" content="DeepSeek의 모델 업데이트와 Search·Fetch API, 웹사이트의 에이전트 접근 제한, Shopify의 공식 연결, Anthropic의 칩 금융 보도를 살펴봅니다. 성능과 접근 권한, 작업 비용을 나눠 읽습니다.">
+  <meta property="og:url" content="https://soorimsun.github.io/hello-human/news/2026-10-18-agent-web-access.html">
+  <meta property="og:image" content="https://soorimsun.github.io/hello-human/assets/news/agent-web-access.png">
+  <meta property="og:image:alt" content="AI를 상징하는 장치에서 닫힌 문과 상점으로 열린 문으로 연결선이 이어지는 설명용 AI 생성 삽화">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+  <script src="../assets/theme.js?v=3"></script>
+  <link rel="stylesheet" href="../assets/style.css?v=9">
+  <link rel="stylesheet" href="../assets/news.css?v=10">
+  <link rel="stylesheet" href="../assets/news-web-access.css?v=11">
+  <link rel="stylesheet" href="../assets/content-updates.css?v=1">
+</head>
+<body class="news-web-access">
+  <header class="topbar"><div class="wrap topbar-inner">
+    <a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+    <nav class="news-nav" aria-label="사이트 메뉴"><a href="../">모임 소개</a><a href="./">AI뉴스</a><a href="../guides/">AI가이드</a><a href="../insights/">인사이트</a><a href="../case-studies/">사례연구</a><a data-newsletter-entry href="../newsletters/">뉴스레터</a></nav>
+  </div></header>
+  <main><article>
+    <header class="news-article-header wrap">
+      <a class="news-back" href="./">← AI뉴스 목록</a>
+      <p class="news-kicker">AI NEWS <span aria-hidden="true">/</span> ISSUE 20</p>
+      <h1>DeepSeek, 코딩·검색 강화…<br><em>쇼핑 에이전트는 접근 제한에 부딪혔다</em></h1>
+      <p class="news-deck">AI가 상품을 고르고 구매 절차를 진행할 수 있어도, 판매자가 접속을 막으면 작업은 멈춥니다. DeepSeek의 모델·검색 API 업데이트부터 웹사이트의 접근 정책, Anthropic의 칩 확보 비용까지 살펴봅니다.</p>
+      <div class="news-article-meta"><time datetime="2026-10-18">2026년 10월 18일</time><span>헬로우 휴먼 AI뉴스</span></div>
+    </header>
+    <figure class="news-hero-visual wrap">
+      <a href="../assets/news/agent-web-access.png" target="_blank" rel="noopener noreferrer" aria-label="AI 에이전트와 웹 접근을 표현한 표지 삽화 크게 보기"><img src="../assets/news/agent-web-access.png" width="1672" height="941" fetchpriority="high" decoding="async" alt="AI를 상징하는 밝은 장치에서 연결선이 뻗어 나와, 주황색으로 닫힌 문과 상품·서버가 있는 초록색 열린 문 앞에 닿아 있는 모습"></a>
+      <figcaption><span>능력과 접근 허용 사이</span><div>헬로우 휴먼 제작 · 기사 주제를 표현한 AI 생성 삽화이며 실제 제품 화면이 아닙니다.</div></figcaption>
+    </figure>
+    <div class="news-article-shell wrap">
+      <nav class="news-toc" aria-label="기사 목차"><span>이번 호</span><a href="#at-a-glance">네 소식 요약</a><a href="#deepseek-model">1. 코딩 성능 업데이트</a><a href="#search-fetch">2. 검색과 문서 수집</a><a href="#web-access">3. 웹사이트의 문턱</a><a href="#shop-mcp">↳ Shop MCP 아키텍처</a><a href="#infrastructure">4. 칩 확보의 비용</a><a href="#our-view">헬로우 휴먼의 관점</a><a href="#experiment">Shop MCP 직접 실행</a><a href="#sources">읽은 자료</a></nav>
+      <div class="news-story">
+        <section id="at-a-glance" class="news-summary" aria-labelledby="summary-heading">
+          <p class="news-section-label">먼저, 무슨 소식인가요?</p><h2 id="summary-heading">네 소식을 한 문장씩</h2>
+          <ol class="access-summary">
+            <li><a href="#deepseek-model"><strong>DeepSeek 모델</strong> 자체 코딩·에이전트 평가 점수는 올랐고, API 가격은 유지됐습니다.</a></li>
+            <li><a href="#search-fetch"><strong>Search·Fetch API</strong> 웹에서 자료를 찾고 읽는 기능을 각각 호출할 수 있습니다.</a></li>
+            <li><a href="#web-access"><strong>웹 접근 제한</strong> 일부 서비스는 외부 에이전트를 제한하고, Shopify는 공식 연결을 제공합니다.</a></li>
+            <li><a href="#infrastructure"><strong>Anthropic 금융 보도</strong> 칩 확보를 위해 투자자에게 높은 수익률을 제시했다는 보도가 나왔지만, 거래 완료는 확인되지 않았습니다.</a></li>
+          </ol>
+        </section>
+        <p class="news-method">주요 발표·보도를 <b>2026년 10월 18일 한국시간 기준</b>으로 확인했습니다. Shopify의 10월 13일 발표와 기존 분쟁은 관련 배경입니다. 공급사 평가와 언론 보도, 헬로우 휴먼의 해석을 구분했습니다.</p>
+
+        <section id="deepseek-model" class="news-story-section">
+          <p class="news-section-label">01 / DEEPSEEK 모델 업데이트</p>
+          <h2>코딩 평가 점수는 올랐고,<br>API 가격은 그대로입니다</h2>
+          <p>DeepSeek는 10월 17일 <strong>DeepSeek-V4.1-Flash-1017</strong>을 공개했습니다. 9월에 나온 V4.1 Flash의 후속 업데이트로, 웹·앱·API에 적용됐습니다. 기존 API 사용자는 모델 호출 이름인 <code>deepseek-flash</code>를 그대로 쓰면 됩니다. <a class="source-link" href="https://api-docs.deepseek.com/updates/" target="_blank" rel="noopener noreferrer">공식 변경 기록 ↗</a></p>
+          <p><strong>AI 에이전트</strong>는 도구를 사용해 여러 단계의 작업을 수행하는 AI입니다. DeepSeek는 이번 모델이 코드를 고치거나 명령을 실행하는 과제에서 더 좋은 결과를 냈다고 발표했습니다.</p>
+          <figure class="access-figure" aria-labelledby="benchmark-heading">
+            <p class="access-figure-label">DeepSeek 자체 평가 · 공식 발표 점수</p>
+            <h3 id="benchmark-heading">DeepSeek가 발표한<br>업데이트 전후 평가 점수</h3>
+            <div class="access-benchmarks">
+              <div class="access-benchmark"><h4>DeepSWE v1.1</h4><p>소프트웨어 개발 문제 해결</p>
+                <div class="access-bar-row"><span>이전</span><div class="access-track" aria-hidden="true"><i style="width:74.2%"></i></div><b>74.2</b></div>
+                <div class="access-bar-row access-bar-new"><span>업데이트</span><div class="access-track" aria-hidden="true"><i style="width:77%"></i></div><b>77.0</b></div>
+                <div class="access-axis" aria-hidden="true"><span>0</span><span>100</span></div>
+              </div>
+              <div class="access-benchmark"><h4>Terminal-Bench 4.0</h4><p>명령 실행 환경에서 여러 단계의 작업 수행</p>
+                <div class="access-bar-row"><span>이전</span><div class="access-track" aria-hidden="true"><i style="width:31.2%"></i></div><b>31.2</b></div>
+                <div class="access-bar-row access-bar-new"><span>업데이트</span><div class="access-track" aria-hidden="true"><i style="width:42.3%"></i></div><b>42.3</b></div>
+                <div class="access-axis" aria-hidden="true"><span>0</span><span>100</span></div>
+              </div>
+              <div class="access-benchmark"><h4>ProgramBench</h4><p>프로그램 개발 과제</p>
+                <div class="access-bar-row"><span>이전</span><div class="access-track" aria-hidden="true"><i style="width:20.3%"></i></div><b>20.3</b></div>
+                <div class="access-bar-row access-bar-new"><span>업데이트</span><div class="access-track" aria-hidden="true"><i style="width:29.1%"></i></div><b>29.1</b></div>
+                <div class="access-axis" aria-hidden="true"><span>0</span><span>100</span></div>
+              </div>
+            </div>
+            <figcaption>9월 10일 버전과 10월 17일 업데이트의 발표값입니다. 평가마다 과제와 조건이 다르므로 점수를 서로 더하거나 일반 업무의 성공률로 읽으면 안 됩니다. 최신 Terminal-Bench는 Claude Code, DeepSWE는 Mini-SWE-V2 실행 환경을 사용했습니다. 독립 재현 결과는 이 기사에서 확인하지 않았습니다. <a class="source-link" href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017" target="_blank" rel="noopener noreferrer">공식 모델 카드 ↗</a></figcaption>
+          </figure>
+          <p>회사는 작업 시간과 출력 길이도 줄었다고 설명합니다. <strong>단가가 같아도 같은 일을 끝내는 데 쓰는 양이 줄면 비용을 아낄 수 있습니다.</strong> 우리 업무에서도 비용이 줄어드는지는 재시도와 사람의 검토 시간까지 포함해 따져봐야 합니다. <a class="source-link" href="https://api-docs.deepseek.com/news/news261017/" target="_blank" rel="noopener noreferrer">업데이트 발표 ↗</a></p>
+          <details class="access-details"><summary>모델 요금과 직접 실행 조건 더 읽기</summary>
+            <p><strong>토큰</strong>은 모델이 글을 처리하는 작은 단위입니다. 공식 가격표의 Flash 요금은 다음과 같습니다.</p>
+            <table class="access-table"><caption>100만 토큰당 미국 달러 · 2026년 10월 18일 확인</caption><thead><tr><th scope="col">처리 항목</th><th scope="col">혼잡 시간</th><th scope="col">비혼잡 시간</th></tr></thead><tbody><tr><th scope="row">입력 · 캐시 미적중</th><td>$0.30</td><td>$0.15</td></tr><tr><th scope="row">입력 · 캐시 적중</th><td>$0.006</td><td>$0.003</td></tr><tr><th scope="row">출력</th><td>$1.20</td><td>$0.60</td></tr></tbody></table>
+            <p>캐시는 이미 처리한 입력을 재사용하는 기능입니다. 혼잡 시간은 중국 공휴일을 제외한 월~금 한국시간 10~13시와 15~19시이며, 나머지 시간은 비혼잡 요금입니다. <a class="source-link" href="https://api-docs.deepseek.com/quick_start/pricing/" target="_blank" rel="noopener noreferrer">공식 가격표 ↗</a></p>
+            <p>학습된 모델 값인 <strong>가중치</strong>도 MIT 라이선스로 공개됐습니다. 이를 내려받아 직접 운영하는 선택지가 생기지만, 필요한 장비와 메모리·운영 인력 비용은 별도로 판단해야 합니다. 일반 PC에서 바로 실행된다는 뜻은 아닙니다. <a class="source-link" href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017" target="_blank" rel="noopener noreferrer">가중치·라이선스 ↗</a></p>
+          </details>
+        </section>
+
+        <section id="search-fetch" class="news-story-section">
+          <p class="news-section-label">02 / SEARCH·FETCH API</p><h2>자료를 찾는 일과<br>선택한 페이지를 읽는 일을 연결합니다</h2>
+          <p>DeepSeek는 같은 날 <strong>Search API와 Fetch API</strong>를 공개했습니다. API는 다른 프로그램이 기능을 요청하는 연결 창구입니다. Search는 관련 자료를 찾아 검색 결과를 돌려줍니다. Fetch는 지정한 페이지를 읽어 제목·문단·링크 구조를 담은 Markdown 문서로 바꿔줍니다. <a class="source-link" href="https://api-docs.deepseek.com/guides/search/" target="_blank" rel="noopener noreferrer">공식 기능 안내 ↗</a></p>
+          <figure class="access-figure" aria-labelledby="search-flow-heading">
+            <p class="access-figure-label">기능을 이해하기 위한 가상 예시</p><h3 id="search-flow-heading">“배송 정책이 바뀌었는지 찾아줘”</h3>
+            <ol class="access-flow"><li><span class="access-step">01 / SEARCH</span><b>자료 후보 찾기</b><p>관련 문서의 검색 결과를 받습니다.</p></li><li><span class="access-step">02 / FETCH</span><b>고른 문서 읽기</b><p>필요한 페이지의 내용을 가져옵니다.</p></li><li><span class="access-step">03 / 모델·사람</span><b>날짜와 근거 확인</b><p>발행일·적용일을 구분하고 변경점을 정리합니다.</p></li></ol>
+            <div class="access-cost"><b>검색 1회 + 페이지 수집 5회 = 6회 호출</b><br>직접 호출 요금으로 계산하면 6 × $0.75 ÷ 1,000 = <b>$0.0045</b><small>여섯 번 모두 과금 대상인 성공 요청이라고 가정한 계산입니다. 모델이 읽고 분석하는 토큰 요금은 별도이며 실제 사용 측정값은 아닙니다.</small></div>
+            <figcaption>Search와 Fetch는 각각 성공 요청 1,000건당 $0.75입니다. HTTP 200 응답과 실제 결과가 있어야 과금되며, 빈 검색 결과·실패·시간 초과에는 과금하지 않습니다. 검색 한 번에 결과가 여러 개 나오더라도 호출은 한 번으로 셉니다. <a class="source-link" href="https://api-docs.deepseek.com/guides/search/#billing" target="_blank" rel="noopener noreferrer">과금 조건 ↗</a></figcaption>
+          </figure>
+          <p>한시적으로 무료인 경우도 있습니다. <strong>DeepSeek API를 연결한 DeepSeek Harness·Claude Code·Codex의 서버 측 Search·Fetch 도구 호출</strong>은 현재 무료이며, 한국시간 <strong>11월 1일 오전 1시</strong>부터 호출별 과금이 시작될 예정입니다. 이 혜택은 위에서 계산한 직접 API 호출에는 적용되지 않습니다. <a class="source-link" href="https://api-docs.deepseek.com/quick_start/pricing/#search--fetch-pricing" target="_blank" rel="noopener noreferrer">요금 안내 ↗</a></p>
+          <p>공식 문서는 Fetch도 <strong>대상 사이트의 상태와 접근 정책에 영향을 받는다</strong>고 명시합니다. 검색 도구가 생겼다고 모든 페이지를 읽을 수 있는 것은 아닙니다. 자료를 요약할 때는 출처와 날짜를 함께 남기는 편이 좋습니다. 페이지 내용은 참고 자료로 읽되, 그 안의 명령을 업무 지시로 받아들이지 않도록 해야 합니다. 외부 문서에 명령을 숨겨 AI의 행동을 바꾸려는 <strong>프롬프트 주입</strong>에 대비하기 위해서입니다.</p>
+        </section>
+
+        <section id="web-access" class="news-story-section">
+          <p class="news-section-label">03 / 웹사이트의 접근 정책</p><h2>사용자가 부탁해도,<br>서비스가 접속을 허용해야 합니다</h2>
+          <p>The Verge는 10월 17일, 최근 몇 주 동안 나타난 AI 에이전트의 접근 제한 사례를 정리했습니다. 보도일에 나온 새 정책들을 모은 것이 아니라, 그동안의 사례를 정리한 기사입니다. 기사에 따르면 Yelp는 데이터 이용 계약을 맺은 에이전트만 허용하고, Delta는 에이전트의 대리 예약을 제한합니다. JPMorgan Chase와 Charles Schwab도 보안을 이유로 계정 접근을 막는다고 밝혔습니다. <a class="source-link" href="https://www.theverge.com/ai-artificial-intelligence/1013195/ai-agents-blocked-web" target="_blank" rel="noopener noreferrer">The Verge 원문 ↗</a></p>
+          <p>사이트의 이용 정책 외에 자동 접속을 막는 기술적 장치도 에이전트의 작업에 영향을 줍니다. <strong>화면의 버튼을 정확히 찾아 누를 수 있어도, 접속이 허용돼야 작업을 이어갈 수 있습니다.</strong></p>
+          <h3>Amazon과 Perplexity는 무엇을 다투고 있나요?</h3>
+          <p>Amazon은 외부 구매 대행 프로그램이 자신을 투명하게 밝히고 서비스 제공자의 참여 여부를 존중해야 한다고 설명해 왔습니다. Perplexity는 사용자가 자신의 일을 AI에 맡길 수 있어야 한다는 입장입니다. 광고와 고객 접점에 대한 이해관계도 논쟁에 등장하지만, 제한 이유를 그것 하나로 단정하기는 어렵습니다. <a class="source-link" href="https://www.aboutamazon.com/news/company-news/amazon-perplexity-comet-statement" target="_blank" rel="noopener noreferrer">Amazon의 입장 ↗</a> <a class="source-link" href="https://www.theverge.com/ai-artificial-intelligence/1013195/ai-agents-blocked-web" target="_blank" rel="noopener noreferrer">양측 입장 보도 ↗</a></p>
+          <p>The Verge는 Perplexity의 Amazon 쇼핑을 막았던 법원 명령이 <strong>8월 항소심에서 뒤집혔고, 이후 Amazon이 수정 소장을 냈다</strong>고 전합니다. 이 기사에서는 해당 법원 문서를 직접 확인하지 못했습니다. 이 경과를 모든 쇼핑 에이전트에 대한 일괄 허용이나 금지로 확대해 읽어서는 안 됩니다.</p>
+          <h3 id="shop-mcp">Shop MCP는 어떻게 연결되나요?</h3>
+          <p>Shopify가 <strong>10월 13일 공개한 Shop MCP</strong>는 에이전트 앱이 상품 조회·장바구니·결제 기능을 호출하는 공식 연결입니다. MCP(Model Context Protocol)는 앱이 외부 도구를 사용하는 통신 규약이고, Shop MCP는 그 규약으로 요청을 받는 원격 서버입니다. Shop 계정을 연결하면 저장된 주소와 Shop Pay를 사용할 수 있습니다. <a class="source-link" href="https://shopify.dev/changelog/posts/add-shopping-and-shop-pay-checkout-to-any-agent-with-shop-mcp" target="_blank" rel="noopener noreferrer">출시 안내 ↗</a></p>
+          <p>접속점은 <code>https://mcp.shop.com/</code>입니다. MCP 클라이언트, 자체 코드, 명령줄 도구(CLI) 모두 이 주소로 같은 도구를 호출할 수 있습니다. 도구 호출 자체에는 언어 모델이 필요하지 않습니다. 구조를 이해하려면 <strong>앱은 무엇을 요청하고 판단하는지, 서버는 어떤 도구를 실행하는지, 판매자는 거래를 어떤 상태로 관리하는지</strong> 나누어 보면 됩니다. <a class="source-link" href="https://shop.dev/docs" target="_blank" rel="noopener noreferrer">공식 개요 ↗</a></p>
+
+          <figure class="access-figure shop-architecture" aria-labelledby="shop-architecture-heading">
+            <p class="access-figure-label">01 / 공개 인터페이스 기준 논리 구조</p>
+            <h3 id="shop-architecture-heading">하나의 연결점,<br>서로 다른 세 가지 업무 경계</h3>
+            <div class="shop-node shop-client">
+              <span class="shop-node-label">에이전트 앱 · MCP 클라이언트</span>
+              <strong>고객 요청 → 도구 선택 → 결과 해석</strong>
+              <p>고객에게 거래 조건을 보여주고 구매 의사를 확인</p>
+            </div>
+            <div class="shop-wire"><span aria-hidden="true">↓ ↑</span><div><b>HTTPS · JSON-RPC</b><small>요청 <code>tools/call</code> · 응답 <code>structuredContent</code></small></div></div>
+            <div class="shop-node shop-server">
+              <span class="shop-node-label">SHOP MCP · 원격 서버</span>
+              <strong><code>https://mcp.shop.com/</code></strong>
+              <p>도구 요청을 받아 카탈로그·판매자·Shop 계정 서비스에 연결</p>
+            </div>
+            <p class="shop-branch-label"><span aria-hidden="true">↓ ↑</span> 호출한 도구에 따라 연결되는 서비스</p>
+            <div class="shop-services">
+              <div class="shop-service"><span class="shop-node-label">상품 탐색</span><h4>Shopify Catalog</h4><p class="shop-tools"><code>search_catalog</code><code>lookup_catalog</code><code>get_product</code></p><p>여러 판매자의 상품·옵션 조회</p><small>옵션 ID · 가격 · 판매자 정보</small></div>
+              <div class="shop-service"><span class="shop-node-label">거래 상태</span><h4>각 판매자</h4><p class="shop-tools"><code>create_cart</code><code>create_checkout</code><span>조회·수정·결제 도구</span></p><p>장바구니·체크아웃 처리</p><small>체크아웃 하나는 판매자 한 곳에 속함</small></div>
+              <div class="shop-service"><span class="shop-node-label">고객 정보</span><h4>Shop 계정</h4><p class="shop-tools"><code>get_account</code><code>search_orders</code></p><p>저장 주소·주문 조회</p><small>로그인한 고객의 토큰 필요</small></div>
+            </div>
+            <div class="shop-auth-note"><b>인증 경계</b><p>계정을 연결하면 앱은 Shop MCP에 Bearer 토큰을 보냅니다. Shop MCP가 각 서비스에 필요한 접근 권한을 별도로 얻으므로, 앱이 그 고객 토큰을 판매자마다 전달하지 않습니다.</p></div>
+            <figcaption>2026년 10월 18일 공식 문서를 재구성했습니다. Shopify 내부 서버·DB의 배포도는 아닙니다. 이 그림은 Shopify 판매자 구매와 계정 조회에 집중하며, 비Shopify 상점용 결제 승인 도구 5개는 생략했습니다. <a class="source-link" href="https://shop.dev/docs/tools" target="_blank" rel="noopener noreferrer">도구 목록 ↗</a> <a class="source-link" href="https://shop.dev/docs/authentication" target="_blank" rel="noopener noreferrer">인증 경계 ↗</a></figcaption>
+          </figure>
+
+          <p><strong>상품은 여러 판매자를 함께 검색할 수 있지만, 체크아웃은 판매자별로 만들어집니다.</strong> 세 상점에서 구매한다면 체크아웃도 세 개가 필요합니다. 검색·장바구니·체크아웃 도구는 Shop 로그인 없이 호출할 수 있습니다. 계정 조회에는 로그인이 필요하며, 실제 결제 가능 여부는 반환된 상태와 결제수단의 조건에 따라 달라집니다. <a class="source-link" href="https://shop.dev/docs" target="_blank" rel="noopener noreferrer">구매 흐름·계정별 기능 ↗</a></p>
+          <p>통신 규약과 거래 데이터 형식도 구분하면 이해하기 쉽습니다. <strong>MCP는 도구 호출 규약</strong>이고, <strong>UCP(Universal Commerce Protocol)는 상품·장바구니·체크아웃 문서의 형식</strong>을 담당합니다. 확인 시점의 문서는 각각 MCP <code>2026-07-28</code>, UCP <code>2026-08-25</code>를 명시합니다. 연결 규약과 거래 데이터의 형식을 따로 관리하는 구조입니다. <a class="source-link" href="https://shop.dev/docs#versions" target="_blank" rel="noopener noreferrer">문서에 명시된 버전 ↗</a></p>
+
+          <figure class="access-figure shop-checkout" aria-labelledby="shop-checkout-heading">
+            <p class="access-figure-label">02 / 판매자 한 곳의 구매 흐름</p>
+            <h3 id="shop-checkout-heading">결제 요청을 보냈다는 것과<br>주문이 생겼다는 것은 다릅니다</h3>
+            <ol class="shop-sequence">
+              <li><span class="shop-sequence-number" aria-hidden="true">1</span><div><h4>상품 옵션과 판매자를 확정</h4><p><code>search_catalog</code>로 찾고, 색상·사이즈는 <code>get_product</code>로 확인합니다. 반환된 옵션의 <code>id</code>와 <code>seller.domain</code>을 다음 호출에 사용합니다.</p></div></li>
+              <li><span class="shop-sequence-number" aria-hidden="true">2</span><div><h4>체크아웃을 만들고 조건 확인</h4><p><code>create_checkout</code>으로 현재 금액·배송·세금·상태를 확인합니다. 장바구니를 먼저 만들 수도 있지만 필수 단계는 아닙니다. 아직 주문이 접수된 상태는 아닙니다.</p></div></li>
+              <li><span class="shop-sequence-number" aria-hidden="true">3</span><div><h4>반환된 상태에 따라 다음 행동 선택</h4><p>필수 정보가 빠진 <code>incomplete</code> 상태면 메시지를 읽고 <code>update_checkout</code>으로 보완합니다.</p></div></li>
+            </ol>
+            <div class="shop-payment-paths">
+              <div class="shop-payment-path shop-agent-path"><span class="shop-node-label">도구로 결제할 수 있을 때</span><h4>고객 확인 → 결제 호출</h4><p><code>ready_for_complete</code>이고 결제수단이 있어야 합니다. 고객이 판매자·상품·현재 총액을 확인하고 결제수단을 고른 뒤 <code>complete_checkout</code>을 한 번 호출합니다.</p></div>
+              <div class="shop-payment-path"><span class="shop-node-label">판매자 화면에서 진행할 때</span><h4>고객에게 링크 전달</h4><p><code>requires_escalation</code>이거나 결제수단이 비어 있으면 <code>continue_url</code>로 이동합니다. 고객이 판매자 화면에서 필요한 단계를 마칩니다.</p></div>
+            </div>
+            <div class="shop-outcome"><span class="shop-node-label">완료 판단</span><strong><code>completed</code> + <code>order</code></strong><p>처리 중이면 <code>get_checkout</code>으로 상태를 조회합니다. 결과가 불분명할 때도 결제 호출을 반복하지 않고 조회로 확인합니다. 주문이 확인되지 않으면 고객에게 미확인 상태와 진행 링크를 알립니다.</p></div>
+            <figcaption>모든 상태를 나열한 API 명세가 아니라 주요 분기를 줄인 설명도입니다. 상품 선택은 <a class="source-link" href="https://shop.dev/docs/quickstart" target="_blank" rel="noopener noreferrer">Quickstart ↗</a>, 상태·결제 조건은 <a class="source-link" href="https://shop.dev/docs/checkout" target="_blank" rel="noopener noreferrer">체크아웃 문서 ↗</a>, 불확실한 결과 처리는 <a class="source-link" href="https://shop.dev/docs/errors" target="_blank" rel="noopener noreferrer">재시도 규칙 ↗</a>을 근거로 했습니다. 출시 안내는 웹훅 대신 상태 조회를 사용한다고 설명합니다. <a class="source-link" href="https://shopify.dev/changelog/posts/add-shopping-and-shop-pay-checkout-to-any-agent-with-shop-mcp" target="_blank" rel="noopener noreferrer">출시 시점 제약 ↗</a></figcaption>
+          </figure>
+
+          <details class="access-details shop-details"><summary>연결 계층 더 보기: HTTP 요청·도구 명세·OAuth</summary>
+            <h4>요청마다 필요한 정보를 보냅니다</h4>
+            <p>직접 호출 예시는 HTTP POST에 JSON-RPC <code>tools/call</code>을 담습니다. 프로토콜 버전·메서드·도구 이름 헤더와 <code>params._meta</code>의 클라이언트 정보를 함께 보냅니다. 별도 세션 설정 없이 호출하고, 응답의 <code>structuredContent</code>에서 구조화된 문서를 읽습니다. <strong>통신을 위한 연결 세션은 필요 없지만, 거래 상태는 유지됩니다.</strong> 만들어진 체크아웃은 ID로 다시 조회하거나 수정할 수 있습니다. <a class="source-link" href="https://shop.dev/docs/quickstart" target="_blank" rel="noopener noreferrer">요청·응답 예시 ↗</a></p>
+            <p><code>tools/list</code>는 도구 설명과 입력 스키마를 반환합니다. 확인 시점의 도구는 17개입니다. 입력 구조는 이 스키마를 기준으로 확인하고, 응답에서 실행 결과와 거래 상태를 각각 읽어야 합니다. <a class="source-link" href="https://shop.dev/docs/tools" target="_blank" rel="noopener noreferrer">도구 명세 ↗</a></p>
+            <h4>로그인 방식은 앱 형태에 맞춥니다</h4>
+            <p>개인 에이전트·CLI에는 고객이 Shop 화면에서 승인하는 OAuth device flow가 안내돼 있습니다. 여러 고객에게 배포할 자체 앱은 등록한 OAuth 클라이언트를 사용하며, 공식 가이드는 authorization code + PKCE(S256)와 백엔드의 토큰 관리를 설명합니다. 클라이언트 비밀값과 refresh token은 백엔드에 둡니다. <a class="source-link" href="https://shop.dev/docs/sign-in" target="_blank" rel="noopener noreferrer">앱 형태별 로그인 ↗</a></p>
+            <p>Shop MCP 호출에는 <code>personal_agent</code> 범위의 access token을 <code>Authorization: Bearer …</code> 헤더로 보냅니다. 토큰을 URL·쿠키·도구 인자에 넣지 않습니다. 토큰 없이 호출할 수 있는 도구라도 만료된 토큰을 함께 보내면 401이 되며, 서버가 자동으로 비로그인 요청으로 바꾸지 않습니다. <a class="source-link" href="https://shop.dev/docs/authentication" target="_blank" rel="noopener noreferrer">인증 규칙 ↗</a></p>
+          </details>
+
+          <details class="access-details shop-details"><summary>운영 계층 더 보기: 전체 문서 교체·오류·중복 결제 방지</summary>
+            <h4>수정은 부분 패치가 아닌 전체 문서 교체입니다</h4>
+            <p><code>update_cart</code>와 <code>update_checkout</code>은 기존 문서를 새로 보낸 문서로 통째로 바꿉니다. 생략한 상품 행이 삭제될 수 있으므로, 최신 문서에서 필요한 부분을 수정한 뒤 전체를 보내야 합니다. 공식 절차는 루트의 <code>next</code>·<code>signals</code>·<code>attribution</code>을 제거하고, 나머지 필드와 빈 배열은 보존하도록 안내합니다. 금액을 앱에서 다시 계산하지 말고 반환된 합계를 확인합니다. <a class="source-link" href="https://shop.dev/docs/checkout#edit-a-cart-or-checkout" target="_blank" rel="noopener noreferrer">문서 교체 절차 ↗</a></p>
+            <h4>HTTP 성공과 도구 성공, 거래 완료를 나눕니다</h4>
+            <table class="access-table"><caption>Shop MCP 문서의 오류 계층</caption><thead><tr><th scope="col">확인할 곳</th><th scope="col">의미</th></tr></thead><tbody><tr><th scope="row">HTTP 오류</th><td>인증 등 요청 처리 전 실패</td></tr><tr><th scope="row">HTTP 400 + JSON-RPC <code>error</code></th><td>요청이 유효하지 않아 도구가 실행되지 않음</td></tr><tr><th scope="row">HTTP 200 + <code>isError: true</code></th><td>도구 오류. 쓰기가 일어났는지는 오류별로 판단</td></tr></tbody></table>
+            <p><code>requires_escalation</code>은 고객에게 넘겨야 하는 거래 상태이며 도구 오류와는 다릅니다. 생성·수정에는 <code>meta.idempotency-key</code>를 사용하고, 결과가 불확실하면 가능한 경우 먼저 조회합니다. <strong><code>complete_checkout</code>은 같은 키라도 다시 보내지 말라</strong>는 별도 규칙이 있습니다. 서버는 호출을 자동 재시도하지 않습니다. <a class="source-link" href="https://shop.dev/docs/errors" target="_blank" rel="noopener noreferrer">오류·재시도 명세 ↗</a></p>
+            <p>체크아웃 ID와 <code>continue_url</code>에는 접근 키가 포함돼 로그·분석 도구에 남기면 안 됩니다. <code>search_orders</code>도 주문 취소·반품 실행 도구는 아닙니다. 주문 이후 업무까지 설계한다면 판매자의 해당 페이지로 넘기는 흐름이 필요합니다. <a class="source-link" href="https://shop.dev/docs/checkout" target="_blank" rel="noopener noreferrer">체크아웃 정보 취급 ↗</a> <a class="source-link" href="https://shop.dev/docs/orders" target="_blank" rel="noopener noreferrer">주문 조회 범위 ↗</a></p>
+          </details>
+          <p><strong>헬로우 휴먼의 해석</strong> 앱은 상품 추천 이후의 과정도 관리해야 합니다. 판매자별 거래를 구분하고 최신 조건을 고객에게 보여줘야 합니다. 결제 결과가 불확실할 때는 다시 결제하기보다 상태를 확인하고, 사람이 이어서 처리할 시점도 정해야 합니다. 위 그림은 공개 문서의 연결·처리 규칙을 정리한 것이며 실제 결제나 통합 성능을 검증한 결과는 아닙니다.</p>
+        </section>
+
+        <section id="infrastructure" class="news-story-section">
+          <p class="news-section-label">04 / ANTHROPIC 칩 금융 보도</p><h2>칩 확보를 위한<br>높은 금융 비용이 보도됐습니다</h2>
+          <p>한국시간 10월 17일 공개된 Reuters 기사는 Financial Times를 인용해, Anthropic이 칩 금융 거래에 <strong>10%를 넘는 수익률</strong>을 제시했다고 전했습니다. 보도에 나온 Blackstone 펀드의 투자 금액은 <strong>90억 달러</strong>이며, 채무는 Anthropic의 향후 5년간 칩 임차료 지급을 기반으로 하는 구조입니다. <a class="source-link" href="https://www.marketscreener.com/news/anthropic-offers-blackstone-double-digit-yield-in-chip-financing-deal-ft-reports-ce785cdade8bf121" target="_blank" rel="noopener noreferrer">Reuters 기사 전문 재게시 ↗</a></p>
+          <div class="news-caution"><strong>확정된 투자 실적과 구분해서 읽습니다</strong><p>FT가 관계자를 인용한 보도이며, Reuters는 즉시 독립 확인할 수 없었다고 밝혔습니다. 자료 확인 시점에도 거래 완료를 알리는 공식 발표는 찾지 못했습니다. 따라서 90억 달러의 자금 조달이 끝났다고 볼 수는 없습니다.</p></div>
+          <p>AI를 운영하려면 모델을 실행할 장비가 필요하고, 그 장비를 확보하는 금융 조건도 사업 비용에 영향을 줍니다. 다만 <strong>이 보도만으로 Claude의 API 요금이 오를 것이라고 예측할 수는 없습니다.</strong> 투자자에게 제시하는 수익률과 고객에게 청구하는 서비스 가격은 서로 다른 항목입니다.</p>
+          <p>우리가 직접 살필 수 있는 것은 업무 한 건을 끝내는 비용입니다. 같은 계산이나 실패를 얼마나 반복하는지, 마지막에 사람이 얼마나 수정하는지 기록해보면 실제 비용을 파악하는 데 도움이 됩니다. 재사용하는 결과도 가격이나 정책이 바뀌면 다시 확인해야 합니다.</p>
+        </section>
+
+        <section id="our-view" class="news-story-section news-view">
+          <p class="news-section-label">헬로우 휴먼의 해석</p><h2>일을 끝내는 조건을<br>세 가지로 나눠봅시다</h2>
+          <p>모델의 평가 점수, 사이트의 접속 정책, 칩 금융 조건은 각각 다른 문제를 다룹니다. 이 소식들을 우리 업무에 연결해보면 세 가지 질문이 남습니다.</p>
+          <ol><li><strong>할 수 있나요?</strong> 필요한 자료를 찾고, 코드를 고치고, 결과를 검사할 수 있는지 봅니다.</li><li><strong>허용돼 있나요?</strong> 사용자가 맡긴 범위와 연결할 서비스가 허용한 범위를 모두 확인합니다.</li><li><strong>끝내는 데 얼마나 드나요?</strong> 모델·검색 요금뿐 아니라 재시도와 사람의 검토 시간을 함께 셉니다.</li></ol>
+          <p>Workless Engineering 관점에서는 <strong>성공 조건과 함께 멈출 조건도 정해두는 것</strong>이 유용합니다. 접근이 거절됐는데 같은 요청을 반복하거나, 못 읽은 정보를 추측해 채우면 사람의 재확인이 늘어납니다. 완료한 일과 남은 일을 정확히 알려줘야 다음 판단도 쉬워집니다.</p>
+        </section>
+
+        <section id="experiment" class="news-story-section">
+          <p class="news-section-label">직접 실행 · 2026년 10월 18일 11:46~11:49 KST</p><h2>상품은 찾았습니다.<br>체크아웃은 추가 입력을 요구했습니다</h2>
+          <p>Shop MCP에 실제로 텀블러 검색·상세 조회·체크아웃 생성·재조회를 요청했습니다. <strong>체크아웃은 생성됐지만, 이어서 진행하려면 구매자의 추가 입력이 필요했습니다.</strong> Shop 계정 로그인 없이 공식 HTTP 인터페이스를 호출했고, 연락처·배송주소·결제 정보를 보내지 않았습니다. 결제는 실행하지 않았습니다.</p>
+
+          <figure class="access-figure" aria-labelledby="experiment-flow-heading">
+            <p class="access-figure-label">실제 응답 요약 · 판매자 1곳, 상품 1개</p><h3 id="experiment-flow-heading">상품 후보 3개 → 옵션 확인 → 체크아웃 1개</h3>
+            <ol class="access-flow"><li><span class="access-step">01 / 검색</span><b>3개 모두 재고 있음</b><p><code>search_catalog</code><br>KR·KRW 조건 요청<br>응답 통화는 KRW와 USD</p></li><li><span class="access-step">02 / 옵션 확인</span><b>상품가 65,700원</b><p><code>get_product</code><br>CORKCICLE.<br>Peacock Blue / 22oz</p></li><li><span class="access-step">03 / 생성·재조회</span><b>추가 입력 필요</b><p><code>create_checkout</code><br><code>get_checkout</code><br>두 응답 모두<br><code>requires_escalation</code></p></li></ol>
+            <div class="access-cost"><b>체크아웃 생성 확인 · 결제 호출 0회</b><small>생성·재조회 모두 HTTP 200, <code>isError: false</code>였습니다. 주문 객체는 없었고, 결제수단은 비어 있었습니다. <code>continue_url</code>은 열지 않았습니다.</small></div>
+            <figcaption>편집부가 공식 Shop MCP를 직접 호출한 관찰 결과입니다. 생성은 주문 접수와 구분됩니다. 가격·재고·상태는 이 실행 시점의 값이며 다른 판매자나 이후 실행 결과를 보장하지 않습니다. <a class="source-link" href="https://shop.dev/docs/checkout" target="_blank" rel="noopener noreferrer">생성과 완료의 차이 ↗</a></figcaption>
+          </figure>
+
+          <h3>1. 원화를 요청했지만, 달러로 표시된 상품도 있었습니다</h3>
+          <p>검색어는 ‘텀블러’, 배송국가는 <code>KR</code>, 표시 통화는 <code>KRW</code>, 재고 필터는 <code>available: true</code>, 요청 개수는 3개로 설정했습니다. 검색 응답에 별도의 경고 메시지는 없었고 세 후보 모두 재고가 있다고 표시됐습니다.</p>
+          <table class="access-table shop-search-results"><caption>실제 검색 응답 · 2026년 10월 18일 11:46 KST · 상품 가격만 표시</caption><thead><tr><th scope="col">상품·판매자</th><th scope="col">반환 가격</th><th scope="col">옵션·재고</th></tr></thead><tbody><tr><th scope="row"><a href="https://corkcicle.com/products/rifle-paper-co-leakproof-cruiser?variant=42749159637080&amp;_gsid=bS1ws57uHkBh&amp;utm_source=shopify&amp;utm_medium=catalog" target="_blank" rel="noopener noreferrer">Rifle Paper Co. Leakproof Cruiser ↗</a><br>CORKCICLE.</th><td>65,700원<br>KRW</td><td>Peacock Blue / 22oz<br>재고 있음</td></tr><tr><th scope="row"><a href="https://www.loveshackfancy.com/products/the-quencher-h2-0-flowstate-tumbler-1-1013230587?variant=47388180054201&amp;_gsid=bS1ws57uHkBh&amp;utm_source=shopify&amp;utm_medium=catalog" target="_blank" rel="noopener noreferrer">Stanley 1913 The Quencher H2.0 Flowstate Tumbler ↗</a><br>LoveShackFancy</th><td>US$65.00<br>USD</td><td>40 OZ<br>재고 있음</td></tr><tr><th scope="row"><a href="https://corkcicle.com/products/stemless?variant=1541265489935&amp;_gsid=bS1ws57uHkBh&amp;utm_source=shopify&amp;utm_medium=catalog" target="_blank" rel="noopener noreferrer">Classic Stemless ↗</a><br>CORKCICLE.</th><td>49,300원<br>KRW</td><td>Gloss White / 12oz<br>재고 있음</td></tr></tbody></table>
+          <p>두 번째 상품의 원시 가격은 <code>amount: 6500, currency: USD</code>였습니다. 통화의 최소 단위로 표시된 값이므로 <strong>6,500원이 아니라 65달러</strong>입니다. 이처럼 요청한 통화와 실제 응답의 통화가 다를 수 있으므로, 가격을 비교할 때는 응답에 적힌 통화를 함께 확인해야 합니다. 검색 조건에 맞는 결과가 나왔더라도 실제 배송 가능 여부는 따로 확인해야 합니다. <a class="source-link" href="https://shop.dev/docs/quickstart" target="_blank" rel="noopener noreferrer">금액·통화 읽는 법 ↗</a> <a class="source-link" href="https://shop.dev/docs/search" target="_blank" rel="noopener noreferrer">검색 조건 ↗</a></p>
+
+          <h3>2. 같은 옵션으로 체크아웃을 한 번 만들었습니다</h3>
+          <p>실험용으로 첫 후보의 <strong>Peacock Blue / 22oz, 수량 1개</strong>를 골랐습니다. <code>get_product</code>에서 옵션·재고·65,700원 가격을 다시 확인한 뒤, 반환된 옵션 ID와 판매자 <code>corkcicle.myshopify.com</code>을 그대로 사용했습니다. <code>create_checkout</code>을 한 번 호출하고, 받은 ID로 <code>get_checkout</code>을 한 번 호출했습니다.</p>
+          <table class="access-table"><caption>체크아웃 재조회 결과 · 2026년 10월 18일 11:49 KST</caption><thead><tr><th scope="col">응답 항목</th><th scope="col">실제로 확인한 값</th></tr></thead><tbody><tr><th scope="row">상품·옵션·수량</th><td>상세 조회와 같은 옵션 ID, Peacock Blue / 22oz, 1개</td></tr><tr><th scope="row">상품 소계 <code>subtotal</code></th><td>65,700 KRW</td></tr><tr><th scope="row">반환 총액 <code>total</code></th><td>65,700 KRW · 추가 입력 전의 응답값</td></tr><tr><th scope="row">배송비·세금</th><td><code>totals</code>에 해당 항목 없음 · 미확정</td></tr><tr><th scope="row">진행 상태 <code>status</code></th><td><code>requires_escalation</code></td></tr><tr><th scope="row">결제·주문</th><td>결제수단 0개, 주문 객체 없음, <code>complete_checkout</code> 호출 0회</td></tr></tbody></table>
+          <p><strong>65,700원은 한국 배송까지 포함한 최종 결제액으로 확정된 금액이 아닙니다.</strong> 응답에 배송비·세금 항목이 없고 배송주소도 제공하지 않았습니다. 생성과 재조회에서 총액·상태·안내 메시지는 같았습니다.</p>
+
+          <h3>3. 정상 응답을 받았지만, 구매 준비는 끝나지 않았습니다</h3>
+          <p>두 체크아웃 호출은 HTTP 200과 <code>isError: false</code>를 반환했지만, 체크아웃 내부의 <code>messages</code>에는 다음 네 가지 조건이 들어 있었습니다. <strong>도구가 응답을 정상적으로 돌려줬다는 뜻이지, 결제를 진행할 준비가 끝났다는 뜻은 아닙니다.</strong> <a class="source-link" href="https://shop.dev/docs/errors" target="_blank" rel="noopener noreferrer">도구 오류와 거래 상태 구분 ↗</a></p>
+          <table class="access-table"><caption>생성·재조회에서 공통으로 반환된 메시지 · 내용을 한국어로 요약</caption><thead><tr><th scope="col">코드</th><th scope="col">반환된 안내</th></tr></thead><tbody><tr><th scope="row"><code>buyer_identity_contact_method_required</code></th><td>유효한 연락 수단이 필요함</td></tr><tr><th scope="row"><code>extension_interaction_required</code></th><td>완료를 위해 확장 기능과의 상호작용이 필요함. 구체적인 기능 종류는 이번 응답만으로 확인하지 못함</td></tr><tr><th scope="row"><code>delivery_address_required</code></th><td>계속 진행하려면 배송주소가 필요함</td></tr><tr><th scope="row"><code>delivery_no_delivery_available</code></th><td>현재 조건에서 상품을 해당 주소로 배송할 수 없다는 안내</td></tr></tbody></table>
+          <p>한국 배송 조건으로 검색한 상품에서도 배송 불가 메시지가 나왔습니다. 다만 실제 주소를 입력하지 않았으므로, <strong>이 결과를 ‘이 판매자는 한국에 배송하지 않는다’는 결론으로 확대할 수는 없습니다.</strong> 이번 실행에서 확인한 범위는 상품 조회와 체크아웃 생성·조회까지입니다. 결제 화면은 열지 않았고, 추가 정보 입력이나 배송 조건 해결도 진행하지 않았습니다.</p>
+
+          <details class="access-details"><summary>실제 호출 조건과 기록</summary>
+            <p>공식 주소 <code>https://mcp.shop.com/</code>에 HTTP POST로 JSON-RPC 요청을 보냈습니다. <code>tools/list</code>와 공식 Shop 스킬을 먼저 확인했습니다. MCP 요청 버전은 <code>2026-07-28</code>, 응답의 UCP 버전은 <code>2026-08-25</code>였습니다. Authorization 헤더·쿠키·구매자 정보는 보내지 않았습니다. <a class="source-link" href="https://shop.dev/docs/quickstart" target="_blank" rel="noopener noreferrer">공식 HTTP 예시 ↗</a> <a class="source-link" href="https://mcp.shop.com/skill.md" target="_blank" rel="noopener noreferrer">실행 전에 읽은 Shop 스킬 ↗</a></p>
+            <p>검색 입력은 <code>query: 텀블러</code>, <code>context: {address_country: KR, currency: KRW}</code>, <code>filters: {ships_to: {country: KR}, available: true}</code>, <code>pagination.limit: 3</code>이었습니다. 상세 조회에서 선택한 공개 옵션 ID는 <code>gid://shopify/ProductVariant/42749159637080</code>입니다. 생성에도 같은 국가·통화 조건과 수량 1개를 전달했으며, 생성 요청에 UUID 형식의 멱등성 키를 붙였습니다.</p>
+            <p>상품 상세 조회의 첫 요청은 옵션 필드명을 잘못 넣어 HTTP 400을 받았습니다. 오류 안내에 따라 <code>selected[].value</code>를 <code>selected[].label</code>로 바로잡은 뒤 HTTP 200으로 확인했습니다. 체크아웃 생성은 재시도하지 않았습니다. 검색은 11:46:08, 상세 조회 성공은 11:48:00, 생성은 11:49:01, 재조회는 11:49:02에 관찰했습니다. 모두 한국시간입니다.</p>
+            <p>체크아웃 ID와 진행 URL에는 접근 키가 있으므로 원문을 출력·저장하지 않고 메모리에서 다음 조회에만 사용했습니다. 기사에는 공개 상품 정보와 금액·상태·메시지 요약만 남겼습니다. <a class="source-link" href="https://shop.dev/docs/checkout#what-comes-back" target="_blank" rel="noopener noreferrer">체크아웃 정보 취급 ↗</a></p>
+          </details>
+
+          <figure id="shop-id-flow" class="access-figure shop-id-flow" aria-labelledby="shop-id-flow-heading">
+            <p class="access-figure-label">실제 호출에서 확인한 값의 연결 · 체크아웃 ID 가림</p>
+            <h3 id="shop-id-flow-heading">응답에서 받은 값이<br>다음 요청의 입력이 됩니다</h3>
+            <p class="shop-id-intro">같은 문자가 붙은 항목은 같은 값을 가리킵니다. <strong>각 단계를 선택하면 응답과 다음 요청을 나란히 비교할 수 있습니다.</strong> 모바일에서는 응답과 다음 요청을 위아래로 보여줍니다.</p>
+            <p id="shop-flow-status" class="shop-flow-status" role="status" aria-live="polite" aria-atomic="true"></p>
+            <ol class="shop-id-steps">
+              <li>
+                <a class="shop-id-step-link" href="#shop-search-response" data-shop-step="product" data-shop-source="shop-search-response" data-shop-target="shop-product-request" data-shop-fields="product" data-shop-label="상품 ID(P)" aria-controls="shop-mcp-examples shop-call-search shop-call-product" aria-label="1단계 상품 ID 연결: 검색 응답과 상품 상세 요청 보기">
+                <h4><span>01</span> 검색 결과 → 상품 상세 조회 <small>예시 보기 ↘</small></h4>
+                <div class="shop-id-transfer">
+                  <div class="shop-id-port"><b>search_catalog <small>응답</small></b><code>products[].id</code><span class="shop-id-chip"><i>P</i> 상품 ID</span></div>
+                  <span class="shop-id-arrow" aria-hidden="true">→</span>
+                  <div class="shop-id-port"><b>get_product <small>요청</small></b><code>catalog.id</code><span class="shop-id-chip"><i>P</i> 같은 상품 ID</span></div>
+                </div>
+                </a>
+              </li>
+              <li>
+                <a class="shop-id-step-link" href="#shop-product-response" data-shop-step="variant" data-shop-source="shop-product-response" data-shop-target="shop-create-request" data-shop-fields="variant seller" data-shop-label="옵션 ID(V)·판매자(S)" aria-controls="shop-mcp-examples shop-call-product shop-call-create" aria-label="2단계 옵션과 판매자 연결: 상품 상세 응답과 체크아웃 생성 요청 보기">
+                <h4><span>02</span> 선택한 옵션·판매자 → 체크아웃 생성 <small>예시 보기 ↘</small></h4>
+                <div class="shop-id-transfer">
+                  <div class="shop-id-port"><b>get_product <small>응답</small></b><code>product.variants[].id</code><span class="shop-id-chip"><i>V</i> 선택한 옵션 ID</span><code>product.variants[].seller.domain</code><span class="shop-id-chip"><i>S</i> 판매자 도메인</span></div>
+                  <span class="shop-id-arrow" aria-hidden="true">→</span>
+                  <div class="shop-id-port"><b>create_checkout <small>요청</small></b><code>checkout.line_items[].item.id</code><span class="shop-id-chip"><i>V</i> 같은 옵션 ID</span><code>shop</code><span class="shop-id-chip"><i>S</i> 같은 판매자</span></div>
+                </div>
+                </a>
+              </li>
+              <li>
+                <a class="shop-id-step-link" href="#shop-create-response" data-shop-step="checkout" data-shop-source="shop-create-response" data-shop-target="shop-get-request" data-shop-carry="shop-create-request" data-shop-fields="checkout seller" data-shop-label="체크아웃 ID(C)·판매자(S)" aria-controls="shop-mcp-examples shop-call-create shop-call-get" aria-label="3단계 체크아웃과 판매자 연결: 생성 응답과 체크아웃 재조회 요청 보기">
+                <h4><span>03</span> 생성된 체크아웃·판매자 → 재조회 <small>예시 보기 ↘</small></h4>
+                <div class="shop-id-transfer">
+                  <div class="shop-id-port"><b>create_checkout <small>응답</small></b><code>id</code><span class="shop-id-chip"><i>C</i> 체크아웃 ID · 가림</span><p class="shop-id-carry"><span class="shop-id-chip"><i>S</i> 앞 단계 판매자 유지</span><small>판매자는 생성 응답에서 새로 받은 값이 아닙니다.</small></p></div>
+                  <span class="shop-id-arrow" aria-hidden="true">→</span>
+                  <div class="shop-id-port"><b>get_checkout <small>요청</small></b><code>id</code><span class="shop-id-chip"><i>C</i> 같은 체크아웃 ID</span><code>shop</code><span class="shop-id-chip"><i>S</i> 같은 판매자</span></div>
+                </div>
+                </a>
+              </li>
+            </ol>
+            <dl class="shop-id-key">
+              <div><dt><span class="shop-id-chip"><i>P</i> 상품 ID · 공개</span></dt><dd><code>gid://shopify/p/1kRo0lPJtt5NjE2AXMTPUK</code></dd></div>
+              <div><dt><span class="shop-id-chip"><i>V</i> 옵션 ID · 공개</span></dt><dd><code>gid://shopify/ProductVariant/42749159637080</code></dd></div>
+              <div><dt><span class="shop-id-chip"><i>S</i> 판매자 · 공개</span></dt><dd><code>corkcicle.myshopify.com</code></dd></div>
+              <div><dt><span class="shop-id-chip"><i>C</i> 체크아웃 ID · 가림</span></dt><dd><code>[CHECKOUT_ID_REMOVED]</code></dd></div>
+            </dl>
+            <figcaption>요청의 경로는 <code>params.arguments</code>, 응답의 경로는 <code>result.structuredContent</code> 기준입니다. 배열에서는 고른 상품·옵션 하나의 값을 사용했습니다. P·V·S·C는 설명용 표식이며 실제 API 필드가 아닙니다. C의 자리표시자는 공개본에만 썼고, 실제 재조회에는 생성 응답의 ID를 그대로 전달했습니다. 진행 URL과 접근 키는 표시하지 않았습니다.</figcaption>
+          </figure>
+
+          <div id="shop-comparison" class="shop-comparison" role="region" aria-labelledby="shop-comparison-heading" hidden>
+            <span id="shop-compare-product" class="shop-compare-anchor" aria-hidden="true"></span><span id="shop-compare-variant" class="shop-compare-anchor" aria-hidden="true"></span><span id="shop-compare-checkout" class="shop-compare-anchor" aria-hidden="true"></span>
+            <p class="access-figure-label">실제 예시 비교 · 연결 필드 발췌</p>
+            <h3 id="shop-comparison-heading" tabindex="-1">응답 → 다음 요청</h3>
+            <div class="shop-compare-nav" role="group" aria-label="비교할 연결 단계">
+              <button type="button" data-shop-compare-step="product" aria-pressed="false">01 상품 ID</button>
+              <button type="button" data-shop-compare-step="variant" aria-pressed="false">02 옵션·판매자</button>
+              <button type="button" data-shop-compare-step="checkout" aria-pressed="false">03 체크아웃</button>
+            </div>
+            <p class="shop-compare-note">같은 문자로 표시한 필드가 어떻게 이어지는지 비교해 보세요. 경로는 응답의 <code>result.structuredContent</code>와 요청의 <code>params.arguments</code> 기준입니다. 체크아웃 ID는 가린 값입니다.</p>
+            <div id="shop-compare-fields" class="shop-compare-grid"></div>
+            <details id="shop-compare-context" class="access-details shop-compare-context"><summary>주변 JSON도 나란히 보기</summary>
+              <p>기존 호출 기록에서 연결된 요청·응답을 가져왔습니다. JSON과 cURL은 화면에 표시된 값 그대로 복사되며, 가린 정보도 유지됩니다. cURL은 Bash/zsh와 PowerShell 중에서 고를 수 있습니다. 셸 선택과 예시의 펼침 상태는 새로고침 후에도 유지됩니다. 복사 버튼은 명령을 실행하지 않습니다.</p>
+              <div id="shop-compare-json" class="shop-compare-json"></div>
+            </details>
+            <p class="shop-api-return"><a href="#shop-id-flow">↑ ID 연결도로 돌아가기</a><a href="#shop-mcp-examples">도구별 요청·응답 예시 보기 ↓</a></p>
+          </div>
+
+          <details id="shop-mcp-examples" class="access-details shop-api-examples"><summary>실제 요청·응답 예시 보기 · 민감정보 제외</summary>
+            <p>위 실험의 <strong>2026년 10월 18일 11:46~11:49 KST 호출 기록</strong>에서 공개 가능한 필드만 발췌했습니다. 전체 로그에서 이 흐름을 이해하는 데 필요한 부분을 골랐습니다. 요청은 JSON-RPC <code>tools/call</code>의 <code>params.name</code>·<code>params.arguments</code>, 응답은 <code>result</code>의 일부를 보여줍니다. 공통 외피·클라이언트 메타데이터·중복 텍스트 응답·설명·이미지 등은 생략했습니다.</p>
+            <p>체크아웃 ID는 모두 <code>[CHECKOUT_ID_REMOVED]</code>로 치환했고 진행 URL은 제외했습니다. 생성 요청의 멱등성 키도 자리표시자로 바꿨습니다. 공개된 상품·옵션 ID와 판매자 도메인은 그대로 두었습니다. 인증 헤더·쿠키·연락처·배송주소·결제 정보는 당시 요청에도 넣지 않았습니다. <strong>생략한 필드가 원래 없었다는 뜻은 아니며, 자리표시자는 실행 가능한 값이 아닙니다.</strong></p>
+            <p class="shop-api-label">공통 전송 조건</p>
+            <pre class="shop-api-code" tabindex="0" aria-label="실제 호출의 공통 HTTP 전송 조건"><code>POST https://mcp.shop.com/
+Content-Type: application/json
+Accept: application/json, text/event-stream
+MCP-Protocol-Version: 2026-07-28
+Mcp-Method: tools/call</code></pre>
+            <p><code>Mcp-Name</code> 헤더에는 각 요청의 <code>name</code>을 넣었습니다. cURL 예시는 공개한 입력에 HTTP 헤더·JSON-RPC 외피·<code>params._meta</code>를 더해 구성했습니다. 전송 ID와 클라이언트 정보는 설명용 값입니다. <a class="source-link" href="https://shop.dev/docs/quickstart" target="_blank" rel="noopener noreferrer">공식 Quickstart ↗</a></p>
+            <p><strong>cURL은 Bash/zsh와 Windows PowerShell 중에서 선택</strong>할 수 있습니다. 같은 브라우저에서는 셸 선택과 JSON·cURL 예시의 펼침 상태가 새로고침 후에도 유지됩니다. 복사 버튼은 가린 값을 포함해 현재 표시된 내용만 복사합니다. cURL 명령은 실행하지 않았습니다.</p>
+
+            <details id="shop-call-search" class="access-details shop-api-call"><summary>1. search_catalog · 실제 상품 검색</summary>
+              <p class="shop-api-label">요청 · params에서 발췌</p>
+              <pre id="shop-search-request" class="shop-api-code" data-format="json" tabindex="0" aria-label="search_catalog 실제 요청 발췌"><code>{
+  "name": "search_catalog",
+  "arguments": {
+    "catalog": {
+      "query": "텀블러",
+      "context": { "address_country": "KR", "currency": "KRW" },
+      "filters": { "ships_to": { "country": "KR" }, "available": true },
+      "pagination": { "limit": 3 }
+    }
+  }
+}</code></pre>
+              <p class="shop-api-label">search_catalog 응답 · HTTP 200 · 상품 3개 중 2개 발췌</p>
+              <pre id="shop-search-response" class="shop-api-code" data-format="json" tabindex="0" aria-label="search_catalog 실제 응답 발췌"><code>{
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "ucp": { "version": "2026-08-25" },
+      "products": [
+        {
+          <mark data-shop-field="product" data-shop-path="products[].id">"id": "gid://shopify/p/1kRo0lPJtt5NjE2AXMTPUK"</mark>,
+          "title": "Rifle Paper Co. Leakproof Cruiser",
+          "variants": [{
+            "id": "gid://shopify/ProductVariant/42749159637080",
+            "price": { "amount": 65700, "currency": "KRW" },
+            "availability": { "available": true },
+            "seller": { "domain": "corkcicle.myshopify.com" }
+          }]
+        },
+        {
+          "title": "Stanley 1913 The Quencher H2.0 Flowstate Tumbler",
+          "variants": [{
+            "price": { "amount": 6500, "currency": "USD" },
+            "availability": { "available": true }
+          }]
+        }
+      ],
+      "messages": []
+    }
+  }
+}</code></pre>
+              <p>요청의 <code>currency: KRW</code>와 두 번째 상품의 <code>currency: USD</code>가 다릅니다. <code>6500</code>은 이 응답에서 US$65.00입니다.</p>
+              <p class="shop-api-return"><a href="#shop-id-flow">↑ ID 연결도로 돌아가기</a><a data-shop-next href="#shop-mcp-examples" hidden>다음 요청의 강조 필드 보기 ↓</a></p>
+            </details>
+
+            <details id="shop-call-product" class="access-details shop-api-call"><summary>2. get_product · 선택한 옵션 확인</summary>
+              <p class="shop-api-label">요청 · 옵션 필드명을 label로 수정해 성공한 호출</p>
+              <pre id="shop-product-request" class="shop-api-code" data-format="json" tabindex="0" aria-label="get_product 실제 요청 발췌"><code>{
+  "name": "get_product",
+  "arguments": {
+    "catalog": {
+      <mark data-shop-field="product" data-shop-path="catalog.id">"id": "gid://shopify/p/1kRo0lPJtt5NjE2AXMTPUK"</mark>,
+      "selected": [
+        { "name": "Color", "label": "Peacock Blue" },
+        { "name": "Size", "label": "22oz" }
+      ],
+      "context": { "address_country": "KR", "currency": "KRW" },
+      "filters": { "ships_to": { "country": "KR" }, "available": true }
+    }
+  }
+}</code></pre>
+              <p class="shop-api-label">get_product 응답 · HTTP 200 · 옵션·가격·판매자 발췌</p>
+              <pre id="shop-product-response" class="shop-api-code" data-format="json" tabindex="0" aria-label="get_product 실제 응답 발췌"><code>{
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "product": {
+        "id": "gid://shopify/p/1kRo0lPJtt5NjE2AXMTPUK",
+        "title": "Rifle Paper Co. Leakproof Cruiser",
+        "variants": [{
+          <mark data-shop-field="variant" data-shop-path="product.variants[].id">"id": "gid://shopify/ProductVariant/42749159637080"</mark>,
+          "price": { "amount": 65700, "currency": "KRW" },
+          "availability": { "available": true },
+          "options": [
+            { "name": "Color", "label": "Peacock Blue" },
+            { "name": "Size", "label": "22oz" }
+          ],
+          <mark data-shop-field="seller" data-shop-path="product.variants[].seller.domain">"seller": { "domain": "corkcicle.myshopify.com" }</mark>
+        }]
+      }
+    }
+  }
+}</code></pre>
+              <p>다음 단계에는 상품 전체의 <code>product.id</code>가 아니라 선택한 <code>variants[].id</code>와 <code>seller.domain</code>을 전달했습니다.</p>
+              <p class="shop-api-return"><a href="#shop-id-flow">↑ ID 연결도로 돌아가기</a><a data-shop-next href="#shop-mcp-examples" hidden>다음 요청의 강조 필드 보기 ↓</a></p>
+            </details>
+
+            <details id="shop-call-create" class="access-details shop-api-call"><summary>3. create_checkout · 체크아웃 1개 생성</summary>
+              <p class="shop-api-label">요청 · 수량 1개 · 멱등성 키 치환</p>
+              <pre id="shop-create-request" class="shop-api-code" data-format="json" tabindex="0" aria-label="민감정보를 제외한 create_checkout 실제 요청 발췌"><code>{
+  "name": "create_checkout",
+  "arguments": {
+    <mark data-shop-field="seller" data-shop-path="shop">"shop": "corkcicle.myshopify.com"</mark>,
+    "checkout": {
+      "line_items": [{
+        "item": { <mark data-shop-field="variant" data-shop-path="checkout.line_items[].item.id">"id": "gid://shopify/ProductVariant/42749159637080"</mark> },
+        "quantity": 1
+      }],
+      "context": { "address_country": "KR", "currency": "KRW" }
+    },
+    "meta": { "idempotency-key": "[IDEMPOTENCY_KEY_REMOVED]" }
+  }
+}</code></pre>
+              <p class="shop-api-label">create_checkout 응답 · HTTP 200 · ID 치환, 진행 URL 제외</p>
+              <pre id="shop-create-response" class="shop-api-code" data-format="json" tabindex="0" aria-label="민감정보를 제외한 create_checkout 실제 응답 발췌"><code>{
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "ucp": { "version": "2026-08-25" },
+      <mark data-shop-field="checkout" data-shop-path="id">"id": "[CHECKOUT_ID_REMOVED]"</mark>,
+      "currency": "KRW",
+      "line_items": [{
+        "item": {
+          "id": "gid://shopify/ProductVariant/42749159637080",
+          "title": "Rifle Paper Co. Leakproof Cruiser - Peacock Blue / 22oz"
+        },
+        "quantity": 1
+      }],
+      "totals": [
+        { "type": "subtotal", "amount": 65700 },
+        { "type": "total", "amount": 65700 }
+      ],
+      "status": "requires_escalation",
+      "messages": [
+        { "type": "error", "code": "buyer_identity_contact_method_required" },
+        { "type": "error", "code": "extension_interaction_required" },
+        { "type": "error", "code": "delivery_address_required" },
+        { "type": "error", "code": "delivery_no_delivery_available" }
+      ]
+    }
+  }
+}</code></pre>
+              <p><code>isError: false</code>와 체크아웃의 <code>messages[].type: error</code>가 함께 반환됐습니다. 도구 호출은 성공했지만 거래에는 추가 조건이 남은 상태입니다. <code>totals</code>에는 위 두 항목만 있었고, 배송비·세금 항목은 없었습니다.</p>
+              <p class="shop-api-return"><a href="#shop-id-flow">↑ ID 연결도로 돌아가기</a><a data-shop-next href="#shop-mcp-examples" hidden>다음 요청의 강조 필드 보기 ↓</a></p>
+            </details>
+
+            <details id="shop-call-get" class="access-details shop-api-call"><summary>4. get_checkout · 같은 체크아웃 재조회</summary>
+              <p class="shop-api-label">요청 · 생성 응답의 ID를 그대로 사용, 공개본에서만 치환</p>
+              <pre id="shop-get-request" class="shop-api-code" data-format="json" tabindex="0" aria-label="민감정보를 제외한 get_checkout 실제 요청 발췌"><code>{
+  "name": "get_checkout",
+  "arguments": {
+    <mark data-shop-field="seller" data-shop-path="shop">"shop": "corkcicle.myshopify.com"</mark>,
+    <mark data-shop-field="checkout" data-shop-path="id">"id": "[CHECKOUT_ID_REMOVED]"</mark>
+  }
+}</code></pre>
+              <p class="shop-api-label">응답 · HTTP 200 · 상태·통화·금액 발췌</p>
+              <pre id="shop-get-response" class="shop-api-code" data-format="json" tabindex="0" aria-label="민감정보를 제외한 get_checkout 실제 응답 발췌"><code>{
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "id": "[CHECKOUT_ID_REMOVED]",
+      "currency": "KRW",
+      "totals": [
+        { "type": "subtotal", "amount": 65700 },
+        { "type": "total", "amount": 65700 }
+      ],
+      "status": "requires_escalation"
+    }
+  }
+}</code></pre>
+              <p>재조회에서도 상품·옵션·수량과 네 안내 메시지는 생성 응답과 같았습니다. 위 예시에서는 반복되는 품목·메시지 필드를 생략했습니다. 주문 객체는 반환되지 않았고, <code>complete_checkout</code>은 호출하지 않았습니다.</p>
+              <p class="shop-api-return"><a href="#shop-id-flow">↑ ID 연결도로 돌아가기</a><a data-shop-next href="#shop-mcp-examples" hidden>다음 요청의 강조 필드 보기 ↓</a></p>
+            </details>
+          </details>
+
+          <details class="access-details"><summary>모임에서 같은 범위로 실험하려면</summary>
+            <p>호환되는 MCP 클라이언트에 <code>https://mcp.shop.com/</code>을 연결하고 공식 Shop 스킬을 읽힌 뒤 도구를 켭니다. 도구별 허용 설정이 있다면 검색·상세 조회·체크아웃 생성·조회 네 가지로 제한합니다. 공식 문서는 MCP <code>2026-07-28</code>의 <code>server/discover</code> 지원을 안내하며, 개발 멤버는 공식 CLI나 HTTP 호출을 사용할 수도 있습니다. <a class="source-link" href="https://shop.dev/docs/connect" target="_blank" rel="noopener noreferrer">연결·호환 조건 ↗</a> <a class="source-link" href="https://shop.dev/docs/cli" target="_blank" rel="noopener noreferrer">CLI 안내 ↗</a></p>
+            <p><strong>첫 요청은 검색만 합니다.</strong></p>
+            <blockquote class="access-prompt"><p>Shop MCP의 search_catalog로 한국에 배송 가능한 텀블러를 최대 3개 찾아줘. 배송국가는 KR, 표시 통화는 KRW로 요청해줘. 상품명·선택된 옵션·상품 가격과 실제 반환 통화·재고·판매자·상품 링크를 표로 보여줘. 적용하지 못한 조건이나 경고도 알려줘. 아직 장바구니나 체크아웃은 만들지 마.</p></blockquote>
+            <p><strong>사람이 후보와 옵션을 고른 뒤 생성 요청을 보냅니다.</strong> 대괄호 안에 선택한 상품과 옵션을 넣습니다.</p>
+            <blockquote class="access-prompt"><p>[고른 상품명]의 [용량·색상 등 옵션] 1개로 진행해줘. get_product로 옵션과 재고를 확인하고, 반환된 옵션 ID와 판매자 정보로 create_checkout을 한 번 호출해줘. 배송국가는 KR, 표시 통화는 KRW로 요청하고, 주소나 결제 정보는 입력하지 마. 생성되면 get_checkout으로 다시 읽어 상품 금액·배송비·세금·총액·통화·상태·안내 메시지를 정리해줘. 없는 금액은 0원이 아닌 ‘미확정’으로 표시해줘. complete_checkout 호출, 결제수단 선택, 결제 링크 이동은 하지 말고 여기서 끝내줘.</p></blockquote>
+            <p>연결이나 생성에 실패하면 실제 오류를 기록합니다. 생성 성공 여부가 불분명할 때 새 체크아웃을 반복해서 만들지 않습니다. 결과가 <code>ready_for_complete</code>여도 이 실험은 결제 전에 멈춥니다. 모임에서는 상품·옵션 일치, 반환 통화·금액, 진행 상태·안내 메시지, 결제 호출 없음의 네 가지를 비교합니다. <a class="source-link" href="https://shop.dev/docs/errors#creates-and-updates" target="_blank" rel="noopener noreferrer">생성 재시도 규칙 ↗</a></p>
+          </details>
+          <p class="news-method">이 절의 상품·체크아웃 값은 실제 API 응답을 바탕으로 작성했습니다. 판매자 1곳의 체크아웃 1개를 생성한 관찰이며, 결제 완료·실제 배송·전체 판매자 호환성을 검증한 실험은 아닙니다. 개인정보·결제수단 입력과 주문 완료 호출은 실험 범위에서 제외했습니다.</p>
+        </section>
+
+        <section id="sources" class="news-sources">
+          <p class="news-section-label">SOURCES</p><h2>읽은 자료</h2>
+          <ul>
+            <li><a href="https://api-docs.deepseek.com/news/news261017/" target="_blank" rel="noopener noreferrer">DeepSeek, V4.1-Flash-1017 발표 ↗</a> <span>10월 17일 · 모델 업데이트·검색 API 공개</span></li>
+            <li><a href="https://api-docs.deepseek.com/updates/" target="_blank" rel="noopener noreferrer">DeepSeek 변경 기록 ↗</a> <span>9월 10일·10월 17일 · 버전·평가 조건·가격 유지</span></li>
+            <li><a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017" target="_blank" rel="noopener noreferrer">DeepSeek 공식 모델 카드 ↗</a> <span>평가 비교표·가중치·MIT 라이선스</span></li>
+            <li><a href="https://api-docs.deepseek.com/quick_start/pricing/" target="_blank" rel="noopener noreferrer">DeepSeek 공식 가격표 ↗</a> <span>모델 단가·시간대·서버 측 도구 과금 예정</span></li>
+            <li><a href="https://api-docs.deepseek.com/guides/search/" target="_blank" rel="noopener noreferrer">DeepSeek, Search &amp; Fetch ↗</a> <span>기능·성공 요청 과금·대상 사이트 접근 정책</span></li>
+            <li><a href="https://www.theverge.com/ai-artificial-intelligence/1013195/ai-agents-blocked-web" target="_blank" rel="noopener noreferrer">The Verge, Websites are closing their doors to AI agents ↗</a> <span>10월 17일 · 접근 제한 사례와 분쟁 경과를 종합한 보도</span></li>
+            <li><a href="https://www.aboutamazon.com/news/company-news/amazon-perplexity-comet-statement" target="_blank" rel="noopener noreferrer">Amazon, Statement about Perplexity ↗</a> <span>2025년 11월 4일 · 기존 분쟁에서 밝힌 Amazon의 입장</span></li>
+            <li><a href="https://shopify.dev/changelog/posts/add-shopping-and-shop-pay-checkout-to-any-agent-with-shop-mcp" target="_blank" rel="noopener noreferrer">Shopify, Shop MCP 출시 안내 ↗</a> <span>10월 13일 · 상품 조회·장바구니·고객 확인 후 결제</span></li>
+            <li><a href="https://shop.dev/docs" target="_blank" rel="noopener noreferrer">Shop MCP 공식 개요 ↗</a> <span>연결점·판매자별 체크아웃·MCP와 UCP 버전</span></li>
+            <li><a href="https://shop.dev/docs/quickstart" target="_blank" rel="noopener noreferrer">Shop MCP, Quickstart ↗</a> · <a href="https://shop.dev/docs/tools" target="_blank" rel="noopener noreferrer">도구 명세 ↗</a> <span>HTTP 요청·구조화된 응답·입력 스키마</span></li>
+            <li><a href="https://shop.dev/docs/connect" target="_blank" rel="noopener noreferrer">Shop MCP, Connect an agent ↗</a> · <a href="https://shop.dev/docs/search" target="_blank" rel="noopener noreferrer">Find products ↗</a> · <a href="https://shop.dev/docs/cli" target="_blank" rel="noopener noreferrer">CLI reference ↗</a> <span>실험 준비·클라이언트 호환 조건·실제 상품 검색</span></li>
+            <li><a href="https://shop.dev/docs/authentication" target="_blank" rel="noopener noreferrer">Shop MCP, Authentication ↗</a> · <a href="https://shop.dev/docs/sign-in" target="_blank" rel="noopener noreferrer">계정 연결 가이드 ↗</a> <span>토큰 경계·로그인 방식·백엔드 관리</span></li>
+            <li><a href="https://shop.dev/docs/checkout" target="_blank" rel="noopener noreferrer">Shop MCP, Carts and checkout ↗</a> · <a href="https://shop.dev/docs/errors" target="_blank" rel="noopener noreferrer">오류·재시도 ↗</a> <span>상태 분기·문서 교체·결제 완료 판단</span></li>
+            <li><a href="https://shop.dev/docs/orders" target="_blank" rel="noopener noreferrer">Shop MCP, Track orders ↗</a> <span>주문 조회 범위와 판매자 페이지로 넘기는 후속 업무</span></li>
+            <li><a href="https://www.marketscreener.com/news/anthropic-offers-blackstone-double-digit-yield-in-chip-financing-deal-ft-reports-ce785cdade8bf121" target="_blank" rel="noopener noreferrer">Reuters, Anthropic offers Blackstone double-digit yield in chip-financing deal, FT reports ↗</a> <span>미국 동부 10월 16일 밤, 한국시간 17일 · MarketScreener에 실린 Reuters 전문 확인</span></li>
+          </ul>
+          <p>자료 확인일은 2026년 10월 18일입니다. 모델 성능·DeepSeek 검색 품질을 직접 재측정하지 않았습니다. 금융 보도는 FT 원문 대신 Reuters의 재게시 전문을 확인했으며, 법원 경과는 The Verge 보도 범위로 인용했습니다. 검색 비용은 가상 계산이고, Shop MCP 실험은 같은 날 실제 상품 조회·체크아웃 생성·재조회를 실행한 결과입니다. 결제와 배송은 검증하지 않았습니다.</p>
+        </section>
+        <p class="news-end-link"><a href="./">← AI뉴스 목록으로</a><a href="../">모임 홈으로 →</a></p>
+      </div>
+    </div>
+  </article></main>
+  <footer class="footer"><div class="wrap">헬로우 휴먼 · Workless Engineering Club</div></footer>
+  <script src="../assets/analytics.js?v=2" defer></script>
+  <script src="../assets/article-toc.js?v=1" defer></script>
+  <script src="../assets/news-shop-mcp.js?v=7" defer></script>
+  <script type="module" src="../assets/content-updates.js?v=3"></script>
+</body>
+</html>
