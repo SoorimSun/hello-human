@@ -1,0 +1,119 @@
+/* ISSUE 19: 설명용 거래 흐름과 발표 조건. 공통 페이지에는 적용하지 않는다. */
+.news-negotiation .news-article-header h1 { max-width: 1050px; }
+.news-negotiation .deal-overview { padding-bottom: 44px; }
+.news-negotiation .deal-overview h2 { margin: 10px 0 24px; font-size: 28px; }
+.news-negotiation .deal-cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; padding: 0; margin: 0; list-style: none; }
+.news-negotiation .deal-cards li { min-width: 0; padding: 22px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.news-negotiation .deal-cards h3 { margin: 12px 0; font-size: 20px; line-height: 1.4; }
+.news-negotiation .deal-cards p { color: var(--muted); font-size: 15px; line-height: 1.7; }
+.news-negotiation .deal-cards a { color: var(--ink); font-size: 14px; text-underline-offset: 4px; }
+.news-negotiation .deal-status { color: var(--accent); font-size: 12px; font-weight: 700; }
+.news-negotiation .deal-figure { margin: 30px 0; padding: 26px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.news-negotiation .deal-figure h3 { margin: 10px 0 22px; font-size: 23px; line-height: 1.4; }
+.news-negotiation .deal-figure figcaption { color: var(--muted); font-size: 13px; line-height: 1.7; }
+.news-negotiation .deal-decision {
+  --deal-stop: light-dark(#9d3030, #ffaaa5);
+  --deal-stop-bg: light-dark(#fff4f2, #301e20);
+  --deal-pass: light-dark(#246455, #9bdac5);
+  --deal-pass-bg: light-dark(#f0f7f3, #172c25);
+}
+.news-negotiation .deal-boundary { position: relative; padding: 16px 18px; border: 1px solid var(--accent); border-radius: 8px; background: var(--accent-soft); }
+.news-negotiation .deal-boundary > strong { margin-left: 10px; font-size: 16px; }
+.news-negotiation .deal-actor { color: var(--muted); font-size: 12px; font-weight: 700; line-height: 1.5; }
+.news-negotiation .deal-boundary > .deal-actor, .news-negotiation .deal-approve > .deal-actor { color: var(--accent); }
+.news-negotiation .deal-limits { display: flex; flex-wrap: wrap; gap: 6px 16px; padding: 0; margin: 10px 0 0; list-style: none; }
+.news-negotiation .deal-limits li { font-size: 14px; line-height: 1.6; }
+.news-negotiation .deal-paths { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; padding: 36px 0 0; margin: 0 0 24px; list-style: none; }
+.news-negotiation .deal-paths::before { content: ""; position: absolute; top: 0; left: 50%; height: 18px; border-left: 1px solid var(--muted); }
+.news-negotiation .deal-paths::after { content: ""; position: absolute; top: 18px; left: calc(25% - 4.5px); right: calc(25% - 4.5px); height: 17px; border: 1px solid var(--muted); border-bottom: 0; }
+.news-negotiation .deal-path { min-width: 0; text-align: center; }
+.news-negotiation .deal-offer { display: grid; gap: 3px; padding: 15px 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); }
+.news-negotiation .deal-price { margin: 4px 0; font-size: 28px; font-weight: 800; letter-spacing: -.04em; line-height: 1.3; }
+.news-negotiation .deal-delivery { font-size: 16px; font-weight: 700; }
+.news-negotiation .deal-path-stop .deal-delivery { text-decoration: underline wavy var(--deal-stop); text-underline-offset: 5px; }
+.news-negotiation .deal-return { color: var(--muted); font-size: 13px; }
+.news-negotiation .deal-arrow { display: block; padding: 4px 0; color: var(--muted); font-size: 23px; line-height: 1; }
+.news-negotiation .deal-check { display: grid; gap: 6px; padding: 13px 5px; border-block: 1px solid var(--line); }
+.news-negotiation .deal-check > strong { font-size: 16px; line-height: 1.5; }
+.news-negotiation .deal-check > span:last-child { color: var(--muted); font-size: 13px; }
+.news-negotiation .deal-result-icon { display: inline-grid; place-items: center; width: 22px; height: 22px; margin-right: 5px; border: 1px solid currentColor; border-radius: 50%; vertical-align: middle; font-size: 16px; line-height: 1; }
+.news-negotiation .deal-path-stop .deal-check { color: var(--deal-stop); background: var(--deal-stop-bg); }
+.news-negotiation .deal-path-pass .deal-check { color: var(--deal-pass); background: var(--deal-pass-bg); }
+.news-negotiation .deal-outcome { display: grid; gap: 5px; padding: 15px 8px; border-radius: 8px; }
+.news-negotiation .deal-outcome > strong { font-size: 16px; line-height: 1.5; }
+.news-negotiation .deal-outcome > span:last-child { color: var(--muted); font-size: 13px; line-height: 1.6; }
+.news-negotiation .deal-stop { border-top: 3px solid var(--deal-stop); background: var(--bg); }
+.news-negotiation .deal-stop > strong { color: var(--deal-stop); }
+.news-negotiation .deal-approve { border: 1px solid var(--accent); background: var(--accent-soft); }
+.news-negotiation .fund-initial { display: grid; grid-template-columns: 200px minmax(0, 1fr); align-items: center; gap: 28px; }
+.news-negotiation .fund-equity-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin-bottom: 10px; }
+.news-negotiation .fund-equity-heading strong { color: var(--accent); font-size: 20px; }
+.news-negotiation .fund-equity-heading > span { color: var(--muted); font-size: 12px; }
+.news-negotiation .fund-waffle { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 4px; }
+.news-negotiation .fund-waffle span { aspect-ratio: 1; border: 1px solid var(--line); border-radius: 2px; background: var(--surface-2); }
+.news-negotiation .fund-waffle span:nth-child(-n + 5) { border-color: var(--accent); background: var(--accent); }
+.news-negotiation .fund-unit { margin: 9px 0 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.news-negotiation .fund-unit > span { color: var(--accent); }
+.news-negotiation .fund-label { display: block; color: var(--muted); font-size: 12px; font-weight: 600; line-height: 1.6; }
+.news-negotiation .fund-money { display: block; margin: 9px 0; font-size: clamp(27px, 2.5vw, 35px); font-weight: 800; line-height: 1.3; letter-spacing: -.04em; }
+.news-negotiation .fund-equation { display: block; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.news-negotiation .fund-value > p { margin: 16px 0 10px; font-size: 14px; line-height: 1.7; }
+.news-negotiation .fund-growth { margin: 28px 0 22px; padding-top: 22px; border-top: 1px solid var(--line); }
+.news-negotiation .fund-growth h4 { margin: 0 0 16px; font-size: 17px; line-height: 1.5; }
+.news-negotiation .fund-growth-flow { display: grid; grid-template-columns: minmax(0, 1fr) 66px 112px; gap: 12px; align-items: center; }
+.news-negotiation .fund-growth-chart { min-width: 0; }
+.news-negotiation .fund-bar-row { display: grid; grid-template-columns: 42px minmax(0, 1fr); align-items: center; gap: 8px; margin-top: 9px; }
+.news-negotiation .fund-bar-row > span { color: var(--muted); font-size: 12px; }
+.news-negotiation .fund-bar-track { display: flex; height: 30px; }
+.news-negotiation .fund-bar-base { display: grid; place-items: center; width: calc(100% * 2 / 3); flex-shrink: 0; background: var(--surface-2); border: 1px solid var(--line); color: var(--ink); font-family: var(--mono); font-size: 13px; font-weight: 700; }
+.news-negotiation .fund-bar-gain { display: grid; place-items: center; width: calc(100% / 3); color: var(--ink); background: var(--surface); border: 1px dashed var(--muted); border-left: 0; font-family: var(--mono); font-size: 13px; font-weight: 700; }
+.news-negotiation .fund-growth-note { margin: 9px 0 0; color: var(--muted); font-size: 12px; }
+.news-negotiation .fund-growth-note b { margin-left: 5px; color: var(--ink); }
+.news-negotiation .fund-discretion { display: grid; justify-items: center; gap: 3px; color: var(--muted); font-size: 12px; }
+.news-negotiation .fund-discretion > span { font-size: 26px; line-height: 1; }
+.news-negotiation .fund-addition { padding: 13px 5px; border: 1px dashed var(--accent); border-radius: 8px; text-align: center; }
+.news-negotiation .fund-addition > strong { display: block; margin: 4px 0; color: var(--accent); font-size: 25px; line-height: 1.3; }
+.news-negotiation .fund-addition > span:last-child { color: var(--muted); font-size: 11px; }
+.news-negotiation .deal-timeline { margin: 0; padding-left: 22px; }
+.news-negotiation .deal-timeline li { padding: 0 0 20px 7px; }
+.news-negotiation .deal-timeline li::marker { color: var(--accent); }
+.news-negotiation .deal-timeline strong { display: block; }
+.news-negotiation .deal-timeline p { margin: 7px 0 0; font-size: 15px; }
+.news-negotiation .deal-experiment { padding: 24px; background: var(--surface-2); border-radius: 10px; }
+.news-negotiation .deal-experiment li { margin-bottom: 12px; }
+.news-negotiation .deal-experiment li:last-child { margin-bottom: 0; }
+.news-negotiation #seoul-summit { margin-top: 36px; scroll-margin-top: 110px; }
+.news-negotiation .summit-visual figcaption { display: flex; flex-wrap: wrap; align-items: baseline; }
+.news-negotiation .summit-visual figcaption > span { white-space: normal; }
+.news-negotiation .summit-visual figcaption > small { flex-basis: 100%; font-size: 11px; line-height: 1.6; }
+.news-negotiation .summit-session { margin-bottom: 32px; }
+@media (max-width: 1000px) {
+  .news-negotiation .deal-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 520px) {
+  .news-negotiation .deal-cards { grid-template-columns: 1fr; }
+  .news-negotiation .deal-figure { padding: 20px; }
+  .news-negotiation .deal-decision { padding: 18px 12px; }
+  .news-negotiation .deal-decision h3 { font-size: 21px; text-wrap: balance; }
+  .news-negotiation .deal-boundary { padding: 12px; }
+  .news-negotiation .deal-boundary > strong { font-size: 14px; }
+  .news-negotiation .deal-limits { gap: 4px 12px; }
+  .news-negotiation .deal-limits li { font-size: 13px; }
+  .news-negotiation .deal-paths { gap: 10px; }
+  .news-negotiation .deal-paths::after { left: calc(25% - 2.5px); right: calc(25% - 2.5px); }
+  .news-negotiation .deal-price { font-size: clamp(21px, 6vw, 27px); }
+  .news-negotiation .deal-delivery { font-size: 14px; }
+  .news-negotiation .deal-check > strong, .news-negotiation .deal-outcome > strong { font-size: 14px; word-break: keep-all; }
+  .news-negotiation .deal-result-icon { display: grid; margin: 0 auto 5px; }
+  .news-negotiation .deal-check > span:last-child, .news-negotiation .deal-outcome > span:last-child { font-size: 12px; word-break: keep-all; }
+  .news-negotiation .fund-initial { grid-template-columns: 1fr; gap: 22px; }
+  .news-negotiation .fund-equity { width: min(100%, 240px); margin-inline: auto; }
+  .news-negotiation .fund-money { font-size: 32px; }
+  .news-negotiation .fund-growth-flow { grid-template-columns: 1fr; gap: 12px; }
+  .news-negotiation .fund-discretion { display: flex; justify-content: center; gap: 8px; }
+  .news-negotiation .fund-discretion > span { transform: rotate(90deg); }
+  .news-negotiation .fund-addition { padding: 12px; }
+}
+@media print {
+  .news-negotiation .deal-figure, .news-negotiation .deal-cards li { break-inside: avoid; }
+}
