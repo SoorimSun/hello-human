@@ -1,0 +1,103 @@
+/* ShopGym 사례연구의 설명용 도식. 실제 에이전트 실행 화면이 아닙니다. */
+.shopgym-page .shopgym-hero { max-width: 920px; }
+.shopgym-page .shopgym-hero figcaption { max-width: 880px; }
+.shopgym-page .shopgym-flow,
+.shopgym-page .shopgym-loop,
+.shopgym-page .shopgym-memory,
+.shopgym-page .shopgym-scores,
+.shopgym-page .shopgym-testcard { margin: 30px 0 36px; padding: 24px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.shopgym-page .shopgym-flow figcaption,
+.shopgym-page .shopgym-loop figcaption,
+.shopgym-page .shopgym-memory figcaption,
+.shopgym-page .shopgym-scores figcaption,
+.shopgym-page .shopgym-testcard figcaption { display: grid; gap: 6px; margin-bottom: 24px; line-height: 1.5; }
+.shopgym-page figure figcaption > strong { font-size: 19px; }
+.shopgym-page figure figcaption > span { color: var(--muted); font-size: 13px; }
+.shopgym-page .shopgym-lane { padding: 18px; border: 1px solid var(--line); border-radius: 9px; }
+.shopgym-page .shopgym-lane-label { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.shopgym-page .shopgym-lane-label > span { display: grid; place-items: center; flex: 0 0 36px; height: 36px; border: 1px solid var(--line); border-radius: 50%; font: 700 13px var(--mono); }
+.shopgym-page .shopgym-lane-label strong { display: block; font-size: 17px; }
+.shopgym-page .shopgym-lane-label small { display: block; margin-top: 3px; color: var(--muted); font-size: 12px; }
+.shopgym-page .shopgym-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin: 0; padding: 0; list-style: none; }
+.shopgym-page .shopgym-steps li { position: relative; min-width: 0; margin: 0; padding: 12px 10px; border-radius: 6px; background: var(--surface-2); }
+.shopgym-page .shopgym-steps li:not(:last-child)::after { position: absolute; top: 50%; right: -18px; transform: translateY(-50%); content: "→"; color: var(--muted); font-size: 17px; }
+.shopgym-page .shopgym-steps strong { font-size: 14px; line-height: 1.5; }
+.shopgym-page .shopgym-steps p { margin: 7px 0 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.shopgym-page .shopgym-transfer { display: flex; align-items: center; gap: 10px; margin: 13px 0; color: var(--muted); font-size: 12px; }
+.shopgym-page .shopgym-transfer span { padding-left: 13px; color: var(--accent); font-size: 22px; }
+.shopgym-page .shopgym-lane-eval { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 4%, var(--surface)); }
+.shopgym-page .shopgym-lane-eval .shopgym-lane-label > span { color: var(--accent); border-color: var(--accent); }
+.shopgym-page .shopgym-loop-input { display: grid; gap: 4px; margin: 0 0 18px; padding: 13px 16px; border-left: 3px solid var(--line); color: var(--muted); font-size: 13px; }
+.shopgym-page .shopgym-loop-input strong { color: var(--ink); font-size: 15px; }
+.shopgym-page .shopgym-loop-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.shopgym-page .shopgym-loop-steps li { padding: 16px; }
+.shopgym-page .shopgym-step-no { display: block; margin-bottom: 8px; color: var(--muted); font-size: 20px; }
+.shopgym-page .shopgym-branch-start { margin: 8px 0; text-align: center; color: var(--muted); font-size: 22px; }
+.shopgym-page .shopgym-branches { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.shopgym-page .shopgym-branches > div { padding: 16px; border: 1px solid var(--line); border-radius: 8px; }
+.shopgym-page .shopgym-branches .shopgym-retry { border: 1px dashed var(--accent); background: color-mix(in srgb, var(--accent) 5%, var(--surface)); }
+.shopgym-page .shopgym-verdict { display: block; margin-bottom: 9px; color: var(--muted); font-size: 12px; }
+.shopgym-page .shopgym-retry .shopgym-verdict { color: var(--accent); }
+.shopgym-page .shopgym-branches strong { font-size: 16px; }
+.shopgym-page .shopgym-branches p { margin: 9px 0 0; color: var(--muted); font-size: 13px; }
+.shopgym-page .shopgym-caption { margin: 18px 0 0; color: var(--muted); font-size: 13px; line-height: 1.65; }
+.shopgym-page .shopgym-memory .case-summary { margin: 0; }
+.shopgym-page .shopgym-memory .case-summary > div { padding: 15px 12px; border: 0; background: var(--surface-2); }
+.shopgym-page .shopgym-memory .case-summary strong { font-size: 16px; }
+.shopgym-page .shopgym-memory .case-summary p { font-size: 13px; }
+.shopgym-page .shopgym-handoff { display: grid; gap: 6px; margin: 12px 0 0; text-align: center; font-size: 15px; }
+.shopgym-page .shopgym-handoff span { color: var(--accent); font-size: 24px; }
+.shopgym-page .shopgym-score-context { display: flex; flex-wrap: wrap; gap: 12px 22px; margin: 0 0 22px; padding-bottom: 18px; border-bottom: 1px solid var(--line); font-size: 13px; }
+.shopgym-page .shopgym-score-context dt { color: var(--muted); font-size: 11px; }
+.shopgym-page .shopgym-score-context dd { margin: 3px 0 0; font-weight: 650; }
+.shopgym-page .shopgym-score-key { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 13px; }
+.shopgym-page .shopgym-score-key span { width: 10px; height: 10px; background: var(--accent); }
+.shopgym-page .shopgym-score { display: grid; grid-template-columns: 130px minmax(0, 1fr) 60px; align-items: center; gap: 15px; margin: 22px 0; font-size: 14px; }
+.shopgym-page .shopgym-score strong { text-align: right; font-family: var(--mono); font-size: 14px; }
+.shopgym-page .shopgym-track { position: relative; height: 16px; background: var(--surface-2); border-radius: 3px; overflow: hidden; }
+.shopgym-page .shopgym-track::after { position: absolute; left: 50%; top: 0; bottom: 0; border-left: 1px dashed var(--muted); opacity: .6; content: ""; }
+.shopgym-page .shopgym-track i { display: block; height: 100%; background: var(--accent); border-radius: 3px; }
+.shopgym-page .shopgym-axis { display: flex; justify-content: space-between; margin: -7px 75px 0 145px; color: var(--muted); font-family: var(--mono); font-size: 11px; }
+.shopgym-page .shopgym-request { padding: 15px; border-radius: 8px; background: var(--surface-2); font-size: 13px; }
+.shopgym-page .shopgym-request strong { display: block; margin-top: 5px; font-size: 16px; }
+.shopgym-page .shopgym-cart-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+.shopgym-page .shopgym-cart-compare > div { padding: 18px 14px; border: 1px solid var(--line); border-radius: 8px; }
+.shopgym-page .shopgym-cart-compare span { display: block; margin-bottom: 13px; color: var(--muted); font-size: 12px; }
+.shopgym-page .shopgym-cart-compare strong { font-size: 16px; }
+.shopgym-page .shopgym-cart-compare p { margin: 10px 0 0; font-size: 14px; }
+.shopgym-page .shopgym-cart-compare b { display: inline-block; padding: 1px 9px; border: 1px solid var(--line); border-radius: 4px; font-family: var(--mono); }
+.shopgym-page .shopgym-cart-actual b { color: var(--accent); border-color: var(--accent); }
+.shopgym-page .shopgym-mismatch { display: grid; gap: 5px; padding: 14px 16px; border-left: 3px solid var(--accent); background: color-mix(in srgb, var(--accent) 5%, var(--surface)); }
+.shopgym-page .shopgym-mismatch strong { font-size: 15px; }
+.shopgym-page .shopgym-mismatch span { color: var(--muted); font-size: 13px; }
+.shopgym-page .shopgym-testcard dl { margin: 0; }
+.shopgym-page .shopgym-testcard dl > div { display: grid; grid-template-columns: 135px minmax(0, 1fr); gap: 18px; padding: 14px 0; border-top: 1px solid var(--line); font-size: 14px; }
+.shopgym-page .shopgym-testcard dt { font-weight: 700; }
+.shopgym-page .shopgym-testcard dd { margin: 0; color: var(--muted); }
+.shopgym-page .guide-story tbody th { background: transparent; }
+.shopgym-page .guide-story tr:last-child th { border-bottom: 0; }
+.shopgym-page .guide-table-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.shopgym-page .shopgym-screens { scroll-margin-top: 90px; }
+@media (max-width: 520px) {
+  .shopgym-page .shopgym-flow,
+  .shopgym-page .shopgym-loop,
+  .shopgym-page .shopgym-memory,
+  .shopgym-page .shopgym-scores,
+  .shopgym-page .shopgym-testcard { padding: 18px 16px; }
+  .shopgym-page .shopgym-lane { padding: 14px 12px; }
+  .shopgym-page .shopgym-steps,
+  .shopgym-page .shopgym-branches,
+  .shopgym-page .shopgym-cart-compare { grid-template-columns: 1fr; }
+  .shopgym-page .shopgym-steps li { padding: 12px 14px; }
+  .shopgym-page .shopgym-steps li:not(:last-child)::after { top: auto; right: auto; bottom: -24px; left: calc(50% - 6px); transform: none; content: "↓"; }
+  .shopgym-page .shopgym-steps p { margin-top: 3px; }
+  .shopgym-page .shopgym-score { grid-template-columns: 1fr auto; gap: 8px; }
+  .shopgym-page .shopgym-track { grid-row: 2; grid-column: 1 / -1; }
+  .shopgym-page .shopgym-score strong { grid-row: 1; grid-column: 2; }
+  .shopgym-page .shopgym-axis { margin: -7px 0 0; }
+  .shopgym-page .shopgym-testcard dl > div { grid-template-columns: 1fr; gap: 5px; }
+}
+@media (max-width: 360px) {
+  .shopgym-page .guide-section,
+  .shopgym-page .shopgym-screens { scroll-margin-top: 125px; }
+}

@@ -1,5 +1,19 @@
 # AI 사례연구 이미지 출처
 
+## ShopGym · 사례연구 07
+
+확인·저장일 2026-10-19. 대표 일러스트는 내장 `imagegen`으로 생성한 설명용 이미지이며 실제 제품 UI가 아닙니다. 연구진의 두 화면 PNG는 원본 바이트 그대로 저장했고, 크롭·주석·재생성 없이 원본 비율로 표시합니다. 연구진의 화면을 이 글에서 직접 생성·실행·캡처한 것은 아닙니다.
+
+| 파일 | 원본·제공자 | 크기·용도 |
+| --- | --- | --- |
+| `shopgym-cover.png` | 헬로우 휴먼 · 내장 `imagegen` 생성. [생성 프롬프트](../../research/2026-10-19-shopgym.md#대표-이미지-생성-프롬프트) | 1672×941, 본문 대표 이미지·홈·목록·공유 메타 |
+| `shopgym-sandbox-shops.png` | [Shopify 제작기 그림 2](https://cdn.shopify.com/s/files/1/0779/4361/files/Sandbox_shops.png?v=1790799471), Shopify | 1970×424, 본문 가상 쇼핑몰 예시·원본 확대 |
+| `shopgym-streetware.png` | [공식 프로젝트 패션 쇼핑몰 화면](https://shopgym-research.github.io/assets/shops/shop-05.png), ShopGym 연구진 | 620×387, 모바일 본문 가상 쇼핑몰 예시 |
+
+원본 화면의 출처는 [Shopify 제작기](https://shopify.engineering/shopgym)와 [공식 프로젝트](https://shopgym-research.github.io/)입니다. 커피·패션·홈데코 예시는 논문 실험의 세 합성 몰을 나열한 것이 아닙니다. 출처를 표기한 사례 설명·비평용 인용이며, 별도 이미지 재사용 라이선스는 확인하지 않았습니다. 코드 라이선스를 이미지에 자동 적용하지 않습니다. 원본 화면의 권리는 원권리자에게 있습니다.
+
+흐름·검사·평가 단위는 자체 HTML/CSS 설명용 도식입니다. 성공률 차트는 논문 v1의 그림 7(a) 값을 공통 0~100% 척도로 옮겼습니다. 직접 실험한 결과가 아닙니다.
+
 ## AI 송도 월드 · 사례연구 06
 
 원작·화면: AI 송도 월드. 서비스: https://situswise.com/ · 공식 설명: https://situswise.com/about
