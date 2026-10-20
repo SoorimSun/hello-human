@@ -1,0 +1,9 @@
+/* Optional article thumbnails; text-only entries keep their existing layout. */
+.news-index .news-issue--illustrated { grid-template-columns: 200px minmax(0, 1fr) 24px; align-items: start; }
+.news-issue-thumbnail, .news-home-thumbnail { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: var(--radius); }
+.news-issue-thumbnail { margin-top: 3px; }
+.news-home-thumbnail { margin-bottom: 10px; }
+@media (max-width: 600px) {
+  .news-index .news-issue--illustrated { grid-template-columns: minmax(0, 1fr); }
+  .news-issue-thumbnail { margin-top: 0; }
+}
