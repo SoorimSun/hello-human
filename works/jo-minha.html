@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive">
 <title>조민하의 작업물 · 포자 대청소 · 헬로우 휴먼</title>
-<meta name="description" content="조민하의 모바일 퍼즐 게임 포자 대청소(SporeSweep). AI로 만든 그림과 소리, 24개 도시와 380개 레벨, Swift에서 Kotlin으로 이어진 제작 여정을 소개합니다. 현재 출시 준비 중입니다.">
+<meta name="description" content="조민하의 퍼즐 게임 포자 대청소(SporeSweep)를 이제 웹에서 먼저 만나보세요. 실제 플레이 화면과 AI 제작 과정을 소개합니다. 앱스토어 출시 전 테스트용 웹으로, 제작자 안내에 따르면 실제 광고는 없습니다.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="조민하의 작업물 · 포자 대청소">
-<meta property="og:description" content="퍼즐을 풀고, 도시를 되살리다. AI와 함께 만든 모바일 게임 SporeSweep의 세계와 Android로 이어진 제작 이야기.">
+<meta property="og:description" content="퍼즐을 풀고, 도시를 되살리다. 웹에서 먼저 플레이할 수 있는 SporeSweep의 실제 화면과 AI 제작 이야기.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,7 @@
 <script src="../assets/theme.js?v=3"></script>
 <link rel="stylesheet" href="../assets/style.css?v=9">
 <link rel="stylesheet" href="../assets/showcase.css?v=3">
-<link rel="stylesheet" href="../assets/work-sporesweep.css?v=3">
+<link rel="stylesheet" href="../assets/work-sporesweep.css?v=4">
 <link rel="stylesheet" href="../assets/content-updates.css?v=1">
 </head>
 <body class="work-page spore-page">
@@ -35,9 +35,13 @@
         <div>
           <p class="work-hero-title">퍼즐을 풀고,<br><span>도시를 되살리다.</span></p>
           <p class="spore-name">포자 대청소 <span>SporeSweep</span></p>
-          <p class="work-hero-description">블록을 맞추고 모은 별로, 외계 포자에 뒤덮인 도시를 되살립니다. 조민하 님이 AI와 함께 만든 모바일 게임 ‘포자 대청소’. 퍼즐을 푸는 재미에 세계의 랜드마크를 하나씩 복원하는 즐거움을 더했습니다.</p>
-          <p class="spore-status"><span aria-hidden="true"></span>출시 준비 중 · Android 출시 전 테스트</p>
-          <p class="work-source-note"><time datetime="2026-10-16">2026.10.16</time> 소개</p>
+          <p class="work-hero-description">블록을 맞추고 모은 별로, 외계 포자에 뒤덮인 도시를 되살립니다. 조민하 님이 AI와 함께 만든 퍼즐 게임 ‘포자 대청소’. 퍼즐을 푸는 재미에 세계의 랜드마크를 하나씩 복원하는 즐거움을 더했습니다.</p>
+          <p class="spore-status"><span aria-hidden="true"></span>웹 테스트 버전 공개 · 앱스토어 출시 준비</p>
+          <div class="work-actions spore-hero-actions">
+            <a class="work-button is-primary" href="https://play.code404.app/" target="_blank" rel="noopener noreferrer">웹에서 플레이 <span aria-hidden="true">↗</span><span class="work-sr-only"> (새 탭)</span></a>
+            <a class="work-button" href="#web-screens">실제 화면 보기 <span aria-hidden="true">↓</span></a>
+          </div>
+          <p class="work-source-note"><time datetime="2026-10-16">2026.10.16</time> 소개 · <time datetime="2026-10-20">2026.10.20</time> 업데이트</p>
         </div>
         <figure class="spore-journey" aria-labelledby="journey-caption">
           <p class="spore-journey-label">한 판에서, 한 도시로</p>
@@ -61,7 +65,7 @@
       <nav class="work-index" aria-label="소개 바로가기">
         <a href="#game"><span>포자 대청소</span><small>어떤 게임인가요 <span aria-hidden="true">↘</span></small></a>
         <a href="#making"><span>AI와 함께 만드는 세계</span><small>그림·소리·레벨 <span aria-hidden="true">↘</span></small></a>
-        <a href="#platforms"><span>iOS에서 Android로</span><small>출시를 향한 다음 걸음 <span aria-hidden="true">↘</span></small></a>
+        <a href="#platforms"><span>웹에서 먼저 만나기</span><small>플레이 링크 · 공개 현황 <span aria-hidden="true">↘</span></small></a>
       </nav>
     </div>
   </section>
@@ -80,21 +84,40 @@
           <div><dt>여행의 규모</dt><dd>8개 권역 · 24개 도시 · 380개 정식 레벨</dd></div>
           <div><dt>퍼즐의 변화</dt><dd>특수 블록 3종과 조합 6종<br>다양한 장애물과 아이템 3종</dd></div>
           <div><dt>쌓이는 성취</dt><dd>레벨별 별과 점수 · 랜드마크 복원 · 다음 도시 열기</dd></div>
-          <div><dt>플레이 화면</dt><dd>모바일 세로 화면 · 한국어와 영어</dd></div>
+          <div><dt>플레이 화면</dt><dd>세로형 화면 · 한국어와 영어</dd></div>
         </dl>
         <div class="work-actions">
-          <a class="work-button is-primary" href="https://github.com/twobeansdaddy-hue/SporeSweep" target="_blank" rel="noopener noreferrer">GitHub 둘러보기 <span aria-hidden="true">↗</span><span class="work-sr-only"> (새 탭)</span></a>
+          <a class="work-button" href="https://github.com/twobeansdaddy-hue/SporeSweep" target="_blank" rel="noopener noreferrer">GitHub 둘러보기 <span aria-hidden="true">↗</span><span class="work-sr-only"> (새 탭)</span></a>
         </div>
       </div>
-      <figure class="spore-overview">
-        <a href="../assets/works/sporesweep-overview.jpg" target="_blank" rel="noopener noreferrer" aria-label="포자 대청소 소개 이미지 크게 보기 (새 탭)">
-          <img src="../assets/works/sporesweep-overview.jpg" width="1708" height="900" fetchpriority="high" alt="포자 대청소의 네 가지 화면. 숭례문 복원 전후, 오염 물질을 아래로 옮기는 매치3 퍼즐, 특수 블록의 연쇄 효과, 정화한 지역이 초록으로 바뀌는 세계 지도.">
-        </a>
-        <figcaption>
-          <span>조민하 님의 <a href="https://github.com/twobeansdaddy-hue/SporeSweep/blob/2a08f4ccded30ace820014b74952022587038378/Docs/images/overview.jpg" target="_blank" rel="noopener noreferrer">게임 소개 이미지 ↗</a>. 랜드마크는 복원 전후를 합쳐 보여줍니다.</span>
-          <a class="spore-enlarge" href="../assets/works/sporesweep-overview.jpg" target="_blank" rel="noopener noreferrer">크게 보기 ↗<span class="work-sr-only"> (새 탭)</span></a>
-        </figcaption>
-      </figure>
+      <section id="web-screens" class="spore-web-screens" aria-labelledby="web-screens-title">
+        <div class="spore-screens-heading">
+          <p class="label">PLAY IN YOUR BROWSER</p>
+          <h3 id="web-screens-title">지금 웹에서 만날 수 있는 화면</h3>
+          <p>서울에서 첫 퍼즐을 열고, 블록을 움직여 길을 내고, 다음 도시로 이어질 지도를 살펴봤습니다.</p>
+        </div>
+        <div class="work-gallery spore-screen-grid">
+          <figure>
+            <a href="../assets/works/sporesweep-web-city-20261020.jpg" target="_blank" rel="noopener noreferrer" aria-label="서울과 레벨 선택 화면 크게 보기 (새 탭)">
+              <img src="../assets/works/sporesweep-web-city-20261020.jpg" width="390" height="844" loading="lazy" decoding="async" alt="웹버전의 서울 화면. 포자에 뒤덮인 숭례문과 복원 진행 0/9, 첫 레벨부터 시작하는 선택 화면.">
+            </a>
+            <figcaption><strong>서울에서 시작하는 복원 여행</strong>숭례문과 레벨 선택 화면. 퍼즐에서 얻은 별로 복원을 이어갑니다.</figcaption>
+          </figure>
+          <figure>
+            <a href="../assets/works/sporesweep-web-puzzle-20261020.jpg" target="_blank" rel="noopener noreferrer" aria-label="첫 레벨 플레이 화면 크게 보기 (새 탭)">
+              <img src="../assets/works/sporesweep-web-puzzle-20261020.jpg" width="390" height="844" loading="lazy" decoding="async" alt="웹버전 레벨 1의 실제 플레이 화면. 블록을 교환한 뒤 390점, 남은 이동 14회가 표시되고 오염 물질 아래로 퍼즐 보드가 이어집니다.">
+            </a>
+            <figcaption><strong>한 수씩 길을 여는 퍼즐</strong>첫 레벨에서 블록을 교환한 장면. 아래 수거함까지 오염 물질을 내려보냅니다.</figcaption>
+          </figure>
+          <figure>
+            <a href="../assets/works/sporesweep-web-world-20261020.jpg" target="_blank" rel="noopener noreferrer" aria-label="세계 지도 화면 크게 보기 (새 탭)">
+              <img src="../assets/works/sporesweep-web-world-20261020.jpg" width="390" height="844" loading="lazy" decoding="async" alt="웹버전의 세계 지도. 8개 권역이 표시되고, 동아시아에서 시작해 다음 권역을 차례로 여는 구성이 보입니다.">
+            </a>
+            <figcaption><strong>다음 도시로 이어지는 지도</strong>동아시아에서 출발해 8개 권역으로 이어지는 여정을 살펴볼 수 있습니다.</figcaption>
+          </figure>
+        </div>
+        <p class="work-gallery-note"><time datetime="2026-10-20">2026.10.20</time> <a href="https://play.code404.app/" target="_blank" rel="noopener noreferrer">웹버전</a>에서 직접 캡처했습니다. 화면을 누르면 크게 볼 수 있습니다.</p>
+      </section>
     </article>
     <article id="making" class="work-project" aria-labelledby="making-title">
       <header class="work-project-heading">
@@ -127,28 +150,38 @@
     </article>
     <article id="platforms" class="work-project" aria-labelledby="platforms-title">
       <header class="work-project-heading">
-        <p class="label">SWIFT → KOTLIN</p>
-        <h2 id="platforms-title">같은 게임을,<br>Android에서도.</h2>
-        <p class="work-one-liner">iOS에서 만든 세계를<br>Kotlin으로 이어갑니다.</p>
+        <p class="label">iOS · ANDROID · WEB</p>
+        <h2 id="platforms-title">이제 웹에서,<br>먼저 한 판.</h2>
+        <p class="work-one-liner">앱스토어를 기다리는 동안<br>브라우저로 만나요.</p>
       </header>
       <div class="work-project-body">
-        <p class="work-description">iOS에서 만든 게임은 이제 Android로 이어지고 있습니다. Swift로 작성한 게임 규칙과 기능을 Kotlin으로 옮기고, 그림·소리·레벨 파일은 함께 사용합니다. 같은 세계를 두 플랫폼에서 만날 수 있도록 화면은 각 플랫폼에 맞게 구성했습니다.</p>
-        <p class="work-description">옮기는 과정에서는 두 버전의 결과를 나란히 확인하는 테스트도 마련했습니다. iOS의 플레이 기록을 Android에서 다시 실행해, 같은 조작을 했을 때 보드와 점수, 게임 안에서 일어나는 변화가 같은지 비교하는 방식입니다.</p>
-        <div class="spore-platforms" aria-label="플랫폼별 출시 준비 상태">
+        <p class="work-description">앱스토어 출시를 준비하는 동안, 조민하 님은 게임을 웹으로도 옮겨 서비스를 시작했습니다. 이제 링크를 열면 별도 앱 설치 없이 브라우저에서 바로 플레이할 수 있습니다.</p>
+        <p class="work-description">현재 공개된 웹은 테스트용 버전입니다. 제작자 안내에 따르면 실제 광고는 붙이지 않았습니다. 먼저 한 판을 즐겨보며 퍼즐과 도시 복원이 어떻게 이어지는지 만나보세요.</p>
+        <div class="spore-platforms" aria-label="플랫폼별 공개 상태">
+          <section class="spore-web-platform">
+            <p class="spore-platform-label">WEB</p>
+            <h3>테스트 버전 공개</h3>
+            <p>브라우저에서 바로 플레이 · 실제 광고 없음(제작자 안내)</p>
+            <a class="work-button is-primary" href="https://play.code404.app/" target="_blank" rel="noopener noreferrer">웹에서 플레이 <span aria-hidden="true">↗</span><span class="work-sr-only"> (새 탭)</span></a>
+          </section>
           <section>
             <p class="spore-platform-label">iOS</p>
-            <h3>계정 준비 단계</h3>
+            <h3>앱스토어 출시 준비</h3>
             <p>Swift · SwiftUI · SpriteKit</p>
-            <p>iOS 출시를 위한 계정을 준비하고 있습니다.</p>
+            <p>아직 앱스토어에는 올라오지 않았습니다. 그동안 웹버전으로 먼저 체험할 수 있습니다.</p>
           </section>
           <section>
             <p class="spore-platform-label">ANDROID</p>
-            <h3>출시 전 테스트 중</h3>
+            <h3>Kotlin으로 이어진 개발</h3>
             <p>Kotlin · Jetpack Compose</p>
-            <p>Kotlin으로 옮긴 Android 버전의 출시 전 테스트를 진행하고 있습니다.</p>
+            <p>iOS의 게임 규칙과 기능을 Kotlin으로 옮기며 플랫폼을 넓혀왔습니다.</p>
           </section>
         </div>
-        <p class="spore-release-note">두 플랫폼 모두 아직 정식 출시 전입니다. <time datetime="2026-10-16">2026.10.16 기준</time></p>
+        <p class="spore-release-note"><time datetime="2026-10-20">2026.10.20 업데이트</time>웹 공개와 앱스토어 미출시 현황은 제작자가 전한 소식을 반영했습니다.</p>
+        <aside class="work-note">
+          <h3>같은 게임을 여러 플랫폼으로</h3>
+          <p>Swift로 만든 iOS 게임을 Kotlin으로 옮기는 과정에서는 그림·소리·레벨 파일을 함께 사용했습니다. iOS의 플레이 기록을 Android에서 다시 실행해 보드와 점수, 게임 안의 변화가 같은지 비교하는 테스트도 마련했습니다. 이제 웹에서도 이 세계를 만날 수 있습니다.</p>
+        </aside>
         <div class="work-actions">
           <a class="work-button" href="https://github.com/twobeansdaddy-hue/SporeSweep/blob/2a08f4ccded30ace820014b74952022587038378/android/PORTING.md" target="_blank" rel="noopener noreferrer">Android 전환 과정 읽기 <span aria-hidden="true">↗</span><span class="work-sr-only"> (새 탭)</span></a>
         </div>
@@ -158,10 +191,11 @@
   <section class="work-closing">
     <div class="wrap">
       <p class="label">HELLO, HUMAN</p>
-      <h2>AI와 함께 만든 세계,<br>이제 출시를 향해.</h2>
-      <p>그림과 소리, 380개 레벨을 하나로 엮고 Android까지 넓혀온 포자 대청소.<br>조민하 님은 지금, 이 세계를 플레이어에게 선보일 준비를 하고 있습니다.</p>
+      <h2>AI와 함께 만든 세계,<br>이제 직접 한 판.</h2>
+      <p>그림과 소리, 퍼즐과 도시를 하나로 엮어온 포자 대청소.<br>웹에서 첫 퍼즐을 열어보고, AI와 함께 만든 세계를 직접 만나보세요.</p>
+      <a class="work-button is-primary" href="https://play.code404.app/" target="_blank" rel="noopener noreferrer">웹에서 플레이 <span aria-hidden="true">↗</span><span class="work-sr-only"> (새 탭)</span></a>
       <a class="work-button" href="../index.html#member-works"><span aria-hidden="true">←</span> 다른 회원 작업물 보기</a>
-      <p class="work-source-note spore-source-links">공개 저장소의 제품 소개·제작 기록과 전달받은 출시 준비 현황을 바탕으로 소개합니다.</p>
+      <p class="work-source-note spore-source-links">공개 제작 기록, 직접 확인한 웹 플레이 화면, 제작자가 전한 공개 현황을 바탕으로 소개합니다.</p>
     </div>
   </section>
 </main>
