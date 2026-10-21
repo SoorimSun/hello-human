@@ -61,6 +61,18 @@
 - 원작 Rampage는 Bally Midway의 게임이며, 생성 이미지·코드 그래픽과 원작 자료의 구분은 [저장소 README](https://github.com/fdx5/rampage2026/blob/2fcad4e3e0e9fd9317a650db95fb7ba6afb5fe4a/README.md)에 설명되어 있습니다.
 - 사용 위치: `works/choi-taejun.html#rampage2026`.
 
+## TURBO RALLY
+
+- 제작자: 최태준 ([fdx5/turbo_rally](https://github.com/fdx5/turbo_rally)).
+- 출처: [TURBO RALLY 서비스](https://turbo-rally.onrender.com/).
+- 캡처일: 2026-10-21 (한국시간).
+- 두 파일 모두 기본 브라우저 뷰포트 1280×720 전체를 직접 저장한 JPEG입니다. 크롭·보정·합성·AI 재생성은 하지 않았습니다.
+- `turbo-rally-characters.jpg`: 모모를 선택한 여덟 캐릭터의 3D 선택 화면.
+- `turbo-rally-race.jpg`: 한강 벚꽃 피크닉 파크에서 8대의 차량이 출발을 기다리는 레이스 소개 화면. 경기 완료·입상 화면이 아닙니다.
+- 게스트로 시작했으며 별도 계정을 만들거나 기존 회원의 정보를 사용하지 않았습니다. 화면의 재화·선택 캐릭터·진행 상태는 촬영용 게스트 세션의 상태입니다.
+- 게임의 그래픽·음성 제작 방식은 [에셋 크레딧](https://github.com/fdx5/turbo_rally/blob/fc8aef879cde842dbf3d4bddd09fffa2c4467232/assets/CREDITS.md)에 기록되어 있습니다. 해당 모델·음원 파일을 이 사이트로 복사하지 않았습니다.
+- 사용 위치: `works/choi-taejun.html#turbo-rally`.
+
 ## 포자 대청소 · SporeSweep
 
 - 제작자: 조민하 ([twobeansdaddy-hue/SporeSweep](https://github.com/twobeansdaddy-hue/SporeSweep)).
