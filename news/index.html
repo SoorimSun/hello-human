@@ -43,23 +43,34 @@
   <section class="news-list-section wrap" aria-labelledby="news-list-heading">
     <div class="news-list-heading">
       <h2 id="news-list-heading">발행한 뉴스</h2>
-      <span>총 <span data-news-total>31</span>편</span>
+      <span>총 <span data-news-total>32</span>편</span>
     </div>
     <div class="news-tabs" role="tablist" aria-label="뉴스 종류" hidden>
       <button class="news-tab" type="button" role="tab" id="all-news" aria-controls="news-feed" aria-selected="true" data-news-filter="all">
-        전체 최신순 <span class="news-tab-count" data-news-count="all">31</span>
+        전체 최신순 <span class="news-tab-count" data-news-count="all">32</span>
       </button>
       <button class="news-tab" type="button" role="tab" id="briefs" aria-controls="news-feed" aria-selected="false" tabindex="-1" data-news-filter="briefs">
         속보·단신 <span class="news-tab-count" data-news-count="briefs">9</span>
       </button>
       <button class="news-tab" type="button" role="tab" id="regular-news" aria-controls="news-feed" aria-selected="false" tabindex="-1" data-news-filter="regular-news">
-        일반뉴스 <span class="news-tab-count" data-news-count="regular-news">22</span>
+        일반뉴스 <span class="news-tab-count" data-news-count="regular-news">23</span>
       </button>
     </div>
     <p class="news-sort-note">최신 발행순 · 같은 날짜에는 속보·단신을 먼저 보여드립니다.</p>
     <div id="news-feed">
       <!-- Add each article once, newest first; tabs filter this shared catalogue. -->
       <ol class="news-issues">
+        <li data-news-kind="regular-news">
+          <a class="news-issue news-issue--illustrated" href="2026-10-21-work-execution.html">
+            <img class="news-issue-thumbnail" src="../assets/news/work-execution-thumbnail.png" width="1672" height="941" loading="lazy" decoding="async" alt="단백질 모형과 실험용 유리병, 업무 카드를 리본으로 연결한 일러스트">
+            <span class="news-issue-main">
+              <span class="news-issue-meta"><span class="news-kind news-kind-regular-news">일반뉴스 23</span> <time datetime="2026-10-21">2026. 10. 21</time> · OpenAI / 업무 연결·실험 검증·실행 통제</span>
+              <strong>OpenAI, 신약 개발 업무를 잇는 Orchestra Bio 인수</strong>
+              <span>연구 결과를 다음 업무로 어떻게 연결할까요? OpenAI의 인수, Claude의 단백질 실험, Gemini의 소상공인 기능, AWS의 도구 탐색과 실행 통제를 살펴봅니다.</span>
+            </span>
+            <span class="news-issue-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
         <li data-news-kind="regular-news">
           <a class="news-issue news-issue--illustrated" href="2026-10-20-legacy-code-runtime.html">
             <img class="news-issue-thumbnail" src="../assets/news/legacy-code-runtime-thumbnail.png" width="1672" height="941" loading="lazy" decoding="async" alt="메인프레임과 새 연산 장치를 연결한 코드 전환 일러스트">
