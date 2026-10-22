@@ -1,0 +1,22 @@
+/* 단신의 지원 범위와 공동 대응 절차 */
+.patch-planet .news-flash-header h1 { font-size: clamp(33px, 5vw, 52px); word-break: keep-all; text-wrap: balance; }
+.patch-planet .patch-official-visual { max-width: 500px; margin-bottom: 36px; }
+.patch-official-visual figcaption { margin-top: 12px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.patch-planet .news-flash-shell > h2 { margin: 44px 0 18px; font-size: clamp(23px, 3vw, 29px); line-height: 1.4; word-break: keep-all; }
+.patch-support { width: 100%; margin: 28px 0; border-collapse: collapse; font-size: 16px; line-height: 1.65; }
+.patch-support caption { padding-bottom: 12px; color: var(--muted); text-align: left; font-size: 14px; }
+.patch-support th, .patch-support td { padding: 15px 16px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.patch-support thead { background: var(--surface-2); }
+.patch-support tbody th { width: 29%; word-break: keep-all; }
+.patch-response { margin: 26px 0; padding-left: 32px; }
+.patch-response li { padding: 13px 0 13px 10px; border-bottom: 1px solid var(--line); }
+.patch-response li::marker { color: var(--accent); font-family: var(--mono); font-weight: 700; }
+.patch-response strong { display: block; margin-bottom: 4px; font-size: 18px; }
+.patch-response span { display: block; color: var(--muted); font-size: 16px; line-height: 1.65; }
+@media (max-width: 520px) {
+  .patch-planet .news-flash-header h1 br { display: block; }
+  .patch-title-program { font-size: clamp(23px, 6.5vw, 29px); white-space: nowrap; }
+  .patch-support { font-size: 15px; }
+  .patch-support th, .patch-support td { padding: 13px 9px; }
+  .patch-support tbody th { width: 31%; }
+}
