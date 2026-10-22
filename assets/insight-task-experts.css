@@ -1,0 +1,110 @@
+/* 업무 전문 AI 인사이트의 원본 도표, 역할별 처리 흐름과 자료 지도 */
+.task-experts .expert-figure { margin: 30px 0 34px; padding: 25px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.task-experts .expert-figure figcaption { display: grid; gap: 7px; margin-bottom: 22px; line-height: 1.5; }
+.task-experts .expert-figure figcaption > span { color: var(--accent); font-size: 12px; font-weight: 700; }
+.task-experts .expert-figure figcaption > strong { font-size: clamp(20px, 3vw, 26px); letter-spacing: -.025em; }
+.task-experts .expert-roles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.task-experts .expert-roles > div, .task-experts .expert-branches > div { min-width: 0; padding: 18px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface-2); }
+.task-experts .expert-roles small, .task-experts .expert-branches small { display: block; margin-bottom: 8px; color: var(--accent); font-size: 12px; font-weight: 700; }
+.task-experts .expert-roles strong, .task-experts .expert-branches strong { display: block; font-size: 17px; line-height: 1.5; }
+.task-experts .expert-roles p, .task-experts .expert-branches p { margin: 8px 0 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
+.task-experts .expert-figure .expert-caption { margin: 17px 0 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.task-experts .expert-step { padding: 16px 20px; border: 1px solid var(--line); border-radius: 9px; text-align: center; background: var(--surface-2); }
+.task-experts .expert-step > strong { display: block; font-size: 16px; }
+.task-experts .expert-step > p { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+.task-experts .expert-arrow { margin: 8px 0; color: var(--accent); font-size: 23px; text-align: center; line-height: 1.2; }
+.task-experts .expert-branches { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.task-experts .expert-gate { border-color: var(--accent); background: var(--accent-soft); }
+.task-experts .expert-gate > strong { color: var(--accent); }
+.task-experts .expert-return { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
+.task-experts .expert-return p { margin: 0; padding: 12px; border: 1px dashed var(--muted); border-radius: 8px; font-size: 13px; text-align: center; }
+.task-experts .expert-return strong { display: block; margin-bottom: 3px; }
+.task-experts .expert-flow-input { margin: 0 0 26px; padding: 14px 17px; font-size: 16px; }
+.task-experts .expert-flow-input p { margin: 0; }
+.task-experts .expert-flow-steps { margin: 0; padding-left: 27px; }
+.task-experts .expert-flow-steps > li { position: relative; margin: 0 0 30px; padding: 16px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface-2); }
+.task-experts .expert-flow-steps > li::marker { color: var(--accent); font-size: 15px; font-weight: 750; }
+.task-experts .expert-flow-steps > li::after { content: "↓" / ""; position: absolute; left: 17px; bottom: -28px; color: var(--accent); font-size: 22px; line-height: 26px; }
+.task-experts .expert-flow-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: 7px 10px; }
+.task-experts .expert-flow-heading > strong, .task-experts .expert-flow-fork > strong { font-size: 16px; line-height: 1.5; }
+.task-experts .expert-owner { flex-shrink: 0; display: inline-block; padding: 2px 8px; border: 1px solid var(--accent); border-radius: 5px; background: var(--accent-soft); color: var(--accent); font-size: 12px; font-weight: 750; line-height: 1.6; }
+.task-experts .expert-owner-server { border-color: var(--line); background: var(--surface); color: var(--muted); }
+.task-experts .expert-owner-human { background: var(--surface); color: var(--ink); border-color: var(--ink); }
+.task-experts .expert-flow-steps p, .task-experts .expert-flow-record p { margin: 9px 0 0; color: var(--muted); font-size: 14px; line-height: 1.75; }
+.task-experts .expert-flow-steps > .expert-flow-fork { padding: 0; border: 0; background: transparent; }
+.task-experts .expert-flow-steps > .expert-flow-fork::after { left: calc(50% - 8px); }
+.task-experts .expert-flow-paths { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
+.task-experts .expert-flow-paths::after { content: ""; grid-column: 1 / -1; height: 12px; margin: -12px 24% 0; border: solid var(--accent); border-width: 0 1px 1px; }
+.task-experts .expert-flow-paths > div { position: relative; min-width: 0; padding: 15px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface-2); }
+.task-experts .expert-flow-paths > .expert-flow-hold { border-style: dashed; border-color: var(--muted); background: var(--surface); }
+.task-experts .expert-path-label { display: block; margin-bottom: 12px; color: var(--accent); font-size: 12px; font-weight: 750; }
+.task-experts .expert-flow-record { margin-left: 27px; padding: 15px 17px; border: 1px solid var(--accent); border-radius: 9px; background: var(--accent-soft); }
+.task-experts .expert-flow-record > strong { color: var(--accent); font-size: 15px; }
+.task-experts .expert-formula { margin: 28px 0; padding: 24px; border: 1px solid var(--accent); border-radius: 10px; background: var(--accent-soft); }
+.task-experts .expert-formula > p { margin: 0 0 10px; color: var(--accent); font-size: 19px; font-weight: 700; }
+.task-experts .expert-formula > div { display: grid; gap: 6px; font-size: 16px; }
+.task-experts .expert-formula small { display: block; margin-top: 14px; color: var(--muted); font-size: 13px; }
+.task-experts .expert-results table { min-width: 0; table-layout: fixed; }
+.task-experts .expert-results th, .task-experts .expert-results td { padding: 15px 12px; }
+.task-experts .expert-results tbody td:last-child { color: var(--accent); font-weight: 750; }
+.task-experts .expert-results caption { padding: 15px; color: var(--muted); text-align: left; font-size: 13px; background: var(--surface); }
+.task-experts .guide-table-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.task-experts .source-link { white-space: normal; }
+.task-experts .expert-original { margin: 30px 0 34px; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.task-experts .expert-original-image { display: block; padding: 10px; background: #fff; }
+.task-experts .expert-original-image img { display: block; width: 100%; height: auto; }
+.task-experts .expert-original-image:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
+.task-experts .expert-original figcaption { padding: 20px 23px; border-top: 1px solid var(--line); line-height: 1.65; }
+.task-experts .expert-original-label { display: block; margin-bottom: 7px; color: var(--accent); font-size: 11px; font-weight: 750; letter-spacing: .025em; }
+.task-experts .expert-original figcaption > strong { display: block; margin-bottom: 9px; font-size: 18px; line-height: 1.5; }
+.task-experts .expert-original figcaption p { margin: 0 0 13px; font-size: 14px; }
+.task-experts .expert-caption-points { display: grid; gap: 10px; margin: 14px 0 18px; padding-left: 23px; }
+.task-experts .expert-caption-points li { margin: 0; padding-left: 4px; font-size: 15px; line-height: 1.75; }
+.task-experts .expert-caption-points li::marker { font-size: 13px; font-weight: 750; }
+.task-experts .expert-caption-points strong { display: block; font-size: 14px; }
+.task-experts .expert-original-credit { display: block; color: var(--muted); font-size: 12px; }
+.task-experts .expert-training-path { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 27px 0 24px; }
+.task-experts .expert-training-path > div { padding: 20px; border-left: 3px solid var(--accent); border-radius: 0 9px 9px 0; background: var(--surface-2); }
+.task-experts .expert-training-path span { display: block; margin-bottom: 9px; color: var(--accent); font-size: 12px; font-weight: 700; }
+.task-experts .expert-training-path strong { display: block; font-size: 17px; line-height: 1.5; }
+.task-experts .expert-training-path p { margin: 9px 0 0; color: var(--muted); font-size: 14px; }
+.task-experts .expert-resource-map { margin: 30px 0 25px; }
+.task-experts .expert-resource-map > figcaption { padding: 20px 23px; border: 1px solid var(--accent); border-radius: 10px; background: var(--accent-soft); }
+.task-experts .expert-resource-map > figcaption span { display: block; margin-bottom: 7px; color: var(--accent); font-size: 12px; font-weight: 750; }
+.task-experts .expert-resource-map > figcaption strong { font-size: 24px; line-height: 1.5; letter-spacing: -.025em; }
+.task-experts .expert-map-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 16px; }
+.task-experts .expert-map-group { display: flex; flex-direction: column; min-width: 0; padding: 20px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.task-experts .expert-map-heading { padding-bottom: 15px; border-bottom: 1px solid var(--line); }
+.task-experts .expert-map-heading > span { color: var(--accent); font-size: 13px; font-weight: 750; }
+.task-experts .expert-map-heading h3 { margin: 8px 0 0; font-size: 20px; line-height: 1.5; }
+.task-experts .expert-map-group dl { margin: 0; }
+.task-experts .expert-map-group dl > div { padding: 17px 0; }
+.task-experts .expert-map-group dl > div + div { border-top: 1px solid var(--line); }
+.task-experts .expert-map-group dt { font-size: 16px; font-weight: 700; line-height: 1.6; overflow-wrap: anywhere; }
+.task-experts .expert-resource-kind { display: block; margin-bottom: 5px; color: var(--muted); font-size: 11px; font-weight: 650; line-height: 1.5; }
+.task-experts .expert-map-group dd { margin: 7px 0 0; font-size: 14px; line-height: 1.8; }
+.task-experts .expert-map-group .expert-map-boundary { margin: auto 0 0; padding-top: 14px; border-top: 1px dashed var(--muted); color: var(--muted); font-size: 13px; line-height: 1.75; }
+.task-experts .expert-map-product { margin-top: 16px; padding: 18px 21px; border-left: 3px solid var(--accent); border-radius: 0 9px 9px 0; background: var(--surface-2); }
+.task-experts .expert-map-product p { margin: 0; font-size: 14px; line-height: 1.8; }
+.task-experts .expert-resource-map a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (max-width: 600px) {
+  .task-experts .expert-figure { padding: 20px 16px; }
+  .task-experts .expert-roles, .task-experts .expert-branches { grid-template-columns: 1fr; }
+  .task-experts .expert-flow-steps { padding-left: 22px; }
+  .task-experts .expert-flow-steps > li { padding: 14px; }
+  .task-experts .expert-flow-steps > .expert-flow-fork { padding: 0; }
+  .task-experts .expert-flow-paths { grid-template-columns: 1fr; gap: 28px; }
+  .task-experts .expert-flow-paths::after { display: none; }
+  .task-experts .expert-flow-paths > div + div::before { content: "또는"; position: absolute; top: -26px; left: 0; width: 100%; color: var(--muted); font-size: 12px; line-height: 22px; text-align: center; }
+  .task-experts .expert-flow-record { margin-left: 22px; padding: 14px; }
+  .task-experts .expert-results th, .task-experts .expert-results td { padding: 12px 9px; font-size: 13px; }
+  .task-experts .expert-formula { padding: 20px 17px; }
+  .task-experts .expert-original-image { padding: 5px; }
+  .task-experts .expert-original figcaption { padding: 18px 16px; }
+  .task-experts .expert-original figcaption > strong { font-size: 17px; }
+  .task-experts .expert-training-path { grid-template-columns: 1fr; }
+  .task-experts .expert-resource-map > figcaption { padding: 18px; }
+  .task-experts .expert-resource-map > figcaption strong { font-size: 22px; }
+  .task-experts .expert-map-grid { grid-template-columns: 1fr; }
+  .task-experts .expert-map-group { padding: 18px; }
+}
