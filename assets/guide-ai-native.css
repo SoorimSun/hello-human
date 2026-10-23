@@ -1,0 +1,97 @@
+/* 반복 업무 실습: 기준 자료와 검수 대상을 나란히 읽는 작업지 */
+.native-header h1 { font-size: clamp(38px, 5.9vw, 62px); line-height: 1.2; }
+.native-cover { margin: 34px 0 0; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+.native-cover figcaption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding: 16px 24px; border-bottom: 1px solid var(--line); font-weight: 700; font-size: 14px; }
+.native-cover figcaption span { color: var(--muted); font-weight: 400; }
+.native-comparison { display: grid; grid-template-columns: 1fr 1fr; }
+.native-document { padding: 26px 30px; min-width: 0; }
+.native-document + .native-document { border-left: 1px dashed var(--line); background: var(--surface-2); }
+.native-document > span { color: var(--muted); font-size: 13px; }
+.native-document > strong { display: block; margin: 10px 0 4px; font-family: var(--mono); font-size: clamp(38px, 6vw, 64px); line-height: 1.3; letter-spacing: -.06em; }
+.native-document strong span { padding-left: 9px; font-size: 20px; letter-spacing: -.03em; }
+.native-document p { margin: 0 0 9px; font-weight: 650; font-size: 17px; }
+.native-document small { color: var(--muted); font-size: 13px; }
+.native-cover-question { display: grid; gap: 3px; padding: 19px 24px; border-top: 1px solid var(--line); background: var(--accent-soft); }
+.native-cover-question strong { color: var(--accent); font-size: 18px; }
+.native-cover-question span { color: var(--muted); font-size: 14px; }
+.native-shortcuts { display: flex; flex-wrap: wrap; gap: 9px 22px; margin-top: 20px; }
+.native-shortcuts a { font-size: 14px; text-underline-offset: 4px; }
+.native-note { padding: 21px 24px; margin: 26px 0; border-left: 3px solid var(--accent); background: var(--surface-2); }
+.native-note > strong { display: block; margin-bottom: 8px; }
+.native-note p:last-child { margin: 0; }
+.native-provenance { margin: 26px 0; border-top: 1px solid var(--line); }
+.native-provenance > div { display: grid; grid-template-columns: 128px minmax(0, 1fr); gap: 16px; padding: 17px 0; border-bottom: 1px solid var(--line); }
+.native-provenance dt { font-size: 14px; font-weight: 700; }
+.native-provenance dd { margin: 0; font-size: 15px; }
+.native-story .native-origin { margin: 0 0 13px; font-size: 13px; font-weight: 700; color: var(--accent); }
+.native-concepts h3 { margin-top: 36px; }
+.native-story .native-concepts table { min-width: 0; }
+.native-concepts tbody th { width: 28%; min-width: 105px; }
+.native-stage { display: block; margin-bottom: 4px; white-space: nowrap; font-family: var(--mono); font-size: 12px; }
+.native-story .native-steps { padding: 0 0 0 24px; margin: 25px 0 30px; }
+.native-steps li { padding: 10px 0 10px 6px; border-bottom: 1px solid var(--line); }
+.native-steps li strong { display: block; }
+.native-extra { margin: 25px 0; padding: 18px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.native-extra summary { cursor: pointer; font-size: 16px; font-weight: 700; }
+.native-extra[open] summary { margin-bottom: 22px; }
+.native-extra > :last-child { margin-bottom: 0; }
+.native-story .native-small { font-size: 14px; color: var(--muted); }
+.native-work-card { margin: 25px 0 30px; border-top: 2px solid var(--ink); }
+.native-work-card > div { display: grid; grid-template-columns: 114px minmax(0, 1fr); gap: 18px; padding: 14px 3px; border-bottom: 1px solid var(--line); }
+.native-work-card dt { font-weight: 700; font-size: 14px; }
+.native-work-card dd { margin: 0; font-size: 15px; }
+.native-template { margin: 24px 0 30px; }
+.native-template-tools { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 16px; }
+.native-template-tools button { padding: 10px 14px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); color: var(--ink); font: inherit; font-size: 14px; font-weight: 650; cursor: pointer; }
+.native-template-tools button:hover { border-color: var(--ink); }
+.native-template-tools button:disabled { cursor: default; opacity: .5; }
+.native-template-tools a, .native-template-tools [role="status"] { font-size: 13px; }
+.native-template-tools [role="status"] { color: var(--muted); }
+.native-story .native-template pre { margin-top: 12px; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 13px; }
+.native-answer { margin: 27px 0; padding: 18px 22px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.native-answer summary { cursor: pointer; font-size: 17px; font-weight: 700; }
+.native-answer[open] summary { margin-bottom: 19px; }
+.native-answer > p { font-size: 15px; }
+.native-answer > p:last-child { margin: 0; }
+.native-story table { min-width: 500px; }
+.native-story tbody th { background: transparent; min-width: 82px; }
+.native-time-row { display: grid; gap: 7px; margin-top: 18px; font-size: 13px; }
+.native-time-row > span { font-weight: 650; }
+.native-time-track { background: var(--surface-2); border-radius: 5px; overflow: hidden; }
+.native-time-before { display: block; padding: 13px 12px; background: var(--line); font-weight: 650; }
+.native-time-after { width: 77.7778%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid var(--line); }
+.native-time-after span { padding: 8px; font-size: 12px; text-align: center; }
+.native-time-after span:nth-child(n+3) { background: var(--accent-soft); color: var(--accent); }
+.native-formula { margin: 28px 0; padding: 23px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.native-formula > strong { display: block; font-size: 19px; margin-bottom: 12px; }
+.native-formula p { margin: 0; font-size: 15px; }
+.native-formula p span { display: inline-block; margin-top: 9px; padding-top: 9px; border-top: 1px solid var(--line); }
+.native-flow ol { display: grid; gap: 10px; padding: 0; margin: 0; list-style: none; }
+.native-flow li { display: grid; grid-template-columns: 86px minmax(0, 1fr); gap: 3px 15px; margin: 0; padding: 17px; background: var(--surface-2); border-radius: 7px; }
+.native-flow li > span { grid-row: span 2; color: var(--muted); font-size: 13px; }
+.native-flow li > strong { font-size: 16px; }
+.native-flow li p { margin: 0; color: var(--muted); font-size: 14px; }
+.native-flow .native-human { border: 1px solid var(--accent); background: var(--accent-soft); }
+.native-flow .native-human > span { color: var(--accent); font-weight: 700; }
+.native-downloads { scroll-margin-top: 105px; }
+.native-downloads > a { display: flex; flex-direction: column; gap: 3px; padding: 17px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+.native-downloads > a:hover strong { text-decoration: underline; text-underline-offset: 4px; }
+.native-downloads > a span { color: var(--muted); font-size: 14px; }
+.native-story .native-source-note { margin-top: 25px; font-size: 13px; }
+.native-story :is(button, summary, a, [tabindex]):focus-visible, .native-shortcuts a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+@media (max-width: 520px) {
+  .native-comparison { grid-template-columns: 1fr; }
+  .native-document { padding: 20px 23px; }
+  .native-document + .native-document { border-left: 0; border-top: 1px dashed var(--line); }
+  .native-document > strong { font-size: 44px; }
+  .native-cover figcaption, .native-cover-question { padding: 17px 22px; }
+  .native-cover-question strong { font-size: 16px; }
+  .native-work-card > div { grid-template-columns: 1fr; gap: 4px; }
+  .native-provenance > div { grid-template-columns: 1fr; gap: 5px; }
+  .native-concepts tbody th { min-width: 78px; }
+  .native-note { padding: 18px; }
+  .native-answer { padding: 17px 14px; }
+  .native-answer summary { font-size: 16px; }
+  .native-flow li { grid-template-columns: 1fr; gap: 5px; padding: 15px; }
+  .native-flow li > span { grid-row: auto; }
+}
