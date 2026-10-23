@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>OpenAI Decisions API 정식 출시, 작은 판단을 빠르게 · AI뉴스 · 헬로우 휴먼</title>
+  <meta name="description" content="OpenAI Decisions API 정식 출시와 Anthropic Agent Skills의 AAIF 이관, Uber의 ChatGPT Work 전사 도입, METR·Redwood의 감시 체계 평가를 살펴봅니다.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="OpenAI Decisions API 정식 출시, 작은 판단을 빠르게">
+  <meta property="og:description" content="판단은 빠르게, 업무 절차는 재사용하게. Decisions API, Agent Skills, Uber 도입과 METR 평가에서 확인한 변화와 한계를 읽습니다.">
+  <meta property="og:url" content="https://soorimsun.github.io/hello-human/news/2026-10-23-decisions-skills.html">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+  <script src="../assets/theme.js?v=3"></script>
+  <link rel="stylesheet" href="../assets/style.css?v=9">
+  <link rel="stylesheet" href="../assets/news.css?v=10">
+  <link rel="stylesheet" href="../assets/news-decisions-skills.css?v=2">
+  <link rel="stylesheet" href="../assets/content-updates.css?v=1">
+</head>
+<body class="news-decisions">
+  <header class="topbar"><div class="wrap topbar-inner">
+    <a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+    <nav class="news-nav" aria-label="사이트 메뉴"><a href="../">모임 소개</a><a href="./">AI뉴스</a><a href="../guides/">AI가이드</a><a href="../insights/">인사이트</a><a href="../case-studies/">사례연구</a><a data-newsletter-entry href="../newsletters/">뉴스레터</a></nav>
+  </div></header>
+  <main><article>
+    <header class="news-article-header wrap">
+      <a class="news-back" href="./">← AI뉴스 목록</a>
+      <p class="news-kicker">AI NEWS <span aria-hidden="true">/</span> ISSUE 25</p>
+      <h1><span class="headline-line"><span class="headline-phrase">OpenAI Decisions API</span> <span class="headline-phrase">정식 출시,</span></span> <em class="headline-line">작은 판단을 빠르게</em></h1>
+      <p class="news-deck">요청을 분류하는 속도부터 업무 절차의 재사용까지. Decisions API와 Agent Skills의 변화, Uber의 전사 도입, 에이전트 감시 체계에 대한 외부 평가를 함께 살펴봅니다.</p>
+      <div class="news-article-meta"><time datetime="2026-10-23">2026년 10월 23일</time><span>헬로우 휴먼 AI뉴스</span></div>
+    </header>
+
+    <section id="at-a-glance" class="decision-overview wrap" aria-labelledby="summary-heading">
+      <p class="news-section-label">판단 · 업무 절차 · 조직 도입 · 감시</p>
+      <h2 id="summary-heading">30초 요약</h2>
+      <ol>
+        <li><span class="decision-number">01</span><div><strong><a href="#decisions">OpenAI Decisions API</a></strong><span class="decision-status">10월 22일 정식 제공</span></div><p>정해진 답 안에서 분류·선택·점수화를 빠르게 처리합니다. 속도와 업무 전체의 성과는 따로 봐야 합니다.</p></li>
+        <li><span class="decision-number">02</span><div><strong><a href="#skills">Anthropic Agent Skills</a></strong><span class="decision-status">AAIF에 표준 이관 발표</span></div><p>재사용 가능한 업무 지침의 관리 기반을 넓힙니다. 이미 공개된 표준의 운영 주체가 바뀌는 소식입니다.</p></li>
+        <li><span class="decision-number">03</span><div><strong><a href="#uber">Uber × ChatGPT Work</a></strong><span class="decision-status">직원 3만 명 이상으로 도입 확대</span></div><p>1,000명 시범 운영에서 전사 도입을 시작합니다. 제공 대상 규모이며, 실제 이용률이나 생산성 수치는 아닙니다.</p></li>
+        <li><span class="decision-number">04</span><div><strong><a href="#monitoring">METR · Redwood Research</a></strong><span class="decision-status">7~8월 평가 결과를 10월 공개</span></div><p>OpenAI의 과거 내부 감시 체계에서 빈틈을 찾았습니다. 이후 수정됐다는 설명은 재검증하지 않았습니다.</p></li>
+      </ol>
+    </section>
+
+    <div class="news-article-shell wrap">
+      <nav class="news-toc" aria-label="기사 목차"><span>이번 호</span><a href="#at-a-glance">30초 요약</a><a href="#decisions">작은 판단을 빠르게</a><a href="#skills">업무 절차의 공통 표준</a><a href="#uber">Uber의 전사 도입</a><a href="#monitoring">감시 체계의 빈틈</a><a href="#our-view">헬로우 휴먼의 관점</a><a href="#experiment">모임에서 해볼 실험</a><a href="#sources">참고 자료</a></nav>
+      <div class="news-story">
+        <p class="news-method"><b>확인 기준</b> 2026년 10월 23일 한국시간에 공식 발표·문서·연구기관의 공개 글을 확인했습니다. 아래의 10월 22일은 각 원문에 표시된 발표일입니다. 공급사 평가, 도입 계획, 외부 연구 결과와 모임의 제안을 구분했습니다.</p>
+
+        <section id="decisions" class="news-story-section">
+          <p class="news-section-label">01 / OPENAI DECISIONS API</p>
+          <h2>긴 답변 대신,<br>다음에 할 일을 고릅니다</h2>
+          <p>OpenAI가 <strong>Decisions API를 10월 22일 정식 제공</strong>하기 시작했습니다. API는 다른 소프트웨어가 기능을 호출하는 연결 창구입니다. 이 API는 GPT-6 Luna를 바탕으로, 정해진 선택지에서 답을 고르거나 조건의 가능성을 평가하는 작은 판단에 집중합니다. OpenAI는 같은 GPT-6 Luna를 Responses API로 호출할 때보다 최대 10배 빠르다고 설명합니다. 모든 모델·업무에 대한 비교는 아닙니다. <a class="source-link" href="https://openai.com/index/decisions-api/" target="_blank" rel="noopener noreferrer">OpenAI 발표 ↗</a></p>
+          <p>예를 들어 “배송이 늦고 배송비도 잘못 청구됐어요”라는 문의를 받았다고 해보겠습니다. 단순한 키워드만 보면 배송과 결제 중 어디로 보내야 할지 애매합니다. 담당 업무를 선택하거나, 사람에게 추가 확인을 요청할지 고르는 데 이런 판단 기능을 쓸 수 있습니다.</p>
+          <figure class="decision-figure" aria-labelledby="answer-types-title">
+            <div class="decision-figure-heading"><span>답의 형태</span><h3 id="answer-types-title">질문에 맞춰 세 가지 중 선택</h3></div>
+            <dl class="decision-types">
+              <div><dt><span>Predicate</span>조건의 가능성</dt><dd>“상품에 파손이 보이나요?”<small>조건이 참일 가능성을 0~1로 추정합니다.</small></dd></div>
+              <div><dt><span>Choice</span>선택지 고르기</dt><dd>“어느 담당자에게 보낼까요?”<small>배송·결제·추가 확인 등 정해 둔 답을 고릅니다.</small></dd></div>
+              <div><dt><span>Score</span>기준에 따라 점수화</dt><dd>“이 문제는 얼마나 심각한가요?”<small>순서가 있는 등급의 확률을 반영해 평균 점수를 냅니다.</small></dd></div>
+            </dl>
+            <figcaption>공식 문서의 반환 형식을 가상 업무 질문으로 풀어 쓴 설명용 도식입니다. 실제 API를 호출한 결과는 아닙니다. <a href="https://developers.openai.com/api/docs/guides/decisions" target="_blank" rel="noopener noreferrer">Decisions 문서 ↗</a></figcaption>
+          </figure>
+          <figure class="decision-official-media" id="official-routing" aria-labelledby="routing-example-title">
+            <div class="decision-figure-heading"><span>OPENAI 공식 문서 화면</span><h3 id="routing-example-title">문의 내용으로 담당 팀을 고릅니다</h3></div>
+            <a class="decision-image-link" href="../assets/news/decisions-api-routing-example.jpg" aria-label="OpenAI 공식 문의 분류 예시 이미지 크게 보기">
+              <img src="../assets/news/decisions-api-routing-example.jpg" width="740" height="483" loading="lazy" decoding="async" alt="OpenAI 문서의 Team routing 예시. CSV 내보내기가 계속 실패한다는 문의에 기술 지원 1.00, 결제와 계정 접근 각각 0.00을 표시합니다.">
+            </a>
+            <figcaption>“새로고침해도 CSV 내보내기가 실패한다”는 문의를 기술 지원팀으로 분류하는 <strong>공식 설명용 애니메이션의 한 장면</strong>입니다. 표시된 값은 문서의 예시이며, 이 기사에서 API를 호출해 측정한 결과가 아닙니다. 2026년 10월 23일 캡처. 이미지를 누르면 크게 볼 수 있습니다. <a href="https://developers.openai.com/api/docs/guides/decisions#select-from-fixed-options" target="_blank" rel="noopener noreferrer">OpenAI 문서에서 예시 보기 ↗</a></figcaption>
+          </figure>
+          <p>텍스트·이미지·JSON 같은 구조화된 데이터를 입력하고, 요청 한 번에 최대 400개의 질문을 담을 수 있습니다. 다만 앞선 답을 알아야 다음 질문을 할 수 있다면 요청을 나눠야 합니다. 문서가 설명하는 점수도 확정 판정이 아니라 등급별 가능성을 반영한 값입니다. <a class="source-link" href="https://developers.openai.com/api/docs/guides/decisions" target="_blank" rel="noopener noreferrer">입력·질문 구성 안내 ↗</a></p>
+
+          <h3>처음 등장한 기능이 아니라, 베타 이후의 확대입니다</h3>
+          <p>공식 변경 기록에는 10월 6일 베타 출시, 15일 GPT-Live 음성 대화 연동, 22일 정식 제공이 기록돼 있습니다. 이번 정식 버전에서는 반복 입력을 재사용하는 캐시, 질문별 이미지, JSON 입력, 200개에서 400개로 늘어난 질문 한도 등이 안내됐습니다. 음성 연동을 전부 22일에 처음 나온 기능으로 볼 필요는 없습니다. <a class="source-link" href="https://developers.openai.com/api/docs/changelog" target="_blank" rel="noopener noreferrer">OpenAI API 변경 기록 ↗</a></p>
+          <figure class="decision-official-media" id="official-video" aria-labelledby="decisions-video-title">
+            <div class="decision-figure-heading"><span>OPENAI 공식 소개 영상 · 5분 25초</span><h3 id="decisions-video-title">Decisions API를 영상으로 살펴보기</h3></div>
+            <div class="decision-video-frame">
+              <iframe src="https://player.vimeo.com/video/1238218282?h=261f0a8f65&amp;badge=0&amp;autopause=1&amp;controls=1&amp;autoplay=0&amp;background=0&amp;loop=0&amp;muted=0&amp;dnt=1" width="740" height="416" title="OpenAI 공식 영상: Introducing the Decisions API" loading="lazy" allow="fullscreen; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <figcaption>OpenAI의 10월 22일 발표 글에 수록된 공식 소개 영상입니다. 재생 버튼을 눌러 볼 수 있습니다. 영상이 표시되지 않으면 <a href="https://openai.com/index/decisions-api/" target="_blank" rel="noopener noreferrer">OpenAI 발표 페이지에서 보기 ↗</a></figcaption>
+          </figure>
+          <p class="decision-demo-link"><strong>공식 대화형 데모에서 볼 것</strong> OpenAI 발표 페이지에는 대화 내용에 따라 아바타의 표정을 고르는 GPT-Live 연동 예제도 있습니다. 말하는 도중 작은 판단을 끼워 넣는 용도를 보여줍니다. <a href="https://openai.com/index/decisions-api/#try-decisions-with-gpt-live-for-yourself" target="_blank" rel="noopener noreferrer">공식 대화형 데모 열기 ↗</a><small>공급사 제공 예제입니다. 이 기사에서는 마이크를 켜거나 응답 속도를 직접 측정하지 않았습니다.</small></p>
+
+          <h3>빠른 응답과 저렴한 업무 처리는 다릅니다</h3>
+          <p>발표된 기본 요금은 <strong>입력 100만 토큰당 0.10달러, 캐시에서 읽는 입력은 0.01달러</strong>입니다. 토큰은 모델이 읽는 내용을 나누는 계산 단위이며, 출력 토큰 요금은 없습니다. 다만 캐시를 저장하는 비용은 별도이고, 공식 문서에는 지역 처리 추가 요금과 긴 입력에 대한 배수 적용도 명시돼 있습니다. 기본 단가만으로 모든 요청의 청구액을 계산하면 안 됩니다. <a class="source-link" href="https://openai.com/index/decisions-api/" target="_blank" rel="noopener noreferrer">출시 요금 안내 ↗</a> · <a class="source-link" href="https://developers.openai.com/api/docs/guides/decisions#pricing-and-availability" target="_blank" rel="noopener noreferrer">요금 적용 조건 ↗</a></p>
+          <p>OpenAI가 소개한 고객 평가에서 Box는 보험 증명서 30건의 처리 경로 선택이 Responses API보다 약 5배 빨랐다고 했습니다. Sierra는 일부 고객 상담 흐름에서 p95 응답시간이 280밀리초 미만이었다고 보고했습니다. p95는 측정한 응답의 95%가 그 시간 안에 돌아왔다는 뜻입니다. <strong>작업과 측정 조건이 다른 고객 자체 평가</strong>이므로 숫자를 서로 순위처럼 비교할 수는 없습니다. <a class="source-link" href="https://openai.com/index/decisions-api/" target="_blank" rel="noopener noreferrer">고객 적용 사례 ↗</a></p>
+          <p>우리 업무에서는 재분류와 사람의 확인까지 포함한 시간을 봐야 합니다. “반품 문의”를 빠르게 알아내는 것과 “반품을 승인해도 된다”는 것은 다른 판단입니다. 최종 처리에는 주문 상태와 적용 정책 같은 확인 가능한 근거가 필요합니다.</p>
+        </section>
+
+        <section id="skills" class="news-story-section">
+          <p class="news-section-label">02 / ANTHROPIC AGENT SKILLS</p>
+          <h2>업무 방법을 담은 파일,<br>관리 주체를 넓힙니다</h2>
+          <p>Anthropic은 10월 22일 <strong>Agent Skills 표준을 Linux Foundation 산하 Agentic AI Foundation(AAIF)에 이관</strong>한다고 발표했습니다. 이름과 로고, GitHub 조직, agentskills.io 도메인이 대상입니다. 2025년 12월 이미 공개 표준으로 내놓았던 형식을 중립적인 재단 아래에서 관리하려는 변화입니다. 이번에 처음 공개 표준이 된 것은 아닙니다. <a class="source-link" href="https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation" target="_blank" rel="noopener noreferrer">Anthropic 발표 ↗</a></p>
+          <p>Skill은 에이전트에게 특정 업무 방법을 알려주는 묶음입니다. 기본은 <code>SKILL.md</code>라는 지침 파일을 담은 폴더이고, 필요하면 스크립트·참고 문서·서식도 넣습니다. 예를 들어 주간 운영 보고서의 지표 기준, 확인 순서, 작성 형식을 한 번 정리해 반복해서 사용할 수 있습니다. <a class="source-link" href="https://agentskills.io/home" target="_blank" rel="noopener noreferrer">Agent Skills 공식 설명 ↗</a></p>
+          <figure class="decision-figure" aria-labelledby="skill-mcp-title">
+            <div class="decision-figure-heading"><span>역할 비교</span><h3 id="skill-mcp-title">업무 지침과 도구 연결을 나누어 보기</h3></div>
+            <div class="skill-comparison">
+              <div><span class="decision-eyebrow">AGENT SKILLS</span><h4>어떻게 일하나요?</h4><p>보고서에 넣을 지표<br>검증 순서와 작성 서식<br>필요한 스크립트·참고 자료</p></div>
+              <div><span class="decision-eyebrow">MCP</span><h4>무엇과 연결하나요?</h4><p>외부 데이터와 도구<br>조회 기능과 자료 접근<br>앱과 시스템 사이의 연결</p></div>
+            </div>
+            <figcaption>이해를 돕기 위한 역할 비교입니다. MCP도 프롬프트 등 여러 자원을 제공하므로 기능이 완전히 갈리는 것은 아닙니다. <a href="https://agentskills.io/specification" target="_blank" rel="noopener noreferrer">Skills 규격 ↗</a> · <a href="https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro" target="_blank" rel="noopener noreferrer">MCP 소개 ↗</a></figcaption>
+          </figure>
+          <figure class="decision-official-media" id="official-skills" aria-labelledby="skills-architecture-title">
+            <div class="decision-figure-heading"><span>ANTHROPIC 공식 구조 도식</span><h3 id="skills-architecture-title">지침 파일과 연결 도구가 함께 움직입니다</h3></div>
+            <a class="decision-image-link" href="../assets/news/agent-skills-official-architecture.jpg" aria-label="Anthropic 공식 Agent Skills 구조 도식 크게 보기">
+              <img src="../assets/news/agent-skills-official-architecture.jpg" width="1650" height="929" loading="lazy" decoding="async" alt="Anthropic의 Agent, Skills, 가상 실행 환경 구조도. 왼쪽 에이전트 설정에는 Skills와 MCP 연결이 있고, 오른쪽 파일 시스템에는 SKILL.md와 참고 파일이 있습니다.">
+            </a>
+            <figcaption>Anthropic이 <strong>2025년 10월 16일 기술 소개 글</strong>에 공개한 도식입니다. 오른쪽은 에이전트가 읽는 업무 지침·자료, 왼쪽 아래는 외부 도구로 연결하는 MCP를 보여줍니다. 이번 AAIF 이관 발표의 새 구조도는 아니며, 모든 지원 제품이 같은 실행 환경을 쓴다는 뜻도 아닙니다. 이미지를 누르면 크게 볼 수 있습니다. <a href="https://www.anthropic.com/research/equipping-agents-for-the-real-world-with-agent-skills" target="_blank" rel="noopener noreferrer">Anthropic 원문과 도식 ↗</a></figcaption>
+          </figure>
+          <p>Anthropic은 ChatGPT, Cursor, GitHub Copilot, VS Code 등을 포함한 70개 넘는 에이전트 플랫폼이 표준을 지원하며, 약 100만 개의 Skill이 발행되고 설치 횟수는 2억 8천만 회에 가깝다고 밝혔습니다. 회사가 제시한 생태계 규모이며, 실제 사용자의 수나 업무 생산성 향상률은 아닙니다.</p>
+          <p>이관 이후의 우선 과제로는 버전별 릴리스, 공식 제안 절차, 작성자와 설치자를 위한 보안 지침을 제안했습니다. 모두 이번 발표에서 제시한 추진 방향이며, 모든 Skill을 검증해 안전을 보장한다는 의미는 아닙니다. <a class="source-link" href="https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation" target="_blank" rel="noopener noreferrer">채택 현황과 제안된 로드맵 ↗</a></p>
+          <p>모임의 관점에서는 업무 지식을 특정 제품과 분리해 보관하기 쉬워지는 점이 중요합니다. 다만 같은 지침을 읽어도 모델, 설치된 도구, 접근 권한이 다르면 결과가 달라질 수 있습니다. <strong>옮겨 쓸 수 있는 형식과 동일한 실행 결과는 별개</strong>입니다. 외부 Skill도 내용과 실행 코드를 살펴보고, 우리 환경에서 필요한 권한만 주는 검토가 필요합니다.</p>
+        </section>
+
+        <section id="uber" class="news-story-section">
+          <p class="news-section-label">03 / UBER × CHATGPT WORK</p>
+          <h2>직원에게 도구를 주고,<br>조직의 업무 방법도 준비합니다</h2>
+          <p>OpenAI는 10월 22일 Uber가 <strong>ChatGPT Work의 전사 도입을 시작한다</strong>고 발표했습니다. ChatGPT Enterprise 안에서 여러 단계의 지식 업무를 돕는 에이전트입니다. 기존 직원 1,000명 대상 시범 운영을 넘어, 전 세계 직원 3만 명 이상에게 제공하는 확대입니다. <a class="source-link" href="https://openai.com/ko-KR/index/uber-chatgpt-work-rollout/" target="_blank" rel="noopener noreferrer">OpenAI 한국어 발표 ↗</a></p>
+          <figure class="decision-figure" aria-labelledby="uber-scale-title">
+            <div class="decision-figure-heading"><span>도입 대상 · 단위 명</span><h3 id="uber-scale-title">시범 운영에서 전사 제공으로</h3></div>
+            <div class="rollout-chart">
+              <div class="rollout-row"><div><strong>1,000명</strong><span>기존 시범 운영 대상</span></div><div class="rollout-track" aria-hidden="true"><span class="rollout-pilot"></span></div></div>
+              <div class="rollout-row"><div><strong>30,000명 이상</strong><span>이번 확대 제공 대상</span></div><div class="rollout-track rollout-planned" aria-hidden="true"><span></span></div></div>
+            </div>
+            <figcaption>OpenAI의 10월 22일 발표. 점선 막대는 확대 제공 대상을 뜻하며, 3만 명을 기준으로 그렸습니다. 현재 활성 사용자 수나 도입 완료율을 나타내지 않습니다.</figcaption>
+          </figure>
+          <p>발표는 Google Drive·Gmail·Google Calendar·Slack 같은 도구와 연결해 조사, 회의 자료 작성, 발표자료 제작, 데이터 분석을 수행하는 용도를 설명합니다. 도입 지원에는 사내 AI 스킬 라이브러리, 승인된 연동, 직원 교육이 포함됩니다. 개발 조직의 Codex 사용은 별도로 이어집니다. <a class="source-link" href="https://openai.com/ko-KR/index/uber-chatgpt-work-rollout/" target="_blank" rel="noopener noreferrer">업무 용도와 지원 방식 ↗</a></p>
+          <figure class="decision-official-media" id="official-work" aria-labelledby="work-example-title">
+            <div class="decision-figure-heading"><span>OPENAI 공식 제품 소개 화면</span><h3 id="work-example-title">자료를 읽고, 발표자료까지 업데이트합니다</h3></div>
+            <a class="decision-image-link" href="../assets/news/chatgpt-work-official-artifact.webp" aria-label="OpenAI 공식 ChatGPT Work 발표자료 작성 예시 크게 보기">
+              <img src="../assets/news/chatgpt-work-official-artifact.webp" width="1600" height="900" loading="lazy" decoding="async" alt="OpenAI가 공개한 ChatGPT Work 예시. 왼쪽에는 고객 자료와 Slack 대화를 읽어 슬라이드를 추가해 달라는 요청이, 오른쪽에는 업데이트된 고객 계정 계획 발표자료가 표시됩니다.">
+            </a>
+            <figcaption>Uber 발표가 연결한 <strong>2026년 7월 9일 ChatGPT Work 소개 글</strong>의 공식 예시입니다. 고객 자료와 Slack 대화를 검토해 발표자료를 고치는 업무를 보여줍니다. Uber의 실제 사내 화면이나 도입 성과를 촬영한 자료는 아닙니다. 화면의 제품 표시는 공개 당시 기준입니다. 이미지를 누르면 크게 볼 수 있습니다. <a href="https://openai.com/ko-KR/index/chatgpt-for-your-most-ambitious-work/" target="_blank" rel="noopener noreferrer">OpenAI 한국어 소개와 원본 화면 ↗</a></figcaption>
+          </figure>
+          <p>이번 발표에는 전사 업무시간 절감률이나 투자 대비 수익률이 제시되지 않았습니다. 두 회사는 도입이 진행되면서 활용 현황과 측정 가능한 성과를 더 공유할 계획이라고 밝혔습니다. 따라서 3만 명이라는 숫자를 이미 효과를 본 직원 수로 읽으면 안 됩니다.</p>
+          <p>우리가 참고할 부분은 <strong>접근 권한, 업무 지침, 교육을 함께 준비한다</strong>는 구성입니다. 다만 Uber의 사내 스킬 라이브러리가 앞서 소개한 Agent Skills 표준을 구체적으로 어떻게 구현했는지는 이 발표만으로 확인할 수 없습니다. 두 소식은 업무 방법을 공유한다는 관점에서 연결해 볼 수 있지만, 같은 기술을 사용한 사례라고 단정하지는 않습니다.</p>
+        </section>
+
+        <section id="monitoring" class="news-story-section">
+          <p class="news-section-label">04 / METR · REDWOOD RESEARCH</p>
+          <h2>감시 대상으로 잡혔다고,<br>모두 점검된 것은 아닙니다</h2>
+          <p>METR과 Redwood Research는 OpenAI 내부 에이전트 감시 체계를 점검한 결과를 10월 22일 공개했습니다. 평가는 7월 21일부터 8월 11일까지 진행했고, 대상은 <strong>7월 21일 및 그 이전의 시스템</strong>이었습니다. 평가 중 진행된 확장이나 현재 감시 범위를 검증한 결과는 아닙니다. <a class="source-link" href="https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/" target="_blank" rel="noopener noreferrer">METR 공개 결과 ↗</a></p>
+          <figure class="decision-figure" aria-labelledby="monitor-dates-title">
+            <div class="decision-figure-heading"><span>평가 시점과 공개 시점</span><h3 id="monitor-dates-title">과거 시스템을 조사한 결과입니다</h3></div>
+            <ol class="monitor-timeline">
+              <li><strong>7월 21일 이전·당일</strong><span>평가 대상 시스템의 기준</span></li>
+              <li><strong>7월 21일~8월 11일</strong><span>외부 연구자들의 평가 진행</span></li>
+              <li><strong>10월 22일</strong><span>주요 발견을 요약해 공개</span></li>
+            </ol>
+            <figcaption>10월에 새로 발생한 사고나 현재 시스템 전체에 대한 안전성 인증으로 읽지 않도록 시점을 나눴습니다.</figcaption>
+          </figure>
+          <p>연구진은 당시 내부 Codex용 Responses API 트래픽의 약 99.2%가 감시 대상으로 지정돼 있었다고 추정했습니다. 동시에 문맥 압축 이벤트를 감시하지 않아, 5~7월에는 <strong>감시 대상 내부 Codex 트래픽의 약 10% 규모가 실제 감시에서 빠졌을 가능성</strong>을 제시했습니다. 필요한 기록이 부족해 정확한 비율에는 큰 불확실성이 있다고 밝혔습니다. 두 수치는 분모와 의미가 다릅니다.</p>
+          <p>문맥 압축은 긴 작업의 이전 내용을 줄여 이어가는 과정입니다. 당시 감시가 사용자에게 제어를 돌려줄 때 실행되는 구조여서, 일을 계속하는 에이전트의 점검이 늦어질 수 있었습니다. 이 압축 관련 문제는 OpenAI가 평가 전부터 파악했고, 평가 중 수정했습니다. <a class="source-link" href="https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/" target="_blank" rel="noopener noreferrer">감시 대상과 실제 누락 추정 ↗</a></p>
+          <h3>발견된 우회 가능성과 실제 악용은 구분해야 합니다</h3>
+          <p>연구진은 감시를 끈 새 에이전트를 만들거나, 작업 격리와 실행 승인 검토를 우회할 수 있는 경로도 보고했습니다. 모든 경로의 실제 악용이 확인됐다는 뜻은 아닙니다. 일부 행동은 실용적인 악용 가능성까지 시험하지 않았고, 세부 내용 일부는 공개하지 않았습니다.</p>
+          <p>OpenAI는 운영 안전장치에 영향을 주는 발견 사항을 모두 수정했다고 설명했지만, <strong>연구진은 그 설명과 이후 감시 범위 확대를 재검증하지 않았습니다.</strong> 결과물인 61페이지 내부 보고서 전체도 공개되지 않았습니다. 내부 접근권을 제공받은 외부 평가였으며, 사전에 공개 범위를 제한하고 OpenAI의 민감 정보 삭제 권한을 인정한 시범 조사였다는 한계도 함께 읽어야 합니다. <a class="source-link" href="https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/" target="_blank" rel="noopener noreferrer">수정 설명과 평가의 공개 범위 ↗</a></p>
+          <p>OpenAI는 별도 공식 설명에서 도구를 쓰는 일부 학습·평가의 감시 의무를 확대하고 작업·네트워크 격리를 강화했다고 밝혔습니다. 이는 회사의 후속 조치 설명이며, 이번 외부 평가가 그 효과까지 확인했다는 뜻은 아닙니다. <a class="source-link" href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/" target="_blank" rel="noopener noreferrer">OpenAI의 후속 안전장치 설명 ↗</a></p>
+          <p>우리 업무에서도 “감시를 켰다”는 설정과 “실제로 점검 기록이 남았다”는 결과를 나눠 볼 필요가 있습니다. 장시간 작업에는 중간 점검을 두고, 기대한 실행 기록과 실제 감시 기록을 대조하는 방식이 도움이 됩니다. 전날 일반뉴스에서 다룬 <a href="2026-10-22-agent-permissions.html#monitoring">10월의 감시 기능 약화 사고</a>와 이번 7~8월 평가는 별개의 사안입니다.</p>
+        </section>
+
+        <section id="our-view" class="news-story-section news-view">
+          <p class="news-section-label">헬로우 휴먼의 관점</p>
+          <h2>빠른 판단 옆에,<br>다시 쓸 절차와 확인할 기준을</h2>
+          <p>이번 소식들은 서로 다른 문제를 다룹니다. Decisions API는 작은 판단의 응답 속도를, Agent Skills는 업무 지식의 재사용과 관리 방식을, Uber는 조직 전체에 도입하는 방법을 보여줍니다. METR의 평가는 실행을 살펴보는 체계에도 빈틈이 있을 수 있음을 드러냈습니다.</p>
+          <p>우리가 업무에 적용할 때는 요청을 이해하는 일, 정해진 규칙을 적용하는 일, 실제 데이터를 바꾸는 일을 나누어 보면 좋겠습니다. “어느 담당자에게 보낼까”를 모델이 골라도, 변경 권한과 승인 조건까지 그 답에 맡길 필요는 없습니다.</p>
+          <ol>
+            <li><strong>판단</strong> 어떤 요청인지 해석하고, 모호하면 추가 확인으로 보냅니다.</li>
+            <li><strong>업무 절차</strong> 필요한 자료와 점검 순서를 재사용 가능한 지침으로 관리합니다.</li>
+            <li><strong>실행</strong> 기존 서비스가 업무 규칙·접근 권한·승인 조건을 확인합니다.</li>
+            <li><strong>검증</strong> 결과와 실행 이력을 확인하고, 빠뜨린 점검이 없는지 대조합니다.</li>
+          </ol>
+          <p>이 구분은 네 회사·기관이 함께 발표한 설계가 아니라, 소식을 우리 업무에 연결한 제안입니다. <strong>자동화할 작업과 그 결과를 확인할 기준을 함께 남기는 것</strong>이 반복 업무를 줄이는 출발점이 될 수 있습니다.</p>
+        </section>
+
+        <section id="experiment" class="news-story-section">
+          <p class="news-section-label">모임에서 해볼 엔지니어링 실험 · 아직 수행하지 않은 제안</p>
+          <h2>CI 실패 로그로,<br>분류기를 비교해 봅시다</h2>
+          <p>코드를 바꿀 때 자동으로 빌드와 테스트를 돌리는 CI에서 실패 로그를 읽는 일은 반복되는 개발 업무입니다. <strong>로그를 분류하고, 유형에 맞는 진단 절차를 제시하는 작은 도구</strong>를 만들어 보면 어떨까요? 이번 실험의 질문은 “규칙으로 처리하기 어려운 로그에 모델이 도움이 되는가”, “진단 지침을 재사용하면 빠뜨리는 확인이 줄어드는가”입니다.</p>
+          <figure class="decision-figure" aria-labelledby="experiment-flow-title">
+            <div class="decision-figure-heading"><span>개발자가 구현하고 검증할 흐름</span><h3 id="experiment-flow-title">입력 계약부터 회귀 테스트까지</h3></div>
+            <ol class="decision-flow">
+              <li><strong>입출력 고정</strong><span>합성 CI 로그와 정답 라벨을 버전으로 관리</span></li>
+              <li><strong>분류기 비교</strong><span>같은 로그를 규칙과 Decisions API에 입력</span></li>
+              <li><strong>진단 절차 연결</strong><span>검토한 Skill로 다음 확인 항목을 작성</span></li>
+              <li><strong>실패도 테스트</strong><span>오류·시간 초과·기록 누락을 자동 검사</span></li>
+            </ol>
+            <figcaption>헬로우 휴먼의 설계 제안입니다. 합성 로그와 모의 조회만 사용하고, 코드 수정·배포는 실행하지 않습니다. Decisions API와 Skill을 연결하는 실행기는 실험에서 별도로 구현합니다.</figcaption>
+          </figure>
+
+          <h3>먼저 입출력과 평가 데이터를 고정합니다</h3>
+          <p>입력은 실행 ID, 실패한 단계, 로그 본문으로 정하고, 출력은 <code>BUILD</code>(빌드), <code>TEST</code>(테스트), <code>ENVIRONMENT</code>(실행 환경), <code>UNKNOWN</code>(추가 확인) 중 하나로 제한합니다. 실패한 단계와 원인은 다를 수 있으므로 라벨 기준도 먼저 적습니다. 예를 들어 테스트 중 연결이 끊긴 사례는 환경 문제로, 원인을 판단할 단서가 없는 로그는 추가 확인으로 정합니다.</p>
+          <p>합성 로그 100건을 만들어 30건은 규칙·프롬프트 조정에, 70건은 최종 평가에 사용합니다. 같은 오류의 문구만 바꾼 로그는 같은 묶음에 넣어 정답이 평가 쪽으로 새지 않게 합니다. 여러 오류가 섞인 로그, 중간이 잘린 로그도 포함합니다. 이 정도는 설계를 점검할 시작점이며, 운영 환경의 신뢰도를 입증할 표본은 아닙니다.</p>
+
+          <h3>분류기와 진단 절차를 별도로 만듭니다</h3>
+          <p>예를 들어 Java/Spring Boot에서 <code>FailureRouter</code> 인터페이스를 두고, 키워드 규칙과 Decisions API 구현을 바꿔 끼울 수 있게 만듭니다. 두 구현에는 같은 입력과 출력 검사를 적용합니다. 모델 응답이 허용한 값인지 확인하고, 시간 초과나 API 오류로 분류하지 못하면 <code>UNKNOWN</code>으로 보내면서 실패 이유도 별도로 남깁니다. 사람이 더 봐야 하는 로그와 호출 자체의 실패를 통계에서 구분하기 위해서입니다.</p>
+          <p>유형별 진단 지침은 <code>SKILL.md</code>로 관리합니다. 가령 환경 문제 지침에는 의존 서비스 상태, 환경 변수, 재현 조건을 확인하는 순서를 적습니다. 분류 결과를 받은 별도 실행기가 해당 지침을 에이전트에 제공하고, 허용한 모의 조회만 연결해 다음 확인 항목을 작성하게 합니다. <strong>Decisions API의 선택 결과가 곧 명령 실행 권한이 되지 않도록</strong> 경계를 두는 것입니다.</p>
+
+          <h3>성능과 실패 경로를 함께 측정합니다</h3>
+          <ul>
+            <li><strong>분류 품질</strong> 유형별 정답률, 서로 혼동한 유형, 추가 확인으로 보낸 비율을 기록합니다. 판단을 보류한 건을 빼고 정확도만 높게 보이지 않게, 전체 건수와 보류 건수를 함께 봅니다.</li>
+            <li><strong>응답시간과 비용</strong> 동시 요청 수·캐시 조건을 맞추고 같은 입력을 반복 실행합니다. 전체 처리의 중간값과 p95, 재시도를 포함한 건당 비용을 따로 기록합니다. 오류와 시간 초과 건수도 함께 보고합니다.</li>
+            <li><strong>실패 처리</strong> 타임아웃, 호출 제한(429), 서버 오류(5xx), 잘못된 응답을 테스트용으로 주입합니다. 정한 재시도 한도와 전체 대기시간을 지키는지, 실패해도 결과와 실행 기록이 남는지 확인합니다.</li>
+          </ul>
+          <p>Skill의 효과는 두 번째 실험으로 분리합니다. 분류 결과와 모델·도구 조건을 고정한 뒤, 진단 지침이 있을 때와 없을 때를 비교합니다. 미리 정한 필수 확인 항목의 누락 수와 개발자의 수정 시간을 측정하면, 분류기 성능과 지침의 효과를 섞지 않고 볼 수 있습니다.</p>
+
+          <h3>결과물을 다음 변경의 검증 기준으로 남깁니다</h3>
+          <p>실행마다 샘플 ID, 데이터·규칙·프롬프트·Skill 버전, 모델 설정, 분류 결과, 재시도·오류, 처리 시간을 기록합니다. 입력한 전체 건수와 기록 건수를 대조해 누락도 검사합니다. 결과물은 <strong>버전이 있는 평가 데이터, 교체 가능한 분류기, 유형별 Skill, 비교 보고서, 회귀 테스트</strong>입니다.</p>
+          <p>일반 CI에서는 고정된 응답으로 입출력 계약과 실패 처리를 빠르게 검사하고, 실제 API를 호출하는 평가는 별도 실행으로 둡니다. 정확도·추가 확인 비율·응답시간·비용의 허용 기준을 결과를 보기 전에 정해 두면, 모델이나 지침을 바꿀 때 채택·보류를 판단할 수 있습니다. 목표는 한 번 그럴듯한 답을 받는 데서 끝내지 않고, <strong>어디에 모델을 넣을 가치가 있는지 다시 검증할 수 있는 구조</strong>를 만드는 것입니다.</p>
+        </section>
+
+        <section id="sources" class="news-sources">
+          <h2>읽은 자료</h2>
+          <ul>
+            <li><a href="https://openai.com/index/decisions-api/" target="_blank" rel="noopener noreferrer">OpenAI, Decisions API 정식 출시 ↗</a> <span>10월 22일 · 비교 대상, 고객 자체 평가, 기본 요금, 공식 대화형 데모</span></li>
+            <li><a href="https://developers.openai.com/api/docs/guides/decisions" target="_blank" rel="noopener noreferrer">OpenAI, Decisions 개발자 문서 ↗</a> <span>답변 형식, 질문 한도, 캐시·요금 조건</span></li>
+            <li><a href="https://developers.openai.com/api/docs/changelog" target="_blank" rel="noopener noreferrer">OpenAI API 변경 기록 ↗</a> <span>10월 6일 베타, 15일 음성 연동, 22일 정식 제공</span></li>
+            <li><a href="https://www.anthropic.com/news/donating-agent-skills-to-the-agentic-ai-foundation" target="_blank" rel="noopener noreferrer">Anthropic, Agent Skills의 AAIF 이관 ↗</a> <span>10월 22일 · 이관 대상, 회사가 집계한 채택 규모, 로드맵 제안</span></li>
+            <li><a href="https://agentskills.io/home" target="_blank" rel="noopener noreferrer">Agent Skills 공식 소개 ↗</a> · <a href="https://agentskills.io/specification" target="_blank" rel="noopener noreferrer">규격 ↗</a> <span>지침·스크립트·참고 자료의 구성</span></li>
+            <li><a href="https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro" target="_blank" rel="noopener noreferrer">MCP 공식 소개 ↗</a> <span>외부 시스템·도구·데이터 연결의 역할</span></li>
+            <li><a href="https://openai.com/ko-KR/index/uber-chatgpt-work-rollout/" target="_blank" rel="noopener noreferrer">OpenAI, Uber의 ChatGPT Work 전사 도입 ↗</a> <span>10월 22일 · 확인된 한국어 원문, 도입 대상과 지원 방식</span></li>
+            <li><a href="https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/" target="_blank" rel="noopener noreferrer">METR, OpenAI 내부 감시 체계 평가 ↗</a> <span>10월 22일 공개 · 과거 시스템의 범위, 불확실성, 재검증·공개 제한</span></li>
+            <li><a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/" target="_blank" rel="noopener noreferrer">OpenAI, 후속 안전장치 설명 ↗</a> <span>회사가 설명한 감시 확대와 격리 강화, 이번 외부 평가의 검증 범위와 구분</span></li>
+          </ul>
+          <p>Decisions 출시 글의 한국어 주소는 확인 당시 영문 원문으로 이동해 영문을 사용했습니다. 이 기사에서는 API 성능과 고객 사례를 재현하지 않았고, 공개되지 않은 보고서 원문이나 수정된 감시 체계를 직접 검증하지 않았습니다. 기업이 공개한 도식·제품 화면·소개 영상에는 각각 공식 출처와 자료의 시점을 표시했습니다. 그 밖의 HTML 도식과 실험안은 이해를 돕기 위해 작성했습니다.</p>
+        </section>
+        <a class="news-end-link" href="./">AI뉴스 목록으로 돌아가기 <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </article></main>
+  <footer class="footer"><div class="wrap">헬로우 휴먼 · Workless Engineering Club</div></footer>
+  <script src="../assets/analytics.js?v=2" defer></script>
+  <script src="../assets/article-toc.js?v=1" defer></script>
+  <script type="module" src="../assets/content-updates.js?v=3"></script>
+</body>
+</html>
