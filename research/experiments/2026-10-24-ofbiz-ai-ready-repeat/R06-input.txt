@@ -1,0 +1,654 @@
+제공된 자료만 근거로 아래 질문에 한국어로 답하세요. 확인한 근거와 추가로 확인해야 할 내용을 구분하세요. 외부 검색·추가 파일 조회·코드 실행·수정은 하지 마세요. 질문에 대한 답변만 작성하고, 1,200자 이내로 답하세요.
+
+질문: 취소 요청에 cancelQuantity와 itemQtyMap이 함께 들어오거나, 맵에 해당 키가 없으면 어떤 수량을 쓰나요? 입력 키 형태와 선택 순서를 코드 근거로 설명해주세요.
+
+Apache OFBiz 18.12.19
+기준 커밋: e7b7ae0eaa4561a2357b198e21cc8ca63ffac105
+아래는 전체 저장소가 아니라 지정 범위의 소스 발췌다. 행 번호는 해당 커밋의 원본 행 번호다.
+출처: https://github.com/apache/ofbiz-framework/tree/e7b7ae0eaa4561a2357b198e21cc8ca63ffac105
+원 소스 라이선스: Apache License 2.0 — https://www.apache.org/licenses/LICENSE-2.0
+
+---
+파일: applications/order/servicedef/services.xml
+범위: 278~296행
+원본: https://github.com/apache/ofbiz-framework/blob/e7b7ae0eaa4561a2357b198e21cc8ca63ffac105/applications/order/servicedef/services.xml#L278-L296
+
+278:     <service name="cancelOrderItem" engine="java" auth="true" transaction-timeout="3000"
+279:             location="org.apache.ofbiz.order.order.OrderServices" invoke="cancelOrderItem">
+280:         <description>Cancel an Order Item Quantity</description>
+281:         <attribute name="orderId" type="String" mode="IN" optional="false"/>
+282:         <attribute name="orderItemSeqId" type="String" mode="IN" optional="true"/>
+283:         <attribute name="shipGroupSeqId" type="String" mode="IN" optional="true"/>
+284:         <attribute name="cancelQuantity" type="BigDecimal" mode="IN" optional="true"/>
+285:         <attribute name="itemReasonMap" type="Map" mode="IN" string-map-prefix="irm_" optional="true"/>
+286:         <attribute name="itemCommentMap" type="Map" mode="IN" string-map-prefix="icm_" optional="true"/>
+287:         <attribute name="itemQtyMap" type="Map" mode="IN" string-map-prefix="iqm_" optional="true"/>
+288:     </service>
+289:     <service name="cancelOrderItemNoActions" engine="java" auth="true"
+290:             location="org.apache.ofbiz.order.order.OrderServices" invoke="cancelOrderItem">
+291:         <description>Cancel an Order Item Quantity. This is equal to cancelOrderItem but no ECAs are attached to this service.</description>
+292:         <attribute name="orderId" type="String" mode="IN" optional="false"/>
+293:         <attribute name="orderItemSeqId" type="String" mode="IN" optional="true"/>
+294:         <attribute name="shipGroupSeqId" type="String" mode="IN" optional="true"/>
+295:         <attribute name="cancelQuantity" type="BigDecimal" mode="IN" optional="true"/>
+296:     </service>
+
+---
+파일: applications/order/src/main/java/org/apache/ofbiz/order/order/OrderServices.java
+범위: 1999~2224행
+원본: https://github.com/apache/ofbiz-framework/blob/e7b7ae0eaa4561a2357b198e21cc8ca63ffac105/applications/order/src/main/java/org/apache/ofbiz/order/order/OrderServices.java#L1999-L2224
+
+1999:     /** Service to cancel an order item quantity */
+2000:     public static Map<String, Object> cancelOrderItem(DispatchContext ctx, Map<String, ? extends Object> context) {
+2001:         LocalDispatcher dispatcher = ctx.getDispatcher();
+2002:         Delegator delegator = ctx.getDelegator();
+2003:         Locale locale = (Locale) context.get("locale");
+2004:         Map<String, Object> resp = new HashMap<String, Object>();
+2005:         GenericValue userLogin = (GenericValue) context.get("userLogin");
+2006:         BigDecimal cancelQuantity = (BigDecimal) context.get("cancelQuantity");
+2007:         String orderId = (String) context.get("orderId");
+2008:         String orderItemSeqId = (String) context.get("orderItemSeqId");
+2009:         String shipGroupSeqId = (String) context.get("shipGroupSeqId");
+2010:         Map<String, String> itemReasonMap = UtilGenerics.checkMap(context.get("itemReasonMap"));
+2011:         Map<String, String> itemCommentMap = UtilGenerics.checkMap(context.get("itemCommentMap"));
+2012:         Map<String, String> itemQuantityMap = UtilGenerics.checkMap(context.get("itemQtyMap"));
+2013:         if ((cancelQuantity == null) && UtilValidate.isNotEmpty(itemQuantityMap)) {
+2014:             String key = orderItemSeqId+":"+shipGroupSeqId;
+2015:             if (UtilValidate.isNotEmpty(itemQuantityMap.get(key))) {
+2016:                 cancelQuantity = new BigDecimal(itemQuantityMap.get(key));
+2017:             }
+2018: 
+2019:         }
+2020:         // debugging message info
+2021:         String itemMsgInfo = orderId + " / " + orderItemSeqId + " / " + shipGroupSeqId;
+2022: 
+2023:         // check and make sure we have permission to change the order
+2024:         Security security = ctx.getSecurity();
+2025: 
+2026:         boolean hasPermission = OrderServices.hasPermission(orderId, userLogin, "UPDATE", security, delegator);
+2027:         if (!hasPermission) {
+2028:             return ServiceUtil.returnError(UtilProperties.getMessage(resource_error,
+2029:                     "OrderYouDoNotHavePermissionToChangeThisOrdersStatus",locale));
+2030:         }
+2031: 
+2032:         Map<String, String> fields = UtilMisc.<String, String>toMap("orderId", orderId);
+2033:         if (orderItemSeqId != null) {
+2034:             fields.put("orderItemSeqId", orderItemSeqId);
+2035:         }
+2036:         if (shipGroupSeqId != null) {
+2037:             fields.put("shipGroupSeqId", shipGroupSeqId);
+2038:         }
+2039: 
+2040:         OrderReadHelper orh = new OrderReadHelper(delegator, orderId);
+2041:         List<GenericValue> orderItemShipGroupAssocs = null;
+2042:         try {
+2043:             orderItemShipGroupAssocs = EntityQuery.use(delegator).from("OrderItemShipGroupAssoc").where(fields).queryList();
+2044:         } catch (GenericEntityException e) {
+2045:             Debug.logError(e, module);
+2046:             return ServiceUtil.returnError(UtilProperties.getMessage(resource_error,
+2047:                     "OrderErrorCannotGetOrderItemAssocEntity", UtilMisc.toMap("itemMsgInfo",itemMsgInfo), locale));
+2048:         }
+2049: 
+2050:         if (orderItemShipGroupAssocs != null) {
+2051:             for (GenericValue orderItemShipGroupAssoc : orderItemShipGroupAssocs) {
+2052:                 GenericValue orderItem = null;
+2053:                 String itemStatus = "ITEM_CANCELLED";
+2054:                 try {
+2055:                     orderItem = orderItemShipGroupAssoc.getRelatedOne("OrderItem", false);
+2056:                 } catch (GenericEntityException e) {
+2057:                     Debug.logError(e, module);
+2058:                 }
+2059: 
+2060:                 if (orderItem == null) {
+2061:                     return ServiceUtil.returnError(UtilProperties.getMessage(resource_error,
+2062:                             "OrderErrorCannotCancelItemItemNotFound", UtilMisc.toMap("itemMsgInfo",itemMsgInfo), locale));
+2063:                 }
+2064: 
+2065:                 BigDecimal aisgaCancelQuantity =  orderItemShipGroupAssoc.getBigDecimal("cancelQuantity");
+2066:                 if (aisgaCancelQuantity == null) {
+2067:                     aisgaCancelQuantity = BigDecimal.ZERO;
+2068:                 }
+2069:                 BigDecimal availableQuantity = orderItemShipGroupAssoc.getBigDecimal("quantity").subtract(aisgaCancelQuantity);
+2070: 
+2071:                 BigDecimal itemCancelQuantity = orderItem.getBigDecimal("cancelQuantity");
+2072:                 if (itemCancelQuantity == null) {
+2073:                     itemCancelQuantity = BigDecimal.ZERO;
+2074:                 }
+2075:                 BigDecimal itemQuantity = orderItem.getBigDecimal("quantity").subtract(itemCancelQuantity);
+2076:                 if (availableQuantity == null) {
+2077:                     availableQuantity = BigDecimal.ZERO;
+2078:                 }
+2079:                 if (itemQuantity == null) {
+2080:                     itemQuantity = BigDecimal.ZERO;
+2081:                 }
+2082: 
+2083:                 if ("PURCHASE_ORDER".equals(orh.getOrderTypeId())) {
+2084:                     BigDecimal receivedQty = orh.getItemReceivedQuantity(orderItem);
+2085:                     if (receivedQty.compareTo(BigDecimal.ZERO) > 0) {
+2086:                         itemStatus = "ITEM_COMPLETED";
+2087:                     }
+2088:                     itemQuantity = itemQuantity.subtract(receivedQty);
+2089:                 } else {
+2090:                     BigDecimal shippedQty = orh.getItemShippedQuantity(orderItem);
+2091:                     if (shippedQty.compareTo(BigDecimal.ZERO) > 0 ) {
+2092:                         itemStatus = "ITEM_COMPLETED";
+2093:                     }
+2094:                     itemQuantity = itemQuantity.subtract(shippedQty);
+2095:                 }
+2096: 
+2097:                 BigDecimal thisCancelQty = null;
+2098:                 if (cancelQuantity != null) {
+2099:                     thisCancelQty = cancelQuantity;
+2100:                 } else {
+2101:                     thisCancelQty = itemQuantity;
+2102:                 }
+2103: 
+2104:                 if (availableQuantity.compareTo(thisCancelQty) >= 0) {
+2105:                     if (availableQuantity.compareTo(BigDecimal.ZERO) == 0) {
+2106:                         continue;  //OrderItemShipGroupAssoc already cancelled
+2107:                     }
+2108:                     orderItem.set("cancelQuantity", itemCancelQuantity.add(thisCancelQty));
+2109:                     orderItemShipGroupAssoc.set("cancelQuantity", aisgaCancelQuantity.add(thisCancelQty));
+2110: 
+2111:                     try {
+2112:                         List<GenericValue> toStore = UtilMisc.toList(orderItem, orderItemShipGroupAssoc);
+2113:                         delegator.storeAll(toStore);
+2114:                     } catch (GenericEntityException e) {
+2115:                         Debug.logError(e, module);
+2116:                         return ServiceUtil.returnError(UtilProperties.getMessage(resource_error,
+2117:                                 "OrderUnableToSetCancelQuantity", UtilMisc.toMap("itemMsgInfo",itemMsgInfo), locale));
+2118:                     }
+2119: 
+2120:                     Map<String, Object> localCtx = UtilMisc.toMap("userLogin", userLogin,
+2121:                             "orderId", orderItem.getString("orderId"),
+2122:                             "orderItemSeqId", orderItem.getString("orderItemSeqId"),
+2123:                             "shipGroupSeqId", orderItemShipGroupAssoc.getString("shipGroupSeqId"));
+2124:                     if (availableQuantity.compareTo(thisCancelQty) == 0) {
+2125:                         try {
+2126:                             resp= dispatcher.runSync("deleteOrderItemShipGroupAssoc", localCtx);
+2127:                             if (ServiceUtil.isError(resp)) {
+2128:                                 return ServiceUtil.returnError(ServiceUtil.getErrorMessage(resp));
+2129:                             }
+2130:                         } catch (GenericServiceException e) {
+2131:                             Debug.logError(e, module);
+2132:                             return ServiceUtil.returnError(e.getMessage());
+2133:                         }
+2134:                     }
+2135: 
+2136:                     String reasonEnumId = null;
+2137:                     if (UtilValidate.isNotEmpty(itemReasonMap)) {
+2138:                         reasonEnumId = itemReasonMap.get(orderItem.getString("orderItemSeqId"));
+2139:                     }
+2140: 
+2141:                     //  create order item change record
+2142:                     if (!"Y".equals(orderItem.getString("isPromo"))) {
+2143:                         String changeComments = null;
+2144:                         if (UtilValidate.isNotEmpty(itemCommentMap)) {
+2145:                             changeComments = itemCommentMap.get(orderItem.getString("orderItemSeqId"));
+2146:                         }
+2147: 
+2148:                         Map<String, Object> serviceCtx = new HashMap<>();
+2149:                         serviceCtx.put("orderId", orderItem.getString("orderId"));
+2150:                         serviceCtx.put("orderItemSeqId", orderItem.getString("orderItemSeqId"));
+2151:                         serviceCtx.put("cancelQuantity", thisCancelQty);
+2152:                         serviceCtx.put("changeTypeEnumId", "ODR_ITM_CANCEL");
+2153:                         serviceCtx.put("reasonEnumId", reasonEnumId);
+2154:                         serviceCtx.put("changeComments", changeComments);
+2155:                         serviceCtx.put("userLogin", userLogin);
+2156:                         try {
+2157:                             resp = dispatcher.runSync("createOrderItemChange", serviceCtx);
+2158:                             if (ServiceUtil.isError(resp)) {
+2159:                                 return ServiceUtil.returnError(ServiceUtil.getErrorMessage(resp));
+2160:                             }
+2161:                         } catch (GenericServiceException e) {
+2162:                             Debug.logError(e, module);
+2163:                             return ServiceUtil.returnError(e.getMessage());
+2164:                         }
+2165:                     }
+2166: 
+2167:                     // log an order note
+2168:                     try {
+2169:                         BigDecimal quantity = thisCancelQty.setScale(1, orderRounding);
+2170:                         String cancelledItemToOrder = UtilProperties.getMessage(resource, "OrderCancelledItemToOrder", locale);
+2171:                         resp = dispatcher.runSync("createOrderNote", UtilMisc.<String, Object>toMap("orderId", orderId, "note", cancelledItemToOrder +
+2172:                                 orderItem.getString("productId") + " (" + quantity + ")", "internalNote", "Y", "userLogin", userLogin));
+2173:                         if (ServiceUtil.isError(resp)) {
+2174:                             return ServiceUtil.returnError(ServiceUtil.getErrorMessage(resp));
+2175:                         }
+2176:                     } catch (GenericServiceException e) {
+2177:                         Debug.logError(e, module);
+2178:                     }
+2179: 
+2180:                     if (thisCancelQty.compareTo(itemQuantity) >= 0) {
+2181:                         if ("ITEM_COMPLETED".equals(itemStatus) && "SALES_ORDER".equals(orh.getOrderTypeId())) {
+2182:                             //If partial item shipped then release remaining inventory of SO item and marked SO item as completed.
+2183:                             Map<String, Object> cancelOrderItemInvResCtx = UtilMisc.toMap("orderId", orderId, "orderItemSeqId", orderItem.getString("orderItemSeqId"), "shipGroupSeqId",
+2184:                                     shipGroupSeqId, "cancelQuantity", thisCancelQty, "userLogin", userLogin);
+2185:                             try {
+2186:                                 dispatcher.runSyncIgnore("cancelOrderItemInvResQty", cancelOrderItemInvResCtx);
+2187:                             } catch (GenericServiceException e) {
+2188:                                 Debug.logError(e, module);
+2189:                                 return ServiceUtil.returnError(UtilProperties.getMessage(resource_error,"OrderUnableToUpdateInventoryReservations", UtilMisc.toMap("itemMsgInfo",itemMsgInfo), locale));
+2190:                             }
+2191:                         }
+2192:                         // all items are cancelled -- mark the item as cancelled
+2193:                         Map<String, Object> statusCtx = UtilMisc.<String, Object>toMap("orderId", orderId, "orderItemSeqId", orderItem.getString("orderItemSeqId"), "statusId", itemStatus, "changeReason", reasonEnumId, "userLogin", userLogin);
+2194:                         try {
+2195:                             dispatcher.runSyncIgnore("changeOrderItemStatus", statusCtx);
+2196:                         } catch (GenericServiceException e) {
+2197:                             Debug.logError(e, module);
+2198:                             return ServiceUtil.returnError(UtilProperties.getMessage(resource_error,
+2199:                                     "OrderUnableToCancelOrderLine", UtilMisc.toMap("itemMsgInfo",itemMsgInfo), locale));
+2200:                         }
+2201:                     } else {
+2202:                         // reverse the inventory reservation
+2203:                         Map<String, Object> invCtx = UtilMisc.<String, Object>toMap("orderId", orderId, "orderItemSeqId", orderItem.getString("orderItemSeqId"), "shipGroupSeqId",
+2204:                                 shipGroupSeqId, "cancelQuantity", thisCancelQty, "userLogin", userLogin);
+2205:                         try {
+2206:                             dispatcher.runSyncIgnore("cancelOrderItemInvResQty", invCtx);
+2207:                         } catch (GenericServiceException e) {
+2208:                             Debug.logError(e, module);
+2209:                             return ServiceUtil.returnError(UtilProperties.getMessage(resource_error,
+2210:                                     "OrderUnableToUpdateInventoryReservations", UtilMisc.toMap("itemMsgInfo",itemMsgInfo), locale));
+2211:                         }
+2212:                     }
+2213:                 } else {
+2214:                     return ServiceUtil.returnError(UtilProperties.getMessage(resource_error,
+2215:                             "OrderInvalidCancelQuantityCannotCancel", UtilMisc.toMap("thisCancelQty",thisCancelQty), locale));
+2216:                 }
+2217:             }
+2218:         } else {
+2219:             return ServiceUtil.returnError(UtilProperties.getMessage(resource_error,
+2220:                     "OrderErrorCannotCancelItemItemNotFound", UtilMisc.toMap("itemMsgInfo",itemMsgInfo), locale));
+2221:         }
+2222: 
+2223:         return ServiceUtil.returnSuccess();
+2224:     }
+
+---
+파일: applications/order/servicedef/secas.xml
+범위: 23~158행
+원본: https://github.com/apache/ofbiz-framework/blob/e7b7ae0eaa4561a2357b198e21cc8ca63ffac105/applications/order/servicedef/secas.xml#L23-L158
+
+23:     <!-- order item status changes -->
+24:     <eca service="storeOrder" event="return">
+25:         <action service="resetGrandTotal" mode="sync"/>
+26:         <action service="addSuggestionsToShoppingList" mode="async" persist="true"/>
+27:     </eca>
+28:     <eca service="storeOrder" event="return">
+29:         <condition field-name="orderTypeId" operator="equals" value="SALES_ORDER"/>
+30:         <action service="checkCreateDropShipPurchaseOrders" mode="sync" run-as-user="system"/>
+31:     </eca>
+32:     <eca service="storeOrder" event="return">
+33:         <action service="balanceOrderItemsWithNegativeReservations" mode="sync"/>
+34:     </eca>
+35: 
+36:     <eca service="storeOrder" event="return">
+37:         <condition field-name="orderTypeId" operator="equals" value="PURCHASE_ORDER"/>
+38:         <action service="setUnitPriceAsLastPrice" mode="sync"/>
+39:     </eca>
+40: 
+41:     <eca service="storeOrder" event="return">
+42:         <action service="setOrderReservationPriority" mode="sync"/>
+43:     </eca>
+44: 
+45:     <eca service="updateOrderItems" event="commit">
+46:         <condition field-name="orderTypeId" operator="equals" value="PURCHASE_ORDER"/>
+47:         <action service="setUnitPriceAsLastPrice" mode="sync"/>
+48:     </eca>
+49: 
+50:     <eca service="receiveInventoryProduct" event="commit">
+51:         <condition field-name="facilityId" operator="is-not-empty"/>
+52:         <action service="addProductsBackToCategory" mode="sync"/>
+53:         <action service="setUnitPriceAsLastPrice" mode="sync"/>
+54:     </eca>
+55:     <eca service="receiveInventoryProduct" event="commit">
+56:         <condition field-name="facilityId" operator="is-not-empty"/>
+57:         <condition field-name="orderId" operator="is-not-empty"/>
+58:         <action service="addProductsBackToCategory" mode="sync"/>
+59:     </eca>
+60:     <eca service="changeOrderItemStatus" event="commit">
+61:         <condition field-name="statusId" operator="equals" value="ITEM_CANCELLED"/>
+62:         <action service="cancelOrderInventoryReservation" mode="sync"/>
+63:         <action service="cancleOrderItemGroupOrder" mode="sync"/>
+64:         <action service="recalcShippingTotal" mode="sync"/>
+65:         <action service="recalcTaxTotal" mode="sync"/>
+66:         <action service="resetGrandTotal" mode="sync"/>
+67:         <action service="checkOrderItemStatus" mode="sync"/>
+68:     </eca>
+69:     <eca service="changeOrderItemStatus" event="commit">
+70:         <condition field-name="statusId" operator="equals" value="ITEM_COMPLETED"/>
+71:         <action service="checkOrderItemStatus" mode="sync"/>
+72:     </eca>
+73:     <eca service="changeOrderItemStatus" event="commit">
+74:         <condition field-name="statusId" operator="equals" value="ITEM_APPROVED"/>
+75:         <action service="checkOrderItemStatus" mode="sync"/>
+76:     </eca>
+77:     <eca service="changeOrderItemStatus" event="commit">
+78:         <condition field-name="statusId" operator="equals" value="ITEM_APPROVED"/>
+79:         <action service="checkDigitalItemFulfillment" mode="sync"/>
+80:     </eca>
+81:     <eca service="changeOrderItemStatus" event="commit">
+82:         <condition field-name="statusId" operator="equals" value="ITEM_APPROVED"/>
+83:         <action service="invoiceServiceItems" mode="sync"/>
+84:     </eca>
+85:     <!-- order status changes -->
+86:     <eca service="changeOrderStatus" event="commit" run-on-error="false">
+87:         <condition field-name="statusId" operator="equals" value="ORDER_CANCELLED"/>
+88:         <action service="releaseOrderPayments" mode="sync"/>
+89:         <action service="processRefundReturnForReplacement" mode="sync"/>
+90:     </eca>
+91:     <eca service="changeOrderStatus" event="global-commit-post-run" run-on-error="false">
+92:         <condition field-name="statusId" operator="equals" value="ORDER_COMPLETED"/>
+93:         <condition-field field-name="statusId" operator="not-equals" to-field-name="oldStatusId"/>
+94:         <action service="createInvoiceFromOrder" mode="sync"/>
+95:         <action service="resetGrandTotal" mode="sync"/>
+96:         <action service="sendOrderCompleteNotification" mode="async" persist="true"/>
+97:         <action service="createReturnItemForRental" mode="sync"/>
+98:     </eca>
+99:     
+100:     <!-- create payment from purchase order when approved (can be disabled by accounting config)-->
+101:     <eca service="changeOrderStatus" event="commit" run-on-error="false">
+102:         <condition field-name="orderTypeId" operator="equals" value="PURCHASE_ORDER"/>
+103:         <condition field-name="statusId" operator="equals" value="ORDER_APPROVED"/>
+104:         <condition-field field-name="statusId" operator="not-equals" to-field-name="oldStatusId"/>
+105:         <action service="createPaymentFromOrder" mode="sync" persist="true"/>
+106:     </eca>
+107: 
+108:     <!-- create payment from sales order when completed and not created yet (can be disabled by accounting config) -->
+109:     <eca service="changeOrderStatus" event="commit" run-on-error="false">
+110:         <condition field-name="orderTypeId" operator="equals" value="SALES_ORDER"/>
+111:         <condition field-name="statusId" operator="equals" value="ORDER_COMPLETED"/>
+112:         <condition-field field-name="statusId" operator="not-equals" to-field-name="oldStatusId"/>
+113:         <action service="createPaymentFromOrder" mode="sync" persist="true"/>
+114:     </eca>
+115: 
+116:     <!-- DISABLED FOR NOW
+117:     <eca service="changeOrderStatus" event="commit" run-on-error="false">
+118:         <condition field-name="statusId" operator="equals" value="ORDER_PROCESSING"/>
+119:         <action service="processOrderWf" mode="async" persist="true"/>
+120:     </eca>
+121:     -->
+122: 
+123:     <!-- This ECA is for content usage subscriptions -->
+124:     <eca service="changeOrderStatus" event="commit" run-on-error="false">
+125:         <condition field-name="statusId" operator="equals" value="ORDER_APPROVED"/>
+126:         <condition field-name="orderTypeId" operator="equals" value="SALES_ORDER"/>
+127:         <condition-field field-name="statusId" operator="not-equals" to-field-name="oldStatusId"/>
+128:         <action service="updateContentSubscriptionByOrder" mode="sync"/>
+129:         <action service="processExtendSubscriptionByOrder" mode="sync"/>
+130:     </eca>
+131: 
+132:     <!-- order adjustments -->
+133:     <eca service="createOrderAdjustment" event="commit">
+134:         <action service="resetGrandTotal" mode="sync"/>
+135:     </eca>
+136:     <eca service="updateOrderAdjustment" event="commit">
+137:         <action service="resetGrandTotal" mode="sync"/>
+138:     </eca>
+139:     <eca service="deleteOrderAdjustment" event="commit">
+140:         <action service="resetGrandTotal" mode="sync"/>
+141:     </eca>
+142: 
+143:     <!-- edit/add order items -->
+144:     <eca service="updateOrderItems" event="commit">
+145:         <action service="resetGrandTotal" mode="sync"/>
+146:         <action service="sendOrderChangeNotification" mode="async" persist="true"/>
+147:     </eca>
+148:     <eca service="appendOrderItem" event="commit">
+149:         <action service="resetGrandTotal" mode="sync"/>
+150:     </eca>
+151: 
+152:     <!-- cancel order items -->
+153:     <eca service="cancelOrderItem" event="global-commit-post-run">
+154:         <action service="recreateOrderAdjustments" mode="sync"/>
+155:         <action service="resetGrandTotal" mode="sync"/>
+156:         <action service="sendOrderChangeNotification" mode="async" persist="true"/>
+157:     </eca>
+158: 
+
+---
+파일: applications/order/src/main/java/org/apache/ofbiz/order/test/SalesOrderTest.java
+범위: 51~154행
+원본: https://github.com/apache/ofbiz-framework/blob/e7b7ae0eaa4561a2357b198e21cc8ca63ffac105/applications/order/src/main/java/org/apache/ofbiz/order/test/SalesOrderTest.java#L51-L154
+
+51:     public void testCreateSalesOrder() throws Exception {
+52:         Map<String, Object> ctx = UtilMisc.<String, Object>toMap("partyId", "DemoCustomer", "orderTypeId", "SALES_ORDER", "currencyUom", "USD", "productStoreId", "9000");
+53: 
+54:         List<GenericValue> orderPaymentInfo = new LinkedList<>();
+55:         GenericValue orderContactMech = delegator.makeValue("OrderContactMech", UtilMisc.toMap("contactMechId", "9015", "contactMechPurposeTypeId", "BILLING_LOCATION"));
+56:         orderPaymentInfo.add(orderContactMech);
+57: 
+58:         GenericValue orderPaymentPreference = delegator.makeValue("OrderPaymentPreference", UtilMisc.toMap("paymentMethodId", "9015", "paymentMethodTypeId", "CREDIT_CARD",
+59:                 "statusId", "PAYMENT_NOT_AUTH", "overflowFlag", "N", "maxAmount", new BigDecimal("49.26")));
+60:         orderPaymentInfo.add(orderPaymentPreference);
+61:         ctx.put("orderPaymentInfo", orderPaymentInfo);
+62: 
+63:         List<GenericValue> orderItemShipGroupInfo = new LinkedList<>();
+64:         orderContactMech.set("contactMechPurposeTypeId", "SHIPPING_LOCATION");
+65:         orderItemShipGroupInfo.add(orderContactMech);
+66: 
+67:         GenericValue orderItemShipGroup = delegator.makeValue("OrderItemShipGroup", UtilMisc.toMap("carrierPartyId", "UPS", "contactMechId", "9015", "isGift", "N",
+68:                 "shipGroupSeqId", "00001", "shipmentMethodTypeId", "NEXT_DAY"));
+69:         orderItemShipGroupInfo.add(orderItemShipGroup);
+70: 
+71:         GenericValue orderItemShipGroupAssoc = delegator.makeValue("OrderItemShipGroupAssoc", UtilMisc.toMap("orderItemSeqId", "00001", "quantity", BigDecimal.ONE, "shipGroupSeqId", "00001"));
+72:         orderItemShipGroupInfo.add(orderItemShipGroupAssoc);
+73: 
+74:         GenericValue orderAdjustment = null;
+75:         orderAdjustment = delegator.makeValue("OrderAdjustment", UtilMisc.toMap("orderAdjustmentTypeId", "SHIPPING_CHARGES", "shipGroupSeqId", "00001", "amount", new BigDecimal("12.45")));
+76:         orderItemShipGroupInfo.add(orderAdjustment);
+77: 
+78:         orderAdjustment = delegator.makeValue("OrderAdjustment", UtilMisc.toMap("orderAdjustmentTypeId", "SALES_TAX", "orderItemSeqId", "00001", "overrideGlAccountId", "224153",
+79:                 "primaryGeoId", "UT", "shipGroupSeqId", "00001", "sourcePercentage", BigDecimal.valueOf(4.7)));
+80:         orderAdjustment.set("taxAuthGeoId", "UT");
+81:         orderAdjustment.set("taxAuthPartyId", "UT_TAXMAN");
+82:         orderAdjustment.set("taxAuthorityRateSeqId", "9004");
+83:         orderAdjustment.set("amount", BigDecimal.valueOf(1.824));
+84:         orderAdjustment.set("comments", "Utah State Sales Tax");
+85:         orderItemShipGroupInfo.add(orderAdjustment);
+86: 
+87:         orderAdjustment = delegator.makeValue("OrderAdjustment", UtilMisc.toMap("orderAdjustmentTypeId", "SALES_TAX", "orderItemSeqId", "00001", "overrideGlAccountId", "224153",
+88:                 "primaryGeoId", "UT-UTAH", "shipGroupSeqId", "00001", "sourcePercentage", BigDecimal.valueOf(0.1)));
+89:         orderAdjustment.set("taxAuthGeoId", "UT-UTAH");
+90:         orderAdjustment.set("taxAuthPartyId", "UT_UTAH_TAXMAN");
+91:         orderAdjustment.set("taxAuthorityRateSeqId", "9005");
+92:         orderAdjustment.set("amount", BigDecimal.valueOf(0.039));
+93:         orderAdjustment.set("comments", "Utah County, Utah Sales Tax");
+94:         orderItemShipGroupInfo.add(orderAdjustment);
+95: 
+96:         orderAdjustment = delegator.makeValue("OrderAdjustment", UtilMisc.toMap("orderAdjustmentTypeId", "SALES_TAX", "orderItemSeqId", "00001", "overrideGlAccountId", "224000",
+97:                 "primaryGeoId", "_NA_", "shipGroupSeqId", "00001", "sourcePercentage", BigDecimal.valueOf(1)));
+98:         orderAdjustment.set("taxAuthGeoId", "_NA_");
+99:         orderAdjustment.set("taxAuthPartyId", "_NA_");
+100:         orderAdjustment.set("taxAuthorityRateSeqId", "9000");
+101:         orderAdjustment.set("amount", BigDecimal.valueOf(0.384));
+102:         orderAdjustment.set("comments", "1% OFB _NA_ Tax");
+103:         orderItemShipGroupInfo.add(orderAdjustment);
+104: 
+105:         ctx.put("orderItemShipGroupInfo", orderItemShipGroupInfo);
+106: 
+107:         List<GenericValue> orderAdjustments = new LinkedList<>();
+108:         orderAdjustment = delegator.makeValue("OrderAdjustment", UtilMisc.toMap("orderAdjustmentTypeId", "PROMOTION_ADJUSTMENT", "productPromoActionSeqId", "01", "productPromoId", "9011", "productPromoRuleId", "01", "amount", BigDecimal.valueOf(-3.84)));
+109:         orderAdjustments.add(orderAdjustment);
+110:         ctx.put("orderAdjustments", orderAdjustments);
+111: 
+112:         List<GenericValue> orderItems = new LinkedList<>();
+113:         GenericValue orderItem = delegator.makeValue("OrderItem", UtilMisc.toMap("orderItemSeqId", "00001", "orderItemTypeId", "PRODUCT_ORDER_ITEM", "prodCatalogId", "DemoCatalog", "productId", "GZ-2644", "quantity", BigDecimal.ONE, "selectedAmount", BigDecimal.ZERO));
+114:         orderItem.set("isPromo", "N");
+115:         orderItem.set("isModifiedPrice", "N");
+116:         orderItem.set("unitPrice", new BigDecimal("38.4"));
+117:         orderItem.set("unitListPrice", new BigDecimal("48.0"));
+118:         orderItem.set("statusId", "ITEM_CREATED");
+119:         orderItems.add(orderItem);
+120: 
+121:         orderItem = delegator.makeValue("OrderItem", UtilMisc.toMap("orderItemSeqId", "00002", "orderItemTypeId", "PRODUCT_ORDER_ITEM", "prodCatalogId", "DemoCatalog", "productId", "GZ-1006-1", "quantity", BigDecimal.ONE, "selectedAmount", BigDecimal.ZERO));
+122:         orderItem.set("isPromo", "N");
+123:         orderItem.set("isModifiedPrice", "N");
+124:         orderItem.set("unitPrice", new BigDecimal("1.99"));
+125:         orderItem.set("unitListPrice", new BigDecimal("5.99"));
+126:         orderItem.set("statusId", "ITEM_CREATED");
+127:         orderItems.add(orderItem);
+128: 
+129:         ctx.put("orderItems", orderItems);
+130: 
+131:         List<GenericValue> orderTerms = new LinkedList<>();
+132:         ctx.put("orderTerms", orderTerms);
+133: 
+134:         GenericValue OrderContactMech = delegator.makeValue("OrderContactMech");
+135:         OrderContactMech.set("contactMechPurposeTypeId", "SHIPPING_LOCATION");
+136:         OrderContactMech.set("contactMechId", "10000");
+137: 
+138:         ctx.put("placingCustomerPartyId", "DemoCustomer");
+139:         ctx.put("endUserCustomerPartyId", "DemoCustomer");
+140:         ctx.put("shipToCustomerPartyId", "DemoCustomer");
+141:         ctx.put("billToCustomerPartyId", "DemoCustomer");
+142:         ctx.put("billFromVendorPartyId", "Company");
+143: 
+144:         ctx.put("userLogin", userLogin);
+145:         Map<String, Object> resp = dispatcher.runSync("storeOrder", ctx);
+146:         if (ServiceUtil.isError(resp)) {
+147:             Debug.logError(ServiceUtil.getErrorMessage(resp), module);
+148:             return;
+149:         }
+150:         String orderId = (String) resp.get("orderId");
+151:         String statusId = (String) resp.get("statusId");
+152:         assertNotNull(orderId);
+153:         assertNotNull(statusId);
+154:     }
+
+
+
+# 추가 참고 문서
+
+## order-item-cancellation.md
+
+# 주문 항목 취소 기능 설명서
+
+- 기능 ID: ORDER-ITEM-CANCEL
+- 대상: Apache OFBiz 18.12.19
+- 기준 커밋: `e7b7ae0eaa4561a2357b198e21cc8ca63ffac105`
+- 작성·소스 확인일: 2026-10-24
+- 작성: 헬로우 휴먼
+- 확인 수준: 공개 소스 확인 완료 / 실행 검증 대기 / 업무 담당자 확인 대기
+- 연결 자료: [주문 취소 규칙 연결표](./order-item-cancellation-traceability.md)
+
+## 목적과 범위
+
+주문 항목의 취소 수량을 반영하고, 해당 경로의 재고 예약 처리와 금액·알림 후처리를 연결한다.
+
+이 설명서의 검증 초안은 판매 주문의 한 항목·한 배송 그룹을 기준으로 한다. 부분 출고, 구매 주문, 여러 배송 그룹은 별도 확인 대상으로 남긴다. 실제 운영 조직의 업무 정책은 담당자 확인이 필요하다.
+
+## 진입점과 입력
+
+- 서비스: `cancelOrderItem`
+- 구현: `org.apache.ofbiz.order.order.OrderServices.cancelOrderItem`
+- 필수 입력: `orderId`
+- 선택 입력: `orderItemSeqId`, `shipGroupSeqId`, `cancelQuantity`, `itemReasonMap`, `itemCommentMap`, `itemQtyMap`
+- 서비스 정의는 인증을 요구한다(`auth="true"`). 메서드에서는 `userLogin`과 해당 주문의 UPDATE 권한을 확인한다.
+- 한 항목·한 배송 그룹만 대상으로 할 때는 해당 식별자를 명시한다. 식별자 생략 경로는 이 검증 초안의 범위 밖이다.
+- 근거: [S1 서비스 정의](https://github.com/apache/ofbiz-framework/blob/e7b7ae0eaa4561a2357b198e21cc8ca63ffac105/applications/order/servicedef/services.xml#L278-L296), [S2 입력·권한·조회 조건](https://github.com/apache/ofbiz-framework/blob/e7b7ae0eaa4561a2357b198e21cc8ca63ffac105/applications/order/src/main/java/org/apache/ofbiz/order/order/OrderServices.java#L2000-L2047).
+
+## 처리 흐름과 규칙
+
+1. **CANCEL-01 · 권한:** 주문 UPDATE 권한이 없으면 오류를 반환한다. [근거](https://github.com/apache/ofbiz-framework/blob/e7b7ae0eaa4561a2357b198e21cc8ca63ffac105/applications/order/src/main/java/org/apache/ofbiz/order/order/OrderServices.java#L2023-L2030)
+2. **CANCEL-02 · 수량과 예약:** 주문 항목 `OrderItem`과 배송 그룹 연결 `OrderItemShipGroupAssoc`의 취소 수량을 누적한다. 남은 항목 수량의 일부를 취소하는 분기에서는 `cancelOrderItemInvResQty`를 호출한다. [근거](https://github.com/apache/ofbiz-framework/blob/e7b7ae0eaa4561a2357b198e21cc8ca63ffac105/applications/order/src/main/java/org/apache/ofbiz/order/order/OrderServices.java#L2065-L2215)
+3. **CANCEL-03 · 금액과 알림:** 서비스의 `global-commit-post-run` 이벤트에 `recreateOrderAdjustments`, `resetGrandTotal`, `sendOrderChangeNotification`이 연결돼 있다. 알림은 비동기·영속 작업으로 설정돼 있다. [S3 후처리 설정](https://github.com/apache/ofbiz-framework/blob/e7b7ae0eaa4561a2357b198e21cc8ca63ffac105/applications/order/servicedef/secas.xml#L152-L157)
+4. **CANCEL-04 · 서비스별 차이:** `cancelOrderItemNoActions`도 같은 Java 메서드를 사용하지만, 이 서비스에는 위 취소 서비스의 ECA 후처리가 붙지 않는다. 내부에서 호출하는 다른 서비스의 부수 효과까지 없다는 뜻은 아니다. [S1 서비스 정의](https://github.com/apache/ofbiz-framework/blob/e7b7ae0eaa4561a2357b198e21cc8ca63ffac105/applications/order/servicedef/services.xml#L278-L296)
+
+메서드는 정상 종료 시 성공 결과를 반환하고, 권한·조회·저장 등의 오류 경로에서는 오류를 반환한다. 반환 결과만으로 비동기 알림의 실제 전달 성공을 판단할 수 없다. [메서드 끝부분](https://github.com/apache/ofbiz-framework/blob/e7b7ae0eaa4561a2357b198e21cc8ca63ffac105/applications/order/src/main/java/org/apache/ofbiz/order/order/OrderServices.java#L2180-L2224)
+
+## 테스트와 검증 상태
+
+- E01 · 기존 테스트: [SalesOrderTest.testCreateSalesOrder](https://github.com/apache/ofbiz-framework/blob/e7b7ae0eaa4561a2357b198e21cc8ca63ffac105/applications/order/src/main/java/org/apache/ofbiz/order/test/SalesOrderTest.java#L51-L154). `storeOrder`를 호출한 뒤 주문 ID와 상태 ID가 null이 아닌지 검사한다. 이 검사는 위 취소 규칙을 검증한 근거로 연결하지 않는다.
+- T01~T04 · 추가 테스트 초안: [규칙 연결표](./order-item-cancellation-traceability.md)에 사전 조건·확인할 결과를 정리했다. 테스트 코드·실행 결과는 아직 없다.
+- 확인한 소스의 현재 동작과 업무상 의도는 구분한다. 담당자 확인 뒤 정책 문서와 승인 기록을 연결한다.
+
+## 미확인 사항
+
+- Q01: 다른 파일에 취소 관련 테스트가 있는가? 발견하면 해당 규칙과 연결하고 중복 초안을 정리한다.
+- Q02: 부분 출고·구매 주문·여러 배송 그룹에서 상태와 예약 처리는 어떻게 달라지는가?
+- Q03: 주문 조정 금액 재생성의 세부 계산과 비동기 알림의 실패·재시도 동작은 무엇인가?
+- Q04: 현재 운영 조직의 취소 권한·금액·알림 정책과 이 버전의 구현이 일치하는가?
+
+## 다음 변경에서 사용하는 방법
+
+“부분 취소 뒤 변경 알림 조건을 바꾸려면 어디를 확인해야 하는가?”라는 질문에는 CANCEL-03에서 S3 설정과 T03을 찾고, CANCEL-04에서 호출 서비스의 차이를 함께 확인한다. 미확인 사항을 해소해야 하는 변경이면 먼저 해당 질문을 조사한다.
+
+관련 소스가 바뀌면 기준 커밋, 연결된 규칙, 테스트 결과, 담당자의 확인 기록을 함께 갱신한다. 이 문서가 코드와 다른 버전을 가리키면 새 버전에서 근거를 다시 확인한다.
+
+
+
+## order-item-cancellation-traceability.md
+
+# 주문 항목 취소 규칙 연결표
+
+- 기능 ID: ORDER-ITEM-CANCEL
+- 대상: Apache OFBiz 18.12.19
+- 기준 커밋: `e7b7ae0eaa4561a2357b198e21cc8ca63ffac105`
+- 작성·소스 확인일: 2026-10-24
+- 작성: 헬로우 휴먼
+- 기능 설명서: [주문 항목 취소](./order-item-cancellation.md)
+- 규칙의 근거 확인: 공개 소스 확인 완료
+- 실행 검증: T01~T04 모두 초안·미실행
+- 업무 정책 확인: 담당자 확인 대기
+
+## 규칙과 근거 연결
+
+| 규칙 ID | 확인한 동작 | 소스 근거 | 연결할 테스트 | 현재 상태 |
+| --- | --- | --- | --- | --- |
+| CANCEL-01 | 주문 UPDATE 권한이 없으면 오류를 반환한다. | [S2 OrderServices.java 2023~2030행](https://github.com/apache/ofbiz-framework/blob/e7b7ae0eaa4561a2357b198e21cc8ca63ffac105/applications/order/src/main/java/org/apache/ofbiz/order/order/OrderServices.java#L2023-L2030) | T01 권한 없는 취소 요청 | 소스 확인 / 실행 대기 |
+| CANCEL-02 | 주문 항목과 배송 그룹 연결의 취소 수량을 누적하고, 일부 취소 분기에서는 재고 예약 취소 서비스를 호출한다. | [S2 OrderServices.java 2065~2215행](https://github.com/apache/ofbiz-framework/blob/e7b7ae0eaa4561a2357b198e21cc8ca63ffac105/applications/order/src/main/java/org/apache/ofbiz/order/order/OrderServices.java#L2065-L2215) | T02 미출고 수량의 부분 취소 | 소스 확인 / 실행 대기 |
+| CANCEL-03 | 일반 취소 서비스의 커밋 후 이벤트에 조정 금액 재생성·총액 갱신·비동기 알림이 연결된다. | [S3 secas.xml 152~157행](https://github.com/apache/ofbiz-framework/blob/e7b7ae0eaa4561a2357b198e21cc8ca63ffac105/applications/order/servicedef/secas.xml#L152-L157) | T03 금액·알림 후처리 | 소스 확인 / 실행 대기 |
+| CANCEL-04 | NoActions 서비스는 같은 Java 메서드를 쓰지만 위 서비스에 직접 붙는 ECA 후처리는 없다. | [S1 services.xml 278~296행](https://github.com/apache/ofbiz-framework/blob/e7b7ae0eaa4561a2357b198e21cc8ca63ffac105/applications/order/servicedef/services.xml#L278-L296), [S3](https://github.com/apache/ofbiz-framework/blob/e7b7ae0eaa4561a2357b198e21cc8ca63ffac105/applications/order/servicedef/secas.xml#L152-L157) | T04 서비스별 직접 후처리 비교 | 소스 확인 / 실행 대기 |
+
+## 추가 테스트 초안
+
+아래 ID는 이 산출물에서 붙인 검증 계획의 식별자다. 실행 가능한 테스트가 구현됐다는 의미는 아니다.
+
+### T01 권한 없는 취소 요청
+
+- 연결 규칙: CANCEL-01
+- 준비: 주문이 존재하고, 호출 사용자에게 해당 주문 UPDATE 권한이 없는 조건을 구성한다.
+- 실행할 요청: 해당 주문의 항목·배송 그룹을 지정해 `cancelOrderItem` 호출.
+- 확인할 결과: 권한 오류가 반환되고 주문·취소 수량 데이터가 바뀌지 않는다.
+- 실행 결과: 미실행.
+- 업무 담당자 확인: 대기.
+
+### T02 미출고 수량의 부분 취소
+
+- 연결 규칙: CANCEL-02
+- 준비: 판매 주문의 한 항목·한 배송 그룹. 주문 수량 2, 기취소 0, 출고 0, 재고 예약 2, UPDATE 권한 있음.
+- 실행할 요청: `cancelQuantity=1`로 `cancelOrderItem` 호출.
+- 확인할 결과: OrderItem과 OrderItemShipGroupAssoc의 cancelQuantity가 각각 1이 되는지, 예약 취소 서비스 호출과 실제 예약 수량 변화를 확인한다. 예약 수량 1을 기대값 후보로 두고 연결 서비스까지 추적·검증한다.
+- 실행 결과: 미실행.
+- 업무 담당자 확인: 대기.
+
+### T03 금액·알림 후처리
+
+- 연결 규칙: CANCEL-03
+- 준비: T02와 같은 정상 취소 조건, 금액을 비교할 기준 데이터, 외부로 실제 알림을 보내지 않는 테스트 환경.
+- 실행할 요청: 일반 `cancelOrderItem` 서비스를 호출하고 트랜잭션을 정상 완료한다.
+- 확인할 결과: `recreateOrderAdjustments`와 `resetGrandTotal`의 호출·처리 결과, 변경 알림 작업 등록을 확인한다. 구체적 금액 기대값은 계산 규칙을 더 추적해 확정한다.
+- 범위: 알림 작업 등록과 실제 전달 성공은 별도 검증 항목이다.
+- 실행 결과: 미실행.
+- 업무 담당자 확인: 대기.
+
+### T04 서비스별 직접 후처리 비교
+
+- 연결 규칙: CANCEL-04
+- 준비: 같은 초기 데이터와 입력으로 일반 취소 서비스와 NoActions 서비스를 각각 실행할 수 있게 한다.
+- 실행할 요청: `cancelOrderItem`과 `cancelOrderItemNoActions`를 별도 초기 상태에서 호출한다.
+- 확인할 결과: 같은 Java 메서드로 이어지는지, 일반 취소 서비스에 직접 연결된 S3 후처리의 실행 여부가 서비스별로 다른지 확인한다.
+- 범위: Java 내부의 서비스 호출이나 그 서비스의 후처리까지 사라진다고 가정하지 않는다.
+- 실행 결과: 미실행.
+- 업무 담당자 확인: 대기.
+
+## 기존 테스트를 연결할 때
+
+E01은 [SalesOrderTest.testCreateSalesOrder](https://github.com/apache/ofbiz-framework/blob/e7b7ae0eaa4561a2357b198e21cc8ca63ffac105/applications/order/src/main/java/org/apache/ofbiz/order/test/SalesOrderTest.java#L51-L154)다. 이 파일에서 확인한 검사는 주문 생성 뒤 주문 ID·상태 ID의 존재 여부다. 취소 규칙의 통과 근거로 쓰지 않는다. 다른 취소 테스트를 찾으면 실제 검증 내용을 읽고 해당 CANCEL ID에 연결한다.
+
+## 갱신 기준
+
+코드·서비스 정의·후처리 설정이 바뀌면 영향을 받는 CANCEL ID를 찾아 기능 설명서, 테스트 코드·실행 결과, 담당자 확인을 갱신한다. 소스 확인·실행 확인·업무 정책 확인의 상태를 각각 기록한다.
+

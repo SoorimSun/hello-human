@@ -1,0 +1,202 @@
+{
+  "questions": [
+    {
+      "id": "Q1",
+      "title": "취소 수량 입력의 우선순위",
+      "text": "취소 요청에 cancelQuantity와 itemQtyMap이 함께 들어오거나, 맵에 해당 키가 없으면 어떤 수량을 쓰나요? 입력 키 형태와 선택 순서를 코드 근거로 설명해주세요.",
+      "criteria": [
+        {
+          "id": "Q1-1",
+          "fact": "cancelQuantity가 non-null이면 우선 사용하고 itemQtyMap으로 덮어쓰지 않는다.",
+          "lines": "2013~2016, 2097~2102"
+        },
+        {
+          "id": "Q1-2",
+          "fact": "cancelQuantity가 null일 때만 itemQtyMap의 orderItemSeqId+\":\"+shipGroupSeqId 키의 비어 있지 않은 값을 BigDecimal로 사용한다.",
+          "lines": "2013~2016"
+        },
+        {
+          "id": "Q1-3",
+          "fact": "맵으로도 채워지지 않으면 기취소와 출고/입고 수량을 뺀 itemQuantity를 thisCancelQty로 사용한다.",
+          "lines": "2071~2094, 2097~2102"
+        }
+      ],
+      "notInDocs": "두 문서는 선택 입력 이름만 나열하며, 스칼라·맵의 우선순위와 키 조합·누락 시 선택 규칙은 설명하지 않는다."
+    },
+    {
+      "id": "Q2",
+      "title": "증정품 취소 이력과 메모 오류",
+      "text": "증정품(isPromo='Y')을 취소했는데 품목 변경 이력은 없고 주문 메모만 남을 수 있나요? 메모 저장 서비스가 오류 응답을 돌려주는 경우와 예외를 던지는 경우도 같은 방식으로 처리되는지 설명해주세요.",
+      "criteria": [
+        {
+          "id": "Q2-1",
+          "fact": "isPromo=Y이면 이 메서드의 createOrderItemChange 호출은 건너뛰며, createOrderNote는 그 조건문 밖에서 호출한다.",
+          "lines": "2141~2165, 2167~2172"
+        },
+        {
+          "id": "Q2-2",
+          "fact": "createOrderNote 반환값이 ServiceUtil.isError이면 즉시 오류 반환한다.",
+          "lines": "2173~2174"
+        },
+        {
+          "id": "Q2-3",
+          "fact": "createOrderNote 호출이 GenericServiceException을 던지면 로그만 남기고 이후 상태·예약 처리로 진행한다. 이후 처리의 성공까지 보장하지 않는다.",
+          "lines": "2176~2180"
+        }
+      ],
+      "notInDocs": "두 문서에 isPromo, createOrderItemChange, createOrderNote와 오류 응답·예외 처리 차이가 없다."
+    },
+    {
+      "id": "Q3",
+      "title": "부분 출고 뒤 잔량 취소",
+      "text": "판매 주문의 한 항목·한 배송 그룹에서 주문 수량 5, 기취소 0, 이미 출고한 수량 2이고, 남은 3개를 취소합니다. 배송 그룹 연결 수량도 5이고 기취소는 0입니다. 이 메서드가 요청하는 품목 상태와 재고 예약 처리, 배송 그룹 연결 삭제 여부는 어떻게 되나요? 권한과 조회·하위 호출은 정상이라고 가정하고 설명해주세요.",
+      "criteria": [
+        {
+          "id": "Q3-1",
+          "fact": "itemQuantity=5-0-2=3이며 출고 수량>0이므로 요청 상태는 ITEM_COMPLETED이다. ITEM_CANCELLED가 아니다.",
+          "lines": "2071~2075,2089~2094,2180~2195"
+        },
+        {
+          "id": "Q3-2",
+          "fact": "thisCancelQty=3>=itemQuantity=3이고 판매 주문·ITEM_COMPLETED 조건이므로 cancelOrderItemInvResQty를 취소 수량 3으로 호출한 뒤 changeOrderItemStatus를 호출한다.",
+          "lines": "2180~2195"
+        },
+        {
+          "id": "Q3-3",
+          "fact": "배송 그룹 availableQuantity=5-0=5와 취소 수량3은 같지 않아 deleteOrderItemShipGroupAssoc를 호출하지 않는다.",
+          "lines": "2065~2069,2124~2134"
+        }
+      ],
+      "notInDocs": "부분 출고는 문서 Q02에서 미확인 대상으로 남겨져 있다. 수치 계산, ITEM_COMPLETED 분기, 그룹 삭제 비교식의 답은 없다."
+    }
+  ],
+  "rows": [
+    {
+      "question": "Q2",
+      "condition": "A",
+      "repetition": 3,
+      "id": "R01",
+      "batch": 1
+    },
+    {
+      "question": "Q3",
+      "condition": "A",
+      "repetition": 3,
+      "id": "R02",
+      "batch": 1
+    },
+    {
+      "question": "Q1",
+      "condition": "A",
+      "repetition": 3,
+      "id": "R03",
+      "batch": 1
+    },
+    {
+      "question": "Q3",
+      "condition": "B",
+      "repetition": 1,
+      "id": "R04",
+      "batch": 2
+    },
+    {
+      "question": "Q2",
+      "condition": "B",
+      "repetition": 2,
+      "id": "R05",
+      "batch": 2
+    },
+    {
+      "question": "Q1",
+      "condition": "B",
+      "repetition": 1,
+      "id": "R06",
+      "batch": 2
+    },
+    {
+      "question": "Q2",
+      "condition": "A",
+      "repetition": 1,
+      "id": "R07",
+      "batch": 3
+    },
+    {
+      "question": "Q1",
+      "condition": "A",
+      "repetition": 2,
+      "id": "R08",
+      "batch": 3
+    },
+    {
+      "question": "Q1",
+      "condition": "A",
+      "repetition": 1,
+      "id": "R09",
+      "batch": 3
+    },
+    {
+      "question": "Q3",
+      "condition": "B",
+      "repetition": 3,
+      "id": "R10",
+      "batch": 4
+    },
+    {
+      "question": "Q3",
+      "condition": "A",
+      "repetition": 1,
+      "id": "R11",
+      "batch": 4
+    },
+    {
+      "question": "Q1",
+      "condition": "B",
+      "repetition": 3,
+      "id": "R12",
+      "batch": 4
+    },
+    {
+      "question": "Q3",
+      "condition": "B",
+      "repetition": 2,
+      "id": "R13",
+      "batch": 5
+    },
+    {
+      "question": "Q2",
+      "condition": "B",
+      "repetition": 3,
+      "id": "R14",
+      "batch": 5
+    },
+    {
+      "question": "Q3",
+      "condition": "A",
+      "repetition": 2,
+      "id": "R15",
+      "batch": 5
+    },
+    {
+      "question": "Q2",
+      "condition": "B",
+      "repetition": 1,
+      "id": "R16",
+      "batch": 6
+    },
+    {
+      "question": "Q1",
+      "condition": "B",
+      "repetition": 2,
+      "id": "R17",
+      "batch": 6
+    },
+    {
+      "question": "Q2",
+      "condition": "A",
+      "repetition": 2,
+      "id": "R18",
+      "batch": 6
+    }
+  ],
+  "seed": 20261024
+}
