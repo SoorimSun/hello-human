@@ -42,6 +42,21 @@
 .news-access-compute .cost-formula > div { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 7px 14px; padding-bottom: 15px; border-bottom: 2px solid var(--ink); font-size: 16px; font-weight: 700; }
 .news-access-compute .cost-formula b { color: var(--accent); font-size: 24px; }
 .news-access-compute .cost-formula p { margin: 14px 0 0; font-size: 17px; font-weight: 700; }
+.news-access-compute .cost-answer { margin: 20px 0 0; text-align: center; font-size: 17px; }
+.news-access-compute .cost-answer strong { color: var(--accent); font-size: 24px; }
+.news-access-compute .experiment-note { margin: 24px 0; padding: 22px 24px; background: var(--surface); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; }
+.news-access-compute .experiment-note .experiment-label { margin: 0 0 12px; color: var(--muted); font-size: 13px; font-weight: 600; }
+.news-access-compute .experiment-note blockquote { margin: 0; padding: 0; border: 0; background: none; font-size: 17px; line-height: 1.85; }
+.news-access-compute .experiment-result ul { margin: 0; padding: 0; list-style: none; }
+.news-access-compute .experiment-result li { padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 15px; line-height: 1.8; }
+.news-access-compute .experiment-result li strong { display: inline-block; min-width: 24px; }
+.news-access-compute .experiment-result > p:last-child { margin: 16px 0 0; font-size: 15px; }
+.news-access-compute .example-price { white-space: nowrap; font-weight: 400; }
+.news-access-compute .access-details { margin: 20px 0; padding: 0 18px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.news-access-compute .access-details summary { padding: 18px 0; font-size: 16px; font-weight: 600; line-height: 1.7; cursor: pointer; }
+.news-access-compute .access-details[open] summary { margin-bottom: 16px; border-bottom: 1px solid var(--line); }
+.news-access-compute .access-details p { font-size: 15px; line-height: 1.9; }
+.news-access-compute .access-details summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 .news-access-compute .access-table-wrap { margin: 25px 0; overflow-x: auto; }
 .news-access-compute .access-table { width: 100%; border-collapse: collapse; font-size: 14px; }
 .news-access-compute .access-table caption { text-align: left; font-weight: 700; margin-bottom: 12px; }
@@ -63,6 +78,7 @@
   .news-access-compute .policy-figure { padding: 16px; }
   .news-access-compute .cost-formula { padding: 5px 0; }
   .news-access-compute .cost-formula > div { flex-direction: column; }
+  .news-access-compute .experiment-note { padding: 18px; }
   .news-access-compute .access-table th, .news-access-compute .access-table td { padding: 10px 8px; }
 }
 @media (max-width: 380px) {
