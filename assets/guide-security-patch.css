@@ -1,0 +1,46 @@
+/* 서버 보안 패치 가이드: 확인 대상과 완료 증거를 함께 읽는 점검지 */
+.patch-header h1 { max-width: 980px; font-size: clamp(36px, 5.7vw, 64px); line-height: 1.2; }
+.patch-cover { margin: 32px 0 0; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+.patch-cover figcaption { padding: 17px 23px; border-bottom: 1px solid var(--line); font-size: 14px; font-weight: 700; }
+.patch-layers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.patch-layers > div { padding: 23px; min-width: 0; }
+.patch-layers > div + div { border-left: 1px solid var(--line); }
+.patch-layers small { display: block; color: var(--muted); font-family: var(--mono); font-size: 12px; }
+.patch-layers strong { display: block; margin: 10px 0; font-size: 24px; }
+.patch-layers p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
+.patch-cover > p { margin: 0; padding: 18px 23px; background: var(--accent-soft); color: var(--accent); font-size: 16px; font-weight: 650; }
+.patch-shortcuts { display: flex; flex-wrap: wrap; gap: 12px 23px; margin-top: 20px; font-size: 14px; }
+.patch-note { padding: 21px 24px; margin: 26px 0; border-left: 3px solid var(--accent); background: var(--surface-2); }
+.patch-note > strong { display: block; margin-bottom: 7px; }
+.patch-note p:last-child { margin-bottom: 0; }
+.patch-story .patch-small { color: var(--muted); font-size: 14px; }
+.patch-story .patch-origin { color: var(--accent); font-size: 13px; font-weight: 700; margin-bottom: 11px; }
+.patch-story tbody th { background: transparent; }
+/* CVE 식별자가 좁은 표 열에서 갈라져 읽히지 않도록 유지한다. */
+.patch-story th code { white-space: nowrap; }
+.patch-story .patch-versions table { min-width: 460px; }
+.patch-extra { margin: 25px 0; padding: 19px 21px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface); }
+.patch-extra summary { cursor: pointer; font-weight: 700; font-size: 16px; }
+.patch-extra[open] summary { margin-bottom: 20px; }
+.patch-extra > :last-child { margin-bottom: 0; }
+.patch-template pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+.patch-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 17px; font-size: 14px; }
+.patch-tools button { padding: 10px 16px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); color: var(--ink); font: inherit; font-weight: 650; cursor: pointer; }
+.patch-tools button:hover { border-color: var(--accent); }
+.patch-tools button:disabled { cursor: default; opacity: .5; }
+.patch-tools [role="status"] { color: var(--muted); font-size: 13px; }
+.patch-download { display: block; padding: 19px 0; border-top: 1px solid var(--line); }
+.patch-download strong, .patch-download span { display: block; }
+.patch-download span { color: var(--muted); font-size: 14px; }
+.patch-story :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+@media (max-width: 620px) {
+  .patch-layers { grid-template-columns: 1fr; }
+  .patch-layers > div { padding: 18px 21px; }
+  .patch-layers > div + div { border-left: 0; border-top: 1px solid var(--line); }
+  .patch-layers strong { font-size: 21px; margin: 5px 0; }
+  .patch-note, .patch-extra { padding: 18px; }
+}
+@media (max-width: 520px) {
+  /* 가로 스크롤 막대가 표 아래에 가려져도 넘길 수 있음을 먼저 알린다. */
+  .patch-story .guide-table-scroll::before { content: '← 표를 좌우로 밀어 확인하세요 →'; display: block; position: sticky; left: 0; padding: 10px 12px; background: var(--surface-2); color: var(--muted); font-size: 12px; text-align: center; }
+}

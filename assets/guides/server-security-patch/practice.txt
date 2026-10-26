@@ -1,0 +1,17 @@
+아래는 실제 운영 기록이 아닌 가상 자료입니다.
+확인 기준일: 2026-10-26
+
+[서비스 A / 외부 자료 수집 워커]
+서비스 시작 로그: Node.js 24.22.0
+외부 Brotli 데이터를 node:zlib로 해제함
+관리자 셸의 node -v: v24.22.1
+업데이트 뒤 워커 재시작 여부: 자료 없음
+
+[서비스 B / 주문 API]
+실행 중 JVM: Oracle JDK 17.0.21.0.2
+사용자 지정 truststore 사용 여부: 자료 없음
+앱의 runtime 의존성: tomcat-embed-core 10.1.60
+Tomcat HTTP/2 사용: 확인됨
+비동기 Servlet 사용: 확인됨
+JNDIRealm 설정: 자료 없음
+배포 후 로그인·HTTPS 연동 테스트: 미실시
