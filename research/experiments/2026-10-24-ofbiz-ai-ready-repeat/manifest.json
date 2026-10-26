@@ -1,0 +1,195 @@
+{
+  "sourceSha256": "816a028854bec1226ccc8dd32b4b07069be7eea72fd9536cb895fd2968ba9990",
+  "documentHashes": [
+    {
+      "file": "order-item-cancellation.md",
+      "sha256": "ee11d883a9b1e8ac0508b218adff7748b529a592671a5640c9d70a87ef6f4649"
+    },
+    {
+      "file": "order-item-cancellation-traceability.md",
+      "sha256": "cf1bef66e4458495040a98db228d71fd42e5f354b0c6622130f672e3a246aa05"
+    }
+  ],
+  "runs": [
+    {
+      "question": "Q2",
+      "condition": "A",
+      "repetition": 3,
+      "id": "R01",
+      "batch": 1,
+      "input": "R01-input.txt",
+      "sha256": "c331a48c7c73de872e66137ad3e4ebf40f7a1962430a3f196ce611a23a865be5",
+      "characters": 32700
+    },
+    {
+      "question": "Q3",
+      "condition": "A",
+      "repetition": 3,
+      "id": "R02",
+      "batch": 1,
+      "input": "R02-input.txt",
+      "sha256": "ef32562368166d62062bd0f4a80428331c1c31be80817ac7e355967a215bb048",
+      "characters": 32767
+    },
+    {
+      "question": "Q1",
+      "condition": "A",
+      "repetition": 3,
+      "id": "R03",
+      "batch": 1,
+      "input": "R03-input.txt",
+      "sha256": "1249b4a50d686b862b5dcbd3ede38db28bed90024dc469b2ae874c10b956f2dc",
+      "characters": 32686
+    },
+    {
+      "question": "Q3",
+      "condition": "B",
+      "repetition": 1,
+      "id": "R04",
+      "batch": 2,
+      "input": "R04-input.txt",
+      "sha256": "2ac0129ff73cacc7983926f01e7d6ad870131b950f4faf05385fed1a2a779110",
+      "characters": 40084
+    },
+    {
+      "question": "Q2",
+      "condition": "B",
+      "repetition": 2,
+      "id": "R05",
+      "batch": 2,
+      "input": "R05-input.txt",
+      "sha256": "0c52e4fa634a4acd237050b0778c038f46100057666b8099e4d2ef844dde62a8",
+      "characters": 40017
+    },
+    {
+      "question": "Q1",
+      "condition": "B",
+      "repetition": 1,
+      "id": "R06",
+      "batch": 2,
+      "input": "R06-input.txt",
+      "sha256": "5ef81f2566ee39266902bbf5f6e1822fb1582c35d41c87e6b0e7ec76192af50d",
+      "characters": 40003
+    },
+    {
+      "question": "Q2",
+      "condition": "A",
+      "repetition": 1,
+      "id": "R07",
+      "batch": 3,
+      "input": "R07-input.txt",
+      "sha256": "c331a48c7c73de872e66137ad3e4ebf40f7a1962430a3f196ce611a23a865be5",
+      "characters": 32700
+    },
+    {
+      "question": "Q1",
+      "condition": "A",
+      "repetition": 2,
+      "id": "R08",
+      "batch": 3,
+      "input": "R08-input.txt",
+      "sha256": "1249b4a50d686b862b5dcbd3ede38db28bed90024dc469b2ae874c10b956f2dc",
+      "characters": 32686
+    },
+    {
+      "question": "Q1",
+      "condition": "A",
+      "repetition": 1,
+      "id": "R09",
+      "batch": 3,
+      "input": "R09-input.txt",
+      "sha256": "1249b4a50d686b862b5dcbd3ede38db28bed90024dc469b2ae874c10b956f2dc",
+      "characters": 32686
+    },
+    {
+      "question": "Q3",
+      "condition": "B",
+      "repetition": 3,
+      "id": "R10",
+      "batch": 4,
+      "input": "R10-input.txt",
+      "sha256": "2ac0129ff73cacc7983926f01e7d6ad870131b950f4faf05385fed1a2a779110",
+      "characters": 40084
+    },
+    {
+      "question": "Q3",
+      "condition": "A",
+      "repetition": 1,
+      "id": "R11",
+      "batch": 4,
+      "input": "R11-input.txt",
+      "sha256": "ef32562368166d62062bd0f4a80428331c1c31be80817ac7e355967a215bb048",
+      "characters": 32767
+    },
+    {
+      "question": "Q1",
+      "condition": "B",
+      "repetition": 3,
+      "id": "R12",
+      "batch": 4,
+      "input": "R12-input.txt",
+      "sha256": "5ef81f2566ee39266902bbf5f6e1822fb1582c35d41c87e6b0e7ec76192af50d",
+      "characters": 40003
+    },
+    {
+      "question": "Q3",
+      "condition": "B",
+      "repetition": 2,
+      "id": "R13",
+      "batch": 5,
+      "input": "R13-input.txt",
+      "sha256": "2ac0129ff73cacc7983926f01e7d6ad870131b950f4faf05385fed1a2a779110",
+      "characters": 40084
+    },
+    {
+      "question": "Q2",
+      "condition": "B",
+      "repetition": 3,
+      "id": "R14",
+      "batch": 5,
+      "input": "R14-input.txt",
+      "sha256": "0c52e4fa634a4acd237050b0778c038f46100057666b8099e4d2ef844dde62a8",
+      "characters": 40017
+    },
+    {
+      "question": "Q3",
+      "condition": "A",
+      "repetition": 2,
+      "id": "R15",
+      "batch": 5,
+      "input": "R15-input.txt",
+      "sha256": "ef32562368166d62062bd0f4a80428331c1c31be80817ac7e355967a215bb048",
+      "characters": 32767
+    },
+    {
+      "question": "Q2",
+      "condition": "B",
+      "repetition": 1,
+      "id": "R16",
+      "batch": 6,
+      "input": "R16-input.txt",
+      "sha256": "0c52e4fa634a4acd237050b0778c038f46100057666b8099e4d2ef844dde62a8",
+      "characters": 40017
+    },
+    {
+      "question": "Q1",
+      "condition": "B",
+      "repetition": 2,
+      "id": "R17",
+      "batch": 6,
+      "input": "R17-input.txt",
+      "sha256": "5ef81f2566ee39266902bbf5f6e1822fb1582c35d41c87e6b0e7ec76192af50d",
+      "characters": 40003
+    },
+    {
+      "question": "Q2",
+      "condition": "A",
+      "repetition": 2,
+      "id": "R18",
+      "batch": 6,
+      "input": "R18-input.txt",
+      "sha256": "c331a48c7c73de872e66137ad3e4ebf40f7a1962430a3f196ce611a23a865be5",
+      "characters": 32700
+    }
+  ]
+}

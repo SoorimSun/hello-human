@@ -1,0 +1,4 @@
+# Preserve the exact bytes of the recorded experiment inputs and answers.
+* -text
+*-input.txt whitespace=-blank-at-eol,-blank-at-eof
+source.txt whitespace=-blank-at-eol,-blank-at-eof

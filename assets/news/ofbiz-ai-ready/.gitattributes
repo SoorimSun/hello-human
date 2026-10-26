@@ -1,0 +1,2 @@
+# These artifacts are referenced by SHA-256 in the experiment records.
+*.md -text whitespace=-blank-at-eof
