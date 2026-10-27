@@ -52,3 +52,7 @@
   .songdo-role-grid > div { padding: 16px; }
   .songdo-fixture > div, .songdo-rehearsal li { grid-template-columns: 1fr; gap: 4px; }
 }
+@media (max-width: 520px) {
+  /* 72px scroll padding + 84px margin keeps the anchor within the TOC reading line. */
+  .songdo-page .news-story .guide-section { scroll-margin-top: 84px; }
+}
