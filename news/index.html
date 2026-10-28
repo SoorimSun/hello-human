@@ -43,14 +43,14 @@
   <section class="news-list-section wrap" aria-labelledby="news-list-heading">
     <div class="news-list-heading">
       <h2 id="news-list-heading">발행한 뉴스</h2>
-      <span>총 <span data-news-total>40</span>편</span>
+      <span>총 <span data-news-total>41</span>편</span>
     </div>
     <div class="news-tabs" role="tablist" aria-label="뉴스 종류" hidden>
       <button class="news-tab" type="button" role="tab" id="all-news" aria-controls="news-feed" aria-selected="true" data-news-filter="all">
-        전체 최신순 <span class="news-tab-count" data-news-count="all">40</span>
+        전체 최신순 <span class="news-tab-count" data-news-count="all">41</span>
       </button>
       <button class="news-tab" type="button" role="tab" id="briefs" aria-controls="news-feed" aria-selected="false" tabindex="-1" data-news-filter="briefs">
-        속보·단신 <span class="news-tab-count" data-news-count="briefs">10</span>
+        속보·단신 <span class="news-tab-count" data-news-count="briefs">11</span>
       </button>
       <button class="news-tab" type="button" role="tab" id="regular-news" aria-controls="news-feed" aria-selected="false" tabindex="-1" data-news-filter="regular-news">
         일반뉴스 <span class="news-tab-count" data-news-count="regular-news">30</span>
@@ -60,6 +60,16 @@
     <div id="news-feed">
       <!-- Add each article once, newest first; tabs filter this shared catalogue. -->
       <ol class="news-issues">
+        <li data-news-kind="briefs">
+          <a class="news-issue" href="2026-10-28-roblox-crawler.html">
+            <span class="news-issue-main">
+              <span class="news-issue-meta"><span class="news-kind news-kind-briefs">단신 11</span> <time datetime="2026-10-28">2026. 10. 28</time> · Roblox / 3D 자료 수집·라이선스</span>
+              <strong>로블록스 소속 내세운 크롤러, 145.5GB 무단 수집 의혹</strong>
+              <span>Open3DLab이 제기한 자료 수집 의혹. 운영진이 밝힌 규모와 피해, 아직 확인되지 않은 운영 주체와 학습 용도를 살펴봅니다.</span>
+            </span>
+            <span class="news-issue-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
         <li data-news-kind="regular-news">
           <a class="news-issue" href="2026-10-28-oracle-business-context.html">
             <span class="news-issue-main">
