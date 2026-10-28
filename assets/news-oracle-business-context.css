@@ -14,6 +14,15 @@
 .news-business-context .context-flow li::before { content: "0" counter(context); display: block; margin-bottom: 10px; color: var(--accent); font: 12px var(--mono); }
 .news-business-context .context-flow strong { display: block; font-size: 16px; line-height: 1.5; }
 .news-business-context .context-flow span { display: block; margin-top: 9px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+.news-business-context .context-timeline { margin: 0; padding: 0; list-style: none; }
+.news-business-context .context-timeline li { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 18px; position: relative; padding: 0 0 24px 22px; border-left: 2px solid var(--line); }
+.news-business-context .context-timeline li::before { content: ""; position: absolute; top: 7px; left: -6px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+.news-business-context .context-timeline li:last-child { padding-bottom: 0; }
+.news-business-context .context-timeline .context-timeline-open { border-left-style: dashed; }
+.news-business-context .context-timeline .context-timeline-open::before { background: var(--surface); border: 2px solid var(--accent); }
+.news-business-context .context-timeline time, .news-business-context .context-timeline-date { font: 600 14px/1.8 var(--mono); color: var(--accent); }
+.news-business-context .context-timeline strong { font-size: 17px; line-height: 1.6; }
+.news-business-context .context-timeline p { margin: 6px 0 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
 .news-business-context .context-table-wrap { max-width: 100%; overflow-x: auto; margin: 26px 0 14px; border: 1px solid var(--line); border-radius: 10px; }
 .news-business-context .context-table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.7; }
 .news-business-context .context-table caption { padding: 15px 18px; text-align: left; color: var(--muted); font-size: 13px; }
@@ -23,11 +32,22 @@
 .news-business-context #compute .context-table td:nth-child(2) { width: 22%; }
 .news-business-context .context-scenario { margin: 26px 0; padding: 24px; border-left: 3px solid var(--accent); background: var(--surface); }
 .news-business-context .context-scenario .context-note { margin: 0 0 10px; }
+.news-business-context .context-scenario blockquote { margin-bottom: 0; }
+.news-business-context .context-comparison { grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 24px 0; }
+.news-business-context .context-checks { padding-left: 1.3em; }
+.news-business-context .context-checks li { margin: 12px 0; }
+.news-business-context .context-checks strong { display: block; margin-bottom: 3px; }
+.news-business-context .context-experiment-details { margin: 28px 0 0; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.news-business-context .context-experiment-details summary { padding: 18px 22px; cursor: pointer; font-size: 16px; font-weight: 650; line-height: 1.6; }
+.news-business-context .context-experiment-details > div { padding: 0 22px 22px; }
+.news-business-context .context-experiment-details h4 { margin: 20px 0 8px; font-size: 16px; line-height: 1.6; }
+.news-business-context .context-experiment-details p { margin: 10px 0; font-size: 14px; line-height: 1.8; color: var(--muted); }
 .news-business-context blockquote { margin: 0 0 20px; font-size: 21px; font-weight: 650; line-height: 1.7; }
 .news-business-context code { font-size: .85em; overflow-wrap: anywhere; }
 .news-business-context :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 @media (max-width: 720px) {
   .news-business-context .context-flow { grid-template-columns: 1fr; }
+  .news-business-context .context-timeline li { grid-template-columns: minmax(0, 1fr); gap: 4px; padding-left: 18px; }
   .news-business-context .context-figure, .news-business-context .context-scenario { padding: 20px; }
   .news-business-context .context-table th, .news-business-context .context-table td { padding: 12px 10px; }
   .news-business-context .context-table { font-size: 13px; }
