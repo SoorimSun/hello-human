@@ -74,8 +74,8 @@
 .spore-screen-grid figcaption { margin-top: 12px; font-size: 13px; line-height: 1.7; }
 .spore-screen-grid figcaption strong { display: block; margin-bottom: 4px; color: var(--ink); font-size: 14px; }
 .spore-web-screens .work-gallery-note { margin-top: 20px; }
-.spore-platforms .spore-web-platform { grid-column: 1 / -1; padding: 20px; border: 1px solid var(--line); border-radius: 12px; background: var(--spore-soft); }
-.spore-web-platform .work-button { margin-top: 6px; }
+.spore-platforms .spore-featured-platform { grid-column: 1 / -1; padding: 20px; border: 1px solid var(--line); border-radius: 12px; background: var(--spore-soft); }
+.spore-featured-platform .work-button { margin-top: 6px; }
 @media (max-width: 720px) {
   .spore-web-screens { scroll-margin-top: 56px; }
 }
