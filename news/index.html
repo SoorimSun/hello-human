@@ -43,23 +43,33 @@
   <section class="news-list-section wrap" aria-labelledby="news-list-heading">
     <div class="news-list-heading">
       <h2 id="news-list-heading">발행한 뉴스</h2>
-      <span>총 <span data-news-total>43</span>편</span>
+      <span>총 <span data-news-total>44</span>편</span>
     </div>
     <div class="news-tabs" role="tablist" aria-label="뉴스 종류" hidden>
       <button class="news-tab" type="button" role="tab" id="all-news" aria-controls="news-feed" aria-selected="true" data-news-filter="all">
-        전체 최신순 <span class="news-tab-count" data-news-count="all">43</span>
+        전체 최신순 <span class="news-tab-count" data-news-count="all">44</span>
       </button>
       <button class="news-tab" type="button" role="tab" id="briefs" aria-controls="news-feed" aria-selected="false" tabindex="-1" data-news-filter="briefs">
         속보·단신 <span class="news-tab-count" data-news-count="briefs">12</span>
       </button>
       <button class="news-tab" type="button" role="tab" id="regular-news" aria-controls="news-feed" aria-selected="false" tabindex="-1" data-news-filter="regular-news">
-        일반뉴스 <span class="news-tab-count" data-news-count="regular-news">31</span>
+        일반뉴스 <span class="news-tab-count" data-news-count="regular-news">32</span>
       </button>
     </div>
     <p class="news-sort-note">최신 발행순 · 같은 날짜에는 속보·단신을 먼저 보여드립니다.</p>
     <div id="news-feed">
       <!-- Add each article once, newest first; tabs filter this shared catalogue. -->
       <ol class="news-issues">
+        <li data-news-kind="regular-news">
+          <a class="news-issue" href="2026-10-30-mistral-execution-control.html">
+            <span class="news-issue-main">
+              <span class="news-issue-meta"><span class="news-kind news-kind-regular-news">일반뉴스 32</span> <time datetime="2026-10-30">2026. 10. 30</time> · Mistral / 가중치 공개·실행 통제·업무 비용</span>
+              <strong>Mistral Large 4 가중치 공개, 이제 직접 운영할 수 있습니다</strong>
+              <span>Mistral의 가중치 공개, Claude의 비용 분석, OpenAI의 행동 감시, Serval과 Gemini의 업무 도구. 재시도와 늦게 들어온 비용 기록을 대조하는 실험으로 이어갑니다.</span>
+            </span>
+            <span class="news-issue-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
         <li data-news-kind="briefs">
           <a class="news-issue" href="2026-10-29-intelligence-index-v5.html">
             <span class="news-issue-main">
