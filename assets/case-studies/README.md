@@ -1,5 +1,20 @@
 # AI 사례연구 이미지 출처
 
+## Agents in Games · 사례연구 08
+
+확인·저장일 2026-11-01. YC Labs와 Olam Labs의 공식 프로젝트·공개 저장소에서 제공한 원본을 수정 없이 인용했습니다. 이번 글에서 게임을 실행하거나 캡처한 화면은 아닙니다.
+
+| 파일 | 출처 | 용도 |
+| --- | --- | --- |
+| `agents-in-games-hero.jpg` | [minecraft-agent-harness 대표 이미지](https://github.com/yc-software/minecraft-agent-harness/blob/775d558689f5e4eaa0f1d0d7a320035190b1fce6/docs/images/hero.jpg) · YC Labs | 1800×474 JPEG. 본문 대표 이미지·공유 메타, 홈·목록 카드. 본문은 원본 비율이며 카드는 기존 CSS에 따라 가운데 영역이 잘려 보입니다. |
+| `agents-in-games-mindustry-poster.webp` | [Mindustry 비교 영상 포스터](https://labs.ycombinator.com/mindustry/g6-g7-zenith-strike-v1-poster.webp) · YC Labs / Olam Labs | 1280×720 WebP. 본문 영상의 재생 전 화면. |
+
+- [실험 원문](https://labs.ycombinator.com/projects/games/index.html)
+- [대표 이미지 원본 바이트](https://raw.githubusercontent.com/yc-software/minecraft-agent-harness/775d558689f5e4eaa0f1d0d7a320035190b1fce6/docs/images/hero.jpg)
+- [Mindustry 6·7경기 비교 영상 원본](https://labs.ycombinator.com/mindustry/g6-g7-zenith-strike-v1.mp4): 다운로드·재편집 없이 공식 URL을 HTML `video`로 연결합니다. 자동 재생은 하지 않으며 재생 컨트롤과 원문 링크를 제공합니다.
+
+미디어는 사례 설명·비평용으로 원작·출처·확인일을 표시했습니다. 별도 미디어 재사용 조건은 확인하지 않았으며 원작의 권리는 각 권리자에게 있습니다. 저장소의 코드 라이선스를 모든 게임·영상 자산의 이용 허가로 해석하지 않습니다. 업무 흐름과 실행 구조 도식은 헬로우 휴먼의 HTML/CSS 설명도입니다.
+
 ## ShopGym · 사례연구 07
 
 확인·저장일 2026-10-19. 대표 일러스트는 내장 `imagegen`으로 생성한 설명용 이미지이며 실제 제품 UI가 아닙니다. 연구진의 두 화면 PNG는 원본 바이트 그대로 저장했고, 크롭·주석·재생성 없이 원본 비율로 표시합니다. 연구진의 화면을 이 글에서 직접 생성·실행·캡처한 것은 아닙니다.
