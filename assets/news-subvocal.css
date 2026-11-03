@@ -1,0 +1,44 @@
+.news-subvocal #flash-title > span,
+.news-subvocal #flash-title > em {
+  display: block;
+  text-wrap: balance;
+  word-break: keep-all;
+}
+.news-subvocal .subvocal-heading {
+  margin: 40px 0 18px;
+  font-size: clamp(23px, 3.5vw, 29px);
+  line-height: 1.4;
+  letter-spacing: -.025em;
+  word-break: keep-all;
+}
+.subvocal-media { margin: 32px 0; }
+.subvocal-media > a { display: block; }
+.subvocal-media img,
+.subvocal-media video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #111;
+}
+.subvocal-media video { aspect-ratio: 16 / 9; }
+.subvocal-media figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.75;
+  word-break: keep-all;
+}
+.subvocal-media figcaption strong { color: var(--ink); }
+.subvocal-terms { width: 100%; margin: 25px 0; border-collapse: collapse; font-size: 16px; }
+.subvocal-terms caption { margin-bottom: 12px; color: var(--muted); font-size: 13px; text-align: left; }
+.subvocal-terms th,
+.subvocal-terms td { padding: 15px 16px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; line-height: 1.7; }
+.subvocal-terms th { width: 26%; background: var(--surface); word-break: keep-all; }
+@media (max-width: 520px) {
+  .news-subvocal .subvocal-heading { margin-top: 32px; }
+  .subvocal-terms { font-size: 15px; }
+  .subvocal-terms th, .subvocal-terms td { padding: 12px 10px; }
+  .subvocal-terms th { width: 29%; }
+}
