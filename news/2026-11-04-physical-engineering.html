@@ -17,7 +17,7 @@
   <script src="../assets/theme.js?v=3"></script>
   <link rel="stylesheet" href="../assets/style.css?v=9">
   <link rel="stylesheet" href="../assets/news.css?v=10">
-  <link rel="stylesheet" href="../assets/news-physical-engineering.css?v=1">
+  <link rel="stylesheet" href="../assets/news-physical-engineering.css?v=3">
   <link rel="stylesheet" href="../assets/content-updates.css?v=1">
 </head>
 <body class="news-physical">
@@ -34,7 +34,7 @@
       <div class="news-article-meta"><time datetime="2026-11-04">2026년 11월 4일</time><span>헬로우 휴먼 AI뉴스</span></div>
     </header>
     <div class="news-article-shell wrap">
-      <nav class="news-toc" aria-label="기사 목차"><span>이번 호</span><a href="#summary">30초 요약</a><a href="#openai">OpenAI의 설계 실험</a><a href="#openwebui">Open WebUI 작업공간</a><a href="#copilot">Copilot과 Air 연결</a><a href="#apollo">Apollo World 가상 검증</a><a href="#our-view">헬로우 휴먼의 관점</a><a href="#experiment">모임에서 해볼 실험</a><a href="#sources">읽은 자료</a></nav>
+      <nav class="news-toc" aria-label="기사 목차"><span>이번 호</span><a href="#summary">30초 요약</a><a href="#openai">OpenAI의 설계 실험</a><a href="#openwebui">Open WebUI 작업공간</a><a href="#copilot">Copilot과 Air 연결</a><a href="#apollo">Apollo World 가상 검증</a><a href="#our-view">헬로우 휴먼의 관점</a><a href="#experiment">Open WebUI 연결 실험</a><a href="#sources">읽은 자료</a></nav>
       <div class="news-story">
         <section id="summary" class="news-summary" aria-labelledby="summary-title">
           <p class="news-section-label">AT A GLANCE</p><h2 id="summary-title">30초 요약</h2>
@@ -81,6 +81,7 @@
             </tbody>
           </table>
           <p class="pe-note">설정 이름은 <code>CHAT_RESPONSE_MAX_TOOL_CALL_ITERATIONS</code>와 <code>SUBAGENTS_MAX_*</code>입니다. 릴리스의 Changed 절에서 현재 설정과 기본값을 대조할 수 있습니다.</p>
+          <p>이 작업공간이 사람의 코드 복사와 오류 전달을 줄여줄까요? 아래의 <a href="#experiment">Open WebUI 도구 연결 실험</a>에서 같은 버그를 채팅만 쓸 때와 실행 도구를 연결했을 때 각각 고쳐보도록 제안합니다.</p>
         </section>
 
         <section id="copilot" class="news-story-section">
@@ -98,6 +99,10 @@
         <section id="apollo" class="news-story-section">
           <p class="news-section-label">04 / BAIDU APOLLO WORLD</p><h2>가상 도로가 차량의 행동에<br>반응하도록 만듭니다</h2>
           <p>바이두는 11월 3일 선전의 AI Day·Apollo 행사에서 <strong>Apollo World</strong>를 공개했습니다. 회사 발표문에 따르면 가상 환경의 차량·보행자가 주변 상황에 반응하고, 카메라·라이다 관측 데이터를 생성해 자율주행 시스템의 훈련과 검증에 사용합니다. Apollo Go의 글로벌 테스트에 이미 적용 중이라고 설명했습니다. <a class="source-link" href="https://www.chnfund.com/article/AR0c79c2d1-f2fc-50e0-e5b7-3a24b3a41bb6" target="_blank" rel="noopener noreferrer">바이두 발표문 전재 ↗</a></p>
+          <figure class="pe-media">
+            <a href="../assets/news/physical-engineering-apollo-world-official.png" aria-label="바이두 Apollo World의 경로 선택 비교 이미지 크게 보기"><img src="../assets/news/physical-engineering-apollo-world-official.png" alt="바이두 Apollo World의 공식 비교 이미지. 왼쪽은 자차가 고가도로로 향할 때 옆 차량이 합류하는 상황, 오른쪽은 자차가 지상도로로 향할 때 옆 차량이 기다리는 상황을 위쪽 도식과 아래쪽 도로 화면으로 보여준다." width="1100" height="616" loading="lazy" decoding="async"></a>
+            <figcaption>바이두가 공개한 경로 선택 비교입니다. 왼쪽은 자차가 고가도로로 향하자 옆 차량이 합류하고, 오른쪽은 자차가 지상도로로 향하자 옆 차량이 기다리는 상황입니다. 차량의 선택에 따라 주변 반응도 달라진다는 회사의 설명을 보여줍니다. <a href="https://www.chnfund.com/article/AR0c79c2d1-f2fc-50e0-e5b7-3a24b3a41bb6" target="_blank" rel="noopener noreferrer">바이두 제공 자료 · 중국기금보 전재 ↗</a></figcaption>
+          </figure>
           <figure class="pe-panel" aria-labelledby="apollo-flow-title">
             <p class="pe-label">발표 내용을 바탕으로 구성한 설명도</p><h3 id="apollo-flow-title">행동의 결과가 다음 입력으로 돌아옵니다</h3>
             <ol class="pe-flow">
@@ -121,36 +126,65 @@
         </section>
 
         <section id="experiment" class="news-story-section">
-          <p class="news-section-label">OUR LAB · 실험 제안</p><h2>CSV 가져오기 오류를 고칠 때,<br>도구 사이의 전달이 줄어들까요</h2>
-          <p>가상 상품 목록을 가져오는 화면이 있다고 해보겠습니다. <code>0007,"머그, 파랑",0</code>이라는 행은 상품 코드 <code>0007</code>, 이름 <code>머그, 파랑</code>, 재고 <code>0</code>으로 읽혀야 합니다. 그런데 가져온 결과에서 앞의 0이 사라지거나 이름이 두 열로 갈라지고, 재고 0이 빈 값으로 표시됩니다.</p>
-          <p>이번 과제는 이런 오류를 수정하고 <strong>가져오기 결과 JSON·오류 목록·화면 미리보기</strong>가 기대값과 일치하는지 확인하는 것입니다. 아래는 아직 실행하지 않은 실험 제안입니다. 가상 앱과 데이터, 비교용 실행기를 별도로 준비합니다.</p>
+          <p class="news-section-label">OUR LAB · 02 OPEN WEBUI에서 이어지는 실험</p><h2>Open WebUI에 도구를 연결하면,<br>사람이 전달할 일이 줄어들까요</h2>
+          <p><a href="#openwebui">02번 소식</a>에서 Open WebUI는 대화 옆에 <strong>파일·터미널·브라우저</strong>를 모았습니다. 공식 문서는 AI가 파일을 고치고 서버를 실행하면 사용자가 Browser 탭에서 결과를 확인하는 흐름을 보여줍니다. 이번 실험은 <strong>이 연결이 사람의 코드 복사와 오류 전달을 얼마나 줄이는지</strong> 확인하려는 제안입니다. <a class="source-link" href="https://docs.openwebui.com/features/open-terminal/use-cases/web-development/" target="_blank" rel="noopener noreferrer">실험의 바탕이 된 공식 작업 흐름 ↗</a></p>
+          <p>상품표 업로드 오류를 과제로 고른 이유는 <strong>파일 수정 → 검사 실행 → 화면 확인</strong>을 모두 거쳐야 하기 때문입니다. 같은 Open WebUI에서 채팅만 쓰는 A와 Open Terminal을 연결한 B로 이 과정을 비교합니다.</p>
+          <p class="pe-note">아직 실행하지 않은 실험 제안입니다. 상품표 오류는 실습용 앱에 넣을 가상 버그이며, 이번에 확인할 대상은 Open WebUI의 작업 흐름입니다.</p>
+
+          <h3>1. 같은 버그가 있는 작업 폴더를 두 개 준비합니다</h3>
+          <p>먼저 상품표(CSV 파일)를 올리면 ‘가져온 상품’과 ‘오류 목록’을 보여주는 작은 웹 화면을 만듭니다. 여기에 <strong>재고 0과 빈칸을 모두 미입력으로 처리하는 버그</strong>를 넣습니다. 이 폴더를 A와 B로 복사하고, 라이브러리 버전과 실행·검사 명령을 같게 맞춥니다. 둘 다 같은 파일을 올렸을 때 같은 오류가 나는지 확인합니다. 실제 쇼핑몰이나 운영 데이터에는 연결하지 않습니다.</p>
+          <figure class="pe-panel pe-example" aria-labelledby="inventory-example-title">
+            <p class="pe-label">두 방식에 똑같이 줄 상품표</p><h3 id="inventory-example-title">품절 상품은 가져오고, 빈칸만 걸러냅니다</h3>
+            <table class="pe-table">
+              <caption>업로드할 값과 수정 후 기대 결과</caption>
+              <thead><tr><th scope="col">상품명</th><th scope="col">입력한 재고</th><th scope="col">고친 뒤 화면</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">파란 머그</th><td><strong>0</strong></td><td>가져온 상품에<br><strong>재고 0으로 표시</strong></td></tr>
+                <tr><th scope="row">흰 접시</th><td><span class="pe-empty">빈칸</span></td><td>오류 목록에<br><strong>‘재고 미입력’ 표시</strong></td></tr>
+              </tbody>
+            </table>
+            <figcaption>수정 전에는 두 상품 모두 오류 목록으로 빠집니다. 고친 뒤에는 품절인 파란 머그를 정상적으로 가져와야 합니다.</figcaption>
+          </figure>
+
+          <h3>2. 같은 수정 요청을 보내고, 두 방식으로 진행합니다</h3>
+          <p>Open WebUI 0.13에서 같은 모델·추론 설정으로 새 대화 두 개를 엽니다. <strong>A는 실행 도구를 연결하지 않고</strong> 소스 파일과 상품표를 채팅에 첨부합니다. <strong>B는 Open Terminal을 연결하고</strong> 같은 파일을 작업 폴더에 넣습니다. B의 파일 수정·명령 실행·Chrome 브라우저 조작이 가능한지 먼저 확인한 뒤, 두 대화에 다음 요청을 보냅니다.</p>
+          <blockquote class="pe-quote pe-request"><p>“이 상품표를 올리면 재고가 0인 파란 머그까지 오류로 처리됩니다. <strong>재고 0은 그대로 가져오고, 빈칸인 흰 접시만 오류 목록에 남도록 고쳐주세요.</strong> 화면과 저장할 데이터가 모두 이 규칙에 맞아야 합니다.”</p></blockquote>
+          <figure class="pe-panel" aria-labelledby="comparison-title">
+            <p class="pe-label">수정 요청 이후의 진행 순서</p><h3 id="comparison-title">중간 작업을 누가 하는지 비교합니다</h3>
+            <div class="pe-compare">
+              <div><h4>A · 채팅만 사용</h4><ol class="pe-steps">
+                <li><strong>AI</strong>가 고칠 코드와 검사 방법을 답합니다.</li>
+                <li><strong>사람</strong>이 코드를 파일에 옮기고, 테스트와 화면 확인을 합니다.</li>
+                <li>틀리면 <strong>사람</strong>이 오류를 채팅에 붙여 넣고, 새 수정안을 받아 다시 적용합니다.</li>
+              </ol></div>
+              <div><h4>B · Open Terminal 연결</h4><ol class="pe-steps">
+                <li><strong>AI</strong>가 Open Terminal의 작업 폴더에서 코드를 고칩니다.</li>
+                <li><strong>AI</strong>가 터미널에서 검사를 실행하고, 연결된 Chrome 브라우저로 화면을 확인합니다.</li>
+                <li>틀리면 <strong>AI</strong>가 오류를 읽고 다시 수정·검사합니다.</li>
+              </ol></div>
+            </div>
+            <figcaption>B에서는 같은 대화의 Files 탭에서 수정 파일을, Browser 탭에서 실행 화면을 볼 수 있습니다. 마지막 결과는 두 방식 모두 사람이 확인합니다.</figcaption>
+          </figure>
+          <p>요청을 보낸 뒤 수정과 중간 검사에는 각 방식에 <strong>15분씩</strong> 배정합니다. 마지막 사람 검토 시간은 따로 기록합니다. A에서 나온 해결 코드를 B에 넘기지 않고, A에서는 AI가 준 수정안을 그대로 적용합니다. 사람이 직접 코드를 고쳐야 했다면 그 부분도 기록합니다.</p>
+
+          <h3>3. 사람이 같은 상품표를 다시 올려봅니다</h3>
+          <p>AI가 완료했다고 하면 사람이 A의 별도 브라우저와 B의 Open WebUI Browser 탭에서 같은 상품표를 올립니다. <strong>파란 머그는 재고 0으로 들어오고, 흰 접시만 오류 목록에 남는지</strong> 확인합니다. 화면뿐 아니라 저장할 상품 데이터에서도 같은 값이 나와야 합니다.</p>
+          <p>마지막으로 <strong>재고가 3인 컵</strong>을 추가한 파일도 올려봅니다. 이 상품도 정상적으로 들어와야 합니다. 수정이 제한시간 안에 끝나지 않았거나 마지막 확인에서 값이 틀리면 ‘미완료’로 남깁니다. 실행 도구가 멈췄다면 코드 오류와 구분해 적습니다.</p>
+
+          <h3>4. 고친 결과와 사람이 한 일을 함께 적습니다</h3>
           <table class="pe-table">
-            <caption>가상 데이터에 적용할 규칙과 기대 결과</caption>
-            <thead><tr><th scope="col">입력 상황</th><th scope="col">기대 동작</th></tr></thead>
+            <caption>실험 후 채울 기록표 · 아직 측정값은 없습니다</caption>
+            <thead><tr><th scope="col">기록할 것</th><th scope="col">A · 채팅만</th><th scope="col">B · 터미널 연결</th></tr></thead>
             <tbody>
-              <tr><th scope="row">앞에 0이 있는 코드·쉼표가 든 이름</th><td>코드는 문자열로 보존하고, 따옴표 안 쉼표는 이름의 일부로 읽습니다.</td></tr>
-              <tr><th scope="row">재고 0·비어 있는 재고</th><td>0은 정상 재고입니다. 빈 값은 오류 목록에 행 번호와 이유를 남기고 가져오기 대상에서 뺍니다.</td></tr>
-              <tr><th scope="row">같은 상품 코드가 두 번 등장</th><td>이 실험에서는 중복된 두 행 모두 오류로 표시하고 저장하지 않습니다.</td></tr>
-              <tr><th scope="row">한글·파일 시작 표식·줄바꿈 차이</th><td>UTF-8의 BOM 유무와 LF·CRLF 줄바꿈이 달라도 같은 데이터로 읽고, 화면에서도 한글이 유지돼야 합니다.</td></tr>
+              <tr><th scope="row">요청대로 고쳐졌나</th><td>완료 / 미완료</td><td>완료 / 미완료</td></tr>
+              <tr><th scope="row">사람이 코드를 옮긴 횟수</th><td>직접 기록</td><td>직접 기록</td></tr>
+              <tr><th scope="row">사람이 검사를 실행한 횟수</th><td>직접 기록</td><td>직접 기록</td></tr>
+              <tr><th scope="row">사람이 오류를 전달한 횟수</th><td>직접 기록</td><td>직접 기록</td></tr>
+              <tr><th scope="row">사람이 직접 코드를 고친 부분</th><td>없음 / 수정 내용</td><td>없음 / 수정 내용</td></tr>
+              <tr><th scope="row">마지막 검토에 든 시간</th><td>직접 기록</td><td>직접 기록</td></tr>
             </tbody>
           </table>
-          <h3>같은 수정 과제로 두 작업 방식을 비교합니다</h3>
-          <p>위 규칙을 기준으로 결함을 하나씩 심은 <strong>수정 요청 8건</strong>을 만듭니다. 앞자리 0, 따옴표 안 쉼표, 재고 0, 빈 재고, 중복 코드, BOM, 줄바꿈, 한글 미리보기를 각각 다룹니다. 지침을 다듬을 연습용 2건은 별도 자료로 준비하고, 최종 8건의 정답 검사는 에이전트가 고칠 수 없는 위치에 둡니다.</p>
-          <figure class="pe-panel" aria-labelledby="comparison-title">
-            <p class="pe-label">같은 시작 코드·요청·모델·검사로 비교</p><h3 id="comparison-title">누가 실행 결과를 전달하는지가 다릅니다</h3>
-            <div class="pe-compare">
-              <div><h4>A · 사람이 도구를 연결</h4><p>채팅의 수정안 → 사람이 파일 반영 → 같은 격리 환경에서 테스트·미리보기 → 실패 내용을 채팅에 전달 → 수정안 재검토</p></div>
-              <div><h4>B · 에이전트가 도구를 연결</h4><p>에이전트가 파일 수정 → 연결된 터미널·브라우저로 검사 → 실패 결과를 읽고 수정 → 사람이 최종 변경 검토</p></div>
-            </div>
-            <figcaption>도구를 연결하면 모델에 전달되는 도구 설명과 결과 형식도 달라집니다. 이를 포함한 두 작업 방식의 차이를 살피는 구성입니다. 비교용 연결과 기록 기능은 별도로 준비합니다.</figcaption>
-          </figure>
-          <p>모델·추론 설정·수정 요청·라이브러리·실행 환경은 고정하고, 같은 소스 파일과 오류 재현 정보를 제공합니다. A에서는 사람이 모델의 수정안을 그대로 반영하고 검사 결과를 전달합니다. 사람이 직접 코드를 고친 경우는 별도로 기록해 자동 수정 성공에서 뺍니다.</p>
-          <p>요청마다 처음 상태의 코드와 새 대화를 사용하고 각 방식을 세 번씩 실행하면 <strong>8건 × 2방식 × 3회, 총 48회</strong>입니다. 순서를 번갈아 배정하고 다른 방식의 해결안을 넘기지 않습니다. 사람이 이미 본 문제를 더 빨리 푸는 영향은 담당자를 나누거나 순서를 바꿔 줄입니다.</p>
-          <p>한 번의 실행에는 요청 전달부터 검사 종료까지 15분, 재수정 2회, 명령 실행 20회, 동시 작업 1개라는 실험용 상한을 둡니다. 두 방식에 같은 기준을 적용하며, 외부 의존성은 미리 준비하고 앱과 테스트는 격리 환경에서만 실행합니다. 모델 연결 외에는 작업 환경의 외부 네트워크 접근을 막고 실제 상품·운영 데이터는 쓰지 않습니다.</p>
-          <h3>성공 메시지 대신 결과 파일과 화면을 봅니다</h3>
-          <p>완료 판정은 숨겨둔 데이터 검사, 화면 미리보기, 변경 파일 검토가 모두 통과했을 때만 내립니다. 테스트를 지우거나 정답을 하드코딩한 수정은 실패입니다. 시간 초과·명령 상한 초과·브라우저 확인 실패는 보류로 남기고, 앱 문제와 실행 도구 문제를 구분합니다.</p>
-          <p>비교표에는 방식별 24회 중 검증을 통과한 수, 잘못된 데이터 수, 사람이 복사·실행·재설명한 횟수와 검토·수정 시간, 전체 완료 시간을 적습니다. 비용을 비교한다면 실패·재시도를 포함한 모델 이용료와 사람의 검토 시간을 함께 남기고, <strong>완료된 요청 한 건당 부담</strong>으로 비교합니다.</p>
-          <p>우선 통합 방식에서 잘못된 데이터가 한 건이라도 남거나 완료 건수가 줄면 적용을 보류합니다. 품질이 유지된 상태에서 사람의 전달 횟수와 검토 부담이 줄어드는지 봅니다. 판단 범위는 이번 가상 과제로 한정합니다. 입력 파일·시작 코드·요청문·검사기 버전, 변경 내역과 실패 기록을 묶어두면 다음 모델로 바꿨을 때도 같은 기준으로 다시 비교할 수 있습니다.</p>
+          <p>두 방식이 모두 제대로 고쳤다면, B에서 사람이 코드를 옮기거나 오류를 전달하는 일이 줄었는지 봅니다. <strong>중간 작업이 줄어도 마지막 검토가 더 어려워졌다면 그 이유까지 남깁니다.</strong> 이 한 건으로 진행 방식을 익힌 뒤 다른 버그에도 반복해 보면, 우리 팀에서 어떤 일을 맡길지 판단할 근거가 쌓입니다.</p>
         </section>
 
         <section id="sources" class="news-sources">
@@ -165,7 +199,7 @@
             <li><a href="https://www.chnfund.com/article/AR0c79c2d1-f2fc-50e0-e5b7-3a24b3a41bb6" target="_blank" rel="noopener noreferrer">바이두 · Apollo World 발표문, 중국기금보 전재</a> <span>2026. 11. 03 · 출처 ‘百度’ 명시, 회사 주장으로 인용</span></li>
             <li><a href="https://www.marketscreener.com/news/china-s-baidu-launches-ai-model-simulating-road-environment-for-robotaxis-ce785fded98bff24" target="_blank" rel="noopener noreferrer">Reuters · 바이두 Apollo World 공개, MarketScreener 게재</a> <span>2026. 11. 03 · 하루 최대 10만 km 가상 주행에 대한 회사 설명</span></li>
           </ul>
-          <p>기구 도면과 제품 화면은 공식 자료입니다. Apollo World 흐름도와 CSV 실험 비교도는 이 기사에서 구성한 설명 자료이며, 실험 제안은 실행 결과와 구분했습니다.</p>
+          <p>기구 도면·제품 화면·Apollo World 경로 비교 이미지는 공식 자료입니다. Apollo World 흐름도와 Open WebUI 연결 실험 도식은 이 기사에서 구성한 설명 자료이며, 실험 제안은 실행 결과와 구분했습니다.</p>
         </section>
         <a class="news-end-link" href="./">AI뉴스 목록으로 돌아가기 <span aria-hidden="true">→</span></a>
       </div>
