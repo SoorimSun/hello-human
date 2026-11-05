@@ -1,0 +1,108 @@
+/* 에이전트 개발 가이드: 요청문과 바로가기를 작은 화면에서도 읽기 쉽게 */
+.guide-story h3[id],
+.guide-resources { scroll-margin-top: 108px; }
+
+.guide-story pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* 짧은 분류보다 설명에 공간을 배분하고, 좁은 화면에서는 표 안에서 스크롤합니다. */
+.guide-story table { table-layout: fixed; }
+.guide-story th,
+.guide-story td { word-break: keep-all; overflow-wrap: anywhere; }
+.guide-story table.guide-table-pair { min-width: 520px; }
+.guide-story table.guide-table-coupon,
+.guide-story table.guide-table-trial { min-width: 560px; }
+.guide-story table.guide-table-three { min-width: 620px; }
+.guide-story table.guide-table-knowledge,
+.guide-story table.guide-table-lessons { min-width: 640px; }
+.guide-story tr:last-child th { border-bottom: 0; }
+
+/* 단계와 담당 역할을 함께 보여 주는 협업 흐름 */
+.guide-story .guide-visual[id] { scroll-margin-top: 108px; }
+.guide-workflow .guide-workflow-steps { margin: 0; padding: 0; list-style: none; }
+.guide-workflow-steps > li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 16px;
+  margin: 0;
+  padding: 0 0 20px;
+}
+.guide-workflow-steps > li:last-child { padding-bottom: 0; }
+.guide-workflow-steps > li:not(:last-child)::before {
+  position: absolute;
+  top: 38px;
+  bottom: 6px;
+  left: 15px;
+  width: 1px;
+  background: var(--line);
+  content: "";
+}
+.guide-step-number {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+}
+.guide-step-title { display: block; margin: 2px 0 8px; font-size: 18px; line-height: 1.5; }
+.guide-role-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.guide-role-pair p { margin: 0; font-size: 14px; line-height: 1.6; word-break: keep-all; }
+.guide-role-label { margin-right: 7px; color: var(--accent); font-size: 12px; font-weight: 700; white-space: nowrap; }
+.guide-role-agent { color: var(--muted); }
+.guide-step-output { display: inline-block; margin-top: 8px; padding: 3px 0; font-size: 13px; font-weight: 650; }
+
+/* 막연한 요청을 목표·범위·검증으로 나누어 보여 주는 예시 */
+.guide-vague-request { padding: 17px 18px; border-radius: 8px; background: var(--surface-2); }
+.guide-vague-request > span,
+.guide-learning-origin > span { display: block; margin-bottom: 7px; color: var(--muted); font-size: 12px; font-weight: 700; }
+.guide-vague-request p { margin: 0 0 6px; font-size: 17px; font-weight: 650; }
+.guide-vague-request small { display: block; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.guide-visual-connector { display: grid; justify-items: center; gap: 4px; margin: 12px 0; color: var(--accent); font-size: 20px; line-height: 1.4; }
+.guide-visual-connector small { color: var(--muted); font-size: 12px; text-align: center; }
+.guide-clear-request > strong { display: block; margin-bottom: 14px; font-size: 17px; }
+.guide-request-example .guide-brief-parts { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.guide-brief-parts li { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 12px; margin: 0; padding: 0; }
+.guide-brief-parts li > span { align-self: start; padding: 4px 6px; border-radius: 5px; background: var(--surface-2); color: var(--accent); font-size: 12px; font-weight: 700; text-align: center; }
+.guide-brief-parts p { margin: 0; font-size: 14px; line-height: 1.7; word-break: keep-all; }
+
+/* 회고의 기록이 새 세션의 실행으로 이어지는 경로 */
+.guide-learning-origin { padding: 15px 18px; border-left: 3px solid var(--accent); background: var(--surface-2); }
+.guide-learning-origin p { margin: 0; font-size: 15px; line-height: 1.6; }
+.guide-learning-documents { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.guide-learning-documents > div { padding: 16px; border: 1px solid var(--line); border-radius: 8px; }
+.guide-document-kind { display: block; margin-bottom: 8px; color: var(--accent); font-size: 12px; font-weight: 700; }
+.guide-learning-documents strong { display: block; margin-bottom: 7px; font-size: 16px; }
+.guide-learning-documents p { margin: 0; font-size: 14px; line-height: 1.65; word-break: keep-all; }
+.guide-session-entry { padding: 18px; border-radius: 8px; background: var(--surface-2); text-align: center; }
+.guide-session-entry strong { display: block; margin-bottom: 7px; font-size: 16px; }
+.guide-session-entry p { margin: 0; font-size: 14px; line-height: 1.7; word-break: keep-all; }
+.guide-learning-loop .guide-session-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 0; padding: 0; list-style: none; }
+.guide-session-steps li { position: relative; margin: 0; padding: 0; text-align: center; }
+.guide-session-steps li:not(:last-child)::after { position: absolute; right: -14px; top: 2px; color: var(--accent); content: "→"; }
+.guide-session-steps li > span { display: block; margin-bottom: 5px; color: var(--accent); font-family: var(--mono); font-size: 12px; }
+.guide-session-steps strong { font-size: 14px; line-height: 1.5; }
+.guide-learning-loop .guide-learning-feedback { margin: 20px 0 0; padding-top: 15px; border-top: 1px dashed var(--line); color: var(--muted); font-size: 13px; line-height: 1.65; }
+.guide-learning-feedback > span { margin-right: 5px; color: var(--accent); }
+
+@media (max-width: 520px) {
+  .guide-workflow-steps > li { grid-template-columns: 28px minmax(0, 1fr); gap: 11px; }
+  .guide-workflow-steps > li:not(:last-child)::before { left: 13px; top: 34px; }
+  .guide-step-number { width: 28px; height: 28px; }
+  .guide-role-pair { grid-template-columns: 1fr; gap: 10px; }
+  .guide-step-output { min-height: 44px; display: inline-flex; align-items: center; gap: 5px; margin-top: 6px; }
+  .guide-brief-parts li { grid-template-columns: 1fr; gap: 5px; }
+  .guide-brief-parts li > span { justify-self: start; padding: 3px 9px; }
+  .guide-learning-documents { grid-template-columns: 1fr; }
+  .guide-learning-loop .guide-session-steps { grid-template-columns: 1fr; gap: 24px; }
+  .guide-session-steps li { display: flex; justify-content: center; align-items: baseline; gap: 9px; }
+  .guide-session-steps li > span { margin: 0; }
+  .guide-session-steps li:not(:last-child)::after { left: 0; right: 0; top: auto; bottom: -23px; content: "↓"; }
+}
