@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow, noarchive">
   <title>OpenAI의 Pierre 인수 계획, 코드 검토에서 저장까지 · AI뉴스 · 헬로우 휴먼</title>
-  <meta name="description" content="Codex에 이미 쓰이는 Pierre 도구와 앞으로의 저장소 통합 계획을 구분합니다. Conductor Cloud의 종료 일정, Linux 권한 상승 연구, Tencent Hy4와 GitHub CodeQL도 함께 살펴봅니다.">
+  <meta name="description" content="OpenAI의 Pierre 인수 계획과 Codex의 Git 저장소 통합 방향을 살펴봅니다. Conductor Cloud 종료 일정, Linux 커널 보안 연구, Tencent Hy4와 CodeQL 2.27.4도 함께 읽습니다.">
   <meta property="og:type" content="article">
   <meta property="og:title" content="OpenAI의 Pierre 인수 계획, 코드 검토에서 저장까지">
-  <meta property="og:description" content="Codex에 이미 쓰이는 Pierre 도구와 앞으로의 저장소 통합 계획을 구분합니다. Conductor Cloud의 종료 일정, Linux 권한 상승 연구, Tencent Hy4와 GitHub CodeQL도 함께 살펴봅니다.">
+  <meta property="og:description" content="OpenAI의 Pierre 인수 계획과 Codex의 Git 저장소 통합 방향을 살펴봅니다. Conductor Cloud 종료 일정, Linux 커널 보안 연구, Tencent Hy4와 CodeQL 2.27.4도 함께 읽습니다.">
   <meta property="og:url" content="https://soorimsun.github.io/hello-human/news/2026-11-05-pierre-code-review.html">
   <meta property="og:image" content="https://soorimsun.github.io/hello-human/assets/news/pierre-diffs-demo.png">
   <meta property="og:image:width" content="1240">
@@ -34,7 +34,7 @@
       <a class="news-back" href="./">← AI뉴스 목록</a>
       <p class="news-kicker">AI NEWS <span aria-hidden="true">/</span> ISSUE 38</p>
       <h1><span>OpenAI의 Pierre 인수 계획,</span> <em>코드 검토에서 저장까지</em></h1>
-      <p class="news-deck">Codex에 이미 쓰이는 Pierre 도구와 앞으로의 저장소 통합 계획을 구분합니다. Conductor Cloud의 종료 일정, Linux 권한 상승 연구, Tencent Hy4와 GitHub CodeQL도 함께 살펴봅니다.</p>
+      <p class="news-deck">OpenAI의 Pierre 인수 계획과 Codex의 Git 저장소 통합 방향을 살펴봅니다. Conductor Cloud 종료 일정, Linux 커널 보안 연구, Tencent Hy4와 CodeQL 2.27.4도 함께 읽습니다.</p>
       <div class="news-article-meta"><time datetime="2026-11-05">2026년 11월 5일</time><span>헬로우 휴먼 AI뉴스</span></div>
     </header>
     <div class="news-article-shell wrap">
@@ -54,29 +54,29 @@
         <section id="pierre" class="news-story-section">
           <p class="news-section-label">01 / OPENAI × PIERRE</p>
           <h2>Codex에 이미 들어온 도구와 앞으로 들일 저장소</h2>
-          <p>Codex 앱에서 폴더를 펼쳐 파일을 찾고, 고치기 전후의 코드를 나란히 읽을 때 이미 Pierre의 도구를 쓰고 있습니다. 파일 탐색은 <strong>Trees</strong>, 코드 비교는 <strong>Diffs</strong>가 맡습니다. OpenAI가 11월 4일 Pierre 인수 계획을 발표하면서 새로 예고한 것은 <strong>Code Storage</strong>입니다. 앱이 Git으로 코드를 저장하고 변경 이력을 추적할 수 있게 해주는 서비스입니다. <a class="source-link" href="https://openai.com/ko-KR/index/openai-to-acquire-pierre/" target="_blank" rel="noopener noreferrer">OpenAI 한국어 발표 ↗</a></p>
+          <p>Codex 앱에서 폴더를 펼쳐 파일을 찾고, 고치기 전후의 코드를 나란히 읽을 때 이미 Pierre의 도구를 쓰고 있습니다. 파일 탐색은 <strong>Trees</strong>, 코드 비교는 <strong>Diffs</strong>가 맡습니다. OpenAI는 11월 4일 Pierre 인수 계획과 함께 <strong>Code Storage의 기능을 Codex에 통합하겠다</strong>고 밝혔습니다. Code Storage는 앱이 Git으로 코드를 저장하고 변경 이력을 추적할 수 있게 해주는 서비스입니다. <a class="source-link" href="https://openai.com/ko-KR/index/openai-to-acquire-pierre/" target="_blank" rel="noopener noreferrer">OpenAI 한국어 발표 ↗</a></p>
           <figure class="issue-media"><a href="../assets/news/pierre-diffs-demo.png" aria-label="Pierre의 코드 비교 데모 크게 보기"><img src="../assets/news/pierre-diffs-demo.png" width="1240" height="750" alt="Pierre의 Diffs 데모. 오른쪽의 변경 파일 다섯 개 중 하나를 고르면 왼쪽에 그 파일에서 지운 코드가 줄 번호와 함께 표시된다." loading="lazy" decoding="async"></a>
           <figcaption>Pierre의 Diffs 제품 데모에서 변경 파일을 고른 화면입니다. 검토하다 고칠 줄을 발견하면 그 자리에서 편집할 수 있습니다. <a class="source-link" href="https://diffs.com/" target="_blank" rel="noopener noreferrer">공식 데모 열기 ↗</a></figcaption></figure>
-          <p>거래에는 규제 승인 등 종결 조건이 남았습니다. 그때까지 두 회사는 독립적으로 운영됩니다. OpenAI는 거래 후에도 Pierre의 오픈소스 프로젝트를 유지하고, 기존 고객이 Code Storage를 계속 사용하는 동안 해당 기능을 Codex에 옮기겠다고 밝혔습니다.</p>
-          <p>왜 저장소까지 관심을 두는지는 이틀 전 공개한 <strong>Pando</strong>를 보면 이해하기 쉽습니다. 에이전트 여럿이 각자 브랜치에 변경을 올리면 검사 도구도 같은 커밋을 여러 번 가져갑니다. OpenAI는 이렇게 늘어난 읽기·쓰기 요청을 감당하려고 내부 Git 저장소의 뒷단을 바꿨습니다. Pando는 이미 회사의 통합 저장소에서 쓰이고, Pierre와 예고한 일은 개발자가 Codex에서 변경을 보고 보관하는 경험을 넓히는 쪽입니다. <a class="source-link" href="https://openai.com/ko-KR/index/scaling-git-at-openai/" target="_blank" rel="noopener noreferrer">Pando 기술 설명 ↗</a></p>
+          <p>거래에는 규제 승인 등 종결 조건이 남았습니다. 그때까지 두 회사는 독립적으로 운영됩니다. OpenAI는 거래 후에도 Pierre의 오픈소스 프로젝트와 기존 고객의 Code Storage 이용을 지원하겠다고 밝혔습니다.</p>
+          <p>에이전트 여럿이 각자 브랜치에 변경을 올리면, 자동 검사도 같은 커밋을 반복해서 내려받습니다. OpenAI는 늘어난 읽기·쓰기 요청을 감당하려고 Git 저장소의 내부 처리 시스템인 <strong>Pando</strong>를 만들고 11월 2일 소개했습니다. Pando는 이미 회사의 통합 저장소에서 사용 중입니다. <a class="source-link" href="https://openai.com/ko-KR/index/scaling-git-at-openai/" target="_blank" rel="noopener noreferrer">Pando 기술 설명 ↗</a></p>
         </section>
 
         <section id="conductor" class="news-story-section">
           <p class="news-section-label">02 / META × CONDUCTOR</p>
-          <h2>작업은 나눠서 진행하지만, 기록은 어디로 옮길까요</h2>
-          <p>Conductor는 11월 4일 Meta 합류를 발표했고, Meta도 인수 사실을 확인했습니다. Conductor에서는 같은 프로젝트의 버그 수정은 Codex에, 다른 기능의 테스트 작성은 Claude Code에 맡기는 식으로 일할 수 있습니다. 작업마다 브랜치와 파일, 터미널을 따로 두고, 마지막에 사람이 변경을 검토해 합칩니다. <a class="source-link" href="https://www.conductor.build/docs" target="_blank" rel="noopener noreferrer">Conductor 작업공간 문서 ↗</a> · <a class="source-link" href="https://techcrunch.com/2026/11/04/meta-acquires-ai-coding-startup-conductor/" target="_blank" rel="noopener noreferrer">Meta 확인 보도 ↗</a></p>
+          <h2>Conductor Cloud 종료 전에 작업 기록을 옮깁니다</h2>
+          <p>Conductor는 11월 4일 Meta 합류를 발표했고, Meta도 인수 사실을 확인했습니다. Conductor에서는 같은 프로젝트의 버그 수정을 Codex에, 다른 기능의 테스트 작성을 Claude Code에 나눠 맡길 수 있습니다. 작업마다 브랜치와 파일, 터미널을 따로 두고, 마지막에 사람이 변경을 검토해 합칩니다. <a class="source-link" href="https://www.conductor.build/docs" target="_blank" rel="noopener noreferrer">Conductor 작업공간 문서 ↗</a> · <a class="source-link" href="https://techcrunch.com/2026/11/04/meta-acquires-ai-coding-startup-conductor/" target="_blank" rel="noopener noreferrer">Meta 확인 보도 ↗</a></p>
           <figure class="issue-media issue-video"><video controls playsinline preload="none" width="1336" height="1080" poster="../assets/news/conductor-diff-poster.jpg" aria-label="Conductor 공식 시연: 작업공간에서 변경 파일 검토"><source src="https://meltylabs.t3.storage.dev/conductor-docs/ConductorDiffExplainer.mp4" type="video/mp4">영상은 아래의 공식 문서에서 볼 수 있습니다.</video>
           <figcaption>Conductor의 변경 검토 시연입니다. 에이전트의 대화 옆에 어떤 파일을 고쳤는지 표시됩니다. <a class="source-link" href="https://www.conductor.build/docs/reference/diff-viewer" target="_blank" rel="noopener noreferrer">시연 원문 ↗</a></figcaption></figure>
-          <p>기존 사용자에게 당장 중요한 것은 새 제품보다 <strong>Cloud에 남은 작업공간과 대화 기록</strong>입니다. Conductor가 안내한 일정은 다음과 같습니다. <a class="source-link" href="https://www.conductor.build/announcement" target="_blank" rel="noopener noreferrer">합류 발표와 이전 안내 ↗</a></p>
+          <p>기존 사용자는 아래 일정에 맞춰 <strong>Cloud의 작업공간과 대화 기록</strong>을 옮겨야 합니다. <a class="source-link" href="https://www.conductor.build/announcement" target="_blank" rel="noopener noreferrer">합류 발표와 이전 안내 ↗</a></p>
           <dl class="issue-dates"><div><dt>11월 4일</dt><dd>신규 가입과 앱 다운로드를 중단했습니다.</dd></div><div><dt>11월 13일</dt><dd>Cloud가 읽기 전용으로 바뀝니다. 지난 대화를 읽고 내보낼 수 있지만 새 메시지를 보낼 수는 없습니다.</dd></div><div><dt>11월 20일</dt><dd>Cloud가 종료되고 데이터 삭제가 시작됩니다. 그 전에 작업공간의 <b>Transfer to local</b>로 Mac에 옮기거나, <b>Settings → Account → Export data</b>에서 전체 기록을 내보낼 수 있습니다.</dd></div><div><dt>2027년 초까지</dt><dd>로컬 앱은 새 모델과 중요 오류 수정을 지원할 예정입니다. 후속 제품의 구체적인 기능은 공개하지 않았습니다.</dd></div></dl>
-          <p>작업공간을 나누면 서로의 파일을 덮어쓰는 일은 피할 수 있습니다. 하지만 한 브랜치가 오류 응답 형식을 바꾸고 다른 브랜치가 예전 형식대로 화면을 그렸다면, 둘은 합친 뒤에야 어긋납니다. 코드와 함께 남겨야 하는 기록은 <strong>어느 조합을 검사했고 누가 그 결과를 확인했는지</strong>입니다.</p>
+          <p>작업공간을 나눠도 두 변경이 잘 맞는지는 함께 확인해야 합니다. 예를 들어 한 브랜치에서 오류 응답 형식을 바꾸고 다른 브랜치에서는 예전 형식으로 화면을 만들었다면, 합친 뒤 화면이 제대로 동작하지 않을 수 있습니다. <strong>어떤 변경들을 함께 검사했고 누가 확인했는지</strong>도 코드와 함께 남길 필요가 있습니다.</p>
         </section>
 
         <section id="linux" class="news-story-section">
           <p class="news-section-label">03 / OPENAI SECURITY RESEARCH</p>
           <h2>2,308개 후보 중 실제 권한 상승을 보인 것은 948건입니다</h2>
           <p>OpenAI는 10월 중순 Linux 커널을 대상으로 아직 출시하지 않은 보안 모델을 시험하고 11월 4일 결과를 공개했습니다. 코드를 읽어 의심되는 곳을 찾은 뒤, 격리된 가상머신에서 오류를 재현하고 일반 사용자가 관리자(root) 권한까지 얻을 수 있는지 확인했습니다. <a class="source-link" href="https://openai.com/index/a-thousand-fewer-paths-to-root/" target="_blank" rel="noopener noreferrer">OpenAI 연구 원문 ↗</a></p>
-          <figure class="issue-chart"><figcaption><b>증거를 한 단계씩 좁혀 보면</b>OpenAI의 10월 중순 연구 실행 · 단위: 건</figcaption>
+          <figure class="issue-chart"><figcaption><b>후보 발견에서 권한 상승 입증까지</b>OpenAI가 발표한 10월 중순 연구 수치를 정리했습니다. 단위는 건입니다.</figcaption>
           <ol><li><div><span>코드에서 추린 후보</span><strong>2,308</strong></div><span class="issue-track" aria-hidden="true"><i style="width:100%"></i></span></li><li><div><span>실행해서 취약점을 재현</span><strong>1,724</strong></div><span class="issue-track" aria-hidden="true"><i style="width:74.7%"></i></span></li><li><div><span>로컬 권한 상승을 입증</span><strong>948</strong></div><span class="issue-track" aria-hidden="true"><i style="width:41.1%"></i></span></li></ol></figure>
           <p><strong>948건은 패치가 적용된 수가 아닙니다.</strong> 연구진은 재현 자료와 수정 후보를 검토한 뒤 중요한 문제부터 커널 개발자에게 전달했습니다. 스캔과 수동 분석에 걸린 열흘 사이에 이미 61건은 커널 본류에서 수정됐고, 43건은 패치 반영을 준비 중이었으며, 299건은 공개 보고·논의 중이었습니다. 같은 문제를 다시 보고하기 전에 최신 코드에서도 재현되는지 확인해야 하는 이유입니다.</p>
           <p>이번 실행에 썼다고 밝힌 API 크레딧은 <strong>121만 3,430달러(약 16억 3천만 원)</strong>입니다. 전체 금액을 948건으로 나누면 권한 상승 입증 한 건에 약 1,280달러입니다. 탐색과 실패한 시도까지 포함한 한 차례 연구의 평균이지, 취약점 하나를 찾아 고쳐주는 서비스 가격은 아닙니다. 원화는 11월 4일 종가인 달러당 1,341.15원으로 환산했습니다. <a class="source-link" href="https://kr.investing.com/currencies/usd-krw-historical-data" target="_blank" rel="noopener noreferrer">달러/원 환율표 ↗</a></p>
@@ -88,23 +88,23 @@
           <p>Tencent는 11월 4일 Hy4 정식판에 시각 이해와 컴퓨터 조작 기능을 추가했다고 밝혔습니다. 도표나 이미지의 세부 내용을 읽고, 작업에 따라 명령줄이나 화면 인터페이스를 쓸 수 있습니다. 업무용 WorkBuddy, 개발 도구 CodeBuddy, Tencent Cloud TokenHub에서 이용할 수 있다고 안내했습니다. <a class="source-link" href="https://en.prnasia.com/releases/apac/tencent-launches-hy4-joining-the-ranks-of-the-world-s-leading-open-source-ai-models-554689.shtml" target="_blank" rel="noopener noreferrer">Tencent 발표문 ↗</a></p>
           <figure class="issue-media"><a href="https://hunyuan.tencent.com/research/hy4?langVersion=zh" target="_blank" rel="noopener noreferrer" aria-label="Tencent 공식 발표에서 Hy4 위성사진 시연 보기"><img src="../assets/news/hy4-satellite-demo.jpg" width="800" height="450" alt="Tencent 시연의 위치 확인 단계. 지붕 위 흰색 부품을 확대한 세 장의 이미지가 나란히 놓여 있다." loading="lazy" decoding="async"></a>
           <figcaption>Tencent가 고른 시연 과제는 위성사진에서 창고의 태양광 패널 근처에 있는 흰색 부품을 찾는 일입니다. 약 14초 지점에서 후보의 위치를 비교합니다. <a class="source-link" href="https://hunyuan.tencent.com/research/hy4?langVersion=zh" target="_blank" rel="noopener noreferrer">공식 시연 보기 ↗</a></figcaption></figure>
-          <p>숫자는 서로 다른 평가에서 나왔습니다. <strong>WorkBuddy 업무 평가</strong>에서는 평균 83.18점, 과제 통과율 96.15%를 기록했다고 합니다. <strong>별도의 금융 평가</strong>에서는 Tencent 측이 금융 전문가 213명과 579개 과제를 평가했습니다. 전문가가 참여한 회사 주관 평가이지, 고객사의 업무 96.15%가 자동으로 끝났다는 뜻은 아닙니다.</p>
-          <p>제품으로 쓸 수 있는 시점과 모델 파일을 받을 수 있는 시점도 다릅니다. Tencent는 11월 4일 발표에서 정식판 가중치와 시스템 카드는 추후 공개한다고 밝혔습니다. 8월 <strong>Hy4 Preview</strong>의 공개 가중치와는 별개입니다. <a class="source-link" href="https://github.com/Tencent-Hunyuan/Hy4-preview" target="_blank" rel="noopener noreferrer">Preview 저장소 ↗</a> · <a class="source-link" href="https://adp.tencent.com/zh/blog/tencent-cloud-adp-hunyuan-hy4-release" target="_blank" rel="noopener noreferrer">Tencent Cloud 적용 안내 ↗</a></p>
+          <p>Tencent가 발표한 <strong>WorkBuddy 업무 평가</strong> 결과는 평균 83.18점, 과제 통과율 96.15%입니다. 이 통과율은 회사의 평가 환경에서 나온 값으로, 실제 고객사의 업무 자동 완료율과는 구분해야 합니다. <strong>별도의 금융 평가</strong>에는 금융 전문가 213명이 참여해 579개 과제의 수행 결과를 평가했습니다.</p>
+          <p><strong>Hy4 Preview</strong>의 가중치는 8월에 공개됐습니다. Tencent는 11월 4일 발표에서 정식판의 가중치와 시스템 카드를 추후 공개하겠다고 밝혔습니다. <a class="source-link" href="https://github.com/Tencent-Hunyuan/Hy4-preview" target="_blank" rel="noopener noreferrer">Preview 저장소 ↗</a> · <a class="source-link" href="https://adp.tencent.com/zh/blog/tencent-cloud-adp-hunyuan-hy4-release" target="_blank" rel="noopener noreferrer">Tencent Cloud 적용 안내 ↗</a></p>
         </section>
 
         <section id="codeql" class="news-story-section">
           <p class="news-section-label">05 / GITHUB CODEQL</p>
-          <h2>로그에 남지 않는 값까지 경고하지 않도록</h2>
-          <p>사용자가 보낸 이름에 줄바꿈이 들어 있고 서버가 그 값을 그대로 기록하면, 한 요청이 로그에서는 두 줄로 보일 수 있습니다. 반대로 로그에 쓰기 전에 줄바꿈을 처리해 한 줄로 남긴다면 어떨까요? 분석 도구가 그 처리 과정을 알아보지 못하면 개발자는 이미 막아둔 문제를 다시 조사하게 됩니다. <a class="source-link" href="https://codeql.github.com/codeql-query-help/java/java-log-injection/" target="_blank" rel="noopener noreferrer">GitHub의 로그 삽입 예제 ↗</a></p>
+          <h2>안전하게 처리한 입력을 더 잘 알아봅니다</h2>
+          <p>사용자가 보낸 이름에 줄바꿈이 들어 있고 서버가 그 값을 그대로 기록하면, 한 요청이 로그에서는 두 줄로 보일 수 있습니다. 코드가 줄바꿈을 처리해 한 줄로 기록하더라도, 분석 도구가 이 과정을 알아보지 못하면 불필요한 경고를 낼 수 있습니다. 개발자는 이미 막아둔 문제를 다시 조사하게 됩니다. <a class="source-link" href="https://codeql.github.com/codeql-query-help/java/java-log-injection/" target="_blank" rel="noopener noreferrer">GitHub의 로그 삽입 예제 ↗</a></p>
           <p>GitHub는 11월 2일자 <strong>CodeQL 2.27.4</strong>의 변경점을 4일에 소개했습니다. Java/Kotlin의 로그 삽입 규칙은 JDK·Apache Commons·Guava·OWASP Java Encoder·Spring의 입력 정제 함수와 보호 조건을 더 인식합니다. Rust에서는 로그와 메모리 할당 관련 일부 오탐을 줄였고, C/C++에서는 개발자가 의도한 바이트 버퍼 포인터 연산에 더는 같은 경고를 내지 않습니다. <a class="source-link" href="https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.27.4/" target="_blank" rel="noopener noreferrer">버전별 변경 기록 ↗</a></p>
-          <p>GitHub.com의 코드 스캔에는 새 버전이 자동 배포되며, GitHub Enterprise Server에는 3.24부터 포함될 예정입니다. 이번 개선은 어느 경고를 덜 내는지 설명합니다. 전체 취약점 탐지율이 얼마나 바뀌었는지는 발표하지 않았습니다. <a class="source-link" href="https://github.blog/changelog/2026-11-04-codeql-2-27-4-improves-accuracy-and-query-metadata/" target="_blank" rel="noopener noreferrer">GitHub 배포 안내 ↗</a></p>
+          <p>GitHub.com의 코드 스캔에는 새 버전이 자동 배포되며, GitHub Enterprise Server에는 3.24부터 포함될 예정입니다. <a class="source-link" href="https://github.blog/changelog/2026-11-04-codeql-2-27-4-improves-accuracy-and-query-metadata/" target="_blank" rel="noopener noreferrer">GitHub 배포 안내 ↗</a></p>
         </section>
 
         <section id="our-view" class="news-story-section">
           <p class="news-section-label">OUR VIEW / 헬로우 휴먼의 관점</p>
           <h2>다음 사람이 같은 검사를 처음부터 하지 않으려면</h2>
-          <p>Git에는 무엇을 고쳤는지가 남고, 에이전트의 대화에는 왜 그렇게 고쳤는지가 남습니다. 어느 쪽에도 ‘지금 합치려는 코드가 검사를 통과했다’는 증거가 저절로 생기지는 않습니다. Conductor처럼 도구가 바뀌거나 Linux 연구처럼 검사 도중 원본 코드가 바뀌면 그 차이가 드러납니다.</p>
-          <p>우리 모임이라면 변경 한 건에 <strong>요청, 검사한 커밋, 재현 결과, 사람의 승인</strong>을 함께 남기는 것부터 해보겠습니다. 다음 검토자가 같은 오류를 직접 다시 만들어야 하는 횟수가 줄었는지 보면, 에이전트가 코드를 쓰는 속도와 팀이 일을 마치는 속도를 따로 평가할 수 있습니다.</p>
+          <p>Git에는 무엇을 고쳤는지가 남고, 에이전트의 대화에는 왜 그렇게 고쳤는지가 남습니다. 검토자가 변경을 승인하려면 <strong>그 코드로 어떤 검사를 통과했는지</strong>도 알아야 합니다.</p>
+          <p>우리 모임이라면 변경 한 건에 <strong>요청, 검사한 커밋, 재현 결과, 사람의 승인</strong>을 함께 남기는 것부터 해보겠습니다. 아래 실험에서는 이 기록을 모아두면 다음 검토자가 확인하는 데 드는 시간이 줄어드는지 살펴봅니다.</p>
         </section>
 
         <section id="experiment" class="news-story-section">
@@ -113,14 +113,17 @@
           <p>배송 로그 사례는 <a href="#codeql">⑤ GitHub CodeQL 소식</a>에서 아이디어를 얻었습니다. 사용자가 입력한 줄바꿈 때문에 요청 하나가 로그에 두 줄로 찍힐 수 있다는 사례를 가상의 배송 서비스에 옮겨 봅니다.</p>
           <p>검사 방법은 <a href="#linux">③ Linux 커널 연구</a>에서 가져왔습니다. 연구진이 찾은 문제 중에는 분석하는 동안 이미 고쳐진 것도 있었습니다. 그래서 이번 실험에서도 코드가 바뀌면, 앞선 코드가 검사를 통과했더라도 지금 승인하려는 코드를 다시 검사합니다.</p>
           <p>에이전트에 ‘배송 메모에 줄바꿈이 있어도 한 요청은 감사 로그 한 줄로 남겨주세요’라고 요청합니다. 첫 줄에 ‘문 앞에’, 둘째 줄에 ‘두고 가세요’라고 적은 메모를 넣습니다. 원래 메모는 두 줄 그대로 보존하고, 로그에만 줄바꿈을 눈에 보이는 문자로 기록해야 합니다. 배송 요청을 받았을 때와 거절했을 때 모두 같은 기준으로 확인합니다.</p>
-          <p><strong>검증할 질문</strong>은 간단합니다. 검사 결과에 작업 ID와 커밋을 붙여두면, 사람은 검토 시간을 줄이면서도 오래된 통과 기록을 걸러낼 수 있을까요?</p>
-          <figure class="issue-flow"><figcaption><b>작업 LOG-07 · 가상 판정 예시</b>같은 작업이라도 새 커밋에는 새 검사 결과가 필요합니다.</figcaption>
-          <ol><li><b>작성</b><span>에이전트가 오류 경로까지 고쳐 커밋 B를 냅니다. 직전 A의 검사는 통과했습니다.</span></li><li><b>대조</b><span>검증기가 보고서의 A와 검토 대상 B를 비교합니다. 다르면 승인을 보류하고 B를 다시 검사합니다.</span></li><li><b>판정</b><span>B에서 로그가 두 줄이면 작성자에게 돌려보냅니다. 한 줄이고 원래 메모도 보존됐으면 사람이 변경을 검토합니다.</span></li></ol></figure>
+          <p>검사 결과에 작업 ID와 커밋을 붙여두고, <strong>오래된 통과 기록을 걸러내면서 사람의 검토 시간도 줄일 수 있는지</strong> 확인합니다.</p>
+          <figure class="issue-flow"><figcaption><b>작업 LOG-07 · 가상 판정 예시</b>검사 결과와 검토 대상의 커밋이 다를 때의 흐름입니다.</figcaption>
+          <ol><li><b>작성</b><span>에이전트가 코드를 수정해 커밋 B를 냅니다. 남아 있는 통과 기록은 이전 커밋 A의 것입니다.</span></li><li><b>대조</b><span>검증기가 보고서의 커밋 A와 검토 대상인 커밋 B를 비교합니다. 다르면 승인을 보류하고 B를 다시 검사합니다.</span></li><li><b>판정</b><span>B에서 로그가 두 줄이면 작성자에게 돌려보냅니다. 한 줄이고 원래 메모도 보존됐으면 사람이 변경을 검토합니다.</span></li></ol></figure>
           <h3>같은 변경을 두 방식으로 검토합니다</h3>
-          <p>작업은 12개를 준비합니다. 정상 수정 4개, 성공 경로만 고치고 오류 경로를 놓친 수정 4개, 이전 커밋의 통과 기록이 딸려 온 수정 4개입니다. 마지막 네 개에는 재검사하면 통과하는 변경과 실패하는 변경을 반씩 넣습니다. 실험 진행자가 입력·기대 로그와 정답을 미리 고정하고, 코드 작성 에이전트가 낸 같은 첫 수정본을 두 방식에 제공합니다.</p>
-          <p><strong>A · 사람이 모아 확인</strong>에서는 검토자가 변경 파일, 테스트, 정적 분석 결과를 직접 대조합니다. <strong>B · 기록을 먼저 묶기</strong>에서는 읽기 전용 검증기가 같은 검사 도구를 실행하고, 작업 ID·커밋·기대 로그·실제 로그·경고를 한 장에 묶어 줍니다. 결과가 없거나 커밋이 다르면 통과로 넘기지 않습니다. 두 방식 모두 같은 실패를 작성자에게 돌려보낼 수 있고, 수정 기회는 한 번, 마지막 승인은 사람 몫입니다.</p>
+          <p>작업은 12개를 준비합니다. 정상 수정 4개, 성공 경로만 고치고 오류 경로를 놓친 수정 4개, 이전 커밋의 통과 기록이 딸려 온 수정 4개입니다. 마지막 네 개는 재검사하면 통과하는 변경 두 개와 실패하는 변경 두 개로 구성합니다. 실험 진행자가 입력·기대 로그와 정답을 미리 고정하고, 코드 작성 에이전트가 낸 같은 첫 수정본을 두 방식에 제공합니다.</p>
+          <p><strong>A · 사람이 모아 확인</strong>에서는 검토자가 변경 파일, 테스트, 정적 분석 결과를 직접 대조합니다.</p>
+          <p><strong>B · 기록을 먼저 묶기</strong>에서는 읽기 전용 검증기가 같은 검사 도구를 실행하고, 작업 ID·커밋·기대 로그·실제 로그·경고를 한 장에 묶어 줍니다. 결과가 없거나 커밋이 다르면 통과로 넘기지 않습니다.</p>
+          <p>두 방식 모두 검사에서 실패하면 작성자에게 한 번의 수정 기회를 줍니다. 마지막 승인은 사람이 합니다.</p>
           <h3>검토 시간을 줄여도 오류를 놓치면 실패입니다</h3>
-          <p>두 검토자가 과제 절반씩 A와 B를 바꿔 맡아 한 사람이 같은 정답을 두 번 보지 않게 합니다. 요청부터 승인·보류까지의 전체 시간, 사람이 검토한 시간, 재실행 횟수와 모델 호출 비용을 작업별로 남깁니다. 정답표로 <strong>잘못 승인한 변경</strong>과 <strong>정상인데 최종 보류한 변경</strong>을 따로 셉니다. 검사 도구 오류나 재시도 한도 초과도 기록에서 빼지 않습니다.</p>
+          <p>두 검토자는 각자 12개 과제를 한 번씩 검토합니다. 한 사람이 A로 본 과제는 다른 사람이 B로 보고, 각자 A와 B를 여섯 개씩 맡습니다.</p>
+          <p>요청부터 승인·보류까지의 전체 시간, 사람이 검토한 시간, 재실행 횟수와 모델 호출 비용을 작업별로 남깁니다. 정답표로 <strong>잘못 승인한 변경</strong>과 <strong>정상인데 최종 보류한 변경</strong>을 따로 셉니다. 검사 도구 오류나 재시도 한도 초과도 기록에서 빼지 않습니다.</p>
           <p>비교표에는 두 방식의 승인·보류 건수와 잘못된 판정을 먼저 놓고, 그 옆에 <strong>전체 사람 검토 시간 ÷ 올바르게 승인된 건수</strong>를 적습니다. 분모가 0이면 계산하지 않습니다. 이렇게 해야 일을 덜 끝내서 시간이 짧아진 경우와, 같은 품질로 확인할 일이 줄어든 경우를 구별할 수 있습니다.</p>
         </section>
 
