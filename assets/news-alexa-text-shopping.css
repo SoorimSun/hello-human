@@ -1,0 +1,58 @@
+/* ISSUE 40: article-only media and state explanations. */
+.news-alexa .news-article-header h1 { max-width: 100%; font-size: clamp(36px, 6.5vw, 62px); line-height: 1.2; }
+.news-alexa .news-article-header h1 > span,
+.news-alexa .news-article-header h1 > em { display: block; text-wrap: balance; }
+.news-alexa .news-story-section h2 { text-wrap: balance; }
+.news-alexa code { font-size: .88em; overflow-wrap: anywhere; }
+.as-media { margin: 28px 0; }
+.as-media img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 12px; }
+.as-media--clutch img { background: #fff; }
+.as-media figcaption, .as-panel figcaption { margin-top: 12px; color: var(--muted); font-size: 13px; line-height: 1.65; }
+.as-panel { margin: 28px 0; padding: 24px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.as-panel h3 { margin: 0 0 20px; font-size: 21px; line-height: 1.5; }
+.as-rules { margin: 0; }
+.as-rules > div { display: grid; grid-template-columns: 155px minmax(0, 1fr); gap: 18px; padding: 15px 0; border-bottom: 1px solid var(--line); }
+.as-rules > div:first-child { padding-top: 0; }
+.as-rules > div:last-child { border: 0; padding-bottom: 0; }
+.as-rules dt { font-weight: 750; }
+.as-rules dd { margin: 0; font-size: 15px; }
+.as-lineage { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; margin: 0; padding: 0; list-style: none; }
+.as-lineage li { position: relative; min-width: 0; padding: 14px 8px; border-radius: 8px; background: var(--surface-2); text-align: center; }
+.as-lineage li:not(:last-child)::after { content: "→"; position: absolute; right: -15px; top: 16px; color: var(--muted); }
+.as-lineage b { display: block; margin-bottom: 8px; font-size: 14px; }
+.as-lineage span { display: block; color: var(--muted); font-size: 12px; line-height: 1.55; }
+.as-lab { background: var(--surface-2); }
+.as-timeline { list-style: none; margin: 0; padding: 0; }
+.as-timeline li { position: relative; display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 16px; padding-bottom: 24px; }
+.as-timeline li:last-child { padding-bottom: 0; }
+.as-timeline li:not(:last-child)::before { content: ""; position: absolute; left: 15px; top: 36px; bottom: 4px; width: 2px; background: var(--line); }
+.as-step { display: grid; place-items: center; width: 32px; height: 32px; border: 1px solid var(--line); border-radius: 50%; background: var(--surface); font-family: var(--mono); font-size: 13px; }
+.as-timeline b { display: block; margin-bottom: 7px; }
+.as-timeline p { margin: 0 0 10px; font-size: 15px; line-height: 1.7; }
+.as-timeline small { display: block; padding: 9px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); font-size: 13px; }
+.as-table { width: 100%; margin: 28px 0; border-collapse: collapse; font-size: 15px; line-height: 1.7; }
+.as-table caption { padding-bottom: 12px; text-align: left; color: var(--muted); font-size: 13px; }
+.as-table th, .as-table td { padding: 14px 12px; border-bottom: 1px solid var(--line); vertical-align: top; text-align: left; }
+.as-table thead { background: var(--surface-2); }
+.as-table tbody th { width: 36%; }
+@media (max-width: 720px) {
+  .as-lineage { grid-template-columns: 1fr; gap: 24px; }
+  .as-lineage li { display: flex; align-items: center; gap: 16px; padding: 12px 16px; text-align: left; }
+  .as-lineage b { min-width: 76px; margin: 0; }
+  .as-lineage span { font-size: 14px; }
+  .as-lineage li:not(:last-child)::after { content: "↓"; right: auto; left: 32px; top: auto; bottom: -24px; }
+}
+@media (max-width: 520px) {
+  .news-alexa .news-article-header h1 { font-size: clamp(32px, 8.4vw, 42px); }
+  .as-panel { padding: 20px 16px; }
+  .as-rules > div { grid-template-columns: 1fr; gap: 6px; }
+  .as-timeline li { grid-template-columns: 28px minmax(0, 1fr); gap: 10px; }
+  .as-step { width: 28px; height: 28px; }
+  .as-timeline li:not(:last-child)::before { left: 13px; top: 32px; }
+  .as-table { font-size: 14px; }
+  .as-table th, .as-table td { padding: 12px 8px; }
+}
+@media print {
+  .as-panel { background: transparent; }
+  .as-media, .as-timeline li, .as-rules > div, .as-table tr { break-inside: avoid; }
+}

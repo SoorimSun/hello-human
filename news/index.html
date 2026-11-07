@@ -43,23 +43,33 @@
   <section class="news-list-section wrap" aria-labelledby="news-list-heading">
     <div class="news-list-heading">
       <h2 id="news-list-heading">발행한 뉴스</h2>
-      <span>총 <span data-news-total>53</span>편</span>
+      <span>총 <span data-news-total>54</span>편</span>
     </div>
     <div class="news-tabs" role="tablist" aria-label="뉴스 종류" hidden>
       <button class="news-tab" type="button" role="tab" id="all-news" aria-controls="news-feed" aria-selected="true" data-news-filter="all">
-        전체 최신순 <span class="news-tab-count" data-news-count="all">53</span>
+        전체 최신순 <span class="news-tab-count" data-news-count="all">54</span>
       </button>
       <button class="news-tab" type="button" role="tab" id="briefs" aria-controls="news-feed" aria-selected="false" tabindex="-1" data-news-filter="briefs">
         속보·단신 <span class="news-tab-count" data-news-count="briefs">14</span>
       </button>
       <button class="news-tab" type="button" role="tab" id="regular-news" aria-controls="news-feed" aria-selected="false" tabindex="-1" data-news-filter="regular-news">
-        일반뉴스 <span class="news-tab-count" data-news-count="regular-news">39</span>
+        일반뉴스 <span class="news-tab-count" data-news-count="regular-news">40</span>
       </button>
     </div>
     <p class="news-sort-note">최신 발행순 · 같은 날짜에는 속보·단신을 먼저 보여드립니다.</p>
     <div id="news-feed">
       <!-- Add each article once, newest first; tabs filter this shared catalogue. -->
       <ol class="news-issues">
+        <li data-news-kind="regular-news">
+          <a class="news-issue" href="2026-11-07-alexa-text-shopping.html">
+            <span class="news-issue-main">
+              <span class="news-issue-meta"><span class="news-kind news-kind-regular-news">일반뉴스 40</span> <time datetime="2026-11-07">2026. 11. 07</time> · Amazon Alexa / 문자 쇼핑·대화 세션·신원 관리</span>
+              <strong>Amazon Alexa, 문자로 찾고 구매한다</strong>
+              <span>미국 초대 고객에게 열린 Alexa 문자 쇼핑과 CrewAI의 대화 세션, OpenHands의 자동화 설명도, Clutch의 신원 관리를 살펴봅니다. 문자와 웹에서 이어지는 요청의 상태를 검증하는 실험도 제안합니다.</span>
+            </span>
+            <span class="news-issue-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
         <li data-news-kind="regular-news">
           <a class="news-issue" href="2026-11-06-gpt6-cyber-scope.html">
             <span class="news-issue-main">
