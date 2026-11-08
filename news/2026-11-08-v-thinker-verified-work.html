@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>V-Thinker, 이미지 조작까지 평가한다 · AI뉴스 · 헬로우 휴먼</title>
+  <meta name="description" content="V-Thinker의 시각 추론 데이터 공개, 환경단체의 이미지·문서 분석, IMF의 투자 위험 경고를 살펴봅니다. 상품 이미지 대조 실험으로 검증에 드는 시간과 결과 재사용 조건을 짚습니다.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="V-Thinker, 이미지 조작까지 평가한다">
+  <meta property="og:description" content="정답에 필요한 시각적 작업을 평가하는 VTBench. 환경단체의 업무시간 단축 사례와 IMF의 경고를 통해 검증된 업무 한 건의 시간·비용을 생각합니다.">
+  <meta property="og:url" content="https://soorimsun.github.io/hello-human/news/2026-11-08-v-thinker-verified-work.html">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+  <script src="../assets/theme.js?v=3"></script>
+  <link rel="stylesheet" href="../assets/style.css?v=9">
+  <link rel="stylesheet" href="../assets/news.css?v=10">
+  <link rel="stylesheet" href="../assets/news-v-thinker.css?v=2">
+  <link rel="stylesheet" href="../assets/content-updates.css?v=1">
+</head>
+<body class="news-vt">
+  <header class="topbar"><div class="wrap topbar-inner">
+    <a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+    <nav class="news-nav" aria-label="사이트 메뉴"><a href="../">모임 소개</a><a href="./">AI뉴스</a><a href="../guides/">AI가이드</a><a href="../insights/">인사이트</a><a href="../case-studies/">사례연구</a><a data-newsletter-entry href="../newsletters/">뉴스레터</a></nav>
+  </div></header>
+  <main><article>
+    <header class="news-article-header wrap">
+      <a class="news-back" href="./">← AI뉴스 목록</a>
+      <p class="news-kicker">AI NEWS <span aria-hidden="true">/</span> ISSUE 41</p>
+      <h1><span>V-Thinker,</span> <em><span>이미지 조작까지</span> <span>평가한다</span></em></h1>
+      <p class="news-deck">시각 추론의 학습·평가 자료가 공개됐습니다. 환경단체의 이미지·문서 분석 사례와 IMF의 투자 위험 경고도 함께 읽으며, 검증을 마친 업무 한 건에 드는 시간과 자원을 살펴봅니다.</p>
+      <div class="news-article-meta"><time datetime="2026-11-08">2026년 11월 8일</time><span>헬로우 휴먼 AI뉴스</span></div>
+    </header>
+    <div class="news-article-shell wrap">
+      <nav class="news-toc" aria-label="기사 목차"><span>이번 호</span><a href="#summary">30초 요약</a><a href="#v-thinker">V-Thinker의 평가 자료</a><a href="#conservation">환경단체의 업무 활용</a><a href="#imf">IMF의 투자 위험 경고</a><a href="#our-view">헬로우 휴먼의 관점</a><a href="#experiment">상품 이미지 대조 실험</a><a href="#sources">읽은 자료</a></nav>
+      <div class="news-story">
+        <section id="summary" class="news-summary" aria-labelledby="summary-title">
+          <p class="news-section-label">AT A GLANCE</p><h2 id="summary-title">30초 요약</h2>
+          <ul>
+            <li><strong>V-Thinker</strong> 학습 데이터 프리뷰 두 종류와 VTBench 공개를 안내했습니다. 위치 찾기, 지시대로 이미지 조작하기, 조작을 활용해 답하기를 나눠 평가합니다.</li>
+            <li><strong>환경단체의 활용</strong> Reuters는 사진 분석과 손글씨 기록 정리에 쓰이는 사례를 취재했습니다. 작업시간 단축과 함께 캐싱·선박 내 분석으로 반복 계산과 전송을 줄이는 방식도 소개했습니다.</li>
+            <li><strong>IMF의 경고</strong> 게오르기에바 총재는 AI 투자에 따른 성장세가 둔화할 가능성과 시장 변동성을 중앙은행이 고려해야 한다고 말했습니다.</li>
+          </ul>
+        </section>
+        <p class="news-method"><b>자료 확인</b> 2026년 11월 8일 한국시간 기준. 저장소의 11월 7일자 공개 안내, 11월 6~7일 Reuters 보도와 관련 공식 자료를 확인했습니다. 이전 연구·사업 자료는 배경으로 구분했습니다.</p>
+
+        <section id="v-thinker" class="news-story-section">
+          <p class="news-section-label">01 / V-THINKER · VTBENCH</p>
+          <h2>정답에 이르기 전에,<br>그림을 제대로 다뤘는지 봅니다</h2>
+          <p>V-Thinker 연구진은 공식 저장소의 11월 7일자 안내에서 <strong>이미지 상호작용 학습 데이터 두 종류와 평가 데이터 VTBench를 공개</strong>했다고 밝혔습니다. V-Thinker는 이미지에 선을 긋거나 표시하고 변형한 결과를 다음 추론에 활용하는 연구입니다. <a class="source-link" href="https://github.com/We-Math/V-Thinker#-latest-news" target="_blank" rel="noopener noreferrer">공개 안내 ↗</a></p>
+          <div class="vt-table-wrap"><table class="vt-table">
+            <caption>이름의 숫자와 공개 프리뷰의 규모를 구분합니다</caption>
+            <thead><tr><th scope="col">자료</th><th scope="col">무엇에 쓰나요</th><th scope="col">공개 안내의 규모</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><a href="https://huggingface.co/datasets/We-Math/V-Interaction-400K" target="_blank" rel="noopener noreferrer">V-Interaction-400K</a></th><td>이미지와 상호작용하는 추론 학습</td><td>프리뷰 약 25만 2천 건</td></tr>
+              <tr><th scope="row"><a href="https://huggingface.co/datasets/We-Math/V-Perception-40K" target="_blank" rel="noopener noreferrer">V-Perception-40K</a></th><td>점·위치 인식 학습</td><td>프리뷰 약 3만 7천 건</td></tr>
+              <tr><th scope="row"><a href="https://huggingface.co/datasets/We-Math/VTBench" target="_blank" rel="noopener noreferrer">VTBench</a></th><td>세 유형의 시각 추론 평가</td><td>논문 기준 유형별 500개, 총 1,500개 질문·응답 쌍</td></tr>
+            </tbody>
+          </table></div>
+          <p>가령 원 안의 선분 길이를 구하는 문제라면, 점의 위치를 찾는 일과 보조선을 정확하게 긋는 일, 그 그림으로 답을 구하는 일은 각각 확인할 수 있습니다. VTBench는 이 세 능력을 분리해 봅니다. 지각·조작 과제는 만들어 낸 이미지를 기준 이미지와 대조해 모델로 채점하고, 추론 과제는 답의 정확성을 평가합니다. <a class="source-link" href="https://arxiv.org/html/2511.04460v2#S5" target="_blank" rel="noopener noreferrer">논문의 평가 구성 ↗</a></p>
+          <figure class="vt-media">
+            <a href="../assets/news/v-thinker-vtbench.png" aria-label="VTBench 공식 구성 도식 크게 보기"><img src="../assets/news/v-thinker-vtbench.png" width="3268" height="1241" alt="VTBench 공식 도식. 위쪽은 자료 수집·검토·주석 작성 과정, 아래쪽은 원의 선분 길이 추론, 지시에 따른 보조선 그리기, 점의 좌표 찾기 예시입니다." loading="lazy" decoding="async"></a>
+            <figcaption>연구진이 공개한 VTBench 구성과 과제 예시입니다. 아래쪽 왼쪽부터 추론, 지시 기반 조작, 위치 인식을 보여줍니다. © 2025 We-Math · MIT. <a class="source-link" href="https://github.com/We-Math/V-Thinker/blob/main/assets/fig7.png" target="_blank" rel="noopener noreferrer">공식 원본 ↗</a></figcaption>
+          </figure>
+          <p class="news-brief">논문은 2025년 11월 6일 처음 제출됐고 12월 18일 개정됐습니다. 이번 호에서는 저장소의 데이터 공개 안내를 다루며, 논문을 새로 나온 모델 발표로 소개하지 않습니다. <a class="source-link" href="https://arxiv.org/abs/2511.04460" target="_blank" rel="noopener noreferrer">제출·개정 이력 ↗</a></p>
+          <h3>업무 화면에서도 판단한 위치를 남길 수 있습니다</h3>
+          <p>상품 상세 이미지의 가격이 등록 정보와 일치하는지 확인할 때도, 추출한 값과 그 값이 있던 영역을 함께 남기면 사람이 확인할 범위를 좁힐 수 있습니다. 글자가 흐리면 해당 영역을 다시 읽고, 숫자 대조는 코드로 처리하는 방식입니다.</p>
+          <p>이는 연구에서 아이디어를 얻은 <strong>업무 적용 제안</strong>입니다. VTBench의 수학·논리·통계 과제 성능만으로 상품 이미지 검증의 정확도를 알 수는 없으므로, 뒤에서 별도의 가상 자료로 시험할 방법을 제안합니다.</p>
+        </section>
+
+        <section id="conservation" class="news-story-section">
+          <p class="news-section-label">02 / CONSERVATION · WORK AND RESOURCES</p>
+          <h2>사진과 기록을 먼저 정리하고,<br>사람이 확인할 결과를 남깁니다</h2>
+          <p>Reuters는 11월 7일, 환경·보전·개발 관련 단체 15곳을 인터뷰한 기사를 보도했습니다. 모두 어떤 형태로든 AI를 쓰면서 데이터센터의 환경 영향도 우려한다고 답했습니다. 기존 프로젝트를 살펴본 현장 보도입니다. <a class="source-link" href="https://uk.marketscreener.com/news/environmental-groups-embrace-ai-even-as-they-warn-of-data-center-impacts-ce785fd2df8ff123" target="_blank" rel="noopener noreferrer">Reuters 보도 · MarketScreener 전재 ↗</a></p>
+          <div class="vt-cases">
+            <section aria-labelledby="elephants-title"><p class="vt-eyebrow">SAVE THE ELEPHANTS · 단체 설명</p><h3 id="elephants-title">항공 사진 약 20만 장</h3><p class="vt-number">9명 · 9개월 <span>→ 유사 분석 수 시간</span></p><p>대표 Frank Pope는 지난해 케냐 보호구역의 사진을 사람이 검토한 규모와 기간을 이렇게 설명했습니다. AI는 유사 분석을 수 시간에 처리한다고 밝혔습니다.</p></section>
+            <section aria-labelledby="jgi-title"><p class="vt-eyebrow">JANE GOODALL INSTITUTE · 예상 기간</p><h3 id="jgi-title">손글씨 관찰 기록의 디지털화</h3><p class="vt-number">13~15년 <span>→ 약 2년 예상</span></p><p>연구소는 AWS와 만든 도구로 스캔한 기록을 번역·구조화하면서 전체 예상 기간이 줄었다고 설명했습니다. 약 2년은 완료 실적이 아닙니다.</p></section>
+          </div>
+          <p class="vt-note">두 기간은 Reuters 인터뷰에서 각 단체가 설명한 값입니다. 같은 데이터로 외부 기관이 재현한 비교나, 최종 검토·보고까지 포함한 전체 업무시간 측정치는 제시되지 않았습니다.</p>
+          <p>Jane Goodall Institute의 배경 자료를 보면 대상은 65년에 걸쳐 쌓인 관찰 기록입니다. AWS는 손글씨·영상·사진을 검색 가능한 연구 자료로 바꾸는 단계별 계획을 설명했습니다. 기록을 빠르게 구조화하는 작업과 연구자가 의미를 해석하는 작업을 나눠 볼 수 있는 사례입니다. <a class="source-link" href="https://www.aboutamazon.com/news/aws/jane-goodall-institute-research-archive-aws-ai" target="_blank" rel="noopener noreferrer">AWS의 사업 소개 ↗</a></p>
+          <h3>다시 계산하지 않고, 모든 영상을 전송하지 않습니다</h3>
+          <p>같은 취재에서 World Resources Institute는 동일한 질의 결과를 캐싱하고 이미지·영상 생성은 제한적으로 쓴다고 설명했습니다. 이미 얻은 결과를 재사용하는 것도 자원 관리의 한 방법입니다.</p>
+          <p>The Nature Conservancy(TNC)는 어선의 영상을 선박 안에서 분석하는 구조를 공식 자료에 공개했습니다. 어종·어획 정보를 추출하고 선장의 전자 조업일지와 대조해 일일 요약을 보냅니다. 검토자는 예측과 관련 영상을 확인합니다. <a class="source-link" href="https://www.nature.org/en-us/newsroom/tnc-launches-edge-ai-reports/" target="_blank" rel="noopener noreferrer">TNC의 시스템 소개 ↗</a></p>
+          <figure class="vt-panel vt-review" aria-labelledby="edge-title">
+            <p class="vt-eyebrow">TNC · 보고서에서 사람이 확인하는 것</p>
+            <h3 id="edge-title">어획 숫자 옆에,<br>판단의 근거를 남깁니다</h3>
+            <ol class="vt-capture-flow" aria-label="일일 보고서가 만들어지는 과정">
+              <li><span>01</span><b>선박 카메라</b><small>조업 영상을 기록</small></li>
+              <li><span>02</span><b>선내 분석</b><small>어획 추출·일지 대조</small></li>
+              <li><span>03</span><b>일일 보고서</b><small>요약과 근거를 전달</small></li>
+            </ol>
+            <div class="vt-review-output">
+              <div class="vt-report-content">
+                <p class="vt-diagram-label">보고서에 모이는 정보</p>
+                <dl class="vt-report-fields">
+                  <div><dt>어획 요약</dt><dd>보유·폐기 등 처리 유형별 건수</dd></div>
+                  <div><dt>위험 항목</dt><dd>조업일지·어종·위치 등에 관한 표시</dd></div>
+                  <div><dt>사건별 근거</dt><dd>어종, 처리 유형, 발생 시각, 모델 신뢰도와 근거 영상</dd></div>
+                </dl>
+              </div>
+              <div class="vt-human-review">
+                <span class="vt-review-arrow" aria-hidden="true">→</span>
+                <p class="vt-diagram-label">사람이 확인할 지점</p>
+                <b>예측과 영상을 함께 봅니다</b>
+                <p>표시된 어종·처리 유형을 해당 장면과 대조하고, 위험 표시의 근거를 확인합니다.</p>
+                <span class="vt-review-note">모델 신뢰도도 검토할 정보 중 하나</span>
+              </div>
+            </div>
+            <a class="vt-source-card" href="https://www.nature.org/content/dam/tnc/nature/en/documents/t/n/TNC-edgeReport-2026-d1.pdf#page=27" target="_blank" rel="noopener noreferrer">
+              <span><b>공식 일일 보고서 화면 보기</b><small>TNC·Tryolabs 2026 보고서 · 27쪽 Figure 13 · 모의 데이터 예시</small></span><span aria-hidden="true">↗</span>
+            </a>
+            <figcaption>공식 보고서 24·27쪽의 절차와 항목을 정리한 자체 설명도입니다. 연결한 원본 화면은 개인정보 보호를 위해 모의 데이터를 사용했습니다.</figcaption>
+          </figure>
+          <p>캐싱은 반복 계산을, 선내 분석은 원격 전송 부담을 줄이는 설계입니다. 다만 <strong>호출 수나 전송량의 감소율을 그대로 전력·탄소 절감률로 환산할 수는 없습니다.</strong> 장비의 소비전력과 실행시간, 전력원까지 알아야 환경 영향을 계산할 수 있습니다.</p>
+        </section>
+
+        <section id="imf" class="news-story-section">
+          <p class="news-section-label">03 / IMF · INVESTMENT AND GROWTH</p>
+          <h2>투자가 만든 성장세와<br>실제로 거둘 수익을 함께 봅니다</h2>
+          <p>크리스탈리나 게오르기에바 IMF 총재는 11월 6일 워싱턴 본부에서 <strong>AI가 이끄는 성장세가 둔화하면 중앙은행이 물가 대응을 판단할 때 반영해야 한다</strong>고 말했습니다. 투자 붐과 높은 기업가치에 대한 우려가 시장 변동성을 키우고 있다는 설명입니다. Reuters 전재본의 보도 시각은 한국시간 11월 7일 오전 8시 52분입니다. <a class="source-link" href="https://www.aol.com/articles/imfs-georgieva-says-slowdown-ai-235217000.html" target="_blank" rel="noopener noreferrer">Reuters 보도 · AOL 전재 ↗</a></p>
+          <p>그는 AI 투자가 일부 국가의 성장을 뒷받침하는 동시에 물가 압력과 금융 안정성 우려도 더한다고 설명했습니다. 중앙은행은 성장세의 변화와 물가·시장의 움직임을 함께 살펴야 한다는 뜻입니다.</p>
+          <figure class="vt-panel vt-macro" aria-labelledby="macro-title">
+            <p class="vt-eyebrow">IMF 총재 발언 · Reuters 보도를 바탕으로 정리</p>
+            <h3 id="macro-title">투자 붐이 만드는 성장과<br>그 곁의 위험을 함께 봅니다</h3>
+            <div class="vt-macro-origin"><b>AI 투자 확대</b><span>관련 인프라에 대한 대규모 지출</span></div>
+            <div class="vt-macro-branches" aria-label="투자 확대와 함께 살펴볼 세 가지 영향">
+              <div class="vt-macro-branch"><span class="vt-diagram-label">성장</span><b>일부 국가의 성장을 뒷받침</b><p>투자 붐이 성장에 힘을 보탭니다.</p></div>
+              <div class="vt-macro-branch"><span class="vt-diagram-label">물가</span><b>물가 상승 압력도 가중</b><p>성장 지원과 물가 부담이 함께 나타날 수 있습니다.</p></div>
+              <div class="vt-macro-branch"><span class="vt-diagram-label">금융시장</span><b>투자 수익·높은 가치평가 우려</b><p>시장 변동성과 금융 안정성 위험을 살펴야 합니다.</p></div>
+            </div>
+            <div class="vt-policy-path">
+              <div><span class="vt-diagram-label">성장세가 둔화한다면</span><b>AI 투자가 주던 성장 동력이 약해짐</b></div>
+              <span class="vt-policy-arrow" aria-hidden="true">→</span>
+              <div><span class="vt-diagram-label">중앙은행이 반영할 조건</span><b>물가 대응을 판단할 때 성장 변화도 고려</b></div>
+            </div>
+            <figcaption>11월 6일 발언을 전한 Reuters 기사의 내용을 연결한 자체 설명도입니다. 영향의 크기나 금리 방향을 예측한 모형은 아닙니다. <a class="source-link" href="https://www.aol.com/articles/imfs-georgieva-says-slowdown-ai-235217000.html" target="_blank" rel="noopener noreferrer">발언 보도 ↗</a></figcaption>
+          </figure>
+        </section>
+
+        <section id="our-view" class="news-story-section news-view">
+          <p class="news-section-label">OUR VIEW</p><h2>다음 사람이 다시 확인할 일을 줄입니다</h2>
+          <p>세 소식은 연구 평가, 현장 활용, 경제 위험이라는 서로 다른 문제를 다룹니다. 우리 모임에서는 이 자료를 읽으며 <strong>‘처리한 양’ 옆에 ‘검증을 마친 결과’를 놓아보자</strong>고 제안합니다.</p>
+          <figure class="vt-panel" aria-labelledby="cost-title">
+            <h3 id="cost-title">서로 다른 단계의 성과를 구분합니다</h3>
+            <dl class="vt-levels">
+              <div><dt>인프라 투자</dt><dd>서버·네트워크·전력 설비에 얼마나 투자했는가</dd></div>
+              <div><dt>서비스 운영</dt><dd>실제 수요와 매출이 운영비·투자를 감당하는가</dd></div>
+              <div><dt>사용자의 업무</dt><dd>같은 품질의 일을 마치는 데 시간·비용이 줄었는가</dd></div>
+            </dl>
+            <figcaption>투자 규모와 업무 성과를 구분하기 위한 헬로우 휴먼의 설명도입니다.</figcaption>
+          </figure>
+          <p>우리 업무에서는 모델 이용료에 재시도·오류 수정·최종 검토를 더해 보아야 합니다. 응답이 빨라져도 담당자가 결과를 다시 읽는 시간이 늘면 기대한 절감이 사라질 수 있습니다. 반대로 호출 비용이 조금 높아도 같은 품질로 검토 시간을 더 많이 줄이면 전체 비용은 낮아질 수 있습니다.</p>
+          <p>상품 이미지에서 가격을 읽었다면 그 위치와 비교한 등록 정보가 남아야 합니다. 같은 이미지를 다시 처리할 때는 재사용해도 되는 결과인지 확인해야 합니다. 그러면 사람이 처음부터 읽고 대조하는 일을 줄일 여지가 생깁니다.</p>
+          <p>이번 과제에서는 AI가 이미지의 값을 읽고, 소프트웨어가 업무 규칙을 적용하며, 워크플로가 재시도·보류·검토 이력을 관리하면 됩니다. 추가 자료를 찾아 여러 단계를 판단해야 하는 일이 생길 때 Agent를 연결할 수 있습니다.</p>
+        </section>
+
+        <section id="experiment" class="news-story-section">
+          <p class="news-section-label">OUR LAB · 아직 실행하지 않은 실험 제안</p>
+          <h2>가격이 다른 위치를 짚고,<br>다시 읽을 범위를 줄여 봅니다</h2>
+          <p>가상 상품의 배너에는 <strong>39,000원</strong>, 등록 정보에는 <strong>42,000원</strong>이 적혀 있습니다. 검증기는 ‘가격 불일치’와 함께 배너에서 읽은 값·영역, 등록 정보의 버전을 반환해야 합니다. 가격 문구가 아예 없으면 ‘표시 없음’, 흐려서 읽지 못하면 ‘판독 보류’로 나눕니다.</p>
+          <figure class="vt-panel" aria-labelledby="lab-title">
+            <h3 id="lab-title">가상 상품 P-017 · 입력에서 검토까지</h3>
+            <ol class="vt-lab-flow">
+              <li><b>입력</b><span>배너 v1의 가격 39,000원 + 등록 정보 v1의 가격 42,000원</span></li>
+              <li><b>AI 추출</b><span>가격 39,000원, 이미지 내 좌표, 읽은 원문, 판독 상태를 반환</span></li>
+              <li><b>코드 대조</b><span>두 값을 비교해 ‘불일치’와 비교에 사용한 버전을 기록</span></li>
+              <li class="vt-human"><b>사람의 검토</b><span>표시한 영역과 등록 값을 보고 불일치를 확인하거나 판정을 수정</span></li>
+            </ol>
+            <figcaption>미리 정한 입력과 기대 동작을 보여주는 설명입니다. V-Thinker를 실제 상품 업무에 실행한 결과는 아닙니다.</figcaption>
+          </figure>
+          <h3>전체 이미지 읽기와 필요한 영역 다시 읽기를 비교합니다</h3>
+          <p>가상 상품 이미지 30개를 준비합니다. 6개는 지침·코드 조정용, 나머지 24개는 고정 평가용으로 분리합니다. 평가용은 정상 8개, 가격·배송 조건 불일치 8개, 비교할 문구가 없는 이미지 4개, 글자가 흐려 판독을 보류해야 하는 이미지 4개입니다. 비슷한 디자인의 변형은 양쪽에 나눠 넣지 않고 한 묶음으로 배정합니다.</p>
+          <p>정답표에는 항목별 값과 근거 영역, 기대 상태를 사람이 먼저 기록합니다. ‘표시 없음’ 4개는 이미지에 그 문구를 반드시 넣어야 하는 정책이 없다고 가정해, 누락을 오류로 판정하지 않습니다.</p>
+          <ul class="vt-comparison">
+            <li><strong>A · 수동 대조</strong> 사람이 이미지와 등록 자료를 보고 같은 형식의 결과를 작성합니다.</li>
+            <li><strong>B · 한 번 읽기</strong> 모델이 전체 이미지에서 값을 추출하고 코드가 등록 자료와 비교합니다.</li>
+            <li><strong>C · 필요한 영역 다시 읽기</strong> B와 같은 모델·지침으로 시작하되, 판독 보류 또는 값 불일치가 나온 영역을 한 번 확대해 다시 읽습니다.</li>
+          </ul>
+          <p>B·C의 출력에는 항목명, 추출값, 원본 이미지 기준 좌표, 판독 상태를 담습니다. 좌표 범위를 벗어나거나 응답 형식이 잘못되면 정상으로 넘기지 않습니다. 확대 영역을 특정할 수 없거나 재분석에도 읽지 못한 경우, 시간 초과·호출 제한이 발생한 경우에는 사유를 붙여 사람에게 보류합니다. 상품 정보 변경이나 게시 기능은 만들지 않습니다.</p>
+          <h3>이미지를 읽은 결과와 비교 판정의 캐시를 나눕니다</h3>
+          <p>첫 비교는 캐시를 비운 상태에서 수행합니다. 그다음 C에 같은 요청을 반복하되, 캐시를 껐을 때와 켰을 때를 따로 비교합니다. 등록 가격만 바뀌는 경우도 넣어, <strong>이미지 추출은 재사용하면서 비교 판정은 다시 계산</strong>하는지 확인합니다.</p>
+          <div class="vt-table-wrap"><table class="vt-table">
+            <caption>같은 상품이라도 바뀐 입력에 따라 다시 할 일이 달라집니다</caption>
+            <thead><tr><th scope="col">달라진 조건</th><th scope="col">재사용할 결과</th><th scope="col">다시 할 일</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">변경 없이 재요청</th><td>검증된 추출·비교 결과</td><td>유효한 버전인지 확인</td></tr>
+              <tr><th scope="row">등록 가격만 39,000원으로 수정</th><td>이미지에서 읽은 39,000원</td><td>새 등록 정보와 대조, ‘불일치 → 일치’</td></tr>
+              <tr><th scope="row">이미지·모델·추출 지침 변경</th><td>기존 추출 결과 사용 안 함</td><td>이미지를 다시 읽고 대조</td></tr>
+              <tr><th scope="row">비교 규칙만 변경</th><td>이미지 추출 결과</td><td>새 규칙으로 비교 판정</td></tr>
+            </tbody>
+          </table></div>
+          <p>추출 캐시에는 이미지 내용 해시·모델·추출 지침·전처리 버전을, 비교 캐시에는 추출 결과의 식별자·등록 정보 버전·규칙 버전을 묶습니다. 보류나 실패는 성공 캐시에 넣지 않습니다. 실험에서 직접 구현할 연결 코드이며, 모델의 기본 기능으로 가정하지 않습니다.</p>
+          <h3>놓친 오류와 늘어난 재검토를 먼저 셉니다</h3>
+          <p>같은 평가 자료에서 실제 불일치 8건 중 놓친 건수와 정상 8건 중 잘못 경고한 건수를 따로 셉니다. ‘표시 없음’과 ‘판독 보류’도 각각 정답표와 비교합니다. B·C에는 같은 모델 설정을 적용하고, 사람의 검토는 방식·자료 순서를 교차해 앞서 본 답을 기억하는 영향을 줄입니다.</p>
+          <p>요청부터 최종 확인까지 걸린 시간과, 그중 사람이 직접 작업한 시간을 나눠 기록합니다. 모델 방식에는 재시도·재분석의 시간과 실제 이용료도 더합니다. <strong>검증 완료</strong>는 정상·불일치·표시 없음 판정이 정답표와 맞고 사람이 근거를 확인한 건으로 정합니다. 판독 보류·실패는 분모에서 빼되 여기에 쓴 시간·비용은 합계에 남깁니다.</p>
+          <div class="vt-equation"><b>완료 한 건당 투입</b><p>전체 사람 작업시간 ÷ 검증 완료 건수<br>전체 모델 이용료 ÷ 검증 완료 건수</p><small>두 단위를 나눠 기록합니다. 완료가 0건이면 나눗셈 대신 ‘산출 불가’를 표시합니다.</small></div>
+          <p>이 작은 평가에서는 불일치를 정상으로 통과시키거나 오래된 비교 결과를 반환하면 도입을 보류합니다. 정확한 완료 건수와 보류 건수가 같은 조건에서 사람이 쓰는 시간·호출 비용을 비교합니다. 토큰 절감만으로 환경 효과를 추정하지 않고, 운영에 쓰기 전에는 더 다양한 이미지로 평가를 넓힙니다.</p>
+          <p>남길 결과물은 <strong>버전이 있는 가상 이미지·정답표, 영역 추출 응답, 비교 규칙, 캐시 무효화 검사, 사람의 수정·검토 시간 기록</strong>입니다. 모델이 바뀌어도 같은 자료로 다시 시험할 수 있어야 다음에도 같은 검증을 처음부터 만들지 않아도 됩니다.</p>
+        </section>
+
+        <section id="sources" class="news-sources">
+          <p class="news-section-label">SOURCES</p><h2>읽은 자료</h2>
+          <ul>
+            <li><a href="https://github.com/We-Math/V-Thinker" target="_blank" rel="noopener noreferrer">We-Math · V-Thinker 공식 저장소</a> <span>11월 7일자 공개 안내 · 프리뷰 수량과 자료 구분</span></li>
+            <li><a href="https://huggingface.co/datasets/We-Math/V-Interaction-400K" target="_blank" rel="noopener noreferrer">V-Interaction-400K</a> · <a href="https://huggingface.co/datasets/We-Math/V-Perception-40K" target="_blank" rel="noopener noreferrer">V-Perception-40K</a> · <a href="https://huggingface.co/datasets/We-Math/VTBench" target="_blank" rel="noopener noreferrer">VTBench</a> <span>Hugging Face 공개 자료</span></li>
+            <li><a href="https://arxiv.org/html/2511.04460v2" target="_blank" rel="noopener noreferrer">V-Thinker 논문 v2</a> <span>2025년 12월 18일 · 평가 과제와 채점 방식</span></li>
+            <li><a href="https://uk.marketscreener.com/news/environmental-groups-embrace-ai-even-as-they-warn-of-data-center-impacts-ce785fd2df8ff123" target="_blank" rel="noopener noreferrer">Reuters · 환경단체의 AI 활용 취재</a> <span>11월 7일 · MarketScreener 전재본, 단체 인터뷰의 시간·기간 수치</span></li>
+            <li><a href="https://www.aboutamazon.com/news/aws/jane-goodall-institute-research-archive-aws-ai" target="_blank" rel="noopener noreferrer">AWS · Jane Goodall Institute 연구 자료 디지털화</a> <span>2025년 사업 소개 · 기록의 종류와 단계별 계획</span></li>
+            <li><a href="https://www.nature.org/en-us/newsroom/tnc-launches-edge-ai-reports/" target="_blank" rel="noopener noreferrer">TNC · 선박 내 영상 분석과 공개 시스템</a> <span>공식 배경 자료 · 어획 정보 대조, 일일 요약과 사람의 검토</span></li>
+            <li><a href="https://www.nature.org/content/dam/tnc/nature/en/documents/t/n/TNC-edgeReport-2026-d1.pdf#page=27" target="_blank" rel="noopener noreferrer">TNC·Tryolabs · 선내 분석 기술 보고서</a> <span>2026년 · 24쪽 시스템 구성도, 27쪽 모의 데이터를 사용한 일일 보고서 예시</span></li>
+            <li><a href="https://www.aol.com/articles/imfs-georgieva-says-slowdown-ai-235217000.html" target="_blank" rel="noopener noreferrer">Reuters · 게오르기에바 총재의 성장·물가 발언</a> <span>11월 6일 23:52 UTC, 한국시간 11월 7일 08:52 · AOL 전재본</span></li>
+          </ul>
+          <p>원문의 발표·인터뷰와 모임의 해석·실험 제안을 구분했습니다. 연구 성능, 단체의 업무시간과 실험 제안의 효과를 직접 재측정하지 않았습니다.</p>
+        </section>
+        <a class="news-end-link" href="./">AI뉴스 목록으로 돌아가기 <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </article></main>
+  <footer class="footer"><div class="wrap">헬로우 휴먼 · Workless Engineering Club</div></footer>
+  <script src="../assets/analytics.js?v=2" defer></script>
+  <script src="../assets/article-toc.js?v=1" defer></script>
+  <script type="module" src="../assets/content-updates.js?v=3"></script>
+</body>
+</html>
