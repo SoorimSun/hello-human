@@ -1,0 +1,63 @@
+.news-fable .news-article-header h1 { max-width: 1100px; font-size: clamp(36px, 5.3vw, 64px); line-height: 1.22; }
+.news-fable .news-article-header h1 > span, .news-fable .news-article-header h1 > em { display: block; }
+.news-fable .news-article-header h1 em span { display: inline-block; }
+.news-fable h3 { margin: 30px 0 14px; font-size: 23px; line-height: 1.45; }
+.news-fable code { font-size: .88em; overflow-wrap: anywhere; }
+.news-fable .fc-media { margin: 30px 0; }
+.news-fable .fc-media img { display: block; width: 100%; height: auto; background: #fff; border: 1px solid var(--line); border-radius: 12px; }
+.news-fable figcaption { color: var(--muted); font-size: 14px; line-height: 1.7; }
+.news-fable figcaption b { display: block; margin-bottom: 6px; color: var(--ink); font-size: 17px; }
+.news-fable .fc-media figcaption { padding-top: 14px; }
+.news-fable .fc-panel { margin: 28px 0; padding: 24px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.news-fable .fc-panel > figcaption { margin-bottom: 22px; }
+.news-fable .fc-note { color: var(--muted); font-size: 14px; }
+.news-fable .fc-table { width: 100%; margin: 26px 0; border-collapse: collapse; table-layout: fixed; font-size: 15px; }
+.news-fable .fc-table caption { margin-bottom: 12px; color: var(--muted); font-size: 14px; text-align: left; }
+.news-fable .fc-table th, .news-fable .fc-table td { padding: 14px 12px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+.news-fable .fc-table thead { background: var(--surface-2); }
+.news-fable .fc-table th:first-child { width: 34%; }
+.news-fable .fc-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 26px 0; }
+.news-fable .fc-pair > div { min-width: 0; padding: 22px; border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 9px; background: var(--surface); }
+.news-fable .fc-pair h3 { margin: 0 0 12px; font-size: 20px; }
+.news-fable .fc-pair p { margin-bottom: 0; font-size: 16px; }
+.news-fable .fc-flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+.news-fable .fc-flow li { padding: 17px 15px; border-top: 3px solid var(--accent); background: var(--surface-2); border-radius: 6px; }
+.news-fable .fc-flow b, .news-fable .fc-flow span { display: block; }
+.news-fable .fc-flow b { margin-bottom: 8px; font-size: 16px; }
+.news-fable .fc-flow span { font-size: 14px; color: var(--muted); }
+.news-fable .fc-controls { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.news-fable .fc-controls label { font-size: 15px; font-weight: 700; }
+.news-fable .fc-controls select, .news-fable .fc-controls button { min-height: 44px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); color: var(--ink); font: inherit; font-size: 14px; }
+.news-fable .fc-controls select { max-width: 100%; }
+.news-fable .fc-controls button { cursor: pointer; }
+.news-fable .fc-controls button:disabled { opacity: .45; cursor: default; }
+.news-fable .fc-controls :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.news-fable .fc-replay-state { margin: 20px 0; padding: 22px; background: var(--surface-2); border-radius: 9px; border-left: 3px solid var(--accent); min-height: 230px; }
+.news-fable .fc-replay-state h3 { margin: 7px 0 12px; font-size: 21px; }
+.news-fable .fc-replay-state p { margin: 0 0 12px; font-size: 16px; }
+.news-fable .fc-state-label { color: var(--muted); font-family: var(--mono); font-size: 12px; }
+.news-fable .fc-state-result { display: block; font-size: 15px; }
+.news-fable .fc-steps { display: flex; gap: 6px; margin: 18px 0; padding: 0; list-style: none; }
+.news-fable .fc-steps li { flex: 1; padding: 9px 4px; border-bottom: 3px solid var(--line); font-size: 13px; text-align: center; color: var(--muted); }
+.news-fable .fc-steps [aria-current="step"] { border-color: var(--accent); color: var(--ink); font-weight: 700; }
+.news-fable .fc-method { margin: 30px 0; border: 1px solid var(--line); border-radius: 9px; background: var(--surface); }
+.news-fable .fc-method summary { padding: 18px 20px; cursor: pointer; color: var(--ink); font-weight: 700; }
+.news-fable .fc-method summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.news-fable .fc-method-body { padding: 0 20px 8px; }
+.news-fable .fc-method-body h3 { font-size: 20px; }
+.news-fable .fc-method-body p { font-size: 16px; }
+.news-fable [hidden] { display: none !important; }
+@media (max-width: 600px) {
+  .news-fable .news-article-header h1 { font-size: clamp(29px, 8.1vw, 44px); }
+  .news-fable .fc-panel { padding: 19px 16px; }
+  .news-fable .fc-pair, .news-fable .fc-flow { grid-template-columns: 1fr; }
+  .news-fable .fc-table { font-size: 13px; }
+  .news-fable .fc-table th, .news-fable .fc-table td { padding: 12px 7px; }
+  .news-fable .fc-table th:first-child { width: 32%; }
+  .news-fable .fc-replay-state { min-height: 280px; padding: 18px; }
+  .news-fable .news-view { padding: 26px 22px; }
+}
+@media print {
+  .news-fable .fc-interactive { display: none !important; }
+  .news-fable .fc-panel, .news-fable .fc-media { break-inside: avoid; }
+}
