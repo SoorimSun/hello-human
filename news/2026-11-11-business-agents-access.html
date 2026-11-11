@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>OpenAI 기업 에이전트 출시, eBay에서는 Muse의 상품 조회 실패 · AI뉴스 · 헬로우 휴먼</title>
+  <meta name="description" content="OpenAI Business Agents와 Muse의 eBay 상품 조회 실패 보도, Gemini 4 Carbon, Claude 협업 도구, OpenAI·Upwork 연구를 살펴봅니다. 상품 정보의 조회 방식과 변경·권한 철회 대응을 비교하는 실험을 제안합니다.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="OpenAI 기업 에이전트 출시, eBay에서는 Muse의 상품 조회 실패">
+  <meta property="og:description" content="기업이 직접 여는 상담 창구와 플랫폼이 허용하는 접근 범위. Carbon의 장기 작업, Claude의 공동 편집, 외주 프로젝트의 변화까지 함께 읽습니다.">
+  <meta property="og:url" content="https://soorimsun.github.io/hello-human/news/2026-11-11-business-agents-access.html">
+  <meta property="og:image" content="https://soorimsun.github.io/hello-human/assets/news/business-agents-conversation.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="og:image:alt" content="OpenAI가 공개한 Business Agent의 상품 상담 예시">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="OpenAI 기업 에이전트 출시, eBay에서는 Muse의 상품 조회 실패">
+  <meta name="twitter:description" content="공식 기업 에이전트와 외부 접근 권한, 장기 작업 모델과 협업 도구를 살펴봅니다.">
+  <meta name="twitter:image" content="https://soorimsun.github.io/hello-human/assets/news/business-agents-conversation.webp">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+  <script src="../assets/theme.js?v=3"></script>
+  <link rel="stylesheet" href="../assets/style.css?v=9">
+  <link rel="stylesheet" href="../assets/news.css?v=10">
+  <link rel="stylesheet" href="../assets/news-business-agents.css?v=2">
+  <link rel="stylesheet" href="../assets/content-updates.css?v=1">
+</head>
+<body class="news-business">
+  <header class="topbar"><div class="wrap topbar-inner">
+    <a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+    <nav class="news-nav" aria-label="사이트 메뉴"><a href="../">모임 소개</a><a href="./">AI뉴스</a><a href="../guides/">AI가이드</a><a href="../insights/">인사이트</a><a href="../case-studies/">사례연구</a><a data-newsletter-entry href="../newsletters/">뉴스레터</a></nav>
+  </div></header>
+  <main><article>
+    <header class="news-article-header wrap">
+      <a class="news-back" href="./">← AI뉴스 목록</a>
+      <p class="news-kicker">AI NEWS <span aria-hidden="true">/</span> ISSUE 44</p>
+      <h1><span>OpenAI 기업 에이전트 출시,</span><em><span>eBay에서는 Muse의</span> <span>상품 조회 실패</span></em></h1>
+      <p class="news-deck">기업이 직접 여는 상담 창구와 플랫폼이 허용하는 접근 범위. Gemini 4 Carbon의 장기 작업, Claude의 공동 편집, 외주 프로젝트의 변화까지 함께 읽습니다.</p>
+      <div class="news-article-meta"><time datetime="2026-11-11">2026년 11월 11일</time><span>헬로우 휴먼 AI뉴스</span></div>
+    </header>
+    <div class="news-article-shell wrap">
+      <nav class="news-toc" aria-label="기사 목차"><span>이번 호</span><a href="#summary">30초 요약</a><a href="#business-agents">OpenAI 기업 에이전트</a><a href="#ebay">eBay의 접근 제한</a><a href="#carbon">Carbon의 장기 작업</a><a href="#claude">Claude의 공동 편집</a><a href="#upwork">외주 프로젝트의 변화</a><a href="#our-view">헬로우 휴먼의 관점</a><a href="#experiment">상품 조회·견적 실험</a><a href="#sources">읽은 자료</a></nav>
+      <div class="news-story">
+        <section id="summary" class="news-summary" aria-labelledby="summary-title">
+          <p class="news-section-label">AT A GLANCE</p><h2 id="summary-title">30초 요약</h2>
+          <ul>
+            <li><strong>OpenAI와 eBay</strong> 미국의 적격 기업은 ChatGPT에 상담 에이전트를 만들 수 있게 됐습니다. 한편 Meta Muse가 eBay 상품을 조회하지 못한다는 보도가 나왔습니다. 기업의 참여와 외부 에이전트의 접근 허가는 서로 다른 문제입니다.</li>
+            <li><strong>Google과 Anthropic</strong> Carbon의 제공 범위가 유료 개발자·기업으로 넓어졌고, Claude에는 스프레드시트·화이트보드와 데이터 작업 기능이 더해졌습니다. 긴 작업을 맡기는 모델과 팀이 결과를 함께 고치는 환경이 확장됩니다.</li>
+            <li><strong>OpenAI·Upwork</strong> 공동 연구에서는 AI 관련 공고가 다루는 업무가 다양해지고, 과거에 드물던 업무 조합이 비관련 공고보다 자주 나타났습니다. 공고의 구성과 예산을 분석한 결과이며, 일자리 대체나 개인 소득 증가를 입증한 것은 아닙니다.</li>
+          </ul>
+        </section>
+        <p class="news-method"><b>자료 확인</b> 2026년 11월 11일 한국시간 기준입니다. 제품 발표와 연구 공개는 원문 표기상 11월 10일입니다. The Verge의 eBay 보도는 한국시간 11일 오전 1시 20분이며, Carbon 평가는 10월 26~27일에 진행됐습니다.</p>
+
+        <section id="business-agents" class="news-story-section">
+          <p class="news-section-label">01 / OPENAI</p>
+          <h2>ChatGPT에서 기업을 찾고,<br>그 기업의 에이전트와 대화합니다</h2>
+          <p>OpenAI가 <strong>Businesses in ChatGPT를 베타로 공개</strong>했습니다. 기업은 Business Hub에서 소유 관계를 확인받고 회사 정보와 가격·재고가 담긴 상품 피드를 관리합니다. 자격을 갖춘 기업은 Business Agent를 만들어 고객의 상품 비교와 후속 질문에도 답할 수 있습니다. <a class="source-link" href="https://openai.com/index/introducing-businesses-chatgpt/" target="_blank" rel="noopener noreferrer">공식 발표 ↗</a></p>
+          <p>예를 들어 고객이 ChatGPT에서 미술용품을 찾다가 특정 상점의 프로필을 열고, 그 상점의 에이전트에 선물을 추천받는 흐름입니다. <strong>기업을 대표하는 대화라는 표시가 붙고 기존 ChatGPT 대화와 분리</strong>됩니다. 에이전트를 광고의 연결 대상으로 삼을 수도 있으며, 광고 역시 일반 답변과 구분됩니다.</p>
+          <figure class="ba-media">
+            <a href="../assets/news/business-agents-conversation.webp" target="_blank" rel="noopener"><img src="../assets/news/business-agents-conversation.webp" width="1200" height="675" alt="Colorful Clatter의 기업 에이전트가 그림을 좋아하는 조카를 위한 선물을 추천하는 OpenAI 공식 화면" loading="lazy" decoding="async"></a>
+            <figcaption><b>기업의 이름으로 이어지는 상품 상담</b>OpenAI가 공개한 Colorful Clatter 예시 화면입니다. 고객의 조건에 맞춰 해당 상점의 상품을 안내합니다. <a href="https://openai.com/index/introducing-businesses-chatgpt/#bringing-agentic-capabilities-to-businesses" target="_blank" rel="noopener noreferrer">공식 소개</a></figcaption>
+          </figure>
+          <h3>기업 등록과 에이전트 운영은 제공 범위가 다릅니다</h3>
+          <table class="ba-table"><caption>11월 10일 발표 기준</caption><thead><tr><th scope="col">기능</th><th scope="col">할 수 있는 일</th><th scope="col">대상</th></tr></thead><tbody><tr><th scope="row">Business Hub</th><td>기업 정보·상품 피드 관리, 집계 지표 확인</td><td>ChatGPT 제공 지역의 적격 기업</td></tr><tr><th scope="row">Business Agents</th><td>기업을 대표하는 상품·서비스 상담</td><td>미국의 적격 전자상거래·온라인 서비스 기업부터</td></tr></tbody></table>
+          <p>Business Hub는 기업 언급 수와 웹사이트 클릭 수, 해당 웹사이트가 인용된 대화의 주요 주제를 집계해 보여줍니다. OpenAI는 개별 대화와 에이전트 대화 내용을 기업에 공유하지 않으며, 집계에 필요한 최소 대화·상호작용 수를 충족할 때만 지표를 제공한다고 설명합니다. 구매 전환 효과는 별도로 확인해야 합니다.</p>
+          <figure class="ba-media">
+            <a href="../assets/news/business-agents-insights.webp" target="_blank" rel="noopener"><img src="../assets/news/business-agents-insights.webp" width="1200" height="675" alt="기업 언급, 프로필 조회, 웹사이트 클릭과 발견 주제를 보여주는 Business Hub 공식 예시 화면" loading="lazy" decoding="async"></a>
+            <figcaption><b>어떻게 발견되는지 보는 집계 화면</b>OpenAI의 제품 예시입니다. 화면 속 숫자는 실제 도입 성과로 인용하지 않았습니다. <a href="https://openai.com/index/introducing-businesses-chatgpt/#understand-how-people-engage-with-your-business" target="_blank" rel="noopener noreferrer">지표와 개인정보 설명</a></figcaption>
+          </figure>
+          <p>별도 <a href="https://openai.com/policies/business-agents-policy/" target="_blank" rel="noopener noreferrer">Business Agents 정책</a>은 기업 확인만으로 에이전트 자격이 보장되지는 않는다고 명시합니다. 승인된 기능에서 사용자의 명시적 허가를 받지 않은 개인정보 전달·예약·구매도 허용하지 않습니다. 이번 발표에서 바로 확인할 수 있는 출발점은 <strong>기업 정보 관리와 상담</strong>입니다.</p>
+        </section>
+
+        <section id="ebay" class="news-story-section">
+          <p class="news-section-label">02 / EBAY · 접근 실패 보도</p>
+          <h2>상품을 찾는 능력이 있어도,<br>플랫폼이 접근을 허용해야 합니다</h2>
+          <p>The Verge는 Meta의 <strong>Muse가 eBay 상품 링크와 세부 정보를 가져오지 못하는 사례</strong>를 보도했습니다. 매일 시계 매물을 모아 보던 독자의 제보를 다른 검색 요청으로 재현했고, 일부 응답은 eBay 매물을 복제한 외부 사이트로 연결됐다고 전했습니다. eBay 대변인은 무단 수집·학습 등 일부 경우에 에이전트 접근을 제한한다고 답했지만, 최근 새 제한을 도입했는지는 직접 확인해 주지 않았습니다. <a class="source-link" href="https://www.theverge.com/tech/1030838/ebay-ai-agents-meta-muse-agentic-shopping" target="_blank" rel="noopener noreferrer">취재 원문 ↗</a></p>
+          <p><strong>이번 보도일이 정책의 시작일은 아닙니다.</strong> eBay 약관은 사전 명시적 허가 없는 자동화 접근을 금지하며 구매 대행 에이전트와 LLM 기반 봇도 포함합니다. 현재 약관 페이지에는 6월 28일 시행본과 2월 20일 시행된 이전 개정본이 함께 안내돼 있습니다. 이 보도만으로 모든 외부 에이전트가 전면 차단됐다고 볼 수는 없습니다. <a class="source-link" href="https://www.ebay.com/help/policies/member-behavior-policies/user-agreement?id=4259" target="_blank" rel="noopener noreferrer">eBay 이용약관 ↗</a></p>
+          <figure class="ba-panel" aria-labelledby="ebay-flow-title">
+            <figcaption><b id="ebay-flow-title">Muse의 eBay 조회에서 보도된 흐름</b>The Verge의 취재 내용을 재구성한 설명도입니다. <a href="https://www.theverge.com/tech/1030838/ebay-ai-agents-meta-muse-agentic-shopping" target="_blank" rel="noopener noreferrer">보도 원문</a></figcaption>
+            <ol class="ba-flow"><li><b>01 · 매물 수집 요청</b><span>고객이 Muse에 시계 매물의 링크·가격·배송 정보를 모아 달라고 요청합니다.</span></li><li><b>02 · eBay 조회 실패</b><span>Muse가 링크와 상세 정보를 가져오지 못했고, 매체도 다른 요청으로 이를 재현했습니다.</span></li><li><b>03 · 일부 응답은 외부로</b><span>eBay 원본 대신 매물을 복제한 외부 사이트를 안내한 경우도 있었습니다.</span></li></ol>
+            <p class="ba-note">eBay는 일부 무단 접근을 제한한다고 설명했습니다. 이번에 새 제한을 도입했는지, 어떤 요청까지 막히는지는 확인되지 않았습니다.</p>
+          </figure>
+          <h3>허용된 연결 경로를 만드는 움직임도 있습니다</h3>
+          <p>앞서 Walmart는 10월 21일 <strong>Agent Gateway와 Agent Profiles</strong>를 소개했습니다. 에이전트가 고객 계정 안의 별도 프로필로 연결되고, 고객이 구매 승인 방식과 지출 한도를 관리하는 구상입니다. 11월 11일 확인한 Gateway 안내는 <strong>초대 기반 초기 베타</strong>이며 참여자마다 기능이 다를 수 있다고 밝힙니다. <a class="source-link" href="https://corporate.walmart.com/news/2026/10/Making-It-Possible-for-Agents-to-Shop-on-Behalf-of-Customers" target="_blank" rel="noopener noreferrer">10월 발표 ↗</a> <a class="source-link" href="https://www.walmart.com/cp/walmart-agent-gateway/1280482" target="_blank" rel="noopener noreferrer">현재 베타 안내 ↗</a></p>
+          <figure class="ba-media">
+            <a href="../assets/news/business-agents-walmart-profiles.webp" target="_blank" rel="noopener"><img src="../assets/news/business-agents-walmart-profiles.webp" width="1920" height="1080" alt="Walmart 공식 예시 화면. 왼쪽 구매 내역에 에이전트가 만든 주문을 표시하고, 오른쪽 Agent Profile에서 구매 승인 기준 금액과 프로필 삭제를 설정합니다." loading="lazy" decoding="async"></a>
+            <figcaption><b>Walmart는 에이전트의 주문과 승인 설정을 따로 보여줍니다</b>10월 21일 발표한 공식 제품 예시입니다. 왼쪽은 에이전트 주문 표시, 오른쪽은 구매 승인 기준 금액과 프로필 관리 화면입니다. 초대 기반 초기 베타의 배경 자료로, eBay 조회 실패 화면과는 구분합니다. <a href="https://corporate.walmart.com/news/2026/10/Making-It-Possible-for-Agents-to-Shop-on-Behalf-of-Customers" target="_blank" rel="noopener noreferrer">Walmart 공식 발표</a></figcaption>
+          </figure>
+          <p>우리의 설계 과제는 상품 조회, 견적 준비, 주문 확정에 필요한 권한을 나누는 일입니다. 화면 탐색에 실패했을 때 오래된 복제 정보를 대신 내놓는다면 고객은 그 차이를 알기 어렵습니다. 접근 가능 여부와 정보의 출처·확인 시점을 결과에 함께 남길 이유가 여기에 있습니다.</p>
+        </section>
+
+        <section id="carbon" class="news-story-section">
+          <p class="news-section-label">03 / GOOGLE</p>
+          <h2>Carbon은 오래 이어지는 작업에,<br>추론과 검증을 더 투입합니다</h2>
+          <p>Google은 11월 10일 <strong>Gemini 4 Carbon을 유료 개발자와 기업에 개방</strong>했습니다. 약 2주 전 보안 방어 전문가에게 먼저 제공한 모델의 접근 범위를 넓힌 것입니다. Google은 일반 개발·지식 업무에 Argon을, 복잡한 수정·디버깅과 과학 연구에 Carbon을 권합니다. Carbon은 더 많은 토큰을 써서 탐색과 검증을 오래 이어가는 모델이라는 설명입니다. <a class="source-link" href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/" target="_blank" rel="noopener noreferrer">공식 발표 ↗</a></p>
+          <p>Antigravity의 <strong><code>/swarm</code>도 미리보기</strong>로 소개했습니다. 여러 에이전트가 분리된 작업공간에서 일하고, 설계·조정·검증처럼 깊은 추론이 필요한 역할에는 Carbon을 배치하는 방식입니다.</p>
+          <figure class="ba-media">
+            <div class="ba-video"><iframe src="https://www.youtube-nocookie.com/embed/rOVEmjfPmYk?rel=0&amp;playsinline=1" title="Google 공식 시연: Carbon과 Antigravity로 에펠탑 건설 과정의 3D 전시 만들기" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+            <figcaption><b>사진과 도면에서 3D 전시로 · Google 선정 시연</b>역사 자료를 이용해 에펠탑 건설 과정을 보여주는 결과물입니다. 작업의 일반적인 성공률은 아래의 별도 평가와 나눠 봅니다. <a href="https://www.youtube.com/watch?v=rOVEmjfPmYk" target="_blank" rel="noopener noreferrer">공식 영상</a> · <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/" target="_blank" rel="noopener noreferrer">발표와 시연 조건</a></figcaption>
+          </figure>
+          <h3>추론 수준을 중간에서 높음으로 올리자, 완료율은 0.9%p 높아졌습니다</h3>
+          <p>모델 공급사 밖의 평가로는 Zapier의 <strong>AutomationBench 1.0.6</strong>이 있습니다. 47개 모의 앱을 쓰는 업무 환경에서 최종 상태의 검사 항목을 모두 만족해야 통과합니다. 추론 설정마다 657개 과제, 최대 50단계, 사람의 개입 없이 시험했습니다. <a class="source-link" href="https://zapier.com/benchmarks/gemini-carbon-4-report" target="_blank" rel="noopener noreferrer">Zapier 평가 보고서 ↗</a></p>
+          <figure class="ba-panel" aria-labelledby="carbon-chart-title">
+            <figcaption><b id="carbon-chart-title">Carbon의 업무 완료율 · Zapier 평가</b>2026년 10월 26~27일 사전 평가. 각 설정의 분모는 657개 과제입니다.</figcaption>
+            <div class="ba-bars">
+              <div><div class="ba-bar-head"><span>낮음 · 207 / 657건</span><strong>31.5%</strong></div><div class="ba-track" aria-hidden="true"><span style="width:31.5%"></span></div></div>
+              <div><div class="ba-bar-head"><span>중간 · 348 / 657건</span><strong>53.0%</strong></div><div class="ba-track" aria-hidden="true"><span style="width:53%"></span></div></div>
+              <div><div class="ba-bar-head"><span>높음 · 354 / 657건</span><strong>53.9%</strong></div><div class="ba-track" aria-hidden="true"><span style="width:53.9%"></span></div></div>
+            </div><div class="ba-axis" aria-hidden="true"><span>0%</span><span>50%</span><span>100%</span></div>
+          </figure>
+          <p>중간에서 높음으로 올렸을 때 통과 과제는 <strong>6건 더 늘었습니다.</strong> 실패 비용까지 합친 통과 한 건당 비용은 중간 약 <strong>$3.11</strong>, 높음 약 <strong>$3.94</strong>였습니다. Zapier가 입력 $4·출력 $20·캐시 읽기 $0.40/100만 토큰을 적용한 추정치로, 실제 청구액이나 출시 할인 단가로 계산한 값은 아닙니다.</p>
+          <table class="ba-table"><caption>Google이 발표한 Carbon 공개 API 단가 · 100만 토큰당</caption><thead><tr><th scope="col">적용 기간</th><th scope="col">입력</th><th scope="col">출력</th></tr></thead><tbody><tr><th scope="row">11월 30일까지<br>출시 프로모션</th><td>$2</td><td>$10</td></tr><tr><th scope="row">프로모션 종료 후</th><td>$4</td><td>$20</td></tr></tbody></table>
+          <p>우리 업무에 적용할 때는 추론 설정별 완료율과 <strong>실패·재시도를 포함한 완료 한 건의 비용</strong>을 함께 봐야 합니다. 이 평가의 53.9%를 실제 기업 업무의 자동 처리율로 옮길 수는 없습니다.</p>
+        </section>
+
+        <section id="claude" class="news-story-section">
+          <p class="news-section-label">04 / ANTHROPIC</p>
+          <h2>Claude가 만든 표와 보드를,<br>팀이 같은 공간에서 고칩니다</h2>
+          <p>Anthropic은 <strong>Claude Sheets와 Whiteboards를 베타로 출시</strong>하고, Dashboards를 Claude Data로 바꾸며 정식 제공한다고 발표했습니다. Sheets는 탭·수식·서식·드롭다운을 다루고, Whiteboards는 팀의 메모를 모아 주제나 실행 계획으로 정리합니다. Sheets는 현재 기본 스프레드시트 기능에 초점을 맞춥니다. <a class="source-link" href="https://claude.com/resources/articles/sheets-whiteboards-data" target="_blank" rel="noopener noreferrer">기능별 공식 안내 ↗</a></p>
+          <figure class="ba-media">
+            <div class="ba-video"><iframe src="https://www.youtube-nocookie.com/embed/YewAJPawE7I?rel=0&amp;playsinline=1" title="Anthropic 공식 시연: 파이 출시를 준비하며 Whiteboards, Sheets, Data 함께 사용하기" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+            <figcaption><b>하나의 프로젝트를 보드·표·데이터로 이어가기</b>Anthropic의 공식 제품 시연입니다. 휴일 시즌 파이 출시를 준비하는 예시로 공동 작업 흐름을 보여줍니다. <a href="https://www.youtube.com/watch?v=YewAJPawE7I" target="_blank" rel="noopener noreferrer">공식 영상</a> · <a href="https://claude.com/resources/articles/sheets-whiteboards-data" target="_blank" rel="noopener noreferrer">제품 안내</a></figcaption>
+          </figure>
+          <p>Claude Data에서 눈에 띄는 것은 <strong>인증된 질의</strong>입니다. 데이터 담당자가 검증한 계산을 재사용해, 팀마다 같은 매출 지표를 다르게 계산하는 문제를 줄이려는 기능입니다. 인증된 질의와 실시간 공유는 아직 베타입니다. 결과를 함께 편집하는 편리함과 숫자의 기준을 맞추는 일은 같이 관리해야 합니다.</p>
+          <table class="ba-table"><caption>발표 시점의 제공 상태 · 유료 요금제 기준</caption><thead><tr><th scope="col">기능</th><th scope="col">상태</th><th scope="col">운영 조건</th></tr></thead><tbody><tr><th scope="row">Sheets·Whiteboards</th><td>베타</td><td>Team 기본 켜짐<br>Enterprise 기본 꺼짐</td></tr><tr><th scope="row">Data</th><td>정식 제공<br>일부 기능 베타</td><td>데이터 연결 필요<br>Enterprise는 11월 19일 기본 활성화 예정</td></tr><tr><th scope="row">Meetings</th><td>출시 예정</td><td>공식 종합 안내의 ‘Coming soon’ 기준</td></tr></tbody></table>
+          <p><strong>Interactive Connectors</strong>는 외부 앱을 대화 옆이나 전체 화면으로 엽니다. Atlassian·Box·Notion 등 지원 도구에서 사람이 직접 작업하거나 Claude와 함께 변경할 수 있습니다. 연결 서비스의 권한과 지원 범위 안에서 작동합니다. 회의 중 메모를 남기고 문서를 고치는 Claude Meetings는 공식 안내상 출시 예정입니다. <a class="source-link" href="https://claude.com/resources/articles/more-ways-to-work-with-claude-sheets-whiteboards-and-interactive-connectors" target="_blank" rel="noopener noreferrer">업무 도구 종합 안내 ↗</a></p>
+        </section>
+
+        <section id="upwork" class="news-story-section">
+          <p class="news-section-label">05 / OPENAI × UPWORK</p>
+          <h2>AI 관련 외주 공고에서,<br>함께 요구하는 기술 조합이 달라집니다</h2>
+          <p>OpenAI와 Upwork가 공동 연구 <strong>『The Rebundling of Freelance Work in the AI Age』</strong>를 공개했습니다. ChatGPT의 사용 활동과 Upwork 공고를 비교하고, AI 관련 공고에서 요구하는 업무 조합을 분석했습니다. 제품·플랫폼 당사자의 관찰 연구이며 인과관계를 확정하지 않습니다. <a class="source-link" href="https://openai.com/index/ai-effect-on-freelance-work/" target="_blank" rel="noopener noreferrer">연구 소개 ↗</a></p>
+          <p>연구진은 2025년 하반기 ChatGPT 이용 비중을 2023년 상반기 Upwork 공고 비중과 비교해 분야별 AI 이용 강도를 구했습니다. 63개 분야 중 43개에서는 <strong>이 강도가 높은 분야의 공고 비중이 줄거나, 낮은 분야의 비중이 늘었습니다.</strong> 공고 비중의 변화는 2023년 상반기부터 2025년 하반기까지를 비교한 값입니다. 43개 모두의 수요 감소나 AI의 인과효과를 뜻하지는 않습니다.</p>
+          <figure class="ba-media">
+            <a href="../assets/news/business-agents-upwork-diversity.png" target="_blank" rel="noopener"><img src="../assets/news/business-agents-upwork-diversity.png" width="1024" height="480" alt="OpenAI·Upwork 보고서 Exhibit 3.1. 왼쪽은 업무 분포의 다양성 14.6에서 21.2, 오른쪽은 공고 한 건에 담긴 업무 개수의 분포입니다." loading="lazy" decoding="async"></a>
+            <figcaption><b>전체 업무의 다양성과 공고 한 건의 업무 수를 나눠 봅니다</b>공동 보고서 11쪽의 Exhibit 3.1과 각주를 발췌했습니다. 왼쪽은 AI 관련 공고 전체의 업무 분포, 오른쪽은 AI 관련·비관련 공고의 업무 수 분포입니다. <a href="https://cdn.openai.com/pdf/openai-upwork-full-report.pdf#page=11" target="_blank" rel="noopener noreferrer">원본 도표와 방법</a></figcaption>
+          </figure>
+          <p>2023년 상반기와 2025년 하반기를 비교하면 AI 관련 공고 전체의 <strong>업무 다양성 지표가 14.6에서 21.2로 약 45% 증가</strong>했습니다. 여러 업무가 얼마나 고르게 분포하는지를 ‘같은 비중의 업무 종류 수’로 환산한 값입니다. 한 공고가 21개 업무를 요구한다는 의미는 아닙니다. 공고에서 분류한 업무 수의 평균은 AI 관련 3.35개, 비관련 3.19개였습니다.</p>
+          <p>차이는 업무의 개수보다 <strong>어떤 일을 함께 요구하는지</strong>에도 있습니다. 연구는 AI 영상 생성·편집·모션그래픽을 한 결과물로 묶는 사례를 들며, 과거에 드물던 업무 쌍이 AI 관련 공고에 더 자주 포함된다고 분석했습니다.</p>
+          <p>예산과 시간도 나눠 읽어야 합니다. 2026년 4월까지의 자료에서 업무 분야와 공고 월을 보정하면, 건별 고정금액 계약의 제시 예산은 AI 관련 공고에서 약 52% 높았지만 제시 시급의 차이는 약 1.5%였습니다. 채용 후 작업시간이 기록된 시급 계약에서는 같은 조건을 보정한 첫 90일의 작업시간이 약 41% 많았습니다. 서로 다른 계약 표본이므로 이를 개인 소득 증가율로 합칠 수 없습니다. <a class="source-link" href="https://cdn.openai.com/pdf/openai-upwork-full-report.pdf#page=9" target="_blank" rel="noopener noreferrer">보고서의 예산·시간 구분 ↗</a></p>
+          <p>개발자의 일에 연결하면, 모델 호출을 붙이는 것에서 데이터 연동·업무 규칙·검증까지 묶어 결과를 납품하는 역량을 생각해볼 수 있습니다. 이는 우리의 해석이며 국내 커머스 외주에서도 같은 변화가 입증됐다는 뜻은 아닙니다.</p>
+        </section>
+
+        <section id="our-view" class="news-story-section news-view">
+          <p class="news-section-label">OUR VIEW</p>
+          <h2>에이전트가 바뀌어도,<br>업무의 기준은 이어져야 합니다</h2>
+          <p>OpenAI는 기업이 고객과 만나는 창구를 늘리고, eBay는 외부 도구가 들어오는 조건을 정합니다. 두 소식을 함께 보면 <strong>잘 답하는 에이전트와 실제로 일할 수 있는 에이전트 사이에 데이터와 권한의 연결이 필요하다</strong>는 점이 드러납니다.</p>
+          <p>Carbon은 오래 걸리는 탐색·검증을 맡는 쪽으로, Claude의 협업 기능은 사람이 결과를 이어서 고치는 쪽으로 발전하고 있습니다. Upwork 연구에서는 AI와 기존 업무를 묶어 결과물을 요구하는 공고가 관찰됩니다. 이 변화들을 우리 일에 연결한다면, 모델이 만든 결과를 실제 업무 절차에 이어 붙이는 개발이 중요해집니다.</p>
+          <p>커머스 팀이 쌓을 자산은 최신 상품 정보를 제공하고, 권한을 확인하고, 요청이 어디까지 처리됐는지 알려주는 업무 기능입니다. AI는 요청을 해석하고 도구를 고르며, 기존 소프트웨어는 가격·재고·실행 규칙을 확인합니다. Workless Engineering의 효과는 그 경계를 만들어 <strong>사람이 같은 내용을 다시 찾고 확인하는 일을 줄였을 때</strong> 측정할 수 있습니다.</p>
+        </section>
+
+        <section id="experiment" class="news-story-section">
+          <p class="news-section-label">OUR LAB · 아직 실행하지 않은 실험 제안</p>
+          <h2>찾을 때는 7만 2천 원,<br>견적을 만들 때도 유효할까요</h2>
+          <p>가상 고객이 “배송비 포함 8만 원 안에서 전기주전자를 비교하고 견적만 준비해 줘”라고 요청합니다. 에이전트는 상품 69,000원에 배송비 3,000원인 후보를 찾았습니다. 그런데 견적을 준비하기 전에 가격이 오르거나 품절되거나, 고객이 접근 권한을 철회하면 어떻게 해야 할까요.</p>
+          <p>이번 실험은 <strong>같은 상품 정보를 HTML과 JSON으로 받았을 때, 어느 쪽이 더 정확하게 읽고 적은 재확인으로 견적까지 이어지는지</strong> 비교합니다. 최근의 <a href="2026-11-07-alexa-text-shopping.html#experiment">채널 간 요청 순서 실험</a>에서 주제를 옮겨, 상품 정보의 추출과 조회 후 변경에 대한 대응을 살펴봅니다. 별도로 만든 가상 상품·견적 서비스를 사용하며, Business Agents의 제품 성능을 평가하는 실험은 아닙니다.</p>
+          <figure class="ba-panel">
+            <figcaption><b>에이전트는 후보를 고르고, 업무 서비스는 조건을 검사합니다</b>견적은 확인 시점의 참고 정보입니다. 가격·재고를 보장하거나 주문·결제를 실행하지 않습니다.</figcaption>
+            <ol class="ba-flow"><li><b>01 · 같은 입력</b><span>상품 30개, 배송 조건, 상품 버전, 고객의 예산과 허용 범위를 준비합니다.</span></li><li><b>02 · 다른 표현 형식</b><span>A는 검색·상세 조회 결과를 HTML로, B는 같은 결과를 JSON으로 읽습니다.</span></li><li><b>03 · 같은 검증</b><span>모의 서비스가 현재 조건을 검사하고, 견적 또는 생성하지 못한 이유를 반환합니다.</span></li></ol>
+          </figure>
+          <figure class="ba-panel" aria-labelledby="replay-title">
+            <figcaption><b id="replay-title">조건이 바뀌면 어디에서 멈추는지 따라갑니다</b>미리 작성한 기대 상태를 보여주는 설명용 재생입니다. 모델·API를 호출하거나 성능을 측정하지 않습니다.</figcaption>
+            <div class="ba-interactive" data-ba-replay hidden>
+              <div class="ba-controls"><label for="ba-scenario">상황</label><select id="ba-scenario"><option value="normal">정상 · 조건 유지</option><option value="price">가격 변경 · 예산 초과</option><option value="stock">재고 변경 · 품절</option><option value="revoked">고객의 권한 철회</option></select></div>
+              <ol class="ba-steps" aria-label="실험 단계"><li>요청</li><li>후보 조회</li><li>최신 검증</li><li>결과</li></ol>
+              <div class="ba-state" aria-live="polite" aria-atomic="true"><small data-step></small><h3 data-title></h3><p data-detail></p><strong data-result></strong></div>
+              <div class="ba-controls"><button type="button" data-prev>이전 단계</button><button type="button" data-next>다음 단계</button></div>
+            </div>
+            <table class="ba-table"><caption>첫 후보 조회 뒤의 기대 결과 · 대체 상품 추천은 이번 평가에서 제외합니다</caption><thead><tr><th scope="col">견적 직전 변화</th><th scope="col">확인·응답</th><th scope="col">새 견적</th></tr></thead><tbody><tr><th scope="row">변화 없음</th><td>합계 72,000원과 버전·확인 시점·유효기간 반환</td><td>1개<br>조건 유지 시 같은 요청은 동일 견적</td></tr><tr><th scope="row">가격 79,000원으로 변경</th><td>배송비 포함 82,000원, 예산 초과로 보류</td><td>0개</td></tr><tr><th scope="row">재고 5개 → 0개</th><td>품절을 알리고 보류</td><td>0개</td></tr><tr><th scope="row">고객 권한 철회</th><td>403 반환, 추가 조회·준비 중단과 재승인 안내</td><td>0개</td></tr></tbody></table>
+          </figure>
+          <h3 id="experiment-method">같은 조건에서 읽기와 대응을 비교합니다</h3>
+          <dl class="ba-method-overview">
+            <div><dt>비교 조건</dt><dd><strong>A는 HTML, B는 JSON</strong>으로 읽습니다. 상품 내용·검색 순서·갱신 시점과 모델·지침·서버 검증은 같게 둡니다.</dd></div>
+            <div><dt>진행 방식</dt><dd>정상·가격 변경·품절·권한 철회, 각 6건을 준비합니다. <strong>24건 × 3회 × 2방식 = 144회</strong>이며, 같은 사례를 반복합니다.</dd></div>
+            <div><dt>평가 기준</dt><dd><strong>상품·가격·배송비를 정확히 읽었는지</strong>와 <strong>견적이 거절됐을 때 올바르게 안내했는지</strong>를 따로 채점합니다.</dd></div>
+          </dl>
+          <p class="ba-method-key">서버가 잘못된 견적을 막아도, 에이전트가 “완료했다”고 답하면 실패입니다.</p>
+          <p>검토자의 수정 횟수·시간, 실패를 포함한 비용·응답시간도 함께 비교합니다. 결과는 이 가상 환경에서의 차이로 한정합니다.</p>
+          <details class="ba-method">
+            <summary>직접 해 볼 때의 구현·채점·재시도 조건</summary>
+            <div class="ba-method-body">
+              <h4>입력과 실행 조건</h4>
+              <ul>
+                <li>요청 30건 중 6건은 개발·조정, 24건은 평가에 씁니다. 유사 요청은 양쪽에 나눠 넣지 않습니다.</li>
+                <li>요청마다 적합 상품을 한 개만 두고 대체 추천은 제외합니다. 실행마다 상품과 권한을 초기화하고, 첫 후보 조회 직후 정해진 변화를 넣습니다.</li>
+                <li>모델의 추론 설정과 호출 한도도 맞추고, 두 형식 모두 출처·조회 시점·상품 버전을 제공합니다. 통제된 HTML/JSON 비교이므로 실제 웹사이트 탐색 전체로 결과를 확대하지 않습니다.</li>
+              </ul>
+              <h4>채점과 기록</h4>
+              <ul>
+                <li>방식별 72회는 같은 24건의 3회 반복입니다. 회차마다 정상 완료율은 6건, 변경·철회 대응률은 18건을 분모로 삼아 따로 기록합니다.</li>
+                <li>정상 답변에는 서버가 반환한 견적 ID와 확인 시점이 있어야 합니다. 변경 시 정답은 ‘견적 0개와 정확한 보류 이유’이며, 권한 철회 때는 ‘403 이후 추가 도구 호출 없음’도 확인합니다.</li>
+                <li>사람의 개입 없이 먼저 채점한 뒤, 검토자가 사실·보류 이유를 고친 횟수와 시간을 잽니다. 모델·도구 비용과 응답시간에는 실패한 실행도 포함합니다.</li>
+              </ul>
+              <h4>공통 서버의 검증</h4>
+              <ul>
+                <li>견적 요청에는 <code>상품 ID·버전·수량·배송 조건·요청 키</code>를 보냅니다. 서버는 현재 세션 권한과 저장된 고객 예산을 확인하고, 최신 가격·배송비·재고로 판단합니다.</li>
+                <li>최종 검사와 견적 저장은 하나의 처리 단위로 묶습니다. 조건이 바뀌면 새 조건과 보류 이유를, 권한이 철회되면 상품 정보 없이 403을 반환합니다.</li>
+                <li>모델을 부르기 전에 고정 검사로 검증 도중의 변경·철회도 확인합니다. 예산 초과·품절인데 견적이 생성되거나, 철회 반영 후 요청이 허용되면 서버부터 고칩니다. 서버 차단 성공은 에이전트의 읽기 정확도로 세지 않습니다.</li>
+              </ul>
+              <h4>재시도와 중복 요청</h4>
+              <ul>
+                <li>동시 요청이나 저장 직후 응답 유실에도 같은 세션·요청 키·입력에는 견적 한 건만 저장합니다. 같은 키에 다른 입력이 오면 충돌로 거절합니다.</li>
+                <li>저장된 견적을 다시 줄 때도 현재 권한·가격·배송비·재고·유효기간을 확인합니다. 조건이 바뀌면 기존 견적을 무효로 응답하고, 같은 키로 새 견적을 만들지 않습니다. 권한 철회 시 저장된 견적도 반환하지 않습니다.</li>
+                <li>403은 재시도하지 않습니다. 시간 초과는 같은 키로 한 번 재시도하고, 여전히 불명확하면 상태를 조회합니다. 저장 후 변경·만료도 고정 검사에 넣습니다.</li>
+              </ul>
+              <p class="ba-note">서버 검사를 통과한 뒤 두 방식을 비교합니다. 상품·응답 형식·지침 버전, 기대 결과와 실행 기록을 남기며, 소규모 실험 결과를 운영 신뢰도의 증거로 삼지는 않습니다.</p>
+            </div>
+          </details>
+        </section>
+
+        <section id="sources" class="news-sources">
+          <h2>읽은 자료</h2>
+          <ul>
+            <li><a href="https://openai.com/index/introducing-businesses-chatgpt/" target="_blank" rel="noopener noreferrer">OpenAI · Businesses in ChatGPT</a> <span>11월 10일 · 제공 범위, 지표, 공식 제품 화면</span></li>
+            <li><a href="https://openai.com/policies/business-agents-policy/" target="_blank" rel="noopener noreferrer">OpenAI · Business Agents Policy</a> <span>11월 10일 갱신 · 자격과 사용자 승인</span></li>
+            <li><a href="https://www.theverge.com/tech/1030838/ebay-ai-agents-meta-muse-agentic-shopping" target="_blank" rel="noopener noreferrer">The Verge · eBay의 외부 에이전트 접근 실패 취재</a> <span>11월 10일 · 독자 제보, 매체 재현, eBay 답변</span></li>
+            <li><a href="https://www.ebay.com/help/policies/member-behavior-policies/user-agreement?id=4259" target="_blank" rel="noopener noreferrer">eBay · User Agreement</a> <span>6월 28일 시행본 · 이전 개정본은 2월 20일 시행</span></li>
+            <li><a href="https://corporate.walmart.com/news/2026/10/Making-It-Possible-for-Agents-to-Shop-on-Behalf-of-Customers" target="_blank" rel="noopener noreferrer">Walmart · Agent Gateway·Profiles 소개</a> <span>10월 21일 · 배경 자료</span></li>
+            <li><a href="https://www.walmart.com/cp/walmart-agent-gateway/1280482" target="_blank" rel="noopener noreferrer">Walmart · Agent Gateway 제품 안내</a> <span>11월 11일 확인 · 초대 기반 초기 베타</span></li>
+            <li><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/" target="_blank" rel="noopener noreferrer">Google · Gemini 4 Carbon 제공 확대</a> <span>11월 10일 · /swarm 미리보기, API 가격과 시연</span></li>
+            <li><a href="https://zapier.com/benchmarks/gemini-carbon-4-report" target="_blank" rel="noopener noreferrer">Zapier · Carbon AutomationBench 결과</a> <span>10월 26~27일 평가 · 657개 과제와 비용 추정 조건</span></li>
+            <li><a href="https://claude.com/resources/articles/sheets-whiteboards-data" target="_blank" rel="noopener noreferrer">Anthropic · Whiteboards·Sheets·Data</a> <span>11월 10일 · 기능별 상태, 관리자 기본 설정과 공식 시연</span></li>
+            <li><a href="https://claude.com/resources/articles/more-ways-to-work-with-claude-sheets-whiteboards-and-interactive-connectors" target="_blank" rel="noopener noreferrer">Anthropic · 새로운 업무 공간과 Interactive Connectors</a> <span>11월 10일 · Meetings는 출시 예정으로 표기</span></li>
+            <li><a href="https://openai.com/index/ai-effect-on-freelance-work/" target="_blank" rel="noopener noreferrer">OpenAI · AI와 프리랜서 업무 연구 소개</a> <span>11월 10일 공개 · Upwork 공동 연구</span></li>
+            <li><a href="https://cdn.openai.com/pdf/openai-upwork-full-report.pdf" target="_blank" rel="noopener noreferrer">OpenAI·Upwork · 전체 연구 보고서</a> <span>2026년 11월 · 항목별로 2023~2026년 상반기의 다른 관찰 기간 적용</span></li>
+          </ul>
+          <p>제품 화면·영상·연구 도표는 각 제공자의 자료입니다. Carbon 막대그래프는 Zapier 수치를 옮겨 그렸고, 연결 도식과 견적 재생은 헬로우 휴먼의 설명·실험 제안입니다. 실제 기업 서비스 연동이나 모델 평가는 수행하지 않았습니다.</p>
+        </section>
+        <a class="news-end-link" href="./">AI뉴스 목록으로 돌아가기 <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </article></main>
+  <footer class="footer"><div class="wrap">헬로우 휴먼 · Workless Engineering Club</div></footer>
+  <script src="../assets/analytics.js?v=2" defer></script>
+  <script src="../assets/article-toc.js?v=1" defer></script>
+  <script type="module" src="../assets/content-updates.js?v=3"></script>
+  <script src="../assets/news-business-agents.js?v=2" defer></script>
+</body>
+</html>
