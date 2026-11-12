@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Gemini Decision 1, 답변 대신 선택지를 평가한다 · AI뉴스 · 헬로우 휴먼</title>
+  <meta name="description" content="Google의 판단 전용 모델과 CloudSEK의 에이전트 악용 조사, Agentic Architect 인증, Tabletop 협업 실험을 살펴봅니다. 문의 분류의 정확도와 실행 권한을 검증하는 방법을 살펴봅니다.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Gemini Decision 1, 답변 대신 선택지를 평가한다">
+  <meta property="og:description" content="빠른 판단 모델의 등장과 실행 권한의 문제. CloudSEK 조사, Google의 전문 인증과 Tabletop을 함께 읽습니다.">
+  <meta property="og:url" content="https://soorimsun.github.io/hello-human/news/2026-11-12-gemini-decision.html">
+  <meta property="og:image" content="https://soorimsun.github.io/hello-human/assets/news/decision-spill.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="676">
+  <meta property="og:image:alt" content="흘린 액체의 유무, 다음 행동, 심각도를 나눠 평가하는 Google 공식 예시">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gemini Decision 1, 답변 대신 선택지를 평가한다">
+  <meta name="twitter:description" content="판단 모델과 실행 권한, 에이전트 설계와 협업 도구의 변화를 살펴봅니다.">
+  <meta name="twitter:image" content="https://soorimsun.github.io/hello-human/assets/news/decision-spill.webp">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+  <script src="../assets/theme.js?v=3"></script>
+  <link rel="stylesheet" href="../assets/style.css?v=9">
+  <link rel="stylesheet" href="../assets/news.css?v=10">
+  <link rel="stylesheet" href="../assets/news-gemini-decision.css?v=1">
+  <link rel="stylesheet" href="../assets/content-updates.css?v=1">
+</head>
+<body class="news-decision">
+  <header class="topbar"><div class="wrap topbar-inner">
+    <a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+    <nav class="news-nav" aria-label="사이트 메뉴"><a href="../">모임 소개</a><a href="./">AI뉴스</a><a href="../guides/">AI가이드</a><a href="../insights/">인사이트</a><a href="../case-studies/">사례연구</a><a data-newsletter-entry href="../newsletters/">뉴스레터</a></nav>
+  </div></header>
+  <main><article>
+    <header class="news-article-header wrap">
+      <a class="news-back" href="./">← AI뉴스 목록</a>
+      <p class="news-kicker">AI NEWS <span aria-hidden="true">/</span> ISSUE 45</p>
+      <h1><span>Gemini Decision 1,</span><em><span>답변 대신</span> <span>선택지를 평가한다</span></em></h1>
+      <p class="news-deck">Google의 판단 전용 모델이 나왔습니다. CloudSEK이 공개한 에이전트 악용 기록, Google의 에이전트 설계 인증과 Tabletop 협업 실험을 함께 살펴봅니다.</p>
+      <div class="news-article-meta"><time datetime="2026-11-12">2026년 11월 12일</time><span>헬로우 휴먼 AI뉴스</span></div>
+    </header>
+    <div class="news-article-shell wrap">
+      <nav class="news-toc" aria-label="기사 목차"><span>이번 호</span><a href="#summary">30초 요약</a><a href="#decision">Gemini의 판단 API</a><a href="#cloudsek">에이전트 악용 기록</a><a href="#architect">설계·실습을 평가하는 인증</a><a href="#tabletop">함께 쓰는 도구 만들기</a><a href="#our-view">헬로우 휴먼의 관점</a><a href="#experiment">분류 점수·보류 기준 실험</a><a href="#sources">읽은 자료</a></nav>
+      <div class="news-story">
+        <section id="summary" class="news-summary" aria-labelledby="summary-title">
+          <p class="news-section-label">AT A GLANCE</p><h2 id="summary-title">30초 요약</h2>
+          <ul>
+            <li><strong>Gemini Decision 1</strong> 미리 정한 선택지를 평가하는 전용 모델입니다. 빠른 판단과 낮은 호출 비용을 내세우지만, 모델의 확신과 실제 실행 권한은 따로 다뤄야 합니다.</li>
+            <li><strong>CloudSEK</strong> 중앙아시아 사이버 첩보 활동에서 에이전트를 활용한 기록을 공개했습니다. 조사 발표는 11월 11일, 확보한 활동 기록은 4~10월에 걸쳐 있습니다.</li>
+            <li><strong>Google Cloud·Labs</strong> 에이전트 설계와 실습을 함께 평가하는 인증을 소개했고, Tabletop은 여럿이 쓸 작은 도구를 만드는 실험을 시작했습니다. Tabletop은 미국의 18세 이상 사용자에게 대기 신청을 받고 있습니다.</li>
+          </ul>
+        </section>
+        <p class="news-method"><b>자료 확인</b> 2026년 11월 12일 한국시간 기준입니다. 각 원문의 11월 11~12일 공개 자료를 바탕으로 썼으며, 아래 성능 수치는 Google의 자체 발표입니다.</p>
+
+        <section id="decision" class="news-story-section">
+          <p class="news-section-label">01 / GOOGLE DEEPMIND</p>
+          <h2>긴 답을 쓰기 전에,<br>필요한 선택부터 합니다</h2>
+          <p>Google이 <strong>Gemini Decision 1과 Gemini Decisions API</strong>를 공개했습니다. 도구 선택이나 문의 분류처럼 후보가 정해진 문제에서, 문장을 순서대로 생성하는 대신 후보들을 한 번의 추론으로 평가합니다. Google AI Studio의 Gemini API로 제공하며, Google Cloud에서도 제공할 예정이라고 밝혔습니다. <a class="source-link" href="https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/" target="_blank" rel="noopener noreferrer">공식 발표 ↗</a></p>
+          <p>“받은 머그컵에 금이 갔어요”라는 문의라면 필요한 것은 긴 설명보다 ‘배송 지연·상품 파손·사용법 문의 중 어디로 보낼지’일 수 있습니다. 이 API는 그런 판단을 따로 맡길 수 있게 합니다. 텍스트·이미지·음성·영상·PDF를 입력하고, 하나의 자료에 서로 독립적인 질문을 최대 1,000개까지 적용할 수 있습니다.</p>
+          <figure class="gd-media">
+            <a href="../assets/news/decision-options.webp" target="_blank" rel="noopener"><img src="../assets/news/decision-options.webp" width="1200" height="491" alt="공통 입력과 질문이 Gemini Decision 1으로 들어가 Yes/No 확률, 선택 결과, 기준별 점수로 나오는 Google 공식 구조도" loading="lazy" decoding="async"></a>
+            <figcaption><b>자료는 공유하고, 질문은 각각 평가합니다</b>Google의 공식 구조도입니다. 각 질문은 다른 질문의 답을 참조하지 않습니다. 앞선 답에 따라 다음 판단이 달라진다면, 그 연결은 프로그램에서 처리해야 합니다. <a href="https://aistudio.google.com/docs/decisions-api#multiple-questions" target="_blank" rel="noopener noreferrer">API 문서</a></figcaption>
+          </figure>
+          <table class="gd-table"><caption>질문에 따라 세 가지 형태로 답합니다</caption><thead><tr><th scope="col">질문 유형</th><th scope="col">업무 예시</th><th scope="col">반환하는 값</th></tr></thead><tbody>
+            <tr><th scope="row">Yes/No</th><td>파손을 신고했나요?</td><td>‘예’일 확률과 답의 신뢰도</td></tr>
+            <tr><th scope="row">Choice</th><td>어떤 문의 유형인가요?</td><td>선택 항목, 후보별 확률과 신뢰도</td></tr>
+            <tr><th scope="row">Score</th><td>정해 둔 심각도 기준에서 어느 수준인가요?</td><td>등급별 확률로 계산한 점수와 신뢰도</td></tr>
+          </tbody></table>
+          <p><strong>점수와 신뢰도는 같은 값이 아닙니다.</strong> 예를 들어 심각도를 0~2로 정했다면 점수는 그 범위에서 나오고, 신뢰도는 0~1로 나옵니다. Google은 신뢰도를 가장 가능성이 높은 답이 맞을 것으로 추정한 확률이라고 설명하며, 정답을 확인한 업무 데이터로 보류 기준을 정하라고 권합니다. <a class="source-link" href="https://aistudio.google.com/docs/decisions-api#confidence" target="_blank" rel="noopener noreferrer">값·확률·신뢰도의 구분 ↗</a></p>
+          <figure class="gd-media">
+            <img src="../assets/news/decision-spill.webp" width="1200" height="676" alt="흘린 액체가 있다는 확률 0.95, 천으로 닦는 행동 98%, 심각도 1.19/2를 표시한 Google의 예시 이미지" loading="lazy" decoding="async">
+            <figcaption><b>‘액체가 있다’와 ‘무엇을 할지’를 나눠 묻는 예시</b>Google이 선정한 설명 화면입니다. 1.19/2는 심각도 점수이며 정답률이 아닙니다. <a href="https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/" target="_blank" rel="noopener noreferrer">원문</a></figcaption>
+          </figure>
+          <h3>입력은 256K까지, 속도 측정은 16K 이하에서</h3>
+          <dl class="gd-stats"><div><dt>요청부터 응답까지 걸린 시간</dt><dd>150~250<small>밀리초 · Google 자체 측정</small></dd></div><div><dt>유료 입력 100만 토큰</dt><dd>$0.10<small>출력 토큰은 발생하지 않음</small></dd></div><div><dt>공유 입력의 최대 길이</dt><dd>256K<small>토큰 · 속도 측정 길이와 다름</small></dd></div></dl>
+          <p class="gd-note">Google이 발표한 응답시간은 입력이 최대 16K 토큰일 때의 측정값입니다. 한 번에 질문 1~100개를 넣었을 때 응답시간이 거의 같았다고 설명합니다. 최대 입력·최대 질문 수에서도 같은 속도를 보장하는 수치는 아닙니다.</p>
+          <p>같은 평가 과제에서는 Gemini 3.5 Flash-Lite를 Interactions API로 호출한 경우보다 비용이 약 5분의 1이었다고 밝혔습니다. Gemini Notebook에서 요청을 알맞은 처리 경로로 보내는 데도 사용해 일상 질문의 응답시간을 최대 40% 줄였다고 합니다. 둘 다 Google의 적용·평가 결과이며, 우리 업무에서는 오분류와 재처리까지 포함해 비교해야 합니다.</p>
+          <p>요금표에 따르면 <strong>공유 입력에는 요청당 한 번 요금을 매기고, 각 질문의 지침·평가 기준에 쓰인 토큰은 추가로 계산합니다.</strong> 무료 구간도 제공하지만 Batch API와 문맥 캐시는 지원하지 않습니다. 질문을 많이 묶어도 비용이 완전히 같아지는 구조는 아닙니다. <a class="source-link" href="https://aistudio.google.com/docs/pricing#gemini-decision" target="_blank" rel="noopener noreferrer">공식 요금표 ↗</a></p>
+          <p>커머스에서는 이 모델로 문의 유형을 분류하고, 취소 가능 여부와 환불 금액은 업무 서비스가 확인하도록 설계할 수 있습니다. 모델이 ‘취소’라고 확신해도 주문의 소유자와 현재 배송 상태를 확인하는 절차는 그대로 필요합니다.</p>
+        </section>
+
+        <section id="cloudsek" class="news-story-section">
+          <p class="news-section-label">02 / CLOUDSEK</p>
+          <h2>공격자의 작업을 도운<br>에이전트와 실행 도구</h2>
+          <p>CloudSEK은 외부에 노출된 서버에서 <strong>Silent Lynx 운영자의 도구·침입 자료·에이전트 대화 기록</strong>을 발견했다고 발표했습니다. 연구진은 서버와 Silent Lynx의 연결은 신뢰도 ‘높음’, 카자흐스탄과의 관련성은 ‘중간’으로 평가했습니다. 이 평가만으로 국가의 지시가 확인된 것은 아닙니다. <a class="source-link" href="https://www.cloudsek.com/blog/off-the-rails-inside-an-exposed-silent-lynx-server" target="_blank" rel="noopener noreferrer">CloudSEK 조사 원문 ↗</a></p>
+          <figure class="gd-panel">
+            <figcaption><b>기록의 기간과 공개일은 다릅니다</b>CloudSEK 보고서를 바탕으로 정리한 설명도입니다.</figcaption>
+            <ol class="gd-flow gd-two"><li><b>2026년 4~10월</b><span>확보한 도구와 침입·에이전트 대화 기록의 기간</span></li><li><b>2026년 11월 11일</b><span>CloudSEK이 조사 결과를 공개한 날짜</span></li></ol>
+          </figure>
+          <p>보고서에는 공격자가 Hermes 에이전트에 작업을 지시한 대화와 정찰·자료 수집·기록 삭제에 활용한 흔적이 담겼습니다. <strong>공격자가 의도적으로 에이전트를 동원한 사례</strong>입니다.</p>
+          <figure class="gd-panel" aria-labelledby="cloudsek-agent-title">
+            <figcaption><b id="cloudsek-agent-title">공격자의 지시가 서버 작업으로 이어진 구조</b>CloudSEK의 조사 본문과 설정 표를 바탕으로 재구성한 설명도입니다. <a href="https://www.cloudsek.com/blog/off-the-rails-inside-an-exposed-silent-lynx-server#the-operator-and-the-ai-agent" target="_blank" rel="noopener noreferrer">원문과 공개 캡처</a></figcaption>
+            <ol class="gd-flow"><li><b>01 · 공격자가 지시</b><span>대화로 작업을 맡기고 에이전트에 침투 테스트 전문가 역할을 부여했습니다.</span></li><li><b>02 · Hermes가 작업을 관리</b><span>주로 DeepSeek 모델을 사용하고, 메모리·작업 목록·정기 실행 기능을 활용했습니다.</span></li><li><b>03 · 도구로 작업 실행</b><span>터미널·브라우저 등의 도구로 정찰, 자료 수집과 기록 삭제를 지원했습니다.</span></li></ol>
+            <table class="gd-table"><caption>실행 범위에 영향을 준 두 설정</caption><thead><tr><th scope="col">설정</th><th scope="col">CloudSEK이 확인한 내용</th></tr></thead><tbody>
+              <tr><th scope="row">명령 실행 허용</th><td>일부 파괴적 명령을 추가 확인 없이 실행하도록 미리 허용했습니다.</td></tr>
+              <tr><th scope="row">반복 실패 시 중단</th><td>도구 호출이 반복해서 실패하면 멈추는 제한을 꺼 두었습니다.</td></tr>
+            </tbody></table>
+          </figure>
+          <p>타지키스탄 정부 문서 시스템에서는 국방부로 보내거나 국방부를 경유한 <strong>서로 다른 문서가 2,000건 넘게</strong> 수집됐다고 연구진은 설명합니다. 이는 연구진이 확인한 수집 문서의 수이며, 에이전트가 단독으로 탈취한 문서 수를 뜻하지는 않습니다. 이 글에서는 연구진의 공개 분석을 확인했으며 피해 시스템을 직접 조사하지 않았습니다.</p>
+          <p class="gd-key">모델이 올바르게 판단했는지와 계정에 실행 권한이 있는지는 따로 확인해야 합니다.</p>
+          <p>권한 문제는 공격자 쪽 도구 설정에만 있지 않았습니다. 보고서는 탈취한 일반 직원 계정이 소속 범위를 벗어난 문서에 접근했으며, 운영자 메모에 문서별 권한 검사의 허점이 기록돼 있었다고 설명합니다. 우리 업무에서는 에이전트에 맡길 계정을 제한하는 일과, 서비스를 호출한 계정이 해당 데이터에 접근해도 되는지 검사하는 일을 함께 봐야 합니다. 상품 조회와 환불 권한을 나누고 변경 API에서 주문 소유자·처리 상태를 확인하는 것이 그 예입니다. 우리 업무에 적용한다면 이런 접근 통제부터 점검할 수 있겠습니다.</p>
+        </section>
+
+        <section id="architect" class="news-story-section">
+          <p class="news-section-label">03 / GOOGLE CLOUD</p>
+          <h2>설계를 설명하고,<br>직접 만들어 검증하는 인증</h2>
+          <p>Google Cloud가 <strong>Professional Agentic Architect</strong> 인증을 소개했습니다. 지난 4개월 동안 자사 FDE와 전략 파트너 수천 명의 교육에 쓴 과정을 일반 개발자와 파트너에게도 공개한다는 설명입니다. FDE는 고객 환경에 들어가 문제를 파악하고 해결책을 구현하는 엔지니어를 가리킵니다. <a class="source-link" href="https://cloud.google.com/blog/topics/training-certifications/google-cloud-agentic-architect-certification-dont-just-prompt-ai-design-it" target="_blank" rel="noopener noreferrer">발표 원문 ↗</a></p>
+          <figure class="gd-media">
+            <a href="../assets/news/agentic-architect-official.png" target="_blank" rel="noopener"><img src="../assets/news/agentic-architect-official.png" width="2437" height="1201" alt="Google Cloud의 Professional Agentic Architect 인증명과 원형 인증 배지가 담긴 공식 소개 이미지" loading="lazy" decoding="async"></a>
+            <figcaption><b>Google Cloud가 공개한 인증 소개 이미지</b>Professional Agentic Architect의 공식 명칭과 배지를 보여줍니다. <a href="https://cloud.google.com/blog/topics/training-certifications/google-cloud-agentic-architect-certification-dont-just-prompt-ai-design-it" target="_blank" rel="noopener noreferrer">공식 발표</a></figcaption>
+          </figure>
+          <figure class="gd-panel">
+            <figcaption><b>개념 평가 다음에 실습을 이어갑니다</b>공식 시험 안내를 바탕으로 그린 평가 절차입니다.</figcaption>
+            <ol class="gd-flow gd-two"><li><b>01 · 감독관이 있는 객관식 시험</b><span>시스템을 어떻게 설계하고 어떤 기술 기준을 적용하는지 평가합니다.</span></li><li><b>02 · Google Skills 실습</b><span>객관식 합격 뒤 안내를 받아 코드를 작성하고 실제로 작동시키는 능력을 검증합니다.</span></li></ol>
+          </figure>
+          <p>평가 범위에는 로우코드 에이전트 제작, 코딩 에이전트 활용, 커스텀 에이전트 개발, 워크플로 평가·배포, 보안·거버넌스가 들어갑니다. <strong>코딩 에이전트를 개발에 활용하는 능력과 운영할 에이전트를 직접 설계하는 능력을 각각 평가합니다.</strong></p>
+          <p>11월 12일 확인한 영문 시험 안내에는 시험 시간 2시간, 객관식 50~60문항, 응시 언어 영어, 등록비 200달러(해당 세금 별도)가 명시돼 있습니다. 한국어 페이지에는 베타 시험 정보가 남아 있어 세부 조건은 영문 안내를 따랐습니다. GEAR의 월 35개 무료 크레딧은 Google Skills 학습용 혜택입니다. <a class="source-link" href="https://cloud.google.com/learn/certification/agentic-architect" target="_blank" rel="noopener noreferrer">현재 영문 시험 안내 ↗</a></p>
+          <p>팀에서는 이 평가 범위를 참고해, 한 업무의 입력부터 오류 처리까지 구현하는 과제를 만들 수 있겠습니다. 모델을 연결하는 방법과 함께 데이터 접근 범위와 결과 검증 방법까지 설명해 보는 것입니다.</p>
+        </section>
+
+        <section id="tabletop" class="news-story-section">
+          <p class="news-section-label">04 / GOOGLE LABS</p>
+          <h2>함께 쓸 도구를<br>대화로 만듭니다</h2>
+          <p>Google Labs는 실시간으로 도구를 함께 만들고 사용할 수 있는 실험 서비스 <strong>Tabletop</strong>을 공개했습니다. 링크·파일·아이디어를 넣고 요청하거나 템플릿을 고르면 일정표, 투표, 비용 분담 도구, 대진표 같은 작은 도구를 만들고 초대 링크로 함께 쓸 수 있다는 설명입니다. <a class="source-link" href="https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop/" target="_blank" rel="noopener noreferrer">공식 소개 ↗</a></p>
+          <figure class="gd-media">
+            <div class="gd-video"><iframe src="https://www.youtube-nocookie.com/embed/8upa4JZir3I?autoplay=0&amp;loop=0" title="Google Labs 공식 시연 · Meet Tabletop: Plan, Play &amp; Build Together" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+            <img class="gd-print-poster" src="../assets/news/decision-tabletop.webp" width="1000" height="562" alt="Tabletop에 대진표, 지도, 산책 담당을 고르는 도구를 요청하는 Google 공식 소개 이미지" loading="lazy" decoding="async">
+            <noscript><img src="../assets/news/decision-tabletop.webp" width="1000" height="562" alt="대진표와 지도 등 함께 쓸 도구를 만드는 Tabletop 공식 소개 화면"></noscript>
+            <figcaption><b>같은 공간에서 각자 필요한 도구를 요청합니다</b>Google Labs의 1분 7초 공식 시연입니다. 대진표와 지도, 담당자를 고르는 화면을 예로 들었습니다. <a href="https://www.youtube.com/watch?v=8upa4JZir3I" target="_blank" rel="noopener noreferrer">YouTube에서 보기</a> · <a href="https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop/" target="_blank" rel="noopener noreferrer">공식 소개</a></figcaption>
+          </figure>
+          <p>현재는 <strong>미국의 18세 이상 사용자를 대상으로 대기 신청을 받아 순차적으로 제공</strong>합니다. 국내에서 바로 사용할 수 있는 정식 서비스로 소개하기에는 이릅니다.</p>
+          <p>모임의 점심 메뉴 투표나 행사 준비 현황처럼 잠시 쓰는 협업 도구를 떠올려 볼 수 있습니다. 필요한 화면을 바로 만들면 문서 여러 장을 오가며 취합하는 일을 줄일 여지가 있습니다. 실제 주문·결제와 연결할 때는 업무 시스템의 접근 권한, 입력 검증, 중복 요청 처리까지 확인해야 합니다. 이런 업무 활용은 공개된 기능에서 떠올려 본 제안이며, 직접 적용해 본 결과는 아닙니다.</p>
+        </section>
+
+        <section id="our-view" class="news-story-section news-view">
+          <p class="news-section-label">OUR VIEW</p>
+          <h2>판단은 모델에 맡기고,<br>실행 권한은 코드로 확인합니다</h2>
+          <p>Gemini의 새 API는 선택이 필요한 단계에 판단 기능을 넣는 접근입니다. CloudSEK 사례는 공격자가 에이전트를 동원한 과정과 피해 시스템의 접근 통제 문제를 보여줍니다. 우리 업무에서도 <strong>모델의 선택이 곧 실행 허가가 되지 않도록 설계해야 합니다.</strong></p>
+          <p>Google의 인증은 이런 시스템을 설계하고 검증할 개발자의 역량을 다룹니다. Tabletop은 여러 사람이 함께 사용할 도구를 만드는 데 초점을 맞췄습니다.</p>
+          <p>Workless Engineering의 성과를 보려면 응답 속도와 함께 사람이 문의를 다시 분류하거나 잘못된 처리를 되돌리는 횟수가 얼마나 줄었는지도 확인해야 합니다. 모델을 바꾸더라도 업무 분류 기준과 권한 검사, 실패 기록은 계속 활용할 수 있어야 합니다.</p>
+        </section>
+
+        <section id="experiment" class="news-story-section">
+          <p class="news-section-label">OUR LAB · 아직 실행하지 않은 실험 제안</p>
+          <h2>분류 점수가 높으면,<br>그대로 맡겨도 될까요</h2>
+          <p>가상 문의 “머그컵이 깨져 왔어요. 교환 방법을 알려 주세요”를 <strong>파손·배송 지연·사용법·추가 확인</strong> 중 하나로 보냅니다. “상자가 찌그러졌는데 아직 열어 보지는 않았어요”는 상품 파손으로 단정하지 않고 추가 확인으로 보내야 합니다. 이 차이를 놓치면 빨리 분류해도 담당자가 다시 읽어야 합니다.</p>
+          <p>이번에는 <strong>분류 확률에 보류 기준을 두면, 오분류를 줄이면서 얼마나 많은 문의를 담당자에게 자동으로 전달할 수 있는지</strong> 확인합니다. 자동 전달은 접수 단계까지만 뜻하며 문의 해결이나 환불 완료를 뜻하지 않습니다. 앞선 <a href="2026-11-10-fable-cost-infrastructure.html#experiment">규칙 기반 모델 선택 실험</a>에 이어, 이번에는 같은 모델이 내놓은 확률과 실제 정답의 관계를 봅니다.</p>
+          <figure class="gd-panel">
+            <figcaption><b>문의에서 담당자 전달까지</b>별도로 만들 모의 접수 서비스의 흐름입니다. 아래 수치는 설명용 가정이며 실제 모델 출력이 아닙니다.</figcaption>
+            <ol class="gd-flow"><li><b>01 · 모델이 분류</b><span>문의 본문과 네 선택지를 입력해 항목별 확률을 받습니다.</span></li><li><b>02 · 코드가 보류 판단</b><span>가장 높은 확률이 기준보다 낮거나 ‘추가 확인’이면 검토 대상으로 정합니다.</span></li><li><b>03 · 모의 접수</b><span>서버가 접수 권한을 확인한 뒤 담당자 배정 또는 검토 대기로 기록합니다.</span></li></ol>
+            <table class="gd-table"><caption>보류 기준을 0.90으로 둔 설명 예시</caption><thead><tr><th scope="col">상황</th><th scope="col">판단·확인</th><th scope="col">기대 결과</th></tr></thead><tbody>
+              <tr><th scope="row">명확한 파손</th><td>‘파손’ 0.96, 전달 권한 있음</td><td>파손 문의 담당자에게 1건 배정</td></tr>
+              <tr><th scope="row">내용이 모호함</th><td>‘파손’ 0.64</td><td>자동 전달 0건, 검토 필요</td></tr>
+              <tr><th scope="row">추가 확인으로 분류</th><td>‘추가 확인’ 0.97</td><td>높은 점수여도 검토 필요</td></tr>
+              <tr><th scope="row">권한 없음</th><td>‘파손’ 0.96, 전달 권한 없음</td><td>서버 거절, 접수 0건</td></tr>
+            </tbody></table>
+          </figure>
+          <h3>같은 모델 응답으로 두 가지 전달 방식을 비교합니다</h3>
+          <p>가상 문의 80건 중 20건은 지침·보류 기준 조정에, 나머지 60건은 최종 평가에 씁니다. 정보가 부족하거나 여러 문의 유형이 섞인 경우, 파손·배송 지연·사용법 중 어디에도 속하지 않는 경우는 ‘추가 확인’으로 정합니다. 평가용은 네 유형 각 15건으로 준비하고, 같은 상황을 조금씩 바꾼 문장들은 한쪽에만 넣어 비슷한 사례가 조정용과 평가용에 함께 들어가지 않게 합니다. 평가 전에 사람들이 검토해 합의한 정답을 정해 둡니다.</p>
+          <p><strong>A는 확률이 가장 높은 문의 유형에 따라 전달하고, B는 같은 응답에 보류 기준을 추가합니다.</strong> ‘추가 확인’은 두 방식 모두 검토로 보냅니다. 두 방식은 같은 모델과 권한 검사를 사용하고, 보류 기준만 다릅니다. 최종 평가용 60건을 같은 모델과 지침으로 3회 분류한 뒤, 각 응답에 A와 B를 모두 적용합니다.</p>
+          <p class="gd-note">같은 응답을 쓰므로 A/B의 모델 호출 비용과 응답시간은 같습니다. 여기서 비교할 차이는 자동 전달의 정확도·비중과 사람의 검토 부담입니다.</p>
+          <table class="gd-table"><caption>자동 전달의 정확도와 검토 부담을 함께 평가합니다</caption><thead><tr><th scope="col">확인할 것</th><th scope="col">기록할 항목과 계산 방법</th></tr></thead><tbody>
+            <tr><th scope="row">자동 전달 비중</th><td>자동 전달한 건수 ÷ 전체 60건</td></tr>
+            <tr><th scope="row">자동 전달 오류율</th><td>잘못 전달한 건수 ÷ 자동 전달한 건수. 자동 전달이 0건이면 오류율은 계산하지 않습니다.</td></tr>
+            <tr><th scope="row">사람의 검토 부담</th><td>검토로 보낸 건수·그중 업무 유형을 맞혔지만 확률 기준에 걸린 건수, 사람이 고친 횟수·시간</td></tr>
+            <tr><th scope="row">예측 확률과 실제 정답률</th><td>각 응답에서 가장 높은 확률을 구간별로 묶어 사례 수·평균 확률·실제 정답률을 비교합니다. 사례가 적은 구간은 결과를 단정하지 않습니다.</td></tr>
+            <tr><th scope="row">비용과 지연</th><td>A/B가 공유하는 모델 호출의 비용과 응답시간은 실패한 호출까지 포함해 기록합니다. 전달 방식별 접수 시간과 사람의 검토 시간은 따로 잽니다.</td></tr>
+          </tbody></table>
+          <p>이 소규모 실험에서는 B가 <strong>세 회차 모두 잘못된 자동 전달 0건, 자동 전달 비중 50% 이상</strong>일 때 평가 대상을 늘려 봅니다. 이 글에서 제안하는 초기 검증 기준입니다. 통과해도 더 다양한 입력과 실제 업무 분포에서 다시 검증해야 합니다.</p>
+          <details class="gd-method"><summary>구현 범위·실패 처리·남길 결과물</summary><div>
+            <h4>분류 기능과 접수 기능을 분리합니다</h4>
+            <p>분류 기능은 문의 ID·본문·분류 기준 버전을 입력받아 선택한 항목과 후보별 확률을 반환합니다. 코드가 보류 여부를 결정한 뒤 모의 접수 서비스를 호출합니다. 접수 서비스는 서버에 저장된 계정 정보로 권한을 검사합니다. 문의에 “환불해 달라”는 말이 있어도 이번 도구에는 환불·주문 변경 기능이 없습니다.</p>
+            <h4>조정한 기준은 평가 전에 고정합니다</h4>
+            <p>B의 보류 기준 후보 0.70·0.80·0.90·0.95 중 조정용 20건에서 잘못된 자동 전달이 없고 자동 전달 비중이 가장 높은 값을 고릅니다. 동률이면 높은 기준을 택합니다. 조건을 만족하는 값이 없으면 자동 전달을 보류하고 그 결과를 기록합니다. 최종 60건의 답을 보고 기준을 다시 고르지 않습니다.</p>
+            <h4>실패도 결과에 남깁니다</h4>
+            <p>누락된 응답·알 수 없는 분류·범위를 벗어난 확률·시간 초과·호출 제한은 별도 실패 사유로 기록하고 자동 전달을 막습니다. 호출 시간 제한은 실험 전에 고정하고 자동 재시도는 끕니다. 같은 문의 ID로 요청이 다시 들어와도 중복 접수하지 않습니다. 권한 부족으로 거절된 요청을 다른 도구로 다시 시도하지 않습니다.</p>
+            <h4>전달 방식 비교와 권한 검사를 별도로 진행합니다</h4>
+            <p>미리 정한 모델 응답으로 앞 표의 네 상황과 실패 시 동작부터 검사합니다. 전달 방식을 비교하는 60건은 모두 같은 권한의 계정으로 접수하고, 권한 없는 계정의 요청이 거절되는지는 별도로 검사합니다. A/B와 평가 회차별로 접수 기록을 분리해, 같은 문의를 다시 평가할 때 이전 기록 때문에 중복 접수로 처리되지 않게 합니다. 같은 방식·회차 안에서는 동일 문의 ID가 중복 접수되지 않는지도 확인합니다.</p>
+            <h4>다음 변경에도 다시 확인할 수 있게 남깁니다</h4>
+            <p>입력·정답·지침·모델·보류 기준의 버전, 모델의 원래 응답, A/B 판정, 서버 기록과 집계표를 묶습니다. 60건을 3회씩 총 180번 평가하지만, 서로 다른 문의는 60건입니다. 검토자에게 A/B 중 어느 방식인지 알리지 않고 순서를 섞어 배정합니다. 같은 문의를 본 경험이 평가에 영향을 주지 않도록 한 사람이 같은 문의를 두 번 검토하지 않게 합니다.</p>
+          </div></details>
+          <p>결과물은 <strong>자동으로 전달할 문의와 사람이 검토할 문의를 정리한 기준표</strong>가 됩니다. 모델을 바꿀 때는 보류 기준도 다시 조정한 뒤 같은 평가 입력과 권한 검사로 비교합니다.</p>
+        </section>
+
+        <section id="sources" class="news-sources">
+          <h2>읽은 자료</h2>
+          <ul>
+            <li><a href="https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/" target="_blank" rel="noopener noreferrer">Google · Gemini Decisions API 발표</a> <span>11월 11일 · 기능, 측정 조건, 자사 제품 활용과 공식 이미지</span></li>
+            <li><a href="https://aistudio.google.com/docs/decisions-api" target="_blank" rel="noopener noreferrer">Google AI Studio · Decisions API 문서</a> <span>11월 12일 확인 · 질문 유형, 독립 평가, 확률과 신뢰도</span></li>
+            <li><a href="https://aistudio.google.com/docs/pricing#gemini-decision" target="_blank" rel="noopener noreferrer">Google AI Studio · Gemini Decision 요금</a> <span>11월 12일 확인 · 공유 입력 과금, 무료 구간과 지원 범위</span></li>
+            <li><a href="https://aistudio.google.com/docs/changelog#11-11-2026" target="_blank" rel="noopener noreferrer">Google AI Studio · API 출시 기록</a> <span>11월 11일 · 모델과 API 공개 기록</span></li>
+            <li><a href="https://www.cloudsek.com/blog/off-the-rails-inside-an-exposed-silent-lynx-server" target="_blank" rel="noopener noreferrer">CloudSEK · Silent Lynx 노출 서버 조사</a> <span>11월 11일 공개 · 4~10월 기록, 에이전트 설정과 공격 조직 추정 근거</span></li>
+            <li><a href="https://cloud.google.com/blog/topics/training-certifications/google-cloud-agentic-architect-certification-dont-just-prompt-ai-design-it" target="_blank" rel="noopener noreferrer">Google Cloud · Agentic Architect 인증 발표</a> <span>11월 12일 표시 · 교육 배경, 평가 영역과 공식 소개 이미지</span></li>
+            <li><a href="https://cloud.google.com/learn/certification/agentic-architect?hl=ko" target="_blank" rel="noopener noreferrer">Google Cloud · 한국어 인증 안내</a> · <a href="https://cloud.google.com/learn/certification/agentic-architect" target="_blank" rel="noopener noreferrer">현재 영문 안내</a> <span>11월 12일 확인 · 한국어의 베타 정보와 영문 시험 조건을 구분</span></li>
+            <li><a href="https://blog.google/innovation-and-ai/models-and-research/google-labs/tabletop/" target="_blank" rel="noopener noreferrer">Google Labs · Tabletop 소개</a> <span>11월 11일 · 협업 예시, 공식 화면과 미국 제공 조건</span></li>
+          </ul>
+          <p>제품 이미지·구조도·영상은 Google 제공 자료입니다. CloudSEK 사건 연표·에이전트 작업 구조와 Google 인증 절차는 각 원문을 바탕으로 만든 설명 자료입니다. 문의 분류 도식과 예시 표는 이 글에서 제안한 실험을 설명하기 위해 만들었으며, 실제 평가 결과가 아닙니다.</p>
+        </section>
+        <a class="news-end-link" href="./">AI뉴스 목록으로 돌아가기 <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </article></main>
+  <footer class="footer"><div class="wrap">헬로우 휴먼 · Workless Engineering Club</div></footer>
+  <script src="../assets/analytics.js?v=2" defer></script>
+  <script src="../assets/article-toc.js?v=1" defer></script>
+  <script type="module" src="../assets/content-updates.js?v=3"></script>
+</body>
+</html>
