@@ -43,23 +43,33 @@
   <section class="news-list-section wrap" aria-labelledby="news-list-heading">
     <div class="news-list-heading">
       <h2 id="news-list-heading">발행한 뉴스</h2>
-      <span>총 <span data-news-total>59</span>편</span>
+      <span>총 <span data-news-total>60</span>편</span>
     </div>
     <div class="news-tabs" role="tablist" aria-label="뉴스 종류" hidden>
       <button class="news-tab" type="button" role="tab" id="all-news" aria-controls="news-feed" aria-selected="true" data-news-filter="all">
-        전체 최신순 <span class="news-tab-count" data-news-count="all">59</span>
+        전체 최신순 <span class="news-tab-count" data-news-count="all">60</span>
       </button>
       <button class="news-tab" type="button" role="tab" id="briefs" aria-controls="news-feed" aria-selected="false" tabindex="-1" data-news-filter="briefs">
         속보·단신 <span class="news-tab-count" data-news-count="briefs">14</span>
       </button>
       <button class="news-tab" type="button" role="tab" id="regular-news" aria-controls="news-feed" aria-selected="false" tabindex="-1" data-news-filter="regular-news">
-        일반뉴스 <span class="news-tab-count" data-news-count="regular-news">45</span>
+        일반뉴스 <span class="news-tab-count" data-news-count="regular-news">46</span>
       </button>
     </div>
     <p class="news-sort-note">최신 발행순 · 같은 날짜에는 속보·단신을 먼저 보여드립니다.</p>
     <div id="news-feed">
       <!-- Add each article once, newest first; tabs filter this shared catalogue. -->
       <ol class="news-issues">
+        <li data-news-kind="regular-news">
+          <a class="news-issue" href="2026-11-13-hydrogen-execution-verification.html">
+            <span class="news-issue-main">
+              <span class="news-issue-meta"><span class="news-kind news-kind-regular-news">일반뉴스 46</span> <time datetime="2026-11-13">2026. 11. 13</time> · Google / 모델 분담·보안 평가·앱 개발</span>
+              <strong>Gemini 4 Hydrogen, 계획과 실행을 나눠 맡긴다</strong>
+              <span>Google이 계획과 실행을 모델별로 나눠 맡기는 방식, Anthropic Anvil과 IBM LLMON의 보안 연구, Holiday Extras의 Codex 활용 사례를 살펴봅니다. 문서 속 명령이 답변과 도구 호출에 미치는 영향을 나눠 확인하는 실험을 제안합니다.</span>
+            </span>
+            <span class="news-issue-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
         <li data-news-kind="regular-news">
           <a class="news-issue" href="2026-11-12-gemini-decision.html">
             <span class="news-issue-main">
