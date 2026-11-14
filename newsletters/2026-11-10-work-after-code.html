@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>뉴스레터 06 · 코드를 만든 뒤에 남는 일 · 헬로우 휴먼</title>
+<meta name="description" content="헬로우 휴먼 뉴스레터 6호. 작업 지시를 쓰고, 바뀐 코드를 검토하고, AI 도입 효과를 살피는 법. 11월 3일~9일의 새 글 10편과 검사 기록을 대조하는 작은 실습을 담았습니다.">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2026-11-10">
+<meta property="og:title" content="헬로우 휴먼 뉴스레터 06 · 코드를 만든 뒤에 남는 일">
+<meta property="og:description" content="에이전트가 일을 마쳤다고 하면, 무엇을 확인하시나요? 작업 지시와 코드 검토, AI 도입 효과를 다룬 한 주의 새 글 10편을 모았습니다.">
+<meta property="og:image" content="https://soorimsun.github.io/hello-human/assets/social/hellobot.jpg">
+<meta property="og:image:alt" content="헬로우 휴먼의 마스코트 헬로봇">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<script src="../assets/theme.js?v=3"></script>
+<link rel="stylesheet" href="../assets/style.css?v=9">
+<link rel="stylesheet" href="../assets/news.css?v=10">
+<link rel="stylesheet" href="../assets/newsletter.css?v=1">
+<link rel="stylesheet" href="../assets/content-updates.css?v=1">
+</head>
+<body>
+<header class="topbar"><div class="wrap topbar-inner">
+  <a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+  <nav class="news-nav" aria-label="사이트 메뉴">
+    <a href="../">모임 소개</a><a href="../news/">AI뉴스</a><a href="../guides/">AI가이드</a><a href="../insights/">인사이트</a><a href="../case-studies/">사례연구</a>
+    <a data-newsletter-entry href="./">뉴스레터</a>
+  </nav>
+</div></header>
+<main class="letter-shell">
+<article aria-labelledby="letter-title">
+  <header class="letter-cover">
+    <a class="news-back" href="./">← 뉴스레터 목록</a>
+    <p class="news-kicker">HELLO, HUMAN / LETTER 06</p>
+    <h1 id="letter-title">코드를 만든 뒤에<br><span>남는 일</span></h1>
+    <p class="letter-deck">에이전트가 일을 마쳤다고 하면, 무엇을 확인하시나요?<br>작업 지시와 코드 검토, AI 도입 후 달라진 업무를 함께 돌아봅니다.</p>
+    <div class="letter-meta"><time datetime="2026-11-10">2026년 11월 10일 발행</time><span>11월 3일~9일의 소식</span><span>새 글 10편</span></div>
+  </header>
+
+  <div class="letter-intro">
+    <p>안녕하세요, 헬로우 휴먼 멤버 여러분. 여섯 번째 편지입니다.</p>
+    <p>에이전트가 코드를 고치고 “테스트를 통과했습니다”라고 알려옵니다. 반가운 소식이지만, 변경 내용을 검토하다 보면 몇 가지가 더 궁금해집니다. 오류가 나는 상황도 시험했는지, 검사한 뒤 코드를 다시 바꾸지는 않았는지, 다른 변경과 합쳐도 잘 돌아가는지 말입니다.</p>
+    <p>이번 주에는 <strong>맡길 일과 완료 기준을 정하는 개발 가이드</strong>를 먼저 읽어보세요. 코드와 검사 결과를 함께 검토하는 법을 익힌 뒤, AI를 도입하고 실제로 일이 얼마나 줄었는지 생각해볼 글도 골랐습니다.</p>
+    <p>11월 3일부터 9일까지 새로 올라온 글은 <strong>일반뉴스 7편, 단신 2편, 가이드 1편</strong>입니다. 문자로 장을 보는 Alexa와 소리 없이 글을 입력하는 Subvocal, 하드웨어 설계 실험도 만나보세요.</p>
+  </div>
+
+  <section class="letter-picks" aria-labelledby="picks-heading">
+    <p class="news-section-label">어디서 시작할지 고민이라면</p>
+    <h2 id="picks-heading">먼저 읽기 좋은 3편</h2>
+    <div class="letter-pick-grid">
+      <a class="letter-pick" href="../guides/2026-11-05-building-with-agents.html"><small>일을 맡기기 전에 · <time datetime="2026-11-05">11. 05</time></small><strong>작업 지시문에<br>완료 조건을 넣기</strong><p>쿠폰 표시를 고치는 작은 작업부터 맡길 일과 변경 범위, 기대하는 결과를 정합니다. 지시문과 완료 보고 양식을 다음 작업에 맞게 바꿔 써보세요.</p><span>에이전트 개발 가이드 →</span></a>
+      <a class="letter-pick" href="../news/2026-11-05-pierre-code-review.html"><small>변경을 검토할 때 · <time datetime="2026-11-05">11. 05</time></small><strong>이 통과 기록은<br>어느 코드의 것일까</strong><p>OpenAI의 Pierre 인수 계획과 보안 연구에서 코드 변경과 검사 결과를 함께 남겨야 하는 이유를 짚습니다. 지금 검토하는 코드의 통과 기록인지 확인하는 실험도 담았습니다.</p><span>코드 검토와 저장 소식 →</span></a>
+      <a class="letter-pick" href="../news/2026-11-09-rba-productivity-gap.html"><small>도입 효과를 볼 때 · <time datetime="2026-11-09">11. 09</time></small><strong>검토와 수정까지<br>줄었을까</strong><p>AI를 쓰는 기업은 늘었지만 경제 전체의 생산성 개선 증거는 아직 제한적이라는 RBA의 분석입니다. 우리 팀에서도 초안을 만든 뒤에 남는 일을 함께 살펴볼 수 있습니다.</p><span>RBA의 생산성 분석 →</span></a>
+    </div>
+  </section>
+
+  <nav class="letter-contents" aria-label="뉴스레터 목차">
+    <h2>이번 주 소식, 분야별로 모았습니다</h2>
+    <ul>
+      <li><a href="#guides">직접 해보는 가이드 <b>1</b></a></li>
+      <li><a href="#news">흐름을 읽는 AI뉴스 <b>7</b></a></li>
+      <li><a href="#briefs">짧게 짚는 소식 <b>2</b></a></li>
+      <li><a href="#practice">함께 해볼 작은 실험</a></li>
+    </ul>
+    <p class="letter-note">추천 3편은 아래 전체 목록에도 포함됩니다. 각 글의 확인 시점과 발표·보도 내용을 기준으로 요약했으며, 제품 사용 후기나 연구를 직접 재현한 기록은 아닙니다.</p>
+  </nav>
+
+  <section id="guides" class="letter-section" aria-labelledby="guides-heading">
+    <header class="letter-section-heading"><p class="news-section-label">AI가이드 · 1편</p><h2 id="guides-heading">작은 기능 하나를 끝까지 맡겨보기</h2><p>목표와 변경 범위를 정하고, 결과를 확인한 뒤 다음 작업에 쓸 규칙을 남깁니다.</p></header>
+    <ol class="letter-entries">
+      <li class="letter-entry"><div class="letter-entry-meta"><span>가이드 12</span><time datetime="2026-11-05">11. 05</time></div><div><h3><a href="../guides/2026-11-05-building-with-agents.html">에이전트와 함께 개발하는 실용 가이드 →</a></h3><p>쿠폰을 쓸 수 없는 이유를 보여주는 가상 화면에서 정상 응답, 조회 실패, 늦게 도착한 응답을 시험하는 방법을 설명합니다. 작업을 병렬로 나누고, 배운 내용을 팀의 규칙으로 남겨 다시 쓰는 방법까지 담았습니다.</p></div></li>
+    </ol>
+    <p class="letter-note">조회 실패는 쿠폰을 쓸 수 없다는 뜻이 아닙니다. 이 차이를 화면에서 어떻게 보여줄지 생각해보세요. 예시를 적용할 때는 실제 서비스의 정책과 API 계약을 먼저 확인해야 합니다.</p>
+  </section>
+
+  <section id="news" class="letter-section" aria-labelledby="news-heading">
+    <header class="letter-section-heading"><p class="news-section-label">AI뉴스 · 7편</p><h2 id="news-heading">일상 과제부터 설계와 보안까지</h2><p>새로 공개된 기능과 평가 결과를 일곱 편에 담았습니다. 실제로 쓸 수 있는 범위와 아직 검증이 필요한 부분을 함께 읽어보세요.</p></header>
+    <figure class="news-article-visual">
+      <a href="../assets/news/physical-engineering-openwebui-files-official.png" aria-label="Open WebUI 공식 작업공간 화면 크게 보기"><img src="../assets/news/physical-engineering-openwebui-files-official.png" alt="Open WebUI에서 대화 옆의 Files 탭에 Open Terminal로 연결한 폴더와 파일이 나열된 공식 화면" width="3200" height="1766" loading="lazy" decoding="async"></a>
+      <figcaption><div>대화 옆에서 연결된 폴더와 파일을 확인하는 Open WebUI 화면입니다. 파일·실행 환경을 함께 쓰는 흐름은 <a href="../news/2026-11-04-physical-engineering.html">일반뉴스 37호</a>에서 소개합니다. 11월 4일 공식 문서에서 확인·저장한 이미지이며, 직접 설치한 화면은 아닙니다. <a href="https://docs.openwebui.com/features/open-terminal/file-browser/" target="_blank" rel="noopener noreferrer">공식 출처 ↗</a></div></figcaption>
+    </figure>
+    <ol class="letter-entries">
+      <li class="letter-entry"><div class="letter-entry-meta"><span>뉴스 42</span><time datetime="2026-11-09">11. 09</time></div><div><h3><a href="../news/2026-11-09-rba-productivity-gap.html">RBA, 빠른 AI 도입에도 생산성 효과는 아직 불확실 →</a></h3><p>RBA의 분석을 바탕으로 기업들이 체감한 개선과 경제 전체의 생산성을 구분해 읽습니다. llama.cpp가 도구 호출의 문자 처리 오류를 고친 소식, Anthropic의 발전설비 확보 보도와 함께 AI를 업무에 쓰는 데 필요한 조건을 짚습니다.</p></div></li>
+      <li class="letter-entry"><div class="letter-entry-meta"><span>뉴스 41</span><time datetime="2026-11-08">11. 08</time></div><div><h3><a href="../news/2026-11-08-v-thinker-verified-work.html">V-Thinker, 이미지 조작까지 평가한다 →</a></h3><p>11월 7일자 학습·평가 자료 공개 안내를 바탕으로 V-Thinker가 위치 찾기, 이미지 조작, 답의 정확성을 어떻게 나눠 평가하는지 설명합니다. 환경단체의 이미지·문서 분석 사례와 상품 이미지에서 읽은 값·위치를 함께 남기는 실험도 소개합니다.</p></div></li>
+      <li class="letter-entry"><div class="letter-entry-meta"><span>뉴스 40</span><time datetime="2026-11-07">11. 07</time></div><div><h3><a href="../news/2026-11-07-alexa-text-shopping.html">Amazon Alexa, 문자로 찾고 구매한다 →</a></h3><p>미국 일부 초대 고객에게 열린 Alexa의 문자 쇼핑과 CrewAI의 실험적 대화 세션을 소개합니다. 문자와 웹을 오가는 요청을 다루는 실험 제안에 더해, OpenHands의 자동화 흐름도와 Clutch의 신원 관리 소식도 담았습니다.</p></div></li>
+      <li class="letter-entry"><div class="letter-entry-meta"><span>뉴스 39</span><time datetime="2026-11-06">11. 06</time></div><div><h3><a href="../news/2026-11-06-gpt6-cyber-scope.html">GPT-6 Cyber, 보안 성능과 작업 범위 준수를 함께 평가하다 →</a></h3><p>OpenAI는 취약점을 찾아 재현하는 능력과 허가된 범위를 지키는 능력을 따로 평가했습니다. METR의 연구개발 평가, Box의 문서 검색·업무 절차 생성 계획, Claude의 실행 전 검사와 읽기 전용 금융 연결도 정리했습니다.</p></div></li>
+      <li class="letter-entry"><div class="letter-entry-meta"><span>뉴스 38</span><time datetime="2026-11-05">11. 05</time></div><div><h3><a href="../news/2026-11-05-pierre-code-review.html">OpenAI의 Pierre 인수 계획, 코드 검토에서 저장까지 →</a></h3><p>Codex에 이미 적용된 코드 탐색·비교 도구와 인수 후 통합할 계획인 저장소 기능을 구분해 소개합니다. Conductor Cloud의 종료 일정과 Linux 커널 보안 연구, Tencent Hy4·CodeQL의 변경점도 한자리에서 읽을 수 있습니다.</p></div></li>
+      <li class="letter-entry"><div class="letter-entry-meta"><span>뉴스 37</span><time datetime="2026-11-04">11. 04</time></div><div><h3><a href="../news/2026-11-04-physical-engineering.html">OpenAI의 하드웨어 실험, 설계에서 시제품까지 →</a></h3><p>OpenAI의 실험에서 기구·회로·소프트웨어 설계가 어떻게 시제품으로 이어졌고, 제조를 위해 어떤 검토가 필요했는지 살펴봅니다. Open WebUI 0.13의 작업공간, JetBrains Air의 Copilot 연결, 바이두 Apollo World의 가상 주행 검증도 담았습니다.</p></div></li>
+      <li class="letter-entry"><div class="letter-entry-meta"><span>뉴스 36</span><time datetime="2026-11-03">11. 03</time></div><div><h3><a href="../news/2026-11-03-lifeval-delegation.html">OpenAI LifeVal, 일상에서 맡길 일을 평가하다 →</a></h3><p>OpenAI가 사람들이 도움받고 싶은 돌봄·쇼핑·서류 준비 등을 평가 과제로 삼았습니다. 점수를 실제 업무 완료율로 읽지 않도록 평가 범위를 짚고, 금융 에이전트의 위임 논의와 GitHub의 실행 정책도 정리했습니다.</p></div></li>
+    </ol>
+    <p class="letter-note">Pierre 인수는 아직 종결 조건이 남은 계획입니다. RBA의 분석은 경제 전체를 다루므로 특정 개발팀의 도입 효과는 별도로 확인해야 합니다. <a href="https://openai.com/ko-KR/index/openai-to-acquire-pierre/" target="_blank" rel="noopener noreferrer">OpenAI 발표 ↗</a> · <a href="https://www.rba.gov.au/speeches/2026/sp-ag-2026-11-09.html" target="_blank" rel="noopener noreferrer">RBA 연설 ↗</a></p>
+  </section>
+
+  <section id="briefs" class="letter-section" aria-labelledby="briefs-heading">
+    <header class="letter-section-heading"><p class="news-section-label">속보·단신 · 2편</p><h2 id="briefs-heading">침입 경로와 새로운 입력 방식</h2><p>바이낸스의 초기 사고 보고와 Subvocal의 사전예약 소식입니다. 공개된 내용과 아직 알 수 없는 부분을 나눠 정리했습니다.</p></header>
+    <ol class="letter-entries">
+      <li class="letter-entry"><div class="letter-entry-meta"><span>단신 14</span><time datetime="2026-11-04">11. 04</time></div><div><h3><a href="../news/2026-11-04-binance-fake-interview.html">바이낸스 탈취 사고, 가짜 면접과 사내 AI 도구 악용 →</a></h3><p>바이낸스의 초기 조사 보고를 따라, 가짜 채용 과제에서 사내 시스템 침입과 권한 탈취로 이어진 과정을 8단계로 정리했습니다. AI 도구의 이름과 구체적인 악용 방식은 공개되지 않아 특정 모델의 결함으로 단정할 수 없습니다.</p></div></li>
+      <li class="letter-entry"><div class="letter-entry-meta"><span>단신 13</span><time datetime="2026-11-03">11. 03</time></div><div><h3><a href="../news/2026-11-03-subvocal-silent-input.html">Subvocal, 소리 없이 글 쓰는 안경 사전예약 →</a></h3><p>소리를 내지 않고 단어를 발음하면, 그 움직임을 전파로 감지해 글자로 바꾸는 안경입니다. 사전예약 단계의 제품 설명과 시연을 바탕으로, 잘못 입력된 글자를 고치는 수고와 지원 언어·데이터 처리 조건을 짚습니다.</p></div></li>
+    </ol>
+  </section>
+
+  <aside id="practice" class="letter-practice letter-section" aria-labelledby="practice-heading">
+    <p class="news-section-label">함께 해볼 작은 실험 · 아직 실행하지 않은 제안</p>
+    <h2 id="practice-heading">통과 기록을 지금의 코드와 맞춰보기</h2>
+    <p>일반뉴스 38호의 실험에서 기록을 대조하는 부분만 해보겠습니다. 완료 보고를 읽고 <strong>어떤 코드를 검사했고, 어떤 검사가 빠졌는지</strong> 찾는 연습입니다. 아래 세 가지 가상 기록으로 시작해보세요.</p>
+    <p>검토할 수정본의 이름은 <code>demo-b</code>입니다. 배송 요청을 접수하거나 거절할 때 모두 감사 로그를 한 줄로 남기고, 고객이 적은 배송 메모는 원문대로 보존해야 한다고 가정합니다.</p>
+    <ul>
+      <li><strong>A</strong> <code>demo-b</code>에서 정상 접수, 거절, 원래 메모 보존 검사를 모두 통과했습니다.</li>
+      <li><strong>B</strong> 세 검사는 모두 통과했지만, 검사 대상은 이전 수정본인 <code>demo-a</code>입니다.</li>
+      <li><strong>C</strong> <code>demo-b</code>에서 정상 접수와 원래 메모 보존 검사는 통과했습니다. 거절 상황은 검사한 기록이 없습니다.</li>
+    </ul>
+    <ol>
+      <li>세 기록을 JSON 파일로 준비하고, 에이전트에게 수정본 이름과 필수 검사 결과를 대조하는 스크립트를 작성하게 합니다. 원본 기록은 수정하지 않고, 기록 이름·판정·부족한 근거만 출력하게 합니다.</li>
+      <li>실행 전에 기대 결과를 정합니다. A는 ‘필수 검사 기록 확인’, B는 ‘현재 수정본 재검사 필요’, C는 ‘거절 상황 검사 필요’입니다. 실패했거나 결과를 알 수 없는 검사는 통과로 처리하지 않습니다.</li>
+      <li>입력 순서를 바꿔도 판정이 같은지 확인합니다. 실패한 검사 기록도 하나 추가해 걸러지는지 보세요. 예상과 다르게 판정하면 원본 기록과 기준을 대조해 원인을 찾습니다.</li>
+    </ol>
+    <p>여기서는 <strong>검토할 코드의 필수 검사 기록이 갖춰졌는지</strong>만 판단합니다. 기록만으로 실제 코드가 정확하다고 보거나 병합을 승인할 수는 없습니다. 다음 단계로는 <a href="../news/2026-11-05-pierre-code-review.html#experiment">배송 로그를 직접 검사하는 실험</a>을 해보세요.</p>
+  </aside>
+
+  <div class="letter-signoff">
+    <p>다음에 일을 맡길 때는 “잘 동작하게 해주세요” 옆에 기대하는 결과를 한 줄 더 적어보세요. 정상 요청뿐 아니라 실패한 요청에 어떻게 응답해야 하는지도 정해두면 검토할 기준이 분명해집니다.</p>
+    <p>직접 해보며 설명이 모자랐던 곳이나 놓친 검사를 발견했다면 모임에서 나눠주세요. 다음 작업에 쓸 지시문과 확인 기준으로 함께 남겨보겠습니다.</p>
+    <p>다음 화요일에 또 뵙겠습니다.<br>헬로우 휴먼 드림</p>
+    <a href="./">지난 뉴스레터도 읽어보기 →</a>
+  </div>
+</article>
+</main>
+<footer class="footer"><div class="wrap">헬로우 휴먼 · Workless Engineering Club</div></footer>
+<script src="../assets/analytics.js?v=2" defer></script>
+<script type="module" src="../assets/content-updates.js?v=3"></script>
+</body>
+</html>

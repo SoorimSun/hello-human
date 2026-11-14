@@ -1,0 +1,50 @@
+.news-hydrogen .news-article-header h1 { max-width: 1080px; font-size: clamp(32px, 4.6vw, 59px); line-height: 1.25; }
+.news-hydrogen .news-article-header h1 > span,
+.news-hydrogen .news-article-header h1 > em { display: block; }
+.news-hydrogen .news-article-header h1 em span { display: inline-block; }
+.news-hydrogen h3 { margin: 30px 0 14px; font-size: 23px; line-height: 1.5; }
+.news-hydrogen code { font-size: .88em; overflow-wrap: anywhere; }
+.news-hydrogen .hv-media { margin: 30px 0; }
+.news-hydrogen .hv-media img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 10px; background: white; }
+.news-hydrogen figcaption { margin-top: 12px; font-size: 14px; line-height: 1.8; color: var(--muted); }
+.news-hydrogen figcaption b { display: block; margin-bottom: 5px; font-size: 17px; color: var(--ink); }
+.news-hydrogen .hv-panel { margin: 28px 0; padding: 24px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+.news-hydrogen .hv-panel > figcaption { margin: 0 0 20px; }
+.news-hydrogen .hv-flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; padding: 0; margin: 0; list-style: none; }
+.news-hydrogen .hv-flow li { padding: 18px; border-top: 3px solid var(--accent); background: var(--surface-2); border-radius: 6px; }
+.news-hydrogen .hv-flow b, .news-hydrogen .hv-flow span { display: block; }
+.news-hydrogen .hv-flow b { margin-bottom: 8px; font-size: 16px; }
+.news-hydrogen .hv-flow span { font-size: 14px; color: var(--muted); }
+.news-hydrogen .hv-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 26px 0 12px; }
+.news-hydrogen .hv-stats > div { padding: 20px 14px; border: 1px solid var(--line); border-radius: 8px; }
+.news-hydrogen .hv-stats dt { color: var(--muted); font-size: 13px; }
+.news-hydrogen .hv-stats dd { margin: 8px 0 0; font: 700 26px/1.4 var(--mono); color: var(--accent); }
+.news-hydrogen .hv-stats small { display: block; margin-top: 5px; color: var(--muted); font: 13px/1.6 var(--sans, sans-serif); }
+.news-hydrogen .hv-note { color: var(--muted); font-size: 14px; }
+.news-hydrogen .hv-table { width: 100%; margin: 26px 0; border-collapse: collapse; table-layout: fixed; font-size: 15px; }
+.news-hydrogen .hv-table caption { text-align: left; margin-bottom: 12px; color: var(--muted); font-size: 14px; }
+.news-hydrogen .hv-table th, .news-hydrogen .hv-table td { text-align: left; vertical-align: top; padding: 14px 12px; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
+.news-hydrogen .hv-table th:first-child { width: 25%; }
+.news-hydrogen .hv-table thead { background: var(--surface-2); }
+.news-hydrogen .hv-method { margin: 24px 0; border: 1px solid var(--line); border-radius: 9px; }
+.news-hydrogen .hv-method summary { padding: 18px 20px; cursor: pointer; font-size: 16px; font-weight: 700; }
+.news-hydrogen .hv-method summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.news-hydrogen .hv-method > div { padding: 0 20px 20px; }
+.news-hydrogen .hv-method p, .news-hydrogen .hv-method li { font-size: 15px; line-height: 1.8; }
+@media (max-width: 600px) {
+  .news-hydrogen .news-article-header h1 { font-size: clamp(27px, 7.3vw, 42px); }
+  .news-hydrogen .hv-flow, .news-hydrogen .hv-stats { grid-template-columns: 1fr; }
+  .news-hydrogen .hv-stats > div { display: grid; grid-template-columns: 1fr 1.2fr; align-items: center; gap: 12px; }
+  .news-hydrogen .hv-stats dd { margin: 0; font-size: 25px; }
+  .news-hydrogen .hv-panel { padding: 20px 16px; }
+  .news-hydrogen .hv-table { font-size: 13px; }
+  .news-hydrogen .hv-table th, .news-hydrogen .hv-table td { padding: 12px 6px; }
+  .news-hydrogen .news-view { padding: 26px 22px; }
+}
+@media print {
+  .news-hydrogen .hv-panel, .news-hydrogen .hv-media { break-inside: avoid; }
+  .news-hydrogen .hv-method > div { display: block !important; }
+}
+
+.news-hydrogen .hv-media:has(img[src*="holiday-extras"]) { max-width: 530px; margin-inline: auto; }
+.news-hydrogen .hv-media a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }

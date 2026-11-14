@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Claude Fable 5.2, 성능 높이고 가격 낮췄다 · AI뉴스 · 헬로우 휴먼</title>
+  <meta name="description" content="Claude Fable 5.2의 성능과 작업당 비용, LG K-엑사원 2.5 무료 API, Google TPU 8tx·8i Max와 TPU Sync를 살펴봅니다. 모델 선택과 결과 재사용의 효과를 나눠 확인하는 실험을 제안합니다.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Claude Fable 5.2, 성능 높이고 가격 낮췄다">
+  <meta property="og:description" content="LG K-엑사원 무료 API와 Google의 새 TPU·캐시 기술까지. 응답 속도와 검증을 마친 작업 한 건의 비용을 나눠 읽습니다.">
+  <meta property="og:url" content="https://soorimsun.github.io/hello-human/news/2026-11-10-fable-cost-infrastructure.html">
+  <meta property="og:image" content="https://soorimsun.github.io/hello-human/assets/social/hellobot.jpg">
+  <meta property="og:image:alt" content="헬로우 휴먼의 헬로봇">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+  <script src="../assets/theme.js?v=3"></script>
+  <link rel="stylesheet" href="../assets/style.css?v=9">
+  <link rel="stylesheet" href="../assets/news.css?v=10">
+  <link rel="stylesheet" href="../assets/news-fable-cost.css?v=2">
+  <link rel="stylesheet" href="../assets/content-updates.css?v=1">
+</head>
+<body class="news-fable">
+  <header class="topbar"><div class="wrap topbar-inner">
+    <a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+    <nav class="news-nav" aria-label="사이트 메뉴"><a href="../">모임 소개</a><a href="./">AI뉴스</a><a href="../guides/">AI가이드</a><a href="../insights/">인사이트</a><a href="../case-studies/">사례연구</a><a data-newsletter-entry href="../newsletters/">뉴스레터</a></nav>
+  </div></header>
+  <main><article>
+    <header class="news-article-header wrap">
+      <a class="news-back" href="./">← AI뉴스 목록</a>
+      <p class="news-kicker">AI NEWS <span aria-hidden="true">/</span> ISSUE 43</p>
+      <h1><span>Claude Fable 5.2,</span><em><span>성능 높이고</span> <span>가격 낮췄다</span></em></h1>
+      <p class="news-deck">Anthropic의 고난도 작업용 모델, LG K-엑사원 2.5 무료 API, Google의 새 TPU와 캐시 기술. 모델을 고르는 일에서 실행 비용을 줄이는 일까지 살펴봅니다.</p>
+      <div class="news-article-meta"><time datetime="2026-11-10">2026년 11월 10일</time><span>헬로우 휴먼 AI뉴스</span></div>
+    </header>
+    <div class="news-article-shell wrap">
+      <nav class="news-toc" aria-label="기사 목차"><span>이번 호</span><a href="#summary">30초 요약</a><a href="#fable">Fable 5.2의 성능·비용</a><a href="#exaone">K-엑사원 무료 API</a><a href="#tpu">보안·긴 문맥용 TPU</a><a href="#sync">TPU Sync의 재사용</a><a href="#our-view">헬로우 휴먼의 관점</a><a href="#experiment">모델 선택·재사용 실험</a><a href="#sources">읽은 자료</a></nav>
+      <div class="news-story">
+        <section id="summary" class="news-summary" aria-labelledby="summary-title">
+          <p class="news-section-label">AT A GLANCE</p><h2 id="summary-title">30초 요약</h2>
+          <ul>
+            <li><strong>Anthropic</strong> Fable 5.2·Mythos 5.2를 공개하고 토큰 단가를 낮췄습니다. 특정 코딩 평가에서는 추론 설정을 조절해 Opus 5.5와 비슷한 점수를 약 절반의 작업당 비용으로 얻었다고 발표했습니다.</li>
+            <li><strong>LG AI연구원</strong> 기술 검증 모델 K-엑사원 2.5의 API를 무료로 개방했습니다. 한국어 업무와 도구 호출을 시험할 기회가 늘었으며, 호출 제한과 결과 검증은 함께 살펴야 합니다.</li>
+            <li><strong>Google</strong> 기밀 컴퓨팅용 TPU 8tx, 긴 문맥용 TPU 8i Max를 발표했습니다. 별도 오픈소스 기술 TPU Sync는 추론 중간 상태를 옮기고 재사용해 반복 계산을 줄입니다.</li>
+          </ul>
+        </section>
+        <p class="news-method"><b>자료 확인</b> 2026년 11월 10일 한국시간 기준입니다. 주요 소식의 최초 발표일은 원문 표기상 11월 9일입니다. TPU 제품 소개는 Google 원문이 9일, Cloud 블로그 재게시본이 10일입니다. TPU Sync의 성능 시험은 2026년 7월 TPU v7x 환경에서 진행됐습니다.</p>
+
+        <section id="fable" class="news-story-section">
+          <p class="news-section-label">01 / ANTHROPIC</p>
+          <h2>어려운 코딩 작업을 겨냥한 Fable,<br>추론 설정에 따라 비용도 달라집니다</h2>
+          <p>Anthropic이 <strong>Claude Fable 5.2와 Mythos 5.2</strong>를 출시했습니다. 두 제품은 같은 기반 모델을 쓰지만 접근 범위가 다릅니다. Fable은 사이버·생물학 분야의 안전장치를 적용해 일반 제공하고, Mythos의 직접 이용은 검증 프로그램을 통과한 조직에 엽니다. Fable의 API 식별자는 <code>claude-fable-5-2</code>입니다. <a class="source-link" href="https://www.anthropic.com/claude-fable-and-mythos-5-2" target="_blank" rel="noopener noreferrer">공식 발표 ↗</a></p>
+          <p>회사는 시험 버전의 에이전트 팀이 운영 서비스의 Python 코드를 Rust로 옮겨 <strong>서비스 시작 속도를 약 26배</strong> 높였다고 밝혔습니다. 또 다른 내부 실험에서는 1,000개가 넘는 하위 에이전트를 조정해 8일 동안 노트북에서 부팅되는 운영체제 시제품을 만들었다고 설명했습니다. 두 사례는 회사가 선정해 공개한 프로젝트 결과입니다.</p>
+          <h3>최대 추론보다, 필요한 점수에 맞는 설정을 봅니다</h3>
+          <p>자체 FrontierCode 2.0 평가에서 Fable 5.2는 <strong>Xhigh 설정으로 49.1%</strong>를 기록했습니다. 5.1의 같은 설정은 32.4%였습니다. 더 낮은 High에서는 45.3%로, Opus 5.5의 Max 결과 45.5%에 가까우면서 작업당 비용은 약 절반이었다는 설명입니다.</p>
+          <figure class="fc-media">
+            <a href="../assets/news/fable-52-frontiercode.png" target="_blank" rel="noopener"><img src="../assets/news/fable-52-frontiercode.png" width="1560" height="1350" alt="Anthropic의 FrontierCode 2.0 공식 그래프. Fable 5.2는 High에서 45.3%, Xhigh에서 49.1%이며 Max에서는 점수가 낮아집니다. 가로축은 작업당 달러 비용의 로그 눈금입니다." loading="lazy" decoding="async"></a>
+            <figcaption><b>성능과 작업당 비용 · Anthropic 자체 평가</b>공식 페이지에서 내려받은 그래프입니다. 가로축은 로그 눈금이며 세로축에는 생략 구간이 있습니다. Fable의 Max 설정이 Xhigh보다 높은 점수를 보장하지 않는다는 점도 눈에 띕니다. <a href="https://www.anthropic.com/claude-fable-and-mythos-5-2#evaluations" target="_blank" rel="noopener noreferrer">그래프와 평가 설명</a></figcaption>
+          </figure>
+          <p>독립 평가기관 <strong>Vals AI</strong>의 11월 9일 결과도 함께 볼 만합니다. Fable 5.2는 Vals Index v2.2에서 <strong>71.31%, 36개 모델 중 1위</strong>였습니다. Vals가 밝힌 기본 추론 설정은 High입니다. 하지만 Tax Agent Bench에서는 84개 중 27위, Vals Legal Index에서는 37개 중 20위였습니다. 종합 점수는 금융·코딩·법률·세금 과제를 미국 GDP 비중으로 가중한 값이므로, 우리 업무의 우선순위와 같지는 않습니다. <a class="source-link" href="https://www.vals.ai/models/anthropic_claude-fable-5-2" target="_blank" rel="noopener noreferrer">분야별 결과 ↗</a> <a class="source-link" href="https://www.vals.ai/benchmarks/vals_index" target="_blank" rel="noopener noreferrer">지수 구성 ↗</a></p>
+          <p>이 순위는 <strong>대체 응답인 폴백을 일괄 실패 처리하지 않은 기본 표시</strong>입니다. 같은 페이지에서 폴백을 실패로 계산하는 옵션을 켜면 Vals Index는 <strong>69.48%, 36개 중 4위</strong>로 바뀝니다. 폴백 비율은 1.88%로 표시됩니다. 모델 선택 시에는 점수뿐 아니라 이런 응답 처리 조건도 함께 읽어야 합니다. <a class="source-link" href="https://www.vals.ai/models/anthropic_claude-fable-5-2" target="_blank" rel="noopener noreferrer">평가 옵션과 결과 ↗</a></p>
+          <table class="fc-table"><caption>Fable 5.2·Mythos 5.2 공개 API 단가 · 11월 9일 발표</caption><thead><tr><th scope="col">모드</th><th scope="col">입력 100만 토큰</th><th scope="col">출력 100만 토큰</th></tr></thead><tbody><tr><th scope="row">기본</th><td>$8</td><td>$40</td></tr><tr><th scope="row">Fast</th><td>$16</td><td>$80</td></tr></tbody></table>
+          <p>회사는 기본 출력이 5.1보다 최대 30% 빠르고, Fast 모드는 토큰 생성을 최대 2.5배 빠르게 한다고 설명합니다. Fast의 단가는 두 배입니다. 도구 대기·테스트·재시도까지 포함한 완료 시간이 얼마나 줄어드는지는 별도 측정이 필요합니다. 일반적인 코딩·지식 업무에는 먼저 Opus 5.5를 쓰고 난도에 따라 모델을 바꾸라는 것이 Anthropic의 권장입니다. <a class="source-link" href="https://www.anthropic.com/claude-fable-and-mythos-5-2" target="_blank" rel="noopener noreferrer">가격·사용 권장 범위 ↗</a></p>
+        </section>
+
+        <section id="exaone" class="news-story-section">
+          <p class="news-section-label">02 / LG AI RESEARCH</p>
+          <h2>K-엑사원 2.5 무료 API,<br>한국어 업무를 직접 비교할 기회입니다</h2>
+          <p>LG AI연구원은 11월 9일 NVIDIA AI Day Seoul 2026에서 <strong>K-엑사원 2.5 API 무료 개방</strong>을 발표했습니다. 개발자·스타트업·기업·연구기관이 API 키를 발급받아 사용할 수 있습니다. 8월 공개 모델에 추가 학습을 적용한 <strong>기술 검증 모델</strong>이며, 3차수 모델은 별도로 개발 중입니다. <a class="source-link" href="https://www.lg.co.kr/media/release/30760" target="_blank" rel="noopener noreferrer">LG 한국어 보도자료 ↗</a></p>
+          <p>공식 문서상 한국어·영어를 지원하는 텍스트 모델로, 전체 7,500억 개 중 약 310억 개의 파라미터가 활성화됩니다. 도구 호출·구조화된 출력·스트리밍을 지원하며, 입력 토큰과 최대 생성 토큰의 합은 <strong>524,288토큰</strong> 이하여야 합니다. 큰 문맥 창이 실제 문서 이해의 정확도까지 보장하지는 않으므로, 긴 안내서에서는 필요한 근거를 제대로 찾아내는지 함께 확인해야 합니다. <a class="source-link" href="https://docs.exaone.ai/ko/docs/models" target="_blank" rel="noopener noreferrer">모델 소개 ↗</a></p>
+          <figure class="fc-media">
+            <a href="../assets/news/fable-k-exaone-benchmarks.png" target="_blank" rel="noopener"><img src="../assets/news/fable-k-exaone-benchmarks.png" width="856" height="239" alt="LG의 자체 비교 그래프. K-엑사원 2.5는 AutomationBench 공개 데이터셋에서 74.6, SWE-Bench Pro에서 59.2, BrowseComp에서 78.0, Claw-Eval에서 77.3점을 기록했습니다. 비교 모델은 DeepSeek V4.1 Flash와 GLM 5.3입니다." loading="lazy" decoding="async"></a>
+            <figcaption><b>에이전트 능력 네 가지를 비교한 LG 공식 그래프</b>11월 9일 보도자료의 자체 평가입니다. 작은 화면에서도 읽을 수 있도록 K-엑사원 수치를 아래 표에 옮겼습니다. <a href="https://www.lg.co.kr/media/release/30760" target="_blank" rel="noopener noreferrer">원문</a></figcaption>
+          </figure>
+          <table class="fc-table"><caption>LG가 공개한 자체 평가 · 11월 9일 보도자료의 반올림 수치</caption><thead><tr><th scope="col">평가</th><th scope="col">점수</th><th scope="col">살펴보는 능력</th></tr></thead><tbody><tr><th scope="row">AutomationBench</th><td>74.6</td><td>업무 도구 활용<br>공개 데이터셋 평가</td></tr><tr><th scope="row">Claw-Eval</th><td>77.3</td><td>에이전트 문제 해결</td></tr><tr><th scope="row">BrowseComp</th><td>78.0</td><td>웹 탐색·정보 검색</td></tr><tr><th scope="row">SWE-Bench Pro</th><td>59.2</td><td>소프트웨어 수정</td></tr></tbody></table>
+          <p>LG는 24개 평가 지표를 종합한 내부 분석에서 8월 모델 대비 70% 이상 개선됐다고 설명했습니다. 위 표는 실제 기업 업무의 완료율이 아닙니다. 특히 모델 문서는 AutomationBench를 <strong>Open-set Evaluation</strong>으로 명시합니다. Anthropic이 발표한 동명 평가와 조건이 같다고 확인되지 않아 두 회사의 점수를 직접 비교하지 않았습니다.</p>
+          <h3>연결 형식과 호출 제한을 함께 확인합니다</h3>
+          <p>API는 OpenAI 호환 <code>POST /v1/chat/completions</code> 형식을 쓰고 모델명은 <code>k-exaone_v2.5</code>입니다. 기존 연동을 옮길 때는 URL뿐 아니라 추론 강도, 응답 필드, 도구 호출 방식도 점검하면 좋습니다. <a class="source-link" href="https://docs.exaone.ai/ko/docs/k-exaone-2.5" target="_blank" rel="noopener noreferrer">한국어 API 문서 ↗</a></p>
+          <p>무료 API에도 초·분·일 단위 호출 제한이 있고, 초과하면 HTTP 429가 반환됩니다. 실제 한도는 응답 헤더에서 확인합니다. 문서의 예제 숫자를 모든 계정에 적용되는 보장 한도로 읽어서는 안 됩니다. 대기 시간을 알려주는 <code>retry-after</code> 헤더도 생략될 수 있습니다. <a class="source-link" href="https://docs.exaone.ai/ko/docs/rate-limits" target="_blank" rel="noopener noreferrer">호출 제한과 재시도 안내 ↗</a></p>
+          <div class="news-insight"><span>우리 업무에 옮겨 보면</span><p>한국어 변경 요청에서 상품 속성이나 영향받는 기능을 추출하는 비교 실험에 후보로 넣을 수 있습니다. API 요금과 별도로, 잘못된 근거를 고치는 시간과 호출 제한 때문에 밀린 요청을 기록해야 채택 여부를 판단할 수 있습니다.</p></div>
+        </section>
+
+        <section id="tpu" class="news-story-section">
+          <p class="news-section-label">03 / GOOGLE TPU</p>
+          <h2>같은 세대의 TPU를,<br>보안과 긴 문맥에 맞춰 나눴습니다</h2>
+          <p>Google은 8세대 TPU 제품군에 <strong>TPU 8tx와 TPU 8i Max</strong>를 추가한다고 발표했습니다. 이번에는 기존 칩을 바탕으로 메모리·네트워크·보안을 구성한 두 시스템을 소개했습니다. <a class="source-link" href="https://cloud.google.com/blog/topics/ai-infrastructure/tpu-8tx-and-tpu-8i-max" target="_blank" rel="noopener noreferrer">Google 공식 발표 ↗</a></p>
+          <figure class="fc-media">
+            <a href="../assets/news/fable-tpu-8-family.png" target="_blank" rel="noopener"><img src="../assets/news/fable-tpu-8-family.png" width="2200" height="1237" alt="Google의 8세대 TPU 제품군 공식 이미지. 왼쪽부터 대규모 학습용 8t, 낮은 지연의 추론용 8i, 기밀 컴퓨팅용 8tx, 긴 문맥과 높은 밀도를 위한 8i Max입니다." loading="lazy" decoding="async"></a>
+            <figcaption><b>네 가지 용도로 나눈 8세대 TPU · Google 공식 이미지</b>4월 발표한 8t·8i와 11월 9일 발표한 8tx·8i Max의 역할을 보여주는 제품 소개 자료입니다. <a href="https://cloud.google.com/blog/topics/ai-infrastructure/tpu-8tx-and-tpu-8i-max" target="_blank" rel="noopener noreferrer">원문</a></figcaption>
+          </figure>
+          <div class="fc-pair">
+            <div><h3>8tx · 실행 중인 데이터 보호</h3><p>TPU 8t와 같은 실리콘에 AMD EPYC 호스트와 낮은 지연의 네트워크를 결합했습니다. 처리 중인 데이터와 모델 가중치까지 하드웨어 수준에서 격리하는 기밀 컴퓨팅에 초점을 맞췄습니다.</p></div>
+            <div><h3>8i Max · 메모리 공급 확대</h3><p>TPU 8i 칩 두 개를 한 패키지에 넣었습니다. Google에 따르면 8i 대비 연산 능력, SRAM, HBM 대역폭이 각각 두 배입니다. 긴 문맥을 처리할 때 필요한 데이터를 더 빨리 공급하려는 설계입니다.</p></div>
+          </div>
+          <p>업무를 설계하는 입장에서는 서로 다른 질문입니다. 민감한 문서를 다룬다면 처리 중 데이터 보호와 애플리케이션의 접근 권한을 함께 봐야 합니다. 긴 코드나 문서를 동시에 읽는다면 연산 성능뿐 아니라 메모리 병목을 봐야 합니다. 부품 사양 두 배를 업무 처리 속도 두 배로 환산할 수는 없습니다.</p>
+          <p>확인한 발표문에는 두 시스템의 일반 제공 날짜와 가격이 구체적으로 제시되지 않았습니다. 지금의 도입 예산을 산정할 때는 실제 공급 조건을 별도로 확인해야 합니다.</p>
+        </section>
+
+        <section id="sync" class="news-story-section">
+          <p class="news-section-label">04 / GOOGLE TPU SYNC</p>
+          <h2>이미 계산한 문맥을,<br>메모리 밖에서도 이어 씁니다</h2>
+          <p>Google이 같은 날 소개한 오픈소스 라이브러리 <strong>TPU Sync</strong>는 추론 중간 상태를 여러 메모리 계층과 서버 사이로 옮깁니다. 모델이 앞선 토큰을 처리하며 만든 <strong>KV 캐시</strong>를 재사용하면, 긴 공통 지침이나 대화 맥락을 매번 처음부터 계산하는 부담을 줄일 수 있습니다. <a class="source-link" href="https://cloud.google.com/blog/topics/ai-infrastructure/introducing-tpu-sync-fast-kv-cache-and-weight-transfer-on-tpu" target="_blank" rel="noopener noreferrer">기술 발표 ↗</a></p>
+          <p>TPU의 고속 메모리인 HBM, 서버의 DRAM, 저장장치를 계층으로 연결하고 데이터 이동과 연산을 겹쳐 실행합니다. vLLM·SGLang의 TPU 구성과 llm-d 등에 연결되며, 일부 저장장치 연동은 실험 단계입니다. <a class="source-link" href="https://github.com/google/tpu-sync" target="_blank" rel="noopener noreferrer">공식 저장소 ↗</a></p>
+          <figure class="fc-media">
+            <a href="../assets/news/fable-tpu-sync-architecture.png" target="_blank" rel="noopener"><img src="../assets/news/fable-tpu-sync-architecture.png" width="2100" height="791" alt="Google TPU Sync 공식 구조도. 추론 엔진 아래 전역 KV 저장소와 컨트롤러, 캐시 관리자, 비동기 전송과 공유 저장장치가 계층을 이룹니다." loading="lazy" decoding="async"></a>
+            <figcaption><b>추론 엔진 아래의 상태 관리 계층 · Google 공식 구조도</b>위에서부터 애플리케이션, 서버 간 조정, 메모리 관리, 전송·저장 구성입니다. 문서 검색 결과나 완성된 답변을 보관하는 애플리케이션 캐시와는 다른 계층입니다. <a href="https://cloud.google.com/blog/topics/ai-infrastructure/introducing-tpu-sync-fast-kv-cache-and-weight-transfer-on-tpu" target="_blank" rel="noopener noreferrer">원문</a></figcaption>
+          </figure>
+          <table class="fc-table"><caption>Google 내부 시험 · 미사용 대비 개선, 서로 다른 지표와 조건</caption><thead><tr><th scope="col">측정 대상</th><th scope="col">발표한 변화</th><th scope="col">조건</th></tr></thead><tbody><tr><th scope="row">KV 전송 지연</th><td>90% 이상 감소</td><td>Qwen3 235B 등의 전송 시험</td></tr><tr><th scope="row">첫 토큰 대기<br>TTFT</th><td>평균 약 60% 감소</td><td>235B, 낮은 동시 요청 수</td></tr><tr><th scope="row">첫 토큰 대기<br>TTFT</th><td>평균 약 90% 감소</td><td>480B, 낮은 동시 요청 수</td></tr></tbody></table>
+          <p class="fc-note">시험 시점은 2026년 7월, 장비는 TPU v7x입니다. 새 8tx·8i Max의 측정치가 아니며, 첫 토큰 이후의 생성·도구 호출·검증까지 포함한 업무 완료 시간과도 구분해야 합니다.</p>
+          <p>TPU 추론 서버를 운영하지 않는 팀이라면 이 라이브러리를 곧바로 붙이기보다, 반복 계산이 어디서 생기는지 살펴보는 계기로 삼을 수 있습니다. 다만 <strong>KV 캐시의 성능 수치를 우리 앱의 답변 재사용 효과로 옮겨 쓸 수는 없습니다.</strong> 아래 실험은 완성된 분석 결과를 재사용하는 별도의 설계 제안입니다.</p>
+        </section>
+
+        <section id="our-view" class="news-view">
+          <p class="news-section-label">OUR VIEW</p>
+          <h2>한 건을 제대로 끝내는 데<br>얼마가 드는지 봅니다</h2>
+          <p>네 소식은 서로 다른 층을 다룹니다. Fable은 어려운 문제의 성능과 단가, K-엑사원은 시험할 수 있는 접근성, 새 TPU는 보안과 메모리, TPU Sync는 중간 계산의 재사용을 바꿉니다. 우리에게 필요한 것은 이 중 실제로 시간을 쓰는 구간을 찾는 일입니다.</p>
+          <p>예를 들어 <strong>API 변경 영향 분석 200건</strong>을 처리한다고 가정해 보겠습니다. 건당 입력 12,000토큰·청구 대상 출력 2,000토큰이면 Fable 기본 모드의 API 이용료는 <strong>$35.20</strong>입니다. 입력 240만 × $8/100만 + 출력 40만 × $40/100만으로 계산했습니다. 같은 양을 Fast로 처리하면 $70.40이며, 캐시·배치 할인, 추가 호출·도구 비용·세금은 제외한 가상 예시입니다. <a class="source-link" href="https://www.anthropic.com/claude-fable-and-mythos-5-2" target="_blank" rel="noopener noreferrer">공식 단가 ↗</a></p>
+          <p>사람이 200건을 각 1.5분씩 검토하고, 그중 20건을 각 4분씩 더 수정한다면 <strong>총 380분, 6시간 20분</strong>이 듭니다. 이 시간도 실측이 아닌 가정입니다. API 요금이 줄어도 잘못된 분석을 고치는 일이 늘면 전체 부담은 커질 수 있습니다.</p>
+          <p>완료 한 건당 비용을 비교할 때는 <strong>실패·재시도를 포함한 전체 비용을 검증된 완료 건수로 나눠야</strong> 합니다. 사람의 시간을 금액으로 바꾼다면 적용한 시간당 비용을 따로 밝히고, 실제 API 결제액과 구분합니다. Workless Engineering에서는 응답이 나온 순간보다, 다시 확인할 일이 줄어든 순간을 성과로 보려 합니다.</p>
+        </section>
+
+        <section id="experiment" class="news-story-section">
+          <p class="news-section-label">OUR LAB · 아직 실행하지 않은 실험 제안</p>
+          <h2>매번 고성능 모델을 불러야 할까요?<br>같은 일을 세 방식으로 처리해 봅니다</h2>
+          <p>확인하고 싶은 것은 하나입니다. <strong>미리 정한 변경 유형에는 저비용 모델을 먼저 쓰고, 똑같은 요청에는 저장한 답을 돌려주면, 정확도를 유지하면서 비용과 기다리는 시간을 줄일 수 있을까요?</strong> 모델의 이름만 비교하지 않고, 모델을 부르는 방식을 바꿔 보는 실험입니다.</p>
+          <h3>시킬 일은 “고쳐야 할 프로그램 찾기”입니다</h3>
+          <p>가상 배송 API가 보내는 배송비 <code>amount</code>가 숫자 <code>3000</code>에서 문자열 <code>"3000"</code>으로 바뀌었다고 가정합니다. 이 API를 사용하는 프로그램이 두 개 있습니다. 정산 프로그램은 배송비를 숫자로 받아 합산하고, 배송 조회 프로그램은 송장 번호만 읽습니다.</p>
+          <figure class="fc-panel">
+            <figcaption><b>이 입력을 주고, 이런 답을 기대합니다</b>실제 사내 자료 대신 만든 예시입니다. 프로그램 코드를 고치거나 배포하는 작업은 포함하지 않습니다.</figcaption>
+            <ol class="fc-flow"><li><b>01 · 입력 자료</b><span>변경 전·후 API 안내서와 항목별 API 명세, 두 프로그램이 어떤 필드를 어떤 형식으로 쓰는지 적은 사용 명세를 줍니다.</span></li><li><b>02 · 요청</b><span>“이번 변경 때문에 고쳐야 할 프로그램을 찾고, 안내서에서 근거를 짚어 줘.”</span></li><li><b>03 · 기대하는 답</b><span>“정산 프로그램은 숫자 처리 방식을 점검·수정해야 합니다. 송장 번호만 쓰는 배송 조회 프로그램은 이번 변경의 영향이 없습니다.”</span></li></ol>
+          </figure>
+          <p>정산 프로그램을 빠뜨리거나 배송 조회 프로그램도 고쳐야 한다고 답하면 오답으로 셉니다. 답에 적힌 근거가 실제 안내서와 맞는지도 확인합니다.</p>
+
+          <h3>A는 매번 호출하고, B는 규칙으로 고르고, C는 답을 재사용합니다</h3>
+          <table class="fc-table"><caption>같은 요청 묶음을 각 방식에 보내 결과를 비교합니다.</caption><thead><tr><th scope="col">방식</th><th scope="col">처리 방법</th></tr></thead><tbody><tr><th scope="row">A · 매번 고성능</th><td>모든 요청을 같은 고성능 모델에 보냅니다. 같은 요청을 또 받아도 다시 호출합니다.</td></tr><tr><th scope="row">B · 규칙으로 모델 선택</th><td>아래 규칙에 따라 저비용 모델에 먼저 맡기거나, A와 같은 고성능 모델에 바로 맡깁니다. 반복 요청도 다시 호출합니다.</td></tr><tr><th scope="row">C · B에 답 저장 추가</th><td>B처럼 모델을 고르되, 입력과 접근 권한이 같은 요청을 이미 처리했다면 저장한 답을 확인해 돌려줍니다. 이때는 모델을 부르지 않습니다.</td></tr></tbody></table>
+          <h3>기준은 개발자가 정하고, 프로그램이 적용합니다</h3>
+          <p>모델 선택 규칙은 <strong>실험을 준비하는 개발자가 미리 정합니다.</strong> 실행할 때는 프로그램이 변경 전·후 API 명세를 비교해 규칙에 맞는 모델을 부릅니다. 이를 위해 입력 명세에는 설명 문구, 자료형, 필수 여부, 허용값을 각각 나눠 적습니다. 별도의 AI 분류 모델을 호출하지 않으므로, 이 비교에 드는 시간과 처리 비용만 함께 기록합니다.</p>
+          <table class="fc-table" id="model-selection-rules"><caption>B와 C의 첫 모델 호출을 정하는 규칙 · 저비용 조건을 모두 만족할 때만 해당 모델을 먼저 씁니다.</caption><thead><tr><th scope="col">프로그램이 확인한 변경</th><th scope="col">선택할 모델</th></tr></thead><tbody><tr><th scope="row">한 API의 설명 문구만 변경</th><td>자료형·필수 여부·허용값 등 다른 항목은 그대로임을 확인하면 <strong>저비용 모델에 먼저</strong> 맡깁니다.</td></tr><tr><th scope="row">자료형·필수 여부·허용값 변경, 여러 API 변경</th><td><strong>고성능 모델에 바로</strong> 맡깁니다. 자료형 등과 설명 문구가 함께 바뀌었거나, 여러 API의 설명만 바뀐 경우에도 이 규칙이 우선합니다.</td></tr><tr><th scope="row">그 밖의 변경 또는 분류 불가</th><td>정해 둔 항목으로 분류되지 않거나 명세를 비교하지 못하면 <strong>고성능 모델에 바로</strong> 맡깁니다.</td></tr></tbody></table>
+          <p>이 구분은 실제 난도를 알아낸 결과가 아니라 <strong>저비용 모델에 먼저 맡겨 볼 범위를 정한 규칙</strong>입니다. 설명 문구만 바뀌어도 중요한 업무 조건이 달라질 수 있습니다. 따라서 “이 규칙으로 나눠 보내도 전부 고성능 모델에 맡길 때만큼 정확한가?”를 실험으로 확인합니다. 저비용 모델의 답이 자동 검사에 실패하면 고성능 모델로 한 번 재시도하며, 검사에서 놓친 오답은 실행 후 정답지와 비교해 셉니다.</p>
+          <p>위의 숫자→문자열 변경을 <strong>처음</strong> 받으면 A·B·C 모두 고성능 모델을 부릅니다. 그 요청을 <strong>똑같이 한 번 더</strong> 받으면 A와 B는 다시 모델을 부르고, C는 앞서 저장한 답을 확인해 돌려줄 수 있습니다. 저장한 답을 확인하는 데는 시간이 들지만, 이때는 모델을 부르지 않습니다.</p>
+          <p>반면 한 API의 설명 문구만 바뀐 요청에서는 A는 고성능, B와 C는 저비용 모델을 먼저 씁니다. 이렇게 <strong>A와 B를 비교하면 ‘모델을 골라 쓴 효과’, B와 C를 비교하면 ‘답을 다시 쓴 효과’</strong>를 나눠 볼 수 있습니다. 저비용 경로의 후보로는 K-엑사원을 시험할 수 있습니다.</p>
+
+          <h3>저장한 답을 무조건 다시 쓰지는 않습니다</h3>
+          <p>질문이 같아도 안내서가 v1에서 v2로 바뀌었다면 이전 답을 쓰지 않고 다시 분석합니다. 읽기 권한이 사라졌다면 저장된 답도 보여주지 않습니다. 여기서 <strong>캐시</strong>는 이렇게 다시 쓸 수 있도록 답을 저장해 둔 곳을 뜻합니다.</p>
+          <p>또한 ‘답을 반환했다’와 ‘정답이다’를 구분합니다. 코드는 출력 형식과 인용한 근거의 존재를 검사할 수 있지만, 정산 프로그램을 빠뜨렸는지까지 보장하지는 못합니다. <strong>맞는 답인지는 실행 뒤에 미리 만든 정답지와 비교</strong>합니다. 정답지는 모델에게 보여주지 않습니다. C가 잘못된 답을 저장해 반복해서 돌려주는지도 함께 확인합니다.</p>
+          <figure class="fc-panel" id="routing-replay">
+            <figcaption><b>C 방식은 언제 저장한 답을 다시 쓸까요?</b>상황을 고르고 ‘다음 단계’를 누르면 처리 과정을 볼 수 있습니다. 각 상황은 별도로 만든 설명이며, 실제 모델 호출이나 실험 결과가 아닙니다.</figcaption>
+            <div class="fc-interactive" data-fc-replay hidden>
+              <div class="fc-controls"><label for="fc-scenario">상황 선택</label><select id="fc-scenario"><option value="repeat">동일 요청 재사용</option><option value="revision">문서 v2로 변경</option><option value="permission">읽기 권한 회수</option><option value="retry">검증 실패와 재시도</option></select></div>
+              <ol class="fc-steps" aria-label="처리 단계"><li>접수</li><li>경로 확인</li><li>처리·검증</li><li>최종 상태</li></ol>
+              <div class="fc-replay-state" aria-live="polite" aria-atomic="true"><span class="fc-state-label" data-step-label></span><h3 data-step-title></h3><p data-step-body></p><strong class="fc-state-result" data-step-result></strong></div>
+              <div class="fc-controls"><button type="button" data-previous>이전 단계</button><button type="button" data-next>다음 단계</button></div>
+            </div>
+            <table class="fc-table"><caption>C 구성의 예시 흐름 · 동일 요청과 문서 v2는 자동 검사 통과를 가정하며, 정답 여부는 별도로 평가합니다.</caption><thead><tr><th scope="col">상황</th><th scope="col">기대 동작</th><th scope="col">이번 요청의 모델 호출</th></tr></thead><tbody><tr><th scope="row">동일 요청</th><td>권한·버전·근거 존재 확인 후 반환</td><td>0회</td></tr><tr><th scope="row">문서 v2</th><td>v1 캐시 제외, 새 분석 자동 검사 후 반환·저장</td><td>1회</td></tr><tr><th scope="row">권한 회수</th><td>캐시 내용도 반환하지 않고 거절</td><td>0회</td></tr><tr><th scope="row">두 번 검사 실패</th><td>보류, 캐시 저장 안 함</td><td>2회</td></tr></tbody></table>
+          </figure>
+
+          <h3>정답은 유지하고, 비용이나 시간을 줄여야 합니다</h3>
+          <p>같은 요청들을 A·B·C에 보내고 <strong>정답 수, API 비용, 응답을 기다린 시간, 사람이 고친 시간</strong>을 비교합니다. B가 A보다 싸더라도 틀린 답이 늘면 채택하지 않습니다. C도 B의 정답 수를 유지하면서 비용이나 시간을 더 줄여야 합니다. 오래된 답이나 권한 없는 내용을 보여주면 재사용 설계를 고칩니다.</p>
+          <p>필드 이름과 자료형을 대조하는 일은 코드만으로 해결될 수도 있습니다. 같은 입력을 규칙만으로 처리한 결과도 남겨, 모델을 붙여야 할 이유가 있는지 먼저 봅니다. 이 실험은 <strong>API 변경 영향 분석을 처리하는 방법</strong>을 비교하는 제안입니다. TPU Sync의 내부 캐시 성능을 재현하거나 실제 코드 수정을 평가하는 실험은 아닙니다.</p>
+
+          <details class="fc-method">
+            <summary>직접 해 볼 때의 세부 조건</summary>
+            <div class="fc-method-body">
+              <h3>비교할 요청과 실행 순서</h3>
+              <p>한 API의 설명 문구만 바뀐 요청 15건, 자료형·필수 여부·허용값 등이 바뀌거나 여러 API가 함께 바뀐 요청 15건, 앞선 요청을 다시 쓰는 15건으로 총 45건을 만듭니다. 마지막 15건은 완전 동일 5건, 문서 변경 5건, 접근 범위 변경 5건입니다. 접근 범위가 바뀐 사례도 현재 읽기가 허용되는 자료를 사용합니다. 각 반복은 원본 뒤에 배치하고, 완전 동일 5건 외에는 캐시 키가 겹치지 않게 만듭니다. C의 캐시 적중은 회차당 최대 5건, 전체의 11.1%이며 앞선 답이 보류됐다면 더 줄어듭니다.</p>
+              <p>조정에는 별도 문서군을 쓰고 최종 45건은 고정합니다. 각 구성을 세 번 실행하며, 구성 순서는 A→B→C, B→C→A, C→A→B로 바꿉니다. 구성 안의 요청 순서와 동시 요청 수 1은 같습니다. C는 매 회차 빈 캐시에서 시작하고, 의도한 반복 외에 대화 상태는 공유하지 않습니다. 같은 45건의 반복 측정을 135개의 독립 사례로 해석하지 않습니다.</p>
+              <h3>모델 선택과 답 저장 규칙</h3>
+              <p>개발자가 본문의 선택 규칙을 실험 전에 코드로 정하고, 프로그램이 변경 전·후 항목별 API 명세를 비교해 적용합니다. 한 API의 설명 문구만 바뀌었음을 확인한 경우에만 저비용 모델을 먼저 쓰며, 그 밖의 변경이나 분류 불가는 고성능 모델로 보냅니다. A·B·C의 고성능 모델과 추론 설정·공통 지침·출력 형식·자동 검사·재시도 규칙은 고정합니다. 공급자의 프롬프트 캐시 설정도 같은 모델끼리 맞추고 할인 토큰을 별도 기록합니다.</p>
+              <p>캐시를 찾는 기준인 키에는 요청 내용, 안내서와 프로그램 사용 명세의 해시, 접근 범위, 모델·추론 설정·지침·검사기·경로 선택 규칙 버전을 넣습니다. 접근 권한을 먼저 확인하며, 의미가 비슷하다는 이유만으로 다른 요청의 답을 쓰지는 않습니다. 자동 검사를 통과한 답만 C에서 저장하고, 재사용할 때도 근거 구절과 참조한 프로그램이 현재 입력에 있는지 검사합니다. 사후 채점용 정답지는 모델 입력·경로 선택·재시도·저장 판단에 사용하지 않습니다.</p>
+              <h3>실패 처리와 채점</h3>
+              <p>형식 오류나 근거 누락은 고성능 모델로 한 번만 재시도하고, 다시 실패하면 보류·미저장합니다. 최초 호출이 고성능 모델이어도 같습니다. HTTP 429·시간 초과는 정해진 대기 후 같은 모델로 재요청하며, 대기 헤더가 없으면 미리 정한 대기 시간을 씁니다. 모든 오류를 합쳐 추가 호출은 요청당 한 번까지만 허용합니다.</p>
+              <p>정답·오답·보류의 합계는 구성별·회차별 45건입니다. 변경 종류·영향받는 프로그램·근거가 모두 맞아야 정답이며, 빠뜨리거나 잘못 추가한 대상이 있으면 오답입니다. 사람이 수정하기 전 답을 채점하고, 보류는 정답으로 세지 않습니다. 강제로 넣는 권한 거절·429·시간 초과 검사는 별도 묶음으로 진행하되, 본 평가 중 실제 발생한 오류와 비용은 45건 기록에서 빼지 않습니다.</p>
+              <h3>비용·시간과 채택 기준</h3>
+              <p>실행 시간은 접수부터 반환 또는 보류까지로 정하고 모델 호출·재시도·캐시 조회·자동 검사·대기를 포함합니다. 실제 청구 토큰과 API 비용, 같은 기준으로 사람이 검토·수정한 시간은 각각 기록합니다. 정답지 준비와 사후 채점에 드는 시간은 운영 검토 시간과 나눕니다. 자동 정답 한 건당 시스템 비용은 실패를 포함한 전체 시스템 비용을 수정 전 정답 수로 나누며, 정답이 0건이면 계산하지 않습니다.</p>
+              <p>세 회차 모두 B의 정답 수가 A보다 줄지 않고 C도 B보다 줄지 않아야 합니다. 실행 전에 목표 지표를 정하고 비용·응답 시간·사람의 검토 부담을 함께 봅니다. 정답이 없거나 목표 지표가 개선되지 않으면 도입을 보류합니다. 오래된 답이나 권한 없는 내용이 한 건이라도 반환되면 재사용 설계를 보류합니다. 소규모 시험만으로 운영 신뢰도를 확정하지 않습니다.</p>
+              <p>합성 입력과 정답지, 모델·설정표, 규칙, 요청별 실행 기록, 비교 보고서를 남깁니다. 규칙만 사용하는 기준에도 같은 입력과 채점 기준을 적용합니다.</p>
+            </div>
+          </details>
+        </section>
+
+        <section id="sources" class="news-sources">
+          <h2>읽은 자료</h2>
+          <ul>
+            <li><a href="https://www.anthropic.com/claude-fable-and-mythos-5-2" target="_blank" rel="noopener noreferrer">Anthropic · Claude Fable 5.2 and Mythos 5.2</a> <span>11월 9일 · 출시·단가·추론 설정별 자체 평가와 선정 사례</span></li>
+            <li><a href="https://www.vals.ai/models/anthropic_claude-fable-5-2" target="_blank" rel="noopener noreferrer">Vals AI · Fable 5.2 분야별 평가</a> <span>11월 9일 결과 · 종합 순위와 세금·법률 평가의 차이</span></li>
+            <li><a href="https://www.vals.ai/benchmarks/vals_index" target="_blank" rel="noopener noreferrer">Vals Index v2.2 · 구성과 순위</a> <span>금융·코딩·법률·세금 과제를 미국 GDP 비중으로 가중</span></li>
+            <li><a href="https://www.lg.co.kr/media/release/30760" target="_blank" rel="noopener noreferrer">LG · ‘K-엑사원 2.5’ API 무료 개방</a> <span>11월 9일 · 기술 검증 모델, 자체 평가, 무료 제공 발표</span></li>
+            <li><a href="https://docs.exaone.ai/ko/docs/models" target="_blank" rel="noopener noreferrer">EXAONE · 한국어 모델 소개</a> <span>지원 기능·문맥 길이·AutomationBench 공개 데이터셋 평가</span></li>
+            <li><a href="https://docs.exaone.ai/ko/docs/k-exaone-2.5" target="_blank" rel="noopener noreferrer">EXAONE · API 요청·응답 문서</a> <span>모델 ID와 입력·최대 생성 토큰 합계 제한</span></li>
+            <li><a href="https://docs.exaone.ai/ko/docs/rate-limits" target="_blank" rel="noopener noreferrer">EXAONE · 호출 제한</a> <span>429 응답과 헤더, 재시도 대기 정보의 생략 가능성</span></li>
+            <li><a href="https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/" target="_blank" rel="noopener noreferrer">Google · TPU 8tx와 TPU 8i Max 최초 발표</a> <span>11월 9일 · 새 시스템 구성</span></li>
+            <li><a href="https://cloud.google.com/blog/topics/ai-infrastructure/tpu-8tx-and-tpu-8i-max" target="_blank" rel="noopener noreferrer">Google Cloud · TPU 제품 소개 재게시</a> <span>11월 10일 · 본문에서 인용한 제품 이미지와 구성 설명</span></li>
+            <li><a href="https://cloud.google.com/blog/topics/ai-infrastructure/introducing-tpu-sync-fast-kv-cache-and-weight-transfer-on-tpu" target="_blank" rel="noopener noreferrer">Google · TPU Sync 기술 발표</a> <span>11월 9일 · 구조도, 7월 TPU v7x 내부 시험과 측정 조건</span></li>
+            <li><a href="https://github.com/google/tpu-sync" target="_blank" rel="noopener noreferrer">Google · TPU Sync 공식 저장소</a> <span>오픈소스 구현과 사용 문서</span></li>
+          </ul>
+          <p>공식 그래프와 제품·구조 이미지는 제공자의 자료입니다. 실험 흐름과 단계별 재생은 헬로우 휴먼의 설계 제안이며, 모델·API·TPU를 직접 실행해 평가한 결과는 아닙니다.</p>
+        </section>
+        <a class="news-end-link" href="./">AI뉴스 목록으로 돌아가기 <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </article></main>
+  <footer class="footer"><div class="wrap">헬로우 휴먼 · Workless Engineering Club</div></footer>
+  <script src="../assets/analytics.js?v=2" defer></script>
+  <script src="../assets/article-toc.js?v=1" defer></script>
+  <script type="module" src="../assets/content-updates.js?v=3"></script>
+  <script src="../assets/news-fable-cost.js?v=4" defer></script>
+</body>
+</html>

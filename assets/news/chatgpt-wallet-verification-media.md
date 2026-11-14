@@ -1,4 +1,4 @@
-# ISSUE 42 미디어 출처·확인 범위
+# ISSUE 47 미디어 출처·확인 범위
 
 확인일: 2026-11-14 (한국시간). 기사 `news/2026-11-14-chatgpt-wallet-verification.html`.
 
