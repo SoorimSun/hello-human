@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Lovable로 만든 일부 앱, 로그인 없이 개인정보 노출 보고 · AI뉴스 · 헬로우 휴먼</title>
+<meta name="description" content="Crissy Field가 Lovable로 만든 일부 앱에서 로그인 없이 개인정보를 조회할 수 있었다고 보고했습니다. 조사 범위와 한계, 회사 답변, 접근 권한 점검의 필요성을 살펴봅니다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lovable로 만든 일부 앱, 로그인 없이 개인정보 노출 보고">
+<meta property="og:description" content="연구진이 채팅 메시지와 여권번호 등 신원정보의 노출 사례를 보고했습니다. 추가 조사한 사이트의 약 30%에서 이메일을 포함한 데이터를 찾았지만, 확정된 유출률은 아닙니다.">
+<meta property="og:url" content="https://soorimsun.github.io/hello-human/news/2026-11-16-lovable-data-exposure.html">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap">
+<script src="../assets/theme.js?v=3"></script>
+<link rel="stylesheet" href="../assets/style.css?v=9">
+<link rel="stylesheet" href="../assets/news.css?v=10">
+<link rel="stylesheet" href="../assets/news-flash.css?v=1">
+<link rel="stylesheet" href="../assets/content-updates.css?v=1">
+<style>
+  #flash-title > span, #flash-title > em { display: block; text-wrap: balance; word-break: keep-all; }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+    <nav class="news-nav" aria-label="사이트 메뉴">
+      <a href="../">모임 소개</a>
+      <a href="./" aria-current="page">AI뉴스</a>
+      <a href="../guides/">AI가이드</a>
+      <a href="../insights/">인사이트</a>
+      <a href="../case-studies/">사례연구</a>
+      <a data-newsletter-entry href="../newsletters/">뉴스레터</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <article class="news-flash" aria-labelledby="flash-title">
+    <header class="news-article-header news-flash-header wrap">
+      <a class="news-back" href="./">← AI뉴스 목록</a>
+      <p class="news-kicker"><span class="news-flash-badge">AI 단신</span> HELLO, HUMAN! / BRIEF 16</p>
+      <h1 id="flash-title"><span>Lovable로 만든 일부 앱,</span> <em>로그인 없이 개인정보 노출 보고</em></h1>
+      <p class="news-deck">연구진이 채팅 메시지와 여권번호 등의 노출 사례를 보고했습니다. 앱을 만들 때 접근 권한도 함께 검증해야 합니다.</p>
+      <div class="news-article-meta"><time datetime="2026-11-16">2026년 11월 16일</time><span>헬로우 휴먼 AI뉴스 · 단신</span></div>
+    </header>
+    <div class="news-flash-shell news-story wrap">
+      <p>독일 보안업체 <strong>크리시필드(Crissy Field)</strong>가 AI 앱 제작 도구 <strong>Lovable</strong>로 만든 일부 서비스에서 로그인 없이 개인정보를 조회할 수 있었다고 보고했습니다. 연구진에 따르면 한 포럼에서는 <strong>채팅 메시지 20만 건 넘게</strong> 조회할 수 있었습니다. 다른 서비스에서는 <strong>여권번호 등이 담긴 신원정보 1천 건 넘게</strong> 노출됐습니다. <a class="source-link" href="https://www.crissyfield.de/research/lovable-en/" target="_blank" rel="noopener noreferrer">연구 보고서 ↗</a></p>
+
+      <p>연구진은 페이지를 열면 로그인 없이 Supabase 데이터가 전송되는 웹사이트 <strong>24,664개</strong>에 추가 조회 요청을 보냈습니다. 이 가운데 <strong>7,403개</strong>에서 이메일 주소가 포함된 데이터를 찾았습니다.</p>
+
+      <p>이는 약 30%지만, 공개 연락처나 테스트 데이터가 섞일 수 있어 <strong>확정된 개인정보 유출률은 아닙니다.</strong> 조사 표본도 Lovable 전체 앱을 대표하지 않습니다. <a class="source-link" href="https://www.crissyfield.de/research/lovable-en/" target="_blank" rel="noopener noreferrer">조사 범위와 한계 ↗</a></p>
+
+      <p>Lovable 보안책임자는 공개 답변에서 <strong>불충분한 RLS(Row-Level Security) 설정</strong>을 원인으로 지목했습니다. RLS는 사용자별로 읽거나 수정할 수 있는 데이터베이스 기록을 제한하는 기능입니다. 회사는 게시 전 보안 검사와 수정 기능을 안내하며, 자동 수정도 켤 수 있다고 설명했습니다. <a class="source-link" href="https://news.ycombinator.com/item?id=50502105" target="_blank" rel="noopener noreferrer">보안책임자의 공개 답변 ↗</a> <a class="source-link" href="https://supabase.com/docs/guides/database/postgres/row-level-security" target="_blank" rel="noopener noreferrer">RLS 설명 ↗</a></p>
+
+      <p>이번 연구는 <strong>고객이 만든 앱의 데이터 접근 문제</strong>를 다룹니다. Lovable 자체 시스템이 침해됐다는 보고는 아닙니다. 연구진은 데이터가 실제로 악용됐는지는 확인하지 못했다고 밝혔습니다. 공개 자료만으로는 문제가 발견된 앱들이 모두 수정됐는지도 알 수 없습니다.</p>
+
+      <aside class="news-flash-distinction" aria-labelledby="perspective-title">
+        <p class="news-section-label">헬로우 휴먼의 시선</p>
+        <h2 id="perspective-title">누가 어떤 데이터를 볼 수 있는지 확인하기</h2>
+        <p>앱의 기능을 시험할 때 <strong>접근 권한도 함께 검증해야 합니다.</strong> 비로그인 상태에서 비공개 데이터가 차단되는지 확인하고, 로그인 후에도 다른 계정의 비공개 데이터에 권한 없이 접근할 수 없는지 점검하는 것입니다.</p>
+        <p>Lovable도 자동 검사가 완전한 보안을 보장하지는 않는다고 안내합니다. 민감한 데이터를 다루는 앱에는 전문적인 보안 검토를 추가로 고려하라고 권합니다. <a class="source-link" href="https://docs.lovable.dev/features/security" target="_blank" rel="noopener noreferrer">Lovable 보안 안내 ↗</a></p>
+      </aside>
+
+      <section class="news-flash-sources" aria-labelledby="flash-sources-title">
+        <h2 id="flash-sources-title">원문과 확인 자료</h2>
+        <a class="news-flash-original" href="https://www.crissyfield.de/research/lovable-en/" target="_blank" rel="noopener noreferrer">
+          <span>CRISSY FIELD · RESEARCH</span>
+          <strong>Lovable 앱의 데이터 노출 사례와 조사 범위·한계</strong>
+          <span class="news-flash-original-cta">연구 보고서 읽기 <span aria-hidden="true">↗</span></span>
+        </a>
+        <ul>
+          <li><a href="https://www.crissyfield.de/research/lovable/" target="_blank" rel="noopener noreferrer">Crissy Field · 독일어 보고서</a><span> · 영문 보고서와 핵심 수치 대조</span></li>
+          <li><a href="https://news.ycombinator.com/item?id=50502105" target="_blank" rel="noopener noreferrer">Lovable 보안책임자 · 원인과 보안 검사·수정 기능에 대한 공개 답변</a></li>
+          <li><a href="https://docs.lovable.dev/features/security" target="_blank" rel="noopener noreferrer">Lovable · 자동 보안 검사의 범위와 한계</a></li>
+          <li><a href="https://supabase.com/docs/guides/database/postgres/row-level-security" target="_blank" rel="noopener noreferrer">Supabase · 데이터 접근을 제한하는 RLS 정책</a></li>
+        </ul>
+        <p class="news-flash-verification">2026년 11월 16일(한국시간), 위 보고서와 공개 답변·공식 문서를 대조했습니다. 수치와 사례는 연구진의 보고이며, 개별 앱의 원자료나 수정 결과를 직접 검증하지 않았습니다. 점검 항목은 이를 바탕으로 정리한 실무 제안입니다.</p>
+        <a class="news-end-link" href="./">AI뉴스 목록으로 돌아가기 <span aria-hidden="true">→</span></a>
+      </section>
+    </div>
+  </article>
+</main>
+<footer class="footer"><div class="wrap">헬로우 휴먼 · Workless Engineering Club</div></footer>
+<script src="../assets/analytics.js?v=2" defer></script>
+<script type="module" src="../assets/content-updates.js?v=3"></script>
+</body>
+</html>
