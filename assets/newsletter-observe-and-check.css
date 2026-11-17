@@ -1,0 +1,68 @@
+/* Issue 07: a checkout request and its independent payment/order records. */
+.letter-practice h3 { margin: 30px 0 12px; font-size: 20px; line-height: 1.5; letter-spacing: -.02em; }
+.letter-practice code { font-family: var(--mono); font-size: .87em; overflow-wrap: anywhere; }
+.checkout-flow { margin: 22px 0; padding: 22px; background: var(--surface); border: 1px solid var(--line); }
+.checkout-flow-main { display: grid; grid-template-columns: 1fr 24px 1.3fr 24px 1fr; align-items: center; gap: 8px; }
+.checkout-node { min-width: 0; padding: 12px 4px; text-align: center; }
+.checkout-node span, .checkout-node small, .checkout-flow-branches small { display: block; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.checkout-node strong { display: block; margin: 5px 0; font-size: 17px; }
+.checkout-node-app { border: 1px solid var(--accent); background: var(--accent-soft); }
+.checkout-arrow { text-align: center; color: var(--accent); font-size: 22px; }
+.checkout-flow-branches { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; width: 68%; margin: 28px 0 0 auto; border-top: 1px solid var(--accent); }
+.checkout-flow-branches::before { content: ""; position: absolute; right: 19%; top: -29px; height: 28px; border-left: 1px solid var(--accent); }
+.checkout-flow-branches > div { position: relative; padding: 19px 8px 0; text-align: center; }
+.checkout-flow-branches > div::before { content: ""; position: absolute; top: 0; left: 50%; height: 14px; border-left: 1px solid var(--accent); }
+.checkout-branch-label { display: block; color: var(--accent); font-size: 12px; }
+.checkout-flow-branches strong { display: block; margin: 4px 0; font-size: 17px; }
+.checkout-flow figcaption { margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; line-height: 1.7; }
+.letter-practice .checkout-timeline { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 24px 0 12px; padding: 0; list-style: none; }
+.letter-practice .checkout-timeline li { margin: 0; padding-top: 12px; border-top: 3px solid var(--accent); }
+.checkout-timeline span { display: block; color: var(--accent); font-family: var(--mono); font-size: 14px; }
+.checkout-timeline strong { display: block; margin: 6px 0; font-size: 18px; }
+.checkout-timeline p { margin: 0; font-size: 13px; line-height: 1.8; }
+.letter-practice .checkout-caption { color: var(--muted); font-size: 13px; line-height: 1.8; }
+.checkout-table-wrap { overflow-x: auto; margin: 22px 0; }
+.checkout-table-hint { display: none; }
+.checkout-table { width: 100%; min-width: 570px; border-collapse: collapse; background: var(--surface); font-size: 14px; line-height: 1.7; }
+.checkout-table caption { padding-bottom: 10px; text-align: left; font-size: 14px; font-weight: 700; }
+.checkout-table th, .checkout-table td { padding: 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.checkout-table thead th { border-top: 2px solid var(--ink); background: var(--surface-2); }
+.checkout-table tbody th { width: 29%; }
+.checkout-table td:nth-child(2) { width: 25%; }
+.checkout-table small { color: var(--muted); font-size: 12px; font-weight: 400; }
+.checkout-details { margin: 24px 0; border-block: 1px solid var(--line); }
+.checkout-details summary { padding: 16px 0; font-size: 16px; font-weight: 700; cursor: pointer; }
+.checkout-details[open] summary { margin-bottom: 8px; }
+.checkout-details ul { padding-left: 20px; font-size: 15px; }
+.checkout-details p { font-size: 15px; }
+.checkout-evidence { margin: 18px 0; font-size: 14px; }
+.checkout-evidence > div { display: grid; grid-template-columns: 130px 1fr; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.checkout-evidence dt { font-weight: 700; }
+.checkout-evidence dd { margin: 0; }
+.checkout-agent-label { margin-top: 28px; }
+.checkout-agent-prompt { margin: 14px 0 20px; padding: 18px 20px; border-left: 2px solid var(--muted); background: var(--surface); }
+.checkout-agent-prompt p { margin: 0; font-size: 15px; }
+.checkout-details summary:focus-visible, .checkout-table-wrap:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+@media (max-width: 620px) {
+  .checkout-flow { padding: 18px 14px; }
+  .checkout-flow-main { grid-template-columns: 1fr; gap: 0; }
+  .checkout-node { padding: 8px; }
+  .checkout-arrow { line-height: 1; transform: rotate(90deg); }
+  .checkout-node-app { margin-top: 8px; }
+  .checkout-flow-branches { width: 100%; gap: 12px; margin-top: 24px; }
+  .checkout-flow-branches::before { right: 50%; top: -25px; height: 24px; }
+  .checkout-flow-branches > div { padding-inline: 0; }
+  .checkout-flow-branches small { font-size: 12px; }
+  .letter-practice .checkout-table-hint { display: block; margin: 18px 0 -12px; color: var(--muted); font-size: 12px; }
+  .letter-practice .checkout-timeline { grid-template-columns: 1fr; gap: 0; }
+  .letter-practice .checkout-timeline li { position: relative; padding: 0 0 22px 20px; border-top: 0; border-left: 2px solid var(--accent); }
+  .letter-practice .checkout-timeline li:last-child { padding-bottom: 0; }
+  .checkout-timeline li::before { content: ""; position: absolute; left: -5px; top: 6px; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+  .checkout-evidence > div { grid-template-columns: 1fr; gap: 3px; }
+}
+@media print {
+  .letter-practice { break-inside: auto; }
+  .checkout-flow, .checkout-timeline, .checkout-table tr { break-inside: avoid; }
+  .checkout-table-wrap { overflow: visible; }
+  .checkout-table { min-width: 0; }
+}
