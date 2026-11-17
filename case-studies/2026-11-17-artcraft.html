@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>ArtCraft, 에이전트와 함께 만드는 창작 도구 · AI 사례연구 · 헬로우 휴먼</title>
+<meta name="description" content="PhotoCraft의 공통 편집 엔진과 호환성 검사, AutoCraft의 개발 운영에서 살펴보는 사람과 에이전트의 협업 조건.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ArtCraft, 에이전트와 함께 만드는 창작 도구">
+<meta property="og:description" content="PhotoCraft의 편집 엔진과 AutoCraft의 개발 운영에서 찾은 Workless Engineering의 조건">
+<meta property="og:url" content="https://soorimsun.github.io/hello-human/case-studies/2026-11-17-artcraft.html">
+<meta property="og:image" content="https://soorimsun.github.io/hello-human/assets/case-studies/artcraft-photocraft-official.jpg">
+<meta property="og:image:width" content="2400"><meta property="og:image:height" content="1500">
+<meta property="og:image:alt" content="호쿠사이의 파도 그림에 곡선 조정과 글자 레이어를 적용한 PhotoCraft 공식 화면">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://soorimsun.github.io/hello-human/assets/case-studies/artcraft-photocraft-official.jpg">
+<meta name="twitter:image:alt" content="곡선 조정과 레이어 패널이 있는 PhotoCraft 공식 편집 화면">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+<script src="../assets/theme.js?v=3"></script>
+<link rel="stylesheet" href="../assets/style.css?v=9">
+<link rel="stylesheet" href="../assets/news.css?v=10">
+<link rel="stylesheet" href="../assets/guide.css?v=4">
+<link rel="stylesheet" href="../assets/case-studies.css?v=3">
+<link rel="stylesheet" href="../assets/case-artcraft.css?v=1">
+<link rel="stylesheet" href="../assets/content-updates.css?v=1">
+</head>
+<body class="artcraft-page">
+<header class="topbar"><div class="wrap topbar-inner">
+<a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+<nav class="news-nav" aria-label="사이트 메뉴">
+<a href="../">모임 소개</a><a href="../news/">AI뉴스</a><a href="../guides/">AI가이드</a><a href="../insights/">인사이트</a><a href="./" aria-current="page">사례연구</a><a data-newsletter-entry href="../newsletters/">뉴스레터</a>
+</nav></div></header>
+<main><article>
+<header class="news-article-header guide-article-header case-article-header wrap">
+<a class="news-back" href="./">← AI 사례연구 목록</a>
+<p class="news-kicker">HELLO, HUMAN! <span aria-hidden="true">/</span> CASE STUDY 10</p>
+<h1>ArtCraft,<br> 에이전트와 함께 만드는 <em>창작 도구</em></h1>
+<p class="news-deck">PhotoCraft의 편집 엔진과 AutoCraft의 개발 운영에서 찾은<br> Workless Engineering의 조건</p>
+<div class="news-article-meta"><time datetime="2026-11-17">2026년 11월 17일</time><span>헬로우 휴먼 AI 사례연구</span><span>약 11분</span></div>
+<div class="case-actions"><a href="https://getartcraft.com/" target="_blank" rel="noopener noreferrer">ArtCraft 공식 소개 ↗</a><a href="https://github.com/storytold/photocraft/blob/957b10cccbb4bcd402394d250e52a9b9e1b63d74/README.md" target="_blank" rel="noopener noreferrer">PhotoCraft 공개 자료 ↗</a><a href="https://github.com/storytold/autocraft/blob/0bcc1f8d681609233d2f6f0d1f4e359e994079e0/README.md" target="_blank" rel="noopener noreferrer">AutoCraft 공개 자료 ↗</a></div>
+</header>
+<div class="news-article-shell guide-shell wrap">
+<nav class="news-toc guide-toc" aria-label="글 목차"><span>이 글에서</span>
+<a href="#family"><span>01</span>ArtCraft가 만드는 것</a>
+<a href="#familiar"><span>02</span>익숙한 편집 화면</a>
+<a href="#engine"><span>03</span>함께 쓰는 편집 엔진</a>
+<a href="#checks"><span>04</span>설계 원칙의 자동 검사</a>
+<a href="#compatibility"><span>05</span>호환성을 확인하는 기준</a>
+<a href="#autocraft"><span>06</span>개발 자동화의 운영</a>
+<a href="#shared"><span>07</span>여러 앱의 공통 기반</a>
+<a href="#practice"><span>08</span>커머스 팀의 작은 실험</a>
+</nav>
+<div class="news-story guide-story case-story">
+<figure class="case-visual case-hero">
+<a href="../assets/case-studies/artcraft-photocraft-official.jpg" target="_blank" rel="noopener noreferrer" aria-label="PhotoCraft 공식 화면 크게 보기"><img src="../assets/case-studies/artcraft-photocraft-official.jpg" alt="호쿠사이의 파도 그림을 편집하는 PhotoCraft. 오른쪽에 곡선 조정과 글자·조정 레이어가 보인다" width="2400" height="1500" fetchpriority="high" decoding="async"></a>
+<figcaption><a href="https://github.com/storytold/photocraft/blob/957b10cccbb4bcd402394d250e52a9b9e1b63d74/docs/images/photocraft-demo.jpg" target="_blank" rel="noopener noreferrer">ArtCraft가 공개한 PhotoCraft 화면</a>입니다. 가쓰시카 호쿠사이의 ‘가나가와 해변의 높은 파도 아래’에 곡선 조정과 글자 레이어를 적용한 모습입니다.</figcaption>
+</figure>
+<div class="guide-intro">
+<p>상품 이미지의 크기를 바꾸고, 배너 문구를 수정하고, 채널별 파일을 내보내는 일을 떠올려 보겠습니다. 사람이 한 번 판단한 뒤에도 비슷한 조작을 반복해야 합니다. 이런 작업을 줄이려면 AI가 쓸 수 있는 편집 기능과, 작업 결과를 확인할 방법이 필요합니다.</p>
+<p><strong>ArtCraft</strong>는 이미지·영상·문서 등 여러 분야의 오픈소스 앱을 만드는 프로젝트입니다. 대표 제품 PhotoCraft는 Photoshop 사용자에게 익숙한 작업 방식을 제공하는 이미지 편집기를 지향합니다. 공개 저장소에서는 화면으로 사용하는 앱에 더해, 에이전트가 편집 기능을 호출하는 인터페이스와 개발 작업을 관리하는 도구까지 확인할 수 있습니다.</p>
+<p>이 사례에서는 <strong>사람과 에이전트가 함께 쓰는 기능, 결과를 판정하는 검증 기준, 자동화의 범위를 정하는 운영 규칙</strong>을 살펴봅니다.</p>
+<p class="case-sources">제품 소개 · <a href="https://getartcraft.com/" target="_blank" rel="noopener noreferrer">ArtCraft ↗</a> · <a href="https://getartcraft.com/apps/photocraft" target="_blank" rel="noopener noreferrer">PhotoCraft ↗</a></p>
+</div>
+<aside class="case-note"><strong>이 글의 확인 범위</strong><p>2026년 11월 17일 공개 자료를 대조했습니다. PhotoCraft는 <code>957b10c</code>, AutoCraft는 <code>0bcc1f8</code> 커밋의 코드와 문서를 중심으로 읽었습니다. 앱 실행·성능 측정·호환성 시험은 직접 재현하지 않았습니다. 뒤의 커머스 실험은 헬로우 휴먼의 제안입니다.</p></aside>
+
+<section class="guide-section case-section" id="family" aria-labelledby="family-title">
+<span class="case-section-number">CASE STUDY / 01</span><h2 id="family-title">ArtCraft가 만드는 것</h2>
+<p>공식 사이트는 확인일 기준 <strong>Crafting Apps 17종</strong>을 소개합니다. PhotoCraft, VectorCraft, FilmCraft, PdfCraft, WordCraft 등이 포함됩니다. 설치 파일을 제공하며, 제품 상태는 초기 알파(early alpha) 또는 개발 중(in development)으로 표시합니다.</p>
+<p>이름이 비슷한 구성 요소는 구분해서 볼 필요가 있습니다.</p>
+<div class="guide-table-scroll" role="region" aria-label="ArtCraft 구성 요소 비교" tabindex="0"><table>
+<thead><tr><th scope="col">구성 요소</th><th scope="col">하는 일</th></tr></thead>
+<tbody>
+<tr><th scope="row">Crafting Apps</th><td>이미지·벡터·영상·PDF·문서 등을 편집하는 앱 제품군</td></tr>
+<tr><th scope="row">ArtCraft Launcher</th><td>운영체제와 CPU에 맞는 앱을 설치하고 업데이트하는 실행기</td></tr>
+<tr><th scope="row">ArtCraft Studio</th><td>장면을 구성한 뒤 이미지·영상 생성 모델로 결과를 만드는 별도 앱</td></tr>
+<tr><th scope="row">AutoCraft</th><td>GitHub 이슈와 PR의 분류·검토·수정·검증·병합을 관리하는 개발 도구</td></tr>
+</tbody></table></div>
+<p>Launcher의 README에 따르면 앱별 GitHub 릴리스를 확인하고, 배포 파일의 체크섬을 대조해 설치합니다.</p>
+<p>17종 안에 포함된 <strong>Craft Anything</strong>도 AutoCraft와 다릅니다. Craft Anything은 기존 소프트웨어를 관찰하고 새 구현을 만드는 절차를 사용자에게 제공하는 알파 단계의 앱입니다.</p>
+<p class="case-sources">출처 · <a href="https://getartcraft.com/" target="_blank" rel="noopener noreferrer">제품군과 제공 상태 ↗</a> · <a href="https://github.com/storytold/craft-launcher" target="_blank" rel="noopener noreferrer">Launcher ↗</a> · <a href="https://getartcraft.com/studio" target="_blank" rel="noopener noreferrer">Studio ↗</a> · <a href="https://github.com/storytold/craft-anything" target="_blank" rel="noopener noreferrer">Craft Anything ↗</a> · <a href="https://github.com/storytold/autocraft/blob/0bcc1f8d681609233d2f6f0d1f4e359e994079e0/README.md" target="_blank" rel="noopener noreferrer">AutoCraft ↗</a></p>
+</section>
+
+<section class="guide-section case-section" id="familiar" aria-labelledby="familiar-title">
+<span class="case-section-number">CASE STUDY / 02</span><h2 id="familiar-title">익숙한 화면으로<br> 전환 비용을 낮추는 선택</h2>
+<p>PhotoCraft는 Rust로 구현한 네이티브 이미지 편집기로, 데스크톱과 브라우저용 빌드를 제공합니다. 위의 공개 화면에는 메뉴, 도구 모음, 레이어 패널, 곡선 조정 등이 배치되어 있습니다. 공식 설명도 기존 사용자가 익힌 메뉴 위치와 단축키를 유지하는 방향을 강조합니다.</p>
+<p>기능의 위치와 조작법을 다시 익히는 부담을 줄이려는 선택으로 볼 수 있습니다. 다만 실제 작업을 옮기려면 레이어를 저장한 뒤 다른 프로그램에서 다시 열 수 있는지, 글자와 색이 유지되는지, 큰 파일도 다룰 수 있는지 확인해야 합니다.</p>
+<p>PhotoCraft의 기여 규칙은 공개 명세와 관찰 가능한 동작을 바탕으로 구현하고, 다른 제품의 코드·자산을 복사하지 않도록 요구합니다.</p>
+<p class="case-sources">출처 · <a href="https://getartcraft.com/apps/photocraft" target="_blank" rel="noopener noreferrer">공식 제품 설명 ↗</a> · <a href="https://github.com/storytold/photocraft/blob/957b10cccbb4bcd402394d250e52a9b9e1b63d74/AGENTS.md" target="_blank" rel="noopener noreferrer">구현·기여 규칙 ↗</a></p>
+</section>
+
+<section class="guide-section case-section" id="engine" aria-labelledby="engine-title">
+<span class="case-section-number">CASE STUDY / 03</span><h2 id="engine-title">사람과 에이전트가<br> 같은 편집 엔진을 사용한다</h2>
+<p>PhotoCraft는 <strong>편집 기능을 화면과 분리</strong>하고, 문서 모델과 명령 엔진에 GUI·CLI·JSON 제어 채널·MCP를 연결합니다. 자동화 코드에서도 명령 ID와 매개변수를 편집 세션의 실행 함수로 전달하는 경로를 확인할 수 있습니다.</p>
+<figure class="artcraft-engine" aria-labelledby="engine-caption">
+<figcaption id="engine-caption"><span>공개 구조를 정리한 설명도</span><strong>사용하는 입구가 달라도, 편집 명령은 함께 씁니다</strong></figcaption>
+<div class="artcraft-entry">
+<div><span>사람</span><strong>화면에서 편집</strong><p>GUI의 메뉴·도구·패널을 사용합니다.</p></div>
+<div><span>스크립트·에이전트</span><strong>명령으로 편집</strong><p>CLI·JSON 제어·MCP로 작업을 요청합니다.</p></div>
+</div>
+<div class="artcraft-arrow" aria-hidden="true">↓</div>
+<div class="artcraft-core"><strong>공통 명령 엔진과 문서 모델</strong><p>명령 ID와 매개변수로 작업을 실행하고, 문서 상태와 결과를 확인합니다.</p></div>
+<div class="artcraft-arrow" aria-hidden="true">↓</div>
+<div class="artcraft-result"><strong>편집한 문서 · 미리보기 · 내보낸 파일</strong><p>사람은 기준과 결과를 판단하고, 반복 실행은 명령 인터페이스에 맡깁니다.</p></div>
+</figure>
+<p>GUI는 사람이 화면을 보며 편집하는 입구입니다. CLI는 화면 없이 정해진 작업을 실행하고, JSON 제어 채널은 실행 중인 앱의 상태를 확인하고 조작합니다. MCP는 AI 에이전트가 편집 기능과 상태 조회 도구를 사용할 수 있도록 연결합니다.</p>
+<p>커머스 업무라면 사람이 이미지 한 장을 보정한 뒤, 같은 편집 규칙을 여러 상품 이미지에 적용하는 흐름을 생각할 수 있습니다. 편집 기능을 명령으로 호출할 수 있으면 사람이 정한 작업을 에이전트가 반복하는 데 활용할 수 있습니다.</p>
+<p>제어 프로토콜은 로컬 연결과 인증 토큰을 사용하며, 읽고 쓸 수 있는 폴더 범위를 정합니다. 에이전트가 자동화 인터페이스로 자신의 접근 폴더를 넓히지 못하도록 제한하는 규칙도 명시합니다.</p>
+<aside class="case-note"><strong>여러 명령을 묶을 때 확인할 것</strong><p>PhotoCraft의 <code>command_batch</code>는 순차 실행입니다. 기본값은 첫 오류에서 중단하며, 앞서 성공한 명령은 자동으로 취소하지 않습니다. 예를 들어 크기 변경 후 내보내기에서 실패했다면, 크기가 바뀐 문서가 남을 수 있습니다. 완료된 단계와 현재 상태를 확인한 뒤 다시 실행해야 합니다.</p></aside>
+<p class="case-sources">출처 · <a href="https://github.com/storytold/photocraft/blob/957b10cccbb4bcd402394d250e52a9b9e1b63d74/docs/architecture.md" target="_blank" rel="noopener noreferrer">아키텍처 ↗</a> · <a href="https://github.com/storytold/photocraft/blob/957b10cccbb4bcd402394d250e52a9b9e1b63d74/crates/automation/src/headless.rs#L510" target="_blank" rel="noopener noreferrer">자동화의 공통 명령 실행 ↗</a> · <a href="https://github.com/storytold/photocraft/blob/957b10cccbb4bcd402394d250e52a9b9e1b63d74/docs/mcp.md" target="_blank" rel="noopener noreferrer">MCP와 배치 실행 ↗</a> · <a href="https://github.com/storytold/photocraft/blob/957b10cccbb4bcd402394d250e52a9b9e1b63d74/docs/control-protocol.md" target="_blank" rel="noopener noreferrer">제어 프로토콜 ↗</a></p>
+</section>
+
+<section class="guide-section case-section" id="checks" aria-labelledby="checks-title">
+<span class="case-section-number">CASE STUDY / 04</span><h2 id="checks-title">설계 원칙을<br> 자동 검사로 바꾼다</h2>
+<p>AI와 여러 기여자가 함께 수정하는 코드에서는 설계 원칙이 계속 지켜지는지도 확인해야 합니다. PhotoCraft는 이를 검사 도구로 구현합니다.</p>
+<div class="artcraft-checks">
+<div><span>구조</span><h3>엔진에 화면 코드가 섞이지 않는가</h3><p>계층 검사기가 패키지 의존성을 읽어 역방향 의존성과 하위 계층의 UI 의존성을 찾아냅니다. 이 검사는 CI에 포함됩니다.</p></div>
+<div><span>결과</span><h3>최적화해도 기준 이미지가 유지되는가</h3><p>CPU 렌더러를 기준으로 삼아 GPU 결과가 정해진 허용 오차 안에 있는지 비교하는 시험을 둡니다.</p></div>
+<div><span>실패</span><h3>극단적인 입력에도 오류를 처리하는가</h3><p>비정상 종료를 찾는 <code>panic_hunt</code>를 CI 검사 명령의 별도 단계로 실행하도록 구성합니다.</p></div>
+</div>
+<p>여기서 가져올 수 있는 원칙은 <strong>AI가 지켜야 할 중요한 조건을 실행 가능한 검사로 바꾸는 것</strong>입니다. 주문 금액의 합계, 재고 수량의 허용 범위, 정산 항목의 일치도 이런 검사로 만들 수 있습니다. 코드를 고친 뒤에도 기존 업무 조건이 지켜지는지 확인하는 기준이 됩니다.</p>
+<p class="case-sources">출처 · <a href="https://github.com/storytold/photocraft/blob/957b10cccbb4bcd402394d250e52a9b9e1b63d74/xtask/src/layers.rs" target="_blank" rel="noopener noreferrer">계층 검사 구현 ↗</a> · <a href="https://github.com/storytold/photocraft/blob/957b10cccbb4bcd402394d250e52a9b9e1b63d74/crates/gpu/tests/it/parity.rs" target="_blank" rel="noopener noreferrer">CPU·GPU 비교 시험 ↗</a> · <a href="https://github.com/storytold/photocraft/blob/957b10cccbb4bcd402394d250e52a9b9e1b63d74/.github/workflows/ci.yml" target="_blank" rel="noopener noreferrer">CI 구성 ↗</a> · <a href="https://github.com/storytold/photocraft/blob/957b10cccbb4bcd402394d250e52a9b9e1b63d74/xtask/src/main.rs" target="_blank" rel="noopener noreferrer">검사 실행 단계 ↗</a></p>
+</section>
+
+<section class="guide-section case-section" id="compatibility" aria-labelledby="compatibility-title">
+<span class="case-section-number">CASE STUDY / 05</span><h2 id="compatibility-title">PSD 호환성을<br> 세 가지 질문으로 나눈다</h2>
+<p>Photoshop의 문서 형식인 PSD를 다룰 때, 파일을 보존하는 것과 편집 결과를 재현하는 것은 다른 문제입니다. PhotoCraft의 검사는 다음 세 가지를 구분해 읽어야 합니다.</p>
+<div class="artcraft-compatibility" aria-label="서로 다른 세 가지 호환성 검사">
+<div><span>01 · 파일 구조</span><h3>바이트를 그대로 보존하는가</h3><p>파일 형식을 다루는 <code>craft-psd</code> 라이브러리가 읽고 다시 쓸 때 원본 바이트를 유지하는지 검사합니다.</p><p class="artcraft-limit">PhotoCraft 앱에서 저장할 때는 이미지·레이어 정보를 다시 쓰므로 원본과 바이트 단위로 같지 않습니다.</p></div>
+<div><span>02 · 앱 내부의 일관성</span><h3>저장 전후 모습이 같은가</h3><p>PhotoCraft에서 읽은 문서를 저장하고 다시 읽어도 모습이 유지되는지 비교합니다.</p><p class="artcraft-limit">Photoshop에서도 같은 모습으로 열리고 편집되는지는 별도 확인이 필요합니다.</p></div>
+<div><span>03 · 외부 기준과의 일치</span><h3>Photoshop의 결과와 같은가</h3><p>PhotoCraft의 렌더링을 Photoshop이 만든 기준 이미지와 비교합니다.</p><p class="artcraft-limit">이미지가 일치해도 모든 글자·효과·스마트 오브젝트의 편집 동작까지 같다는 뜻은 아닙니다.</p></div>
+</div>
+<p>예를 들어 첫 번째 불러오기에서 어떤 효과를 잘못 해석했다면, 잘못된 모습을 그대로 저장하고 다시 불러와도 두 번째 검사는 통과할 수 있습니다. <strong>저장 전후의 일관성과 원본 프로그램과의 일치는 별도의 질문</strong>입니다.</p>
+<p>비교에 쓰는 이미지가 어떻게 만들어졌는지도 중요합니다. 파일 입출력 시험에서는 스마트 오브젝트와 글자에 Photoshop이 저장한 캐시 픽셀을 사용합니다. 별도의 엔진 시험에서는 이를 자체 엔진으로 다시 그린 뒤 Photoshop의 결과와 비교합니다. 글자 비교에는 시험용 폰트의 설치 여부도 영향을 줍니다.</p>
+<h3>평가 수치는 기준일과 함께 읽습니다</h3>
+<p>자체 평가 문서는 기능의 존재 여부와 실무 대체 준비도를 구분합니다. 대표 수치는 2026년 10월 10일의 평가이며, 이후 세부 내용이 갱신됐어도 전체를 새로 측정한 값은 아닙니다.</p>
+<p>자동 생성되는 <code>scorecard</code>는 소스에 적힌 최소 통과 기준, 저장된 성능 기준값, 체크리스트 등을 모은 문서입니다. 성능 표에는 높은 시스템 부하의 영향을 받은 10월 5일 기준값과 미실행 항목이 함께 있습니다. 현재 제품의 성능을 판단하려면 측정 조건과 실행 여부를 먼저 확인해야 합니다.</p>
+<p>호환성 수치를 읽을 때도 <strong>무엇과 무엇을 비교했고, 어디까지 확인했는지</strong>가 먼저입니다.</p>
+<p class="case-sources">출처 · <a href="https://github.com/storytold/photocraft/blob/957b10cccbb4bcd402394d250e52a9b9e1b63d74/README.md" target="_blank" rel="noopener noreferrer">PSD 보존 범위 ↗</a> · <a href="https://github.com/storytold/photocraft/blob/957b10cccbb4bcd402394d250e52a9b9e1b63d74/crates/io/tests/it/corpus.rs" target="_blank" rel="noopener noreferrer">파일 입출력·기준 이미지 검사 ↗</a> · <a href="https://github.com/storytold/photocraft/blob/957b10cccbb4bcd402394d250e52a9b9e1b63d74/crates/engine/tests/it/photoshop_oracles.rs" target="_blank" rel="noopener noreferrer">엔진의 재렌더링 시험 ↗</a> · <a href="https://github.com/storytold/photocraft/blob/957b10cccbb4bcd402394d250e52a9b9e1b63d74/docs/target-app-parity.md" target="_blank" rel="noopener noreferrer">자체 평가의 기준일 ↗</a> · <a href="https://github.com/storytold/photocraft/blob/957b10cccbb4bcd402394d250e52a9b9e1b63d74/docs/scorecard.md" target="_blank" rel="noopener noreferrer">자동 평가표와 측정 조건 ↗</a></p>
+</section>
+
+<section class="guide-section case-section" id="autocraft" aria-labelledby="autocraft-title">
+<span class="case-section-number">CASE STUDY / 06</span><h2 id="autocraft-title">AutoCraft는 개발 작업을<br> 어떻게 운영하나</h2>
+<p>ArtCraft는 앱을 유지보수하는 과정도 도구로 만들고 있습니다. 공개된 <strong>AutoCraft</strong>는 GitHub 이슈와 PR을 수집하고, 분류·중복 탐색·우선순위 판단·코드 검토·수정·검증·병합을 연결합니다. 문서는 Jev와 Haiku, Sonnet, Opus를 역할에 따라 배치한 구성을 설명합니다. 범위 판단이나 예외 처리처럼 사람이 결정할 항목은 운영자에게 전달합니다.</p>
+<figure class="case-visual artcraft-dashboard">
+<a href="../assets/case-studies/artcraft-autocraft-dashboard.png" target="_blank" rel="noopener noreferrer" aria-label="모의 데이터가 담긴 AutoCraft 공식 대시보드 크게 보기"><img src="../assets/case-studies/artcraft-autocraft-dashboard.png" alt="AutoCraft 공식 대시보드 예시. 위에는 사람의 답변과 권한 승인을 기다리는 항목, 아래에는 분류·수정·검증·병합 단계가 보인다. 수치는 모의 데이터다" width="1148" height="1425" loading="lazy" decoding="async"></a>
+<figcaption><a href="https://github.com/storytold/autocraft/blob/0bcc1f8d681609233d2f6f0d1f4e359e994079e0/README.md" target="_blank" rel="noopener noreferrer">AutoCraft README</a>에 실린 <strong>모의 데이터 대시보드</strong>입니다. 상단은 사람의 판단이나 권한 승인을 기다리는 항목, 각 열은 작업 단계와 상태를 보여줍니다. <a href="https://github.com/storytold/autocraft/blob/0bcc1f8d681609233d2f6f0d1f4e359e994079e0/docs/images/flowchart.png" target="_blank" rel="noopener noreferrer">원본 이미지 ↗</a></figcaption>
+</figure>
+<figure class="case-process">
+<figcaption><span>공개 파이프라인을 단순화한 설명도</span><strong>모델의 판단이 저장소 변경으로 이어지기까지</strong></figcaption>
+<ol>
+<li><span>01</span><strong>대상을 모으고 분류</strong><small>이슈·PR을 읽고 중복과 우선순위를 정리합니다.</small></li>
+<li><span>02</span><strong>검토하고 수정</strong><small>작업 범위를 판단하고 패치와 수정 제안을 만듭니다.</small></li>
+<li><span>03</span><strong>검증하고 실행 조건 확인</strong><small>CI, 검토한 커밋, 권한과 병합 조건을 대조합니다.</small></li>
+<li><span>04</span><strong>병합 후 다시 검토</strong><small>반영된 결과를 읽고 필요한 후속 작업을 찾습니다.</small></li>
+</ol>
+<p class="artcraft-flow-note">범위가 불명확하거나 규칙 밖의 판단이 필요하면 운영자에게 묻습니다. 사람은 병합을 보류하거나 진행 중인 배치를 중단할 수 있습니다.</p>
+</figure>
+<h3>쓰기 권한을 작업 종류와 저장소별로 나눕니다</h3>
+<p>라벨 기록, 댓글 작성, 수정 PR 생성, 코드 푸시, 병합에 필요한 승인을 구분합니다. 승인된 범위에서 규칙이 허용하는 작업은 자동 진행하며, 예외 판단은 사람에게 넘깁니다. 전체 파이프라인을 끄거나 저장소별로 제한하는 장치도 있습니다.</p>
+<h3>실행 직전에 현재 상태를 다시 읽습니다</h3>
+<p>병합이나 푸시 전에 PR을 다시 읽고, 검토한 커밋이 바뀌었거나 PR이 닫혔다면 기존 판단으로 진행하지 않도록 구현되어 있습니다. 검토 대상과 실제 변경 대상을 일치시키는 장치입니다.</p>
+<h3>병합 조건을 코드로 검사합니다</h3>
+<p>검토한 커밋, CI 상태, 병합 가능 여부, 유지관리자의 변경 요청 등을 확인합니다. 진행 중이거나 실패한 특정 검사에는 이름을 지정해 예외를 둘 수 있습니다. 다만 필수 검사 실패로 GitHub가 병합을 막은 경우에는 실패를 허용하는 예외가 적용되지 않습니다.</p>
+<h3>변경 기록과 개입 수단을 남깁니다</h3>
+<p>GitHub 쓰기를 담당하는 모듈이 실패한 시도까지 감사 기록에 남깁니다. 운영자는 PR의 병합을 보류하거나 진행 중인 통합 배치를 멈출 수 있습니다. 배치를 중단하면 구성 PR을 보류해 다음 실행이 같은 배치를 바로 다시 만들지 않도록 합니다.</p>
+<p>AutoCraft는 무엇을 고칠지 고르는 일부터 검증, 실행 권한, 중단 방법까지 코드와 절차로 다룹니다. 실제 운영의 오류율이나 사람 개입률은 공개 구현만으로 확인할 수 없습니다.</p>
+<p class="case-sources">출처 · <a href="https://github.com/storytold/autocraft/blob/0bcc1f8d681609233d2f6f0d1f4e359e994079e0/docs/pipeline.md" target="_blank" rel="noopener noreferrer">파이프라인 ↗</a> · <a href="https://github.com/storytold/autocraft/blob/0bcc1f8d681609233d2f6f0d1f4e359e994079e0/src/core/guard.ts" target="_blank" rel="noopener noreferrer">실행 전 재확인 ↗</a> · <a href="https://github.com/storytold/autocraft/blob/0bcc1f8d681609233d2f6f0d1f4e359e994079e0/src/merge/safe-merge.ts" target="_blank" rel="noopener noreferrer">병합 조건 ↗</a> · <a href="https://github.com/storytold/autocraft/blob/0bcc1f8d681609233d2f6f0d1f4e359e994079e0/src/github/write.ts" target="_blank" rel="noopener noreferrer">쓰기와 감사 기록 ↗</a> · <a href="https://github.com/storytold/autocraft/blob/0bcc1f8d681609233d2f6f0d1f4e359e994079e0/src/merge/controls.ts" target="_blank" rel="noopener noreferrer">보류·중단 제어 ↗</a></p>
+</section>
+
+<section class="guide-section case-section" id="shared" aria-labelledby="shared-title">
+<span class="case-section-number">CASE STUDY / 07</span><h2 id="shared-title">여러 앱을 지탱하는<br> 공통 기반</h2>
+<p>ArtCraft에는 공통 라이브러리를 모은 <code>craft-libs</code>와 빌드·배포 워크플로를 공유하는 <code>craft-common-actions</code>도 있습니다. 여러 앱이 반복해서 필요로 하는 파일 처리와 UI 기반, CI와 배포 절차를 함께 다룹니다.</p>
+<p>운영체제별 패키징, 파일 형식 처리, 오류 대응을 앱마다 따로 관리하면 변경 비용이 쌓입니다. 공유 저장소는 여러 제품의 반복 유지보수를 줄이려는 선택으로 볼 수 있습니다.</p>
+<p>사람의 책임도 규칙에 남아 있습니다. 공통 기여 지침은 에이전트를 실행한 사람이 결과에 책임을 지고, 중복 작업을 확인하고, 수정 범위를 좁히고, 실제 실행한 검사만 보고하도록 요구합니다.</p>
+<p>Workless Engineering의 관점에서 보면, <strong>반복 실행과 검사를 시스템에 맡기면서 사람이 판단하고 책임질 일을 명확히 하는 설계</strong>입니다.</p>
+<p class="case-sources">출처 · <a href="https://github.com/storytold/craft-libs" target="_blank" rel="noopener noreferrer">공통 라이브러리 ↗</a> · <a href="https://github.com/storytold/craft-common-actions" target="_blank" rel="noopener noreferrer">공통 빌드·배포 ↗</a> · <a href="https://github.com/storytold/photocraft/blob/957b10cccbb4bcd402394d250e52a9b9e1b63d74/AGENTS.md" target="_blank" rel="noopener noreferrer">기여 지침 ↗</a></p>
+</section>
+
+<section class="guide-section case-section" id="practice" aria-labelledby="practice-title">
+<span class="case-section-number">CASE STUDY / 08</span><h2 id="practice-title">커머스 팀에서 시작할<br> 작은 실험</h2>
+<p>아래는 ArtCraft의 설계를 참고한 <strong>아직 실행하지 않은 적용안</strong>입니다. 상품 이미지의 규격 변환처럼 결과를 눈으로 비교하기 쉬운 업무를 골라 입력, 결과물, 완료 조건부터 정해 봅니다.</p>
+<div class="artcraft-practice">
+<span>가상 업무 · 이미지 20장으로 시작하기</span>
+<p>사용 권한이 있는 샘플 이미지 20장을 준비합니다. 정사각형·가로형·세로형, 투명 배경, 작은 글자가 포함된 파일을 섞고 세 가지 채널 규격으로 내보내는 상황을 가정합니다.</p>
+<p>기대 출력은 최대 60개 파일과 처리 기록입니다. 원본은 별도 폴더에 보존하고, 비율을 유지한 채 여백을 넣는 규칙부터 시험합니다. 열리지 않는 파일은 보류하고, 어떤 원본에서 어느 단계가 실패했는지 남깁니다.</p>
+</div>
+<div class="guide-table-scroll" role="region" aria-label="커머스 이미지 규격 변환 실험 단계" tabindex="0"><table>
+<thead><tr><th scope="col">단계</th><th scope="col">해볼 일</th><th scope="col">확인할 기준</th></tr></thead>
+<tbody>
+<tr><th scope="row">기준 만들기</th><td>대표 이미지와 예외 사례의 원하는 결과를 정합니다.</td><td>크기, 색, 투명도, 글자 잘림, 파일명</td></tr>
+<tr><th scope="row">명령으로 실행</th><td>수동 작업 한 가지를 CLI나 공통 명령으로 호출합니다.</td><td>같은 입력·설정의 결과를 재현할 수 있는가</td></tr>
+<tr><th scope="row">에이전트 연결</th><td>입력과 매개변수 선택을 맡기고 실행 결과를 기록합니다.</td><td>실패한 단계와 재실행 대상을 찾을 수 있는가</td></tr>
+<tr><th scope="row">업무 효과 측정</th><td>같은 샘플의 수동 처리와 비교합니다.</td><td>검수 통과 수, 누락된 오류, 재작업·검수 시간</td></tr>
+</tbody></table></div>
+<p>처음에는 에이전트가 고른 설정을 사람이 확인한 뒤 실행합니다. 정상 파일 외에도 손상된 파일, 이미 결과 파일이 있는 경우, 중간 내보내기 실패를 넣어 봅니다. 기대하는 동작은 실패를 기록하고, 앞서 성공한 결과를 확인해 필요한 작업만 다시 하는 것입니다.</p>
+<p>완료 수는 파일이 생성된 개수와 구분합니다. 사람이 크기·색·투명도·글자 잘림을 확인한 뒤 통과시킨 결과를 세고, 보류 사유와 수정 시간을 함께 남깁니다. 이 비교를 마쳐야 자동화가 실제 수고를 줄였는지 판단할 수 있습니다.</p>
+<div class="case-closing"><p><strong>먼저 정할 것은 에이전트에게 작업을 맡길 조건입니다.</strong></p><p>함께 쓸 편집 기능을 마련하고, 결과를 판정할 기준과 사람의 개입 범위를 정합니다. 실패했을 때 어디서 다시 시작할지도 확인해야 합니다. ArtCraft는 반복 작업을 줄이기 위해 제품 기능과 개발 운영을 함께 설계한 사례로 살펴볼 만합니다.</p></div>
+</section>
+
+<div class="guide-resources" id="sources"><h2>직접 살펴볼 자료</h2><ul>
+<li><a href="https://getartcraft.com/" target="_blank" rel="noopener noreferrer">ArtCraft · 제품군과 제공 상태 ↗</a></li>
+<li><a href="https://github.com/storytold/photocraft/blob/957b10cccbb4bcd402394d250e52a9b9e1b63d74/README.md" target="_blank" rel="noopener noreferrer">PhotoCraft · 확인한 커밋의 소개와 공개 화면 ↗</a></li>
+<li><a href="https://github.com/storytold/photocraft/blob/957b10cccbb4bcd402394d250e52a9b9e1b63d74/docs/architecture.md" target="_blank" rel="noopener noreferrer">PhotoCraft · 구조와 설계 원칙 ↗</a></li>
+<li><a href="https://github.com/storytold/photocraft/blob/957b10cccbb4bcd402394d250e52a9b9e1b63d74/crates/io/tests/it/corpus.rs" target="_blank" rel="noopener noreferrer">PhotoCraft · 저장 전후와 기준 이미지 비교 ↗</a></li>
+<li><a href="https://github.com/storytold/autocraft/blob/0bcc1f8d681609233d2f6f0d1f4e359e994079e0/README.md" target="_blank" rel="noopener noreferrer">AutoCraft · 파이프라인과 운영 경계 ↗</a></li>
+</ul>
+<p>저장소의 개발 버전에는 배포 버전보다 앞선 변경이 포함될 수 있습니다.</p>
+<p>이미지 두 장은 제작자가 공개한 원본입니다. 구조·검사·개발 흐름 도식과 커머스 적용 예시는 헬로우 휴먼이 구성했습니다.</p>
+<a class="news-end-link" href="./">AI 사례연구 목록으로 돌아가기 <span aria-hidden="true">→</span></a>
+</div>
+</div></div></article></main>
+<footer class="footer"><div class="wrap">헬로우 휴먼 · Workless Engineering Club</div></footer>
+<script src="../assets/article-toc.js?v=1" defer></script>
+<script src="../assets/analytics.js?v=2" defer></script>
+<script type="module" src="../assets/content-updates.js?v=3"></script>
+</body></html>
