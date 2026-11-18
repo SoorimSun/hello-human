@@ -47,7 +47,7 @@
   .bench-observations { grid-template-columns: 1fr; gap: 24px; }
   .bench-prompt { padding: 20px; font-size: 16px; }
   .bench-times th, .bench-times td { padding: 12px 8px; }
-  .bench-metrics { min-width: 1160px; }
+  .bench-metrics { min-width: 1400px; }
   .bench-metrics thead th:first-child { width: 88px; }
   .bench-nav { flex-direction: column; align-items: flex-start; gap: 4px; }
 }
