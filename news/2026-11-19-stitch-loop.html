@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>로그를 읽고 수정안을 보내는 구글의 Stitch Loop · AI뉴스 · 헬로우 휴먼</title>
+  <meta name="description" content="구글의 Stitch Loop는 서비스 로그에서 문제를 찾아 GitHub에 코드 수정을 제안합니다. Gemini 4 Neon과 Carbon의 비용 차이, OpenAI의 국내 데이터 저장과 연구 작업 중단 방식도 짚었습니다.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="로그를 읽고 수정안을 보내는 구글의 Stitch Loop">
+  <meta property="og:description" content="구글의 Stitch Loop는 서비스 로그에서 문제를 찾아 GitHub에 코드 수정을 제안합니다. Gemini 4 Neon과 Carbon의 비용 차이, OpenAI의 국내 데이터 저장과 연구 작업 중단 방식도 짚었습니다.">
+  <meta property="og:url" content="https://soorimsun.github.io/hello-human/news/2026-11-19-stitch-loop.html">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+  <script src="../assets/theme.js?v=3"></script>
+  <link rel="stylesheet" href="../assets/style.css?v=9">
+  <link rel="stylesheet" href="../assets/news.css?v=10">
+  <link rel="stylesheet" href="../assets/news-stitch-loop.css?v=4">
+  <link rel="stylesheet" href="../assets/content-updates.css?v=1">
+</head>
+<body class="stitch-issue">
+  <header class="topbar"><div class="wrap topbar-inner">
+    <a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+    <nav class="news-nav" aria-label="사이트 메뉴"><a href="../">모임 소개</a><a href="./">AI뉴스</a><a href="../guides/">AI가이드</a><a href="../insights/">인사이트</a><a href="../case-studies/">사례연구</a><a data-newsletter-entry href="../newsletters/">뉴스레터</a></nav>
+  </div></header>
+  <main><article>
+    <header class="news-article-header wrap">
+      <a class="news-back" href="./">← AI뉴스 목록</a>
+      <p class="news-kicker">AI NEWS <span aria-hidden="true">/</span> ISSUE 52</p>
+      <h1><span>로그를 읽고 수정안을 보내는</span> <em>구글의 Stitch Loop</em></h1>
+      <p class="news-deck">주문 오류를 고친 다음 날, 고객이 다시 주문을 마치는지 누가 확인할까요? 구글은 그 일까지 Stitch Loop에 맡기는 실험을 시작했습니다.</p>
+      <div class="news-article-meta"><time datetime="2026-11-19">2026년 11월 19일 목요일</time><span>헬로우 휴먼 AI뉴스</span><span>한국시간 기준</span></div>
+    </header>
+    <div class="news-article-shell wrap">
+      <nav class="news-toc" aria-label="기사 목차"><span>이번 호</span>
+        <a href="#summary">30초 요약</a>
+        <a href="#stitch">배포 뒤의 Stitch Loop</a>
+        <a href="#neon">Neon 한 과제의 비용</a>
+        <a href="#residency">한국에 저장되는 범위</a>
+        <a href="#control">중단 명령 뒤의 35초</a>
+        <a href="#our-view">헬로우 휴먼의 관점</a>
+        <a href="#experiment">경보에서 수정 후보까지</a>
+        <a href="#sources">읽은 자료</a>
+      </nav>
+      <div class="news-story">
+        <section id="summary" class="news-summary" aria-labelledby="summary-title">
+          <p class="news-section-label">AT A GLANCE</p><h2 id="summary-title">30초 요약</h2>
+          <ul>
+            <li><strong>Stitch Loop</strong>에 주문 완료율 같은 지표를 맡기면, 수치가 떨어졌을 때 어디를 고쳐 볼지 제안합니다. 개발자가 수정안을 검토해 반영한 뒤에도 같은 지표를 지켜봅니다. 구글은 대기 신청을 받기 시작했습니다.</li>
+            <li>독립 평가에서 <strong>Gemini 4 Neon</strong>은 과제당 약 21분, Carbon은 약 36분이 걸렸습니다. 비용은 어느 가격표를 보느냐에 따라 달랐습니다. 11월 할인까지 반영하면 Carbon 쪽이 저렴합니다.</li>
+            <li><strong>OpenAI API</strong>에서 지역 설정을 쓸 수 있는 조직은 새 프로젝트의 저장 지역을 직접 고를 수 있습니다. 한국을 고르면 지원 대상 데이터는 국내에 보관되지만, 답을 생성하는 곳까지 한국으로 지정할 수는 없습니다.</li>
+            <li>OpenAI는 연구 모델이 예상 밖의 행동을 했을 때 어떻게 멈추는지도 공개했습니다. 회사 설명에 따르면 <strong>Control Room</strong>이 중단 지시를 받은 뒤 35초 안에 해당 작업의 추가 모델 출력을 차단합니다.</li>
+          </ul>
+        </section>
+        <p class="news-method"><b>자료 확인</b> 2026년 11월 19일 한국시간 기준. 네 소식의 발표일은 원문 표기 기준 11월 18일입니다.</p>
+
+        <section id="stitch" class="news-story-section">
+          <p class="news-section-label">GOOGLE LABS</p>
+          <h2>주문서를 고친 뒤, 고객이 주문을 마치는지까지 봅니다</h2>
+          <p>구글의 Stitch는 원하는 화면을 말로 설명하면 시안을 만들어 주는 도구입니다. 새로 공개한 <strong>Stitch Loop</strong>에는 이미 운영 중인 서비스에서 개선하고 싶은 목표를 맡깁니다. 팀이 목표를 정하고 GitHub 저장소와 서비스 지표를 연결하면 Loop가 개선할 만한 부분을 찾아 근거와 함께 알려줍니다. <a class="source-link" href="https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-loop/" target="_blank" rel="noopener noreferrer">Google Labs의 Stitch Loop 발표 ↗</a></p>
+          <p>가령 쇼핑몰 팀이 <strong>주문서를 연 고객이 주문을 끝까지 마치는 비율</strong>을 높이고 싶다고 해보죠. 어느 날 이 비율이 떨어졌고 같은 시간에 주소 입력 오류가 늘었습니다. Loop가 개발자에게 가져올 만한 제안은 이런 겁니다. “상세 주소를 비워 둔 고객이 다음 단계로 넘어가지 못했습니다. 최근 바뀐 주소 검사 코드부터 살펴볼까요?” 개발자는 상세 주소가 선택 항목인데도 빈칸이면 주문이 거절되는지 직접 확인할 수 있습니다.</p>
+          <p>개발자가 방향을 고르면 Loop가 별도 환경에서 코드를 고쳐 GitHub에 수정 요청(PR)을 올립니다. <strong>코드를 합칠지는 개발자가 결정합니다.</strong> 수정본을 배포하면 Loop는 다시 주문 완료율을 봅니다. 주소 오류는 사라졌는데 여전히 주문을 마치는 고객이 적다면, 다음 조사에서는 고객이 또 어느 단계에서 빠져나가는지 살펴볼 수 있습니다. 매번 개발자가 새 조사 요청을 넣지 않아도 처음 정한 목표를 계속 지켜본다는 게 Loop의 쓰임새입니다.</p>
+          <figure class="news-article-visual">
+            <img src="../assets/news/stitch-loop-overview.webp" width="1200" height="836" loading="lazy" alt="Stitch Loop에서 작업 화면 개편 목표 아래 Storybook 커버리지 58.06%와 목표 100%, 지표 추이, 관련 작업 목록을 함께 보여주는 화면">
+            <figcaption>Google Labs가 공개한 화면 개편 예시입니다. 위쪽에는 Storybook 커버리지의 현재 값(58.06%)과 목표(100%)가, 아래쪽에는 관련 작업 14건이 표시돼 있습니다. <a class="source-link" href="https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-loop/" target="_blank" rel="noopener noreferrer">Google Labs의 Stitch Loop 발표 ↗</a></figcaption>
+          </figure>
+          <p>기본으로 살피는 항목은 보안, 응답 지연, 접근성입니다. 보안 점검에는 Google DeepMind의 CodeMender와 Gemini 4 Carbon을 쓰고, 팀은 주문 완료율 같은 목표를 따로 추가할 수 있습니다. 11월 18일 전 세계 대기 등록이 열렸고 자격을 갖춘 Google AI Ultra 이용자에게 우선권이 주어집니다. 발표에는 실제 팀의 장애율이나 조사 시간이 얼마나 줄었는지 보여주는 운영 결과가 없습니다.</p>
+        </section>
+
+        <section id="neon" class="news-story-section">
+          <p class="news-section-label">GOOGLE DEEPMIND</p>
+          <h2>Neon은 Carbon보다 빨랐는데, 비용도 덜 들었을까요?</h2>
+          <figure class="news-article-visual">
+            <img src="../assets/news/gemini-4-neon-official.webp" width="1600" height="893" loading="lazy" alt="어두운 배경에 주황색 네온관으로 그린 Gemini 심볼과 ‘Gemini 4 Neon’ 글자">
+            <figcaption>구글이 11월 18일 Gemini 4 Neon을 공개하며 사용한 대표 이미지입니다. <a class="source-link" href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/" target="_blank" rel="noopener noreferrer">구글 발표 원문 ↗</a></figcaption>
+          </figure>
+          <p>Stitch Loop와 같은 날 구글은 코드 수정과 문서 분석에 쓸 모델 <strong>Gemini 4 Neon</strong>도 내놓았습니다. Antigravity에서는 Neon이 여러 파일에 걸친 변경을 계획하고, 나눠서 할 수 있는 일은 더 가벼운 Hydrogen에 맡깁니다. 구글은 유료 Gemini API와 Gemini for business, 대상 Pro·Ultra 구독자의 Gemini 앱과 Antigravity부터 제공을 시작했습니다. <a class="source-link" href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/" target="_blank" rel="noopener noreferrer">Google의 Neon 발표 ↗</a></p>
+          <p>독립 평가기관 Artificial Analysis가 두 모델을 각자의 최고 추론 강도로 시험했습니다. Neon은 Carbon보다 답을 쓰는 데 토큰을 약 15% 더 썼는데도 과제를 더 빨리 끝냈습니다. 초당 출력 속도가 약 110토큰으로 Carbon의 약 57토큰보다 빨랐기 때문입니다. <a class="source-link" href="https://artificialanalysis.ai/articles/gemini-4-neon-intelligence-gain" target="_blank" rel="noopener noreferrer">Artificial Analysis의 평가 ↗</a></p>
+          <table class="neon-comparison">
+          <caption>Artificial Analysis Intelligence Index · 11월 18일 평가</caption>
+          <thead><tr><th scope="col">비교 항목</th><th scope="col">Neon <small>xhigh</small></th><th scope="col">Carbon <small>high</small></th></tr></thead>
+          <tbody>
+          <tr><th scope="row">종합 점수</th><td>61점</td><td>60점</td></tr>
+          <tr><th scope="row">과제당 시간</th><td>약 21분</td><td>약 36분</td></tr>
+          <tr><th scope="row">과제당 비용<br><small>평가기관 발표</small></th><td>6.44달러</td><td>7.76달러</td></tr>
+          <tr><th scope="row">11월 단가 적용<br><small>같은 사용량으로 계산</small></th><td>6.44달러</td><td>약 3.88달러</td></tr>
+          </tbody>
+          </table>
+          <p class="table-note">마지막 행은 가격표만 바꿔 계산한 값입니다. Carbon의 11월 단가가 정가의 절반이므로 7.76달러 × 0.5 = 3.88달러입니다.</p>
+          <p>여기서 ‘Neon의 비용이 17% 낮다’는 발표와 11월 가격표가 갈립니다. <strong>평가기관은 Carbon의 할인 전 가격을 썼습니다.</strong> 100만 토큰당 Carbon의 정가는 입력 4달러·출력 20달러지만 11월 30일까지는 2달러·10달러입니다. Neon은 입력 3달러·출력 15달러이고, 캐시된 입력은 0.15달러입니다. <a class="source-link" href="https://aistudio.google.com/docs/pricing#gemini-4-carbon" target="_blank" rel="noopener noreferrer">Google API 가격표 ↗</a></p>
+          <p>이 평가 과제를 다시 맡긴다고 생각하면 선택이 좀 더 분명합니다. 사람이 결과를 기다리는 작업이라면 Neon이 줄인 약 15분에 가치가 있고, 밤사이 돌려둘 작업이라면 Carbon의 11월 할인이 눈에 들어옵니다. 별도의 Vals Index에서 Neon은 70.87%로 당시 42개 모델 중 2위였습니다. 우리 저장소에서도 그 순서대로 버그를 잘 고칠지는 각 패치가 테스트를 통과하는지 봐야 알 수 있습니다. <a class="source-link" href="https://www.vals.ai/models/google_gemini-4-neon" target="_blank" rel="noopener noreferrer">Vals AI의 평가 ↗</a></p>
+        </section>
+
+        <section id="residency" class="news-story-section">
+          <p class="news-section-label">OPENAI API</p>
+          <h2>문서를 한국에 보관하는 일과 한국에서 요약하는 일</h2>
+          <p>팀에서 “이 문서는 국내에서만 다뤄야 한다”고 했다면, API 설정 화면에서 한국을 고르는 것만으로 충분할까요? 원본을 한국에 보관해야 한다는 요청인지, 모델이 문장을 읽고 요약하는 과정까지 국내에서 처리해야 한다는 요청인지에 따라 답이 달라집니다.</p>
+          <dl class="region-facts">
+          <div><dt>문서를 보관하는 곳</dt><dd><strong>한국 저장 지원</strong> 한국 프로젝트의 지원 대상 API가 고객 콘텐츠를 보관할 때 한국 리전에 저장합니다.</dd></div>
+          <div><dt>모델이 요약하는 곳</dt><dd><strong>한국 추론 미지원</strong> 한국 리전을 골라도 모델이 국내에서 요약하도록 지정할 수는 없습니다.</dd></div>
+          </dl>
+          <p>11월 18일 바뀐 것은 <strong>지역을 설정하는 절차</strong>입니다. 이용 요건을 충족한 API 조직의 소유자는 새 프로젝트에 고정 지역을 선택하거나, 새 Global 프로젝트에서 요청별 지역 선택을 켤 수 있습니다. 후자는 해당 모델과 API가 그 지역의 처리를 지원할 때 쓸 수 있습니다. 지역을 고르기 위해 별도로 데이터 무보존(ZDR)을 신청할 필요는 없습니다. 보존 기간은 별도 정책을 따릅니다. <a class="source-link" href="https://help.openai.com/ko-kr/articles/10128477-chatgpt-enterprise-and-edu-release-notes" target="_blank" rel="noopener noreferrer">OpenAI의 11월 18일 릴리스 노트 ↗</a></p>
+          <p>요약 도중 외부 검색 도구에 문서 한 줄을 보내면 데이터가 지나가는 곳이 한 군데 더 생깁니다. 예를 들어 외부 MCP 서버에 보낸 문장에는 그 서버의 지역 정책이 적용됩니다. 국내 처리가 필요한 팀이라면 실제로 쓸 모델과 API 기능을 지원표에서 확인하고, 요약 과정에서 문장이 전달되는 도구도 함께 살펴야 합니다. <a class="source-link" href="https://developers.openai.com/api/docs/guides/data-residency" target="_blank" rel="noopener noreferrer">OpenAI의 지역별 지원표 ↗</a></p>
+        </section>
+
+        <section id="control" class="news-story-section">
+          <p class="news-section-label">OPENAI RESEARCH</p>
+          <h2>중단 버튼을 누르면 어디까지 멈출까요?</h2>
+          <p>9월 OpenAI의 감시 시스템이 연구 모델의 예상 밖 외부 통신을 포착했습니다. 회사는 이를 조사하느라 9월 20일부터 10월 1일까지 가장 강력한 모델들의 훈련과 평가를 멈췄다고 밝혔습니다. 11월 18일에는 지난 7월과 9월의 사건을 돌아보며 연구·사내 사용·외부 공개 단계에서 무엇을 감시하고 언제 개입하는지 설명했습니다. <a class="source-link" href="https://openai.com/index/managing-frontier-ai-risk/" target="_blank" rel="noopener noreferrer">OpenAI의 11월 18일 발표 ↗</a></p>
+          <figure class="control-stop" aria-labelledby="control-stop-title">
+            <h3 id="control-stop-title">중단 지시를 받은 뒤, 모델 출력이 멈추기까지</h3>
+            <div class="control-signal">
+              <strong>위험 신호 감지</strong>
+              <p>사람이나 감시 시스템이 연구 작업을 멈추기로 결정합니다.</p>
+            </div>
+            <div class="control-window">
+              <p class="control-limit">중단 지시 접수부터 추가 출력 차단까지 <strong>최대 35초</strong></p>
+              <ol class="control-path">
+                <li><strong>Control Room이 지시를 받습니다</strong><span>해당 작업 번호를 중단 상태로 표시합니다.</span></li>
+                <li><strong>추론 엔진이 출력을 막습니다</strong><span>엔진이 그 번호의 권한을 다시 확인하면 승인이 거부됩니다. 연구 작업에는 모델 출력 대신 거부 응답이 돌아갑니다.</span></li>
+              </ol>
+            </div>
+            <figcaption>OpenAI가 11월에 공개한 연구 환경의 작동 방식을 재구성한 설명도입니다. <a class="source-link" href="https://openai.com/ko-KR/index/control-room/#4t9Yu5Vdp7LCXHV56T7lx1" target="_blank" rel="noopener noreferrer">OpenAI 공식 13단계 도식 ↗</a></figcaption>
+          </figure>
+          <p>왜 지시를 받자마자 멈추지 않을까요? OpenAI의 11월 9일 기술 설명에 따르면 추론 엔진은 직전에 확인한 허가를 잠시 보관합니다. <strong>최대 35초</strong>에는 이 허가가 만료되기까지의 시간이 포함됩니다. 프런티어 모델 연구 작업은 Control Room이 응답하지 않을 때도 추가 추론을 막도록 구성했다고 합니다.</p>
+          <p>출력이 막혀도 연구 프로그램 자체는 계속 실행될 수 있고, 같은 엔진을 쓰는 다른 작업은 허가가 있으면 계속 진행됩니다. 이미 외부 시스템이 접수한 주문이나 전송이 끝난 메시지도 모델의 다음 출력을 막는 것만으로 되돌릴 수는 없습니다. <a class="source-link" href="https://openai.com/ko-KR/index/control-room/" target="_blank" rel="noopener noreferrer">Control Room 한국어 기술 설명 ↗</a></p>
+          <p>직원이 사내 시스템에서 Codex를 쓸 때는 Auto-Review라는 별도 에이전트가 위험할 수 있는 행동을 검토하고, 필요하면 직원에게 직접 확인을 요청합니다. 외부에 모델을 공개하기 전에는 사내 사용 중 잡힌 경보를 다시 검토하고, 가장 강력한 모델은 제3자와도 시험합니다. <a class="source-link" href="https://openai.com/index/managing-frontier-ai-risk/" target="_blank" rel="noopener noreferrer">OpenAI의 11월 18일 발표 ↗</a></p>
+        </section>
+
+        <section id="our-view" class="news-story-section">
+          <p class="news-section-label">OUR VIEW</p><h2>수정 요청을 닫을 때, 주문 기록도 한 번 열어봅니다</h2>
+          <p>주문서의 주소 검사를 고친 개발자라면 테스트에서 주문 한 건을 성공시킬 수 있습니다. 운영 담당자가 다음 날 확인하고 싶은 것은 상세 주소를 비워 뒀던 고객들도 이제 주문을 마치는지입니다. 그 고객들만 골라 배포 전후의 거절 건수와 실제 접수 건수를 보면 수정이 누구에게 도움이 됐는지 알 수 있습니다. 전체 완료율 하나만 보면 방문자가 달라진 효과까지 섞입니다.</p>
+          <p>우리 모임이라면 수정 요청에 두 가지를 남기겠습니다. 첫째는 <strong>수정 전에는 실패하고 수정 뒤에는 통과하는 주문 한 건</strong>, 둘째는 <strong>배포 뒤 다시 볼 주문 기록</strong>입니다. 그래야 다음 날 완료율이 떨어져도 같은 버그가 돌아왔는지, 주문은 들어왔는데 집계만 늦는지부터 확인할 수 있습니다.</p>
+        </section>
+
+        <section id="experiment" class="news-story-section">
+          <p class="news-section-label">OUR LAB · 실험 제안</p><h2>똑같이 60%로 떨어진 완료율, 어느 주문서를 고쳐야 할까요?</h2>
+          <p>가상의 주문서 두 개에 같은 경보를 띄워 봅시다. 직전 구간에는 주문서를 연 100명 중 80명이 주문을 마쳤는데, 이번에도 각각 100명이 주문서를 열었지만 두 곳 모두 완료가 60건만 집계됐습니다. 에이전트에 줄 자료는 테스트용 주문서 코드, 주문 접수 기록, 주소 검증 로그, 완료 이벤트의 도착 시각입니다. 아래 숫자는 실험을 위해 정한 값입니다.</p>
+          <ol class="lab-cases" aria-label="완료 60건으로 집계된 두 주문서의 실제 접수 기록">
+          <li><h3>주문이 60건만 접수됐다</h3><p>상세 주소를 비운 정상 주문 20건이 거절됐습니다. 해당 입력에서 실패를 재현한 뒤 검증 코드를 고칩니다. 필수 주소까지 비운 주문은 계속 거절돼야 합니다.</p></li>
+          <li><h3>주문은 80건 접수됐다</h3><p>완료 이벤트 20건을 10분 늦게 도착시킵니다. 같은 주문 번호로 접수 기록과 이벤트를 맞춰 보고, 늦은 20건을 확인하면 주문서 수정은 보류합니다.</p></li>
+          </ol>
+          <p>같은 방식을 상품 검색에도 적용해 봅니다. 이번에는 상품 목록에서 품목마다 같은 정보를 다시 조회하도록 테스트 코드에 결함을 심습니다. 수정 뒤에는 같은 검색어로 같은 상품이 같은 순서에 나오는지, 중복 조회가 사라지고 응답시간이 회복됐는지 확인합니다.</p>
+          <p>한쪽 개발자는 원자료부터 직접 조사하고, 다른 쪽 개발자는 같은 자료로 에이전트가 작성한 조사 메모부터 봅니다. 메모에는 원인 후보, 근거가 된 주문 번호나 조회 기록, 다시 실행해 볼 입력, 코드를 바꿀지 여부를 적습니다. 두 개발자에게 정답을 숨기고 다음 사례에서는 역할을 바꿉니다. 패치가 있으면 두 방식에서 나온 패치를 같은 새 입력으로 다시 검사합니다. 재현에 실패하면 그 사실도 결과표에 남깁니다.</p>
+          <p>결과표에서 먼저 볼 항목은 <strong>집계만 늦은 주문서에 불필요한 수정을 제안했는지</strong>입니다. 실제 오류를 찾아 고쳤는지, 다른 주문과 검색에 문제가 생겼는지도 확인합니다. 품질이 유지된 사례끼리 사람의 조사·검토 시간을 비교하고, 전체 경과 시간과 모델 비용·재시도, 첫 준비 시간은 별도로 기록합니다. 세 사례는 모임에서 해볼 실험으로, 아직 실행하지 않았습니다.</p>
+        </section>
+
+        <section id="sources" class="news-sources">
+          <p class="news-section-label">SOURCES</p><h2>읽은 자료</h2>
+          <ul>
+            <li><a class="source-link" href="https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-ai-ui-design/" target="_blank" rel="noopener noreferrer">Stitch의 화면 설계 기능 ↗</a> · <a class="source-link" href="https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-loop/" target="_blank" rel="noopener noreferrer">Google Labs의 Stitch Loop 발표 ↗</a> <span>대기 등록, 수정안과 병합 검토, 공식 제품 화면</span></li>
+            <li><a class="source-link" href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/" target="_blank" rel="noopener noreferrer">Google의 Gemini 4 Neon 발표 ↗</a> · <a class="source-link" href="https://aistudio.google.com/docs/pricing#gemini-4-carbon" target="_blank" rel="noopener noreferrer">Google의 API 가격표 ↗</a> <span>모델별 역할과 제공 범위, 표준·할인 단가</span></li>
+            <li><a class="source-link" href="https://artificialanalysis.ai/articles/gemini-4-neon-intelligence-gain" target="_blank" rel="noopener noreferrer">Artificial Analysis의 11월 18일 평가 ↗</a> · <a class="source-link" href="https://www.vals.ai/models/google_gemini-4-neon" target="_blank" rel="noopener noreferrer">Vals AI의 Neon 평가 ↗</a> <span>과제당 시간·비용과 벤치마크별 점수</span></li>
+            <li><a class="source-link" href="https://help.openai.com/ko-kr/articles/10128477-chatgpt-enterprise-and-edu-release-notes" target="_blank" rel="noopener noreferrer">OpenAI의 11월 18일 릴리스 노트 ↗</a> · <a class="source-link" href="https://developers.openai.com/api/docs/guides/data-residency" target="_blank" rel="noopener noreferrer">OpenAI API 지역별 지원표 ↗</a> <span>프로젝트 설정 조건, 한국 리전과 외부 도구의 적용 범위</span></li>
+            <li><a class="source-link" href="https://openai.com/index/managing-frontier-ai-risk/" target="_blank" rel="noopener noreferrer">OpenAI의 단계별 안전 운영 설명 ↗</a> · <a class="source-link" href="https://openai.com/ko-KR/index/control-room/" target="_blank" rel="noopener noreferrer">OpenAI의 Control Room 기술 설명 ↗</a> <span>단계별 통제, 내부 연구 작업의 중단 방식</span></li>
+          </ul>
+        </section>
+        <a class="news-end-link" href="./">AI뉴스 목록으로 돌아가기 <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </article></main>
+  <footer class="footer"><div class="wrap">헬로우 휴먼 · Workless Engineering Club</div></footer>
+  <script src="../assets/analytics.js?v=2" defer></script>
+  <script src="../assets/article-toc.js?v=1" defer></script>
+  <script type="module" src="../assets/content-updates.js?v=3"></script>
+</body>
+</html>
