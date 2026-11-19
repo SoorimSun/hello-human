@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>NGINX2Root 긴급 대응 가이드 · 헬로우 휴먼</title>
+  <meta name="description" content="NGINX2Root에 포함된 다섯 CVE의 영향 조건과 제품·배포판별 수정 버전을 확인합니다. 패치 전 임시 조치, 실행 중인 워커 교체, Linux SCTP 커널 점검까지 다룹니다.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="NGINX2Root 긴급 대응 가이드">
+  <meta property="og:description" content="NGINX 패치부터 실행 중인 프로세스 확인까지. 서버·컨테이너 운영자가 수정본을 고르고 적용 결과를 검증하는 순서입니다.">
+  <meta property="og:image" content="https://soorimsun.github.io/hello-human/assets/social/hellobot.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+  <script src="../assets/theme.js?v=3"></script>
+  <link rel="stylesheet" href="../assets/style.css?v=9">
+  <link rel="stylesheet" href="../assets/news.css?v=10">
+  <link rel="stylesheet" href="../assets/guide.css?v=4">
+  <link rel="stylesheet" href="../assets/guide-security-patch.css?v=2">
+  <link rel="stylesheet" href="../assets/content-updates.css?v=1">
+  <style>
+    #features tr > :nth-child(2) { white-space: nowrap; }
+  </style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+    <nav class="news-nav" aria-label="사이트 메뉴">
+      <a href="../">모임 소개</a><a href="../news/">AI뉴스</a><a href="./" aria-current="page">AI가이드</a><a href="../insights/">인사이트</a><a href="../case-studies/">사례연구</a><a data-newsletter-entry href="../newsletters/">뉴스레터</a>
+    </nav>
+  </div>
+</header>
+<main>
+<article aria-labelledby="guide-title">
+  <header class="news-article-header guide-article-header patch-header wrap">
+    <a class="news-back" href="./">← AI가이드 목록</a>
+    <p class="news-kicker">HELLO, HUMAN! / GUIDE 14</p>
+    <h1 id="guide-title">NGINX2Root<br> 긴급 대응 가이드</h1>
+    <p class="news-deck">NGINX 오픈소스의 수정 버전은 안정판 <strong>1.30.7</strong>, 메인라인 <strong>1.31.9</strong>입니다. 운영 중인 계열에 맞는 수정본을 설치하고, 실제 요청을 받는 프로세스까지 교체하세요.</p>
+    <div class="news-article-meta"><time datetime="2026-11-19">2026년 11월 19일 기준 · 한국 시각</time><span>NGINX · Linux</span></div>
+    <figure class="patch-cover">
+      <figcaption>우리 서비스에서 먼저 할 일</figcaption>
+      <div class="patch-layers">
+        <div><small>수정본을 설치할 수 있다면</small><strong><a href="#patch">프로세스 교체</a></strong><p>트래픽을 한 대씩 빼고 업데이트합니다. 새 마스터와 워커가 뜬 뒤 서비스 동작을 확인합니다.</p></div>
+        <div><small>패치를 기다리고 있다면</small><strong><a href="#mitigate">노출 기능 제한</a></strong><p>HTTP/2를 끄고 기존 연결의 종료를 확인합니다. HTTP/3, 동적 DNS, 메일 프록시도 각각 점검합니다.</p></div>
+        <div><small>Linux에서 운영한다면</small><strong><a href="#kernel">호스트 커널 점검</a></strong><p>서버나 Pod가 올라간 노드에서 SCTP 사용 여부와 커널 공급사의 대응 상태를 따로 기록합니다.</p></div>
+      </div>
+    </figure>
+  </header>
+  <div class="news-article-shell guide-shell wrap">
+    <nav class="news-toc guide-toc" aria-label="가이드 목차">
+      <span>운영 점검 순서</span>
+      <a href="#impact">영향 범위</a>
+      <a href="#features">다섯 CVE와 노출 기능</a>
+      <a href="#inventory">서비스와 접속 지점 확인</a>
+      <a href="#versions">제품·배포판별 수정본</a>
+      <a href="#patch">패치와 프로세스 교체</a>
+      <a href="#mitigate">패치 전 임시 조치</a>
+      <a href="#kernel">Linux SCTP 점검</a>
+      <a href="#incident">침해 흔적 조사</a>
+      <a href="#verify">완료 기준과 AI 취합</a>
+    </nav>
+    <div class="news-story guide-story patch-story">
+      <section class="guide-section" id="impact">
+        <h2>쇼핑몰 앞단의 NGINX가 영향을 받으면</h2>
+        <p><strong>NGINX2Root</strong>는 Xint 연구팀이 NGINX의 취약점 다섯 개와 Linux 커널의 취약점 한 개를 묶어 붙인 이름입니다. NGINX 쪽 다섯 개는 각각 다른 조건에서 발생합니다. 대표 사례는 HTTP/2 연결을 처리하다가 메모리가 손상되는 문제입니다. 실제 접속과 요청을 처리하는 <strong>워커</strong>가 종료될 수 있고, 조건에 따라 외부에서 워커 계정 권한으로 코드를 실행할 수 있습니다. 이때 영향 범위에는 그 계정이 읽을 수 있는 파일과 자격증명, 연결할 수 있는 내부 서비스가 포함됩니다. <a href="https://nginx.org/en/security_advisories.html" target="_blank" rel="noopener noreferrer">NGINX 보안 공지 ↗</a></p>
+        <p><strong>호스트의 관리자(root) 권한</strong>은 별도 문제입니다. Xint는 Docker 안에서 워커 권한을 얻은 뒤, 호스트 커널의 SCTP 취약점을 통해 호스트 root에 도달한 사례를 시연했습니다. 이 단계가 성립하면 같은 호스트의 다른 컨테이너까지 조사 범위에 들어갑니다. 실제 영향은 노드의 커널 구성, SCTP 사용 가능 여부와 컨테이너의 보안 설정에 따라 달라집니다. <a href="https://xint.io/ko/blog/nginx2root-remote-code-execution" target="_blank" rel="noopener noreferrer">Xint 연구팀의 한국어 발표 ↗</a></p>
+        <p>외부 접속을 처음 받는 쇼핑몰 앞단부터 목록을 만드세요. 관리자·파트너 사이트, 앱 API 프록시, 내부 게이트웨이, 컨테이너 이미지와 Ingress Controller에도 NGINX가 따로 들어 있을 수 있습니다. 각각 어떤 팀이 어떤 패키지나 이미지로 배포하는지 표시합니다.</p>
+      </section>
+      <section class="guide-section" id="features">
+        <h2>어느 기능을 쓰는지 다섯 CVE별로 확인하기</h2>
+        <p>아래는 NGINX 프로젝트가 공지한 영향 시작 버전입니다. 안정판 1.30.7과 메인라인 1.31.9에는 다섯 수정이 모두 들어 있습니다. 배포판이 자체 수정한 패키지는 <a href="#versions">제품·배포판별 수정본</a>에서 확인하세요. <a href="https://nginx.org/en/security_advisories.html" target="_blank" rel="noopener noreferrer">NGINX 영향 범위 ↗</a> · <a href="https://nginx.org/en/CHANGES-1.30" target="_blank" rel="noopener noreferrer">안정판 변경 이력 ↗</a> · <a href="https://nginx.org/en/CHANGES" target="_blank" rel="noopener noreferrer">메인라인 변경 이력 ↗</a></p>
+        <div class="guide-table-scroll" role="region" aria-label="다섯 취약점의 영향 시작 버전, 점검 기능과 임시 조치" tabindex="0">
+          <table>
+            <thead><tr><th scope="col">취약점</th><th scope="col">시작 버전</th><th scope="col">점검할 구성</th><th scope="col">패치 전 조치</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><code>CVE-2026-123007</code></th><td>1.9.5</td><td>클라이언트의 HTTP/2 연결을 받는 리스너</td><td>해당 리스너의 HTTP/2 비활성화</td></tr>
+              <tr><th scope="row"><code>CVE-2026-123633</code></th><td>1.19.7</td><td>HTTP/2 요청을 백엔드로 전달할 때 워커의 연결 자원이 부족해지는 경우</td><td>HTTP/2 비활성화</td></tr>
+              <tr><th scope="row"><code>CVE-2026-121810</code></th><td>1.25.0</td><td>HTTP/3를 받는 리스너. NGINX는 워커의 연결 자원이 부족할 때 발생할 수 있다고 공지</td><td>해당 QUIC 리스너 중단</td></tr>
+              <tr><th scope="row"><code>CVE-2026-123634</code></th><td>0.6.18</td><td>하위 요청들이 같은 이름을 동시에 DNS 조회하는 구성. 변수 기반 프록시 대상과 SSI·mirror 등을 확인</td><td>해당 동적 이름 조회 경로 제거 또는 중단</td></tr>
+              <tr><th scope="row"><code>CVE-2026-113425</code></th><td>0.5.33</td><td>NGINX를 메일 프록시로 쓰는 리스너</td><td>메일 리스너 중단 또는 허용된 네트워크로 접근 제한</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>DNS 항목에서 <code>resolver</code>는 이름을 IP 주소로 바꾸는 설정입니다. 프록시 대상 주소가 요청마다 달라지는지, 한 요청에서 파생된 하위 요청들이 같은 이름을 조회하는지 함께 보세요. <code>mirror</code> 외에 SSI가 만드는 하위 요청도 점검 대상입니다. <a href="https://almalinux.org/ko/blog/2026-11-18-nginx2root/" target="_blank" rel="noopener noreferrer">AlmaLinux의 기능별 영향 설명 ↗</a></p>
+      </section>
+      <section class="guide-section" id="inventory">
+        <h2>어떤 NGINX가 실제 접속을 받는지 찾기</h2>
+        <h3>서비스 정의와 디스크 설정</h3>
+        <p>Linux에서 systemd로 운영하는 예입니다. 먼저 서비스 정의의 <code>ExecStart</code>에서 실행 파일 경로와 <code>-c</code>(설정 파일), <code>-p</code>(기준 경로), <code>-g</code>(전역 설정) 인수를 확인합니다. 아래는 실행 파일이 <code>/usr/sbin/nginx</code>이고 기본 설정을 쓰는 경우입니다. 별도 경로·인수가 있으면 이후의 설정 검사에도 동일하게 적용합니다.</p>
+        <pre><code>systemctl cat nginx
+systemctl show nginx -p MainPID -p ExecStart
+
+/usr/sbin/nginx -v
+/usr/sbin/nginx -V
+sudo /usr/sbin/nginx -t
+sudo /usr/sbin/nginx -T</code></pre>
+        <p><code>-v</code>는 호출한 파일의 버전, <code>-V</code>는 버전과 빌드 옵션을 출력합니다. <code>-t</code>는 설정 문법과 참조 파일을 검사하고, <code>-T</code>는 검사한 설정 전체도 출력합니다. 디스크에서 읽은 설정이 현재 워커에 적용됐는지는 마지막 재시작·재적용 기록과 실제 접속 결과를 함께 봅니다. 전체 출력에는 인증정보나 내부 주소가 있을 수 있으므로 원본은 운영 환경 안에서 확인하세요. <a href="https://nginx.org/en/docs/switches.html" target="_blank" rel="noopener noreferrer">NGINX 명령 옵션 ↗</a></p>
+        <p>설정에서는 <code>listen … http2</code>, <code>http2 on</code>, <code>listen … quic</code>, <code>http3</code>를 찾습니다. 동적 DNS는 <code>resolver</code>와 변수 기반 <code>proxy_pass</code>, <code>mirror</code>, <code>ssi</code>를 함께 봅니다. 메일은 <code>mail { … }</code> 안의 리스너와 <code>auth_http</code>, <code>proxy</code> 설정을 확인합니다. 지시어가 속한 블록과 상속, 실제로 열린 포트까지 대조해야 어느 서비스의 설정인지 알 수 있습니다.</p>
+        <h3>실행 파일을 제공한 패키지</h3>
+        <p>아래에서 실행 파일 경로는 <code>ExecStart</code>에서 확인한 값으로 바꿉니다. 어느 패키지가 그 파일을 설치했는지, 패키지 전체 버전과 저장소 후보 버전이 무엇인지 기록합니다. 직접 빌드한 파일이라면 배포에 사용한 빌드 기록을 찾습니다.</p>
+        <pre><code># Debian · Ubuntu
+dpkg-query -S /usr/sbin/nginx
+dpkg-query -W -f='${db:Status-Status}\t${binary:Package}\t${Version}\n' 'nginx*' 'libnginx-mod-*'
+apt-cache policy nginx
+
+# RHEL · AlmaLinux · Rocky Linux
+rpm -qf /usr/sbin/nginx
+rpm -qa 'nginx*'
+dnf --refresh list --upgrades 'nginx*'</code></pre>
+        <p>Debian·Ubuntu 목록의 첫 열은 설치 상태입니다. <code>installed</code>인 행에서 실제 실행 패키지와 모듈의 전체 버전을 읽습니다. <code>config-files</code>는 제거 후 설정 파일만 남은 상태입니다. RPM 계열은 설치된 RPM과 업데이트 후보의 버전·저장소를 구분하고, 모듈 스트림을 쓰는 AlmaLinux 8·9에서는 <code>dnf module list nginx</code>로 스트림도 확인합니다. 업데이트 후보가 비어 있으면 설치된 버전 자체를 공지와 대조합니다. <a href="https://manpages.debian.org/bookworm/dpkg/dpkg-query.1.en.html" target="_blank" rel="noopener noreferrer">Debian 패키지 조회 문서 ↗</a></p>
+        <h3>HTTPS가 끝나는 지점</h3>
+        <p>관리하는 도메인에서 TLS 연결을 맺고, ALPN(접속할 때 사용할 프로토콜을 협상하는 기능)으로 HTTP/2를 제안합니다. 아래 도메인은 예시입니다.</p>
+        <pre><code>openssl s_client -connect shop.example.com:443 \
+  -servername shop.example.com -alpn h2 &lt;/dev/null</code></pre>
+        <p><code>ALPN protocol: h2</code>는 그 접속 지점이 HTTP/2를 받는다는 뜻입니다. 패치된 서버도 같은 결과를 냅니다. 연결 오류는 ‘미확인’으로 기록합니다. CDN이나 로드밸런서가 TLS를 끝내면 외부 도메인에서는 그 장비의 응답만 보입니다. 운영망에서 원본 NGINX의 주소와 서비스 이름으로 다시 확인하고, TLS 없이 HTTP/2를 쓰는 내부 연결(h2c)은 해당 리스너 설정과 정상 클라이언트 연결로 따로 점검합니다. <a href="https://nginx.org/en/docs/http/ngx_http_v2_module.html" target="_blank" rel="noopener noreferrer">NGINX HTTP/2 모듈 문서 ↗</a></p>
+      </section>
+      <section class="guide-section" id="versions">
+        <h2>운영 중인 제품과 배포판에 맞는 수정본 고르기</h2>
+        <div class="guide-table-scroll" role="region" aria-label="NGINX 제품별 수정 목표" tabindex="0">
+          <table>
+            <thead><tr><th scope="col">제품·배포 계열</th><th scope="col">11월 19일 확인한 수정 목표</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">NGINX Open Source</th><td>안정판 <strong>1.30.7</strong> · 메인라인 <strong>1.31.9</strong></td></tr>
+              <tr><th scope="row">NGINX Plus PLS.37</th><td>LTS <strong>PLS.37.0.8.1</strong> · CR <strong>PLS.37.3.0.1</strong>. Plus 자체의 전체 버전으로 비교합니다.</td></tr>
+              <tr><th scope="row">배포판 패키지</th><td>운영체제 릴리스와 지원 스트림에 맞고, 공급사가 해당 CVE 수정을 명시한 패키지</td></tr>
+              <tr><th scope="row">컨테이너·Ingress·어플라이언스</th><td>이미지 제작사나 제품 공급사가 수정을 확인한 이미지 또는 제품 릴리스</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>오픈소스 두 버전은 11월 18일자 변경 이력에 다섯 CVE가 모두 실렸습니다. Plus에서는 CVE-2026-123633이 앞선 <code>PLS.37.0.7.1 LTS</code>와 <code>PLS.37.2.0.1 CR</code>에서 먼저 수정됐습니다. 다섯 건 모두에 대응하려면 표의 11월 릴리스를 적용하세요. 구형 Plus R34~R36에 대해 KISA 공지는 같은 계열의 해결 버전을 제시하지 않으므로, 공급사에서 지원하는 수정 계열로의 전환을 확인합니다. <a href="https://docs.nginx.com/nginx/releases/" target="_blank" rel="noopener noreferrer">NGINX Plus 릴리스 이력 ↗</a> · <a href="https://www.boho.or.kr/kr/bbs/view.do?bbsId=B0000133&amp;categoryCode=&amp;menuNo=205021&amp;nttId=72314&amp;pageIndex=1&amp;searchCnd=&amp;searchWrd=" target="_blank" rel="noopener noreferrer">KISA 제품별 업데이트 권고 ↗</a></p>
+        <h3>배포판 공지에서 확인한 차이</h3>
+        <p>배포판은 오래 지원하는 버전에 보안 수정만 옮겨 넣기도 합니다(백포트). 이때 <code>nginx -v</code>는 그대로여도 패키지의 릴리스 번호는 달라집니다. 아래는 <strong>2026년 11월 19일 한국 시각 기준</strong>이므로 설치 직전에 해당 릴리스의 공지를 다시 확인하세요.</p>
+        <ul>
+          <li><strong>AlmaLinux.</strong> 8·9·10의 지원 스트림에 수정 패키지를 배포했습니다. 예를 들어 AlmaLinux 9의 기본 1.20 계열에 공지된 수정 RPM은 <code>nginx-1.20.1-32.el9_9.1.alma.4</code>입니다. AlmaLinux 8 기본값인 1.14처럼 지원이 끝난 스트림은 이번 배포에서 제외됐습니다. 현재 스트림과 설정 호환성을 확인하고 지원 스트림으로 전환합니다. <a href="https://almalinux.org/ko/blog/2026-11-18-nginx2root/" target="_blank" rel="noopener noreferrer">AlmaLinux 스트림별 수정 RPM 목록 ↗</a></li>
+          <li><strong>Ubuntu.</strong> 공식 nginx 패키지 기준으로 22.04·24.04 LTS는 대표 HTTP/2 취약점(CVE-2026-123007)이 <code>Vulnerable</code>이고, HTTP/3 취약점(CVE-2026-121810)은 해당 코드가 없어 <code>Not affected</code>입니다. 특히 22.04는 위 표의 1.19.7보다 오래된 버전이어도 두 번째 HTTP/2 취약점(CVE-2026-123633)이 <strong>평문 HTTP/2(h2c) 리스너</strong>에 해당한다고 Ubuntu가 명시합니다. 외부 HTTPS만 확인하면 이 내부 포트를 놓칠 수 있습니다. <a href="https://ubuntu.com/security/CVE-2026-123007" target="_blank" rel="noopener noreferrer">대표 HTTP/2 상태 ↗</a> · <a href="https://ubuntu.com/security/CVE-2026-123633" target="_blank" rel="noopener noreferrer">Ubuntu의 h2c 예외 설명 ↗</a> · <a href="https://ubuntu.com/security/CVE-2026-121810" target="_blank" rel="noopener noreferrer">HTTP/3 상태 ↗</a></li>
+          <li><strong>Debian.</strong> 대표 CVE-2026-123007의 추적기에는 12(bookworm)·13(trixie) 보안 저장소가 <code>vulnerable</code>, 불안정판(sid) <code>1.30.6-4</code>가 <code>fixed</code>로 표시됐습니다. sid의 같은 소스 패키지 변경 기록에는 다섯 패치가 모두 기재됐지만, 확인 당시 HTTP/3 추적기에는 같은 버전이 여전히 <code>vulnerable</code>로 표시됐습니다. 기록이 엇갈리면 해당 CVE를 ‘미확인’으로 남기고, 사용 중인 릴리스의 보안 공지와 설치 버전을 다시 대조하세요. <a href="https://security-tracker.debian.org/tracker/CVE-2026-123007" target="_blank" rel="noopener noreferrer">대표 HTTP/2 판정 ↗</a> · <a href="https://tracker.debian.org/news/1825662/accepted-nginx-1306-4-source-into-unstable/" target="_blank" rel="noopener noreferrer">sid 패키지 변경 기록 ↗</a> · <a href="https://security-tracker.debian.org/tracker/CVE-2026-121810" target="_blank" rel="noopener noreferrer">HTTP/3 판정 ↗</a></li>
+        </ul>
+      </section>
+      <section class="guide-section" id="patch">
+        <h2>한 대씩 패치하고 새 워커까지 확인하기</h2>
+        <ol>
+          <li>현재 설정과 실행 인수, 설치 패키지·동적 모듈 목록, 마스터·워커의 PID와 시작 시각을 기록합니다. 설정과 배포본을 보관하고 현재 바이너리로 설정 검사(<code>-t</code>)를 먼저 통과시킵니다. 검사에 실패하면 패키지 설치 중 자동 재시작될 수 있으므로 오류부터 해결합니다.</li>
+          <li>저장소 후보가 공급사의 수정 패키지인지 확인합니다. 이중화 환경에서는 설치 전에 한 대를 로드밸런서에서 빼고 기존 연결을 정리합니다. 설치 도중 서비스가 자동 재시작될 수 있습니다. 단일 서버는 재시작에 필요한 중단 시간을 먼저 확보합니다.</li>
+          <li>실행 파일을 제공하는 패키지와 호환되는 동적 모듈을 갱신합니다. 같은 실행 경로와 인수로 설정 검사를 통과한 뒤 서비스를 재시작합니다.</li>
+          <li>새 마스터·워커를 확인하고 정상 요청을 보내 봅니다. 변경 전과 오류율·응답 시간을 비교한 뒤 트래픽을 복귀시키고 다음 서버로 넘어갑니다.</li>
+        </ol>
+        <h3>패키지 설치와 재시작</h3>
+        <p>Debian·Ubuntu의 기본 패키지 예시입니다. 먼저 저장소 정보를 갱신하고 <code>Candidate</code>에 표시된 버전을 공급사 공지와 대조합니다. 실행 파일을 <code>nginx-core</code>나 <code>nginx-full</code>이 제공하는 환경에서는 해당 패키지와 설치된 동적 모듈의 후보 버전도 확인해 설치 대상에 포함하세요.</p>
+        <pre><code>sudo apt-get update
+apt-cache policy nginx</code></pre>
+        <p>수정본을 확인하고 대상 서버의 트래픽을 정리한 뒤, 해당 배포판의 명령만 실행합니다.</p>
+        <pre><code># Debian · Ubuntu에서 nginx가 실행 파일을 제공하는 경우
+sudo apt-get install --only-upgrade nginx</code></pre>
+        <pre><code># RHEL 계열에서 현재 스트림의 수정 RPM을 확인한 경우
+sudo dnf --refresh upgrade 'nginx*'</code></pre>
+        <p>설치 직후 <a href="#inventory">패키지 조회 명령</a>을 다시 실행해 실제 실행 파일과 동적 모듈을 제공하는 패키지들의 전체 버전을 기록하세요. 업데이트 명령이 성공해도 설치 버전이 그대로일 수 있습니다. 공급사 수정본이 설치됐는지 확인한 뒤 새 바이너리로 설정을 검사합니다. 실패한 서버는 트래픽에서 제외한 채 원인을 해결합니다.</p>
+        <p><code>nginx -s reload</code>는 기존 마스터가 설정을 다시 읽고 워커를 교체하는 동작입니다. 새 실행 파일을 적용하려면 아래처럼 재시작하거나 공식 무중단 바이너리 교체 절차를 따릅니다. 패키지 설치 중 자동 재시작됐다면 아래의 실행 파일 대조와 이전 워커의 종료 확인으로 교체 여부를 판단합니다. <a href="https://nginx.org/en/docs/control.html" target="_blank" rel="noopener noreferrer">NGINX의 설정 재적용과 실행 파일 교체 ↗</a></p>
+        <pre><code>sudo /usr/sbin/nginx -t &amp;&amp; sudo systemctl restart nginx
+systemctl status nginx --no-pager</code></pre>
+        <h3>지금 실행 중인 파일 대조</h3>
+        <p>아래는 일반적인 Linux·systemd 서비스에서 디스크의 수정 파일과 실행 중인 마스터가 같은 파일을 가리키는지 확인하는 예입니다. 서비스를 여러 개 운영한다면 단위 이름과 파일 경로를 바꿉니다. 먼저 서비스가 <code>active</code>이고 <code>MainPID</code>가 0보다 큰 실제 NGINX 마스터인지 확인하세요.</p>
+        <pre><code>systemctl show nginx -p ActiveState -p MainPID -p ExecMainStartTimestamp
+ps -C nginx -o pid,ppid,lstart,args
+
+nginx_pid=$(systemctl show nginx -p MainPID --value)
+sudo readlink "/proc/$nginx_pid/exe"
+sudo stat -Lc '%d:%i %n' "/proc/$nginx_pid/exe" /usr/sbin/nginx</code></pre>
+        <p><code>stat</code>의 두 줄에서 장치 번호와 파일 번호(inode)가 같은지 봅니다. <code>readlink</code>에 <code>(deleted)</code>가 붙거나 파일 번호가 다르면 실행 파일의 경로와 교체 내역을 다시 확인합니다. 이전 PID·시작 시각을 재시작 후 목록과 대조해 예전 마스터와 워커가 종료됐는지도 봅니다. <strong>패키지 전체 버전과 공급사 공지, 새 프로세스의 증거</strong>를 함께 남겨야 백포트 적용도 판정할 수 있습니다.</p>
+        <h3>컨테이너·Kubernetes</h3>
+        <p>수정된 최종 이미지로 배포 원본을 갱신합니다. 자체 이미지라면 다시 빌드하고, Ingress Controller 등 완제품이라면 공급사가 수정한 제품 릴리스를 선택합니다. 컨테이너·Pod를 순차 교체해 모든 복제본의 실제 이미지 식별값(digest 또는 런타임 imageID), 이미지에 포함된 패키지, 준비 상태를 대조합니다. 이전 Pod가 요청을 받지 않고 종료됐는지 확인한 뒤 정상 요청을 보냅니다. 호스트에 설치된 NGINX와 이미지 안의 NGINX는 각각 기록합니다.</p>
+      </section>
+      <section class="guide-section" id="mitigate">
+        <h2>패치가 늦으면 노출된 기능부터 제한하기</h2>
+        <h3>HTTP/2 연결 중단</h3>
+        <p><strong>gRPC를 받는 서비스부터 찾아 두세요.</strong> gRPC 클라이언트는 HTTP/2에 의존합니다. 수정된 프록시로 해당 트래픽을 옮길 때는 기존 취약 리스너를 경유하거나 원본으로 직접 접속할 수 있는지도 확인합니다. gRPC를 계속 제공해야 해서 필요한 네트워크로만 접근을 제한했다면 허용 범위의 위험과 패치 일정을 기록하고, 정상 gRPC 호출을 확인합니다. <a href="https://nginx.org/en/docs/http/ngx_http_grpc_module.html" target="_blank" rel="noopener noreferrer">NGINX gRPC 모듈 문서 ↗</a></p>
+        <p><code>http2</code> 지시어는 HTTP/2 모듈을 포함한 NGINX 1.25.1부터 지원됩니다. 해당 설정 범위에 <code>http2 off;</code>를 적용하고, 같은 주소·포트를 쓰는 모든 <code>listen</code> 줄에서 기존 <code>http2</code> 인수도 제거하세요. 아래는 HTTPS 리스너의 관련 부분만 발췌한 예입니다. 운영 설정의 다른 인수와 인증서 설정은 유지합니다. <a href="https://nginx.org/en/docs/http/ngx_http_v2_module.html#http2" target="_blank" rel="noopener noreferrer">HTTP/2 지시어와 지원 버전 ↗</a></p>
+        <pre><code># 1.25.1 이상, 해당 server 블록의 예
+listen 443 ssl;
+http2 off;</code></pre>
+        <p>구형 버전에서는 <code>listen 443 ssl http2;</code>에서 <code>http2</code>만 제거해 <code>listen 443 ssl;</code>로 바꿉니다. IPv4·IPv6 리스너, 같은 주소와 포트를 공유하는 모든 가상 호스트, 내부 평문 포트도 확인합니다.</p>
+        <p>기본 systemd 서비스에서 설정만 변경했다면 아래처럼 검사 후 재적용합니다. 이전 워커는 기존 연결을 계속 처리할 수 있으므로 적용 전 PID·시작 시각과 대조해 <strong>이전 워커와 그 HTTP/2 연결이 모두 종료</strong>됐는지 확인합니다. 기존 연결이 남으면 해당 인스턴스의 트래픽을 빼고 연결을 정리한 뒤 재시작합니다. <a href="https://nginx.org/en/docs/control.html" target="_blank" rel="noopener noreferrer">설정 재적용 시 기존 워커의 동작 ↗</a></p>
+        <pre><code>sudo /usr/sbin/nginx -t &amp;&amp; sudo systemctl reload nginx</code></pre>
+        <p>HTTPS 원본이 HTTP/2를 받던 환경이라면, HTTP/2를 지원하는 curl로 변경 전후에 같은 요청을 보냅니다. 아래 도메인·원본 IP·경로는 관리 중인 가상 호스트, 해당 인스턴스 주소, 평소 응답을 아는 읽기 전용 경로로 바꾸세요. <code>--resolve</code>는 TLS 이름과 인증서 검증을 유지하면서 연결할 원본을 지정합니다. <a href="https://curl.se/docs/manpage.html#--resolve" target="_blank" rel="noopener noreferrer">curl 연결 주소 지정 ↗</a></p>
+        <pre><code>curl --http2 --noproxy shop.example.com \
+  --resolve shop.example.com:443:192.0.2.10 \
+  -sS -o /dev/null -w 'HTTP/%{http_version} %{http_code}\n' \
+  https://shop.example.com/</code></pre>
+        <p><code>curl -V</code>의 <code>Features</code>에 <code>HTTP2</code>가 있는 도구를 사용하세요. 변경 전에 <code>HTTP/2</code>였던 원본이 변경 후 <code>HTTP/1.1</code>과 예상 상태 코드를 반환하는지 봅니다. 인증서 오류, 시간 초과, 연결 실패는 차단 성공으로 집계하지 않습니다. 이 확인은 해당 HTTPS 주소·이름의 새 연결에만 적용됩니다. 다른 가상 호스트와 h2c 리스너는 각각 확인하세요.</p>
+        <h3>HTTP/3·동적 DNS·메일 프록시</h3>
+        <ul>
+          <li><strong>HTTP/3.</strong> 대상 주소의 <code>listen … quic</code> 리스너를 중단합니다. HTTP/3를 광고하는 <code>Alt-Svc</code>도 정리하고 UDP 리스너 상태를 확인합니다. 광고를 지운 뒤에도 리스너가 열려 있으면 기존 클라이언트가 직접 접속할 수 있습니다. TCP HTTPS 리스너의 정상 응답을 확인하세요. <a href="https://nginx.org/en/docs/http/ngx_http_v3_module.html" target="_blank" rel="noopener noreferrer">NGINX QUIC 설정 예시 ↗</a></li>
+          <li><strong>동적 DNS.</strong> 변수로 정하는 프록시 대상과 SSI·mirror 등 하위 요청의 관계를 확인해 같은 이름을 동시에 조회하는 경로를 제거하거나 해당 기능을 중단합니다. 고정된 백엔드 주소로 바꾼다면 서비스 탐색이나 장애 전환 때 주소가 어떻게 갱신되는지도 확인합니다.</li>
+          <li><strong>메일 프록시.</strong> 해당 리스너를 중단하거나 방화벽·보안 그룹에서 필요한 접속만 허용합니다. 메일 클라이언트의 연결과 인증을 확인하고, 접근을 허용한 범위와 패치 예정 시각을 기록합니다.</li>
+        </ul>
+        <p>임시 조치마다 적용한 서버와 제한한 기능을 남기세요. 수정본과 새 워커를 확인한 뒤 단계적으로 기능을 복구하고, 원래 프로토콜로 정상 요청을 한 번 더 확인합니다.</p>
+      </section>
+      <section class="guide-section" id="kernel">
+        <h2>Linux 호스트에서 SCTP를 따로 점검하기</h2>
+        <p>SCTP는 Linux 커널이 지원하는 전송 프로토콜입니다. Xint는 <strong>11월 19일 기준 배포판 커널 업데이트가 아직 제공되지 않았다</strong>고 설명했습니다. 실제 작업 시에는 호스트 공급사의 최신 공지에서 수정 커널을 확인하세요. 컨테이너 환경이면 해당 Pod가 올라간 노드마다 실행 커널과 SCTP 상태를 기록합니다. <a href="https://xint.io/ko/blog/nginx2root-remote-code-execution" target="_blank" rel="noopener noreferrer">Xint의 커널 대응 현황 ↗</a></p>
+        <pre><code>uname -r
+lsmod | grep '^sctp[[:space:]]'
+grep -E '^(CONFIG_IP_SCTP=|# CONFIG_IP_SCTP is not set)' \
+  "/boot/config-$(uname -r)"</code></pre>
+        <p><code>CONFIG_IP_SCTP=m</code>이면 필요할 때 로드할 수 있는 모듈이고, <code>=y</code>이면 실행 커널에 내장돼 있습니다. <code># CONFIG_IP_SCTP is not set</code>은 해당 커널에서 기능을 빼고 빌드했다는 뜻입니다. <code>lsmod</code>에 항목이 없거나 설정 파일을 읽지 못했다면 그 결과만으로 미사용 판정을 내릴 수 없습니다. 실행 커널에 대응하는 설정을 공급사 방식으로 확인합니다.</p>
+        <p><strong>모듈 방식이고 업무에서 SCTP를 쓰지 않는다고 확인한 경우</strong>에는 호스트의 <code>/etc/modprobe.d/disable-sctp.conf</code>에 다음 설정을 넣어 자동 로드를 막을 수 있습니다. <code>install</code> 줄은 다른 모듈이 의존성으로 SCTP를 불러오는 경우에도 적용됩니다. <a href="https://docs.redhat.com/ko/documentation/red_hat_enterprise_linux/10/html/managing_monitoring_and_updating_the_kernel/preventing-kernel-modules-from-being-automatically-loaded-at-system-boot-time" target="_blank" rel="noopener noreferrer">Red Hat의 커널 모듈 자동 로드 차단 절차 ↗</a></p>
+        <pre><code>blacklist sctp
+install sctp /bin/false</code></pre>
+        <p>이미 로드된 모듈은 계속 동작합니다. 의존 서비스와 사용 중인 연결을 확인한 뒤 해제 또는 재부팅을 계획하세요. 초기 부팅 이미지(initramfs)에 포함된 환경은 배포판 절차에 따라 이미지를 갱신합니다. 조치 후에는 호스트에서 <code>lsmod</code>로 SCTP가 내려갔는지 확인하고, <code>modprobe --show-depends sctp</code> 출력에 차단용 <code>install /bin/false</code>가 반영됐는지도 봅니다. 이 조회는 모듈을 로드하지 않습니다. 커널 내장형은 공급사 완화책이나 수정 커널을 추적하고, 수정 커널을 설치한 뒤에는 실제 부팅한 커널까지 대조합니다. <a href="https://man7.org/linux/man-pages/man8/modprobe.8.html" target="_blank" rel="noopener noreferrer">modprobe 조회 옵션 ↗</a></p>
+      </section>
+      <section class="guide-section" id="incident">
+        <h2>침해 흔적은 접속 로그 밖에서도 찾기</h2>
+        <p>일반 access log는 웹 요청을 중심으로 남깁니다. HTTP/2 연결을 제어하는 프레임까지 충분히 기록하지 않기 때문에 평소와 같은 접속 로그만 남을 수 있습니다. 의심 징후가 있으면 재시작으로 휘발성 증거가 사라지기 전에 사고 대응 담당자와 격리·보존 순서를 조율하세요. <a href="https://nginx2root.com/" target="_blank" rel="noopener noreferrer">NGINX2Root 연구팀 안내 ↗</a></p>
+        <p>오류 로그에서 반복되는 워커 종료 시각을 찾고, 같은 시간대에 NGINX가 실행한 예상 밖의 자식 프로세스와 외부 통신이 있었는지 대조합니다. 웹 파일·설정·예약 작업·서비스 등록 정보의 변경 이력도 살펴봅니다. 아래 예시에서 저널과 코어 덤프는 최근 하루, 파일 검색은 현재 오류 로그 전체가 대상입니다. 실제 노출 기간에 맞춰 회전된 로그와 보관본까지 확인하세요.</p>
+        <pre><code>sudo journalctl -u nginx --since "24 hours ago" --no-pager
+sudo grep -Ei 'worker process.*exited|signal 11|segfault' /var/log/nginx/error.log
+sudo coredumpctl --since "24 hours ago" list nginx</code></pre>
+        <p>정상 종료도 검색될 수 있으므로 신호·종료 코드와 배포 시각을 함께 봅니다. 코어 덤프나 감사 로그가 수집되지 않았다면 그 기간은 ‘자료 없음’으로 남깁니다. 뒤늦게 수집을 켜도 이전 실행 이력까지 복원되지는 않습니다.</p>
+        <p>침해가 확인되면 영향을 받은 시스템을 격리하고 증거를 보존합니다. 노출 가능성이 있는 자격증명을 신뢰할 수 있는 환경에서 교체하세요. 호스트 권한까지 침해됐다면 같은 호스트의 워크로드도 확인하고 신뢰할 수 있는 이미지로 복구합니다. 업데이트는 이후의 취약한 경로를 막는 조치이므로 이미 변경된 파일과 계정은 별도로 조사합니다.</p>
+      </section>
+      <section class="guide-section" id="verify">
+        <h2>어떤 증거가 있어야 대응을 마칠 수 있을까?</h2>
+        <ul>
+          <li><strong>대상과 기능.</strong> 서비스별 원본 서버, 프록시, 포함 제품과 모든 복제본을 목록화하고, 다섯 CVE마다 사용 기능과 외부·내부 노출 여부를 기록했습니다.</li>
+          <li><strong>설치와 실행.</strong> 패키지 전체 버전 또는 이미지 digest를 공급사 공지와 대조했습니다. 새 마스터와 워커의 기동 시각, 이전 프로세스·Pod의 종료를 확인했습니다.</li>
+          <li><strong>서비스 정상 동작.</strong> 로그인, 상품 조회, 업로드, 주문·결제 연동 등 해당 서비스의 정상 흐름을 승인된 테스트 거래나 상태 조회로 확인했습니다. 패치 전후 오류율도 대조했습니다.</li>
+          <li><strong>남은 노출.</strong> 임시 완화한 서버마다 제한한 기능, 담당자, 정식 패치 일정을 남겼습니다. SCTP는 호스트별 커널 수정 또는 완화 상태로 따로 기록했습니다.</li>
+          <li><strong>침해 조사.</strong> 조사한 기간과 로그 종류, 발견한 징후, 수집 공백과 필요한 후속 조치를 기록했습니다.</li>
+        </ul>
+        <h3>여러 서버의 결과를 AI로 취합할 때</h3>
+        <p>사내에서 승인한 AI 환경에 서버별 점검 결과의 필요한 부분만 넣습니다. 전체 설정 덤프 대신 인증정보·고객 정보·내부 주소를 제거한 발췌본과 익명화한 자산 식별자를 사용하세요. 아래처럼 요청하면 미확인 서버를 다시 찾기 쉽습니다.</p>
+        <div class="patch-template"><pre><code>서버·Pod별 결과를 다음 열로 묶어줘.
+대상 | 패키지 전체 버전·이미지 digest | 노출 기능·CVE | 공급사 수정 근거 |
+실행 프로세스 교체 증거 | NGINX 상태 | 호스트 SCTP 상태 | 남은 조치·담당·기한
+
+NGINX 상태는 ‘패치 완료’, ‘임시 완화’, ‘미조치’, ‘미확인’으로 구분해줘.
+각 CVE에 공급사가 ‘영향 없음’으로 판정했다면 제품·버전과 근거를 적어줘.
+공급사 자료끼리 판정이 엇갈리면 해당 CVE를 ‘미확인’으로 표시해줘.
+‘패치 완료’는 해당 CVE 전체의 수정 근거, 실제 설치 버전, 실행 교체가 확인된 경우에만 써줘.
+일부 경로만 제한했다면 다른 노출 경로를 남은 조치에 적어줘.
+자료가 없는 칸은 ‘미확인’으로 남기고, 같은 호스트를 쓰는 Pod는 표시해줘.</code></pre></div>
+        <p>마지막에는 운영자가 원래의 자산 목록과 표의 행을 대조합니다. <strong>표에 아예 빠진 서버</strong>는 ‘미확인’ 표시조차 없기 때문입니다. 이 가이드의 명령과 표는 운영자가 사용할 예시이며, 개별 시스템의 패치 판정에는 그 시스템에서 확보한 증거가 필요합니다.</p>
+        <p><a href="2026-10-26-server-security-patch.html">함께 읽기 · 서버 보안 패치 점검 가이드</a></p>
+        <a class="news-end-link" href="./">AI가이드 목록으로 돌아가기 <span aria-hidden="true">→</span></a>
+      </section>
+    </div>
+  </div>
+</article>
+</main>
+<footer class="footer"><div class="wrap">헬로우 휴먼 · Workless Engineering Club</div></footer>
+<script src="../assets/analytics.js?v=2" defer></script>
+<script src="../assets/article-toc.js?v=1" defer></script>
+<script type="module" src="../assets/content-updates.js?v=3"></script>
+</body>
+</html>
