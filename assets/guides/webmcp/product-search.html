@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>상품 검색 실습 · WebMCP · 헬로우 휴먼</title>
+  <style>
+    :root { color-scheme: light dark; font-family: system-ui, sans-serif; line-height: 1.6; }
+    body { max-width: 42rem; margin: 0 auto; padding: clamp(1rem, 5vw, 3rem); }
+    h1, h2, p { margin: 0 0 1rem; }
+    form { display: flex; flex-wrap: wrap; align-items: end; gap: .8rem; margin: 1.5rem 0; }
+    label { display: grid; gap: .25rem; flex: 1 1 10rem; }
+    input, button { box-sizing: border-box; font: inherit; border: 1px solid GrayText; border-radius: .4rem; padding: .5rem .7rem; }
+    input { width: 100%; }
+    button { cursor: pointer; }
+    output { display: block; padding: .8rem 1rem; border-inline-start: .25rem solid #43856d; background: color-mix(in srgb, CanvasText 5%, Canvas); }
+    li { margin-block: .4rem; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>상품 검색 실습</h1>
+  <p>가상 상품 세 개에서 검색합니다. 같은 조건을 검색창과 에이전트에 입력해 상품 번호와 가격을 비교하세요.</p>
+  <p id="tool-status" role="status">WebMCP 지원 여부를 확인하는 중입니다.</p>
+  <form id="search">
+    <label>상품명 <input name="query" type="search" value="텀블러" required maxlength="80"></label>
+    <label>최대 가격 (원) <input name="maxPrice" type="number" value="30000" min="0" step="1"></label>
+    <button type="submit">검색</button>
+  </form>
+  <output id="result" aria-live="polite">검색하면 결과가 여기에 표시됩니다.</output>
+  <h2>실습 상품 목록</h2>
+  <ul id="catalog">
+    <li data-id="P100" data-price="15000"><strong>머그컵</strong> · 15,000원 · P100</li>
+    <li data-id="P200" data-price="29000"><strong>텀블러 500ml</strong> · 29,000원 · P200</li>
+    <li data-id="P300" data-price="42000"><strong>텀블러 900ml</strong> · 42,000원 · P300</li>
+  </ul>
+  <noscript><p>상품 목록을 검색하려면 JavaScript를 켜세요.</p></noscript>
+</main>
+<script type="module">
+  const form = document.querySelector("#search");
+  const result = document.querySelector("#result");
+  const status = document.querySelector("#tool-status");
+  const products = Array.from(document.querySelectorAll("#catalog li"), row => ({
+    id: row.dataset.id,
+    name: row.querySelector("strong").textContent,
+    price: Number(row.dataset.price),
+  }));
+
+  function invalidInput(message) {
+    result.textContent = message;
+    return { ok: false, error: { code: "INVALID_ARGUMENT", message } };
+  }
+
+  function searchAndDisplay(input) {
+    if (!input || typeof input !== "object" || Array.isArray(input) ||
+        Object.keys(input).some(key => key !== "query" && key !== "maxPrice")) {
+      return invalidInput("상품명과 최대 가격만 입력하세요.");
+    }
+    const { query, maxPrice } = input;
+    if (typeof query !== "string" || !query.trim() || query.length > 80) {
+      return invalidInput("상품명은 1~80자로 입력하세요.");
+    }
+    if (maxPrice !== undefined && (!Number.isSafeInteger(maxPrice) || maxPrice < 0)) {
+      return invalidInput("최대 가격은 0원 이상의 정수로 입력하세요.");
+    }
+    const items = products.filter(product =>
+      product.name.includes(query.trim()) && (maxPrice === undefined || product.price <= maxPrice)
+    );
+    form.elements.query.value = query.trim();
+    form.elements.maxPrice.value = maxPrice ?? "";
+    const labels = items.map(item => `${item.name} · ${item.price.toLocaleString("ko-KR")}원 · ${item.id}`);
+    result.textContent = labels.length ? labels.join(" / ") : "조건에 맞는 상품이 없습니다.";
+    return { ok: true, currency: "KRW", items };
+  }
+
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+    const input = { query: form.elements.query.value };
+    if (form.elements.maxPrice.value !== "") input.maxPrice = form.elements.maxPrice.valueAsNumber;
+    searchAndDisplay(input);
+  });
+
+  const mc = document.modelContext;
+  if (typeof mc?.registerTool === "function") {
+    try {
+      await mc.registerTool({
+        name: "shop_search_products",
+        description: "실습 상품의 이름으로 검색합니다. 최대 가격(원) 이하의 상품만 조회할 수 있습니다.",
+        inputSchema: {
+          type: "object",
+          properties: {
+            query: { type: "string", minLength: 1, maxLength: 80 },
+            maxPrice: { type: "integer", minimum: 0, description: "원 단위, 상한 포함" },
+          },
+          required: ["query"],
+          additionalProperties: false,
+        },
+        annotations: { readOnlyHint: true },
+        execute: searchAndDisplay,
+      });
+      status.textContent = "WebMCP 도구 shop_search_products를 등록했습니다.";
+    } catch {
+      status.textContent = "도구 등록에 실패했습니다. 검색창으로 실습하거나 Chrome 설정을 확인하세요.";
+    }
+  } else {
+    status.textContent = "이 환경에서는 검색창으로 실습할 수 있습니다. WebMCP를 시험하려면 가이드의 Chrome 설정을 확인하세요.";
+  }
+</script>
+</body>
+</html>
