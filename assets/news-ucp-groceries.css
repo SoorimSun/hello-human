@@ -1,0 +1,27 @@
+.groceries-issue .news-article-header h1 {
+  max-width: none;
+  font-size: clamp(28px, 6.5vw, 68px);
+}
+.groceries-issue h1 span, .groceries-issue h1 em { display: block; }
+.groceries-issue h1, .groceries-issue h2 { word-break: keep-all; text-wrap: balance; }
+.groceries-issue .news-summary strong { margin-right: 0; }
+
+.settlement-example { margin: 28px 0; }
+.settlement-example figcaption { margin-bottom: 10px; font-weight: 700; }
+.settlement-example table { width: 100%; border-collapse: collapse; }
+.settlement-example th, .settlement-example td {
+  padding: 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+.settlement-example thead, .settlement-example tfoot { background: var(--surface-2); }
+.settlement-example tbody th { width: 24%; word-break: keep-all; }
+.settlement-example td:last-child, .settlement-example thead th:last-child {
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.settlement-example tfoot { font-weight: 700; }
+@media (max-width: 520px) {
+  .settlement-example th, .settlement-example td { padding: 8px 5px; font-size: 14px; }
+}
