@@ -1,0 +1,40 @@
+.riemann-issue .news-article-header h1 {
+  max-width: none;
+  font-size: clamp(24px, 6.35vw, 64px);
+}
+.riemann-issue h1 span, .riemann-issue h1 em { display: block; }
+.riemann-issue h2 { text-wrap: balance; }
+.riemann-issue .news-summary strong { margin-right: 0; }
+
+.proof-audit { margin: 26px 0; }
+.proof-audit pre {
+  margin: 0;
+  padding: 20px;
+  border-radius: var(--radius);
+  background: var(--term-bg);
+  color: var(--term-ink);
+  font: 500 15px/1.75 var(--mono);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.proof-audit code { font: inherit; }
+.proof-audit figcaption { margin-top: 8px; color: var(--muted); font-size: 14px; }
+.proof-checks { padding-left: 1.6em; }
+.proof-checks li { margin-bottom: 12px; padding-left: .25em; }
+.proof-checks li::marker { color: var(--accent); font-weight: 700; }
+
+.coupon-trace {
+  width: 100%;
+  margin: 24px 0;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+.coupon-trace caption { padding-bottom: 10px; text-align: left; font-weight: 700; }
+.coupon-trace thead { background: var(--surface-2); }
+.coupon-trace th, .coupon-trace td { padding: 10px; border-bottom: 1px solid var(--line); }
+.coupon-trace th:first-child { width: 47%; text-align: left; }
+.coupon-trace td { text-align: center; }
+@media (max-width: 520px) {
+  .coupon-trace { font-size: 14px; }
+  .coupon-trace th, .coupon-trace td { padding: 8px 5px; }
+}

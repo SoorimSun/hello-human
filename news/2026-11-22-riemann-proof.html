@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>클로드와 쓴 리만 가설 증명, 독립 검증 통과 · AI뉴스 · 헬로우 휴먼</title>
+  <meta name="description" content="레벤트 알푀게가 클로드와 함께 쓴 증명을 공개했습니다. Lean·Mathlib 커뮤니티는 코드가 증명한 명제가 리만 가설과 일치하고, 독립 검증기들도 그 증명을 받아들였다고 밝혔습니다.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="클로드와 쓴 리만 가설 증명, 독립 검증 통과">
+  <meta property="og:description" content="레벤트 알푀게가 클로드와 함께 쓴 증명을 공개했습니다. Lean·Mathlib 커뮤니티는 코드가 증명한 명제가 리만 가설과 일치하고, 독립 검증기들도 그 증명을 받아들였다고 밝혔습니다.">
+  <meta property="og:url" content="https://soorimsun.github.io/hello-human/news/2026-11-22-riemann-proof.html">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+  <script src="../assets/theme.js?v=3"></script>
+  <link rel="stylesheet" href="../assets/style.css?v=9">
+  <link rel="stylesheet" href="../assets/news.css?v=10">
+  <link rel="stylesheet" href="../assets/news-riemann-proof.css?v=1">
+  <link rel="stylesheet" href="../assets/content-updates.css?v=1">
+</head>
+<body class="riemann-issue">
+  <header class="topbar"><div class="wrap topbar-inner">
+    <a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+    <nav class="news-nav" aria-label="사이트 메뉴"><a href="../">모임 소개</a><a href="./">AI뉴스</a><a href="../guides/">AI가이드</a><a href="../insights/">인사이트</a><a href="../case-studies/">사례연구</a><a data-newsletter-entry href="../newsletters/">뉴스레터</a></nav>
+  </div></header>
+  <main><article>
+    <header class="news-article-header wrap">
+      <a class="news-back" href="./">← AI뉴스 목록</a>
+      <p class="news-kicker">AI NEWS <span aria-hidden="true">/</span> ISSUE 55</p>
+      <h1><span>클로드와 쓴 리만 가설 증명,</span> <em>독립 검증 통과</em></h1>
+      <p class="news-deck">수학자 레벤트 알푀게가 홈페이지에 올린 발표문은 네 쪽이었습니다. 정작 증명은 함께 공개한 약 1,700만 줄의 Lean 코드에 들어 있었습니다.</p>
+      <div class="news-article-meta"><time datetime="2026-11-22">2026년 11월 22일 일요일</time><span>헬로우 휴먼 AI뉴스</span><span>한국시간 기준</span></div>
+    </header>
+    <div class="news-article-shell wrap">
+      <nav class="news-toc" aria-label="기사 목차"><span>이번 호</span>
+        <a href="#summary">30초 요약</a>
+        <a href="#announcement">알푀게가 공개한 증명</a>
+        <a href="#verification">검증진이 확인한 네 가지</a>
+        <a href="#exposition">증명을 읽는 수학자들</a>
+        <a href="#our-view">헬로우 휴먼의 관점</a>
+        <a href="#experiment">쿠폰 복구 규칙 실험</a>
+        <a href="#sources">읽은 자료</a>
+      </nav>
+      <div class="news-story">
+        <section id="summary" class="news-summary" aria-labelledby="summary-title">
+          <p class="news-section-label">AT A GLANCE</p><h2 id="summary-title">30초 요약</h2>
+          <ul>
+            <li><strong>11월 20일</strong> 앤트로픽 소속 수학자 레벤트 알푀게가 클로드와 함께 리만 가설의 증명을 찾았다고 발표했습니다.</li>
+            <li><strong>이튿날</strong> Lean·Mathlib 커뮤니티는 공개된 코드가 리만 가설을 증명한다고 밝혔습니다. 서로 다른 검증기들이 같은 증명을 받아들였습니다.</li>
+            <li><strong>워털루대</strong>에서는 같은 날 증명의 아이디어를 풀어 쓴 해설 초안이 나왔습니다. 핵심 부등식의 증명은 아직 Lean 코드를 봐야 합니다.</li>
+          </ul>
+        </section>
+        <p class="news-method"><b>자료 확인</b> 2026년 11월 22일(한국시간). 발표 날짜는 각 원문을 따랐습니다.</p>
+
+        <section id="announcement" class="news-story-section">
+          <p class="news-section-label">CLAUDE · 수학 연구</p>
+          <h2>알푀게와 클로드가 함께 푼 문제</h2>
+          <p>소수는 불규칙하게 나타나지만, 어떤 수까지 소수가 몇 개쯤 있을지는 꽤 잘 어림할 수 있습니다. 그 어림값이 실제 개수에서 얼마나 벗어날 수 있는지가 리만 가설과 연결됩니다. 1859년 리만이 내놓은 가설에 따르면, 제타 함수의 값이 0이 되는 점 가운데 <strong>비자명한 영점은 모두 실수부가 ½인 직선 위에 놓입니다.</strong> 아무리 많은 영점이 그 선 위에 있다는 걸 계산해 보여도, 나머지 영점까지 설명하려면 증명이 필요합니다. <a class="source-link" href="https://www.claymath.org/millennium/riemann-hypothesis/" target="_blank" rel="noopener noreferrer">클레이 수학연구소의 문제 설명 ↗</a></p>
+          <p>알푀게(Levent Alpöge)는 11월 20일 발표문에서 클로드와 어떻게 일했는지도 이야기했습니다. 알푀게가 단순한 문제에서 얻은 두 아이디어를 원래 문제에 적용할 길을 잡았고, 마지막 고비에서 결정적인 제안을 한 쪽은 클로드였다고 합니다. 알푀게가 공개한 코드에는 리만 가설을 디리클레 L함수로 확장한 정리들의 증명도 들어 있습니다. <a class="source-link" href="https://alpo.ge/remark.pdf" target="_blank" rel="noopener noreferrer">알푀게의 발표문 ↗</a> · <a class="source-link" href="https://math.mit.edu/~drew/grh/" target="_blank" rel="noopener noreferrer">제출된 다섯 정리의 범위 ↗</a></p>
+        </section>
+
+        <section id="verification" class="news-story-section">
+          <p class="news-section-label">LEAN · MATHLIB</p>
+          <h2>코드가 증명한 명제</h2>
+          <p>Lean에서 쓰는 수학 라이브러리 <strong>Mathlib</strong>에는 리만 가설이 이미 정의돼 있었습니다. 검증진은 새 파일을 열고 Mathlib만 불러왔습니다. 알푀게의 코드를 거치지 않고도 비교 기준을 마련할 수 있었던 겁니다. <a class="source-link" href="https://leanprover-community.github.io/mathlib4_docs/Mathlib/NumberTheory/LSeries/RiemannZeta.html#RiemannHypothesis" target="_blank" rel="noopener noreferrer">Mathlib의 리만 가설 정의 ↗</a></p>
+          <figure class="proof-audit">
+            <pre><code>riemannHypothesis : RiemannHypothesis
+'riemannHypothesis' depends on axioms: [propext, Classical.choice, Quot.sound]</code></pre>
+            <figcaption>MIT의 앤드루 서덜랜드가 남긴 검사 기록입니다. 첫 줄 왼쪽은 알푀게가 붙인 정리 이름이고, 오른쪽은 Mathlib의 리만 가설입니다. 그 아래에는 이 증명이 기대고 있는 세 공리가 적혀 있습니다. <a class="source-link" href="https://math.mit.edu/~drew/grh/audit.log" target="_blank" rel="noopener noreferrer">공리 검사 원본 로그 ↗</a></figcaption>
+          </figure>
+          <p>11월 21일, Lean·Mathlib 커뮤니티는 증명이 옳다고 판단한 근거를 네 가지로 짚었습니다. Lean FRO와 Mathlib Initiative도 공동 성명을 지지했습니다. <a class="source-link" href="https://leanprover-community.github.io/blog/posts/riemann-hypothesis/" target="_blank" rel="noopener noreferrer">Lean·Mathlib 공동 성명 ↗</a></p>
+          <ol class="proof-checks">
+            <li>Lean과 정수론 전문가들이 Mathlib의 정의를 검토했습니다. 수학에서 말하는 리만 가설을 코드로 정확히 표현했다는 판단입니다.</li>
+            <li>여러 사람이 공개된 라이브러리를 각자 컴파일했습니다. 이들이 얻은 증명 데이터는 같았습니다.</li>
+            <li><code>comparator</code>와 <code>con-leche</code>로 알푀게가 증명한 명제를 Mathlib의 정의와 대조했습니다. 어느 도구로 보더라도 두 명제는 일치했습니다.</li>
+            <li>마지막으로 검증진은 코드에서 추출한 증명 데이터를 검사했습니다. 이 덕에 검사 도중에는 원래 코드가 실행되지 않습니다. Lean의 공식 커널과 독립 검증기들 모두 증명을 받아들였습니다.</li>
+          </ol>
+          <p>서덜랜드의 기록에는 Claude Code로 검사를 돌린 과정이 더 자세히 나옵니다. 11월 21일 12:55 UTC에 남긴 기록을 보면 <strong>175,187개 모듈</strong>이 모두 컴파일됐고, 독립 검증기 <code>nanoda</code>와 <code>con-leche</code> 모두 추출된 증명을 받아들였습니다. 그 시각 서덜랜드 쪽에서는 <code>lake comparator</code> 전체 실행과 Lean 커널로 추출본을 다시 검사하는 작업이 진행 중이었습니다. 공동 성명에는 다른 참여자들이 끝낸 검사까지 담겼습니다. <a class="source-link" href="https://math.mit.edu/~drew/grh/" target="_blank" rel="noopener noreferrer">서덜랜드의 항목별 결과 ↗</a></p>
+        </section>
+
+        <section id="exposition" class="news-story-section">
+          <p class="news-section-label">수학계의 후속 작업</p>
+          <h2>수학자들이 읽을 해설도 나왔습니다</h2>
+          <p>워털루대의 마이클 루빈스타인은 11월 21일 리만 제타 함수에 관한 해설 초안을 내놨습니다. 소수에 가중치를 주어 더한 두 합 사이에 어떤 부등식이 성립하면, 거기서 리만 가설을 이끌어 낼 수 있다는 설명입니다. 다만 그 부등식이 왜 성립하는지까지 해설에 풀어 쓰지는 않았습니다. 그 대목에서는 Lean으로 증명한 결과를 가져다 씁니다. <a class="source-link" href="https://www.math.uwaterloo.ca/~mrubinst/alpoge_claude_grh/" target="_blank" rel="noopener noreferrer">루빈스타인의 해설과 검증 기록 ↗</a></p>
+          <p>11월 22일 현재 클레이 수학연구소는 리만 가설을 ‘미해결’로 표시하고 있습니다. 밀레니엄상 심사에는 별도 절차가 있습니다. 규정에 맞는 학술 매체에 해법을 발표한 뒤 적어도 2년이 지나야 하고, 그 해법을 세계 수학계가 널리 받아들여야 합니다. <a class="source-link" href="https://www.claymath.org/millennium/riemann-hypothesis/" target="_blank" rel="noopener noreferrer">클레이의 문제 페이지 ↗</a> · <a class="source-link" href="https://www.claymath.org/millennium-problems/rules/" target="_blank" rel="noopener noreferrer">밀레니엄상 심사 요건 ↗</a></p>
+        </section>
+
+        <section id="our-view" class="news-story-section news-view">
+          <p class="news-section-label">OUR VIEW</p>
+          <h2>‘주문을 취소하면 쿠폰을 돌려준다’는 말</h2>
+          <p>고객이 셔츠와 양말을 함께 샀다가 양말만 취소했습니다. 기획서에는 ‘주문을 취소하면 쿠폰을 돌려준다’고만 적혀 있습니다. 에이전트가 양말 한 켤레만 취소해도 쿠폰을 돌려주도록 코드를 짰다면, 같은 해석으로 만든 테스트는 그대로 통과합니다.</p>
+          <p>수학자들에게 Mathlib에 미리 적어 둔 명제가 있었듯, 개발팀에도 코드와 대조할 답이 필요합니다. 이 경우라면 업무 담당자에게 양말만 취소한 주문을 보여주는 게 빠릅니다. ‘셔츠가 남아 있으니 쿠폰은 그대로예요. 셔츠까지 취소하면 한 번 돌려주세요.’ 이 답을 기준으로 삼으면 방금 통과한 테스트에서 무엇을 놓쳤는지 보입니다.</p>
+        </section>
+
+        <section id="experiment" class="news-story-section">
+          <p class="news-section-label">OUR LAB · 실험 제안</p>
+          <h2>취소 요청을 한 번 더 보내 보는 실험</h2>
+          <p>셔츠와 양말을 살 때 일회용 쿠폰을 썼다고 가정해 봅시다. 양말과 셔츠를 차례로 취소한 뒤, 셔츠 취소 요청을 같은 번호로 한 번 더 보냅니다. 세 번째 요청 뒤에도 쿠폰을 돌려준 기록은 한 건이어야 합니다.</p>
+          <table class="coupon-trace">
+            <caption>같은 주문에 차례로 보낸 요청과 기대 결과</caption>
+            <thead><tr><th scope="col">취소 요청</th><th scope="col">다시 쓸 수 있는 횟수</th><th scope="col">누적 복구 기록</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">양말만 취소</th><td>0회</td><td>0건</td></tr>
+              <tr><th scope="row">남은 셔츠도 취소</th><td>1회</td><td>1건</td></tr>
+              <tr><th scope="row">셔츠 취소 요청을 같은 번호로 재전송</th><td>1회</td><td>1건</td></tr>
+            </tbody>
+          </table>
+          <p>마지막 두 줄에서 쿠폰은 똑같이 한 번 쓸 수 있습니다. 화면에 ‘1회’라고 떠도 장부에는 두 번 돌려줬다고 적힐 수 있어, 복구 기록까지 봐야 합니다. 취소 순서와 재전송 시점을 바꿔 이런 사례를 20개쯤 만들고, 기대값을 적은 파일은 에이전트가 고칠 수 없게 둡니다.</p>
+          <p>정상 코드 외에 일부러 잘못 짠 버전도 두 개 준비합니다. 하나는 양말만 취소해도 쿠폰을 돌려주고, 다른 하나는 같은 요청이 다시 오면 복구 기록을 또 남깁니다. 세 버전에 에이전트가 짠 테스트와 업무 담당자의 기대값으로 만든 테스트를 각각 돌려 봅니다.</p>
+          <p>두 테스트가 어느 결함을 놓쳤는지, 정상 코드까지 실패로 처리했는지 비교합니다. 실패한 요청은 기대값과 실제값을 나란히 남겨 다시 돌려 보고, 사람이 원인을 찾는 데 걸린 시간도 함께 잽니다.</p>
+        </section>
+
+        <section id="sources" class="news-sources">
+          <p class="news-section-label">SOURCES</p><h2>읽은 자료</h2>
+          <ul>
+            <li><a class="source-link" href="https://alpo.ge/remark.pdf" target="_blank" rel="noopener noreferrer">레벤트 알푀게의 발표문 (PDF) ↗</a> <span>알푀게가 쓴 협업 경위와 코드 공개 방식</span></li>
+            <li><a class="source-link" href="https://leanprover-community.github.io/blog/posts/riemann-hypothesis/" target="_blank" rel="noopener noreferrer">Lean·Mathlib 공동 성명 ↗</a> · <a class="source-link" href="https://leanprover-community.github.io/mathlib4_docs/Mathlib/NumberTheory/LSeries/RiemannZeta.html#RiemannHypothesis" target="_blank" rel="noopener noreferrer">Mathlib에 정의된 리만 가설 ↗</a></li>
+            <li><a class="source-link" href="https://math.mit.edu/~drew/grh/" target="_blank" rel="noopener noreferrer">앤드루 서덜랜드의 검증 기록 ↗</a> · <a class="source-link" href="https://math.mit.edu/~drew/grh/audit.log" target="_blank" rel="noopener noreferrer">공리 검사 로그 ↗</a></li>
+            <li><a class="source-link" href="https://www.math.uwaterloo.ca/~mrubinst/alpoge_claude_grh/" target="_blank" rel="noopener noreferrer">마이클 루빈스타인의 해설 초안과 독립 검증 ↗</a></li>
+            <li><a class="source-link" href="https://www.claymath.org/millennium/riemann-hypothesis/" target="_blank" rel="noopener noreferrer">클레이 수학연구소의 리만 가설 설명 ↗</a> · <a class="source-link" href="https://www.claymath.org/millennium-problems/rules/" target="_blank" rel="noopener noreferrer">밀레니엄상 규정 ↗</a></li>
+          </ul>
+        </section>
+        <a class="news-end-link" href="./">AI뉴스 목록으로 돌아가기 <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </article></main>
+  <footer class="footer"><div class="wrap">헬로우 휴먼 · Workless Engineering Club</div></footer>
+  <script src="../assets/analytics.js?v=2" defer></script>
+  <script src="../assets/article-toc.js?v=1" defer></script>
+  <script type="module" src="../assets/content-updates.js?v=3"></script>
+</body>
+</html>

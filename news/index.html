@@ -43,23 +43,33 @@
   <section class="news-list-section wrap" aria-labelledby="news-list-heading">
     <div class="news-list-heading">
       <h2 id="news-list-heading">발행한 뉴스</h2>
-      <span>총 <span data-news-total>70</span>편</span>
+      <span>총 <span data-news-total>71</span>편</span>
     </div>
     <div class="news-tabs" role="tablist" aria-label="뉴스 종류" hidden>
       <button class="news-tab" type="button" role="tab" id="all-news" aria-controls="news-feed" aria-selected="true" data-news-filter="all">
-        전체 최신순 <span class="news-tab-count" data-news-count="all">70</span>
+        전체 최신순 <span class="news-tab-count" data-news-count="all">71</span>
       </button>
       <button class="news-tab" type="button" role="tab" id="briefs" aria-controls="news-feed" aria-selected="false" tabindex="-1" data-news-filter="briefs">
         속보·단신 <span class="news-tab-count" data-news-count="briefs">16</span>
       </button>
       <button class="news-tab" type="button" role="tab" id="regular-news" aria-controls="news-feed" aria-selected="false" tabindex="-1" data-news-filter="regular-news">
-        일반뉴스 <span class="news-tab-count" data-news-count="regular-news">54</span>
+        일반뉴스 <span class="news-tab-count" data-news-count="regular-news">55</span>
       </button>
     </div>
     <p class="news-sort-note">최신 발행순 · 같은 날짜에는 속보·단신을 먼저 보여드립니다.</p>
     <div id="news-feed">
       <!-- Add each article once, newest first; tabs filter this shared catalogue. -->
       <ol class="news-issues">
+        <li data-news-kind="regular-news">
+          <a class="news-issue" href="2026-11-22-riemann-proof.html">
+            <span class="news-issue-main">
+              <span class="news-issue-meta"><span class="news-kind news-kind-regular-news">일반뉴스 55</span> <time datetime="2026-11-22">2026. 11. 22</time> · Claude / Lean / Mathlib</span>
+              <strong>클로드와 쓴 리만 가설 증명, 독립 검증 통과</strong>
+              <span>레벤트 알푀게가 클로드와 함께 쓴 증명을 공개했습니다. Lean·Mathlib 커뮤니티는 코드가 증명한 명제가 리만 가설과 일치하고, 독립 검증기들도 그 증명을 받아들였다고 밝혔습니다.</span>
+            </span>
+            <span class="news-issue-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
         <li data-news-kind="regular-news">
           <a class="news-issue" href="2026-11-21-ucp-groceries.html">
             <span class="news-issue-main">
