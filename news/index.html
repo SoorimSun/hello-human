@@ -43,23 +43,33 @@
   <section class="news-list-section wrap" aria-labelledby="news-list-heading">
     <div class="news-list-heading">
       <h2 id="news-list-heading">발행한 뉴스</h2>
-      <span>총 <span data-news-total>71</span>편</span>
+      <span>총 <span data-news-total>72</span>편</span>
     </div>
     <div class="news-tabs" role="tablist" aria-label="뉴스 종류" hidden>
       <button class="news-tab" type="button" role="tab" id="all-news" aria-controls="news-feed" aria-selected="true" data-news-filter="all">
-        전체 최신순 <span class="news-tab-count" data-news-count="all">71</span>
+        전체 최신순 <span class="news-tab-count" data-news-count="all">72</span>
       </button>
       <button class="news-tab" type="button" role="tab" id="briefs" aria-controls="news-feed" aria-selected="false" tabindex="-1" data-news-filter="briefs">
         속보·단신 <span class="news-tab-count" data-news-count="briefs">16</span>
       </button>
       <button class="news-tab" type="button" role="tab" id="regular-news" aria-controls="news-feed" aria-selected="false" tabindex="-1" data-news-filter="regular-news">
-        일반뉴스 <span class="news-tab-count" data-news-count="regular-news">55</span>
+        일반뉴스 <span class="news-tab-count" data-news-count="regular-news">56</span>
       </button>
     </div>
     <p class="news-sort-note">최신 발행순 · 같은 날짜에는 속보·단신을 먼저 보여드립니다.</p>
     <div id="news-feed">
       <!-- Add each article once, newest first; tabs filter this shared catalogue. -->
       <ol class="news-issues">
+        <li data-news-kind="regular-news">
+          <a class="news-issue" href="2026-11-23-sarvam-model-limits.html">
+            <span class="news-issue-main">
+              <span class="news-issue-meta"><span class="news-kind news-kind-regular-news">일반뉴스 56</span> <time datetime="2026-11-23">2026. 11. 23</time> · Sarvam / OpenAI</span>
+              <strong>고객이 “잠깐만요” 하자, 사르밤의 상담 모델은 기다렸다</strong>
+              <span>영어 상담에서는 기다려야 했고, 힌디어 상담에서는 말을 이어 가야 했습니다. 사르밤이 공개한 두 장면과 OpenAI 수석과학자가 모델 훈련을 언제 멈출지 미리 정하자고 한 이유를 살펴봅니다.</span>
+            </span>
+            <span class="news-issue-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
         <li data-news-kind="regular-news">
           <a class="news-issue" href="2026-11-22-riemann-proof.html">
             <span class="news-issue-main">

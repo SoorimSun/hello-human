@@ -1,0 +1,36 @@
+.sarvam-issue .news-article-header h1 {
+  max-width: none;
+  font-size: clamp(22px, 6vw, 64px);
+}
+.sarvam-issue h1 span, .sarvam-issue h1 em { display: block; }
+.sarvam-issue h1, .sarvam-issue h2 { word-break: keep-all; text-wrap: balance; }
+.sarvam-issue .news-summary strong { margin-right: 0; }
+.sarvam-issue .news-story code { overflow-wrap: anywhere; }
+.sarvam-issue .issue-media { margin: 28px 0; }
+.sarvam-issue .issue-media img, .sarvam-issue .issue-media video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.sarvam-issue .issue-media figcaption {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+.sarvam-issue .review-trace { width: 100%; margin: 24px 0; border-collapse: collapse; }
+.sarvam-issue .review-trace caption { padding-bottom: 10px; text-align: left; font-weight: 700; }
+.sarvam-issue .review-trace thead { background: var(--surface-2); }
+.sarvam-issue .review-trace th, .sarvam-issue .review-trace td {
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+  word-break: keep-all;
+}
+@media (max-width: 520px) {
+  .sarvam-issue .review-trace { font-size: 14px; }
+  .sarvam-issue .review-trace th, .sarvam-issue .review-trace td { padding: 9px 5px; }
+}
