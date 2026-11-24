@@ -59,7 +59,7 @@
       <section class="guide-section" id="try-search">
         <h2>검색창과 도구에서 같은 텀블러 찾기</h2>
         <p><a href="../assets/guides/webmcp/product-search.html"><strong>상품 검색 실습 열기 →</strong></a> &nbsp; <a href="../assets/guides/webmcp/product-search.html" download>실습 HTML 내려받기</a></p>
-        <p>실습 파일에는 머그컵 15,000원, 텀블러 500ml 29,000원, 텀블러 900ml 42,000원이 들어 있습니다. 검색창에 <strong>텀블러</strong>와 <strong>30000</strong>을 넣고 검색하세요. 상품 번호 <code>P200</code> 한 건이 기준 답입니다. 최대 가격을 29,000원으로 낮춰도 그 상품이 남고, 28,999원으로 바꾸면 결과가 비어야 합니다.</p>
+        <p>실습 파일에는 머그컵 15,000원, 텀블러 500ml 29,000원, 텀블러 900ml 42,000원이 들어 있습니다. 검색창에 <strong>텀블러</strong>와 <strong>30000</strong>을 넣고 검색하세요. 상품 번호 <code>P200</code> 한 건이 기준 답입니다. 최대 가격을 29,000원으로 낮춰도 그 텀블러가 남습니다. 여기서 100원을 더 줄여 28,900원으로 검색하면 조건에 맞는 텀블러가 없습니다.</p>
         <h3>같은 검색을 WebMCP로 실행하기</h3>
         <ol>
           <li>개발용 Chrome 프로필에서 <code>chrome://flags/#enable-webmcp-testing</code>을 <strong>Enabled</strong>로 바꾸고 브라우저를 다시 시작합니다.</li>
@@ -141,7 +141,7 @@ console.log(JSON.parse(raw));</code></pre>
           <table>
             <thead><tr><th scope="col">시험할 일</th><th scope="col">통과 기준</th></tr></thead>
             <tbody>
-              <tr><th scope="row">3만 원 이하 텀블러 검색</th><td>검색창·직접 호출·자연어 호출 모두 P200 한 건. 29,000원 상한에도 포함되고 28,999원 상한에는 0건입니다.</td></tr>
+              <tr><th scope="row">3만 원 이하 텀블러 검색</th><td>검색창·직접 호출·자연어 호출 모두 P200 한 건. 최대 가격이 29,000원이면 P200 한 건, 28,900원이면 0건입니다.</td></tr>
               <tr><th scope="row">빈 검색어·음수 가격</th><td>입력 오류를 안내합니다. 상품이 없는 정상 조회는 성공과 빈 목록을 반환합니다.</td></tr>
               <tr><th scope="row">품절 옵션 확인</th><td>같은 상품의 다른 색상이 판매 중이어도 선택한 품절 옵션은 구매 불가로 표시합니다.</td></tr>
               <tr><th scope="row">본인 주문·다른 고객 주문·로그아웃</th><td>본인 주문은 마이페이지와 배송 단계가 같습니다. 다른 계정에서는 주문 정보가 보이지 않고 세션 만료 시 재로그인을 안내합니다.</td></tr>
