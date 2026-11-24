@@ -1,0 +1,96 @@
+/* This issue keeps the original product examples at their published aspect ratios. */
+.ship-issue .news-article-header h1 {
+  max-width: 100%;
+  font-size: clamp(36px, 6vw, 70px);
+}
+.ship-issue .news-article-header h1 > * {
+  display: block;
+  word-break: keep-all;
+  text-wrap: balance;
+}
+.ship-issue .ship-media { margin: 28px 0; }
+.ship-issue .ship-media img,
+.ship-issue .ship-media video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.ship-issue .approval-shot img { max-width: 620px; }
+.netflix-review-flow {
+  margin: 26px 0 0;
+  padding: clamp(18px, 3vw, 28px);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.netflix-review-flow figcaption strong { display: block; font-size: 21px; }
+.netflix-review-flow figcaption span { color: var(--muted); font-size: 14px; }
+.netflix-review-flow ol { list-style: none; margin: 22px 0 14px; padding: 0; }
+.netflix-review-flow li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 0 14px;
+  margin-left: 5px;
+  padding: 0 0 18px 20px;
+  border-left: 2px solid var(--line);
+}
+.netflix-review-flow li:last-child { border-color: transparent; padding-bottom: 0; }
+.netflix-review-flow li::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: .55em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--muted);
+}
+.netflix-review-flow .human-review b { color: var(--accent); }
+.netflix-review-flow .human-review::before { background: var(--accent); }
+.netflix-review-flow p { border-top: 1px solid var(--line); padding-top: 10px; font-weight: 650; }
+.ship-issue .ship-media figcaption,
+.ship-issue .ship-policy figcaption {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.ship-issue .ship-policy {
+  margin: 26px 0;
+  padding: clamp(16px, 3vw, 26px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.ship-issue .ship-policy figcaption { margin-top: 0; }
+.ship-issue .ship-policy figcaption strong { display: block; color: var(--ink); font-size: 21px; }
+.ship-issue .ship-policy ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+}
+.ship-issue .ship-policy li { border-top: 2px solid var(--ink); padding-top: 8px; }
+.ship-issue .ship-policy li span { display: block; margin-top: 4px; color: var(--muted); font-size: 15px; }
+.ship-issue .ship-policy dl {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  margin: 0;
+  font-size: 16px;
+}
+.ship-issue .ship-policy dt,
+.ship-issue .ship-policy dd { padding: 8px 0; border-top: 1px solid var(--line); }
+.ship-issue .ship-policy dd { margin: 0; padding-left: 14px; font-weight: 700; }
+@media (max-width: 600px) {
+  .netflix-review-flow li { grid-template-columns: 1fr; }
+  .ship-issue .news-article-header h1 { font-size: clamp(24px, 7.8vw, 40px); }
+  .ship-issue .ship-policy ol,
+  .ship-issue .ship-policy dl { grid-template-columns: 1fr; }
+  .ship-issue .ship-policy dd { padding: 0 0 10px; border-top: 0; }
+  .ship-issue .ship-policy dt { padding-bottom: 2px; color: var(--muted); }
+}
