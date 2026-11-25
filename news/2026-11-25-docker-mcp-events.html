@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Docker Agent, 알림이 오면 작업을 시작한다 · AI뉴스 · 헬로우 휴먼</title>
+  <meta name="description" content="Docker Agent가 서버 알림을 구독할 수 있게 됐습니다. 배송이 늦은 주문을 예로 들어 무엇이 달라지는지 살펴봅니다. 영국에 출시된 Meta Muse의 결제 화면과 구글 딥마인드의 네온사인 문제도 담았습니다.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Docker Agent, 알림이 오면 작업을 시작한다">
+  <meta property="og:description" content="Docker Agent가 서버 알림을 구독할 수 있게 됐습니다. 배송이 늦은 주문을 예로 들어 무엇이 달라지는지 살펴봅니다. 영국에 출시된 Meta Muse의 결제 화면과 구글 딥마인드의 네온사인 문제도 담았습니다.">
+  <meta property="og:url" content="https://soorimsun.github.io/hello-human/news/2026-11-25-docker-mcp-events.html">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+  <script src="../assets/theme.js?v=3"></script>
+  <link rel="stylesheet" href="../assets/style.css?v=9">
+  <link rel="stylesheet" href="../assets/news.css?v=10">
+  <link rel="stylesheet" href="../assets/news-docker-events.css?v=3">
+  <link rel="stylesheet" href="../assets/content-updates.css?v=1">
+</head>
+<body class="events-issue">
+  <header class="topbar"><div class="wrap topbar-inner">
+    <a class="logo" href="../">hello, human<span class="cursor" aria-hidden="true">_</span></a>
+    <nav class="news-nav" aria-label="사이트 메뉴"><a href="../">모임 소개</a><a href="./">AI뉴스</a><a href="../guides/">AI가이드</a><a href="../insights/">인사이트</a><a href="../case-studies/">사례연구</a><a data-newsletter-entry href="../newsletters/">뉴스레터</a></nav>
+  </div></header>
+  <main><article>
+    <header class="news-article-header wrap">
+      <a class="news-back" href="./">← AI뉴스 목록</a>
+      <p class="news-kicker">AI NEWS <span aria-hidden="true">/</span> ISSUE 58</p>
+      <h1><span>Docker Agent, 알림이 오면</span> <em>작업을 시작한다</em></h1>
+      <p class="news-deck">Docker 개발팀이 공개한 예제에서 사용자는 에이전트에게 5초 간격으로 메시지를 세 번 받아 달라고 합니다. 두 번째, 세 번째 메시지가 올 때는 다시 말을 걸 필요가 없습니다. 배송 업무에 이 방식을 쓴다면 지연 알림이 올 때마다 에이전트가 해당 주문의 출고 기록을 찾아볼 수 있습니다.</p>
+      <div class="news-article-meta"><time datetime="2026-11-25">2026년 11월 25일 수요일</time><span>헬로우 휴먼 AI뉴스</span><span>한국시간 기준</span></div>
+    </header>
+    <div class="news-article-shell wrap">
+      <nav class="news-toc" aria-label="기사 목차"><span>이번 호</span>
+        <a href="#summary">30초 요약</a>
+        <a href="#docker">Docker Agent가 알림을 받는 방법</a>
+        <a href="#muse">Muse의 결제 화면</a>
+        <a href="#hfe">네온사인으로 보는 모델 시험</a>
+        <a href="#sdk">주문 취소 전 입력 검사</a>
+        <a href="#bigquery">검색어와 상품명의 뜻 비교</a>
+        <a href="#our-view">배송 지연 알림을 받았다면</a>
+        <a href="#experiment">야간 배치 기록 100건</a>
+        <a href="#sources">읽은 자료</a>
+      </nav>
+      <div class="news-story">
+        <section id="summary" class="news-summary" aria-labelledby="summary-title">
+          <p class="news-section-label">AT A GLANCE</p><h2 id="summary-title">30초 요약</h2>
+          <ul>
+            <li><strong>Docker Agent</strong>에 서버 알림을 구독하는 실험 기능이 생겼습니다. 한 번 구독해 두면 서버에 새 소식이 있을 때마다 알림을 받습니다.</li>
+            <li>영국에 출시된 <strong>Meta Muse</strong>는 상품을 찾아 장바구니에 담고, 결제하기 전에 사용자에게 승인을 받습니다.</li>
+            <li><strong>구글 딥마인드</strong>는 쉬운 문제도 조건을 조금 바꾸거나 여러 번 물으면 모델이 틀리는지 살펴보는 시험을 공개했습니다.</li>
+            <li><strong>OpenAI</strong>가 Agents SDK를 고쳤습니다. 이제 입력 검사에서 요청을 거부하면 실행을 기다리던 도구도 멈춥니다.</li>
+            <li><strong>BigQuery</strong>가 짧은 문구의 뜻을 비교하는 내장 모델을 정식 출시했습니다. 검색어와 어울리는 상품명을 찾는 데 쓸 수 있습니다.</li>
+          </ul>
+        </section>
+        <section id="docker" class="news-story-section">
+          <p class="news-section-label">DOCKER · MCP EVENTS</p>
+          <h2>서버가 먼저 소식을 보내는 방법</h2>
+          <p>이 예제에서 에이전트가 먼저 하는 일은 서버에 연결해 데모 알림을 구독하는 겁니다. 연결을 열어 둔 채 기다리면 서버가 새 메시지를 보냅니다. 이런 방식을 <strong>푸시(Push)</strong>라고 합니다. 11월 24일에 나온 <strong>Docker Agent v1.165.0</strong>에서 실험 기능으로 써 볼 수 있습니다. <a class="source-link" href="https://github.com/docker/docker-agent/pull/4895" target="_blank" rel="noopener noreferrer">Docker 개발팀의 예제 ↗</a></p>
+          <figure id="agent-comparison" class="events-media">
+            <a href="../assets/news/mcp-events-agent-comparison.webp" aria-label="배송 지연 조사 비교 도식 크게 보기"><img src="../assets/news/mcp-events-agent-comparison.webp" width="1402" height="1122" loading="lazy" decoding="async" alt="위쪽에서는 담당자가 질문한 뒤 에이전트가 배송 기록을 찾습니다. 아래쪽에서는 배송 지연 알림이 MCP Events를 통해 에이전트에 도착하면 바로 기록을 모읍니다. 양쪽 모두 마지막에는 담당자가 대응 방법을 정합니다."></a>
+            <figcaption>배송 지연을 예로 든 그림입니다. 위쪽은 담당자가 “이 주문은 왜 늦지?”라고 묻는 데서, 아래쪽은 배송 시스템이 지연을 알리는 데서 시작합니다. 고객에게 어떻게 안내할지는 두 경우 모두 담당자가 정합니다. <a class="source-link" href="../assets/news/mcp-events-agent-comparison.webp">도식 크게 보기</a></figcaption>
+          </figure>
+          <p>서버 알림을 구독할 때 쓰는 규격이 MCP Events입니다. 아직 베타 단계이며, 서버가 알림 종류별로 어떤 전달 방식을 쓸 수 있는지 알려 줍니다. 아래 그림은 <strong>폴링(Poll)</strong>의 예입니다. 클라이언트가 일정한 간격을 두고 서버에 새 소식이 있는지 물어봅니다.</p>
+          <figure id="mcp-poll" class="events-media">
+            <a href="../assets/news/mcp-events-poll-sequence.png" aria-label="MCP 공식 폴링 흐름도 크게 보기"><img src="../assets/news/mcp-events-poll-sequence.png" width="1378" height="934" loading="lazy" decoding="async" alt="클라이언트가 events/list로 알림 종류를 확인합니다. 첫 events/poll 응답은 비어 있고, 서버가 알려 준 시간이 지나 다시 조회하면 새 이벤트를 받아 에이전트에 전달합니다."></a>
+            <figcaption>실선은 클라이언트의 요청이고 점선은 서버의 응답입니다. 첫 번째로 물었을 때는 새 알림이 없습니다. 서버가 알려 준 시간만큼 기다렸다가 다시 물으면 이벤트가 하나 도착합니다. <a class="source-link" href="https://modelcontextprotocol.io/extensions/events/overview#how-events-work" target="_blank" rel="noopener noreferrer">MCP 공식 도식 ↗</a> · <a class="source-link" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0 ↗</a></figcaption>
+          </figure>
+          <p><strong>웹훅(Webhook)</strong>에서는 알림을 받을 주소를 미리 등록합니다. 새 소식이 생기면 서버가 그 주소로 알림을 보냅니다. 이번 Docker Agent에서 쓸 수 있는 방식은 셋 중 푸시입니다. 쓰려는 도구 묶음에서 <code>experimental.mcp_events</code> 설정을 켜면 됩니다. <a class="source-link" href="https://github.com/docker/docker-agent/releases/tag/v1.165.0" target="_blank" rel="noopener noreferrer">Docker 릴리스 ↗</a> · <a class="source-link" href="https://modelcontextprotocol.io/extensions/events/overview#delivery-modes" target="_blank" rel="noopener noreferrer">MCP의 세 전달 방식 ↗</a></p>
+          <p>연결이 끊긴 동안 놓친 알림은 어떻게 될까요? MCP Events에는 알림을 구별하는 ID가 있어서 같은 알림이 두 번 와도 알아볼 수 있습니다. 마지막으로 받은 위치를 기억할 때는 커서를 씁니다. 다만 지난 알림을 다시 보내 줄지는 서버와 알림 종류에 따라 다릅니다. 이번 Docker Agent는 커서를 영구 저장하지 않고, 새로 연결해도 이전 구독을 자동으로 복원하지 않습니다. 배송 알림이라면 그사이 빠진 주문이 없는지 주문 기록과 대조해야 합니다. <a class="source-link" href="https://github.com/docker/docker-agent/pull/4895" target="_blank" rel="noopener noreferrer">Docker가 밝힌 지원 범위 ↗</a></p>
+        </section>
+
+        <section id="muse" class="news-story-section">
+          <p class="news-section-label">META · MUSE</p>
+          <h2>장바구니는 Muse가 채우고, 결제는 사용자가 승인합니다</h2>
+          <p>Meta가 11월 24일 영국에서 개인 에이전트 Muse를 출시했습니다. 18세 이상이면 앱과 웹, WhatsApp에서 쓸 수 있습니다. 쇼핑 파트너로는 Marks &amp; Spencer, ASOS, Currys 등이 참여합니다. 계정을 연결해 늘 사던 물건을 다시 담을 수 있는 곳도 있고, Muse가 직접 웹사이트를 열어 상품을 찾는 곳도 있습니다. Meta에 따르면 구매 전에는 사용자에게 승인을 받습니다. PayPal은 추후 연동할 예정입니다. <a class="source-link" href="https://about.fb.com/news/2026/11/introducing-muse-in-the-uk-a-personal-ai-agent-you-control/" target="_blank" rel="noopener noreferrer">Meta의 영국 출시 안내 ↗</a></p>
+          <figure class="events-media">
+            <video controls playsinline preload="none" width="960" height="540" poster="../assets/news/muse-uk-purchase-poster.jpg" src="https://about.fb.com/wp-content/uploads/2026/11/009_3018_Hatch-Sizzle_NAM_Acq_EN_UAC_1920x1080_83s_Null_Muse_M0-1996.mp4?_=1" aria-label="Meta의 Muse 소개 영상. 28초 부근에 결제 승인 화면이 나옵니다."></video>
+            <figcaption>Meta의 소개 영상(1분 23초)에서 28초쯤에 결제 화면이 나옵니다. 사용자는 예상 금액을 보고 구매를 승인하거나 거절할 수 있습니다. <a class="source-link" href="https://about.fb.com/news/2026/11/introducing-muse-in-the-uk-a-personal-ai-agent-you-control/" target="_blank" rel="noopener noreferrer">Meta 원문과 영상 ↗</a></figcaption>
+          </figure>
+          <p>영국 경쟁시장청(CMA)은 개인 에이전트로 물건을 살 때도 기존 소비자 보호 규칙이 적용된다고 밝혔습니다. Meta는 CMA와 협의해 약관 일부를 고쳤고, CMA는 출시 후에도 서비스를 지켜보기로 했습니다. CMA와 개인정보 감독기관(ICO)은 이용자에게 에이전트가 어떤 정보를 볼 수 있는지, 한 번 허용하면 그 권한이 계속 남는지 확인하라고 권했습니다. <a class="source-link" href="https://competitionandmarkets.blog.gov.uk/2026/11/24/cma-statement-on-uk-launch-of-meta-muse/" target="_blank" rel="noopener noreferrer">영국 규제기관의 공동 안내 ↗</a></p>
+          <p>쇼핑몰을 만든다면 결제 직전에 쿠폰이 만료되는 경우도 생각해야 합니다. 고객은 할인된 금액을 보고 승인했으니, 가격이 오르면 새 금액을 보여 주고 다시 묻는 편이 좋겠습니다.</p>
+        </section>
+
+        <section id="hfe" class="news-story-section">
+          <p class="news-section-label">GOOGLE DEEPMIND · HUMANITY’S FIRST EXAM</p>
+          <h2>간판에 적힌 다섯 단어, 세 번째 글자는 각각 무슨 색일까요?</h2>
+          <figure class="events-media">
+            <img src="../assets/news/hfe-neon-sign.webp" width="1200" height="675" loading="lazy" decoding="async" alt="가게 유리창에 여러 색의 네온 글씨로 Dance While The Music Plays라고 쓰여 있습니다.">
+            <figcaption>구글 딥마인드가 공개한 문제입니다. 단어마다 세 번째 글자를 찾아보세요. 왼쪽부터 차례로 어떤 색이 보이나요? <a class="source-link" href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/humanitys-first-exam/" target="_blank" rel="noopener noreferrer">구글의 예제 문항 ↗</a></figcaption>
+          </figure>
+          <details class="events-answer"><summary>정답 보기</summary><p>글자는 차례로 N, I, E, S, A이고, 색은 초록, 노랑, 흰색, 파랑, 파랑입니다.</p></details>
+          <p>이 문제는 구글 딥마인드가 11월 24일 공개한 <strong>Humanity’s First Exam(HFE)</strong>에 실렸습니다. 사람이 답을 확인하기 쉬운 텍스트·이미지 문제 544개로 모델의 기초 능력 20가지를 살핍니다. 한 번 맞힌 문제도 다시 내거나 조건을 조금 바꿔 봅니다. 주문표에서 ‘취소 완료’를 잘 찾아낸 모델이 열 순서를 바꿔도 같은 주문을 짚어 내는지 보는 식입니다.</p>
+          <p>모델별 성적은 Kaggle에서 볼 수 있습니다. 구글은 현재 모델이 풀지 못하는 일상 속 문제도 12월 15일까지 모집합니다. <a class="source-link" href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/humanitys-first-exam/" target="_blank" rel="noopener noreferrer">구글 딥마인드 발표 ↗</a> · <a class="source-link" href="https://www.kaggle.com/benchmarks/deepmind/hfe/leaderboard" target="_blank" rel="noopener noreferrer">HFE 리더보드 ↗</a></p>
+        </section>
+
+        <section id="sdk" class="news-story-section">
+          <p class="news-section-label">OPENAI · AGENTS SDK</p>
+          <h2>주문 취소 요청이 검사에서 막혔을 때</h2>
+          <p>주문을 취소해 달라는 요청이 들어오면 에이전트가 취소 도구를 준비하는 동안 입력 검사(가드레일)도 함께 돌 수 있습니다. OpenAI가 11월 24일 공개한 Python용 <strong>Agents SDK v0.26.0</strong>부터는 이 검사에서 요청을 거부하면 실행을 기다리던 함수 도구도 멈춥니다. <a class="source-link" href="https://github.com/openai/openai-agents-python/releases/tag/v0.26.0" target="_blank" rel="noopener noreferrer">v0.26.0 변경 기록 ↗</a> · <a class="source-link" href="https://openai.github.io/openai-agents-python/ko/guardrails/" target="_blank" rel="noopener noreferrer">가드레일 실행 모드 ↗</a></p>
+          <figure class="guardrail-figure" id="sdk-timing" aria-labelledby="sdk-timing-title">
+            <figcaption id="sdk-timing-title">검사에서 거부하면 주문은 어떻게 될까요?</figcaption>
+            <p class="guardrail-intro">입력 검사와 에이전트를 함께 실행한 예입니다.</p>
+            <fieldset class="guardrail-choices">
+              <legend>비교할 상황</legend>
+              <label><input type="radio" name="sdk-timing-case" value="waiting" checked>도구가 대기 중일 때</label>
+              <label><input type="radio" name="sdk-timing-case" value="done">이미 주문을 취소했을 때</label>
+            </fieldset>
+            <div class="guardrail-chart" aria-hidden="true">
+              <div class="guardrail-axis"><span>요청 접수</span><b>요청 거부</b></div>
+              <i class="guardrail-marker"></i>
+              <strong class="guardrail-check-label">입력 검사</strong>
+              <div class="guardrail-track guardrail-check"><span class="guardrail-bar">검사 중</span></div>
+              <strong class="guardrail-tool-label">취소 도구</strong>
+              <div class="guardrail-track guardrail-tool">
+                <span class="guardrail-bar guardrail-waiting">실행 대기</span>
+                <span class="guardrail-bar guardrail-done">취소 완료</span>
+              </div>
+            </div>
+            <div class="guardrail-outcome" role="status" aria-atomic="true">
+              <div class="guardrail-waiting"><strong>주문 유지</strong><span>요청을 거부한 순간, 대기 중이던 취소 도구도 멈춥니다.</span></div>
+              <div class="guardrail-done"><strong>주문 취소</strong><span>거부 판정이 나오기 전에 주문이 취소됐습니다. SDK가 이미 처리된 주문을 되돌리지는 않습니다.</span></div>
+            </div>
+          </figure>
+          <p>주문을 바꾸기 전에 꼭 검사를 거쳐야 한다면, 입력 검사가 끝난 뒤에 에이전트를 시작하도록 설정할 수 있습니다. 이때 검사에서 거부하면 취소 도구는 아예 호출되지 않습니다. 검사를 통과한 주문이라도 이미 출고됐는지는 취소할 때 주문 서비스에서 확인해야 합니다.</p>
+          <p>이번 버전에서는 실시간 대화 중 에이전트가 답변 하나를 마칠 때마다 출력도 검사합니다. 다른 에이전트에게 일을 넘기면서 가린 정보는 세션 기록에서도 가려집니다.</p>
+        </section>
+
+        <section id="bigquery" class="news-story-section">
+          <p class="news-section-label">GOOGLE CLOUD · BIGQUERY</p>
+          <h2>‘겨울 출근길에 신을 신발’로 ‘방한 부츠’ 찾기</h2>
+          <p>‘방한 부츠’라는 상품명에는 ‘겨울’도 ‘출근길’도 없습니다. 그래도 ‘겨울 출근길에 신을 신발’을 찾는 사람에게 보여 줄 만한 상품입니다. BigQuery에서는 <code>AI.SIMILARITY</code>로 검색어와 상품명의 뜻이 얼마나 가까운지 계산할 수 있습니다. 상품명을 숫자 벡터로 바꿔 두고 싶으면 <code>AI.EMBED</code>를 씁니다. 두 함수에서 쓸 수 있는 내장 모델 <code>embeddinggemma-300m</code>은 4월 미리보기를 거쳐 11월 24일 정식 출시됐습니다. <a class="source-link" href="https://docs.cloud.google.com/bigquery/docs/release-notes#November_24_2026" target="_blank" rel="noopener noreferrer">BigQuery 변경 기록 ↗</a></p>
+          <figure id="bigquery-embedding-space" class="events-media">
+            <a href="../assets/news/bigquery-embedding-space.png" aria-label="구글의 임베딩 설명도 크게 보기"><img src="../assets/news/bigquery-embedding-space.png" width="1510" height="1030" loading="lazy" decoding="async" alt="왼쪽에는 cat, dog, lion이라고 적힌 점들이 가깝게 모여 있고, 오른쪽에는 car, vehicle, truck이라고 적힌 점들이 모여 있습니다."></a>
+            <figcaption>점 하나가 단어 하나입니다. 고양이 옆에는 개와 사자가 있고, 트럭은 자동차 쪽에 있습니다. 뜻이 비슷한 단어들이 어떻게 가까이 놓이는지 보여 주는 구글의 그림입니다. <a class="source-link" href="https://docs.cloud.google.com/bigquery/docs/vector-search-intro?hl=ko" target="_blank" rel="noopener noreferrer">구글 클라우드 원문 ↗</a> · <a class="source-link" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0 ↗</a></figcaption>
+          </figure>
+          <p>이 모델은 BigQuery 안에서 실행됩니다. 외부 API를 따로 연결할 필요가 없고, BigQuery 연산 요금이 붙습니다. 텍스트 하나를 768차원 벡터로 바꾸며 최대 2,048토큰까지 입력받지만, 구글은 상품명처럼 128토큰 이하인 짧은 문구에 쓰도록 권합니다. 쇼핑몰에서는 이렇게 후보를 찾은 뒤 고객이 고른 사이즈의 재고가 있는 상품만 추리면 됩니다. <a class="source-link" href="https://docs.cloud.google.com/bigquery/docs/graph-search?hl=ko" target="_blank" rel="noopener noreferrer">BigQuery 한국어 예제 ↗</a> · <a class="source-link" href="https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-ai-embed" target="_blank" rel="noopener noreferrer">모델 사양과 과금 ↗</a></p>
+        </section>
+
+        <section id="our-view" class="news-story-section news-view">
+          <p class="news-section-label">OUR VIEW · 헬로우 휴먼의 관점</p>
+          <h2>‘출고 지연’ 알림을 받으면 무엇부터 볼까요?</h2>
+          <p>출고 예정 시각은 지났는데 주문에 출고 기록이 없습니다. 물건이 아직 창고에 있는지, 이미 보냈는데 기록만 늦은 건지는 알림만 보고 알기 어렵습니다. 이런 주문을 맡았다고 가정해 보겠습니다.</p>
+          <ol class="events-route" aria-label="배송 지연 알림을 처리하는 설계 예시">
+            <li><strong>주문 시스템</strong><span>예정 시각까지 출고 기록이 없으면 어느 주문이 늦었는지 알립니다.</span></li>
+            <li><strong>에이전트</strong><span>주문 내역과 출고 이력을 모아 어디까지 확인됐고 무엇을 더 알아봐야 하는지 정리합니다.</span></li>
+            <li><strong>운영 담당자</strong><span>정리된 기록을 보고 출고처에 먼저 확인할지, 고객에게 바로 안내할지 정합니다. 보상 쿠폰을 발급하려면 별도 권한이 필요합니다.</span></li>
+          </ol>
+          <p>담당자가 처음 보는 메모에 주문 번호와 출고 예정 시각이 함께 있으면, 같은 주문을 다시 검색할 필요 없이 바로 출고처에 물어볼 수 있습니다.</p>
+        </section>
+
+        <section id="experiment" class="news-story-section">
+          <p class="news-section-label">OUR LAB · 모임에서 해볼 실험</p>
+          <h2>밤새 쌓인 배치 기록 100건을 나눠 봅시다</h2>
+          <p>상품과 주문 정보를 밤새 일괄 처리했다고 가정하고 실행 기록 100건을 준비합니다. 모두 모델에 맡길 때와, 규칙으로 걸러 낸 뒤 남은 건만 맡길 때를 비교해 봅시다. 담당자는 원인과 조치 방법을 미리 적어 답안으로 보관합니다. 모델에는 실행 기록과 로그만 읽게 하고, <strong>의심되는 원인, 근거가 된 로그, 사람이 더 확인할 점</strong>을 메모 한 장에 담도록 합니다. 배치를 다시 실행할지는 운영자가 정합니다.</p>
+          <table class="events-table">
+            <caption>실험에 쓸 가상 기록 100건과 처리 방법</caption>
+            <thead><tr><th scope="col">실행 결과</th><th scope="col">건수</th><th scope="col">처리 방법</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">정상 완료</th><td>70</td><td>완료 기록만 남김</td></tr>
+              <tr><th scope="row">일시적 연결 실패</th><td>10</td><td>오류 코드로 분류하고 기록을 남김</td></tr>
+              <tr><th scope="row">데이터 불일치</th><td>10</td><td>모델이 입력·출력 건수를 로그와 대조</td></tr>
+              <tr><th scope="row">처리 시간 초과</th><td>5</td><td>모델이 지연된 구간을 찾아 기록</td></tr>
+              <tr><th scope="row">원인 불명</th><td>5</td><td>모델이 단서를 모으고 담당자가 확인</td></tr>
+            </tbody>
+          </table>
+          <figure class="events-simulator" aria-labelledby="sim-title">
+            <figcaption id="sim-title">모델을 몇 번 호출하게 될까요?</figcaption>
+            <p>위 표대로라면 정상 완료 70건과 일시적 연결 실패 10건은 규칙으로 처리하고, 나머지 20건을 모델에 맡깁니다. 아래 숫자는 기록 한 건당 모델을 한 번 호출한다고 가정한 값입니다.</p>
+            <div class="events-slider" hidden>
+              <label for="analysis-share">모델에 맡길 비율 <span data-event-percent aria-hidden="true">20%</span></label>
+              <input id="analysis-share" type="range" min="0" max="100" value="20" aria-valuetext="20퍼센트">
+            </div>
+            <dl class="events-totals">
+              <div><dt>모두 맡길 때</dt><dd>100건</dd></div>
+              <div><dt>골라서 맡길 때</dt><dd data-event-count>20건</dd></div>
+            </dl>
+            <p class="events-result" aria-live="polite">모델에 보내지 않는 기록은 <strong data-event-reduction>80건(80%)</strong>입니다.</p>
+          </figure>
+          <p>같은 기록으로 이번에는 알림을 두 번 보내거나 순서를 바꿔 봅니다. ‘데이터 불일치’ 알림이 두 번 와도 같은 실행에 대한 메모는 하나만 남아야 합니다. 연결이 끊겼을 때 생긴 장애는 원래 실행 기록과 대조해 찾습니다. 기록이 부족해 판단할 수 없는 건은 담당자가 살펴보도록 ‘확인 필요’로 남깁니다.</p>
+          <p>두 방식에서 놓친 장애와 중복 메모, 불필요한 모델 호출이 각각 몇 건인지 셉니다. 모델이 짚은 원인은 미리 적어 둔 답안과 대조합니다. 장애가 발생한 뒤 메모가 나오기까지 걸린 시간도 잽니다. 비용을 비교할 때는 재시도에 든 금액까지 합쳐 검토를 통과한 메모 수로 나눕니다.</p>
+          <p>모델의 메모가 사람에게도 도움이 되는지 보려면 같은 장애를 두 사람에게 맡깁니다. 한 사람은 로그부터 읽고, 다른 사람은 모델이 작성한 메모를 보면서 근거를 확인합니다. 목표는 <strong>장애를 하나도 놓치지 않고 같은 메모를 두 번 남기는 일도 없이, 사람이 조사에 쓰는 시간을 30% 줄이는 것</strong>입니다.</p>
+        </section>
+
+        <section id="sources" class="news-sources">
+          <p class="news-section-label">SOURCES</p><h2>읽은 자료</h2>
+          <ul>
+            <li><a class="source-link" href="https://github.com/docker/docker-agent/releases/tag/v1.165.0" target="_blank" rel="noopener noreferrer">Docker Agent v1.165.0 ↗</a> · <a class="source-link" href="https://github.com/docker/docker-agent/pull/4895" target="_blank" rel="noopener noreferrer">푸시 구독 구현과 예제 ↗</a> · <a class="source-link" href="https://modelcontextprotocol.io/extensions/events/overview" target="_blank" rel="noopener noreferrer">MCP Events 베타 확장 ↗</a></li>
+            <li><a class="source-link" href="https://about.fb.com/news/2026/11/introducing-muse-in-the-uk-a-personal-ai-agent-you-control/" target="_blank" rel="noopener noreferrer">Meta의 Muse 영국 출시 안내 ↗</a> · <a class="source-link" href="https://competitionandmarkets.blog.gov.uk/2026/11/24/cma-statement-on-uk-launch-of-meta-muse/" target="_blank" rel="noopener noreferrer">영국 경쟁시장청 성명과 ICO 공동 안내 ↗</a></li>
+            <li><a class="source-link" href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/humanitys-first-exam/" target="_blank" rel="noopener noreferrer">Humanity’s First Exam 발표와 공개 문항 ↗</a> · <a class="source-link" href="https://www.kaggle.com/benchmarks/deepmind/hfe/leaderboard" target="_blank" rel="noopener noreferrer">Kaggle 리더보드 ↗</a></li>
+            <li><a class="source-link" href="https://github.com/openai/openai-agents-python/releases/tag/v0.26.0" target="_blank" rel="noopener noreferrer">OpenAI Agents SDK v0.26.0 ↗</a> · <a class="source-link" href="https://openai.github.io/openai-agents-python/ko/guardrails/" target="_blank" rel="noopener noreferrer">입력·출력 가드레일 한국어 문서 ↗</a></li>
+            <li><a class="source-link" href="https://docs.cloud.google.com/bigquery/docs/release-notes#November_24_2026" target="_blank" rel="noopener noreferrer">BigQuery 11월 24일 변경 기록 ↗</a> · <a class="source-link" href="https://docs.cloud.google.com/bigquery/docs/graph-search?hl=ko" target="_blank" rel="noopener noreferrer">내장 임베딩 한국어 예제 ↗</a> · <a class="source-link" href="https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-ai-embed" target="_blank" rel="noopener noreferrer">AI.EMBED 모델별 사양 ↗</a></li>
+          </ul>
+        </section>
+        <a class="news-end-link" href="./">AI뉴스 목록으로 돌아가기 <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </article></main>
+  <footer class="footer"><div class="wrap">헬로우 휴먼 · Workless Engineering Club</div></footer>
+  <script src="../assets/analytics.js?v=2" defer></script>
+  <script src="../assets/article-toc.js?v=1" defer></script>
+  <script src="../assets/news-docker-events.js?v=1" defer></script>
+  <script type="module" src="../assets/content-updates.js?v=3"></script>
+</body>
+</html>
