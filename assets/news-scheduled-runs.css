@@ -1,0 +1,146 @@
+/* Layouts for the scheduling, commerce and search examples in issue 60. */
+.scheduled-issue .news-article-header h1 {
+  max-width: 1040px;
+  word-break: keep-all;
+  text-wrap: balance;
+}
+.scheduled-issue .news-article-header h1 > * { display: block; }
+.scheduled-issue .news-story { min-width: 0; }
+.scheduled-issue .news-story h2,
+.scheduled-issue .news-story h3 { text-wrap: pretty; word-break: keep-all; }
+.scheduled-issue .news-story code { overflow-wrap: anywhere; }
+.scheduled-issue figure { margin: 28px 0; }
+.scheduled-issue .run-branches,
+.scheduled-issue .transaction-path,
+.scheduled-issue .request-budget {
+  padding: clamp(16px, 4vw, 28px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.scheduled-issue figure > figcaption:first-child,
+.scheduled-issue .lab-conditions caption {
+  color: var(--ink);
+  font-weight: 750;
+  font-size: 1.1rem;
+  text-align: left;
+  line-height: 1.5;
+}
+.scheduled-issue .run-branches dl,
+.scheduled-issue .layer-list { margin: 18px 0 0; }
+.scheduled-issue .run-branches dl > div,
+.scheduled-issue .layer-list > div {
+  display: grid;
+  grid-template-columns: minmax(145px, .8fr) minmax(0, 1.6fr);
+  gap: 16px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+}
+.scheduled-issue dt { font-weight: 700; }
+.scheduled-issue dd { margin: 0; }
+.scheduled-issue .transaction-path ol {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin: 20px 0 12px;
+  padding: 0;
+  list-style: none;
+}
+.scheduled-issue .transaction-path li,
+.scheduled-issue .layer-list dd span {
+  font-size: .94rem;
+  color: var(--muted);
+}
+.scheduled-issue .transaction-path li {
+  padding-top: 10px;
+  border-top: 2px solid var(--accent);
+}
+.scheduled-issue .transaction-path li strong,
+.scheduled-issue .layer-list dd span { display: block; }
+.scheduled-issue .transaction-path li strong { color: var(--ink); }
+.scheduled-issue .news-story .figure-note,
+.scheduled-issue .source-figure figcaption {
+  margin: 10px 0 0;
+  font-size: .9rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+.scheduled-issue .source-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.scheduled-issue .toggle-figure img { max-width: 480px; }
+.scheduled-issue .source-figure a:has(img) { display: block; width: fit-content; max-width: 100%; }
+.scheduled-issue .safety-stat {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  border-block: 1px solid var(--line);
+  margin: 25px 0;
+  padding: 20px 0;
+}
+.scheduled-issue .safety-stat > strong {
+  color: var(--accent);
+  font: 700 clamp(34px, 5vw, 52px)/1.1 var(--mono);
+}
+.scheduled-issue .safety-stat p { margin: 0; }
+.scheduled-issue .layer-list { margin-bottom: 22px; }
+.scheduled-issue .layer-list > div { grid-template-columns: 65px minmax(0, 1fr); }
+.scheduled-issue .layer-list dt { color: var(--accent); }
+.scheduled-issue .lab-conditions {
+  width: 100%;
+  margin: 24px 0;
+  border-collapse: collapse;
+}
+.scheduled-issue .lab-conditions caption { padding-bottom: 12px; }
+.scheduled-issue .lab-conditions :is(th, td) {
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+.scheduled-issue .lab-conditions thead { background: var(--surface-2); }
+.scheduled-issue .lab-conditions tbody th { width: 30%; }
+.scheduled-issue .request-budget fieldset { min-width: 0; margin: 20px 0; padding: 0; border: 0; }
+.scheduled-issue .request-budget legend { padding: 0; font-size: .94rem; font-weight: 700; }
+.scheduled-issue .budget-fields,
+.scheduled-issue .budget-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 20px;
+}
+.scheduled-issue .budget-fields { margin-top: 10px; }
+.scheduled-issue .budget-fields label,
+.scheduled-issue .budget-summary span { color: var(--muted); font-size: .9rem; }
+.scheduled-issue .budget-fields select {
+  display: block;
+  width: 100%;
+  min-height: 42px;
+  margin-top: 4px;
+  padding: 5px 9px;
+  border: 1px solid var(--muted);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+}
+.scheduled-issue .budget-summary { padding: 16px; border-radius: 8px; background: var(--surface-2); }
+.scheduled-issue .budget-summary strong { display: block; color: var(--ink); font-size: 1.3rem; }
+.scheduled-issue .budget-summary > :last-child strong { color: var(--accent); }
+@media (max-width: 650px) {
+  .scheduled-issue .transaction-path ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 500px) {
+  .scheduled-issue .news-article-header h1 { font-size: clamp(28px, 7.9vw, 39px); line-height: 1.25; }
+  .scheduled-issue .run-branches dl > div { grid-template-columns: 1fr; gap: 4px; }
+  .scheduled-issue .safety-stat { display: grid; gap: 10px; }
+  .scheduled-issue .budget-fields, .scheduled-issue .budget-summary { gap: 12px; }
+  .scheduled-issue .lab-conditions :is(th, td) { padding: 10px 6px; }
+}
+@media print {
+  .scheduled-issue .request-budget fieldset { display: none; }
+  .scheduled-issue .source-figure, .scheduled-issue .safety-stat { break-inside: avoid; }
+}
