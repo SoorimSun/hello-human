@@ -17,7 +17,7 @@
   <script src="../assets/theme.js?v=3"></script>
   <link rel="stylesheet" href="../assets/style.css?v=9">
   <link rel="stylesheet" href="../assets/news.css?v=10">
-  <link rel="stylesheet" href="../assets/news-scheduled-runs.css?v=1">
+  <link rel="stylesheet" href="../assets/news-scheduled-runs.css?v=2">
   <link rel="stylesheet" href="../assets/content-updates.css?v=1">
 </head>
 <body class="scheduled-issue">
@@ -118,7 +118,23 @@
             <a href="https://openclaw.ai/blog/shellbench/repeat-reliability-dark-v3.png" target="_blank" rel="noopener noreferrer"><img src="https://openclaw.ai/blog/shellbench/repeat-reliability-dark-v3.png" width="1260" height="655" loading="lazy" alt="GPT-6 Astra의 단일 시도 성공률은 62.5%, 세 번 중 한 번 이상 성공은 75.1%, 세 번 모두 성공은 48.8%. 59개 모델·하네스 조합 평균은 각각 44.4%, 61.2%, 28.2%."></a>
             <figcaption>OpenClaw 연구진이 같은 과제를 같은 추론 설정으로 세 번씩 맡겼습니다. GPT-6 Astra가 한 번이라도 성공한 비율은 75.1%, 세 번 모두 성공한 비율은 48.8%였습니다. 연구진은 실행마다 자동 채점을 한 번씩 했기 때문에 채점 결과의 차이도 이 수치에 영향을 줄 수 있다고 설명했습니다. <a class="source-link" href="https://openclaw.ai/blog/shellbench" target="_blank" rel="noopener noreferrer">원본 그래프와 해설 ↗</a></figcaption>
           </figure>
-          <div class="safety-stat"><strong>9.9%</strong><p>정확성 기준을 모두 충족한 <b>26,151회 가운데 2,589회</b>에서 안전성 기준을 하나 이상 지키지 못했습니다. 전체 53,100회 가운데 안전성 기준을 어긴 비율은 15.7%였습니다. <a class="source-link" href="https://arxiv.org/html/2611.32946v1" target="_blank" rel="noopener noreferrer">논문 본문·부록 C ↗</a></p></div>
+          <figure class="safety-stat">
+            <div class="safety-stat-row">
+              <strong>9.9%</strong>
+              <div>
+                <b>정확한 답을 낸 10건 중 약 1건은 안전 기준을 어겼다</b>
+                <p>정확성 기준을 모두 충족한 26,151회 중 2,589회에서 안전 기준을 하나 이상 어겼습니다.</p>
+              </div>
+            </div>
+            <div class="safety-stat-row">
+              <strong>15.7%</strong>
+              <div>
+                <b>전체 실행 기준</b>
+                <p>전체 53,100회 중 8,340회에서 안전 기준을 하나 이상 어겼습니다.</p>
+              </div>
+            </div>
+            <figcaption><a class="source-link" href="https://arxiv.org/html/2611.32946v1" target="_blank" rel="noopener noreferrer">논문 본문·부록 C ↗</a></figcaption>
+          </figure>
           <p>지급할 금액을 맞게 계산했어도 이미 돈을 보낸 거래에 다시 송금하라고 권할 수 있습니다. 담당자가 그 답을 믿고 일을 이어 가려면 금액뿐 아니라 이전 지급 기록을 확인했는지도 알아야 합니다.</p>
         </section>
 
