@@ -1,0 +1,108 @@
+.insight-story .news-article-visual {
+  margin: 28px 0;
+}
+
+.insight-story table {
+  min-width: 0;
+}
+
+.insight-story caption {
+  padding: 10px 14px;
+  color: var(--muted);
+  text-align: left;
+  font-size: 14px;
+}
+
+/* The root already reserves 72px for the sticky navigation. */
+.insight-story .guide-section,
+.insight-story .guide-resources,
+.sid-architecture {
+  scroll-margin-top: clamp(16px, 7vh, 60px);
+}
+
+.sid-architecture {
+  --sid-search: light-dark(#11685e, #81d5c3);
+  --sid-feed: light-dark(#584a9d, #c8b9ff);
+  --sid-tone: var(--ink);
+  --sid-tint: color-mix(in srgb, var(--sid-tone) 8%, var(--surface));
+}
+.sid-architecture svg { display: block; }
+.sid-architecture svg text {
+  fill: var(--ink);
+  font: 550 15px var(--sans);
+  text-anchor: middle;
+}
+.sid-training { width: min(100%, 300px); margin: 0 auto; }
+.sid-wire, .sid-icon, .sid-fork path {
+  fill: none;
+  stroke: var(--sid-tone);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.sid-icon { stroke-width: 2; }
+.sid-vector rect, .sid-core, .sid-junction { fill: var(--sid-tone); }
+.sid-input, .sid-node, .sid-engine, .sid-code rect {
+  fill: var(--surface);
+  stroke: color-mix(in srgb, var(--sid-tone) 48%, var(--surface));
+  stroke-width: 1.25;
+}
+.sid-input { fill: var(--bg); }
+.sid-code rect, .sid-engine { fill: var(--sid-tint); stroke: var(--sid-tone); }
+.sid-architecture .sid-code text {
+  fill: var(--sid-tone);
+  font: 700 15px var(--mono);
+}
+.sid-architecture .sid-core-name, .sid-architecture .sid-core-label { fill: var(--surface); }
+.sid-architecture .sid-core-name { font: 700 14px var(--mono); }
+.sid-architecture .sid-core-label { font-size: 13px; }
+.sid-fork { width: 100%; height: 23px; }
+.sid-fork path { vector-effect: non-scaling-stroke; stroke: var(--muted); }
+.sid-lanes, .sid-jumps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.sid-jumps { display: none; }
+.sid-lane { min-width: 0; scroll-margin-top: 18px; }
+.sid-search { --sid-tone: var(--sid-search); }
+.sid-feed { --sid-tone: var(--sid-feed); }
+.sid-lane {
+  --sid-tint: color-mix(in srgb, var(--sid-tone) 8%, var(--surface));
+}
+.sid-lane h3 {
+  margin: 0 0 7px;
+  padding: 0;
+  text-align: center;
+  color: var(--sid-tone);
+  font-size: 19px;
+  line-height: 1.45;
+}
+.sid-lane svg { width: 100%; max-width: 320px; margin: 0 auto; }
+.sid-architecture .sid-model, .sid-architecture .sid-result {
+  fill: var(--sid-tone);
+  font-size: 17px;
+  font-weight: 740;
+}
+.sid-architecture .sid-emphasis { font-weight: 680; }
+.sid-output { fill: var(--sid-tint); stroke: var(--sid-tone); stroke-width: 1.5; }
+.sid-architecture .sid-sources {
+  margin: 18px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+.sid-sources a { white-space: normal; }
+
+@media (max-width: 600px) {
+  .sid-architecture { padding-inline: 10px; }
+  .sid-jumps {
+    display: grid;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .sid-jumps a { text-decoration: underline; text-underline-offset: 3px; }
+  .sid-jumps a:first-child { color: var(--sid-search); }
+  .sid-jumps a:last-child { color: var(--sid-feed); }
+  .sid-lanes { grid-template-columns: 1fr; gap: 20px; margin-top: 16px; }
+  .sid-lane { padding-top: 12px; border-top: 1px solid var(--line); }
+}

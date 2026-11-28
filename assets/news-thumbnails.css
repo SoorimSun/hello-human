@@ -3,7 +3,25 @@
 .news-issue-thumbnail, .news-home-thumbnail { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: var(--radius); }
 .news-issue-thumbnail { margin-top: 3px; }
 .news-home-thumbnail { margin-bottom: 10px; }
+@media (max-width: 720px) {
+  #commerce-insights .case-home-feature {
+    grid-template-columns: clamp(76px, 22vw, 120px) minmax(0, 1fr);
+    align-items: center;
+    gap: 10px 14px;
+  }
+  #commerce-insights .case-home-feature > img { grid-area: 2 / 1; height: auto; aspect-ratio: auto; }
+  #commerce-insights .case-home-copy { display: contents; }
+  #commerce-insights .case-home-copy > strong { grid-area: 2 / 2; font-size: clamp(18px, 4.8vw, 23px); }
+  #commerce-insights .case-home-copy > span { grid-column: 1 / -1; }
+}
 @media (max-width: 600px) {
   .news-index .news-issue--illustrated { grid-template-columns: minmax(0, 1fr); }
   .news-issue-thumbnail { margin-top: 0; }
+}
+@media (max-width: 340px) {
+  #commerce-insights .case-home-feature {
+    grid-template-columns: 60px minmax(0, 1fr);
+    column-gap: 8px;
+    padding-inline: 12px;
+  }
 }
